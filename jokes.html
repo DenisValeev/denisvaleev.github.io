@@ -10,50 +10,146 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            flex-direction: column;
+            padding: 20px;
             background-color: #f0f0f0;
         }
         #joke-container {
+            width: 100%;
+            max-width: 600px;
+        }
+        .joke-card {
             text-align: center;
             background: #fff;
             padding: 20px;
+            margin-bottom: 10px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .joke-card p {
+            margin: 0;
+        }
+        .punchline {
+            display: none;
+            font-style: italic;
+            color: #555;
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
         }
         button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
+            margin: 0 5px;
+            padding: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+        }
+        .reveal-button {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            padding: 5px;
             cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div id="joke-container">
-        <h1 id="joke">Press the button for a random joke!</h1>
-        <p id="punchline" style="display: none;">...</p>
-        <button id="new-joke">New Joke</button>
-        <button id="reveal-punchline" style="display: none;">Reveal Punchline</button>
+        <!-- Previous jokes will be added here -->
+    </div>
+    <div class="buttons">
+        <button id="new-joke">🔄</button>
     </div>
 
     <!-- Include the jokes.js script -->
     <script src="jokes.js"></script>
     <script>
-        function showRandomJoke() {
-            const randomIndex = Math.floor(Math.random() * window.jokes.length);
-            const randomJoke = window.jokes[randomIndex];
-            document.getElementById('joke').textContent = randomJoke.joke;
-            document.getElementById('punchline').textContent = randomJoke.punchline;
-            document.getElementById('punchline').style.display = 'none';
-            document.getElementById('reveal-punchline').style.display = 'inline';
+        let currentIndex = 0;
+        let shuffledJokes = [];
+
+        // Function to shuffle the jokes array based on a seed
+        function shuffle(array, seed) {
+            let currentIndex = array.length, temporaryValue, randomIndex;
+            
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+                // Pick a remaining element...
+                randomIndex = Math.floor(random(seed++) * currentIndex);
+                currentIndex -= 1;
+
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+            return array;
         }
 
-        document.getElementById('new-joke').addEventListener('click', showRandomJoke);
+        // Random function with seed
+        function random(seed) {
+            const x = Math.sin(seed) * 10000;
+            return x - Math.floor(x);
+        }
 
-        document.getElementById('reveal-punchline').addEventListener('click', () => {
-            document.getElementById('punchline').style.display = 'block';
-            document.getElementById('reveal-punchline').style.display = 'none';
-        });
+        // Seed based on time and initial shuffle
+        const seed = Math.floor(Math.random() * 1000);
+        shuffledJokes = shuffle(window.jokes.slice(), seed);
+
+        function createJokeCard(joke, punchline) {
+            // Create a card div
+            const card = document.createElement('div');
+            card.className = 'joke-card';
+
+            // Create joke paragraph
+            const jokeText = document.createElement('p');
+            jokeText.textContent = joke;
+            card.appendChild(jokeText);
+
+            // Create punchline paragraph
+            const punchlineText = document.createElement('p');
+            punchlineText.textContent = punchline;
+            punchlineText.className = 'punchline';
+            card.appendChild(punchlineText);
+
+            // Create reveal button
+            const revealButton = document.createElement('button');
+            revealButton.textContent = '📣';
+            revealButton.className = 'reveal-button';
+            revealButton.addEventListener('click', () => {
+                punchlineText.style.display = punchlineText.style.display === 'none' ? 'block' : 'none';
+            });
+            card.appendChild(revealButton);
+
+            return card;
+        }
+
+        function showNextJoke() {
+            if (currentIndex >= shuffledJokes.length) {
+                alert("No more jokes! You've seen them all.");
+                return;
+            }
+
+            const randomJoke = shuffledJokes[currentIndex];
+            currentIndex++;
+
+            // Create joke card and add to the joke container
+            const jokeCard = createJokeCard(randomJoke.joke, randomJoke.punchline);
+            document.getElementById('joke-container').appendChild(jokeCard);
+
+            // Scroll to the bottom to show the new joke
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+
+        document.getElementById('new-joke').addEventListener('click', showNextJoke);
+
+        // Load the first joke on page load
+        showNextJoke();
     </script>
 </body>
 </html>
