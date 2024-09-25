@@ -107,7 +107,10 @@
             
             // Display the joke
             document.getElementById('joke-text').textContent = joke.joke;
-            document.getElementById('punchline-text').textContent = joke.punchline;
+
+            // Display the punchline or poop emoji if empty
+            const punchline = joke.punchline ? joke.punchline : '💩';
+            document.getElementById('punchline-text').textContent = punchline;
             
             // Hide the punchline initially
             document.getElementById('punchline-text').style.display = 'none';
