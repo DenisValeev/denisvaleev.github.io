@@ -17,17 +17,14 @@
         #joke-container {
             width: 100%;
             max-width: 600px;
-        }
-        .joke-card {
             text-align: center;
             background: #fff;
             padding: 20px;
-            margin-bottom: 10px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
+            margin-bottom: 20px;
         }
-        .joke-card p {
+        #joke-container p {
             margin: 0;
         }
         .punchline {
@@ -57,9 +54,11 @@
 </head>
 <body>
     <div id="joke-container">
-        <!-- Previous jokes will be added here -->
+        <p id="joke-text">Loading...</p>
+        <p id="punchline-text" class="punchline"></p>
     </div>
     <div class="buttons">
+        <button id="prev-joke">Prev</button>
         <button id="new-joke">Next</button>
         <button id="reveal-punchline" style="display: none;">Punchline</button>
     </div>
@@ -99,68 +98,47 @@
         const seed = Math.floor(Math.random() * 1000);
         shuffledJokes = shuffle(window.jokes.slice(), seed);
 
-        function createJokeCard(joke, punchline) {
-            // Create a card div
-            const card = document.createElement('div');
-            card.className = 'joke-card';
-
-            // Create joke paragraph
-            const jokeText = document.createElement('p');
-            jokeText.textContent = joke;
-            card.appendChild(jokeText);
-
-            // Create punchline paragraph
-            const punchlineText = document.createElement('p');
-            punchlineText.textContent = punchline;
-            punchlineText.className = 'punchline';
-            card.appendChild(punchlineText);
-
-            return card;
-        }
-
-        function showNextJoke() {
-            if (currentIndex >= shuffledJokes.length) {
-                alert("No more jokes! You've seen them all.");
-                return;
-            }
-
-            const randomJoke = shuffledJokes[currentIndex];
-            currentIndex++;
-
-            // Create joke card and add to the joke container
-            const jokeCard = createJokeCard(randomJoke.joke, randomJoke.punchline);
-            document.getElementById('joke-container').appendChild(jokeCard);
-
-            // Show the Punchline button
+        function showJoke() {
+            // Get the current joke
+            const joke = shuffledJokes[currentIndex];
+            
+            // Display the joke
+            document.getElementById('joke-text').textContent = joke.joke;
+            document.getElementById('punchline-text').textContent = joke.punchline;
+            
+            // Hide the punchline initially
+            document.getElementById('punchline-text').style.display = 'none';
             document.getElementById('reveal-punchline').style.display = 'inline';
-
-            // Hide all punchlines initially
-            hideAllPunchlines();
-
-            // Scroll to the bottom to show the new joke
-            window.scrollTo(0, document.body.scrollHeight);
-        }
-
-        function hideAllPunchlines() {
-            // Hide all punchlines
-            const punchlines = document.querySelectorAll('.punchline');
-            punchlines.forEach(punchline => punchline.style.display = 'none');
             punchlinesVisible = false;
         }
 
+        function showNextJoke() {
+            currentIndex = (currentIndex + 1) % shuffledJokes.length;
+            showJoke();
+        }
+
+        function showPrevJoke() {
+            currentIndex = (currentIndex - 1 + shuffledJokes.length) % shuffledJokes.length;
+            showJoke();
+        }
+
         function toggleAllPunchlines() {
-            const punchlines = document.querySelectorAll('.punchline');
-            punchlines.forEach(punchline => {
-                punchline.style.display = punchlinesVisible ? 'none' : 'block';
-            });
-            punchlinesVisible = !punchlinesVisible;
+            const punchlineText = document.getElementById('punchline-text');
+            if (punchlinesVisible) {
+                punchlineText.style.display = 'none';
+                punchlinesVisible = false;
+            } else {
+                punchlineText.style.display = 'block';
+                punchlinesVisible = true;
+            }
         }
 
         document.getElementById('new-joke').addEventListener('click', showNextJoke);
+        document.getElementById('prev-joke').addEventListener('click', showPrevJoke);
         document.getElementById('reveal-punchline').addEventListener('click', toggleAllPunchlines);
 
         // Load the first joke on page load
-        showNextJoke();
+        showJoke();
     </script>
 </body>
 </html>
