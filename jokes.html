@@ -8,9 +8,11 @@
         body {
             font-family: Arial, sans-serif;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end; /* Align content to the bottom */
             align-items: center;
             flex-direction: column;
+            height: 100vh;
+            margin: 0;
             padding: 20px;
             background-color: #f0f0f0;
         }
@@ -19,13 +21,14 @@
             max-width: 600px;
             text-align: center;
             background: #fff;
-            padding: 20px;
+            padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
         #joke-container p {
             margin: 0;
+            font-size: 24px; /* Increase font size for jokes */
         }
         .punchline {
             display: none;
@@ -35,6 +38,7 @@
         .buttons {
             text-align: center;
             margin-top: 20px;
+            margin-bottom: 20px; /* Add some space above the buttons */
         }
         button {
             margin: 0 5px;
