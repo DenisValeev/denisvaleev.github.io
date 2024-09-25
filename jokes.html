@@ -41,21 +41,17 @@
         }
         button {
             margin: 0 5px;
-            padding: 10px;
-            font-size: 24px;
+            padding: 10px 20px;
+            font-size: 16px;
             cursor: pointer;
             border: none;
-            background: transparent;
+            background: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-        .reveal-button {
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            background: #fff;
-            border: 1px solid #ccc;
-            border-radius: 50%;
-            padding: 5px;
-            cursor: pointer;
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -64,7 +60,8 @@
         <!-- Previous jokes will be added here -->
     </div>
     <div class="buttons">
-        <button id="new-joke">🔄</button>
+        <button id="new-joke">Next</button>
+        <button id="reveal-punchline" style="display: none;">Punchline</button>
     </div>
 
     <!-- Include the jokes.js script -->
@@ -117,15 +114,6 @@
             punchlineText.className = 'punchline';
             card.appendChild(punchlineText);
 
-            // Create reveal button
-            const revealButton = document.createElement('button');
-            revealButton.textContent = '📣';
-            revealButton.className = 'reveal-button';
-            revealButton.addEventListener('click', () => {
-                punchlineText.style.display = punchlineText.style.display === 'none' ? 'block' : 'none';
-            });
-            card.appendChild(revealButton);
-
             return card;
         }
 
@@ -142,11 +130,34 @@
             const jokeCard = createJokeCard(randomJoke.joke, randomJoke.punchline);
             document.getElementById('joke-container').appendChild(jokeCard);
 
+            // Show the Punchline button
+            document.getElementById('reveal-punchline').style.display = 'inline';
+
+            // Hide all punchlines initially
+            hideAllPunchlines();
+
             // Scroll to the bottom to show the new joke
             window.scrollTo(0, document.body.scrollHeight);
         }
 
+        function hideAllPunchlines() {
+            // Hide all punchlines
+            const punchlines = document.querySelectorAll('.punchline');
+            punchlines.forEach(punchline => punchline.style.display = 'none');
+        }
+
+        function revealCurrentPunchline() {
+            // Show the punchline of the latest joke card
+            const jokeCards = document.querySelectorAll('.joke-card');
+            if (jokeCards.length > 0) {
+                const lastJokeCard = jokeCards[jokeCards.length - 1];
+                const punchline = lastJokeCard.querySelector('.punchline');
+                punchline.style.display = 'block';
+            }
+        }
+
         document.getElementById('new-joke').addEventListener('click', showNextJoke);
+        document.getElementById('reveal-punchline').addEventListener('click', revealCurrentPunchline);
 
         // Load the first joke on page load
         showNextJoke();
