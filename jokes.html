@@ -69,6 +69,7 @@
     <script>
         let currentIndex = 0;
         let shuffledJokes = [];
+        let punchlinesVisible = false;  // To track the visibility of punchlines
 
         // Function to shuffle the jokes array based on a seed
         function shuffle(array, seed) {
@@ -144,20 +145,19 @@
             // Hide all punchlines
             const punchlines = document.querySelectorAll('.punchline');
             punchlines.forEach(punchline => punchline.style.display = 'none');
+            punchlinesVisible = false;
         }
 
-        function revealCurrentPunchline() {
-            // Show the punchline of the latest joke card
-            const jokeCards = document.querySelectorAll('.joke-card');
-            if (jokeCards.length > 0) {
-                const lastJokeCard = jokeCards[jokeCards.length - 1];
-                const punchline = lastJokeCard.querySelector('.punchline');
-                punchline.style.display = 'block';
-            }
+        function toggleAllPunchlines() {
+            const punchlines = document.querySelectorAll('.punchline');
+            punchlines.forEach(punchline => {
+                punchline.style.display = punchlinesVisible ? 'none' : 'block';
+            });
+            punchlinesVisible = !punchlinesVisible;
         }
 
         document.getElementById('new-joke').addEventListener('click', showNextJoke);
-        document.getElementById('reveal-punchline').addEventListener('click', revealCurrentPunchline);
+        document.getElementById('reveal-punchline').addEventListener('click', toggleAllPunchlines);
 
         // Load the first joke on page load
         showNextJoke();
