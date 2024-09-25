@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Text Transformer</title>
+	<style>
+		html, body {
+			height: 99%;
+			overflow: hidden;
+		}
+
+		body {
+			display: flex;
+			flex-direction: column;
+		}
+		#outputText {
+			flex-grow: 1;
+			resize: none;
+			overflow: auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="inputContainer">
+		<select id="presets">
+			<option value="t.[_] = s.[_]">t.[_] = s.[_]</option>
+			<option value="_">_</option>
+		</select>
+		<input type="text" id="transformerValue">
+		<input type="text" id="joinValue" value=",\n">
+		<br>
+	</div>
+	<br>
+	<textarea id="inputText" rows="20" style="width: 100%" spellcheck="false">1 2 3</textarea>
+	<br>
+	<textarea id="outputText" rows="20" style="width: 100%" spellcheck="false"></textarea>
+	<script>
+		function run() {
+			const inputText = document.getElementById('inputText').value.trim();
+			localStorage.setItem('inputText', inputText);
+			const transformerValue = document.getElementById('transformerValue').value;
+			const joinValue = document.getElementById('joinValue').value.replace('\\n', '\n').replace('\\t', '\t').replace('\\r', '\r');
+
+			const values = inputText.split(/\s+/).map(v => v.replace(/^,+|,+$/g, ''));
+			let output = values.map(v => transformerValue.replace(/(?<!\\)_/g, `${v}`).replace(/\\_/g, `_`)).join(joinValue);
+			document.getElementById('outputText').value = output;
+		}
+
+		function init(){
+			load_inputText();
+			render();
+		}
+
+		function render() {
+			document.getElementById('transformerValue').value = document.getElementById('presets').value;
+			run();
+		}
+
+		function load_inputText() {
+			const inputText = localStorage.getItem('inputText');
+			if (inputText) {
+				document.getElementById('inputText').value = inputText;
+			}
+		}
+
+		document.getElementById('inputText').addEventListener('keyup', run);
+		document.getElementById('joinValue').addEventListener('keyup', run);
+		document.getElementById('transformerValue').addEventListener('keyup', run);
+		document.getElementById('presets').addEventListener('change', render);
+
+		document.addEventListener('DOMContentLoaded', init);
+	</script>
+</body>
+</html>
