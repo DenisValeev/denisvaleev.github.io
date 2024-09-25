@@ -1,1 +1,59 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Jokes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #joke-container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="joke-container">
+        <h1 id="joke">Press the button for a random joke!</h1>
+        <p id="punchline" style="display: none;">...</p>
+        <button id="new-joke">New Joke</button>
+        <button id="reveal-punchline" style="display: none;">Reveal Punchline</button>
+    </div>
+
+    <!-- Include the jokes.js script -->
+    <script src="jokes.js"></script>
+    <script>
+        function showRandomJoke() {
+            const randomIndex = Math.floor(Math.random() * window.jokes.length);
+            const randomJoke = window.jokes[randomIndex];
+            document.getElementById('joke').textContent = randomJoke.joke;
+            document.getElementById('punchline').textContent = randomJoke.punchline;
+            document.getElementById('punchline').style.display = 'none';
+            document.getElementById('reveal-punchline').style.display = 'inline';
+        }
+
+        document.getElementById('new-joke').addEventListener('click', showRandomJoke);
+
+        document.getElementById('reveal-punchline').addEventListener('click', () => {
+            document.getElementById('punchline').style.display = 'block';
+            document.getElementById('reveal-punchline').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
