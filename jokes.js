@@ -1,6 +1,4 @@
-
-module.exports = {
-    all: [
+window.jokes = [
         {
             "joke": "What did the fish say when it hit the wall?",
             "punchline": "Dam."
@@ -2384,5 +2382,4 @@ module.exports = {
             "joke": "What do you call two mexicans playing basketball?",
             "punchline": "Juan on Juan"
         }
-    ]
-};
+    ];
