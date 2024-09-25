@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Prevent zooming -->
     <title>Random Jokes</title>
     <style>
         body {
@@ -15,6 +15,10 @@
             margin: 0;
             padding: 20px;
             background-color: #f0f0f0;
+            -webkit-touch-callout: none; /* Prevent callout to copy text in Safari */
+            -webkit-user-select: none;   /* Prevent copy paste, to disable zoom */
+            user-select: none;           /* Non-prefixed version, currently */
+            touch-action: manipulation;  /* Disable double-tap zoom */
         }
         #joke-container {
             width: 100%;
