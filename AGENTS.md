@@ -23,7 +23,7 @@ This project is a static toolbox site. The landing page (`index.html`) lists sma
 - New jokes and quotes should come from reproducible external sources. Use the helper scripts in `tools/` to rebuild the datasets instead of editing inline by hand.
 - `node tools/build-jokes-from-icanhaz.js` converts the curated `data/icanhazdadjokes-split.json` feed into the `window.jokes` payload. The source list is pre-split into setup/punchline pairs from icanhazdadjoke.
 - `node tools/build-quotes-from-data.js` turns `data/curated-quotes.json` into the quotes app structure. Update that JSON when you swap in new categories.
-- Always run `node tools/dedupe-data.js` after editing either dataset. It uses salient keyword lookups plus a Levenshtein similarity check to flag near-duplicates so we keep the “tearable” and “roof” jokes once and avoid reintroducing repeats.
+- Always run `node tools/dedupe-data.js` after editing either dataset. The tool now walks each record against the remaining pool, using truncated setup/punchline (or text/author) previews—roughly the first 20–30 characters—and an early-exiting Levenshtein pass to spot near-matches while skipping obviously different material. Token buckets built from the longest words keep the loop fast and still preserve the beloved “tearable” and “roof” gags without letting lookalikes sneak back in.
 - Keep this section in sync with future user feedback about sourcing or deduping so our workflow reflects the latest guidance.
 
 ## Landing page upkeep
