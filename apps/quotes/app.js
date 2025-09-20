@@ -1,10 +1,12 @@
 (function () {
   const textEl = document.getElementById('quote-text');
+  const metaEl = document.getElementById('quote-meta');
+  const authorEl = document.getElementById('quote-author');
   const prevButton = document.getElementById('prev-button');
   const nextButton = document.getElementById('next-button');
   const selectEl = document.getElementById('category-select');
 
-  if (!textEl || !prevButton || !nextButton || !selectEl) {
+  if (!textEl || !metaEl || !authorEl || !prevButton || !nextButton || !selectEl) {
     return;
   }
 
@@ -15,8 +17,12 @@
           label: entry && typeof entry.label === 'string' ? entry.label : '',
           quotes: Array.isArray(entry && entry.quotes)
             ? entry.quotes
-                .map((quote) => (typeof quote === 'string' ? quote.trim() : ''))
-                .filter((quote) => quote.length > 0)
+                .map((quote) => {
+                  const text = quote && typeof quote.text === 'string' ? quote.text.trim() : '';
+                  const author = quote && typeof quote.author === 'string' ? quote.author.trim() : '';
+                  return text && author ? { text, author } : null;
+                })
+                .filter(Boolean)
             : [],
         }))
         .filter((entry) => entry.id && entry.label && entry.quotes.length > 0)
@@ -80,13 +86,18 @@
 
     if (!available.length) {
       textEl.textContent = 'No quotes available.';
+      authorEl.textContent = '';
+      metaEl.hidden = true;
       prevButton.disabled = true;
       nextButton.disabled = true;
       return;
     }
 
     ensureDeck();
-    textEl.textContent = deck[index];
+    const current = deck[index];
+    textEl.textContent = current.text;
+    authorEl.textContent = current.author;
+    metaEl.hidden = false;
 
     const disableNavigation = deck.length <= 1;
     prevButton.disabled = disableNavigation;

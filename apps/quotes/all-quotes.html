@@ -8,6 +8,8 @@
     :root {
       color-scheme: light dark;
       font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --author-font: "Georgia", "Times New Roman", serif;
+      --author-color: rgba(32, 32, 32, 0.65);
     }
 
     body {
@@ -21,6 +23,10 @@
       body {
         background-color: #121212;
         color: #f1f5ff;
+      }
+
+      :root {
+        --author-color: rgba(241, 245, 255, 0.7);
       }
 
       table {
@@ -83,6 +89,12 @@
       font-weight: 600;
       margin-bottom: 0.75rem;
     }
+
+    .author-cell {
+      font-family: var(--author-font);
+      color: var(--author-color);
+      text-align: right;
+    }
   </style>
 </head>
 <body>
@@ -96,11 +108,12 @@
         <tr>
           <th scope="col">Category</th>
           <th scope="col">Quote</th>
+          <th scope="col">Author</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td colspan="2">Loading quotes…</td>
+          <td colspan="3">Loading quotes…</td>
         </tr>
       </tbody>
     </table>
