@@ -10,12 +10,15 @@
       font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       background-color: #f5f5f5;
       color: #1f1f1f;
+      --quote-author-color: rgba(31, 31, 31, 0.6);
+      --quote-author-font: "Georgia", "Times New Roman", serif;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
         background-color: #1f1f1f;
         color: #f5f5f5;
+        --quote-author-color: rgba(245, 245, 245, 0.7);
       }
 
       .category-picker select {
@@ -61,6 +64,30 @@
       font-size: clamp(1.25rem, 2.2vw + 1rem, 2rem);
       line-height: 1.45;
       font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .card blockquote p {
+      margin: 0;
+    }
+
+    .quote-meta {
+      font-family: var(--quote-author-font);
+      color: var(--quote-author-color);
+      text-align: right;
+      font-size: clamp(0.95rem, 0.8vw + 0.8rem, 1.1rem);
+      letter-spacing: 0.01em;
+      align-self: flex-end;
+    }
+
+    .quote-meta::before {
+      content: '— ';
+    }
+
+    .quote-meta cite {
+      font-style: normal;
     }
 
     .controls {
@@ -154,7 +181,12 @@
 <body>
   <main aria-label="Quotes">
     <div class="card" role="group" aria-live="polite">
-      <blockquote id="quote-text">Loading quote…</blockquote>
+      <blockquote>
+        <p id="quote-text">Loading quote…</p>
+        <footer class="quote-meta" id="quote-meta" hidden>
+          <cite id="quote-author"></cite>
+        </footer>
+      </blockquote>
     </div>
     <div class="controls">
       <button id="prev-button" type="button" aria-label="Show previous quote">⟵ Previous</button>
