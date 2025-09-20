@@ -188,6 +188,10 @@ window.quotesData = [
         "author": "Oprah Winfrey"
       },
       {
+        "text": "The beginning of knowledge is the discovery of something we do not understand.",
+        "author": "Frank Herbert"
+      },
+      {
         "text": "One does not discover new lands without consenting to lose sight of the shore for a very long time.",
         "author": "Andre Gide"
       }
@@ -610,6 +614,18 @@ window.quotesData = [
       {
         "text": "Through perseverance many people win success out of what seemed destined to be certain failure.",
         "author": "Benjamin Disraeli"
+      },
+      {
+        "text": "Nothing happens unless first we dream.",
+        "author": "Carl Sandburg"
+      },
+      {
+        "text": "Never mistake activity for achievement.",
+        "author": "John Wooden"
+      },
+      {
+        "text": "Goals are the fuel in the furnace of achievement.",
+        "author": "Brian Tracy"
       }
     ]
   },
@@ -2044,6 +2060,18 @@ window.quotesData = [
       {
         "text": "Let the beauty of what you love be what you do.",
         "author": "Rumi"
+      },
+      {
+        "text": "We can only learn to love by loving.",
+        "author": "Iris Murdoch"
+      },
+      {
+        "text": "Love is the flower you've got to let grow.",
+        "author": "John Lennon"
+      },
+      {
+        "text": "Only do what your heart tells you.",
+        "author": "Princess Diana"
       }
     ]
   },
@@ -2190,6 +2218,22 @@ window.quotesData = [
       {
         "text": "Four steps to achievement: Plan purposefully. Prepare prayerfully. Proceed positively. Pursue persistently.",
         "author": "William Arthur Ward"
+      },
+      {
+        "text": "If you spend your whole life waiting for the storm, you'll never enjoy the sunshine.",
+        "author": "Morris West"
+      },
+      {
+        "text": "Smile, breathe, and go slowly.",
+        "author": "Thich Nhat Hanh"
+      },
+      {
+        "text": "Before you put on a frown, make absolutely sure there are no smiles available.",
+        "author": "Jim Beggs"
+      },
+      {
+        "text": "Every time you smile at someone, it is an action of love, a gift to that person, a beautiful thing.",
+        "author": "Mother Teresa"
       }
     ]
   },
@@ -2240,6 +2284,18 @@ window.quotesData = [
       {
         "text": "All seasons are beautiful for the person who carries happiness within.",
         "author": "Horace Friess"
+      },
+      {
+        "text": "Don't cry because it's over. Smile because it happened.",
+        "author": "Dr. Seuss"
+      },
+      {
+        "text": "Great talent finds happiness in execution.",
+        "author": "Johann Wolfgang von Goethe"
+      },
+      {
+        "text": "Some pursue happiness, others create it.",
+        "author": "Unknown"
       }
     ]
   }
