@@ -1,4 +1,4 @@
-name: Merge PR into master (prefer PR changes)
+name: Merge PR
 
 on:
   workflow_dispatch:
@@ -32,6 +32,6 @@ jobs:
       - name: Merge PR branch into master
         run: |
           git fetch origin
-          git checkout master
+          git checkout main
           git merge -s recursive -X theirs origin/${{ steps.check.outputs.branch }} || true
-          git push origin master
+          git push origin main
