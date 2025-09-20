@@ -1,37 +1,15 @@
 (function () {
   const tbody = document.querySelector('tbody');
   const countTarget = document.querySelector('[data-count]');
-  const isCompact = document.body.dataset.compact === 'true';
 
   const jokes = Array.isArray(window.jokes)
     ? window.jokes.filter((entry) => entry && entry.joke)
     : [];
 
-  if (countTarget) {
-    countTarget.textContent = jokes.length.toLocaleString();
-  }
-
   if (!tbody) {
     return;
   }
 
-  if (isCompact) {
-    document.body.classList.add('is-compact');
-  }
-
-  tbody.textContent = '';
-
-  if (!jokes.length) {
-    const emptyRow = document.createElement('tr');
-    const emptyCell = document.createElement('td');
-    emptyCell.colSpan = 3;
-    emptyCell.textContent = 'No jokes available.';
-    emptyRow.appendChild(emptyCell);
-    tbody.appendChild(emptyRow);
-    return;
-  }
-
-  const fragment = document.createDocumentFragment();
   const formatPunchline = (value) => {
     if (typeof value === 'string' && value.trim().length > 0) {
       return value;
@@ -39,24 +17,65 @@
     return '💩';
   };
 
-  jokes.forEach((entry, idx) => {
-    const row = document.createElement('tr');
+  function shuffle(array) {
+    const copy = array.slice();
+    for (let i = copy.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  }
+
+  const deck = shuffle(jokes);
+
+  if (countTarget) {
+    countTarget.textContent = deck.length.toLocaleString();
+  }
+
+  tbody.textContent = '';
+
+  if (!deck.length) {
+    const emptyRow = document.createElement('tr');
+    const emptyCell = document.createElement('td');
+    emptyCell.colSpan = 2;
+    emptyCell.textContent = 'No jokes available.';
+    emptyRow.appendChild(emptyCell);
+    tbody.appendChild(emptyRow);
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  deck.forEach((entry, idx) => {
+    const setupRow = document.createElement('tr');
 
     const indexCell = document.createElement('th');
     indexCell.scope = 'row';
+    indexCell.className = 'index-cell';
     indexCell.textContent = String(idx + 1);
 
-    const jokeCell = document.createElement('td');
-    jokeCell.textContent = entry.joke;
+    const setupCell = document.createElement('td');
+    setupCell.className = 'setup-cell';
+    setupCell.textContent = entry.joke;
 
+    setupRow.appendChild(indexCell);
+    setupRow.appendChild(setupCell);
+
+    const punchlineRow = document.createElement('tr');
+    punchlineRow.className = 'punchline-row';
+
+    const spacerCell = document.createElement('td');
+    spacerCell.className = 'index-spacer';
+    spacerCell.setAttribute('aria-hidden', 'true');
     const punchlineCell = document.createElement('td');
+    punchlineCell.className = 'punchline-cell';
     punchlineCell.textContent = formatPunchline(entry.punchline);
 
-    row.appendChild(indexCell);
-    row.appendChild(jokeCell);
-    row.appendChild(punchlineCell);
+    punchlineRow.appendChild(spacerCell);
+    punchlineRow.appendChild(punchlineCell);
 
-    fragment.appendChild(row);
+    fragment.appendChild(setupRow);
+    fragment.appendChild(punchlineRow);
   });
 
   tbody.appendChild(fragment);

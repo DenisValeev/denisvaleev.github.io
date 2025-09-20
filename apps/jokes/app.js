@@ -1,12 +1,11 @@
 (function () {
   const setupEl = document.getElementById('joke-setup');
   const punchlineEl = document.getElementById('joke-punchline');
-  const statusEl = document.getElementById('card-status');
   const prevButton = document.getElementById('prev-button');
   const nextButton = document.getElementById('next-button');
   const revealButton = document.getElementById('reveal-button');
 
-  if (!setupEl || !punchlineEl || !statusEl || !prevButton || !nextButton || !revealButton) {
+  if (!setupEl || !punchlineEl || !prevButton || !nextButton || !revealButton) {
     return;
   }
 
@@ -34,24 +33,11 @@
     }
   }
 
-  function updateStatus() {
-    if (!deck.length) {
-      statusEl.textContent = 'No jokes available.';
-      return;
-    }
-
-    statusEl.textContent = punchlineVisible
-      ? 'Punchline revealed.'
-      : 'Punchline hidden — reveal when you\'re ready.';
-  }
-
   function setPunchlineVisible(visible) {
     punchlineVisible = visible;
     punchlineEl.classList.toggle('is-visible', visible);
     punchlineEl.setAttribute('aria-hidden', visible ? 'false' : 'true');
     revealButton.setAttribute('aria-pressed', visible ? 'true' : 'false');
-    revealButton.textContent = visible ? 'Hide punchline' : 'Reveal punchline';
-    updateStatus();
   }
 
   function render() {
@@ -60,10 +46,11 @@
       punchlineEl.textContent = '';
       punchlineEl.classList.remove('is-visible');
       punchlineEl.setAttribute('aria-hidden', 'true');
+      punchlineVisible = false;
+      revealButton.setAttribute('aria-pressed', 'false');
       revealButton.hidden = true;
       prevButton.disabled = true;
       nextButton.disabled = true;
-      updateStatus();
       return;
     }
 
