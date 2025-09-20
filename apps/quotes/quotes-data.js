@@ -148,6 +148,10 @@ window.quotesData = [
         "author": "Paulo Coelho"
       },
       {
+        "text": "Travel makes one modest, you see what a tiny place you occupy in the world.",
+        "author": "Gustave Flaubert"
+      },
+      {
         "text": "Travel. As much as you can. As far as you can. As long as you can. Life’s not meant to be lived in one place.",
         "author": "Unknown"
       },
@@ -182,18 +186,6 @@ window.quotesData = [
       {
         "text": "A good traveler has no fixed plans and is not intent on arriving.",
         "author": "Lao Tzu"
-      },
-      {
-        "text": "The biggest adventure you can ever take is to live the life of your dreams.",
-        "author": "Oprah Winfrey"
-      },
-      {
-        "text": "The beginning of knowledge is the discovery of something we do not understand.",
-        "author": "Frank Herbert"
-      },
-      {
-        "text": "One does not discover new lands without consenting to lose sight of the shore for a very long time.",
-        "author": "Andre Gide"
       }
     ]
   },
@@ -400,14 +392,6 @@ window.quotesData = [
       {
         "text": "The wisest are the most annoyed at the loss of time.",
         "author": "Dante Alighieri"
-      },
-      {
-        "text": "Don't wait. The time will never be just right.",
-        "author": "Napoleon Hill"
-      },
-      {
-        "text": "Time you enjoy wasting, was not wasted.",
-        "author": "John Lennon"
       }
     ]
   },
@@ -524,6 +508,10 @@ window.quotesData = [
         "author": "John Burroughs"
       },
       {
+        "text": "Man cannot discover new oceans unless he has the courage to lose sight of the shore.",
+        "author": "Andre Gide"
+      },
+      {
         "text": "If you believe you can do a thing, you can do it.",
         "author": "Claude M. Bristol"
       },
@@ -606,26 +594,6 @@ window.quotesData = [
       {
         "text": "Your dreams are on the other side of your grit.",
         "author": "Anonymous"
-      },
-      {
-        "text": "Victory belongs to the most persevering.",
-        "author": "Napoleon Bonaparte"
-      },
-      {
-        "text": "Through perseverance many people win success out of what seemed destined to be certain failure.",
-        "author": "Benjamin Disraeli"
-      },
-      {
-        "text": "Nothing happens unless first we dream.",
-        "author": "Carl Sandburg"
-      },
-      {
-        "text": "Never mistake activity for achievement.",
-        "author": "John Wooden"
-      },
-      {
-        "text": "Goals are the fuel in the furnace of achievement.",
-        "author": "Brian Tracy"
       }
     ]
   },
@@ -832,14 +800,6 @@ window.quotesData = [
       {
         "text": "Truly great friends are hard to find, difficult to leave and impossible to forget.",
         "author": "G. Randolf"
-      },
-      {
-        "text": "Silence is a true friend who never betrays.",
-        "author": "Confucius"
-      },
-      {
-        "text": "Friendship with oneself is all important because without it one cannot be friends with anybody else in the world.",
-        "author": "Eleanor Roosevelt"
       }
     ]
   },
@@ -1046,14 +1006,6 @@ window.quotesData = [
       {
         "text": "Music is the great uniter. An incredible force. Something that people who differ on everything and anything else can have in common.",
         "author": "Sarah Dessen"
-      },
-      {
-        "text": "He who lives in harmony with himself lives in harmony with the universe.",
-        "author": "Marcus Aurelius"
-      },
-      {
-        "text": "Happiness is when what you think, what you say, and what you do are in harmony.",
-        "author": "Mohandas Gandhi"
       }
     ]
   },
@@ -1070,6 +1022,18 @@ window.quotesData = [
         "author": "Unknown"
       },
       {
+        "text": "Travel makes one modest. You see what a tiny place you occupy in the world.",
+        "author": "Gustave Flaubert"
+      },
+      {
+        "text": "Not all those who wander are lost.",
+        "author": "J. R. R. Tolkien"
+      },
+      {
+        "text": "Every man dies, but not every man really lives.",
+        "author": "William Wallace"
+      },
+      {
         "text": "To live is the rarest thing in the world. Most people exist, that is all.",
         "author": "Oscar Wilde"
       },
@@ -1084,6 +1048,10 @@ window.quotesData = [
       {
         "text": "Paris is always a good idea.",
         "author": "Audrey Hepburn"
+      },
+      {
+        "text": "Travel is the only thing you buy that makes you richer.",
+        "author": "Unknown"
       },
       {
         "text": "Collect moments, not things.",
@@ -1154,8 +1122,16 @@ window.quotesData = [
         "author": "Anthony Bourdain"
       },
       {
+        "text": "A good traveler has no fixed plans, and is not intent on arriving.",
+        "author": "Lao Tzu"
+      },
+      {
         "text": "There are no foreign lands. It is the traveler only who is foreign",
         "author": "Robert Louis Stevenson"
+      },
+      {
+        "text": "The world is a book, and those who do not travel read only one page.",
+        "author": "Saint Augustine"
       },
       {
         "text": "Life is meant for good friends and great adventures",
@@ -1170,6 +1146,10 @@ window.quotesData = [
         "author": "Robert Frost"
       },
       {
+        "text": "Once a year, go somewhere you have never been before.",
+        "author": "Dalai Lama"
+      },
+      {
         "text": "A journey is best measured in friends, rather than miles.",
         "author": "Tim Cahill"
       },
@@ -1180,6 +1160,10 @@ window.quotesData = [
       {
         "text": "Don’t listen to what they say. Go see.",
         "author": "Anonymous"
+      },
+      {
+        "text": "Take only memories, leave only footprints.",
+        "author": "Chief Seattle"
       },
       {
         "text": "Collect Moment, Not Things.",
@@ -1194,12 +1178,20 @@ window.quotesData = [
         "author": "Hilaire Belloc"
       },
       {
+        "text": "For my part, I travel not to go anywhere, but to go. I travel for travel’s sake. The great affair is to move.",
+        "author": "Robert Louis Stevenson"
+      },
+      {
         "text": "I’m in love with cities I’ve never been to and people I’ve never met.",
         "author": "Melody Truong"
       },
       {
         "text": "This wasn’t a strange place; it was a new one.",
         "author": "Paulo Coelho"
+      },
+      {
+        "text": "If we were meant to stay in one place, we’d have roots instead of feet",
+        "author": "Rachel Wolchin"
       },
       {
         "text": "Once the travel bug bites there is no known antidote, and I know that I shall be happily infected until the end of my life.",
@@ -1220,14 +1212,6 @@ window.quotesData = [
       {
         "text": "Travel is never a matter of money but of courage.",
         "author": "Paulo Coelho"
-      },
-      {
-        "text": "We must embrace pain and burn it as fuel for our journey.",
-        "author": "Kenji Miyazawa"
-      },
-      {
-        "text": "You cannot travel the path until you have become the path itself.",
-        "author": "Buddha"
       }
     ]
   },
@@ -1306,6 +1290,10 @@ window.quotesData = [
       {
         "text": "I’m not good at the advice. Can I interest you in a sarcastic comment?",
         "author": "Chandler Bing, “Friends"
+      },
+      {
+        "text": "I’m sick of following my dreams, man. I’m just going to ask where they’re going and hook up with’em later.",
+        "author": "Mitch Hedberg"
       },
       {
         "text": "I’d love to stand here and talk with you. . . but I’m not going to.",
@@ -1430,14 +1418,6 @@ window.quotesData = [
       {
         "text": "Happiness is having a large, loving, caring, close-knit family in another city.",
         "author": "George Burns"
-      },
-      {
-        "text": "When you realize how perfect everything is you will tilt your head back and laugh at the sky.",
-        "author": "Buddha"
-      },
-      {
-        "text": "Strong people make as many mistakes as weak people. Difference is that strong people admit their mistakes, laugh at them, learn from them. That is how they become strong.",
-        "author": "Richard Needham"
       }
     ]
   },
@@ -1640,14 +1620,6 @@ window.quotesData = [
       {
         "text": "Money may not buy happiness, but I’d rather cry in a Jaguar than on a bus.",
         "author": "Françoise Sagan"
-      },
-      {
-        "text": "Many people think of prosperity that concerns money only to forget that true prosperity is of the mind.",
-        "author": "Byron Pulsifer"
-      },
-      {
-        "text": "There are people who have money and people who are rich.",
-        "author": "Coco Chanel"
       }
     ]
   },
@@ -1682,6 +1654,10 @@ window.quotesData = [
       {
         "text": "Being a family means you are a part of something very wonderful. It means you will love and be loved for the rest of your life.",
         "author": "Lisa Weed"
+      },
+      {
+        "text": "Happiness is having a large, loving, caring, close-knit family in another city.",
+        "author": "George Burns"
       },
       {
         "text": "The strength of a family, like the strength of an army, lies in its loyalty to each other.",
@@ -1746,6 +1722,10 @@ window.quotesData = [
       {
         "text": "Everyone needs a house to live in, but a supportive family is what builds a home.",
         "author": "Anthony Liccione"
+      },
+      {
+        "text": "There is no such thing as fun for the whole family.",
+        "author": "Jerry Seinfeld"
       },
       {
         "text": "The informality of family life is a blessed condition that allows us all to become our best while looking our worst.",
@@ -1846,14 +1826,6 @@ window.quotesData = [
       {
         "text": "Friends are the family you choose.",
         "author": "Jess C. Scott"
-      },
-      {
-        "text": "While we try to teach our children all about life, our children teach us what life is all about.",
-        "author": "Angela Schwindt"
-      },
-      {
-        "text": "Parents can only give good advice or put them on the right paths, but the final forming of a persons character lies in their own hands.",
-        "author": "Anne Frank"
       }
     ]
   },
@@ -2010,6 +1982,10 @@ window.quotesData = [
         "author": "Truth Devour"
       },
       {
+        "text": "It’s always better when we’re together.",
+        "author": "Jack Johnson"
+      },
+      {
         "text": "I would rather spend one lifetime with you, than face all the ages of this world alone.",
         "author": "J. K. K. Tolken"
       },
@@ -2028,6 +2004,10 @@ window.quotesData = [
       {
         "text": "We loved with a love that was more than love.",
         "author": "Edgar Allen Poe"
+      },
+      {
+        "text": "I saw that you were perfect, and so I loved you. Then I saw that you were not perfect and I loved you even more.",
+        "author": "Angelita Lim"
       },
       {
         "text": "I am my beloved’s and my beloved is mine.",
@@ -2052,26 +2032,6 @@ window.quotesData = [
       {
         "text": "When I saw you I fell in love, and you smiled because you knew.",
         "author": "Arrigo Boito"
-      },
-      {
-        "text": "You, yourself, as much as anybody in the entire universe, deserve your love and affection.",
-        "author": "Buddha"
-      },
-      {
-        "text": "Let the beauty of what you love be what you do.",
-        "author": "Rumi"
-      },
-      {
-        "text": "We can only learn to love by loving.",
-        "author": "Iris Murdoch"
-      },
-      {
-        "text": "Love is the flower you've got to let grow.",
-        "author": "John Lennon"
-      },
-      {
-        "text": "Only do what your heart tells you.",
-        "author": "Princess Diana"
       }
     ]
   },
@@ -2086,6 +2046,10 @@ window.quotesData = [
       {
         "text": "As we work to create light for others, we naturally light our own way.",
         "author": "Mary Anne Radmacher"
+      },
+      {
+        "text": "To live is the rarest thing in the world. Most people exist, that is all.",
+        "author": "Oscar Wilde"
       },
       {
         "text": "Keep your face to the sunshine and you cannot see a shadow.",
@@ -2210,30 +2174,6 @@ window.quotesData = [
       {
         "text": "The most important thing is to try and inspire people so that they can be great in whatever they want to do.",
         "author": "Kobe Bryant"
-      },
-      {
-        "text": "If we have a positive mental attitude, then even when surrounded by hostility, we shall not lack inner peace.",
-        "author": "Dalai Lama"
-      },
-      {
-        "text": "Four steps to achievement: Plan purposefully. Prepare prayerfully. Proceed positively. Pursue persistently.",
-        "author": "William Arthur Ward"
-      },
-      {
-        "text": "If you spend your whole life waiting for the storm, you'll never enjoy the sunshine.",
-        "author": "Morris West"
-      },
-      {
-        "text": "Smile, breathe, and go slowly.",
-        "author": "Thich Nhat Hanh"
-      },
-      {
-        "text": "Before you put on a frown, make absolutely sure there are no smiles available.",
-        "author": "Jim Beggs"
-      },
-      {
-        "text": "Every time you smile at someone, it is an action of love, a gift to that person, a beautiful thing.",
-        "author": "Mother Teresa"
       }
     ]
   },
@@ -2270,32 +2210,16 @@ window.quotesData = [
         "author": "Oscar Wilde"
       },
       {
+        "text": "Happiness is not in the mere possession of money; it lies in the joy of achievement, in the thrill of creative effort.",
+        "author": "Franklin D. Roosevelt"
+      },
+      {
         "text": "It’s been my experience that you can nearly always enjoy things if you make up your mind firmly that you will.",
         "author": "L. M. Montgomery"
       },
       {
         "text": "Since you get more joy out of giving joy to others, you should put a good deal of thought into the happiness that you are able to give.",
         "author": "Eleanor Roosevelt"
-      },
-      {
-        "text": "There is no way to happiness, happiness is the way.",
-        "author": "Thich Nhat Hanh"
-      },
-      {
-        "text": "All seasons are beautiful for the person who carries happiness within.",
-        "author": "Horace Friess"
-      },
-      {
-        "text": "Don't cry because it's over. Smile because it happened.",
-        "author": "Dr. Seuss"
-      },
-      {
-        "text": "Great talent finds happiness in execution.",
-        "author": "Johann Wolfgang von Goethe"
-      },
-      {
-        "text": "Some pursue happiness, others create it.",
-        "author": "Unknown"
       }
     ]
   }

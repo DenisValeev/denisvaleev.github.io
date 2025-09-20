@@ -19,14 +19,6 @@ This project is a static toolbox site. The landing page (`index.html`) lists sma
 - Datasets live in plain JavaScript files that assign arrays to `window.jokes` or `window.proverbsData`. Maintain the existing property names (`joke`/`punchline` and `text`) so the renderers continue to work.
 - The data files predate the rest of the styling cleanup; match their current indentation and quoting when editing to avoid huge noise in the diff.
 
-## Data curation workflows
-- New jokes and quotes should come from reproducible external sources. Keep `data/icanhazdadjokes-split.json` merged with the `official_joke_api` feed and draw quotes from JamesFT/Database-Quotes-JSON plus dwyl/quotes so additions can be replayed.
-- Run `node tools/merge-jokes-sources.js` after pulling fresh joke feeds. It folds `data/official-jokes-index.json` into `data/icanhazdadjokes-split.json`, skips duplicates by normalized setup/punchline, and keeps the classic tearable and roof gags at the front.
-- `node tools/build-jokes-from-icanhaz.js` converts the merged `data/icanhazdadjokes-split.json` feed into the `window.jokes` payload while cleaning whitespace.
-- When updating quotes, append to the existing Adventure/Time/Motivation/... categories in `apps/quotes/quotes-data.js` using the curated source lists. The helper in `tools/build-quotes-from-data.js` will need new input if you want to regenerate the file from JSON—update it alongside any future sourcing shifts.
-- Always run `node tools/dedupe-data.js --write` after rebuilding either dataset. The tool walks each record against the remaining pool with truncated previews and an early-exiting Levenshtein pass, logging any removals so near-duplicates stay out without sacrificing favourites.
-- Keep this section in sync with future user feedback about sourcing or deduping so our workflow reflects the latest guidance.
-
 ## Landing page upkeep
 - Adding an app means adding a card (`<a class="app-card">`) inside the `<ul class="apps">` list and, if applicable, linking any auxiliary pages inside the `.dev-tools` section so that shortcut links stay discoverable.
 - The chevron SVG icon inside the call-to-action span is reused everywhere—copy the existing snippet to keep the visuals aligned.
