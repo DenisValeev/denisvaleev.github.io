@@ -5,7 +5,7 @@ A collection of lightweight browser apps served from a single landing page. Each
 ## Available apps
 
 - **Random Jokes** – Shuffle developer-friendly jokes, reveal punchlines on demand, and jump to the full archive when you need more context.
-- **Proverbs** – Cycle through a constantly shuffled proverb deck with keyboard support and access to the complete listing.
+- **Quotes** – Shuffle themed quote decks, step back whenever you like, and explore every line in the all-in-one archive.
 - **Value Formatter** – Turn newline-separated entries into formatted key-value pairs for quick copy/paste in code reviews or data preparation.
 
 ## Usage
