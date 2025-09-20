@@ -2486,147 +2486,111 @@ window.jokes = [
         }, {
             "joke": "What do you call a thieving alligator?",
             "punchline": "A crookodile!"
-        }
         }, {
             "joke": "Why would a guitarist become a good programmer?",
             "punchline": "He's adept at riffing in C#."
-        }
         }, {
             "joke": "Want to hear a joke about a piece of paper?",
             "punchline": "Never mind...it's tearable"
-        }
         }, {
             "joke": "Did you hear the story about the cheese that saved the world?",
             "punchline": "It was legend dairy."
-        }
         }, {
             "joke": "Did you watch the new comic book movie?",
             "punchline": "It was very graphic!"
-        }
         }, {
             "joke": "I started a new business making yachts in my attic this year...",
             "punchline": "The sails are going through the roof."
-        }
         }, {
             "joke": "I got hit in the head by a soda can, but it didn't hurt that much...",
             "punchline": "It was a soft drink."
-        }
         }, {
             "joke": "I can't tell if i like this blender...",
             "punchline": "It keeps giving me mixed results."
-        }
         }, {
             "joke": "How good are you at Power Point?",
             "punchline": "I Excel at it."
-        }
         }, {
             "joke": "Why can't you use \"Beef stew\"as a password?",
             "punchline": "Because it's not stroganoff."
-        }
         }, {
             "joke": "What's the best part about TCP jokes?",
             "punchline": "I get to keep telling them until you get them."
-        }
         }, {
             "joke": "A programmer puts two glasses on his bedside table before going to sleep.",
             "punchline": "A full one, in case he gets thirsty, and an empty one, in case he doesn’t."
-        }
         }, {
             "joke": "Two guys walk into a bar . . .",
             "punchline": "The first guy says \"Ouch!\" and the second says \"Yeah, I didn't see it either.\""
-        }
         }, {
             "joke": "What did the router say to the doctor?",
             "punchline": "It hurts when IP."
-        }
         }, {
             "joke": "An IPv6 packet is walking out of the house.",
             "punchline": "He goes nowhere."
-        }
         }, {
             "joke": "A DHCP packet walks into a bar and asks for a beer.",
             "punchline": "Bartender says, \"here, but I’ll need that back in an hour!\""
-        }
         }, {
             "joke": "3 SQL statements walk into a NoSQL bar. Soon, they walk out",
             "punchline": "They couldn't find a table."
-        }
         }, {
             "joke": "I saw a nice stereo on Craigslist for $1. Seller says the volume is stuck on ‘high’",
             "punchline": "I couldn’t turn it down."
-        }
         }, {
             "joke": "Why are “Dad Jokes” so good?",
             "punchline": "Because the punchline is apparent."
-        }
         }, {
             "joke": "What do you call a suspicious looking laptop?",
             "punchline": "Asus."
-        }
         }, {
             "joke": "What did the Java code say to the C code?",
             "punchline": "You've got no class."
-        }
         }, {
             "joke": "What is the most used language in programming?",
             "punchline": "Profanity."
-        }
         }, {
             "joke": "Why do fathers take an extra pair of socks when they go golfing?",
             "punchline": "In case they get a hole in one!"
-        }
         }, {
             "joke": "Where did the API go to eat?",
             "punchline": "To the RESTaurant."
-        }
         }, {
             "joke": "Hey, wanna hear a joke?",
             "punchline": "Parsing HTML with regex."
-        }
         }, {
             "joke": "How do you generate a random string?",
             "punchline": "Put a Windows user in front of Vim and tell them to exit."
-        }
         }, {
             "joke": "Why did the functions stop calling each other?",
             "punchline": "Because they had constant arguments."
-        }
         }, {
             "joke": "Why did the private classes break up?",
             "punchline": "Because they never saw each other."
-        }
         }, {
             "joke": "Why did the developer go broke buying Bitcoin?",
             "punchline": "He kept calling it bytecoin and didn't get any."
-        }
         }, {
             "joke": "Why did the programmer's wife leave him?",
             "punchline": "He didn't know how to commit."
-        }
         }, {
             "joke": "Why do programmers prefer dark chocolate?",
             "punchline": "Because it's bitter like their code."
-        }
         }, {
             "joke": "Why don't React developers like nature?",
             "punchline": "They prefer the virtual DOM."
-        }
         }, {
             "joke": "Why was the developer always calm?",
             "punchline": "Because they knew how to handle exceptions."
-        }
         }, {
             "joke": "Why did the programmer bring a ladder to work?",
             "punchline": "They heard the code needed to be debugged from a higher level."
-        }
         }, {
             "joke": "Why did the developer break up with their keyboard?",
             "punchline": "It just wasn't their type anymore."
-        }
         }, {
             "joke": "Why did the programmer always carry a pencil?",
             "punchline": "They preferred to write in C#."
-        }
         }, {
             "joke": "Why did the programmer go to art school?",
             "punchline": "He wanted to learn how to code outside the box."
