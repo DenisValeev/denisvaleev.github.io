@@ -186,6 +186,14 @@ window.quotesData = [
       {
         "text": "A good traveler has no fixed plans and is not intent on arriving.",
         "author": "Lao Tzu"
+      },
+      {
+        "text": "The biggest adventure you can ever take is to live the life of your dreams.",
+        "author": "Oprah Winfrey"
+      },
+      {
+        "text": "The beginning of knowledge is the discovery of something we do not understand.",
+        "author": "Frank Herbert"
       }
     ]
   },
@@ -594,6 +602,18 @@ window.quotesData = [
       {
         "text": "Your dreams are on the other side of your grit.",
         "author": "Anonymous"
+      },
+      {
+        "text": "Nothing happens unless first we dream.",
+        "author": "Carl Sandburg"
+      },
+      {
+        "text": "Never mistake activity for achievement.",
+        "author": "John Wooden"
+      },
+      {
+        "text": "Goals are the fuel in the furnace of achievement.",
+        "author": "Brian Tracy"
       }
     ]
   },
@@ -2032,6 +2052,18 @@ window.quotesData = [
       {
         "text": "When I saw you I fell in love, and you smiled because you knew.",
         "author": "Arrigo Boito"
+      },
+      {
+        "text": "We can only learn to love by loving.",
+        "author": "Iris Murdoch"
+      },
+      {
+        "text": "Love is the flower you've got to let grow.",
+        "author": "John Lennon"
+      },
+      {
+        "text": "Only do what your heart tells you.",
+        "author": "Princess Diana"
       }
     ]
   },
@@ -2174,6 +2206,22 @@ window.quotesData = [
       {
         "text": "The most important thing is to try and inspire people so that they can be great in whatever they want to do.",
         "author": "Kobe Bryant"
+      },
+      {
+        "text": "If you spend your whole life waiting for the storm, you'll never enjoy the sunshine.",
+        "author": "Morris West"
+      },
+      {
+        "text": "Smile, breathe, and go slowly.",
+        "author": "Thich Nhat Hanh"
+      },
+      {
+        "text": "Before you put on a frown, make absolutely sure there are no smiles available.",
+        "author": "Jim Beggs"
+      },
+      {
+        "text": "Every time you smile at someone, it is an action of love, a gift to that person, a beautiful thing.",
+        "author": "Mother Teresa"
       }
     ]
   },
@@ -2220,6 +2268,18 @@ window.quotesData = [
       {
         "text": "Since you get more joy out of giving joy to others, you should put a good deal of thought into the happiness that you are able to give.",
         "author": "Eleanor Roosevelt"
+      },
+      {
+        "text": "Don't cry because it's over. Smile because it happened.",
+        "author": "Dr. Seuss"
+      },
+      {
+        "text": "Great talent finds happiness in execution.",
+        "author": "Johann Wolfgang von Goethe"
+      },
+      {
+        "text": "Some pursue happiness, others create it.",
+        "author": "Unknown"
       }
     ]
   }
