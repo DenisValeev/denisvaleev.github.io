@@ -284,4 +284,15 @@ function main() {
 
 if (require.main === module) {
   main();
+} else {
+  module.exports = {
+    loadDataset,
+    ensureJokeIds,
+    ensureQuoteIds,
+    formatJokes,
+    formatQuotes,
+    buildJokesManifest,
+    buildQuotesManifest,
+    jokesPreamble,
+  };
 }

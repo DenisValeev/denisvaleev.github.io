@@ -28,3 +28,12 @@ This starts a server on <http://localhost:3000> (or the next available port).
   regenerate the manifest files under `data/`. The script rewrites `apps/jokes/jokes.js` and `apps/quotes/quotes-data.js` in the
   house style and emits `data/jokes-manifest.json` / `data/quotes-manifest.json` with normalized hashes and embedding metadata
   placeholders for downstream deduplication workflows.
+- Use `node tools/review-content-similarity.js` to fetch embeddings from public APIs (OpenAI, Cohere, Hugging Face, or the
+  built-in deterministic `fake` provider), persist them under `data/*-embeddings.json`, and surface cosine-similar pairs for
+  manual review. Pass `--write` to persist embeddings, `--update-manifest` to sync embedding metadata back into the manifests,
+  and `--report=reports/{dataset}-duplicates.json` to generate JSON reports for auditing runs. A free option is available via
+  `--provider=hfspace --model=bienkieu/sentence-embedding`, which pipes batches through the BienKieu Hugging Face Space
+  (`sentence-transformers/all-MiniLM-L6-v2`) using `curl`—no API key required. Keep `--batch-size` at 8 or lower to avoid the
+  shared queue timing out.
+- Apply the curated duplicate removals with `node tools/prune-duplicate-records.js`. Use `--dry-run` to preview how many
+  jokes, quotes, and embedding vectors would be pruned before writing the updated datasets, manifests, and stores back to disk.

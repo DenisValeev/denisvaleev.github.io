@@ -641,11 +641,6 @@ window.quotesData = [
         "author": "John Burroughs"
       },
       {
-        "id": "motivation-28",
-        "text": "Man cannot discover new oceans unless he has the courage to lose sight of the shore.",
-        "author": "Andre Gide"
-      },
-      {
         "id": "motivation-29",
         "text": "If you believe you can do a thing, you can do it.",
         "author": "Claude M. Bristol"
@@ -1299,19 +1294,9 @@ window.quotesData = [
         "author": "Gustave Flaubert"
       },
       {
-        "id": "travel-04",
-        "text": "Not all those who wander are lost.",
-        "author": "J. R. R. Tolkien"
-      },
-      {
         "id": "travel-05",
         "text": "Every man dies, but not every man really lives.",
         "author": "William Wallace"
-      },
-      {
-        "id": "travel-06",
-        "text": "To live is the rarest thing in the world. Most people exist, that is all.",
-        "author": "Oscar Wilde"
       },
       {
         "id": "travel-07",
@@ -1327,11 +1312,6 @@ window.quotesData = [
         "id": "travel-09",
         "text": "Paris is always a good idea.",
         "author": "Audrey Hepburn"
-      },
-      {
-        "id": "travel-10",
-        "text": "Travel is the only thing you buy that makes you richer.",
-        "author": "Unknown"
       },
       {
         "id": "travel-11",
@@ -1367,11 +1347,6 @@ window.quotesData = [
         "id": "travel-17",
         "text": "Though we travel the world over to find the beautiful, we must carry it with us or we find it not.",
         "author": "Ralph Waldo Emerson"
-      },
-      {
-        "id": "travel-18",
-        "text": "The journey of a thousand miles begins with a single step.",
-        "author": "Lao Tzu"
       },
       {
         "id": "travel-19",
@@ -1419,19 +1394,9 @@ window.quotesData = [
         "author": "Anthony Bourdain"
       },
       {
-        "id": "travel-28",
-        "text": "A good traveler has no fixed plans, and is not intent on arriving.",
-        "author": "Lao Tzu"
-      },
-      {
         "id": "travel-29",
         "text": "There are no foreign lands. It is the traveler only who is foreign",
         "author": "Robert Louis Stevenson"
-      },
-      {
-        "id": "travel-30",
-        "text": "The world is a book, and those who do not travel read only one page.",
-        "author": "Saint Augustine"
       },
       {
         "id": "travel-31",
@@ -1449,11 +1414,6 @@ window.quotesData = [
         "author": "Robert Frost"
       },
       {
-        "id": "travel-34",
-        "text": "Once a year, go somewhere you have never been before.",
-        "author": "Dalai Lama"
-      },
-      {
         "id": "travel-35",
         "text": "A journey is best measured in friends, rather than miles.",
         "author": "Tim Cahill"
@@ -1469,11 +1429,6 @@ window.quotesData = [
         "author": "Anonymous"
       },
       {
-        "id": "travel-38",
-        "text": "Take only memories, leave only footprints.",
-        "author": "Chief Seattle"
-      },
-      {
         "id": "travel-39",
         "text": "Collect Moment, Not Things.",
         "author": "Anonymous"
@@ -1487,11 +1442,6 @@ window.quotesData = [
         "id": "travel-41",
         "text": "We wander for distraction, but we travel for fulfilment.",
         "author": "Hilaire Belloc"
-      },
-      {
-        "id": "travel-42",
-        "text": "For my part, I travel not to go anywhere, but to go. I travel for travel’s sake. The great affair is to move.",
-        "author": "Robert Louis Stevenson"
       },
       {
         "id": "travel-43",
@@ -1630,11 +1580,6 @@ window.quotesData = [
         "author": "Chandler Bing, “Friends"
       },
       {
-        "id": "humor-19",
-        "text": "I’m sick of following my dreams, man. I’m just going to ask where they’re going and hook up with’em later.",
-        "author": "Mitch Hedberg"
-      },
-      {
         "id": "humor-20",
         "text": "I’d love to stand here and talk with you. . . but I’m not going to.",
         "author": "Phil Connors, “Groundhog Day"
@@ -1770,11 +1715,6 @@ window.quotesData = [
         "author": "Mae West"
       },
       {
-        "id": "humor-47",
-        "text": "There is no such thing as fun for the whole family.",
-        "author": "Jerry Seinfeld"
-      },
-      {
         "id": "humor-48",
         "text": "If you cannot get rid of the family skeleton, you may as well make it dance.",
         "author": "George Bernard Shaw, “Immaturity"
@@ -1783,11 +1723,6 @@ window.quotesData = [
         "id": "humor-49",
         "text": "Love is blind but marriage is a real eye-opener.",
         "author": "Pauline Thomason"
-      },
-      {
-        "id": "humor-50",
-        "text": "Happiness is having a large, loving, caring, close-knit family in another city.",
-        "author": "George Burns"
       }
     ]
   },
@@ -1969,11 +1904,6 @@ window.quotesData = [
         "id": "money-35",
         "text": "The single biggest financial mistake I’ve made was not thinking big enough. I encourage you to go for more than a million. There is no shortage of money on this planet, only a shortage of people thinking big enough.",
         "author": "Grant Cardone"
-      },
-      {
-        "id": "money-36",
-        "text": "Happiness is not in the mere possession of money; it lies in the joy of achievement, in the thrill of creative effort.",
-        "author": "Franklin D. Roosevelt"
       },
       {
         "id": "money-37",
@@ -2488,11 +2418,6 @@ window.quotesData = [
         "author": "Truth Devour"
       },
       {
-        "id": "love-38",
-        "text": "It’s always better when we’re together.",
-        "author": "Jack Johnson"
-      },
-      {
         "id": "love-39",
         "text": "I would rather spend one lifetime with you, than face all the ages of this world alone.",
         "author": "J. K. K. Tolken"
@@ -2516,11 +2441,6 @@ window.quotesData = [
         "id": "love-43",
         "text": "We loved with a love that was more than love.",
         "author": "Edgar Allen Poe"
-      },
-      {
-        "id": "love-44",
-        "text": "I saw that you were perfect, and so I loved you. Then I saw that you were not perfect and I loved you even more.",
-        "author": "Angelita Lim"
       },
       {
         "id": "love-45",
@@ -2582,11 +2502,6 @@ window.quotesData = [
         "id": "positive-02",
         "text": "As we work to create light for others, we naturally light our own way.",
         "author": "Mary Anne Radmacher"
-      },
-      {
-        "id": "positive-03",
-        "text": "To live is the rarest thing in the world. Most people exist, that is all.",
-        "author": "Oscar Wilde"
       },
       {
         "id": "positive-04",
