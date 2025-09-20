@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2025-09-20T19:22:52.879Z",
-    "total": 553,
+    "generatedAt": "2025-09-20T20:02:26.043Z",
+    "total": 536,
     "categories": 12,
     "hashAlgorithm": "sha256",
     "tokenSignature": "unique-words-v1",
@@ -2758,28 +2758,6 @@
         "status": "ready",
         "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
         "vectorSha256": "018ef6abf8f1ec2e9d34d0fad867cd0a32d2c5160f4d8839120894aa5e8f1779",
-        "updatedAt": "2025-09-20T19:50:35.645Z"
-      }
-    },
-    "motivation-28": {
-      "hashes": {
-        "text": "5ad140d30a634278b204540aa050942d3fb21866e83b0b1a5032c66405d903a1",
-        "author": "2e04bf3499fc58c99ea4c0dac0b0d50fa0bfcf3052d64ab324358a14dabb51c2",
-        "combined": "7ff0a17189606101da6a49cce50ab8a2feaae498466bf1ac2458f2c8d90f48c7",
-        "tokenSignature": "andre-cannot-courage-discover-gide-has-he-lose-man-new-oceans-of-shore-sight-the-to-unless"
-      },
-      "lengths": {
-        "text": 84,
-        "author": 10
-      },
-      "source": {
-        "categoryId": "motivation",
-        "sequence": 28
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "15a43a6216de7bc10121dc2677d878ebd8aeb62b6b242d0c1bf19231399bcbdb",
         "updatedAt": "2025-09-20T19:50:35.645Z"
       }
     },
@@ -5577,28 +5555,6 @@
         "updatedAt": "2025-09-20T19:50:40.507Z"
       }
     },
-    "travel-04": {
-      "hashes": {
-        "text": "da8cdc6c34340270eda4508d6d4ab12e7baa73f49da2b8348d58399d7c112203",
-        "author": "1d9aaa9a9b9fff69c691bc646b15d06db2f522ae49d57e78b31667b349b59a39",
-        "combined": "38c5802256d9949e7447b845b1e2fb7b036215995818da4ef767cde284b57fbe",
-        "tokenSignature": "all-are-j-lost-not-r-those-tolkien-wander-who"
-      },
-      "lengths": {
-        "text": 34,
-        "author": 16
-      },
-      "source": {
-        "categoryId": "travel",
-        "sequence": 4
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "5d3d316a2c2f5b9a610a7b626d4b4b6d68eabb4ac9009c71909b1560b7c95876",
-        "updatedAt": "2025-09-20T19:50:40.507Z"
-      }
-    },
     "travel-05": {
       "hashes": {
         "text": "f7d8dc1c82cf3e0ec1b159e4e99de1e8ad9a3266a1cd068f8cb983f9304e5b10",
@@ -5619,28 +5575,6 @@
         "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
         "vectorSha256": "e528902a45b7cdca057daf1ca6f917c9d53b7d9d7b851d3d9ce682e24eba9933",
         "updatedAt": "2025-09-20T19:50:40.507Z"
-      }
-    },
-    "travel-06": {
-      "hashes": {
-        "text": "916601da96b0431bffacbdac13074fd28fd2f69444df6966f24c1e2982eb771f",
-        "author": "bd8d218beeec48b9f2062a9bc477342ad0945fbe02d89b2faf2a3a45e209ad3b",
-        "combined": "b73fd72c4e42674853840619211a5a50c2d69db973d9832a2bb6897d5ee3e40c",
-        "tokenSignature": "all-exist-in-is-live-most-oscar-people-rarest-that-the-thing-to-wilde-world"
-      },
-      "lengths": {
-        "text": 73,
-        "author": 11
-      },
-      "source": {
-        "categoryId": "travel",
-        "sequence": 6
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "b005736f18ddf3fcaea186f6857ccbe5b3811a6a38b6dad97c585eb5e4e5c424",
-        "updatedAt": "2025-09-20T19:50:40.508Z"
       }
     },
     "travel-07": {
@@ -5706,28 +5640,6 @@
         "status": "ready",
         "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
         "vectorSha256": "e28200ff9052c8688edd1a06ef60fe12ed737968dc08b91fa7a3bb449219d015",
-        "updatedAt": "2025-09-20T19:50:40.809Z"
-      }
-    },
-    "travel-10": {
-      "hashes": {
-        "text": "3b482748674f539c3073ad7c1441071ffae5e75b372d2f7092713d2e2720dc1c",
-        "author": "b23a6a8439c0dde5515893e7c90c1e3233b8616e634470f20dc4928bcf3609bc",
-        "combined": "90ec7709c739af02d5316a987c3ee02f458d9225ce18aa5e9e628122bd1610bf",
-        "tokenSignature": "buy-is-makes-only-richer-that-the-thing-travel-unknown-you"
-      },
-      "lengths": {
-        "text": 55,
-        "author": 7
-      },
-      "source": {
-        "categoryId": "travel",
-        "sequence": 10
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "2b2015edf94ae39ba946da43483403c43a03209ee2efbe1a4030e259e996153b",
         "updatedAt": "2025-09-20T19:50:40.809Z"
       }
     },
@@ -5882,28 +5794,6 @@
         "status": "ready",
         "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
         "vectorSha256": "0b14e94132b1f99259a7df188b0c02b14738ab0d7021426b53f1f092e7a38fd1",
-        "updatedAt": "2025-09-20T19:50:41.100Z"
-      }
-    },
-    "travel-18": {
-      "hashes": {
-        "text": "b309d2d0c6b22a15422b1ddbe71c364e136ca1a81d4517a81023e58426ea747d",
-        "author": "c32e664c8565ae26c40eb6601bc9f3fbc051a02ce093babd81646df1c60154a9",
-        "combined": "a32bf1b2b84763fe8903301dfd2d58579f63e18cdee8d388d17ee30fc5b5f926",
-        "tokenSignature": "a-begins-journey-lao-miles-of-single-step-the-thousand-tzu-with"
-      },
-      "lengths": {
-        "text": 58,
-        "author": 7
-      },
-      "source": {
-        "categoryId": "travel",
-        "sequence": 18
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "111c4371f9bf8a4d7ec1e68ff434ad97829d627823851600b7f8b6df615e1a24",
         "updatedAt": "2025-09-20T19:50:41.100Z"
       }
     },
@@ -6105,28 +5995,6 @@
         "updatedAt": "2025-09-20T19:50:41.497Z"
       }
     },
-    "travel-28": {
-      "hashes": {
-        "text": "4a0f67339d7a2ac76df25616b39a65462f951e3eb9efea4c30dc37f1c6d23b0d",
-        "author": "c32e664c8565ae26c40eb6601bc9f3fbc051a02ce093babd81646df1c60154a9",
-        "combined": "3b9aa6f9df4dd0e38a8a67383fd8eee7d04b101b2b0ad2b5e345ee3eb78a0aa9",
-        "tokenSignature": "a-and-arriving-fixed-good-has-intent-is-lao-no-not-on-plans-traveler-tzu"
-      },
-      "lengths": {
-        "text": 66,
-        "author": 7
-      },
-      "source": {
-        "categoryId": "travel",
-        "sequence": 28
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "bd4fe021327f99ed5c790f532ba2925a69022214fbad039ee345aa29f5c5d73c",
-        "updatedAt": "2025-09-20T19:50:41.497Z"
-      }
-    },
     "travel-29": {
       "hashes": {
         "text": "1ab8fd3befbd8e54b10e7b6d682b3f06bed7d01b4c33eef9fd34992351e631fa",
@@ -6146,28 +6014,6 @@
         "status": "ready",
         "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
         "vectorSha256": "5a6706477fc40f40738b430a5bdf7111c8780abf881e495fe47a519908b8b98c",
-        "updatedAt": "2025-09-20T19:50:41.497Z"
-      }
-    },
-    "travel-30": {
-      "hashes": {
-        "text": "5a232d5188f65038f16dc646f276ed56d6c4cfc582435240619b3f32781316c7",
-        "author": "7ed49fd05f369e68ccd924ee9b7f31c0e055a75746743f75aeda21f85bb5a1e4",
-        "combined": "26b7abaf1c0c508016ecfc8763f3d130d24da072976340a869a766d61463ddd6",
-        "tokenSignature": "a-and-augustine-book-do-is-not-one-only-page-read-saint-the-those-travel-who-world"
-      },
-      "lengths": {
-        "text": 68,
-        "author": 15
-      },
-      "source": {
-        "categoryId": "travel",
-        "sequence": 30
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "ad41030bd9048a6428dd2ad7a099cea06c5d802ea8368aa3f85bad6f0386d908",
         "updatedAt": "2025-09-20T19:50:41.497Z"
       }
     },
@@ -6237,28 +6083,6 @@
         "updatedAt": "2025-09-20T19:50:41.690Z"
       }
     },
-    "travel-34": {
-      "hashes": {
-        "text": "1cfe1bdb588c9c4dad225e8bb4a8c50c93559b9f2a08b2716428e8a58ec49b14",
-        "author": "f92ee0d2e3185db5930c5f76c85df774aca6ed580fe9619b0724b5798aa137af",
-        "combined": "24228a0881c37f880d42a3e3e84a11810c6941786eb3cacfb1b71d0c37833bd8",
-        "tokenSignature": "a-been-before-dalai-go-have-lama-never-once-somewhere-year-you"
-      },
-      "lengths": {
-        "text": 53,
-        "author": 10
-      },
-      "source": {
-        "categoryId": "travel",
-        "sequence": 34
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "38d9b92b88a60fbede6f00b5e94543332763a28344b8d3698c5f296f7f0d1769",
-        "updatedAt": "2025-09-20T19:50:41.690Z"
-      }
-    },
     "travel-35": {
       "hashes": {
         "text": "3c1864a4671f4eba71195422e681c72877b1ba9a14f427ca88463b56b1b9dbcd",
@@ -6325,28 +6149,6 @@
         "updatedAt": "2025-09-20T19:50:41.691Z"
       }
     },
-    "travel-38": {
-      "hashes": {
-        "text": "653ed6356cf740458a52c6c5f2533715b3c54d702fadb600c84b0c176fa702c1",
-        "author": "4a14ef61e1a959fecc9414c129a719873307fcbe0d5d9175926b9ad360443b75",
-        "combined": "33cb5a66c271007dbf3e16eab8648e1431056e13d8526122a9045b790a2a5efc",
-        "tokenSignature": "chief-footprints-leave-memories-only-seattle-take"
-      },
-      "lengths": {
-        "text": 42,
-        "author": 13
-      },
-      "source": {
-        "categoryId": "travel",
-        "sequence": 38
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "0651e18a0bbc0ad85c4762654641361ec70e5fdf4b96cd7570b284d49fe4c1c9",
-        "updatedAt": "2025-09-20T19:50:41.691Z"
-      }
-    },
     "travel-39": {
       "hashes": {
         "text": "d4160dfb07bc90d08096972a9ab88c56225c8cd129be869e32464b8ae2a83299",
@@ -6410,28 +6212,6 @@
         "status": "ready",
         "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
         "vectorSha256": "749142b5a85cdb700b0b4413ac607f8180f127cb8ba17ee095492311331c58e0",
-        "updatedAt": "2025-09-20T19:50:41.984Z"
-      }
-    },
-    "travel-42": {
-      "hashes": {
-        "text": "0175f08b4e899d8aaaeb4d6d11e04ec289d04ec395cc65cfe506455aeb54fd63",
-        "author": "9e4afb7a4c065e73a23750df64d53f907d5bb686c85f40f988c23d1dc38985ee",
-        "combined": "1fbb961620b00d6f8e01083bdc137585f55958881ad2da37207c6955462dee6f",
-        "tokenSignature": "affair-anywhere-but-for-go-great-i-is-louis-move-my-not-part-robert-s-sake-stevenson-the-to-travel"
-      },
-      "lengths": {
-        "text": 109,
-        "author": 22
-      },
-      "source": {
-        "categoryId": "travel",
-        "sequence": 42
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "bc3fbeb8055ca33aead6f181249aa1579c45f318b8d5f396edae40c056006e88",
         "updatedAt": "2025-09-20T19:50:41.984Z"
       }
     },
@@ -7004,28 +6784,6 @@
         "status": "ready",
         "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
         "vectorSha256": "78dc2d024207b1f419f3dde2200284f7bcb1d50774a75bdb9b2b4c2d708a6cda",
-        "updatedAt": "2025-09-20T19:50:42.741Z"
-      }
-    },
-    "humor-19": {
-      "hashes": {
-        "text": "b9132bd529646b173eea553a6021a26401b4b49d7b5943135d95d06869c39595",
-        "author": "3ef34cae2b9ec3764d5d7848f236c166623056d980b10eec3bc896ede8ec9b95",
-        "combined": "081597740b0e83393e0b434be3a82b1501649a0f9836394dd65a956ff8101592",
-        "tokenSignature": "and-ask-dreams-em-following-going-hedberg-hook-i-just-later-m-man-mitch-my-of-re-sick-they-to-up-where-with"
-      },
-      "lengths": {
-        "text": 106,
-        "author": 13
-      },
-      "source": {
-        "categoryId": "humor",
-        "sequence": 19
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "2baa50180a441f5bddfd7b5b3d4ed5fd4bac93b58d6a96f11db2391874856b58",
         "updatedAt": "2025-09-20T19:50:42.741Z"
       }
     },
@@ -7623,28 +7381,6 @@
         "updatedAt": "2025-09-20T19:50:43.895Z"
       }
     },
-    "humor-47": {
-      "hashes": {
-        "text": "86ba137c12e59e4fd9bfd07ae035a002d49941153f8e2a8a6c99c12c03ea1c6e",
-        "author": "f004fda394ac012de8eec32d3bb565b05dbbf31b1f2c61049913d33fa89aa1b3",
-        "combined": "8a579abfbc7db58068aad6e4d62c93713ae9513a55b03af7ea85ff0fa333ef73",
-        "tokenSignature": "as-family-for-fun-is-jerry-no-seinfeld-such-the-there-thing-whole"
-      },
-      "lengths": {
-        "text": 51,
-        "author": 14
-      },
-      "source": {
-        "categoryId": "humor",
-        "sequence": 47
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "fe040212bdba33a587210859d7ee84943d47db9cff53b53b1afb162beee85e09",
-        "updatedAt": "2025-09-20T19:50:43.895Z"
-      }
-    },
     "humor-48": {
       "hashes": {
         "text": "41a3d5e9b7ace0d1c401277528e51f73d08494764e440873b135cfa9629dd938",
@@ -7686,28 +7422,6 @@
         "status": "ready",
         "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
         "vectorSha256": "00b1f5e6df214bfa50ddb306449e979c2079486454bf60c2b6e45c93c0e6de18",
-        "updatedAt": "2025-09-20T19:50:43.896Z"
-      }
-    },
-    "humor-50": {
-      "hashes": {
-        "text": "017f9bc7829caf932c794515a375b72679e43f193b21153e81bd3fe7a883ff01",
-        "author": "9cfbe59c55b48e85628cd9f4412fea9411824e0a83ef8984d747cd4554c6b34f",
-        "combined": "308a126ca91fd83c35c4c93a05072c139ca396405e04a0f838a5c6ae37ff3054",
-        "tokenSignature": "a-another-burns-caring-city-close-family-george-happiness-having-in-is-knit-large-loving"
-      },
-      "lengths": {
-        "text": 79,
-        "author": 12
-      },
-      "source": {
-        "categoryId": "humor",
-        "sequence": 50
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "775765c3a98b66eb8888742fdd2deb366d94830c01095d8e3ae3a15ff8611f29",
         "updatedAt": "2025-09-20T19:50:43.896Z"
       }
     },
@@ -8478,28 +8192,6 @@
         "status": "ready",
         "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
         "vectorSha256": "d71defb0ee73162fea8b988519e64aad976e96586e9f74f2f976aad0bd494644",
-        "updatedAt": "2025-09-20T19:50:45.478Z"
-      }
-    },
-    "money-36": {
-      "hashes": {
-        "text": "747ae8b14480b85dd080107272d148274f1d0e14bd04c2f1dff98c8562541278",
-        "author": "43cf894058901f3f3794d6784735a5cdc6cbbe7fe57f7140c39cda21c2748f4b",
-        "combined": "36b4c768628d68c7a459a2e1dc7b08705d4151a32fce318a7567200bd0aedd7c",
-        "tokenSignature": "achievement-creative-d-effort-franklin-happiness-in-is-it-joy-lies-mere-money-not-of-possession-roosevelt-the-thrill"
-      },
-      "lengths": {
-        "text": 118,
-        "author": 21
-      },
-      "source": {
-        "categoryId": "money",
-        "sequence": 36
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "ed52d97541072ab454d833631631beb34f8b529af0d99aa76843385679e21e3f",
         "updatedAt": "2025-09-20T19:50:45.478Z"
       }
     },
@@ -10703,28 +10395,6 @@
         "updatedAt": "2025-09-20T19:50:48.814Z"
       }
     },
-    "love-38": {
-      "hashes": {
-        "text": "e8b9c9e9306cefabf75694f76ec6699216b0404c4442949ccbe953f9931b4bd6",
-        "author": "c23d6f724b6e9b33f972149fb231457e8e2575829df8effa35a7df3fc94ac412",
-        "combined": "27edce5db63055131fadac828191a51c4668f68902a71de6455bd772dfbedc60",
-        "tokenSignature": "always-better-it-jack-johnson-re-s-together-we-when"
-      },
-      "lengths": {
-        "text": 39,
-        "author": 12
-      },
-      "source": {
-        "categoryId": "love",
-        "sequence": 38
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "609b175747474f8179d3a2048f0a15e7dc9cbdeda1f0078b76712a2bcf5c0abd",
-        "updatedAt": "2025-09-20T19:50:48.815Z"
-      }
-    },
     "love-39": {
       "hashes": {
         "text": "ac5bf6324674959980607c4edfc3359ccbacd686179fe3bd19bddcef8f31c2e0",
@@ -10832,28 +10502,6 @@
         "status": "ready",
         "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
         "vectorSha256": "ebe8b0201cb4dab8190e443893ab45fd804a575c53274d009d358fde951e0d1a",
-        "updatedAt": "2025-09-20T19:50:49.008Z"
-      }
-    },
-    "love-44": {
-      "hashes": {
-        "text": "33212cb13863dd3d3ac6d3eb6406997cf381a4e2979aa02f443f014448526afe",
-        "author": "10ac4a2d57725101b7e2d4063398bb7dbf59d9557232c6f4a366c61641dce8d7",
-        "combined": "fca569cad5d99284432ecc662aa5f9c3188fa3fd251de05f566f70e24f68431c",
-        "tokenSignature": "and-angelita-even-i-lim-loved-more-not-perfect-saw-so-that-then-were-you"
-      },
-      "lengths": {
-        "text": 112,
-        "author": 12
-      },
-      "source": {
-        "categoryId": "love",
-        "sequence": 44
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "908cb6754262d67eadd58c399999a38460d8132bc321d5ed1a49ff2a839fac7e",
         "updatedAt": "2025-09-20T19:50:49.008Z"
       }
     },
@@ -11097,28 +10745,6 @@
         "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
         "vectorSha256": "ff922ae549ea2c6cce48e6616f17508210aaf1e909a1c0b674158eacc285d8d7",
         "updatedAt": "2025-09-20T19:50:49.295Z"
-      }
-    },
-    "positive-03": {
-      "hashes": {
-        "text": "916601da96b0431bffacbdac13074fd28fd2f69444df6966f24c1e2982eb771f",
-        "author": "bd8d218beeec48b9f2062a9bc477342ad0945fbe02d89b2faf2a3a45e209ad3b",
-        "combined": "b73fd72c4e42674853840619211a5a50c2d69db973d9832a2bb6897d5ee3e40c",
-        "tokenSignature": "all-exist-in-is-live-most-oscar-people-rarest-that-the-thing-to-wilde-world"
-      },
-      "lengths": {
-        "text": 73,
-        "author": 11
-      },
-      "source": {
-        "categoryId": "positive",
-        "sequence": 3
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-        "vectorSha256": "2acc75f687fd1d56cc1dad843b633c778288daedd650da09c3624c0e49d0fc78",
-        "updatedAt": "2025-09-20T19:50:49.563Z"
       }
     },
     "positive-04": {

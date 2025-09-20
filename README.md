@@ -35,3 +35,5 @@ This starts a server on <http://localhost:3000> (or the next available port).
   `--provider=hfspace --model=bienkieu/sentence-embedding`, which pipes batches through the BienKieu Hugging Face Space
   (`sentence-transformers/all-MiniLM-L6-v2`) using `curl`—no API key required. Keep `--batch-size` at 8 or lower to avoid the
   shared queue timing out.
+- Apply the curated duplicate removals with `node tools/prune-duplicate-records.js`. Use `--dry-run` to preview how many
+  jokes, quotes, and embedding vectors would be pruned before writing the updated datasets, manifests, and stores back to disk.
