@@ -21,3 +21,14 @@ npx serve .
 ```
 
 This starts a server on <http://localhost:3000> (or the next available port).
+
+## Data maintenance
+
+- Run `node tools/update-content-metadata.js` after refreshing the jokes or quotes datasets to assign deterministic IDs and
+  regenerate the manifest files under `data/`. The script rewrites `apps/jokes/jokes.js` and `apps/quotes/quotes-data.js` in the
+  house style and emits `data/jokes-manifest.json` / `data/quotes-manifest.json` with normalized hashes and embedding metadata
+  placeholders for downstream deduplication workflows.
+- Use `node tools/review-content-similarity.js` to fetch embeddings from public APIs (OpenAI, Cohere, Hugging Face, or the
+  built-in deterministic `fake` provider), persist them under `data/*-embeddings.json`, and surface cosine-similar pairs for
+  manual review. Pass `--write` to persist embeddings, `--update-manifest` to sync embedding metadata back into the manifests,
+  and `--report=reports/{dataset}-duplicates.json` to generate JSON reports for auditing runs.
