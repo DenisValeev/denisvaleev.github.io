@@ -1,0 +1,37 @@
+name: Merge PR into master (prefer PR changes)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  merge-prefer-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Check open PRs
+        id: check
+        run: |
+          prs=$(gh pr list --json number,headRefName --jq '.[]')
+          count=$(echo "$prs" | jq -s 'length')
+          if [ "$count" -ne 1 ]; then
+            echo "❌ There are $count open PRs. Aborting."
+            exit 1
+          fi
+          branch=$(echo "$prs" | jq -r '.headRefName')
+          echo "branch=$branch" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Merge PR branch into master
+        run: |
+          git fetch origin
+          git checkout master
+          git merge -s recursive -X theirs origin/${{ steps.check.outputs.branch }} || true
+          git push origin master
