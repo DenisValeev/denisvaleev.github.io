@@ -8,8 +8,41 @@
     :root {
       color-scheme: light dark;
       font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-      background-color: #10131a;
-      color: #f5f7ff;
+      --body-base: #f5f7ff;
+      --body-gradient: radial-gradient(circle at top, rgba(85, 112, 225, 0.16), rgba(15, 21, 40, 0.08) 55%);
+      --text-primary: #10172a;
+      --text-secondary: rgba(16, 23, 42, 0.65);
+      --surface: rgba(255, 255, 255, 0.94);
+      --surface-shadow: 0 28px 70px rgba(15, 23, 42, 0.14);
+      --surface-border: rgba(15, 23, 42, 0.08);
+      --card-background: rgba(255, 255, 255, 0.88);
+      --card-hover-background: rgba(255, 255, 255, 0.96);
+      --card-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+      --card-hover-shadow: 0 26px 52px rgba(15, 23, 42, 0.16);
+      --accent: #4a63ff;
+      --accent-contrast: #0b1020;
+      --dev-link-background: rgba(74, 99, 255, 0.12);
+      --dev-link-hover: rgba(74, 99, 255, 0.18);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --body-base: #090d18;
+        --body-gradient: radial-gradient(circle at top, rgba(72, 101, 216, 0.28), rgba(9, 17, 35, 0.92) 60%);
+        --text-primary: #f5f7ff;
+        --text-secondary: rgba(245, 247, 255, 0.7);
+        --surface: rgba(12, 17, 31, 0.85);
+        --surface-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+        --surface-border: rgba(255, 255, 255, 0.04);
+        --card-background: rgba(255, 255, 255, 0.06);
+        --card-hover-background: rgba(255, 255, 255, 0.1);
+        --card-shadow: 0 20px 40px rgba(12, 18, 40, 0.3);
+        --card-hover-shadow: 0 28px 54px rgba(12, 18, 40, 0.38);
+        --accent: #9ba9ff;
+        --accent-contrast: #0a1020;
+        --dev-link-background: rgba(255, 255, 255, 0.08);
+        --dev-link-hover: rgba(255, 255, 255, 0.12);
+      }
     }
 
     body {
@@ -18,20 +51,42 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: radial-gradient(circle at top, rgba(72, 101, 216, 0.35), rgba(9, 17, 35, 0.95) 55%);
-      padding: 24px;
+      background: var(--body-gradient);
+      background-color: var(--body-base);
+      padding: clamp(24px, 5vw, 56px);
+      color: var(--text-primary);
     }
 
     main {
       width: min(960px, 100%);
-      background: rgba(12, 17, 31, 0.85);
-      border-radius: 24px;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
-      backdrop-filter: blur(12px);
-      padding: clamp(32px, 5vw, 56px);
+      background: var(--surface);
+      border-radius: 26px;
+      box-shadow: var(--surface-shadow);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--surface-border);
+      padding: clamp(32px, 5vw, 60px);
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: clamp(28px, 4vw, 44px);
+    }
+
+    header.site-header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    header.site-header h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 2vw + 1.4rem, 2.6rem);
+      font-weight: 700;
+    }
+
+    header.site-header p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
     ul.apps {
@@ -43,98 +98,140 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 
-    li.app-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 18px;
-      padding: 24px;
+    ul.apps li {
+      margin: 0;
+    }
+
+    a.app-card {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-    }
-
-    li.app-card:hover {
-      transform: translateY(-6px);
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 20px 40px rgba(14, 23, 53, 0.35);
-    }
-
-    li.app-card h2 {
-      margin: 0;
-      font-size: 1.35rem;
-      font-weight: 600;
-    }
-
-    li.app-card p {
-      margin: 0;
-      color: rgba(245, 247, 255, 0.72);
-      line-height: 1.5;
-    }
-
-    a.launch {
-      align-self: flex-start;
+      gap: 14px;
+      padding: 24px;
+      border-radius: 20px;
+      background: var(--card-background);
       text-decoration: none;
-      background: linear-gradient(135deg, #4b6bff, #8b9bff);
-      color: #0a1020;
+      color: inherit;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      border: 1px solid transparent;
+    }
+
+    a.app-card:hover,
+    a.app-card:focus-visible {
+      transform: translateY(-6px);
+      box-shadow: var(--card-hover-shadow);
+      background: var(--card-hover-background);
+      outline: none;
+      border-color: rgba(115, 135, 255, 0.45);
+    }
+
+    a.app-card h2 {
+      margin: 0;
+      font-size: 1.32rem;
       font-weight: 600;
-      padding: 10px 18px;
-      border-radius: 999px;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      box-shadow: 0 12px 30px rgba(76, 108, 255, 0.4);
     }
 
-    a.launch:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 36px rgba(76, 108, 255, 0.55);
+    a.app-card p {
+      margin: 0;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      font-size: 0.98rem;
     }
 
-    a.launch:focus-visible,
-    a.dev-link:focus-visible {
-      outline: 2px solid rgba(139, 155, 255, 0.9);
-      outline-offset: 3px;
+    .app-card__cta {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 0.95rem;
+    }
+
+    .app-card__cta svg {
+      width: 18px;
+      height: 18px;
     }
 
     section.dev-tools {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
+      gap: 12px;
     }
 
     a.dev-link {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      padding: 14px 18px;
+      justify-content: center;
+      padding: 12px 18px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--dev-link-background);
       color: inherit;
       text-decoration: none;
       font-weight: 500;
-      transition: background 0.18s ease, box-shadow 0.18s ease;
-      box-shadow: 0 12px 32px rgba(12, 18, 40, 0.25);
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
     }
 
-    a.dev-link:hover {
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 18px 40px rgba(12, 18, 40, 0.35);
+    a.dev-link:hover,
+    a.dev-link:focus-visible {
+      background: var(--dev-link-hover);
+      transform: translateY(-2px);
+      outline: none;
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.18);
+    }
+
+    a.dev-link:focus-visible,
+    a.app-card:focus-visible {
+      box-shadow: 0 0 0 3px rgba(121, 134, 255, 0.35), inset 0 0 0 1px rgba(121, 134, 255, 0.6);
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding: clamp(24px, 8vw, 36px);
+      }
+
+      a.app-card {
+        padding: 20px;
+      }
+
+      header.site-header h1 {
+        font-size: clamp(1.6rem, 4vw + 1rem, 2.2rem);
+      }
     }
   </style>
 </head>
 <body>
   <main aria-label="Apps">
+    <header class="site-header">
+      <h1>Toolbox</h1>
+      <p>Select an app to explore a shuffled deck or jump into a utility view.</p>
+    </header>
     <ul class="apps">
-      <li class="app-card">
-        <h2>Random Jokes</h2>
-        <p>Shuffle through developer-friendly jokes and reveal punchlines one by one or go back if you missed the setup.</p>
-        <a class="launch" href="apps/jokes/">Open app</a>
+      <li>
+        <a class="app-card" href="apps/jokes/">
+          <h2>Random Jokes</h2>
+          <p>Shuffle developer-friendly jokes, step back for another look, and reveal punchlines when you are ready.</p>
+          <span class="app-card__cta">Open app
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.47 5.97a.75.75 0 0 1 1.06 0l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 1 1-1.06-1.06L13.94 12 8.47 6.53a.75.75 0 0 1 0-1.06Z"/></svg>
+          </span>
+        </a>
       </li>
-      <li class="app-card">
-        <h2>Proverbs</h2>
-        <p>Walk through a constantly shuffled deck of proverbs with quick previous and next controls.</p>
-        <a class="launch" href="apps/proverbs/">Open app</a>
+      <li>
+        <a class="app-card" href="apps/proverbs/">
+          <h2>Proverbs</h2>
+          <p>Browse a constantly shuffled deck of proverbs with quick controls and keyboard navigation.</p>
+          <span class="app-card__cta">Open app
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.47 5.97a.75.75 0 0 1 1.06 0l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 1 1-1.06-1.06L13.94 12 8.47 6.53a.75.75 0 0 1 0-1.06Z"/></svg>
+          </span>
+        </a>
       </li>
     </ul>
-    <section class="dev-tools">
+    <section class="dev-tools" aria-label="Utility pages">
       <a class="dev-link" href="apps/value-formatter/">Value Formatter — Quick mapping for long lists.</a>
+      <a class="dev-link" href="apps/jokes/all-jokes.html">All Jokes — table view.</a>
+      <a class="dev-link" href="apps/jokes/all-jokes-compact.html">All Jokes — compact table.</a>
     </section>
   </main>
 </body>
