@@ -94,18 +94,26 @@
       display: block;
     }
 
-    .card__meta {
-      margin: 0;
-      font-size: 0.98rem;
-      color: var(--text-secondary);
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
     }
 
-    .controls {
+    .controls__nav {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
+      width: 100%;
+    }
+
+    .controls__punchline {
+      display: flex;
+      justify-content: center;
+      width: 100%;
     }
 
     button {
@@ -171,14 +179,17 @@
     <article class="card" aria-live="polite">
       <div class="card__content">
         <p id="joke-setup">Loading joke…</p>
-        <p id="joke-punchline" aria-hidden="true">Punchline</p>
+        <p id="joke-punchline" aria-hidden="true"></p>
       </div>
-      <p class="card__meta" id="card-status">Punchline hidden — reveal when you're ready.</p>
     </article>
     <div class="controls">
-      <button id="prev-button" type="button" aria-label="Show previous joke">⟵ Previous</button>
-      <button id="reveal-button" class="secondary" type="button" aria-pressed="false">Reveal punchline</button>
-      <button id="next-button" type="button" aria-label="Show next joke">Next ⟶</button>
+      <div class="controls__nav">
+        <button id="prev-button" type="button" aria-label="Show previous joke">⟵ Previous</button>
+        <button id="next-button" type="button" aria-label="Show next joke">Next ⟶</button>
+      </div>
+      <div class="controls__punchline">
+        <button id="reveal-button" class="secondary" type="button" aria-pressed="false">Punchline</button>
+      </div>
     </div>
   </main>
   <script src="jokes.js" defer></script>

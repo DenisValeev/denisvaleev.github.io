@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Jokes</title>
+  <title>All Proverbs</title>
   <style>
     :root {
       color-scheme: light dark;
@@ -31,10 +31,6 @@
       td,
       table {
         border-color: rgba(255, 255, 255, 0.2);
-      }
-
-      .punchline-row td {
-        background: rgba(255, 255, 255, 0.08);
       }
     }
 
@@ -83,18 +79,8 @@
       white-space: nowrap;
     }
 
-    .index-spacer {
-      width: 3.5rem;
-    }
-
-    .setup-cell,
-    .punchline-cell {
+    .text-cell {
       white-space: pre-wrap;
-    }
-
-    .punchline-row td {
-      font-style: italic;
-      background: rgba(48, 86, 211, 0.08);
     }
 
     caption {
@@ -106,19 +92,19 @@
 </head>
 <body>
   <main>
-    <h1>All Jokes</h1>
-    <p>Every joke from the dataset in one place. Use your browser search to find a favourite.</p>
-    <p class="count"><span data-count>0</span> jokes</p>
+    <h1>All Proverbs</h1>
+    <p>Browse the shuffled list of proverbs pulled from the dataset.</p>
+    <p class="count"><span data-count>0</span> proverbs</p>
     <table>
-      <caption>Setup followed by punchline</caption>
+      <caption>Complete list of proverbs</caption>
       <tbody>
         <tr>
-          <td colspan="2">Loading jokes…</td>
+          <td colspan="2">Loading proverbs…</td>
         </tr>
       </tbody>
     </table>
   </main>
-  <script src="jokes.js" defer></script>
+  <script src="proverbs-data.js" defer></script>
   <script src="render-all.js" defer></script>
 </body>
 </html>
