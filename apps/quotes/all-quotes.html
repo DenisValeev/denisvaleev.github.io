@@ -10,6 +10,7 @@
       font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       --author-font: "Georgia", "Times New Roman", serif;
       --author-color: rgba(32, 32, 32, 0.65);
+      --meta-background: rgba(48, 86, 211, 0.08);
     }
 
     body {
@@ -27,13 +28,13 @@
 
       :root {
         --author-color: rgba(241, 245, 255, 0.7);
+        --meta-background: rgba(255, 255, 255, 0.08);
       }
 
       table {
         background: rgba(255, 255, 255, 0.04);
       }
 
-      th,
       td,
       table {
         border-color: rgba(255, 255, 255, 0.2);
@@ -67,7 +68,6 @@
       background: rgba(255, 255, 255, 0.9);
     }
 
-    th,
     td {
       padding: 12px 14px;
       border: 1px solid rgba(0, 0, 0, 0.15);
@@ -75,25 +75,37 @@
       text-align: left;
     }
 
-    th {
-      font-weight: 600;
-      background: rgba(0, 0, 0, 0.04);
+    .quote-cell {
+      white-space: pre-wrap;
+      line-height: 1.55;
     }
 
-    .text-cell {
-      white-space: pre-wrap;
+    .meta-row td {
+      font-family: var(--author-font);
+      color: var(--author-color);
+      text-align: right;
+      background: var(--meta-background);
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+    }
+
+    .meta-author {
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .meta-category {
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
     }
 
     caption {
       text-align: left;
       font-weight: 600;
       margin-bottom: 0.75rem;
-    }
-
-    .author-cell {
-      font-family: var(--author-font);
-      color: var(--author-color);
-      text-align: right;
     }
   </style>
 </head>
@@ -103,17 +115,10 @@
     <p>Flip through every quote across the themed decks in one place.</p>
     <p class="count"><span data-count>0</span> quotes</p>
     <table>
-      <caption>Complete list of quotes</caption>
-      <thead>
-        <tr>
-          <th scope="col">Category</th>
-          <th scope="col">Quote</th>
-          <th scope="col">Author</th>
-        </tr>
-      </thead>
+      <caption>Quote followed by author and category</caption>
       <tbody>
         <tr>
-          <td colspan="3">Loading quotes…</td>
+          <td>Loading quotes…</td>
         </tr>
       </tbody>
     </table>
