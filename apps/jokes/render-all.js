@@ -37,7 +37,6 @@
   if (!deck.length) {
     const emptyRow = document.createElement('tr');
     const emptyCell = document.createElement('td');
-    emptyCell.colSpan = 2;
     emptyCell.textContent = 'No jokes available.';
     emptyRow.appendChild(emptyCell);
     tbody.appendChild(emptyRow);
@@ -46,32 +45,22 @@
 
   const fragment = document.createDocumentFragment();
 
-  deck.forEach((entry, idx) => {
+  deck.forEach((entry) => {
     const setupRow = document.createElement('tr');
-
-    const indexCell = document.createElement('th');
-    indexCell.scope = 'row';
-    indexCell.className = 'index-cell';
-    indexCell.textContent = String(idx + 1);
 
     const setupCell = document.createElement('td');
     setupCell.className = 'setup-cell';
     setupCell.textContent = entry.joke;
 
-    setupRow.appendChild(indexCell);
     setupRow.appendChild(setupCell);
 
     const punchlineRow = document.createElement('tr');
     punchlineRow.className = 'punchline-row';
 
-    const spacerCell = document.createElement('td');
-    spacerCell.className = 'index-spacer';
-    spacerCell.setAttribute('aria-hidden', 'true');
     const punchlineCell = document.createElement('td');
     punchlineCell.className = 'punchline-cell';
     punchlineCell.textContent = formatPunchline(entry.punchline);
 
-    punchlineRow.appendChild(spacerCell);
     punchlineRow.appendChild(punchlineCell);
 
     fragment.appendChild(setupRow);

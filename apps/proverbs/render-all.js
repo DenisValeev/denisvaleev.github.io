@@ -30,7 +30,6 @@
   if (!deck.length) {
     const emptyRow = document.createElement('tr');
     const emptyCell = document.createElement('td');
-    emptyCell.colSpan = 2;
     emptyCell.textContent = 'No proverbs available.';
     emptyRow.appendChild(emptyCell);
     tbody.appendChild(emptyRow);
@@ -39,19 +38,13 @@
 
   const fragment = document.createDocumentFragment();
 
-  deck.forEach((entry, idx) => {
+  deck.forEach((entry) => {
     const row = document.createElement('tr');
-
-    const indexCell = document.createElement('th');
-    indexCell.scope = 'row';
-    indexCell.className = 'index-cell';
-    indexCell.textContent = String(idx + 1);
 
     const textCell = document.createElement('td');
     textCell.className = 'text-cell';
     textCell.textContent = entry.text;
 
-    row.appendChild(indexCell);
     row.appendChild(textCell);
 
     fragment.appendChild(row);
