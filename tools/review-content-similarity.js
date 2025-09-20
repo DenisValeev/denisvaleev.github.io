@@ -15,6 +15,7 @@ const rootDir = path.join(__dirname, '..');
 function parseArgs(argv) {
   const options = {
     datasets: new Set(),
+    candidateFiles: new Map(),
     provider: null,
     model: null,
     batchSize: 16,
@@ -45,6 +46,33 @@ function parseArgs(argv) {
     }
     if (arg.startsWith('--provider=')) {
       options.provider = arg.slice('--provider='.length).trim().toLowerCase();
+      return;
+    }
+    if (arg.startsWith('--candidates=')) {
+      const value = arg.slice('--candidates='.length).trim();
+      if (value) {
+        value.split(',').forEach((segment) => {
+          const trimmed = segment.trim();
+          if (!trimmed) {
+            return;
+          }
+          const separator = trimmed.indexOf(':');
+          if (separator === -1) {
+            console.warn(`Ignoring --candidates entry without dataset prefix: ${trimmed}`);
+            return;
+          }
+          const dataset = trimmed.slice(0, separator).trim().toLowerCase();
+          const filePath = trimmed.slice(separator + 1).trim();
+          if (!dataset || !filePath) {
+            return;
+          }
+          if (dataset !== 'jokes' && dataset !== 'quotes') {
+            console.warn(`Ignoring unsupported dataset for --candidates: ${dataset}`);
+            return;
+          }
+          options.candidateFiles.set(dataset, filePath);
+        });
+      }
       return;
     }
     if (arg.startsWith('--model=')) {
@@ -198,6 +226,98 @@ function loadDataset(name) {
   }
 
   throw new Error(`Unsupported dataset: ${name}`);
+}
+
+function toStringOrEmpty(value) {
+  if (value === undefined || value === null) {
+    return '';
+  }
+  return String(value);
+}
+
+function prepareJokeCandidate(entry, index) {
+  if (!entry || typeof entry !== 'object') {
+    return null;
+  }
+  const idBase = typeof entry.id === 'string' ? entry.id.trim() : '';
+  const id = idBase || `candidate-${String(index + 1).padStart(3, '0')}`;
+  const labelBase = typeof entry.label === 'string' ? entry.label.trim() : '';
+  const label = labelBase || id;
+  const setup = toStringOrEmpty(entry.joke || entry.setup || '').trim();
+  const punchline = toStringOrEmpty(entry.punchline || entry.answer || '').trim();
+  if (!setup && !punchline) {
+    return null;
+  }
+  const embeddingInput = [setup, punchline].filter(Boolean).join(' \u2022 ');
+  return {
+    id,
+    label,
+    joke: setup,
+    punchline,
+    embeddingInput,
+    normalized: normalizeText(`${setup} ${punchline}`),
+    textHash: sha256(embeddingInput),
+    source: entry,
+  };
+}
+
+function prepareQuoteCandidate(entry, index) {
+  if (!entry || typeof entry !== 'object') {
+    return null;
+  }
+  const idBase = typeof entry.id === 'string' ? entry.id.trim() : '';
+  const id = idBase || `candidate-${String(index + 1).padStart(3, '0')}`;
+  const labelBase = typeof entry.label === 'string' ? entry.label.trim() : '';
+  const label = labelBase || id;
+  const text = toStringOrEmpty(entry.text).trim();
+  const author = toStringOrEmpty(entry.author).trim();
+  if (!text) {
+    return null;
+  }
+  const embeddingInput = author ? `${text} — ${author}` : text;
+  return {
+    id,
+    label,
+    text,
+    author,
+    embeddingInput,
+    normalized: normalizeText(`${text} ${author}`),
+    textHash: sha256(embeddingInput),
+    source: entry,
+  };
+}
+
+function loadCandidateFile(datasetName, filePath) {
+  const absolutePath = path.isAbsolute(filePath) ? filePath : path.join(rootDir, filePath);
+  if (!fs.existsSync(absolutePath)) {
+    throw new Error(`[${datasetName}] Candidate file not found: ${filePath}`);
+  }
+  let parsed;
+  try {
+    parsed = JSON.parse(fs.readFileSync(absolutePath, 'utf8'));
+  } catch (error) {
+    throw new Error(`[${datasetName}] Failed to parse candidate file ${filePath}: ${error.message}`);
+  }
+  if (!Array.isArray(parsed)) {
+    throw new Error(`[${datasetName}] Candidate file ${filePath} must contain an array of entries.`);
+  }
+  const prepared = [];
+  parsed.forEach((entry, index) => {
+    let candidate = null;
+    if (datasetName === 'jokes') {
+      candidate = prepareJokeCandidate(entry, index);
+    } else if (datasetName === 'quotes') {
+      candidate = prepareQuoteCandidate(entry, index);
+    }
+    if (candidate) {
+      prepared.push(candidate);
+    }
+  });
+  return {
+    absolutePath,
+    originalLength: parsed.length,
+    entries: prepared,
+  };
 }
 
 function loadManifest(name) {
@@ -709,6 +829,110 @@ function findSimilarPairs(datasetName, entries, manifest, store, threshold, opti
   return matches;
 }
 
+async function embedCandidateEntries(datasetName, candidates, options) {
+  if (!candidates.length) {
+    return null;
+  }
+  if (!options.provider) {
+    throw new Error(`[${datasetName}] --provider is required when using --candidates.`);
+  }
+  if (options.dryRun) {
+    console.log(`[${datasetName}] Dry run: would fetch embeddings for ${candidates.length} candidate entr${candidates.length === 1 ? 'y' : 'ies'} from ${options.provider}.`);
+    return null;
+  }
+  const batches = chunkArray(candidates, options.batchSize);
+  console.log(`[${datasetName}] Fetching embeddings for ${candidates.length} candidate entr${candidates.length === 1 ? 'y' : 'ies'} in ${batches.length} batch${batches.length === 1 ? '' : 'es'}.`);
+  const vectors = [];
+  let usedModel = null;
+  let dimensions = null;
+  for (let i = 0; i < batches.length; i += 1) {
+    const batch = batches[i];
+    const texts = batch.map((candidate) => candidate.embeddingInput);
+    const { vectors: batchVectors, model, dimensions: batchDimensions } = await fetchEmbeddings(options.provider, options.model, texts, options);
+    if (!usedModel) {
+      usedModel = model;
+    }
+    if (!dimensions) {
+      dimensions = batchDimensions;
+    }
+    batchVectors.forEach((vector) => {
+      vectors.push(vector);
+    });
+  }
+  return { vectors, model: usedModel, dimensions };
+}
+
+function compareCandidateVectors(entries, store, candidates, candidateVectors, threshold) {
+  const datasetVectors = new Map();
+  Object.entries(store.records || {}).forEach(([id, record]) => {
+    if (!record || !record.vector) {
+      return;
+    }
+    datasetVectors.set(id, base64ToVector(record.vector));
+  });
+
+  const entryMap = new Map();
+  entries.forEach((entry) => {
+    entryMap.set(entry.id, entry);
+  });
+
+  const datasetMatches = [];
+  candidates.forEach((candidate, index) => {
+    const vectorA = candidateVectors[index];
+    if (!vectorA || !vectorA.length) {
+      return;
+    }
+    datasetVectors.forEach((vectorB, id) => {
+      if (!vectorB || vectorB.length !== vectorA.length) {
+        return;
+      }
+      const similarity = cosineSimilarity(vectorA, vectorB);
+      if (similarity >= threshold) {
+        const entry = entryMap.get(id);
+        datasetMatches.push({
+          candidateId: candidate.id,
+          candidateLabel: candidate.label,
+          datasetId: id,
+          similarity,
+          candidatePreview: candidate.embeddingInput.slice(0, 120),
+          datasetPreview: entry ? entry.embeddingInput.slice(0, 120) : '',
+        });
+      }
+    });
+  });
+
+  const candidateMatches = [];
+  for (let i = 0; i < candidates.length; i += 1) {
+    const vectorA = candidateVectors[i];
+    if (!vectorA || !vectorA.length) {
+      continue;
+    }
+    for (let j = i + 1; j < candidates.length; j += 1) {
+      const vectorB = candidateVectors[j];
+      if (!vectorB || vectorB.length !== vectorA.length) {
+        continue;
+      }
+      const similarity = cosineSimilarity(vectorA, vectorB);
+      if (similarity >= threshold) {
+        candidateMatches.push({
+          aId: candidates[i].id,
+          aLabel: candidates[i].label,
+          bId: candidates[j].id,
+          bLabel: candidates[j].label,
+          similarity,
+          aPreview: candidates[i].embeddingInput.slice(0, 120),
+          bPreview: candidates[j].embeddingInput.slice(0, 120),
+        });
+      }
+    }
+  }
+
+  datasetMatches.sort((left, right) => right.similarity - left.similarity);
+  candidateMatches.sort((left, right) => right.similarity - left.similarity);
+
+  return { datasetMatches, candidateMatches };
+}
+
 function updateManifestEmbedding(manifest, id, update) {
   if (!manifest.records || !manifest.records[id]) {
     return;
@@ -814,7 +1038,7 @@ async function ensureEmbeddingsForDataset(datasetName, entries, manifest, store,
   return { store, updated: updates.length > 0, updates };
 }
 
-function writeReport(reportPath, datasetName, matches, threshold, storeMeta) {
+function writeReport(reportPath, datasetName, matches, threshold, storeMeta, candidateSummary) {
   const report = {
     dataset: datasetName,
     threshold,
@@ -829,6 +1053,32 @@ function writeReport(reportPath, datasetName, matches, threshold, storeMeta) {
       previewB: match.previewB,
     })),
   };
+  if (candidateSummary) {
+    report.candidates = {
+      sourcePath: candidateSummary.sourcePath,
+      totalProvided: candidateSummary.totalProvided,
+      totalPrepared: candidateSummary.totalPrepared,
+      provider: candidateSummary.provider || null,
+      model: candidateSummary.model || null,
+      datasetMatches: candidateSummary.datasetMatches.map((match) => ({
+        candidateId: match.candidateId,
+        candidateLabel: match.candidateLabel,
+        datasetId: match.datasetId,
+        similarity: match.similarity,
+        candidatePreview: match.candidatePreview,
+        datasetPreview: match.datasetPreview,
+      })),
+      candidateMatches: candidateSummary.candidateMatches.map((match) => ({
+        candidateA: match.aId,
+        candidateALabel: match.aLabel,
+        candidateB: match.bId,
+        candidateBLabel: match.bLabel,
+        similarity: match.similarity,
+        previewA: match.aPreview,
+        previewB: match.bPreview,
+      })),
+    };
+  }
   fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
   console.log(`Wrote report to ${path.relative(rootDir, reportPath)}`);
 }
@@ -882,11 +1132,78 @@ async function main() {
       }
     }
 
+    let candidateSummary = null;
+    const candidatePath = options.candidateFiles.get(datasetName);
+    if (candidatePath) {
+      const candidateData = loadCandidateFile(datasetName, candidatePath);
+      const relativeCandidatePath = path.relative(rootDir, candidateData.absolutePath);
+      console.log(`[${datasetName}] Loaded ${candidateData.entries.length} candidate entr${candidateData.entries.length === 1 ? 'y' : 'ies'} from ${relativeCandidatePath} (provided ${candidateData.originalLength}).`);
+      if (!candidateData.entries.length) {
+        console.log(`[${datasetName}] Candidate file did not contain any usable entries.`);
+      } else {
+        const candidateEmbeddings = await embedCandidateEntries(datasetName, candidateData.entries, options);
+        if (!candidateEmbeddings) {
+          console.log(`[${datasetName}] Candidate embeddings were not generated; rerun without --dry-run to evaluate overlaps.`);
+        } else if (!Array.isArray(candidateEmbeddings.vectors)
+          || candidateEmbeddings.vectors.length !== candidateData.entries.length) {
+          const received = Array.isArray(candidateEmbeddings.vectors) ? candidateEmbeddings.vectors.length : 0;
+          console.warn(`[${datasetName}] Candidate embedding count mismatch (${received} vs ${candidateData.entries.length}); skipping candidate comparison.`);
+        } else {
+          const comparison = compareCandidateVectors(entries, store, candidateData.entries, candidateEmbeddings.vectors, threshold);
+          candidateSummary = {
+            sourcePath: relativeCandidatePath,
+            totalProvided: candidateData.originalLength,
+            totalPrepared: candidateData.entries.length,
+            provider: options.provider,
+            model: candidateEmbeddings.model,
+            datasetMatches: comparison.datasetMatches,
+            candidateMatches: comparison.candidateMatches,
+          };
+
+          if (!comparison.datasetMatches.length) {
+            console.log(`[${datasetName}] No candidate overlaps with existing records above ${threshold}.`);
+          } else {
+            console.log(`[${datasetName}] ${comparison.datasetMatches.length} candidate entr${comparison.datasetMatches.length === 1 ? 'y' : 'ies'} overlap existing records ≥ ${threshold}.`);
+            comparison.datasetMatches.slice(0, 10).forEach((match, index) => {
+              console.log(`  ${index + 1}. ${match.candidateLabel} ↔ ${match.datasetId} (similarity: ${match.similarity.toFixed(4)})`);
+              if (match.candidatePreview) {
+                console.log(`     • candidate: ${match.candidatePreview}`);
+              }
+              if (match.datasetPreview) {
+                console.log(`     • existing: ${match.datasetPreview}`);
+              }
+            });
+            if (comparison.datasetMatches.length > 10) {
+              console.log(`  … ${comparison.datasetMatches.length - 10} more matches`);
+            }
+          }
+
+          if (!comparison.candidateMatches.length) {
+            console.log(`[${datasetName}] No duplicates detected among candidate entries above ${threshold}.`);
+          } else {
+            console.log(`[${datasetName}] ${comparison.candidateMatches.length} candidate pair${comparison.candidateMatches.length === 1 ? '' : 's'} exceed the ${threshold} similarity threshold.`);
+            comparison.candidateMatches.slice(0, 10).forEach((match, index) => {
+              console.log(`  ${index + 1}. ${match.aLabel} ↔ ${match.bLabel} (similarity: ${match.similarity.toFixed(4)})`);
+              if (match.aPreview) {
+                console.log(`     • A: ${match.aPreview}`);
+              }
+              if (match.bPreview) {
+                console.log(`     • B: ${match.bPreview}`);
+              }
+            });
+            if (comparison.candidateMatches.length > 10) {
+              console.log(`  … ${comparison.candidateMatches.length - 10} more candidate overlaps`);
+            }
+          }
+        }
+      }
+    }
+
     if (options.reportPath) {
       const absoluteReportPath = path.isAbsolute(options.reportPath)
         ? options.reportPath
         : path.join(rootDir, options.reportPath.replace(/\{dataset\}/g, datasetName));
-      writeReport(absoluteReportPath, datasetName, matches, threshold, store.meta);
+      writeReport(absoluteReportPath, datasetName, matches, threshold, store.meta, candidateSummary);
     }
   }
 }
