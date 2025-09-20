@@ -1,3 +1,5 @@
+// Maintenance: run the commands in apps/jokes/AGENTS.md after editing this dataset to keep the syntax valid.
+
 window.jokes = [
         {
             "joke": "I'm tired of following my dreams.",
