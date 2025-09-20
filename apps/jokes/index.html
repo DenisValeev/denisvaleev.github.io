@@ -1,154 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Prevent zooming -->
-    <title>Random Jokes</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center; /* Center content vertically */
-            align-items: center; /* Center content horizontally */
-            flex-direction: column;
-            height: 100vh;
-            margin: 0;
-            padding: 20px;
-            background-color: #f0f0f0;
-            -webkit-touch-callout: none; /* Prevent callout to copy text in Safari */
-            -webkit-user-select: none;   /* Prevent copy paste, to disable zoom */
-            user-select: none;           /* Non-prefixed version, currently */
-            touch-action: manipulation;  /* Disable double-tap zoom */
-        }
-        #joke-container {
-            width: 100%;
-            max-width: 600px;
-            text-align: center;
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        #joke-container p {
-            margin: 0;
-            font-size: 24px; /* Increase font size for jokes */
-        }
-        .punchline {
-            display: none;
-            font-style: italic;
-            color: #555;
-        }
-        .buttons {
-            text-align: center;
-            margin-top: 20px;
-        }
-        button {
-            margin: 0 5px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            background: #007bff;
-            color: #fff;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Jokes</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --background-color: #f5f5f5;
+      --background-gradient: radial-gradient(circle at top, rgba(112, 147, 220, 0.2), transparent 65%);
+      --card-background: rgba(255, 255, 255, 0.88);
+      --card-border: rgba(15, 23, 42, 0.06);
+      --card-shadow: 0 26px 52px -24px rgba(15, 23, 42, 0.28);
+      --text-primary: #111827;
+      --text-secondary: rgba(30, 41, 59, 0.68);
+      --punchline-color: #334155;
+      --accent: #3056d3;
+      --accent-contrast: #ffffff;
+      background-color: var(--background-color);
+      color: var(--text-primary);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background-color: #101524;
+        --background-gradient: radial-gradient(circle at top, rgba(72, 101, 216, 0.34), rgba(7, 13, 27, 0.92) 60%);
+        --card-background: rgba(20, 27, 45, 0.92);
+        --card-border: rgba(148, 163, 209, 0.08);
+        --card-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.65);
+        --text-primary: #e8ecff;
+        --text-secondary: rgba(224, 230, 255, 0.72);
+        --punchline-color: rgba(224, 230, 255, 0.86);
+        --accent: #7084ff;
+        --accent-contrast: #0b1020;
+      }
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(20px, 6vw, 40px);
+      background: var(--background-gradient);
+      background-color: var(--background-color);
+    }
+
+    main {
+      max-width: 720px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(24px, 4vw, 40px);
+    }
+
+    .card {
+      background: var(--card-background);
+      border-radius: 20px;
+      border: 1px solid var(--card-border);
+      box-shadow: var(--card-shadow);
+      backdrop-filter: blur(14px);
+      padding: clamp(28px, 6vw, 40px);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-height: 240px;
+    }
+
+    .card__content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    #joke-setup {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.4vw + 1rem, 2.2rem);
+      line-height: 1.4;
+      font-weight: 600;
+    }
+
+    #joke-punchline {
+      margin: 0;
+      font-size: clamp(1.1rem, 1.8vw + 0.8rem, 1.6rem);
+      line-height: 1.5;
+      color: var(--punchline-color);
+      display: none;
+    }
+
+    #joke-punchline.is-visible {
+      display: block;
+    }
+
+    .card__meta {
+      margin: 0;
+      font-size: 0.98rem;
+      color: var(--text-secondary);
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      background: var(--accent);
+      color: var(--accent-contrast);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      touch-action: manipulation;
+    }
+
+    button.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid currentColor;
+      box-shadow: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      button.secondary {
+        color: #9ba9ff;
+        border-color: rgba(155, 169, 255, 0.5);
+        background: rgba(112, 132, 255, 0.12);
+      }
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    button:not(:disabled):hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(48, 86, 211, 0.28);
+    }
+
+    button:focus-visible {
+      outline: 2px solid rgba(112, 132, 255, 0.65);
+      outline-offset: 3px;
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      button:not(:disabled) {
+        transition: none;
+      }
+
+      button:not(:disabled):hover,
+      button:not(:disabled):active,
+      button:not(:disabled):focus {
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div id="joke-container">
-        <p id="joke-text">Loading...</p>
-        <p id="punchline-text" class="punchline"></p>
+  <main aria-label="Random jokes">
+    <article class="card" aria-live="polite">
+      <div class="card__content">
+        <p id="joke-setup">Loading joke…</p>
+        <p id="joke-punchline" aria-hidden="true">Punchline</p>
+      </div>
+      <p class="card__meta" id="card-status">Punchline hidden — reveal when you're ready.</p>
+    </article>
+    <div class="controls">
+      <button id="prev-button" type="button" aria-label="Show previous joke">⟵ Previous</button>
+      <button id="reveal-button" class="secondary" type="button" aria-pressed="false">Reveal punchline</button>
+      <button id="next-button" type="button" aria-label="Show next joke">Next ⟶</button>
     </div>
-    <div class="buttons">
-        <button id="prev-joke">Prev</button>
-        <button id="new-joke">Next</button>
-        <button id="reveal-punchline" style="display: none;">Punchline</button>
-    </div>
-
-    <!-- Include the jokes.js script -->
-    <script src="jokes.js"></script>
-    <script>
-        let currentIndex = 0;
-        let shuffledJokes = [];
-        let punchlinesVisible = false;  // To track the visibility of punchlines
-
-        // Function to shuffle the jokes array based on a seed
-        function shuffle(array, seed) {
-            let currentIndex = array.length, temporaryValue, randomIndex;
-            
-            // While there remain elements to shuffle...
-            while (0 !== currentIndex) {
-                // Pick a remaining element...
-                randomIndex = Math.floor(random(seed++) * currentIndex);
-                currentIndex -= 1;
-
-                // And swap it with the current element.
-                temporaryValue = array[currentIndex];
-                array[currentIndex] = array[randomIndex];
-                array[randomIndex] = temporaryValue;
-            }
-            return array;
-        }
-
-        // Random function with seed
-        function random(seed) {
-            const x = Math.sin(seed) * 10000;
-            return x - Math.floor(x);
-        }
-
-        // Seed based on time and initial shuffle
-        const seed = Math.floor(Math.random() * 1000);
-        shuffledJokes = shuffle(window.jokes.slice(), seed);
-
-        function showJoke() {
-            // Get the current joke
-            const joke = shuffledJokes[currentIndex];
-            
-            // Display the joke
-            document.getElementById('joke-text').textContent = joke.joke;
-
-            // Display the punchline or poop emoji if empty
-            const punchline = joke.punchline ? joke.punchline : '💩';
-            document.getElementById('punchline-text').textContent = punchline;
-            
-            // Hide the punchline initially
-            document.getElementById('punchline-text').style.display = 'none';
-            document.getElementById('reveal-punchline').style.display = 'inline';
-            punchlinesVisible = false;
-        }
-
-        function showNextJoke() {
-            currentIndex = (currentIndex + 1) % shuffledJokes.length;
-            showJoke();
-        }
-
-        function showPrevJoke() {
-            currentIndex = (currentIndex - 1 + shuffledJokes.length) % shuffledJokes.length;
-            showJoke();
-        }
-
-        function toggleAllPunchlines() {
-            const punchlineText = document.getElementById('punchline-text');
-            if (punchlinesVisible) {
-                punchlineText.style.display = 'none';
-                punchlinesVisible = false;
-            } else {
-                punchlineText.style.display = 'block';
-                punchlinesVisible = true;
-            }
-        }
-
-        document.getElementById('new-joke').addEventListener('click', showNextJoke);
-        document.getElementById('prev-joke').addEventListener('click', showPrevJoke);
-        document.getElementById('reveal-punchline').addEventListener('click', toggleAllPunchlines);
-
-        // Load the first joke on page load
-        showJoke();
-    </script>
+  </main>
+  <script src="jokes.js" defer></script>
+  <script src="app.js" defer></script>
 </body>
 </html>

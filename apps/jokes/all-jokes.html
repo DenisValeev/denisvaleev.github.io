@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Jokes — Table View</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --bg-color: #f6f7fb;
+      --bg-gradient: radial-gradient(circle at top, rgba(120, 140, 220, 0.12), rgba(15, 23, 42, 0.05) 70%);
+      --surface: rgba(255, 255, 255, 0.95);
+      --surface-shadow: 0 30px 70px rgba(15, 23, 42, 0.14);
+      --surface-border: rgba(15, 23, 42, 0.08);
+      --text-primary: #0f172a;
+      --text-secondary: rgba(15, 23, 42, 0.65);
+      --table-header: rgba(15, 23, 42, 0.05);
+      --table-stripe: rgba(15, 23, 42, 0.03);
+      --table-border: rgba(15, 23, 42, 0.1);
+      --badge-bg: rgba(74, 99, 255, 0.14);
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #0b1020;
+        --bg-gradient: radial-gradient(circle at top, rgba(72, 101, 216, 0.28), rgba(9, 17, 35, 0.86) 65%);
+        --surface: rgba(14, 20, 36, 0.92);
+        --surface-shadow: 0 32px 80px rgba(0, 0, 0, 0.45);
+        --surface-border: rgba(148, 163, 209, 0.08);
+        --text-primary: #f1f5ff;
+        --text-secondary: rgba(209, 216, 255, 0.7);
+        --table-header: rgba(105, 128, 255, 0.18);
+        --table-stripe: rgba(255, 255, 255, 0.04);
+        --table-border: rgba(148, 163, 209, 0.12);
+        --badge-bg: rgba(105, 128, 255, 0.16);
+      }
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: clamp(24px, 5vw, 48px);
+      background: var(--bg-gradient);
+      background-color: var(--bg-color);
+    }
+
+    main {
+      width: min(1040px, 100%);
+      background: var(--surface);
+      border-radius: 24px;
+      box-shadow: var(--surface-shadow);
+      border: 1px solid var(--surface-border);
+      padding: clamp(28px, 4vw, 48px);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    header.page-header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    header.page-header h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 2vw + 1.4rem, 2.6rem);
+      font-weight: 700;
+    }
+
+    header.page-header p {
+      margin: 0;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--badge-bg);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: inherit;
+    }
+
+    .table-wrapper {
+      border: 1px solid var(--table-border);
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.02);
+      max-height: 80vh;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 640px;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      background: var(--table-header);
+      backdrop-filter: blur(6px);
+      text-align: left;
+      padding: 14px 18px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    tbody tr:nth-child(even) {
+      background: var(--table-stripe);
+    }
+
+    th,
+    td {
+      padding: 14px 18px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--table-border);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    th[scope="row"] {
+      width: 60px;
+      font-weight: 600;
+    }
+
+    tbody tr:last-child th,
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    body.is-compact th,
+    body.is-compact td {
+      padding: 10px 12px;
+      font-size: 0.92rem;
+    }
+
+    body.is-compact thead th {
+      padding: 10px 12px;
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        padding: clamp(20px, 6vw, 32px);
+      }
+
+      table {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body data-compact="false">
+  <main>
+    <header class="page-header">
+      <h1>All Jokes</h1>
+      <p>Browse the full dataset from <code>jokes.js</code>. Use your browser search to find a joke or punchline. <span class="badge"><span data-count>0</span> jokes</span></p>
+    </header>
+    <div class="table-wrapper" role="region" aria-live="polite">
+      <table>
+        <caption class="sr-only">Complete list of jokes with punchlines</caption>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Joke</th>
+            <th scope="col">Punchline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="3">Loading jokes…</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <script src="jokes.js" defer></script>
+  <script src="render-all.js" defer></script>
+</body>
+</html>
