@@ -19,6 +19,13 @@ This project is a static toolbox site. The landing page (`index.html`) lists sma
 - Datasets live in plain JavaScript files that assign arrays to `window.jokes` or `window.proverbsData`. Maintain the existing property names (`joke`/`punchline` and `text`) so the renderers continue to work.
 - The data files predate the rest of the styling cleanup; match their current indentation and quoting when editing to avoid huge noise in the diff.
 
+## Data curation workflows
+- New jokes and quotes should come from reproducible external sources. Use the helper scripts in `tools/` to rebuild the datasets instead of editing inline by hand.
+- `node tools/build-jokes-from-icanhaz.js` converts the curated `data/icanhazdadjokes-split.json` feed into the `window.jokes` payload. The source list is pre-split into setup/punchline pairs from icanhazdadjoke.
+- `node tools/build-quotes-from-data.js` turns `data/curated-quotes.json` into the quotes app structure. Update that JSON when you swap in new categories.
+- Always run `node tools/dedupe-data.js` after editing either dataset. It uses salient keyword lookups plus a Levenshtein similarity check to flag near-duplicates so we keep the “tearable” and “roof” jokes once and avoid reintroducing repeats.
+- Keep this section in sync with future user feedback about sourcing or deduping so our workflow reflects the latest guidance.
+
 ## Landing page upkeep
 - Adding an app means adding a card (`<a class="app-card">`) inside the `<ul class="apps">` list and, if applicable, linking any auxiliary pages inside the `.dev-tools` section so that shortcut links stay discoverable.
 - The chevron SVG icon inside the call-to-action span is reused everywhere—copy the existing snippet to keep the visuals aligned.

@@ -1,4 +1,4 @@
-window.quotesData = [
+[
   {
     "id": "creativity",
     "label": "Creativity",
@@ -269,4 +269,4 @@ window.quotesData = [
       }
     ]
   }
-];
+]
