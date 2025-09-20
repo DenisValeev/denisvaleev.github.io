@@ -21,3 +21,10 @@ npx serve .
 ```
 
 This starts a server on <http://localhost:3000> (or the next available port).
+
+## Data maintenance
+
+- Run `node tools/update-content-metadata.js` after refreshing the jokes or quotes datasets to assign deterministic IDs and
+  regenerate the manifest files under `data/`. The script rewrites `apps/jokes/jokes.js` and `apps/quotes/quotes-data.js` in the
+  house style and emits `data/jokes-manifest.json` / `data/quotes-manifest.json` with normalized hashes and embedding metadata
+  placeholders for downstream deduplication workflows.
