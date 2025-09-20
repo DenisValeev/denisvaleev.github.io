@@ -20,10 +20,10 @@ This project is a static toolbox site. The landing page (`index.html`) lists sma
 - The data files predate the rest of the styling cleanup; match their current indentation and quoting when editing to avoid huge noise in the diff.
 
 ## Data curation workflows
-- New jokes and quotes should come from reproducible external sources. We now keep both the icanhazdadjoke splits and the `official_joke_api` payload under `data/` plus curated slices from JamesFT/Database-Quotes-JSON so future refreshes can be replayed.
-- Run `node tools/merge-jokes-sources.js` after pulling fresh joke feeds. It folds `data/official-jokes-index.json` into `data/icanhazdadjokes-split.json`, skips duplicates by normalized setup/punchline, and leaves the classic tearable and roof gags at the front.
+- New jokes and quotes should come from reproducible external sources. Keep `data/icanhazdadjokes-split.json` merged with the `official_joke_api` feed and draw quotes from JamesFT/Database-Quotes-JSON plus dwyl/quotes so additions can be replayed.
+- Run `node tools/merge-jokes-sources.js` after pulling fresh joke feeds. It folds `data/official-jokes-index.json` into `data/icanhazdadjokes-split.json`, skips duplicates by normalized setup/punchline, and keeps the classic tearable and roof gags at the front.
 - `node tools/build-jokes-from-icanhaz.js` converts the merged `data/icanhazdadjokes-split.json` feed into the `window.jokes` payload while cleaning whitespace.
-- `node tools/build-quotes-from-data.js` turns `data/curated-quotes.json` into the quotes app structure. Keep the new Joy, Curiosity, Kindness, Gratitude, and Purpose groupings in sync with any future sourcing tweaks or user feedback.
+- When updating quotes, append to the existing Adventure/Time/Motivation/... categories in `apps/quotes/quotes-data.js` using the curated source lists. The helper in `tools/build-quotes-from-data.js` will need new input if you want to regenerate the file from JSON—update it alongside any future sourcing shifts.
 - Always run `node tools/dedupe-data.js --write` after rebuilding either dataset. The tool walks each record against the remaining pool with truncated previews and an early-exiting Levenshtein pass, logging any removals so near-duplicates stay out without sacrificing favourites.
 - Keep this section in sync with future user feedback about sourcing or deduping so our workflow reflects the latest guidance.
 
