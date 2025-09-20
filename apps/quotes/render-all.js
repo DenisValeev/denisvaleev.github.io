@@ -9,7 +9,7 @@
   const categories = Array.isArray(window.quotesData)
     ? window.quotesData
         .map((entry) => ({
-          label: entry && typeof entry.label === 'string' ? entry.label : '',
+          label: entry && typeof entry.label === 'string' ? entry.label.trim() : '',
           quotes: Array.isArray(entry && entry.quotes)
             ? entry.quotes
                 .map((quote) => {
@@ -52,7 +52,6 @@
   if (!deck.length) {
     const emptyRow = document.createElement('tr');
     const emptyCell = document.createElement('td');
-    emptyCell.colSpan = 3;
     emptyCell.textContent = 'No quotes available.';
     emptyRow.appendChild(emptyCell);
     tbody.appendChild(emptyRow);
@@ -62,24 +61,39 @@
   const fragment = document.createDocumentFragment();
 
   deck.forEach((entry) => {
-    const row = document.createElement('tr');
+    const quoteRow = document.createElement('tr');
+    quoteRow.className = 'quote-row';
 
-    const categoryCell = document.createElement('td');
-    categoryCell.textContent = entry.category;
+    const quoteCell = document.createElement('td');
+    quoteCell.className = 'quote-cell';
+    quoteCell.textContent = entry.text;
+    quoteRow.appendChild(quoteCell);
 
-    const textCell = document.createElement('td');
-    textCell.className = 'text-cell';
-    textCell.textContent = entry.text;
+    const metaRow = document.createElement('tr');
+    metaRow.className = 'meta-row';
 
-    const authorCell = document.createElement('td');
-    authorCell.className = 'author-cell';
-    authorCell.textContent = entry.author;
+    const metaCell = document.createElement('td');
+    metaCell.className = 'meta-cell';
 
-    row.appendChild(categoryCell);
-    row.appendChild(textCell);
-    row.appendChild(authorCell);
+    metaCell.appendChild(document.createTextNode('— '));
 
-    fragment.appendChild(row);
+    const authorSpan = document.createElement('span');
+    authorSpan.className = 'meta-author';
+    authorSpan.textContent = entry.author;
+    metaCell.appendChild(authorSpan);
+
+    if (entry.category) {
+      metaCell.appendChild(document.createTextNode(' · '));
+      const categorySpan = document.createElement('span');
+      categorySpan.className = 'meta-category';
+      categorySpan.textContent = entry.category;
+      metaCell.appendChild(categorySpan);
+    }
+
+    metaRow.appendChild(metaCell);
+
+    fragment.appendChild(quoteRow);
+    fragment.appendChild(metaRow);
   });
 
   tbody.appendChild(fragment);
