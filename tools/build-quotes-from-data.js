@@ -15,6 +15,7 @@ function format(entries) {
     lines.push('    "quotes": [');
     category.quotes.forEach((quote, quoteIndex) => {
       lines.push('      {');
+      lines.push(`        "id": ${JSON.stringify(quote.id)},`);
       lines.push(`        "text": ${JSON.stringify(clean(quote.text))},`);
       lines.push(`        "author": ${JSON.stringify(clean(quote.author))}`);
       if (quoteIndex === category.quotes.length - 1) {
@@ -43,10 +44,18 @@ function build() {
   const prepared = data.map((category) => ({
     id: category.id,
     label: category.label,
-    quotes: category.quotes.map((quote) => ({
-      text: clean(quote.text),
-      author: clean(quote.author),
-    })),
+    quotes: (() => {
+      const cleanedQuotes = category.quotes.map((quote) => ({
+        text: clean(quote.text),
+        author: clean(quote.author),
+      }));
+      const width = Math.max(2, String(cleanedQuotes.length).length);
+      return cleanedQuotes.map((quote, index) => ({
+        id: `${category.id}-${String(index + 1).padStart(width, '0')}`,
+        text: quote.text,
+        author: quote.author,
+      }));
+    })(),
   }));
   fs.writeFileSync(outputPath, format(prepared));
   console.log(`Wrote ${prepared.reduce((total, category) => total + category.quotes.length, 0)} quotes across ${prepared.length} categories.`);
