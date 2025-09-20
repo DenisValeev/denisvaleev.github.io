@@ -31,4 +31,7 @@ This starts a server on <http://localhost:3000> (or the next available port).
 - Use `node tools/review-content-similarity.js` to fetch embeddings from public APIs (OpenAI, Cohere, Hugging Face, or the
   built-in deterministic `fake` provider), persist them under `data/*-embeddings.json`, and surface cosine-similar pairs for
   manual review. Pass `--write` to persist embeddings, `--update-manifest` to sync embedding metadata back into the manifests,
-  and `--report=reports/{dataset}-duplicates.json` to generate JSON reports for auditing runs.
+  and `--report=reports/{dataset}-duplicates.json` to generate JSON reports for auditing runs. A free option is available via
+  `--provider=hfspace --model=bienkieu/sentence-embedding`, which pipes batches through the BienKieu Hugging Face Space
+  (`sentence-transformers/all-MiniLM-L6-v2`) using `curl`—no API key required. Keep `--batch-size` at 8 or lower to avoid the
+  shared queue timing out.

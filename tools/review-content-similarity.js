@@ -3,6 +3,12 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const vm = require('vm');
+const dns = require('dns');
+const { execFile } = require('child_process');
+
+if (typeof dns.setDefaultResultOrder === 'function') {
+  dns.setDefaultResultOrder('ipv4first');
+}
 
 const rootDir = path.join(__dirname, '..');
 
@@ -242,6 +248,189 @@ function hashVector(vector) {
   return crypto.createHash('sha256').update(buffer).digest('hex');
 }
 
+function parseSseEvents(raw) {
+  const events = [];
+  let current = null;
+  const lines = raw.split(/\r?\n/);
+  lines.forEach((line) => {
+    if (line.startsWith('event:')) {
+      if (current) {
+        events.push(current);
+      }
+      current = { event: line.slice('event:'.length).trim(), data: '' };
+      return;
+    }
+    if (line.startsWith('data:')) {
+      if (!current) {
+        current = { event: 'message', data: '' };
+      }
+      const chunk = line.slice('data:'.length).trimStart();
+      current.data += current.data ? `\n${chunk}` : chunk;
+      return;
+    }
+    if (!line.trim()) {
+      if (current) {
+        events.push(current);
+        current = null;
+      }
+    }
+  });
+  if (current) {
+    events.push(current);
+  }
+  return events;
+}
+
+function runCurl(url, options = {}) {
+  return new Promise((resolve, reject) => {
+    const args = ['-sS', '-w', '\n%{http_code}', url];
+    const method = options.method ? options.method.toUpperCase() : 'GET';
+    if (method !== 'GET') {
+      args.push('-X', method);
+    }
+
+    const headers = options.headers || {};
+    Object.entries(headers).forEach(([key, value]) => {
+      args.push('-H', `${key}: ${value}`);
+    });
+
+    if (options.body !== undefined && options.body !== null) {
+      args.push('-d', options.body);
+    }
+
+    execFile('curl', args, { maxBuffer: 32 * 1024 * 1024 }, (error, stdout, stderr) => {
+      if (error) {
+        const message = stderr && stderr.length ? stderr.toString().trim() : error.message;
+        reject(new Error(`curl failed: ${message}`));
+        return;
+      }
+
+      const output = stdout.toString();
+      const lastNewline = output.lastIndexOf('\n');
+      if (lastNewline === -1) {
+        reject(new Error('curl output missing status code.'));
+        return;
+      }
+      const body = output.slice(0, lastNewline);
+      const statusLine = output.slice(lastNewline + 1).trim();
+      const statusCode = parseInt(statusLine, 10);
+      if (Number.isNaN(statusCode)) {
+        reject(new Error(`Failed to parse status code from curl output: ${statusLine}`));
+        return;
+      }
+      resolve({ statusCode, body });
+    });
+  });
+}
+
+async function curlRequest(url, options = {}, retries = 2, retryDelayMs = 2000) {
+  let attempt = 0;
+  let lastError = null;
+  while (attempt <= retries) {
+    try {
+      const result = await runCurl(url, options);
+      if (result.statusCode >= 200 && result.statusCode < 300) {
+        return result.body;
+      }
+      const error = new Error(`Request failed with status ${result.statusCode}: ${result.body.trim() || '(no body)'}`);
+      error.statusCode = result.statusCode;
+      error.body = result.body;
+      lastError = error;
+    } catch (error) {
+      lastError = error;
+    }
+
+    attempt += 1;
+    if (attempt > retries) {
+      break;
+    }
+    const shouldRetry = lastError && lastError.statusCode && (lastError.statusCode === 429 || (lastError.statusCode >= 500 && lastError.statusCode < 600));
+    if (!shouldRetry) {
+      break;
+    }
+    await wait(retryDelayMs * attempt);
+  }
+
+  throw lastError || new Error('curl request failed after retries.');
+}
+
+async function curlJson(url, options = {}, retries = 2, retryDelayMs = 2000) {
+  const body = await curlRequest(url, options, retries, retryDelayMs);
+  if (!body) {
+    return {};
+  }
+  return JSON.parse(body);
+}
+
+function curlText(url, options = {}, retries = 2, retryDelayMs = 2000) {
+  return curlRequest(url, options, retries, retryDelayMs);
+}
+
+const hfSpaces = {
+  'bienkieu/sentence-embedding': {
+    spaceId: 'bienkieu/sentence-embedding',
+    baseUrl: 'https://bienkieu-sentence-embedding.hf.space',
+    apiPath: 'predict',
+    modelLabel: 'sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)',
+  },
+};
+
+async function fetchHfSpaceEmbeddings(spaceConfig, inputs) {
+  const callUrl = `${spaceConfig.baseUrl}/gradio_api/call/${spaceConfig.apiPath}`;
+  const callPayload = { data: [inputs] };
+  const callResponse = await curlJson(callUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(callPayload),
+  });
+
+  const eventId = callResponse && callResponse.event_id;
+  if (!eventId) {
+    throw new Error('HF Space call did not return an event_id.');
+  }
+
+  const pollUrl = `${spaceConfig.baseUrl}/gradio_api/call/${spaceConfig.apiPath}/${eventId}`;
+  const raw = await curlText(pollUrl, {
+    method: 'GET',
+    headers: { Accept: 'text/event-stream' },
+  });
+  const events = parseSseEvents(raw);
+  const completeEvent = events.reverse().find((event) => event.event === 'complete' && event.data);
+  if (!completeEvent) {
+    throw new Error('HF Space did not emit a completion event.');
+  }
+
+  let payload;
+  try {
+    payload = JSON.parse(completeEvent.data);
+  } catch (error) {
+    throw new Error(`HF Space returned invalid JSON payload: ${error.message}`);
+  }
+
+  let vectors = null;
+  if (Array.isArray(payload)) {
+    if (payload.length === 1 && Array.isArray(payload[0])) {
+      vectors = payload[0];
+    } else if (payload.every((item) => Array.isArray(item))) {
+      vectors = payload;
+    }
+  }
+
+  if (!Array.isArray(vectors) || !vectors.length) {
+    throw new Error('HF Space did not return any embeddings.');
+  }
+
+  if (vectors.length !== inputs.length) {
+    throw new Error(`HF Space returned ${vectors.length} embeddings for ${inputs.length} inputs.`);
+  }
+
+  return {
+    vectors,
+    model: spaceConfig.modelLabel || spaceConfig.spaceId,
+    dimensions: Array.isArray(vectors[0]) ? vectors[0].length : 0,
+  };
+}
+
 function chunkArray(values, size) {
   const chunks = [];
   for (let i = 0; i < values.length; i += size) {
@@ -302,6 +491,16 @@ async function fetchEmbeddings(provider, model, inputs, options) {
       model: model || `fake-${dims}`,
       dimensions: dims,
     };
+  }
+
+  if (provider === 'hfspace') {
+    const spaceKey = (model || 'bienkieu/sentence-embedding').toLowerCase();
+    const spaceConfig = hfSpaces[spaceKey];
+    if (!spaceConfig) {
+      const available = Object.keys(hfSpaces).join(', ');
+      throw new Error(`Unsupported hfspace model: ${spaceKey}. Available options: ${available || 'none'}.`);
+    }
+    return fetchHfSpaceEmbeddings(spaceConfig, inputs);
   }
 
   if (provider === 'openai') {
