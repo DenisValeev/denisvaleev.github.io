@@ -1,0 +1,45 @@
+name: Merge PR into main (prefer PR changes)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  merge-prefer-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Check open PRs
+        id: check
+        run: |
+          prs=$(gh pr list --json number,headRefName --jq '.[]')
+          count=$(echo "$prs" | jq -s 'length')
+          if [ "$count" -ne 1 ]; then
+            echo "❌ There are $count open PRs. Aborting."
+            exit 1
+          fi
+          branch=$(echo "$prs" | jq -r '.headRefName')
+          echo "branch=$branch" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Set Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Merge PR branch into main
+        run: |
+          git fetch origin
+          git checkout main
+          git merge -s recursive -X theirs origin/${{ steps.check.outputs.branch }} || true
+          git push origin main
