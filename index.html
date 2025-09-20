@@ -64,10 +64,10 @@
       box-shadow: var(--surface-shadow);
       backdrop-filter: blur(14px);
       border: 1px solid var(--surface-border);
-      padding: clamp(32px, 5vw, 60px);
+      padding: clamp(24px, 4vw, 48px) clamp(32px, 5vw, 60px) clamp(32px, 5vw, 60px);
       display: flex;
       flex-direction: column;
-      gap: clamp(28px, 4vw, 44px);
+      gap: clamp(14px, 2.5vw, 22px);
     }
 
     header.site-header {
@@ -143,6 +143,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 12px;
+      margin-top: clamp(18px, 3vw, 28px);
     }
 
     a.dev-link {
@@ -197,16 +198,16 @@
         </a>
       </li>
       <li>
-        <a class="app-card" href="apps/proverbs/">
-          <h2>Proverbs</h2>
-          <p>Browse a constantly shuffled deck of proverbs with quick controls and keyboard navigation.</p>
+        <a class="app-card" href="apps/quotes/">
+          <h2>Quotes</h2>
+          <p>Shuffle through themed quote decks, jump back, and switch categories without losing momentum.</p>
         </a>
       </li>
     </ul>
     <section class="dev-tools" aria-label="Utility pages">
       <a class="dev-link" href="apps/value-formatter/">Value Formatter — Quick mapping for long lists.</a>
       <a class="dev-link" href="apps/jokes/all-jokes.html">All Jokes</a>
-      <a class="dev-link" href="apps/proverbs/all-proverbs.html">All Proverbs</a>
+      <a class="dev-link" href="apps/quotes/all-quotes.html">All Quotes</a>
     </section>
   </main>
 </body>

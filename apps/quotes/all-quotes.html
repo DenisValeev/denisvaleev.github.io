@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Proverbs</title>
+  <title>All Quotes</title>
   <style>
     :root {
       color-scheme: light dark;
@@ -61,11 +61,17 @@
       background: rgba(255, 255, 255, 0.9);
     }
 
+    th,
     td {
       padding: 12px 14px;
       border: 1px solid rgba(0, 0, 0, 0.15);
       vertical-align: top;
       text-align: left;
+    }
+
+    th {
+      font-weight: 600;
+      background: rgba(0, 0, 0, 0.04);
     }
 
     .text-cell {
@@ -81,19 +87,25 @@
 </head>
 <body>
   <main>
-    <h1>All Proverbs</h1>
-    <p>Browse the shuffled list of proverbs pulled from the dataset.</p>
-    <p class="count"><span data-count>0</span> proverbs</p>
+    <h1>All Quotes</h1>
+    <p>Flip through every quote across the themed decks in one place.</p>
+    <p class="count"><span data-count>0</span> quotes</p>
     <table>
-      <caption>Complete list of proverbs</caption>
+      <caption>Complete list of quotes</caption>
+      <thead>
+        <tr>
+          <th scope="col">Category</th>
+          <th scope="col">Quote</th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
-          <td>Loading proverbs…</td>
+          <td colspan="2">Loading quotes…</td>
         </tr>
       </tbody>
     </table>
   </main>
-  <script src="proverbs-data.js" defer></script>
+  <script src="quotes-data.js" defer></script>
   <script src="render-all.js" defer></script>
 </body>
 </html>
