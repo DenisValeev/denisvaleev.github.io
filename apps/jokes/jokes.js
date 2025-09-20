@@ -2006,5 +2006,485 @@ window.jokes = [
         }, {
             "joke": "Have you heard about corduroy pillows?",
             "punchline": "They're making headlines!"
+        }, {
+            "joke": "What did the fish say when it hit the wall?",
+            "punchline": "Dam."
+        }, {
+            "joke": "How do you make a tissue dance?",
+            "punchline": "You put a little boogie on it."
+        }, {
+            "joke": "What's Forrest Gump's password?",
+            "punchline": "1Forrest1"
+        }, {
+            "joke": "What do you call a belt made out of watches?",
+            "punchline": "A waist of time."
+        }, {
+            "joke": "Why can't bicycles stand on their own?",
+            "punchline": "They are two tired"
+        }, {
+            "joke": "How does a train eat?",
+            "punchline": "It goes chew, chew"
+        }, {
+            "joke": "What do you call a singing Laptop?",
+            "punchline": "A Dell"
+        }, {
+            "joke": "How many lips does a flower have?",
+            "punchline": "Tulips"
+        }, {
+            "joke": "What kind of shoes does a thief wear?",
+            "punchline": "Sneakers"
+        }, {
+            "joke": "What's the best time to go to the dentist?",
+            "punchline": "Tooth hurty."
+        }, {
+            "joke": "Knock knock. Who's there? A broken pencil. A broken pencil who?",
+            "punchline": "Never mind. It's pointless."
+        }, {
+            "joke": "Knock knock. Who's there? Cows go. Cows go who?",
+            "punchline": "No, cows go moo."
+        }, {
+            "joke": "Knock knock. Who's there? Little old lady. Little old lady who?",
+            "punchline": "I didn't know you could yodel!"
+        }, {
+            "joke": "Why would a guitarist become a good programmer?",
+            "punchline": "He's adept at riffing in C#."
+        }, {
+            "joke": "What's the best thing about a Boolean?",
+            "punchline": "Even if you're wrong, you're only off by a bit."
+        }, {
+            "joke": "What's the object-oriented way to become wealthy?",
+            "punchline": "Inheritance"
+        }, {
+            "joke": "Where do programmers like to hangout?",
+            "punchline": "The Foo Bar."
+        }, {
+            "joke": "Why did the programmer quit his job?",
+            "punchline": "Because he didn't get arrays."
+        }, {
+            "joke": "Did you hear about the two silk worms in a race?",
+            "punchline": "It ended in a tie."
+        }, {
+            "joke": "What do you call a laughing motorcycle?",
+            "punchline": "A Yamahahahaha."
+        }, {
+            "joke": "A termite walks into a bar and says...",
+            "punchline": "'Where is the bar tended?'"
+        }, {
+            "joke": "What does C.S. Lewis keep at the back of his wardrobe?",
+            "punchline": "Narnia business!"
+        }, {
+            "joke": "A SQL query walks into a bar, walks up to two tables and asks...",
+            "punchline": "'Can I join you?'"
+        }, {
+            "joke": "How many programmers does it take to change a lightbulb?",
+            "punchline": "None that's a hardware problem"
+        }, {
+            "joke": "If you put a million monkeys at a million keyboards, one of them will eventually write a Java program",
+            "punchline": "the rest of them will write Perl"
+        }, {
+            "joke": "['hip', 'hip']",
+            "punchline": "(hip hip array)"
+        }, {
+            "joke": "To understand what recursion is...",
+            "punchline": "You must first understand what recursion is"
+        }, {
+            "joke": "There are 10 types of people in this world...",
+            "punchline": "Those who understand binary and those who don't"
+        }, {
+            "joke": "What did the duck say when he bought lipstick?",
+            "punchline": "Put it on my bill"
+        }, {
+            "joke": "What happens to a frog's car when it breaks down?",
+            "punchline": "It gets toad away"
+        }, {
+            "joke": "did you know the first French fries weren't cooked in France?",
+            "punchline": "they were cooked in Greece"
+        }, {
+            "joke": "Which song would an exception sing?",
+            "punchline": "Can't catch me - Avicii"
+        }, {
+            "joke": "Knock knock. Who's there? Opportunity.",
+            "punchline": "That is impossible. Opportunity doesn’t come knocking twice!"
+        }, {
+            "joke": "Why do Java programmers wear glasses?",
+            "punchline": "Because they don't C#."
+        }, {
+            "joke": "Why did the mushroom get invited to the party?",
+            "punchline": "Because he was a fungi."
+        }, {
+            "joke": "Do you know what the word 'was' was initially?",
+            "punchline": "Before was was was was was is."
+        }, {
+            "joke": "I'm reading a book about anti-gravity...",
+            "punchline": "It's impossible to put down"
+        }, {
+            "joke": "If you're American when you go into the bathroom, and American when you come out, what are you when you're in there?",
+            "punchline": "European"
+        }, {
+            "joke": "Want to hear a joke about a piece of paper?",
+            "punchline": "Never mind...it's tearable"
+        }, {
+            "joke": "I just watched a documentary about beavers.",
+            "punchline": "It was the best dam show I ever saw"
+        }, {
+            "joke": "If you see a robbery at an Apple Store...",
+            "punchline": "Does that make you an iWitness?"
+        }, {
+            "joke": "A ham sandwhich walks into a bar and orders a beer. The bartender says...",
+            "punchline": "I'm sorry, we don't serve food here"
+        }, {
+            "joke": "If you boil a clown...",
+            "punchline": "Do you get a laughing stock?"
+        }, {
+            "joke": "Finally realized why my plant sits around doing nothing all day...",
+            "punchline": "He loves his pot."
+        }, {
+            "joke": "Don't look at the eclipse through a colander.",
+            "punchline": "You'll strain your eyes."
+        }, {
+            "joke": "I bought some shoes from a drug dealer.",
+            "punchline": "I don't know what he laced them with, but I was tripping all day!"
+        }, {
+            "joke": "Why do chicken coops only have two doors?",
+            "punchline": "Because if they had four, they would be chicken sedans"
+        }, {
+            "joke": "What do you call a factory that sells passable products?",
+            "punchline": "A satisfactory"
+        }, {
+            "joke": "When a dad drives past a graveyard: Did you know that's a popular cemetery?",
+            "punchline": "Yep, people are just dying to get in there"
+        }, {
+            "joke": "Why did the invisible man turn down the job offer?",
+            "punchline": "He couldn't see himself doing it"
+        }, {
+            "joke": "How do you check if a webpage is HTML5?",
+            "punchline": "Try it out on Internet Explorer"
+        }, {
+            "joke": "I dropped a pear in my car this morning.",
+            "punchline": "You should drop another one, then you would have a pair."
+        }, {
+            "joke": "Lady: How do I spread love in this cruel world?",
+            "punchline": "Random Dude: [...💘]"
+        }, {
+            "joke": "A user interface is like a joke.",
+            "punchline": "If you have to explain it then it is not that good."
+        }, {
+            "joke": "Knock knock. Who's there? Hatch. Hatch who?",
+            "punchline": "Bless you!"
+        }, {
+            "joke": "What do you call sad coffee?",
+            "punchline": "Despresso."
+        }, {
+            "joke": "Why did the butcher work extra hours at the shop?",
+            "punchline": "To make ends meat."
+        }, {
+            "joke": "Did you hear about the hungry clock?",
+            "punchline": "It went back four seconds."
+        }, {
+            "joke": "Well...",
+            "punchline": "That’s a deep subject."
+        }, {
+            "joke": "Did you hear the story about the cheese that saved the world?",
+            "punchline": "It was legend dairy."
+        }, {
+            "joke": "Did you watch the new comic book movie?",
+            "punchline": "It was very graphic!"
+        }, {
+            "joke": "I started a new business making yachts in my attic this year...",
+            "punchline": "The sails are going through the roof."
+        }, {
+            "joke": "I got hit in the head by a soda can, but it didn't hurt that much...",
+            "punchline": "It was a soft drink."
+        }, {
+            "joke": "I can't tell if i like this blender...",
+            "punchline": "It keeps giving me mixed results."
+        }, {
+            "joke": "I couldn't get a reservation at the library...",
+            "punchline": "They were fully booked."
+        }, {
+            "joke": "I was gonna tell you a joke about UDP...",
+            "punchline": "...but you might not get it."
+        }, {
+            "joke": "The punchline often arrives before the set-up.",
+            "punchline": "Do you know the problem with UDP jokes?"
+        }, {
+            "joke": "Why do C# and Java developers keep breaking their keyboards?",
+            "punchline": "Because they use a strongly typed language."
+        }, {
+            "joke": "What do you give to a lemon in need?",
+            "punchline": "Lemonaid."
+        }, {
+            "joke": "A weasel walks into a bar. The bartender says, \"Wow, I've never served a weasel before. What can I get for you?\"",
+            "punchline": "Pop,goes the weasel."
+        }, {
+            "joke": "Can I watch the TV?",
+            "punchline": "Yes, but don’t turn it on."
+        }, {
+            "joke": "What do ghosts call their true love?",
+            "punchline": "Their ghoul-friend"
+        }, {
+            "joke": "How good are you at Power Point?",
+            "punchline": "I Excel at it."
+        }, {
+            "joke": "How many seconds are in a year?",
+            "punchline": "12. January 2nd, February 2nd, March 2nd, April 2nd.... etc"
+        }, {
+            "joke": "What’s 50 Cent’s name in Zimbabwe?",
+            "punchline": "200 Dollars."
+        }, {
+            "joke": "Where’s the bin?",
+            "punchline": "I haven’t been anywhere!"
+        }, {
+            "joke": "Knock-knock.",
+            "punchline": "A race condition. Who is there?"
+        }, {
+            "joke": "What's the best part about TCP jokes?",
+            "punchline": "I get to keep telling them until you get them."
+        }, {
+            "joke": "A programmer puts two glasses on his bedside table before going to sleep.",
+            "punchline": "A full one, in case he gets thirsty, and an empty one, in case he doesn’t."
+        }, {
+            "joke": "Two guys walk into a bar...",
+            "punchline": "The first guy says \"Ouch!\" and the second says \"Yeah, I didn't see it either.\""
+        }, {
+            "joke": "What did the router say to the doctor?",
+            "punchline": "It hurts when IP."
+        }, {
+            "joke": "An IPv6 packet is walking out of the house.",
+            "punchline": "He goes nowhere."
+        }, {
+            "joke": "A DHCP packet walks into a bar and asks for a beer.",
+            "punchline": "Bartender says, \"here, but I’ll need that back in an hour!\""
+        }, {
+            "joke": "3 SQL statements walk into a NoSQL bar. Soon, they walk out",
+            "punchline": "They couldn't find a table."
+        }, {
+            "joke": "I saw a nice stereo on Craigslist for $1. Seller says the volume is stuck on ‘high’",
+            "punchline": "I couldn’t turn it down."
+        }, {
+            "joke": "What do you call a bee that can't make up its mind?",
+            "punchline": "A maybe."
+        }, {
+            "joke": "Why was Cinderalla thrown out of the football team?",
+            "punchline": "Because she ran away from the ball."
+        }, {
+            "joke": "What kind of music do welders like?",
+            "punchline": "Heavy metal."
+        }, {
+            "joke": "Why are “Dad Jokes” so good?",
+            "punchline": "Because the punchline is apparent."
+        }, {
+            "joke": "Why dot net developers don't wear glasses?",
+            "punchline": "Because they see sharp."
+        }, {
+            "joke": "Why is seven bigger than nine?",
+            "punchline": "Because seven ate nine."
+        }, {
+            "joke": "Why do fathers take an extra pair of socks when they go golfing?",
+            "punchline": "In case they get a hole in one!"
+        }, {
+            "joke": "What do you call a suspicious looking laptop?",
+            "punchline": "Asus"
+        }, {
+            "joke": "What did the Java code say to the C code?",
+            "punchline": "You've got no class."
+        }, {
+            "joke": "What is the most used language in programming?",
+            "punchline": "Profanity."
+        }, {
+            "joke": "Why do programmers always get Christmas and Halloween mixed up?",
+            "punchline": "Because DEC 25 = OCT 31"
+        }, {
+            "joke": "What goes after USA?",
+            "punchline": "USB."
+        }, {
+            "joke": "Why don't eggs tell jokes?",
+            "punchline": "Because they would crack each other up."
+        }, {
+            "joke": "How do you make the number one disappear?",
+            "punchline": "Add the letter G and it’s “gone”!"
+        }, {
+            "joke": "My older brother always tore the last pages of my comic books, and never told me why.",
+            "punchline": "I had to draw my own conclusions."
+        }, {
+            "joke": "The Sergeant-Major growled at the young soldier: I didn’t see you at camouflage training this morning.",
+            "punchline": "Thank you very much, sir."
+        }, {
+            "joke": "Why did the kid throw the watch out the window?",
+            "punchline": "So time would fly."
+        }, {
+            "joke": "Where did the API go to eat?",
+            "punchline": "To the RESTaurant."
+        }, {
+            "joke": "Why did the rooster cross the road?",
+            "punchline": "He heard that the chickens at KFC were pretty hot."
+        }, {
+            "joke": "Did you hear about the Viking who was reincarnated?",
+            "punchline": "He was Bjorn again"
+        }, {
+            "joke": "What does the mermaid wear to math class?",
+            "punchline": "Algae-bra."
+        }, {
+            "joke": "Did you hear about the crime in the parking garage?",
+            "punchline": "It was wrong on so many levels."
+        }, {
+            "joke": "Hey, wanna hear a joke?",
+            "punchline": "Parsing HTML with regex."
+        }, {
+            "joke": "Why didn't the skeleton go for prom?",
+            "punchline": "Because it had nobody."
+        }, {
+            "joke": "A grocery store cashier asked if I would like my milk in a bag.",
+            "punchline": "I told her 'No, thanks. The carton works fine.'"
+        }, {
+            "joke": "99.9% of the people are dumb!",
+            "punchline": "Fortunately I belong to the remaining 1%"
+        }, {
+            "joke": "I just got fired from my job at the keyboard factory.",
+            "punchline": "They told me I wasn't putting in enough shifts."
+        }, {
+            "joke": "You see, mountains aren't just funny.",
+            "punchline": "They are hill areas."
+        }, {
+            "joke": "What do elves post on Social Media?",
+            "punchline": "Elf-ies."
+        }, {
+            "joke": "While I was sleeping my friends decided to write math equations on me.",
+            "punchline": "You should have seen the expression on my face when I woke up."
+        }, {
+            "joke": "Due to complaints, Hawaii passed a law where you're not allowed to laugh above a certain decibel.",
+            "punchline": "You can only use a low ha."
+        }, {
+            "joke": "Why are football stadiums so cool?",
+            "punchline": "Because every seat has a fan in it."
+        }, {
+            "joke": "How do you generate a random string?",
+            "punchline": "Put a Windows user in front of Vim and tell them to exit."
+        }, {
+            "joke": "Why did the functions stop calling each other?",
+            "punchline": "Because they had constant arguments."
+        }, {
+            "joke": "Why did the private classes break up?",
+            "punchline": "Because they never saw each other."
+        }, {
+            "joke": "Why did the developer quit his job?",
+            "punchline": "Because he didn't get arrays."
+        }, {
+            "joke": "How many React developers does it take to change a lightbulb?",
+            "punchline": "None, they prefer dark mode."
+        }, {
+            "joke": "Why don't React developers like nature?",
+            "punchline": "They prefer the virtual DOM."
+        }, {
+            "joke": "What do you get when you cross a React developer with a mathematician?",
+            "punchline": "A function component."
+        }, {
+            "joke": "Why did the developer go broke buying Bitcoin?",
+            "punchline": "He kept calling it bytecoin and didn't get any."
+        }, {
+            "joke": "Why did the programmer go to art school?",
+            "punchline": "He wanted to learn how to code outside the box."
+        }, {
+            "joke": "Why did the programmer's wife leave him?",
+            "punchline": "He didn't know how to commit."
+        }, {
+            "joke": "Why do programmers prefer dark chocolate?",
+            "punchline": "Because it's bitter like their code."
+        }, {
+            "joke": "Why did the programmer go broke?",
+            "punchline": "He used up all his cache"
+        }, {
+            "joke": "Why did the programmer always mix up Halloween and Christmas?",
+            "punchline": "Because Oct 31 equals Dec 25."
+        }, {
+            "joke": "Why don't programmers like nature?",
+            "punchline": "There's too many bugs."
+        }, {
+            "joke": "Why was the JavaScript developer sad?",
+            "punchline": "He didn't know how to null his feelings."
+        }, {
+            "joke": "Why couldn't the bicycle stand up by itself?",
+            "punchline": "It was two-tired."
+        }, {
+            "joke": "Why did the math book look sad?",
+            "punchline": "Because it had too many problems."
+        }, {
+            "joke": "What's a computer's favorite snack?",
+            "punchline": "Microchips."
+        }, {
+            "joke": "What did the janitor say when he jumped out of the closet?",
+            "punchline": "Supplies!"
+        }, {
+            "joke": "What did one ocean say to the other ocean?",
+            "punchline": "Nothing, they just waved."
+        }, {
+            "joke": "What's the best thing about Switzerland?",
+            "punchline": "I don't know, but their flag is a big plus."
+        }, {
+            "joke": "Why did the golfer bring two pairs of pants?",
+            "punchline": "In case he got a hole in one."
+        }, {
+            "joke": "Why did the chicken cross the playground?",
+            "punchline": "To get to the other slide."
+        }, {
+            "joke": "Why don't scientists trust atoms?",
+            "punchline": "Because they make up everything."
+        }, {
+            "joke": "Why don't oysters give to charity?",
+            "punchline": "Because they're shellfish."
+        }, {
+            "joke": "Why did the cookie go to the doctor?",
+            "punchline": "Because it was feeling crumbly."
+        }, {
+            "joke": "What do you call a computer mouse that swears a lot?",
+            "punchline": "A cursor!"
+        }, {
+            "joke": "Why did the designer break up with their font?",
+            "punchline": "Because it wasn't their type."
+        }, {
+            "joke": "Why did the programmer quit their job?",
+            "punchline": "They didn't get arrays."
+        }, {
+            "joke": "Why did the developer go broke?",
+            "punchline": "They kept spending all their cache."
+        }, {
+            "joke": "How do you comfort a designer?",
+            "punchline": "You give them some space... between the elements."
+        }, {
+            "joke": "Why don't programmers like nature?",
+            "punchline": "Too many bugs."
+        }, {
+            "joke": "Why did the programmer bring a ladder to work?",
+            "punchline": "They heard the code needed to be debugged from a higher level."
+        }, {
+            "joke": "Why was the developer always calm?",
+            "punchline": "Because they knew how to handle exceptions."
+        }, {
+            "joke": "Why was the font always tired?",
+            "punchline": "It was always bold."
+        }, {
+            "joke": "Why did the developer go to therapy?",
+            "punchline": "They had too many unresolved issues."
+        }, {
+            "joke": "Why was the designer always cold?",
+            "punchline": "Because they always used too much ice-olation."
+        }, {
+            "joke": "Why did the programmer bring a broom to work?",
+            "punchline": "To clean up all the bugs."
+        }, {
+            "joke": "Why did the developer break up with their keyboard?",
+            "punchline": "It just wasn't their type anymore."
+        }, {
+            "joke": "Why did the programmer always carry a pencil?",
+            "punchline": "They preferred to write in C#."
+        }, {
+            "joke": "Why don't skeletons fight each other?",
+            "punchline": "They don't have the guts."
+        }, {
+            "joke": "What do you call fake spaghetti?",
+            "punchline": "An impasta."
+        }, {
+            "joke": "What do you call a thieving alligator?",
+            "punchline": "A crookodile!"
         }
     ];

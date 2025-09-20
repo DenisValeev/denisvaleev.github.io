@@ -268,5 +268,275 @@ window.quotesData = [
         "author": "Aristotle"
       }
     ]
+  },
+  {
+    "id": "joy",
+    "label": "Joy & Smiles",
+    "quotes": [
+      {
+        "text": "Smile, breathe, and go slowly.",
+        "author": "Thich Nhat Hanh"
+      },
+      {
+        "text": "To enjoy life, we must touch much of it lightly.",
+        "author": "Voltaire"
+      },
+      {
+        "text": "Don't cry because it's over. Smile because it happened.",
+        "author": "Dr. Seuss"
+      },
+      {
+        "text": "Time you enjoy wasting, was not wasted.",
+        "author": "John Lennon"
+      },
+      {
+        "text": "The best way to pay for a lovely moment is to enjoy it.",
+        "author": "Richard Bach"
+      },
+      {
+        "text": "Before you put on a frown, make absolutely sure there are no smiles available.",
+        "author": "Jim Beggs"
+      },
+      {
+        "text": "If you spend your whole life waiting for the storm, you'll never enjoy the sunshine.",
+        "author": "Morris West"
+      },
+      {
+        "text": "Every time you smile at someone, it is an action of love, a gift to that person, a beautiful thing.",
+        "author": "Mother Teresa"
+      },
+      {
+        "text": "Sometimes your joy is the source of your smile, but sometimes your smile can be the source of your joy.",
+        "author": "Thich Nhat Hanh"
+      },
+      {
+        "text": "Happiness is not in the mere possession of money; it lies in the joy of achievement, in the thrill of creative effort.",
+        "author": "Franklin Roosevelt"
+      },
+      {
+        "text": "Not what we have but what we enjoy constitutes our abundance.",
+        "author": "John Petit-Senn"
+      },
+      {
+        "text": "When you dance, your purpose is not to get to a certain place on the floor. It's to enjoy each step along the way.",
+        "author": "Wayne Dyer"
+      }
+    ]
+  },
+  {
+    "id": "curiosity",
+    "label": "Curiosity & Wonder",
+    "quotes": [
+      {
+        "text": "From error to error one discovers the entire truth.",
+        "author": "Sigmund Freud"
+      },
+      {
+        "text": "Wisdom begins in wonder.",
+        "author": "Socrates"
+      },
+      {
+        "text": "A prudent question is one half of wisdom.",
+        "author": "Francis Bacon"
+      },
+      {
+        "text": "The beginning of knowledge is the discovery of something we do not understand.",
+        "author": "Frank Herbert"
+      },
+      {
+        "text": "One of the advantages of being disorderly is that one is constantly making exciting discoveries.",
+        "author": "A. A. Milne"
+      },
+      {
+        "text": "Successful people ask better questions, and as a result, they get better answers.",
+        "author": "Tony Robbins"
+      },
+      {
+        "text": "You can tell whether a man is clever by his answers. You can tell whether a man is wise by his questions.",
+        "author": "Naguib Mahfouz"
+      },
+      {
+        "text": "A wise man can learn more from a foolish question than a fool can learn from a wise answer.",
+        "author": "Bruce Lee"
+      },
+      {
+        "text": "One does not discover new lands without consenting to lose sight of the shore for a very long time.",
+        "author": "André Gide"
+      },
+      {
+        "text": "The possession of knowledge does not kill the sense of wonder and mystery. There is always more mystery.",
+        "author": "Anais Nin"
+      },
+      {
+        "text": "How wonderful that we have met with a paradox. Now we have some hope of making progress.",
+        "author": "Niels Bohr"
+      },
+      {
+        "text": "This world, after all our science and sciences, is still a miracle; wonderful, inscrutable, magical and more, to whosoever will think of it.",
+        "author": "Thomas Carlyle"
+      }
+    ]
+  },
+  {
+    "id": "kindness",
+    "label": "Kindness & Compassion",
+    "quotes": [
+      {
+        "text": "Be kind whenever possible. It is always possible.",
+        "author": "Dalai Lama"
+      },
+      {
+        "text": "Kind words will unlock an iron door.",
+        "author": "Turkish proverb"
+      },
+      {
+        "text": "Kind words do not cost much. Yet they accomplish much.",
+        "author": "Blaise Pascal"
+      },
+      {
+        "text": "To forgive is to set a prisoner free and realize that prisoner was you.",
+        "author": "Lewis B. Smedes"
+      },
+      {
+        "text": "Love and compassion open our own inner life, reducing stress, distrust and loneliness.",
+        "author": "Dalai Lama"
+      },
+      {
+        "text": "I have just three things to teach: simplicity, patience, compassion. These three are your greatest treasures.",
+        "author": "Lao Tzu"
+      },
+      {
+        "text": "Constant kindness can accomplish much. As the sun makes ice melt, kindness causes misunderstanding, mistrust, and hostility to evaporate.",
+        "author": "Albert Schweitzer"
+      },
+      {
+        "text": "There is no need for temples, no need for complicated philosophies. My brain and my heart are my temples; my philosophy is kindness.",
+        "author": "Dalai Lama"
+      },
+      {
+        "text": "Always be mindful of the kindness and not the faults of others.",
+        "author": "Buddha"
+      },
+      {
+        "text": "The weak can never forgive. Forgiveness is the attribute of the strong.",
+        "author": "Mohandas Gandhi"
+      },
+      {
+        "text": "Kindness is the golden chain by which society is bound together.",
+        "author": "Johann Wolfgang von Goethe"
+      },
+      {
+        "text": "No act of kindness, no matter how small, is ever wasted.",
+        "author": "Aesop"
+      }
+    ]
+  },
+  {
+    "id": "gratitude",
+    "label": "Gratitude & Grace",
+    "quotes": [
+      {
+        "text": "Give thanks for the rain of life that propels us to reach new horizons.",
+        "author": "Byron Pulsifer"
+      },
+      {
+        "text": "We should all be thankful for those people who rekindle the inner spirit.",
+        "author": "Albert Schweitzer"
+      },
+      {
+        "text": "Let us be grateful to people who make us happy; they are the charming gardeners who make our souls blossom.",
+        "author": "Marcel Proust"
+      },
+      {
+        "text": "Appreciation is the highest form of prayer, for it acknowledges the presence of good wherever you shine the light of your thankful thoughts.",
+        "author": "Alan Cohen"
+      },
+      {
+        "text": "I would maintain that thanks are the highest form of thought, and that gratitude is happiness doubled by wonder.",
+        "author": "G. K. Chesterton"
+      },
+      {
+        "text": "To speak gratitude is courteous and pleasant, to enact gratitude is generous and noble, but to live gratitude is to touch Heaven.",
+        "author": "Johannes Gaertner"
+      },
+      {
+        "text": "Happiness cannot be travelled to, owned, earned, worn or consumed. Happiness is the spiritual experience of living every minute with love, grace and gratitude.",
+        "author": "Denis Waitley"
+      },
+      {
+        "text": "Some people are always grumbling because roses have thorns; I am thankful that thorns have roses.",
+        "author": "Alphonse Karr"
+      },
+      {
+        "text": "Saying thank you is more than good manners. It is good spirituality.",
+        "author": "Alfred Painter"
+      },
+      {
+        "text": "It is impossible to feel grateful and depressed in the same moment.",
+        "author": "Naomi Williams"
+      },
+      {
+        "text": "As we express our gratitude, we must never forget that the highest appreciation is not to utter words, but to live by them.",
+        "author": "John F. Kennedy"
+      },
+      {
+        "text": "Gratitude is the fairest blossom which springs from the soul.",
+        "author": "Henry Beecher"
+      }
+    ]
+  },
+  {
+    "id": "purpose",
+    "label": "Purpose & Dreams",
+    "quotes": [
+      {
+        "text": "Difficulties increase the nearer we get to the goal.",
+        "author": "Johann Wolfgang von Goethe"
+      },
+      {
+        "text": "Nothing happens unless first we dream.",
+        "author": "Carl Sandburg"
+      },
+      {
+        "text": "Goals are the fuel in the furnace of achievement.",
+        "author": "Brian Tracy"
+      },
+      {
+        "text": "A goal without a plan is just a wish.",
+        "author": "Larry Elder"
+      },
+      {
+        "text": "A goal is a dream with a deadline.",
+        "author": "Napoleon Hill"
+      },
+      {
+        "text": "Set your goals high, and don't stop till you get there.",
+        "author": "Bo Jackson"
+      },
+      {
+        "text": "Do more than dream: work.",
+        "author": "William Arthur Ward"
+      },
+      {
+        "text": "Who looks outside, dreams; who looks inside, awakes.",
+        "author": "Carl Jung"
+      },
+      {
+        "text": "If you can dream it, you can do it.",
+        "author": "Walt Disney"
+      },
+      {
+        "text": "To accomplish great things, we must dream as well as act.",
+        "author": "Anatole France"
+      },
+      {
+        "text": "The secret of success is constancy to purpose.",
+        "author": "Benjamin Disraeli"
+      },
+      {
+        "text": "The future belongs to those who believe in the beauty of their dreams.",
+        "author": "Eleanor Roosevelt"
+      }
+    ]
   }
 ];
