@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generatedAt": "2025-09-20T22:24:08.719Z",
-    "total": 530,
-    "categories": 12,
+    "generatedAt": "2025-09-21T03:07:10.416Z",
+    "total": 650,
+    "categories": 22,
     "hashAlgorithm": "sha256",
     "tokenSignature": "unique-words-v1",
     "fields": [
@@ -5447,14 +5447,14 @@
     },
     "travel-02": {
       "hashes": {
-        "text": "653ed6356cf740458a52c6c5f2533715b3c54d702fadb600c84b0c176fa702c1",
-        "author": "b23a6a8439c0dde5515893e7c90c1e3233b8616e634470f20dc4928bcf3609bc",
-        "combined": "86e730a61eb4f74ee9ab59e25cffbca9052bbe3350d4e5f6c2ddbdc666b1e765",
-        "tokenSignature": "footprints-leave-memories-only-take-unknown"
+        "text": "2cc08f2368185058c413c9b1c56803b7d4056bc4e3af3ac218b2c1603976cf4e",
+        "author": "6609c0ee6aeee7b154ddab82acfd461d5bfa95719bc94d3dccdce71d15fd9bcd",
+        "combined": "1f118bd2d725de8fb7cd878bb425acab60fd16aed1bedf0adce9dc0165c9aaf5",
+        "tokenSignature": "leave-pythagoras-road-take-the-trails"
       },
       "lengths": {
-        "text": 42,
-        "author": 7
+        "text": 32,
+        "author": 10
       },
       "source": {
         "categoryId": "travel",
@@ -5463,8 +5463,8 @@
       "embedding": {
         "status": "ready",
         "model": "fake-64",
-        "vectorSha256": "fd2d52aa03ac006feb5680f2e2668bda9c76120cdb0b36e55833dca2124980d6",
-        "updatedAt": "2025-09-20T22:28:15.453Z"
+        "vectorSha256": "dd5175bfe9cf353d3d577d13ef1c358626bd7d69c6f3b4ea59e93d60b86f8a8f",
+        "updatedAt": "2025-09-21T03:05:51.944Z"
       }
     },
     "travel-03": {
@@ -9539,14 +9539,14 @@
     },
     "love-05": {
       "hashes": {
-        "text": "09f12559f04c6a8d16af6fb461a11ea1d57a6f1f1d933af6d15c24bbcc82512e",
-        "author": "b23a6a8439c0dde5515893e7c90c1e3233b8616e634470f20dc4928bcf3609bc",
-        "combined": "0b5081488de51813eb5bdb9ebfd6fc09c78e9250cd51ca66343cd2f511b9f78c",
-        "tokenSignature": "a-beat-heart-i-like-need-needs-unknown-you"
+        "text": "c0b58b0398bd01bc0b8f4d4bbed8d2f24e96b6bfcbee5110538dc79f2b7f5b6c",
+        "author": "0c53f6a569a41eed0889d69ed07b996172dd30d78a49d96588fca3dec9a6cf92",
+        "combined": "b87a192ea3721a95239e58d5aeae527b3e61a25c9e8d70e7bfba602f39aec5a9",
+        "tokenSignature": "am-are-because-but-croft-i-love-not-of-roy-when-who-with-you"
       },
       "lengths": {
-        "text": 37,
-        "author": 7
+        "text": 82,
+        "author": 9
       },
       "source": {
         "categoryId": "love",
@@ -9555,8 +9555,8 @@
       "embedding": {
         "status": "ready",
         "model": "fake-64",
-        "vectorSha256": "3720431a7182267965ab267e6ec345b0793ba7e1993648f2cc814e79cd43f537",
-        "updatedAt": "2025-09-20T22:28:15.458Z"
+        "vectorSha256": "ef17660241701d327207cc049e093a7c116e1a1b04bfcc4e402c6716bd41a106",
+        "updatedAt": "2025-09-21T03:05:51.945Z"
       }
     },
     "love-06": {
@@ -10200,13 +10200,13 @@
     "love-35": {
       "hashes": {
         "text": "09f12559f04c6a8d16af6fb461a11ea1d57a6f1f1d933af6d15c24bbcc82512e",
-        "author": "72cc62617e2b8bffd5199ba8fedfa59d46780f680147f181d76813860a911a3e",
-        "combined": "9be4bc9974010721e0604304df2da7e712aec33dd1a1fb4dead9c6d5fb121ebb",
-        "tokenSignature": "a-beat-heart-i-like-need-needs-one-republic-you"
+        "author": "605fcf512b0196da56eefcc3c6cc0817195538069147c249ad2477a36f94464d",
+        "combined": "29792042e5e27c10075d63e11dbd2c54d67cf930e209023632d3e963df12a121",
+        "tokenSignature": "a-beat-heart-i-like-need-needs-onerepublic-you"
       },
       "lengths": {
         "text": 37,
-        "author": 12
+        "author": 11
       },
       "source": {
         "categoryId": "love",
@@ -10215,8 +10215,8 @@
       "embedding": {
         "status": "ready",
         "model": "fake-64",
-        "vectorSha256": "7a5890ffdfa4894eb0abf359989c3727091ba84bf5301fc4649850e224745f95",
-        "updatedAt": "2025-09-20T22:28:15.459Z"
+        "vectorSha256": "c877091d4c9aa08ac4e6ad2a00c0a6eb727ec1cd7b58f1cddd73f7b65dc6dc4f",
+        "updatedAt": "2025-09-21T03:05:51.945Z"
       }
     },
     "love-36": {
@@ -11669,6 +11669,2646 @@
         "model": "fake-64",
         "vectorSha256": "ad385c890ed9e4ed9395080eca818c32364ab6de99d0681334dfc99150255ba3",
         "updatedAt": "2025-09-20T22:28:15.462Z"
+      }
+    },
+    "creativity-01": {
+      "hashes": {
+        "text": "5df4b59466448e0e25a1f3aec3af273eb46f2627feb78a33d1cee280e0325a2f",
+        "author": "f0a9f72ddc8c8edc975fa7af30b0e2d86efeb67cbdd869b9975709fc817f94ca",
+        "combined": "51fa28fb693e26175f9ce38198bacdddf95104b7fed9bb758e2839876d1e6611",
+        "tokenSignature": "abernathy-adapt-already-altered-companies-competition-conditions-could-industrial-is-landscape-littered-not-of-once-remains-strategic-successful-that-the-their-to-vision-with"
+      },
+      "lengths": {
+        "text": 168,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "creativity",
+        "sequence": 1
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "43791e759f3291371ff0352e6dcff668f6158e43b975cbb268eab78f588a9250",
+        "updatedAt": "2025-09-21T03:05:51.945Z"
+      }
+    },
+    "creativity-02": {
+      "hashes": {
+        "text": "497cffafbab289383d6e51409862d3d52e6aad4494171c08105b31871c3f3494",
+        "author": "b3de298fc1dd3007b7c95be8bec4386b0bd0a44091f3657124240515cdd8c017",
+        "combined": "888d4943ae69fe58a7e72b10d124f3933eff28313211c0104872679d25d7bfa5",
+        "tokenSignature": "albert-all-and-create-currently-defines-discover-einstein-for-imagination-important-is-know-knowledge-might-more-points-than-to-understand-we-while-yet"
+      },
+      "lengths": {
+        "text": 171,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "creativity",
+        "sequence": 2
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "e9de781d02d54ba3d8336ef403ddcd3bd04d232ff3d409bdc907a258b07f7c9a",
+        "updatedAt": "2025-09-21T03:05:51.945Z"
+      }
+    },
+    "creativity-03": {
+      "hashes": {
+        "text": "148fbf2394ff8a11226864728aa2d8341bcef0d504ec42fca5d758512ea9affd",
+        "author": "6e0a0451776962ec017f4be1e7140e4d73a403f6fca42f738b2a312762ef5bc7",
+        "combined": "035620ae6e059964d1e6677b1dd2f31a81cb34e053dd7834781f578732f7e04c",
+        "tokenSignature": "alfred-amid-and-art-change-is-of-order-preserve-progress-the-to-whitehead"
+      },
+      "lengths": {
+        "text": 88,
+        "author": 16
+      },
+      "source": {
+        "categoryId": "creativity",
+        "sequence": 3
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "2a4c052290960861cef4dd8979a66e1d5b9db3432c8609e578aa872d6f63c67d",
+        "updatedAt": "2025-09-21T03:05:51.945Z"
+      }
+    },
+    "creativity-04": {
+      "hashes": {
+        "text": "2f346a438544aa9aaf214bcb4144b9737cf5312027d475305e8ca97110f1ec65",
+        "author": "323d233314683c0a500da6271243f1fc4297430b8ee1c07c0b44304976923aff",
+        "combined": "f8349dcf54a5efffdc7dd4dfb30a458d9f7c9f05a4cbf035c57802a01db12c57",
+        "tokenSignature": "a-anne-before-frank-how-improve-is-it-moment-need-nobody-single-starting-that-the-to-wait-wonderful-world"
+      },
+      "lengths": {
+        "text": 95,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "creativity",
+        "sequence": 4
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "745ad92f5aeb793b0e985e2b8a7d8f32b2391e936de18921810548a4f435ad5c",
+        "updatedAt": "2025-09-21T03:05:51.946Z"
+      }
+    },
+    "creativity-05": {
+      "hashes": {
+        "text": "6f0a763e09efc45278c773a2648d137fbaeab20da88e8bc9aaf884417701de95",
+        "author": "2731ee11566f5e7e1fcc435b1cf92f16a7fbd1a0d7187b255e654babd3b3e743",
+        "combined": "f7dfeef7a6db702dbf9908f760c1fe698b28bac605f6a36804c79fca548b573b",
+        "tokenSignature": "antoine-can-de-essential-exupery-eye-heart-invisible-is-it-one-only-rightly-saint-see-that-the-to-what-with"
+      },
+      "lengths": {
+        "text": 94,
+        "author": 24
+      },
+      "source": {
+        "categoryId": "creativity",
+        "sequence": 5
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "ff6bc611cf594079062ba65ce448c06c1020c0a7b09a5ada6e1c524f626ad8df",
+        "updatedAt": "2025-09-21T03:05:51.946Z"
+      }
+    },
+    "creativity-06": {
+      "hashes": {
+        "text": "d16a5f86cef4922e4391c835b7522aa22072622770f0616910131ea4cf40c8d6",
+        "author": "1bc2bc1a5359e9f51c9b0a8a26595e1f5a629ba6e9bf95bebf48db36d2e2317b",
+        "combined": "7433748e2002c1ef8bfb7330c9b252b7ea8c2cfb7e32d3a59541f5cbcc2aeccc",
+        "tokenSignature": "arthur-every-field-for-his-limits-man-of-own-schopenhauer-takes-the-vision-world"
+      },
+      "lengths": {
+        "text": 82,
+        "author": 19
+      },
+      "source": {
+        "categoryId": "creativity",
+        "sequence": 6
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "2c924347f59317fccfcae25bee9597665e0c02933465374e55a647651cf03667",
+        "updatedAt": "2025-09-21T03:05:51.947Z"
+      }
+    },
+    "creativity-07": {
+      "hashes": {
+        "text": "bb931e99ad43debf05d4406979ffa859caa86ce2d24b18a94da9193cbc1e39ac",
+        "author": "4c02f5db0d9f1d83452a3f93a59e3fba260294d8a5f0bf5c71f3c67055c67c54",
+        "combined": "e9bc627a6717719f4178d9caaf9766dbb665f35d49e3a48cf384ce2d2ba8ab7a",
+        "tokenSignature": "afraid-am-and-audre-be-becomes-dare-i-important-in-it-less-lorde-my-of-powerful-service-strength-the-then-to-use-vision-when-whether"
+      },
+      "lengths": {
+        "text": 136,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "creativity",
+        "sequence": 7
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "5b9ab25cbec80379c94b746adcfefe62eaf771d52e5c13a25e2ae84b9b8d123b",
+        "updatedAt": "2025-09-21T03:05:51.947Z"
+      }
+    },
+    "creativity-08": {
+      "hashes": {
+        "text": "b338ea0439bb375b95e94d24bdea73e82a447a1b1941a757d682123d380baed5",
+        "author": "5fd077dd8b9655f23bf9967c961143f37eb2ea5e84f59a413ff0c3bb12201c0f",
+        "combined": "bfa9dabbe237d061f7d25dc3222581d7023254be79b02e7753464364d10798df",
+        "tokenSignature": "blaise-has-heart-its-knows-not-of-pascal-reason-reasons-the-which"
+      },
+      "lengths": {
+        "text": 52,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "creativity",
+        "sequence": 8
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "781ff85747541690a88fe3128548dc51aedc8a0ab7f3a5a618bcf598f44c726f",
+        "updatedAt": "2025-09-21T03:05:51.947Z"
+      }
+    },
+    "creativity-09": {
+      "hashes": {
+        "text": "2cb1584ad98103f876f83cd59c1eb8bb2a9d5aa9aa2cce5c832ea0f90d2284da",
+        "author": "9a0ec78436a5360fbcdde039e9ad6a7d55168a4e06d8894f90cd836a97224043",
+        "combined": "08490ea644489e7189a94341f6929dba9382626bada3570669a9214d4615c77b",
+        "tokenSignature": "bruce-circumstances-create-hell-i-lee-opportunities-to-with"
+      },
+      "lengths": {
+        "text": 51,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "creativity",
+        "sequence": 9
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "3049bc80b878fab42024d5dfce6a183343fcf01f0de473a3cd570e9a253c98ca",
+        "updatedAt": "2025-09-21T03:05:51.947Z"
+      }
+    },
+    "creativity-10": {
+      "hashes": {
+        "text": "f550a9fdf9497a99850e82dbdc71d7669344d1fe28b0b360ba2db9e43d4fa69a",
+        "author": "d9035738cefcf6ffe9a48bd5d94d73822d9b2a2879596681e6e625a77f6dca83",
+        "combined": "8fa1dad7528b2477096b746d469a6361d5ed61a4a2c493a7a64a3d5a5422cee0",
+        "tokenSignature": "buddha-heart-in-is-not-sky-the-way"
+      },
+      "lengths": {
+        "text": 51,
+        "author": 6
+      },
+      "source": {
+        "categoryId": "creativity",
+        "sequence": 10
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "39a4b9aa7b1dd115645d4c63ba26ef5144ee2f8b9137713a4c4a81c5ceefcc60",
+        "updatedAt": "2025-09-21T03:05:51.947Z"
+      }
+    },
+    "creativity-11": {
+      "hashes": {
+        "text": "070751e958ea9d588ce547ed5b8ae19f9c0a208bd953526acb0b1b8f216635f4",
+        "author": "cc4182807dfc161138e9b080375afe9583db871267254c4aa7d8ebcea7e2ab11",
+        "combined": "8ad3b0f83f9abb3df5cc99450d2099a5985d380d37f3d6fabbe7536b55b0a3c9",
+        "tokenSignature": "be-but-byron-dominate-entire-is-it-let-life-may-need-no-of-part-pulsifer-sadness-there-to-your"
+      },
+      "lengths": {
+        "text": 85,
+        "author": 14
+      },
+      "source": {
+        "categoryId": "creativity",
+        "sequence": 11
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "357e279d6e1bbb0e441731da1470f5e5fc0781f9ee93f5a50dda347f458f5f31",
+        "updatedAt": "2025-09-21T03:05:51.948Z"
+      }
+    },
+    "creativity-12": {
+      "hashes": {
+        "text": "acb54346f2d797f4de797728390c5d10dbd89449dcf0e36e693118b502e46215",
+        "author": "65db34183c256e5154df63dea9c4852855c0996f7685cf7042accd36f4cf0758",
+        "combined": "a8e082cef5de1a8c2be13806bf298481fffb19dd2ac2a634c5083f5c0927f34b",
+        "tokenSignature": "a-and-anyone-back-bard-brand-can-carl-ending-from-go-make-new-no-now-one-start-though"
+      },
+      "lengths": {
+        "text": 108,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "creativity",
+        "sequence": 12
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "c580e53ccf245cd2900dd8fbda013ae98eeaef9cbb675bf843bc6a7636d77db6",
+        "updatedAt": "2025-09-21T03:05:51.948Z"
+      }
+    },
+    "resilience-01": {
+      "hashes": {
+        "text": "6ec2d6e1ee736f942c99ab5b3192f9fcf0f66f47350bc681e72d934c5a226ccb",
+        "author": "ff237ef0b6ba4f9b7b1d070c4f2e83c1a40ae224d28bce63457bef8e1dedb845",
+        "combined": "04989859e91bb91b4d3a87d51704b1b435f28277b7f1cbe294f3443af5518dba",
+        "tokenSignature": "adversity-albert-by-can-gains-obstacles-one-only-overcome-overcoming-possesses-schweitzer-strength-the-which-who"
+      },
+      "lengths": {
+        "text": 104,
+        "author": 17
+      },
+      "source": {
+        "categoryId": "resilience",
+        "sequence": 1
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "797b5103c116ae3d1a23207ede8475a6d1d8187de71932bf44539fb64b201250",
+        "updatedAt": "2025-09-21T03:05:51.948Z"
+      }
+    },
+    "resilience-02": {
+      "hashes": {
+        "text": "a23f611cf949c8d44f6783949759be06cbc0c6cdb3ef017c200b65e23806588c",
+        "author": "ff8aac824046b8c4a4237be9238b83fd8a06c533c5ed687094071cfef9f080ea",
+        "combined": "d240c061a1d02b83940f941002da96b9911ff931932db478388cb404c51ba80f",
+        "tokenSignature": "anais-courage-expands-in-life-nin-one-or-proportion-s-shrinks-to"
+      },
+      "lengths": {
+        "text": 55,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "resilience",
+        "sequence": 2
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "b68be5a8b7e4ce1a48e2a26cf976a9d40b7f81dd3084f413b07379127b33e02b",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
+      }
+    },
+    "resilience-03": {
+      "hashes": {
+        "text": "792c9ca9ccd6abe0feb80dcf96cce729fe5e4e9bd13df53542dca6fd789d8437",
+        "author": "26a7535e3e319fa5a4db9b3443fbd0911b07acb56baeff29007a2b8c418ed5a3",
+        "combined": "b49a4af434460ec9a2409e432726c5cc959ec0fee7f4181b0b48c561a9ea8379",
+        "tokenSignature": "eight-fall-japanese-proverb-seven-stand-times-up"
+      },
+      "lengths": {
+        "text": 33,
+        "author": 16
+      },
+      "source": {
+        "categoryId": "resilience",
+        "sequence": 3
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "7659e7add19b9b89dee9883a98ddcea11a9dce5ed213d9c5f994f8eaf67ad38f",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
+      }
+    },
+    "resilience-04": {
+      "hashes": {
+        "text": "c79b4ccc4911b8db87c1735ee873c3e387290c6cc189ac8cae66a261bb12dd8b",
+        "author": "b0c5e234a9840b0ee4ebb655df20d13e814b1b0c0f894dfdfd2d47ec7fa432e7",
+        "combined": "b14df58481b9ef44d9d6e08cfaf885beec1d5d4e8a033264cf8d8786380e1b98",
+        "tokenSignature": "all-and-anne-bad-both-bronte-by-every-exercise-faculty-good-in-increase-our-strengthen-talents-the-using"
+      },
+      "lengths": {
+        "text": 104,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "resilience",
+        "sequence": 4
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "845b25c142a3a6af4164b582d88b5114f348b8caea29432f70b4448bc08456db",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
+      }
+    },
+    "resilience-05": {
+      "hashes": {
+        "text": "79563b5e850e6bc636116cf713b3e01494a3eb16d8012b0870eab2330338abfe",
+        "author": "9280c8db01b05444ff6a26c52efbe639b4879a1c49bfe0e2afdc686e93d01bcb",
+        "combined": "3bb242f1b517568268d92b616ed4865e62a0b1912a088f9c93b48d2d602482d5",
+        "tokenSignature": "a-about-acts-aristotle-as-become-brave-by-comes-doing-excellence-habit-just-moral-of-result-temperate-we"
+      },
+      "lengths": {
+        "text": 147,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "resilience",
+        "sequence": 5
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "acd151fa315db9ba336cd73794643007efa83a88254db5236994cdbea7487fdf",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
+      }
+    },
+    "resilience-06": {
+      "hashes": {
+        "text": "586007db4f367a9554c7108591560cf93b8429fe1745474976d15141c1a9fe3e",
+        "author": "b0529810c21b706bd58f3224d441e00b54c9c5caba54fee06cdf4490f756bd98",
+        "combined": "b8d0e2b3b5ee5631d8a6c88fc0911246103a69048305d65bbe328974ce7f1991",
+        "tokenSignature": "baltasar-bears-courage-fruit-gracian-no-wisdom-without"
+      },
+      "lengths": {
+        "text": 39,
+        "author": 16
+      },
+      "source": {
+        "categoryId": "resilience",
+        "sequence": 6
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "da19bd499f689353b4b27b985253d23d56c11520720e0e973eea47f1f86cb6fd",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
+      }
+    },
+    "resilience-07": {
+      "hashes": {
+        "text": "0af5b97ea8bdd6206591a41f80d7dad14272846465a6f0a5b9981ce4ff1efd57",
+        "author": "6ff3cdce1faf41bd39595d64a170f9c42cc5411a162ca062b44c03293037ffa7",
+        "combined": "91f8df8a5868b3826ef421036591cb9ac060fcb7559be80dfea5ff8951517fce",
+        "tokenSignature": "and-angelis-are-authenticity-barbara-courage-de-find-if-live-lives-need-no-not-our-ourselves-people-rediscover-say-serving-that-the-things-to-us-want-we-with"
+      },
+      "lengths": {
+        "text": 159,
+        "author": 18
+      },
+      "source": {
+        "categoryId": "resilience",
+        "sequence": 7
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "7c62efae596782fe5460a4fd3d1307b51ecd10c15c1928b5c564335042a627d3",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
+      }
+    },
+    "resilience-08": {
+      "hashes": {
+        "text": "befa3893db1acc272291af8dec12a6f70b94d9a1d22fce72b987bb3b26b98fca",
+        "author": "6e3f4f40abd8eab92fba591d9e4ba78d48f4bc20b980b621ddad54c88150318f",
+        "combined": "884c7385dc1e54c6bedaf5ab4dbc66f63d4a1601d08f58c5996712cdb0e57efb",
+        "tokenSignature": "be-benjamin-certain-destined-disraeli-failure-many-of-out-people-perseverance-seemed-success-through-to-what-win"
+      },
+      "lengths": {
+        "text": 95,
+        "author": 17
+      },
+      "source": {
+        "categoryId": "resilience",
+        "sequence": 8
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "4b43c3faed91f7b345a739fc0f282e3ed9651d66d5031eb9e115d43c1cfb2f75",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
+      }
+    },
+    "resilience-09": {
+      "hashes": {
+        "text": "ec2f5f88570d64867414f68c6faf494319695189adc2cb44a6dfa71ce47a9e47",
+        "author": "dcde1aa22dc68cd1ff4dd6fd7ddc5b610740ff4b212b08c8c28d9e575e0f5827",
+        "combined": "335e1096f80a07ed3cb848c56f1832fa9c8cfe85800c0e1c6c761509fb700e2a",
+        "tokenSignature": "bernadette-dare-dared-devlin-i-struggle-to-today-win-yesterday"
+      },
+      "lengths": {
+        "text": 51,
+        "author": 17
+      },
+      "source": {
+        "categoryId": "resilience",
+        "sequence": 9
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "658922cd402b7982f5e1467ddd8278560b9d827e9de0c62ed2ef9002dea61904",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
+      }
+    },
+    "resilience-10": {
+      "hashes": {
+        "text": "4147472a0a313f2b96d69d0d6a3d4031637057128f40b324378450f276dc5d3a",
+        "author": "cb3581c6c50adbffdc3fc54e2bed3e9bc0c2369cf1422dd2ff51e17746919f9a",
+        "combined": "1c85ebd34f409f8b119c12c2e4f80ec6d08a93f3b941960f41bc501a8bebf54d",
+        "tokenSignature": "armstrong-billie-is-our-passion-strength"
+      },
+      "lengths": {
+        "text": 28,
+        "author": 16
+      },
+      "source": {
+        "categoryId": "resilience",
+        "sequence": 10
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "7985b394eb928cffe7d1ad9bee9e8f3950e30ac6c7a6b22881028fede052eb77",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
+      }
+    },
+    "resilience-11": {
+      "hashes": {
+        "text": "359cb0d24e89c6c022f14ee8176096fececf3dd5d092c77b2401085904afcc5d",
+        "author": "9a0ec78436a5360fbcdde039e9ad6a7d55168a4e06d8894f90cd836a97224043",
+        "combined": "b394dec653a0d256f86d353a4b4912dc58a60d91521c463797b48dee69d913d7",
+        "tokenSignature": "admit-always-are-bruce-courage-forgivable-has-if-lee-mistakes-one-the-them-to"
+      },
+      "lengths": {
+        "text": 69,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "resilience",
+        "sequence": 11
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "fe980f42c693c70d45ea36855aec7d9a86f37ad2d6913ff249217a6ae97376e5",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
+      }
+    },
+    "resilience-12": {
+      "hashes": {
+        "text": "5d7feb4dafe4efc09d79976a544ab1f3a44cd97df6ec4006d004c16182e00328",
+        "author": "d9035738cefcf6ffe9a48bd5d94d73822d9b2a2879596681e6e625a77f6dca83",
+        "combined": "2594f685be52a722c0ebedcac72e357bac852a45cadf643f37271c5db017ee39",
+        "tokenSignature": "buddha-compassion-great-in-lies-misery-s-separateness-strength-the-true-world"
+      },
+      "lengths": {
+        "text": 92,
+        "author": 6
+      },
+      "source": {
+        "categoryId": "resilience",
+        "sequence": 12
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "bff3e5b88cfeed6c2399f023095a1818c75c058cdef59d6f08fce67a73e7efb5",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
+      }
+    },
+    "leadership-01": {
+      "hashes": {
+        "text": "cfd5955d2206b1540e768d7798f61cf8926e0ece1b14c775571874076544a4f0",
+        "author": "f069bb763bd5ea453028021faf11c3d32b8fae719f5887e26b798cf95be2b57c",
+        "combined": "db67a2d516013006222f33cf9a4c6dcb4e7b4f9619bd771b96b675711d2dc3c6",
+        "tokenSignature": "a-and-anthony-back-becoming-by-gift-give-is-it-life-more-offers-opportunity-privilege-responsibility-robbins-something-the-to-us"
+      },
+      "lengths": {
+        "text": 119,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "leadership",
+        "sequence": 1
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "f012a76a0382611d48bbc0fdc81d86e89b02cfdd1271c4b0d72d92dc0f9068db",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
+      }
+    },
+    "leadership-02": {
+      "hashes": {
+        "text": "49926ee14e1f27315f4cb1ab2d95cf8f3e1c8748f06c9e9336f06d54dec7003a",
+        "author": "d9035738cefcf6ffe9a48bd5d94d73822d9b2a2879596681e6e625a77f6dca83",
+        "combined": "82660db750894016f9357471c784aa80f279c0ab223e883b9f810cdc5daa27d7",
+        "tokenSignature": "and-back-brings-buddha-choose-forward-hold-ignorance-know-lack-leads-leaves-mediation-meditation-of-path-that-the-to-well-what-wisdom-you"
+      },
+      "lengths": {
+        "text": 160,
+        "author": 6
+      },
+      "source": {
+        "categoryId": "leadership",
+        "sequence": 2
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "24f4b919267d301ff0c42fab7c2ec79915ac27cd5a41512a4e9398db2c3803f5",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
+      }
+    },
+    "leadership-03": {
+      "hashes": {
+        "text": "f1e408ae52f9f8b4e1727ec69334afd2d57e189501fd5f69c5bc8b961df4b9dc",
+        "author": "cc4182807dfc161138e9b080375afe9583db871267254c4aa7d8ebcea7e2ab11",
+        "combined": "b643cde10da61d35f45caa9ef06e988d36fece734de044e3e4a0a379f6a7fc3a",
+        "tokenSignature": "a-at-byron-choice-everyone-in-inherited-is-it-life-make-needs-not-point-pulsifer-responsibility-some-that-their-to"
+      },
+      "lengths": {
+        "text": 104,
+        "author": 14
+      },
+      "source": {
+        "categoryId": "leadership",
+        "sequence": 3
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "f91e8ee9dcb64563dec796ef35a2cb4b2e8d8b4b9a79166606ebbd4a4c325de9",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
+      }
+    },
+    "leadership-04": {
+      "hashes": {
+        "text": "e1f0f25bb48eb252cd518a74ad8a70e554c9a979134872f235eaa9e2da9d9afb",
+        "author": "18f11b4d7409e050328b2e8c41c4bee060d51dd2330f282ed8309951aafb0d68",
+        "combined": "32f40e09818783336833d8dcb36c28df3e612af335c48987f57ed3fd424496a3",
+        "tokenSignature": "about-an-can-carl-everything-irritates-jung-lead-others-ourselves-that-to-understanding-us"
+      },
+      "lengths": {
+        "text": 90,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "leadership",
+        "sequence": 4
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "2045c2874a9b4150bf156e674da7226cdf6fde3ad7a586fdcc723d03c4562de3",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
+      }
+    },
+    "leadership-05": {
+      "hashes": {
+        "text": "6cf6262caa8771c68e6666dca7ab03b66166c4fd4c81c67aa2863305a487ac67",
+        "author": "21f7cc49d74030dbd7d045f32140be68b339778b3da31cb5cfc00261fc331e19",
+        "combined": "6d9f8181f58ca7d2c86f648a64fe9ccb79beca3d4dda8b79e1fb31196cc2ad29",
+        "tokenSignature": "a-charles-delint-destination-does-essentially-from-goal-is-it-leading-not-of-part-road-separate-the-to-you"
+      },
+      "lengths": {
+        "text": 102,
+        "author": 14
+      },
+      "source": {
+        "categoryId": "leadership",
+        "sequence": 5
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "136e064887860517e394d32a9f4b8d400d35d8a9139297069500b9f9b7b1908a",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
+      }
+    },
+    "leadership-06": {
+      "hashes": {
+        "text": "0f8c9938ed0fb16eabe1fb9f5218ccd13ca197e42f5ac1b37ffafa0773f8d594",
+        "author": "f5c7a84a84dc4043c3e5086261dcebf3b363631ed32756c03837039abda83723",
+        "combined": "fa6f653ad6de2f12be374878a26488194ea38608a669886d6d9355a700ad798f",
+        "tokenSignature": "accept-are-as-changing-choices-conditions-denis-exist-for-in-life-or-primary-responsibility-the-them-there-they-to-two-waitley"
+      },
+      "lengths": {
+        "text": 122,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "leadership",
+        "sequence": 6
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "d319f8236b3abb1be55b5d6b6653c7bbe091647fef1dbaebb2d143cfff3fce99",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "leadership-07": {
+      "hashes": {
+        "text": "5f8f600752575342393368e95d65d9583faa86f39bc0f7b4ae5cee78c82b00a7",
+        "author": "2ca1523c79750793db46ce6aba7a137ed921bb52d4af22c2745c829f623e02cf",
+        "combined": "a61a376b4e5e97fc3c19dd82a9acb6fe3ee6c5ac18908528f766dc0e4f6bee26",
+        "tokenSignature": "achieved-ambition-and-be-can-cannot-character-cleared-developed-ease-experience-helen-in-inspired-keller-of-only-quiet-soul-strengthened-success-suffering-the-through-trial-vision"
+      },
+      "lengths": {
+        "text": 182,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "leadership",
+        "sequence": 7
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "40435421ed6a427cf70a5f992327c427c233b126874b2f7e77623883623f1497",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "leadership-08": {
+      "hashes": {
+        "text": "95375483f6c7a398a6aa4b4e9bf4e4faa2fafb921abc333d4e4931d628b075c2",
+        "author": "26a7535e3e319fa5a4db9b3443fbd0911b07acb56baeff29007a2b8c418ed5a3",
+        "combined": "361d243e9a8639acf76c518dea26e4a62748cd4305dff26ad566faedee077233",
+        "tokenSignature": "a-action-daydream-is-japanese-nightmare-proverb-vision-without"
+      },
+      "lengths": {
+        "text": 74,
+        "author": 16
+      },
+      "source": {
+        "categoryId": "leadership",
+        "sequence": 8
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "450d334a54c91be5ebc3fef5bac2529b37254af90fadf8345f412da133bf7a23",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "leadership-09": {
+      "hashes": {
+        "text": "9304a8e8bfef4921a89d2ce24eaeb216f03dbb0f55345c8443d3b2d52592799d",
+        "author": "04d64342a16fc3551585b6e6eee08d9e34f3c5485800f035b8cf3f68b8116d8f",
+        "combined": "837174637278f7be57deae83eb49eb6ac04b491769fc005b828bbc1149328ae7",
+        "tokenSignature": "a-action-acts-almost-always-and-crisis-for-his-in-jawaharlal-leader-man-nehru-of-or-reasons-subconsciously-the-then-thinks"
+      },
+      "lengths": {
+        "text": 120,
+        "author": 16
+      },
+      "source": {
+        "categoryId": "leadership",
+        "sequence": 9
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "fdc569a4071786778d2c8aa4c02aa174c84859112d9f4f457d838dabfd500893",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "leadership-10": {
+      "hashes": {
+        "text": "9aed129dd1f70d1db2eaebeb6cc246d7467e7170104c45cd15207eb778fb9922",
+        "author": "704013a23166eec5ac0040682ea68e61e48b1f656a55b164b688f53477efb13e",
+        "combined": "2bcaf2386bedd1f788de239ac955bebdcceaf7f5dc5fb00b29c4414508670b8f",
+        "tokenSignature": "a-actions-adams-and-are-become-do-dream-if-inspire-john-leader-learn-more-others-quincy-to-you-your"
+      },
+      "lengths": {
+        "text": 100,
+        "author": 17
+      },
+      "source": {
+        "categoryId": "leadership",
+        "sequence": 10
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "c79ae44ef920eefdbf8c867cf52f83b8f7c162bd92eaabc0a4bd956a15afaaaf",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "leadership-11": {
+      "hashes": {
+        "text": "906f9e5ee1a92cd18e30a26b9bada13213bce8078d30f278d7fc06ce224b6f56",
+        "author": "c32e664c8565ae26c40eb6601bc9f3fbc051a02ce093babd81646df1c60154a9",
+        "combined": "2d2a4f9716b30b2317a465a7dcacebd242045301d6a000f515a4b1e95b16051b",
+        "tokenSignature": "behind-lao-lead-people-them-to-tzu-walk"
+      },
+      "lengths": {
+        "text": 32,
+        "author": 7
+      },
+      "source": {
+        "categoryId": "leadership",
+        "sequence": 11
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "6c332764a287ef9886e34e6641f7182da43b9ddfe9d42a1bc6da21280c04609f",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "leadership-12": {
+      "hashes": {
+        "text": "effd93a47cb7c618f38d68f66c0fc9670ecb136b98a4974ea9e69301671f129d",
+        "author": "8e42fa03e667c4e49d38f9272bb89919591c55f0218d19ab19f5c6ee338f2101",
+        "combined": "b16387ef0342018f6d552876126a0b70182135a5200facad5192ef80cbfd2591",
+        "tokenSignature": "allow-i-intuition-lead-manuel-my-path-puig-to"
+      },
+      "lengths": {
+        "text": 37,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "leadership",
+        "sequence": 12
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "7c5a338edb5d5e67de4c6a97ea5dd7f30f1883265872ba7d4d6e554db2fc77b9",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "mindfulness-01": {
+      "hashes": {
+        "text": "e8a310b911065edce782e926361b2a787ca197d9fa20da9c95bc4ae48db632da",
+        "author": "8f30191ce47d82ce6b3c0688bcf4130e3c590af094e3e10efe66dd5ba39ce5b2",
+        "combined": "3ffba97605030caaf53356beff6efb53b44d2cfc002d01c4b1a0afba5a344e28",
+        "tokenSignature": "about-abraham-are-as-be-happy-lincoln-make-minds-most-people-their-they-to-up"
+      },
+      "lengths": {
+        "text": 64,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "mindfulness",
+        "sequence": 1
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "e04fbb202680976715c7df3e8af9e0933c3f104d168208b13d043a5324d88ef8",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "mindfulness-02": {
+      "hashes": {
+        "text": "558a362148fa88f6eb8841c6dc4098e62554e67cd936e71830aa32296f017a4f",
+        "author": "d80ef36c7cbee8fe273e9155fe8eaa5c0c3df5e44ddc9ba9082869bb1be79af9",
+        "combined": "663f63a3f0263abaa8313dbd46e628cf37f08aec2fafeacbefcd31417320e654",
+        "tokenSignature": "a-abraham-awareness-change-himself-his-is-maslow-necessary-of-person-to-what"
+      },
+      "lengths": {
+        "text": 75,
+        "author": 14
+      },
+      "source": {
+        "categoryId": "mindfulness",
+        "sequence": 2
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "e424698253fa843a910fec4449ecb2e7dc365f0f3e6d2d8c4bb30a6ae61a380d",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "mindfulness-03": {
+      "hashes": {
+        "text": "126f45cf4bfabbf86fa670e9e47f2621ec4106c6df3868d5d44cc2e3e5bf50cf",
+        "author": "7824f8af444af9f65d0f021a1dc7d05bcfd24f548931ec8a49982cf2d324fd01",
+        "combined": "4ffb08ff9741eac15fc975f382105abdbf3e197121161ff91520624b908dfebd",
+        "tokenSignature": "a-ajahn-chah-go-have-if-let-little-lot-of-peace-will-you"
+      },
+      "lengths": {
+        "text": 104,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "mindfulness",
+        "sequence": 3
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "5906d2364e2a4f4276b1580f9dd3b522ebf2d0736804e72b5cdbdc800ae74c66",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "mindfulness-04": {
+      "hashes": {
+        "text": "44c2f7e41398ebe03183544455be2c178899e6dc9a2a64917783c6cd6cc35aa8",
+        "author": "b3de298fc1dd3007b7c95be8bec4386b0bd0a44091f3657124240515cdd8c017",
+        "combined": "ab5ad94aaaf9a61a74db1bf1277270def6aa772af26743d3eedb6c645f2024e0",
+        "tokenSignature": "a-albert-and-believe-best-body-both-einstein-everyone-for-i-is-life-manner-mind-of-simple-that-the-unassuming"
+      },
+      "lengths": {
+        "text": 112,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "mindfulness",
+        "sequence": 4
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "0334a648132f6bb6057da77f28448481ac70fcfd61a1f7eb35550c1c52ae8879",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "mindfulness-05": {
+      "hashes": {
+        "text": "23ab7e2183b4f5e8e428f7cbfacfc60f5633a126ecc1b2347e0c7289f62a1901",
+        "author": "b2df9f5f2f685d30a7030660cfe4c7042c91202dfdd59e0e3fd73de5432e1c50",
+        "combined": "f9d7be183e27c7d50e92cbf7d51a1e39d153e4719720715a9a36b386159495b1",
+        "tokenSignature": "alice-demands-denies-friend-grow-is-no-or-person-right-silence-to-walker-who-your"
+      },
+      "lengths": {
+        "text": 80,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "mindfulness",
+        "sequence": 5
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "72fe38ff643a8a8b3a4f70d77bc87524de43f10ad72895c0e32a085aee7e4fe7",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "mindfulness-06": {
+      "hashes": {
+        "text": "b8a8627dcfe5f871e8542aeb715f7b84e0408ce735cb740e87438fc26bf2bb50",
+        "author": "ff8aac824046b8c4a4237be9238b83fd8a06c533c5ed687094071cfef9f080ea",
+        "combined": "9c16d733e88ba26aa7ffbcf896a655b0741ca850469850baea69be16c2b2181a",
+        "tokenSignature": "a-ahead-always-anais-catch-dream-for-in-it-live-me-miracle-moment-nin-of-running-that-the-to-unison-up-was-with"
+      },
+      "lengths": {
+        "text": 116,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "mindfulness",
+        "sequence": 6
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "66a4723b8f755717575a7cfb9a7e66c4a95688965722037a3aa11cc74aab52af",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "mindfulness-07": {
+      "hashes": {
+        "text": "95867ee481f41576f5083cd68659fb873966ba9915bcdf1b247d06b35999d724",
+        "author": "2731ee11566f5e7e1fcc435b1cf92f16a7fbd1a0d7187b255e654babd3b3e743",
+        "combined": "90a98346ae075df1e1d47ee26a215b8fc15b93890caf52205563de44f35fa6a2",
+        "tokenSignature": "and-antoine-but-de-exupery-freedom-i-is-know-mind-of-one-saint-that-the"
+      },
+      "lengths": {
+        "text": 59,
+        "author": 24
+      },
+      "source": {
+        "categoryId": "mindfulness",
+        "sequence": 7
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "eeb3a037d20915e4e58f9346dce65aadef91a4fa1b2b332f5ff99fc2e01c1dc0",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "mindfulness-08": {
+      "hashes": {
+        "text": "40b0886051a35eb98c12e12a28175f1c6c7c1a2b1de09631c8f717850ace2715",
+        "author": "9280c8db01b05444ff6a26c52efbe639b4879a1c49bfe0e2afdc686e93d01bcb",
+        "combined": "a7d386b168b2c07493f45f5657f4085d560377718083dcb96094adb0ec28441e",
+        "tokenSignature": "a-able-accepting-an-aristotle-be-educated-entertain-is-it-mark-mind-of-the-thought-to-without"
+      },
+      "lengths": {
+        "text": 90,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "mindfulness",
+        "sequence": 8
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "3eafadd19e03e26152f7cfe07d2de1d7112ecf4424cea4bfe35b17359bc3e14d",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "mindfulness-09": {
+      "hashes": {
+        "text": "fd640bdebecff71ab7545282b257fe5f77f964e510892bb1c4a8435c5fdd97e9",
+        "author": "3141841919c6f5b5059c94661bb98bbbfd58845f983c57ce7d98dd3e338a0e24",
+        "combined": "50c7c6bfb593c9469d2a42934349c8754d6ac985625877b8c6b61ba05ebe286e",
+        "tokenSignature": "a-and-babatunde-call-gift-history-is-it-mystery-olatunji-present-that-the-today-tomorrow-we-why-yesterday"
+      },
+      "lengths": {
+        "text": 108,
+        "author": 18
+      },
+      "source": {
+        "categoryId": "mindfulness",
+        "sequence": 9
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "95eb23771fc60b20b287dc0fe01d3d6661f435c8af0fe8bbe6758e1075a4f274",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "mindfulness-10": {
+      "hashes": {
+        "text": "f69c7afab3570258b16596609e03859304843ffe5cc061c55ac4487b7e597ed5",
+        "author": "d9035738cefcf6ffe9a48bd5d94d73822d9b2a2879596681e6e625a77f6dca83",
+        "combined": "57f6413d2aa261e283b6b70dd3a9857c7e32060195289e01fc725f3921811679",
+        "tokenSignature": "buddha-comes-do-from-it-not-peace-seek-within-without"
+      },
+      "lengths": {
+        "text": 48,
+        "author": 6
+      },
+      "source": {
+        "categoryId": "mindfulness",
+        "sequence": 10
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "ac82eba326a7845cd3f967d77554ea41ffff97124c91fffe4e645f5dcea82f8f",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "mindfulness-11": {
+      "hashes": {
+        "text": "f9abe71707f030d87974545d5981c2ed4c275c10d7f3e495801e2f7a3664bcfc",
+        "author": "cc4182807dfc161138e9b080375afe9583db871267254c4aa7d8ebcea7e2ab11",
+        "combined": "33799472ba893b4cb22d603eaf3675d06eae1bed5c3bffd2fdfae9230b853dda",
+        "tokenSignature": "byron-concerns-forget-is-many-mind-money-of-only-people-prosperity-pulsifer-that-the-think-to-true"
+      },
+      "lengths": {
+        "text": 103,
+        "author": 14
+      },
+      "source": {
+        "categoryId": "mindfulness",
+        "sequence": 11
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "05a5fa7ea082d3b6ea053a7c77ae4064509678b8496dde696b817e155a6548fc",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "mindfulness-12": {
+      "hashes": {
+        "text": "6c36c5ffe96bebbb6088cb485a3677414f0b58698a7a5aef38d56c1215131fbd",
+        "author": "18f11b4d7409e050328b2e8c41c4bee060d51dd2330f282ed8309951aafb0d68",
+        "combined": "15d4898fcb0a117482a2801b0fa14dbc0ba989737efee64a00511ca222d7259c",
+        "tokenSignature": "a-are-average-below-but-carl-conscience-deceiving-deep-down-ever-is-jung-of-ourselves-out-pride-says-small-something-still-surface-the-through-to-tune-us-voice-we"
+      },
+      "lengths": {
+        "text": 163,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "mindfulness",
+        "sequence": 12
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "4e06c24b6bb17242c0b24e3bbbcc3f736941e672e8161ba7df975bcc88f29805",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "growth-01": {
+      "hashes": {
+        "text": "e55c7af21592d7e13793e1d3b12281377b215b611a8f7a7b0caf66c95fee88e9",
+        "author": "0693c6496fbb2310b6bf6bae6f85fff04b4c665275f2e164b66c96d1d7464a75",
+        "combined": "042b34b52dd370c0879e0d61cc4d2b952e8ca2b4b883e0457d8f8d6bcc132933",
+        "tokenSignature": "a-chance-davies-grow-is-just-life-powell-soul-to"
+      },
+      "lengths": {
+        "text": 37,
+        "author": 16
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 1
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "5918c64c7b17d8cba746313a3810aa3469730192903d407e3173873f7b1bbb56",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "growth-02": {
+      "hashes": {
+        "text": "0f8c54affd11e6e6d2a2e8585304b6e6de9c18e8c9d8ee70166515bc6a7f9054",
+        "author": "8f30191ce47d82ce6b3c0688bcf4130e3c590af094e3e10efe66dd5ba39ce5b2",
+        "combined": "a3f2eccb3ac73a2eb333abcae26918266156ca974aa092385fef048ef6245650",
+        "tokenSignature": "abraham-do-grandfather-growing-have-how-lincoln-matter-no-own-tall-to-was-you-your"
+      },
+      "lengths": {
+        "text": 72,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 2
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "9796ffe46fc40e91c66a6b3a8bbdbb6d1d90bbdf6d88347e057477d8efa6e360",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "growth-03": {
+      "hashes": {
+        "text": "8773731855d54c8ae4b3cda6fe173495f06d8fb30d2cfab6c4821784e0226a3a",
+        "author": "fbbfd02a13de9a7bc4ed03188992a4607fe9a815eb1d2bc4112711409ab80a9f",
+        "combined": "47a808bea077d441320c1dfc3b79929a971f66fb8e63cd28a33cec801fdd81db",
+        "tokenSignature": "albert-an-camus-depth-finally-i-in-invincible-learned-me-of-summer-that-the-there-was-winter-within"
+      },
+      "lengths": {
+        "text": 88,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 3
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "7c527a825d421815e615efd6776c9eb62a156624651b0ddda99efaa693167624",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "growth-04": {
+      "hashes": {
+        "text": "5578dc3b8932c09c2839a05d47f4f3e69447e0c1c410df87f178d577db42557d",
+        "author": "b3de298fc1dd3007b7c95be8bec4386b0bd0a44091f3657124240515cdd8c017",
+        "combined": "c49c723d9645f420c54fc509476d399b5cba89c903947d1419226a27e1430ee1",
+        "tokenSignature": "albert-einstein-for-from-hope-learn-live-today-tomorrow-yesterday"
+      },
+      "lengths": {
+        "text": 56,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 4
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "c35cf22773574c774519cc589a679f766baa94ca769a0e3958941b89bba4265d",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
+      }
+    },
+    "growth-05": {
+      "hashes": {
+        "text": "4414f56ed787a17e457e24bcb1634e57f86dd759c4176b56332d60af627ca71b",
+        "author": "33f9fa95180112000baea97287fa76b92297ed67743b08704e81e06b4360df7a",
+        "combined": "751df57e156484b6cd4157cada964b66e75741f554bda1c6a8769af827566f05",
+        "tokenSignature": "alfred-all-can-from-have-learn-make-mistakes-of-others-sheinwold-t-the-them-time-to-won-you-yourself"
+      },
+      "lengths": {
+        "text": 93,
+        "author": 16
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 5
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "c87be9b714db9828b24d4412cdf2c9c8f606b806ad42de687718012ae34fc5e5",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
+      }
+    },
+    "growth-06": {
+      "hashes": {
+        "text": "fa4e3b9c320e1e6d6abdc04397b8ab8b70764bb11a92969796f9f6568eb2bec1",
+        "author": "d20b51581d0bf6f21b44196985b5bb963c09f1c2bd00317a29ca39ea332822d9",
+        "combined": "f39b5ea9b9f9a7e99fc2927875cbb8347d4812156e0340ce4fbb19e9ae188926",
+        "tokenSignature": "acorns-american-do-from-grow-little-mighty-oaks-proverb"
+      },
+      "lengths": {
+        "text": 39,
+        "author": 16
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 6
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "37a0b4edca56f7b31f6937af75127b84f5a3b23e9040e89d2e7681a5b37c189c",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
+      }
+    },
+    "growth-07": {
+      "hashes": {
+        "text": "a91d98d338443bfa0d507d694caa553769aa8ec48920d561b61cb618acfdf256",
+        "author": "3e87992bcd9c2cc4a79d10ef7b98cce982413a8fa26ea5defbc15f6c158b4a29",
+        "combined": "82cf4137aec4a71ab87696d2534cd104f28859afa44dab2b1905c2da9bb8c878",
+        "tokenSignature": "a-amy-at-becomes-been-bloom-each-easy-first-for-have-is-it-its-lifetime-looking-love-miracle-other-people-sight-that-to-two-understand-when"
+      },
+      "lengths": {
+        "text": 136,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 7
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "353c4ab09876fe40cc4bd54f32a80b09d38479802df1cec8f99d3a5356591571",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
+      }
+    },
+    "growth-08": {
+      "hashes": {
+        "text": "9e4986dced71534e95ab1edc11fbeedd9f7188887c34394b65048c5419c53d43",
+        "author": "80fc85dd0223ff67ec0eef207a4178dd986b634b962cb29ba2e5212f73fee2bf",
+        "combined": "764726714aa9ee5e93370dcae9c2a99b210f6dc2e94a5d6c2171b5715f5fb66a",
+        "tokenSignature": "anatole-by-france-in-just-learn-love-loving-run-running-same-speak-speaking-study-studying-the-to-way-work-working-you"
+      },
+      "lengths": {
+        "text": 143,
+        "author": 14
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 8
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "6453ba147918abd98f15ff9547f7b0de079d433d67745018379a488877077c75",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
+      }
+    },
+    "growth-09": {
+      "hashes": {
+        "text": "f9729a9dc25d084005419cdc6af02291f427951353f90ee1c0fea986e98e7c04",
+        "author": "ce03832e27cf16a81e36a57811560af5da63441d4c3a7549266f0483f55120dc",
+        "combined": "85471fa2d96f63c26d7d1c0441bfa04bdb20c5abfb7f01f7970e9cc07ffffd5c",
+        "tokenSignature": "actually-andy-but-change-changes-have-say-that-them-they-things-time-to-warhol-you-yourself"
+      },
+      "lengths": {
+        "text": 81,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 9
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "1c2bda31790a4a1d2be0427e747f8d262c6519f5087d8e9f83344e28ed2b2d15",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
+      }
+    },
+    "growth-10": {
+      "hashes": {
+        "text": "f058873ba680b6854642aa2a481200ea318f44e3d7f76ddea6a39ae69e54bc92",
+        "author": "323d233314683c0a500da6271243f1fc4297430b8ee1c07c0b44304976923aff",
+        "combined": "73328c2546dbac2e68a03d878875967322c384a3a078f55f13da83156727e4b0",
+        "tokenSignature": "anne-become-by-ever-frank-giving-has-no-one-poor"
+      },
+      "lengths": {
+        "text": 38,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 10
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "8589811571a12a0257580187e13ef1f9ff0ebb9c1cfe2663698d6e892714424f",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
+      }
+    },
+    "growth-11": {
+      "hashes": {
+        "text": "3774a80aefc437e43e5f866773abb17d197ede70c9b0bc3b37dc312d56d8463a",
+        "author": "f742a17fdaf16be43ca6a949469647dba2e6bb4b7025ebcee08961ad2a232ef9",
+        "combined": "4958d3f621c681f63dc31e1154be112204d6bcb6a3359c0bc8d76cd115b6615a",
+        "tokenSignature": "ability-advantage-arie-competition-competitive-de-faster-gues-is-learn-only-sustainable-than-to-your"
+      },
+      "lengths": {
+        "text": 98,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 11
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "25c7f01244cdfb279191e6bf89852f0457d2ed0642fc19a8566302f5a01ff88e",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
+      }
+    },
+    "growth-12": {
+      "hashes": {
+        "text": "58986d784f3977a4b28db3da60378eaa1980d04b3a92fb21485c2c2208c27d0d",
+        "author": "9280c8db01b05444ff6a26c52efbe639b4879a1c49bfe0e2afdc686e93d01bcb",
+        "combined": "3dd8c2ffee48ecb413e23b7372fba86a74063011fe153044c949571c0c2a6346",
+        "tokenSignature": "all-aristotle-change-in-is-sweet-things"
+      },
+      "lengths": {
+        "text": 30,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 12
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "43b963ec6de8ce308f93c288ea0b18ea365f9451ec35ac23cb86f47b5a33e565",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
+      }
+    },
+    "joy-01": {
+      "hashes": {
+        "text": "bff1256b5c59f5ec3cb91c5a5f2bf4c9f38bc117a28f330a6f4e8f6f9042bffe",
+        "author": "233397f653bfd5c21c8d7d18211facf78365280f03a80f8f373cafe1211492ff",
+        "combined": "80dc89d40268a43c83580a50248fb763598ccb0de7c2644b2a64f2db9f1e244d",
+        "tokenSignature": "and-choose-choosing-day-does-every-happen-have-henri-it-j-joy-keep-m-not-nouwen-simply-to-us-we"
+      },
+      "lengths": {
+        "text": 87,
+        "author": 17
+      },
+      "source": {
+        "categoryId": "joy",
+        "sequence": 1
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "672e1776cf26af93237f8fb2bf426ff01c143ea2750c0ab0f1ae957bd682534f",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
+      }
+    },
+    "joy-02": {
+      "hashes": {
+        "text": "8b39746d0e7409dd01c9f9e725ef660e022e5ddd38b0fc50fd2adf7fe4570586",
+        "author": "212b2c0b6b955722972e7a9c927ec08067d55cac042ce5e9596d42d6166bdcc1",
+        "combined": "4d7c51430a35aea72657d2283f7c4195a0e9dac813ddcf988bbc7a06de48b8af",
+        "tokenSignature": "enjoy-it-life-lightly-much-must-of-to-touch-voltaire-we"
+      },
+      "lengths": {
+        "text": 48,
+        "author": 8
+      },
+      "source": {
+        "categoryId": "joy",
+        "sequence": 2
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "dead38bcdda174c69501d309dd7bb638aa5a2802eaeb7149e8baa58505e86c47",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
+      }
+    },
+    "joy-03": {
+      "hashes": {
+        "text": "5852101668719ec5a9eb04795c94cfaa1f4061b371413710346654f0c94fc038",
+        "author": "b2eba9283f0122ced47ea614d43d80db2524129ef9e85c68fb856c406ec4ec71",
+        "combined": "67013316871734afa98de0843d65a95daec287142677a7de116fe9fedeb5fc7d",
+        "tokenSignature": "a-and-burn-campbell-find-inside-joseph-joy-out-pain-place-s-the-there-where-will"
+      },
+      "lengths": {
+        "text": 74,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "joy",
+        "sequence": 3
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "0bd825a73b8b7813dde0145e28af0804837289397d08a3c25f9b625ff9816b5f",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
+      }
+    },
+    "joy-04": {
+      "hashes": {
+        "text": "0a0e7250cf5915bd27fece9bd0cfce1fd2a1a23f923cc496c3f5fa8a08e1794e",
+        "author": "49bde1fc12cf5024d1ac249ec66e86a4f98cb1c27c2d6854bc6ba89de5e0022c",
+        "combined": "2269767fda223bdc383bd3ca522cbd7b18451a0ec3074ab235c2d00b88f8783f",
+        "tokenSignature": "enjoy-john-lennon-not-time-was-wasted-wasting-you"
+      },
+      "lengths": {
+        "text": 39,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "joy",
+        "sequence": 4
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "43444dfa7db310a1b94dd4e6bd8f0eb2a55578abeaf4c2eb87f918916bb7ad93",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
+      }
+    },
+    "joy-05": {
+      "hashes": {
+        "text": "77a8179d195c5190cd3031b9bd921b3e6cccbd1619fc54a32ae6fdbac4c0834c",
+        "author": "0f3ee73ea916ff97f63bd21e50b61221c62fb41b75c2fd80e4eb470b01315780",
+        "combined": "ddbff13e7de7acb213c7a56acd439ba51e2591061c351339d3b1c2e7582a8720",
+        "tokenSignature": "a-bach-best-enjoy-for-is-it-lovely-moment-pay-richard-the-to-way"
+      },
+      "lengths": {
+        "text": 55,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "joy",
+        "sequence": 5
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "ef2160965c5455217b2365dac8aca24ec929dc37930807255e61eb2f2087364a",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
+      }
+    },
+    "joy-06": {
+      "hashes": {
+        "text": "c6a663983d9418102a8266d321c008d5dfcec3990aada0931c3067893e5dd0fa",
+        "author": "e975576533a7494402684dfe70c67d3e28f05651da40e6dc2b67f89f16dbab7e",
+        "combined": "7e548063b7cd07c0f07b0d5e71afb955ef3140c090598dc7fc1d2e904d834f86",
+        "tokenSignature": "emerson-joy-ralph-scatter-waldo"
+      },
+      "lengths": {
+        "text": 12,
+        "author": 19
+      },
+      "source": {
+        "categoryId": "joy",
+        "sequence": 6
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "e74ba9da2ef60a3c41b42337e97030f545b20b94585ded4a9079dc848e534ece",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
+      }
+    },
+    "joy-07": {
+      "hashes": {
+        "text": "ffc1e652b267cda380c5791b0001ac81b1a33f2c5aebe1a7d71f35eca2339b1c",
+        "author": "d25edc57bfd0628212efe43b37dd1c028a5c57a5557e09146695ec04e99921fd",
+        "combined": "8115fd4f62635f2d0e2fe2e4ac3a96ce3282efd003d4b371ce365ae5d36a3d03",
+        "tokenSignature": "dickinson-ecstasy-emily-enough-find-in-is-joy-life-living-mere-of-sense-the"
+      },
+      "lengths": {
+        "text": 61,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "joy",
+        "sequence": 7
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "ba420c2bc5d17ff43702fefc9b135677d14e8f8d9594dcce103790a3316301f3",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
+      }
+    },
+    "joy-08": {
+      "hashes": {
+        "text": "04d3440d55e9f14fa988ed53f7dfebe38faca347e4cc7b4080dc326cc91fc768",
+        "author": "b3bdb63c995e85a64b977ead92e5b6aa2bf2068230b42b3958ccd058bb5a2206",
+        "combined": "0e23b3034284eceee5a6a82b2bcd3521f70e6a5bf8097e7b39fcf2daea978408",
+        "tokenSignature": "a-by-can-catch-is-joy-love-mother-net-of-souls-teresa-which-you"
+      },
+      "lengths": {
+        "text": 50,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "joy",
+        "sequence": 8
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "cba90c53710a4c4ff022e2da68612fb6b4511058ba7b4f830c2d91651b722bee",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
+      }
+    },
+    "joy-09": {
+      "hashes": {
+        "text": "0c61fbcf1a2a84dc10c1112623e5ab6c0d15462abf62c22af9cf53a5fe0dca8d",
+        "author": "45993a12c75f80b9c842b9592474077e5122c41e084003ed7d80f84935b8ca60",
+        "combined": "97890f4247ab00333b2b2eebf4c0ec00cbb2f846ed958adaa521b64684148a61",
+        "tokenSignature": "be-but-can-hanh-is-joy-nhat-of-smile-sometimes-source-the-thich-your"
+      },
+      "lengths": {
+        "text": 103,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "joy",
+        "sequence": 9
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "c9b88d18d160eb51e42b1bc3279279c3b0fb5214dd5680180ad7eede6b0b6a9f",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
+      }
+    },
+    "joy-10": {
+      "hashes": {
+        "text": "161557c77027f0cce6f422949a95b82a48ce4a33cebf8c8666421ea903ae0637",
+        "author": "dfc161fadc1cf6f16fe5f97563ff57eee334ac6180e33c249e19e6f7e631bc83",
+        "combined": "2f03c6fe3917322fb197a24846cee0d8dd18a76752020600289ae053b768c5ff",
+        "tokenSignature": "a-about-are-brave-decision-going-how-is-joy-life-one-really-respond-stafford-to-wess-you"
+      },
+      "lengths": {
+        "text": 82,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "joy",
+        "sequence": 10
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "5f0b31b5bde259366a16aec9af851bcb12c680f1cd95b42882777be23467a46f",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
+      }
+    },
+    "joy-11": {
+      "hashes": {
+        "text": "ea1868aebbc562d9e951caf82fb94a2aa23a3f68b6f98ab2c92f652c8dcb1803",
+        "author": "a873c7fecd78a37e59ae98e0d3e5bb82206d32c018aa798b975540943edc00c5",
+        "combined": "179d9faec4fd4a81efa1a47e2d7e32b4416585fe5d9f175b1c64a1ba637cae7f",
+        "tokenSignature": "abundance-but-constitutes-enjoy-have-john-not-our-petit-senn-we-what"
+      },
+      "lengths": {
+        "text": 61,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "joy",
+        "sequence": 11
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "467a656a1156adbf29cf0d69b1634f5a871d60f66a671e5e10a12f516035e46a",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
+      }
+    },
+    "joy-12": {
+      "hashes": {
+        "text": "b33a52a97910236f5e6a8814e2692ede8354cd3f007e84062763e3c02e286ec3",
+        "author": "55ba41c27badca7ce1cd8075250543877fb91be63d233257d9dd0906d90554fb",
+        "combined": "cff34ee88bb47f4d8d4c15c998ac5e0029b12ab90db291e88ea64af37e949f02",
+        "tokenSignature": "a-along-certain-dance-dyer-each-enjoy-floor-get-is-it-not-on-place-purpose-s-step-the-to-way-wayne-when-you-your"
+      },
+      "lengths": {
+        "text": 114,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "joy",
+        "sequence": 12
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "9962adba7973d70f871a0b11e13c547f77a6263a0386eb34c850322584b15429",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
+      }
+    },
+    "curiosity-01": {
+      "hashes": {
+        "text": "bc7c4303afc73384bd774fa6b6967e18657bf5a66d76233b7c8ff185c941e5f6",
+        "author": "cc7daf31187a790b0c7790da58046e3081a8371f43db076a7397aa81640814c9",
+        "combined": "72ed776fa6e455b1401ce8667c7e85ecc09124a5e8319d15dd4ed0cd7bed8c92",
+        "tokenSignature": "discovers-entire-error-freud-from-one-sigmund-the-to-truth"
+      },
+      "lengths": {
+        "text": 51,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 1
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "11b611d5c60501f0bbebe1be0532e97a96414ce199b46c1af2c38cf2b14f9ef5",
+        "updatedAt": "2025-09-21T03:05:51.957Z"
+      }
+    },
+    "curiosity-02": {
+      "hashes": {
+        "text": "a00c84945a9c5e2e033ee98e060d27d68543491730daba77a320a13a4593d7d5",
+        "author": "710482eaa280e6b7e9ed98958197686ea52772371d2374089e677ff77eae18eb",
+        "combined": "21776dd1bb25a381350a79c1e25f829170dc5e8424364987096a47198b252647",
+        "tokenSignature": "begins-in-socrates-wisdom-wonder"
+      },
+      "lengths": {
+        "text": 24,
+        "author": 8
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 2
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "83163d8a779d74b32127e4b37d9d8b5d689ca978b986a6494e8ec906b1c60454",
+        "updatedAt": "2025-09-21T03:05:51.957Z"
+      }
+    },
+    "curiosity-03": {
+      "hashes": {
+        "text": "92ed1e4b4481d1f2af350492ab530e6338c283fd641dd7d23def850643c81e57",
+        "author": "5260f175051ab70b5528a42161e58f112ac97a201148302c570dca1d805bf4db",
+        "combined": "62480562729c2e9c10a241ac5f95003fe21e4241f95dbde45cb9b5236775b21d",
+        "tokenSignature": "a-bacon-francis-half-is-of-one-prudent-question-wisdom"
+      },
+      "lengths": {
+        "text": 41,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 3
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "29418d3ca312a674f2d8503015d1bf13639878c93f4b66f27eb77431dacf3ae8",
+        "updatedAt": "2025-09-21T03:05:51.957Z"
+      }
+    },
+    "curiosity-04": {
+      "hashes": {
+        "text": "69fa19a5f14e44beb400f86bf5c1cfecaa5699ca2b789013143946ad28aacaea",
+        "author": "aa859705eb67660aed06e3c994fd69a84e99e457327c66736c6d21628fc74220",
+        "combined": "e9a82ca3ddc41d945a5469d202784f4c54655255309a7bcf8deb8d3c0de52f14",
+        "tokenSignature": "arthur-candle-curiosity-in-is-learning-of-the-ward-wick-william"
+      },
+      "lengths": {
+        "text": 48,
+        "author": 19
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 4
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "3dfae88ba21015c6c9b65fc02f77316911e52739770ca2338c5148d2fb68847b",
+        "updatedAt": "2025-09-21T03:05:51.957Z"
+      }
+    },
+    "curiosity-05": {
+      "hashes": {
+        "text": "4a9e687e91383a6476ab20255aaf85be23e1c7bb778c44a16b3f39bcb006e497",
+        "author": "5f9fe02d04beb083f81c88a6b564274389bd5189cd07db4d9d34e9bcf0d8c70b",
+        "combined": "0080dbdbd5aff6099e68d6a7aeb3a8a8e7e71d0f43c5436a1def721ee66b842e",
+        "tokenSignature": "a-advantages-being-constantly-discoveries-disorderly-exciting-is-making-milne-of-one-that-the"
+      },
+      "lengths": {
+        "text": 96,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 5
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "528874f00d8fd3ddcf79d3fcdb58aaf0872e518798f79b453465f7bd102661c3",
+        "updatedAt": "2025-09-21T03:05:51.957Z"
+      }
+    },
+    "curiosity-06": {
+      "hashes": {
+        "text": "a68f29d3fee21dcbcf29c3ea993e21b102a437fe1b889782e535775882c02372",
+        "author": "a8e10fe13a65fed6b88e4749706d073e5c315347a8d20a1ba4a438847e287bcf",
+        "combined": "19f2a697950fced27b5c3706ebe1056d8c576c8073c9f4afece8d5afa1947c6e",
+        "tokenSignature": "a-and-answers-as-ask-better-get-people-questions-result-robbins-successful-they-tony"
+      },
+      "lengths": {
+        "text": 81,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 6
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "3d481e01530a683a3693a74cc42beb52cf9a6c02e24bbf8500b5b4eb2e2b38bd",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "curiosity-07": {
+      "hashes": {
+        "text": "747d3f0082801ef7e0af86221b6a933036d316ccc0d024b6af46f748fbe8c228",
+        "author": "020ad109ec6d380f3715612768d259af127a36de32fa5a6b330965929f25bacb",
+        "combined": "6671c7a61d9c314aaa4552e5fcb9b7af5407ed2033884d31960f78ebe474ce8a",
+        "tokenSignature": "a-answers-by-can-clever-his-is-mahfouz-man-naguib-questions-tell-whether-wise-you"
+      },
+      "lengths": {
+        "text": 105,
+        "author": 14
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 7
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "ab060384f561763aaf4c6d8c39627d982fc2c1c664447b4432a5886817773ed9",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "curiosity-08": {
+      "hashes": {
+        "text": "f9a0e302e1e835a4501f3101e1c9917695fa324527765aba32f1e075adc6d710",
+        "author": "9a0ec78436a5360fbcdde039e9ad6a7d55168a4e06d8894f90cd836a97224043",
+        "combined": "6a33691e54dae7f215b42cb9f4be99801350b658d904634aadbd272940aafbc0",
+        "tokenSignature": "a-answer-bruce-can-fool-foolish-from-learn-lee-man-more-question-than-wise"
+      },
+      "lengths": {
+        "text": 91,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 8
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "65c1cd678337d69e60ba89e43e35e1d4c0883f9e6f34d096cce5c916e9e4d929",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "curiosity-09": {
+      "hashes": {
+        "text": "316d1e2927d296dc4316b48de7698870354e09de70d49a2124e7420e747b94db",
+        "author": "721e582a366549d874f98785108bdf7fb012f464a9296a49d7115f0ae41846db",
+        "combined": "9c826b366d2c7b115519fb7f35da1de38fffcdfc7d7a96fc85aab16ea5169726",
+        "tokenSignature": "a-andr-consenting-discover-does-for-gide-lands-long-lose-new-not-of-one-shore-sight-the-time-to-very-without"
+      },
+      "lengths": {
+        "text": 99,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 9
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "fef56bcb93f4a06869c3f476f3b2d42e9f27d1846c76b52451fe35ae59e2492e",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "curiosity-10": {
+      "hashes": {
+        "text": "9f55fe6e5f033a20a0ebbcbad63a460364eb4721bf47a24ffd4362f302774d5c",
+        "author": "ff8aac824046b8c4a4237be9238b83fd8a06c533c5ed687094071cfef9f080ea",
+        "combined": "6b14a0bd93a2d4b80854b402f67500d1c87b29c737f4b7e9d0b3047b85f07810",
+        "tokenSignature": "always-anais-and-does-is-kill-knowledge-more-mystery-nin-not-of-possession-sense-the-there-wonder"
+      },
+      "lengths": {
+        "text": 104,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 10
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "75fac02834e02a4bcc06d14a08c7c92863e183e7311ed1da1a7bda77a2ffd267",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "curiosity-11": {
+      "hashes": {
+        "text": "d2b9d8f051ac2ecfbc0d4dd8412d829dff56ca84c38740f598d4e43f4a954774",
+        "author": "7601e2b1d18bd0a3408b8c2627a13079dcb8d30efeef5502fb392234c31d9fd0",
+        "combined": "80fe167dc3296eb4d3ace08b44ffebd75c4db4faa24ece83c133c4313a809bd4",
+        "tokenSignature": "a-bohr-have-hope-how-making-met-niels-now-of-paradox-progress-some-that-we-with-wonderful"
+      },
+      "lengths": {
+        "text": 88,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 11
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "3f19c6ac7551bac21898f45042e4ccca6a50b36cc3dac57364c9816672c9537c",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "curiosity-12": {
+      "hashes": {
+        "text": "84de39cdbc0f7bdfeae7ef32eb6fb8a49f3bb591dc7929abe9b26cd27989d7de",
+        "author": "25afb54509b57a926715d1d4fc69d96fd5bb99e20ea912a5f4c51b01a086bd8b",
+        "combined": "5ed39ee0004bfc0b19d995b75ea1b4644f14477f280a5963bc2b2d54e2be9e8c",
+        "tokenSignature": "a-after-all-and-carlyle-inscrutable-is-it-magical-miracle-more-of-our-science-sciences-still-think-this-thomas-to-whosoever-will-wonderful-world"
+      },
+      "lengths": {
+        "text": 140,
+        "author": 14
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 12
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "cc24b49ed6b03d3e2ba3c665c2845c6c707673df86197bc81f137ca9b129440b",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "kindness-01": {
+      "hashes": {
+        "text": "3980d940bc3d3e0a2f9f6ab756456345c417599932e702d026a3764a06e5e883",
+        "author": "f92ee0d2e3185db5930c5f76c85df774aca6ed580fe9619b0724b5798aa137af",
+        "combined": "084813de2ce4164a59fc77ab3969ddc37f13044e5f556730f90cee17e995eaa7",
+        "tokenSignature": "always-be-dalai-is-it-kind-lama-possible-whenever"
+      },
+      "lengths": {
+        "text": 49,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "kindness",
+        "sequence": 1
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "0ba078ab6d2a47fd4d664b0bf0be5b25c2a76a356ce25a8753705ae665348194",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "kindness-02": {
+      "hashes": {
+        "text": "2a3e63fd3b3cc34882ea6506cdb0d686dad666662cf63a42aeef891634fc9682",
+        "author": "9c61bc80d4bf09b54aa97764f8d8dab7c06f222ce8f1b638f112a0a63a054587",
+        "combined": "174dddfca96feaa161cafd4955649842d314ce114b7c17ce1b939845aabb8342",
+        "tokenSignature": "an-door-iron-kind-proverb-turkish-unlock-will-words"
+      },
+      "lengths": {
+        "text": 36,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "kindness",
+        "sequence": 2
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "f4d7f9ba669a05826841d5fc074b87101fea9a36770dd1890e164a7bea12c5b3",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "kindness-03": {
+      "hashes": {
+        "text": "1eeb7c79cbbb6b133fe4a59bddcc14a39b7b0049fae0da0d93fcc7b197247e2d",
+        "author": "5fd077dd8b9655f23bf9967c961143f37eb2ea5e84f59a413ff0c3bb12201c0f",
+        "combined": "bba45c3ee305188cc8c87cd699b63459c9f9e54f5ac7d1b53342c7995018b780",
+        "tokenSignature": "accomplish-blaise-cost-do-kind-much-not-pascal-they-words-yet"
+      },
+      "lengths": {
+        "text": 54,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "kindness",
+        "sequence": 3
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "b6f742e79c6aac5974fdc30935c053de4282af217d595dc996c4c73d3f58e322",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "kindness-04": {
+      "hashes": {
+        "text": "6b860fae949fc450bfe05604f53a79f4a4f57905292b7e447baabb5481e0372a",
+        "author": "c2f07bafc675469a8566fcfd39d195c65ac0fa6c920ffd586ae94ad5ab423ebe",
+        "combined": "3097b94f1894802b11ba3e1cae43b1ff05d5562606167efe4763353be9fbe747",
+        "tokenSignature": "a-and-b-forgive-free-is-lewis-prisoner-realize-set-smedes-that-to-was-you"
+      },
+      "lengths": {
+        "text": 71,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "kindness",
+        "sequence": 4
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "4ff92cb2ce602a4d13965b182b5203e1916189ffb31cca79ee00d643834861f4",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "kindness-05": {
+      "hashes": {
+        "text": "fcd6973894bf737b5483881cfc2511f8e329532467092fea584f1c130ad35a25",
+        "author": "f92ee0d2e3185db5930c5f76c85df774aca6ed580fe9619b0724b5798aa137af",
+        "combined": "945ec662d391300419ebb73942aae2e84faf7e3bc5441e9232658c26d0c2b6e9",
+        "tokenSignature": "and-compassion-dalai-distrust-inner-lama-life-loneliness-love-open-our-own-reducing-stress"
+      },
+      "lengths": {
+        "text": 86,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "kindness",
+        "sequence": 5
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "d7c0cc0aaea6b7e0e5eabe64709f5da3764903220d5cd053df4de18e00857e14",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "kindness-06": {
+      "hashes": {
+        "text": "9b307d8980ca8c234b66ab22065f8be7e69dc395cbe686653f766d008df9c9a5",
+        "author": "c32e664c8565ae26c40eb6601bc9f3fbc051a02ce093babd81646df1c60154a9",
+        "combined": "0abe475df81c86a73db4f7a52b725bbc9d81c377a3eaabccb551645951048a89",
+        "tokenSignature": "are-compassion-greatest-have-i-just-lao-patience-simplicity-teach-these-things-three-to-treasures-tzu-your"
+      },
+      "lengths": {
+        "text": 109,
+        "author": 7
+      },
+      "source": {
+        "categoryId": "kindness",
+        "sequence": 6
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "bed3500d7736852a92ff9fcc8fb5c54e88eed2e5bf07aef994db86ee3b81f5ad",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "kindness-07": {
+      "hashes": {
+        "text": "ed0ff97558f0299519d9df4f0d19dfe4b3bd31041c4a0f54ef3aa1aeacc43bb3",
+        "author": "ff237ef0b6ba4f9b7b1d070c4f2e83c1a40ae224d28bce63457bef8e1dedb845",
+        "combined": "02d4dbc038554d9d23a3cd585377b09beb12f83e3c6049cdfafff043aa931bd1",
+        "tokenSignature": "accomplish-albert-and-as-can-causes-constant-evaporate-hostility-ice-kindness-makes-melt-mistrust-misunderstanding-much-schweitzer-sun-the-to"
+      },
+      "lengths": {
+        "text": 137,
+        "author": 17
+      },
+      "source": {
+        "categoryId": "kindness",
+        "sequence": 7
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "51fbd002c2dc4f8f838693293d2d472f175bb9dd7e7058529f95c3ba05f67a7e",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "kindness-08": {
+      "hashes": {
+        "text": "52e5b98911918ca1564df6e45caf73c16680664161cd3d51670be1794fdab16b",
+        "author": "f92ee0d2e3185db5930c5f76c85df774aca6ed580fe9619b0724b5798aa137af",
+        "combined": "0b8b8196df8338f5306d6537222ab396a0266942c6afbb993c87ec0ee02f440c",
+        "tokenSignature": "and-are-brain-complicated-dalai-for-heart-is-kindness-lama-my-need-no-philosophies-philosophy-temples-there"
+      },
+      "lengths": {
+        "text": 132,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "kindness",
+        "sequence": 8
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "844f50eb566c0475472ed0aa3985d241967e1791b4d579cacb702f1f04992355",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "kindness-09": {
+      "hashes": {
+        "text": "d4a7529a036d9fe95809c2a93c4176e804433db41a46b8c387027c381f09d89d",
+        "author": "d9035738cefcf6ffe9a48bd5d94d73822d9b2a2879596681e6e625a77f6dca83",
+        "combined": "9bbf11d8c9a8075c0b863cf83648d197a866a3150d5c75d40fd16d7ff8b7a792",
+        "tokenSignature": "always-and-be-buddha-faults-kindness-mindful-not-of-others-the"
+      },
+      "lengths": {
+        "text": 63,
+        "author": 6
+      },
+      "source": {
+        "categoryId": "kindness",
+        "sequence": 9
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "4371cb52b425dc216a11458043bd201004fbf16f145675961fbdf53828788721",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "kindness-10": {
+      "hashes": {
+        "text": "dacd3d241f1e9cd370993f69f16ef5406a73fb6e53e0569d3031472d6331ddcc",
+        "author": "cc9d11ae96a29be20f992ff5b80a02070601d7ed1d4a879e256378dea114278f",
+        "combined": "87932a3b2a361514d32e9d7a2d2a8fd0bd6e28dcc242d920c01b40c1b2b83e7e",
+        "tokenSignature": "attribute-can-forgive-forgiveness-gandhi-is-mohandas-never-of-strong-the-weak"
+      },
+      "lengths": {
+        "text": 71,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "kindness",
+        "sequence": 10
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "92d83aa330c17b2bd0825f325260bff32579327559cd3a6ad3e2f3afbf777a74",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "kindness-11": {
+      "hashes": {
+        "text": "39de73fddf962f2c46340f8a07069a70769745c9ebee5b3f06ae3b06cf581c96",
+        "author": "8a202463a79b857f6b1e3f7f4b6cab33b8ebbbd150d43c7f7b90ac238271fdb9",
+        "combined": "37ea397b3d44d12a841b9b298a5b26c2f3b2f51966db61fb26b98fab09159506",
+        "tokenSignature": "bound-by-chain-goethe-golden-is-johann-kindness-society-the-together-von-which-wolfgang"
+      },
+      "lengths": {
+        "text": 64,
+        "author": 26
+      },
+      "source": {
+        "categoryId": "kindness",
+        "sequence": 11
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "aad5d58cadb058a11c751feabbfbaf83b098688fec2223ab9bba49de5eaa2751",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "kindness-12": {
+      "hashes": {
+        "text": "b2391cb1cc2218f1fa1cb36164e149e6aa2c8b7aca4232a6d6721b9c2a47c9b1",
+        "author": "bccf7e154da9c0825bddce594eb2e1a313b8d8b1ec37584b64494abb99a3d407",
+        "combined": "893ff1fd6fa34ec610ac892ba84acff1c9ae64a6d4a13ec07f159e0bc73fe08b",
+        "tokenSignature": "a-and-blind-can-deaf-hear-is-kindness-language-mark-see-the-twain-which"
+      },
+      "lengths": {
+        "text": 69,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "kindness",
+        "sequence": 12
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "1b1059f2e0e920466c5f13af579c4a3c2f728383d3160b6616087df2a416c8b3",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "gratitude-01": {
+      "hashes": {
+        "text": "41ceeb31cbe73e72aad9942c4a84ea664323302ab2bf976397d15f99023d85eb",
+        "author": "cc4182807dfc161138e9b080375afe9583db871267254c4aa7d8ebcea7e2ab11",
+        "combined": "2bcdd8a15d89f766e3d180a7a102f3955c476bd8e9a020f4b7e50fd33d6caf40",
+        "tokenSignature": "byron-for-give-horizons-life-new-of-propels-pulsifer-rain-reach-thanks-that-the-to-us"
+      },
+      "lengths": {
+        "text": 71,
+        "author": 14
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 1
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "634c178d588fa737fa1ce6d1d92dd04d9fac956e43f2aa6d30f4d9624e269cf9",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "gratitude-02": {
+      "hashes": {
+        "text": "0672d456247e54f0ad542d288813394e476644f9659e3499471d964e32ae35fc",
+        "author": "ff237ef0b6ba4f9b7b1d070c4f2e83c1a40ae224d28bce63457bef8e1dedb845",
+        "combined": "2b971f9f3a2ddd2b38543e7b977c0502865ece085ee6bfa89c0a22d50f1a9ace",
+        "tokenSignature": "albert-all-be-for-inner-people-rekindle-schweitzer-should-spirit-thankful-the-those-we-who"
+      },
+      "lengths": {
+        "text": 73,
+        "author": 17
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 2
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "daea1021a030dd2c32b2a1a9c107b4fb80f9229013ba6fba2a4e1ad73f0346e2",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
+      }
+    },
+    "gratitude-03": {
+      "hashes": {
+        "text": "d649f692071127829390a44e664df2f2f50dabde788f4e618ea7a04e6466a725",
+        "author": "e99e4fbd08fdc5298a7364d02ac2dfb0c45419cde8e7cd30ec716cc12229c7d0",
+        "combined": "e78a8fae6a03045592088a0a0e30bb6248f8af4d503b47e332592c951d6304ea",
+        "tokenSignature": "are-be-blossom-charming-gardeners-grateful-happy-let-make-marcel-our-people-proust-souls-the-they-to-us-who"
+      },
+      "lengths": {
+        "text": 107,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 3
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "af2a5a48611bd8de443b4e6d46e5bcddd58741f08019be82cbfcc0f1f39ce6d3",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "gratitude-04": {
+      "hashes": {
+        "text": "b5b1374aea1862e6c99f44eb4ab26fd20471b462d33b8c87cbad8bab7d77648a",
+        "author": "910a770c372676955f729e21ba18a7e78e9ec0b5707f515c4c90e097e65b1f14",
+        "combined": "8398c157f0dd09da6d6ec6d300cd6391459a2be68e8b9559b1828c7526767c79",
+        "tokenSignature": "acknowledges-alan-appreciation-cohen-for-form-good-highest-is-it-light-of-prayer-presence-shine-thankful-the-thoughts-wherever-you-your"
+      },
+      "lengths": {
+        "text": 140,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 4
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "b90ade66444d85caa2cc0dcae672ef8daf03fb0ff0834a69ba324418ef30ec96",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "gratitude-05": {
+      "hashes": {
+        "text": "7c633bf99abb6aec7f6fb0e8763aee4bc9496d97f1ea1a389b69acc40daa2f74",
+        "author": "f688dc2a15b0d57812935c01a7d298ed6aa88c1d5d8ca4c3712f44dd2cacec6a",
+        "combined": "913f778ae391df9936b64814dc5ed1bb229641c4161ba5bdea12d9e0264176a1",
+        "tokenSignature": "and-are-by-chesterton-doubled-form-g-gratitude-happiness-highest-i-is-k-maintain-of-thanks-that-the-thought-wonder-would"
+      },
+      "lengths": {
+        "text": 112,
+        "author": 16
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 5
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "fe2ba92513bb863dc53aa9781f6d6a3d695db82b409d962fe43f7f76cdb6d9a4",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "gratitude-06": {
+      "hashes": {
+        "text": "194059468b19308aeb3f35223eeba000838cff8784a38eee1a878034293d3e45",
+        "author": "12bc7acce93694027e8a36350c1941de87c4bfc2254f4c0d8fa203ae22ff9627",
+        "combined": "5f864ae9d1ba3e7fe83a4f88d37362c28f15191f77866c4be9e762a10f32e468",
+        "tokenSignature": "and-but-courteous-enact-gaertner-generous-gratitude-heaven-is-johannes-live-noble-pleasant-speak-to-touch"
+      },
+      "lengths": {
+        "text": 129,
+        "author": 17
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 6
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "4637bf548aa5ee01a3e43c938fa8ba0b5ecfbfc0fdb3cd9b7f564ddd65394d85",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "gratitude-07": {
+      "hashes": {
+        "text": "cc3e8d1fbb719a30de9be7c724360568e7fae0c90a4c0d761ab6f195c2d538e2",
+        "author": "f5c7a84a84dc4043c3e5086261dcebf3b363631ed32756c03837039abda83723",
+        "combined": "bcdb9e548ecee8bf414205b1cdcea5fc19ebf582a1daf85e7669a70de3695666",
+        "tokenSignature": "and-be-cannot-consumed-denis-earned-every-experience-grace-gratitude-happiness-is-living-love-minute-of-or-owned-spiritual-the-to-travelled-waitley-with-worn"
+      },
+      "lengths": {
+        "text": 159,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 7
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "2504fa9148b7dad455da42e8e9034f342d929feb94c36f880e2db5af2ce1e418",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "gratitude-08": {
+      "hashes": {
+        "text": "6876194df047fda6c677959fee0d1d0eeb41bbc60c854903b7f1b97247e4ce44",
+        "author": "2965cd7d0f1c87d35370457ada23c689d104f4e1bbae3a06d471ecd4157d1989",
+        "combined": "1ab5d7f595cca369bc34444a82a53546d3a901d7c0496deb590f4725b552e8bc",
+        "tokenSignature": "alphonse-always-am-are-because-grumbling-have-i-karr-people-roses-some-thankful-that-thorns"
+      },
+      "lengths": {
+        "text": 97,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 8
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "7848f613311ec83c7b62fef3f4d26665fab1dbb9a0533ab3a92e9c126387d1ee",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "gratitude-09": {
+      "hashes": {
+        "text": "bdb423f54a8d75ce3e1dea8a76aeb95a296d755f84b08afb7397cae7d9153ccb",
+        "author": "264ed1a38bd7fb0e63d97307c030f02d8bb2f6eee9d2c61debafd38bbdb58564",
+        "combined": "2863bb0f1e3fe2e5e6c7b635a337e39bdf1ece25a92a8042c3a532b801e0b38a",
+        "tokenSignature": "alfred-good-is-it-manners-more-painter-saying-spirituality-than-thank-you"
+      },
+      "lengths": {
+        "text": 68,
+        "author": 14
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 9
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "374324b46256ce0cf34de62375b7d631a911156fb79f6f3c909d373175425c84",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "gratitude-10": {
+      "hashes": {
+        "text": "dd8efe30c7d7295647e95b562904cc39dd2652ea7468cfefd8c98df515bdea44",
+        "author": "1fbc2d477567ee0bd525d4444ccf4caa35bb4eae44c0a6a26b5f58138e9842e5",
+        "combined": "0aee6ecebf11f19df1d79468b7faeb58ec116242c32c4e9d67f2b22ef22919d9",
+        "tokenSignature": "and-depressed-feel-grateful-impossible-in-is-it-moment-naomi-same-the-to-williams"
+      },
+      "lengths": {
+        "text": 67,
+        "author": 14
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 10
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "ee655fe02fa1c3c15cff53edfbcd4cc3fac6a2c60d610e3192271ac0496f66a7",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "gratitude-11": {
+      "hashes": {
+        "text": "4eb5859f62f8bf00869307137c52d1919ccda193d600ccb409281e1467d86aab",
+        "author": "efd5fd072480bf4473669835df358133a5f22e10957fc8ff7c0fe905a9a29bf6",
+        "combined": "193005a7c6b7b5f12f55dcf4fe231a616d37cf2a8cfe7ef5479ee18d836c4f0b",
+        "tokenSignature": "appreciation-as-but-by-express-f-forget-gratitude-highest-is-john-kennedy-live-must-never-not-our-that-the-them-to-utter-we-words"
+      },
+      "lengths": {
+        "text": 123,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 11
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "205061b7d1b2ee5217725598240c747570fb5aceab8b4c51a4821c847c3d4cbd",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "gratitude-12": {
+      "hashes": {
+        "text": "eef4668212449333c990730c24c078007776fc550a92b1629acbbe73e271ef53",
+        "author": "b35b1e040ea9928c2857d10fe6dcb9a75287326f3fd4872340d16c3edf2ee9dd",
+        "combined": "ae352226a63bafb2fd5973f55ca4527dc6fe4a53b0b5ddf819e525ec58f7be74",
+        "tokenSignature": "beecher-blossom-fairest-from-gratitude-henry-is-soul-springs-the-which"
+      },
+      "lengths": {
+        "text": 61,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 12
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "272544cb7ebb1434aa5e9073f225ef1bb9f0ff0571be16edcbafa45f680339c7",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "purpose-01": {
+      "hashes": {
+        "text": "80dfa388a4e3a1d236d341ea72013dfac69dd8c7dba46c7a05cdb5718fcf2334",
+        "author": "8a202463a79b857f6b1e3f7f4b6cab33b8ebbbd150d43c7f7b90ac238271fdb9",
+        "combined": "fcc466c6d0a0dd12604ca36a5cbbad22fcbb966094cfed892bdb2d46e152529a",
+        "tokenSignature": "difficulties-get-goal-goethe-increase-johann-nearer-the-to-von-we-wolfgang"
+      },
+      "lengths": {
+        "text": 52,
+        "author": 26
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 1
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "ef9e7f7ecab4ed2b0b793237f648de35d46190042c8e75f45db2771a05b5985a",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "purpose-02": {
+      "hashes": {
+        "text": "d950cf87ef900d241dce9d51303bc65443e28e97f43ecd470c9b334b3049094b",
+        "author": "347592cdcc86efb8d144942915e256f264c751c10b6dc6b4b2627e33461f751e",
+        "combined": "844789eaeeda7f9ccac5a631a1419acb8523060f8d6e7fa064930270e402fac4",
+        "tokenSignature": "away-find-gift-give-is-it-life-meaning-of-pablo-picasso-purpose-the-to-your"
+      },
+      "lengths": {
+        "text": 81,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 2
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "1f0768a270834325a915c249a1eed8fb8d313d647c9924a9be225b51372efd42",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "purpose-03": {
+      "hashes": {
+        "text": "fd0b5aa5967c7e54f0101835693db2cc1f8e464d9e21f10aeba807d6e6b13bc8",
+        "author": "efd5fd072480bf4473669835df358133a5f22e10957fc8ff7c0fe905a9a29bf6",
+        "combined": "c3da64bfa0565ded02f99a50ae8a6316c2bb526df0e6c1296a752fb2d665a7a5",
+        "tokenSignature": "and-are-courage-direction-efforts-enough-f-john-kennedy-not-purpose-without"
+      },
+      "lengths": {
+        "text": 65,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 3
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "0bc0953019f225b51e39fdc67b22e0312161f3b08c1d714b087555854e309cad",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "purpose-04": {
+      "hashes": {
+        "text": "6109eb3d2a526e530f0cdbc61705e978332c545663714c6c830830cba9a8f6ac",
+        "author": "68a13cc528b2edfb44f4d7ec40dfecf6723bead1c8bde7ec93982d4b6772414c",
+        "combined": "1cae9f9896efdb887c8de24c33ce5f19363f569b50e020fbc707d80cd86872de",
+        "tokenSignature": "a-elder-goal-is-just-larry-plan-wish-without"
+      },
+      "lengths": {
+        "text": 37,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 4
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "49312bcf2f8a63a11b40d32e707ed281126cce189dd5e41ef9ad2bb91cfdd84a",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "purpose-05": {
+      "hashes": {
+        "text": "6d38c038f433f90854b2b8cdc53068b76e0247765824090232f5c28b901ebf0e",
+        "author": "863905527029c2685d2079a1fc2f7529aad7fc338f566a3986a83970674bd83c",
+        "combined": "361c154724f9e18fa8cf0c57d014cb99795d0e0f15960a8f29b41dc80d755374",
+        "tokenSignature": "a-deadline-dream-goal-hill-is-napoleon-with"
+      },
+      "lengths": {
+        "text": 34,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 5
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "952bbf9c69b57afcf44947c18cae568492184d9c7bfaf53e7c4ce805145cee90",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "purpose-06": {
+      "hashes": {
+        "text": "f9b1842210e4965c673788e1b07e658bcafb1cabf88aac81664e5993df85b322",
+        "author": "a85d6ced3490d0b06ca297b2719bc0f4090f575185c8ddf06bcbb89f20cfd8fe",
+        "combined": "030111b4feda78fb8a3ac12666df2bf89d5e4e344c656f52439a3060d22c6492",
+        "tokenSignature": "and-bo-don-get-goals-high-jackson-set-stop-t-there-till-you-your"
+      },
+      "lengths": {
+        "text": 55,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 6
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "32c510bf6ee9006c914a7adead58bf29de521b2b214a92dc2fad37f415cf14fb",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "purpose-07": {
+      "hashes": {
+        "text": "85e0103a8f3fd4faa471d0ab571f11e50c97fd299c9406cb458dd015df78e30c",
+        "author": "aa859705eb67660aed06e3c994fd69a84e99e457327c66736c6d21628fc74220",
+        "combined": "49a7aceb092ba53a055bd2bfd6a0b92644864df6d912122fbcfa2ebfb94e27e2",
+        "tokenSignature": "arthur-do-dream-more-than-ward-william-work"
+      },
+      "lengths": {
+        "text": 25,
+        "author": 19
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 7
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "c958f4f2c2afa6da04193930b968c291932e2739a973627607a86b39a961e1b1",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "purpose-08": {
+      "hashes": {
+        "text": "02d6d573bcddb017f659d3375f030c198189d1b841faaa2f813b1220e8b62b34",
+        "author": "18f11b4d7409e050328b2e8c41c4bee060d51dd2330f282ed8309951aafb0d68",
+        "combined": "350f6b6ed9e7f80387cde7e617d39ea2e1ab26886923d24193cfe4c13f7f516c",
+        "tokenSignature": "awakes-carl-dreams-inside-jung-looks-outside-who"
+      },
+      "lengths": {
+        "text": 52,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 8
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "524e4a4de22a8e4e0885f7ee9a06c8f58dafb475a15469e16ac970ba739240ac",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "purpose-09": {
+      "hashes": {
+        "text": "4edf071f881a3c41f7aad5c65e15615c714e8cab88dc71dc3a48e342327ab320",
+        "author": "3110961930121b12174f6f82876b0164749cf408b2457762a600179aaf965622",
+        "combined": "abfe1f42cc0240e85929f324016f5f0e46bcc5723940abda8e864e739a3e4358",
+        "tokenSignature": "can-disney-do-dream-if-it-walt-you"
+      },
+      "lengths": {
+        "text": 35,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 9
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "5346d7d579cef68ea93c0e9a4e0180607d46cecf14b3a5fda8ba55c7092edba1",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "purpose-10": {
+      "hashes": {
+        "text": "cb75c80fab61d9da237e098b5ee08cc18261c08127092fed1fdd947e78c2bac4",
+        "author": "80fc85dd0223ff67ec0eef207a4178dd986b634b962cb29ba2e5212f73fee2bf",
+        "combined": "7386ebcbe5e9aeda10a761141d51230ba46d85b5d167a935e3346d76be8a3d6f",
+        "tokenSignature": "accomplish-act-anatole-as-dream-france-great-must-things-to-we-well"
+      },
+      "lengths": {
+        "text": 57,
+        "author": 14
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 10
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "fe1ebebf2bce9a40521bfe6b82dbe5a5df4bde0313973b82749dd2cf86dd6430",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "purpose-11": {
+      "hashes": {
+        "text": "4ff5871d1c1fa5843b5430f429321ea4177efe651473af36ecea01acde139347",
+        "author": "6e3f4f40abd8eab92fba591d9e4ba78d48f4bc20b980b621ddad54c88150318f",
+        "combined": "1a1bce4d98b904729e3085ff4dda8fff1cbd3252d8d09831c672a1e4eac7d13d",
+        "tokenSignature": "benjamin-constancy-disraeli-is-of-purpose-secret-success-the-to"
+      },
+      "lengths": {
+        "text": 46,
+        "author": 17
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 11
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "8cf4a058b31721225d8e3a29fac333e7cd29703b4b25ea12f5b9c8e42f05704e",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
+      }
+    },
+    "purpose-12": {
+      "hashes": {
+        "text": "c94198d3ab206af1b84782a8d3e008b23051009845cf7e16172e23cf7899f26e",
+        "author": "0c798605789434dd31e95ff5a3e531c2e72d8eca656eff5fd465ecd6de22edfd",
+        "combined": "49968c28512f9e49c7586e8b989a28da99c76df0c4e23d0fdaf3d1768f97310a",
+        "tokenSignature": "beauty-believe-belongs-dreams-eleanor-future-in-of-roosevelt-the-their-those-to-who"
+      },
+      "lengths": {
+        "text": 70,
+        "author": 17
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 12
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "25c109ac30ac1a76337cc8f1d94c7d9b313ef0138b2690c1c5ce6f8bcb56be7f",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     }
   }
