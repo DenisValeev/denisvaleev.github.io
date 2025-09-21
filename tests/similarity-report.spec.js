@@ -20,7 +20,7 @@ test.describe('Cosine Similarity Lab', () => {
 
     const sliderMinAttr = await slider.getAttribute('min');
     const sliderMin = Number.parseFloat(sliderMinAttr || '0');
-    expect(sliderMin).toBeGreaterThanOrEqual(0.7);
+    expect(sliderMin).toBeGreaterThanOrEqual(0.5);
     expect(sliderMin).toBeLessThanOrEqual(0.95);
 
     const labelValue = parseLocaleNumber(await sliderLabel.textContent());
@@ -29,11 +29,19 @@ test.describe('Cosine Similarity Lab', () => {
     expect(labelValue).toBeGreaterThanOrEqual(sliderMin - 0.001);
     expect(displayValue).toBeCloseTo(labelValue, 4);
 
+    await expect(page.locator('[data-dataset]')).toHaveCount(3);
+
     const pairMetric = page.locator('.pair-metric', { hasText: 'Levenshtein' }).first();
     await expect(pairMetric).toBeVisible();
 
-    const firstRow = page.locator('[data-results-body] tr').first();
-    await firstRow.click();
+    const crossDeckButton = page.locator('[data-dataset="cross-deck"]');
+    await crossDeckButton.click();
+    await expect(page.locator('body')).toHaveAttribute('data-active-dataset', 'cross-deck');
+    await expect(page.locator('[data-search]')).toHaveAttribute('placeholder', /humor-08/);
+
+    const crossFirstRow = page.locator('[data-results-body] tr').first();
+    await expect(crossFirstRow.locator('.id-badge').first()).toHaveText('humor-01');
+    await crossFirstRow.click();
 
     const detailMetric = page.locator('[data-detail-levenshtein]');
     await expect(detailMetric).toContainText('overlap');

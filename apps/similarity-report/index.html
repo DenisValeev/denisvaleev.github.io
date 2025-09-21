@@ -26,6 +26,7 @@
       --row-hover: rgba(59, 130, 246, 0.08);
       --accent-jokes: #f97316;
       --accent-quotes: #22d3ee;
+      --accent-cross: #c084fc;
       --accent-contrast: #0b1120;
       --accent-active: var(--accent-jokes);
       --detail-glow: rgba(56, 189, 248, 0.18);
@@ -79,6 +80,11 @@
     body[data-active-dataset="quotes"] {
       --accent-active: var(--accent-quotes);
       --detail-glow: rgba(34, 211, 238, 0.16);
+    }
+
+    body[data-active-dataset="cross-deck"] {
+      --accent-active: var(--accent-cross);
+      --detail-glow: rgba(192, 132, 252, 0.16);
     }
 
     main {
@@ -684,7 +690,7 @@
     <header class="page-header">
       <p class="eyebrow">Vector insights</p>
       <h1>Cosine Similarity Lab</h1>
-      <p class="lead">Inspect the high cosine similarity hits that survived the deck cleanup, complete with IDs, previews, and nerdy stats.</p>
+      <p class="lead">Inspect the high cosine similarity hits that survived the deck cleanup across jokes, quotes, and cross-deck blends—complete with IDs, previews, and nerdy stats.</p>
     </header>
     <section class="control-panel" aria-label="Controls">
       <div class="dataset-toggle" role="group" aria-label="Dataset selector">
@@ -705,6 +711,14 @@
         >
           Quotes deck
         </button>
+        <button
+          type="button"
+          data-dataset="cross-deck"
+          data-report="../../data/similarity-report-cross-deck.json"
+          data-placeholder="Try humor-08 ↔ j-0043"
+        >
+          Cross-deck blend
+        </button>
       </div>
       <div class="control-grid">
         <label>
@@ -712,7 +726,7 @@
             Minimum cosine similarity: <strong data-threshold-label>0.00</strong>
             <span class="slider-floor" data-threshold-floor hidden>(floor —)</span>
           </span>
-          <input type="range" min="0.7" max="0.95" step="0.001" value="0.7" data-min-similarity>
+          <input type="range" min="0.5" max="0.95" step="0.001" value="0.5" data-min-similarity>
         </label>
         <label>
           <span>Find by ID or text</span>
@@ -727,7 +741,7 @@
         </article>
         <article class="stat-card">
           <h2>Report baseline</h2>
-          <div class="stat-value"><span data-baseline>0.70</span></div>
+          <div class="stat-value"><span data-baseline>0.50</span></div>
           <p class="stat-meta">Threshold baked into the report</p>
         </article>
         <article class="stat-card">
@@ -908,7 +922,7 @@
         huggingface: 'Hugging Face API',
       };
 
-      let recordMaps = { jokes: new Map(), quotes: new Map() };
+      let recordMaps = { jokes: new Map(), quotes: new Map(), 'cross-deck': new Map() };
 
       const MAX_VISIBLE_PAIRS = 400; // Hard cap to keep the table readable
       const sliderValueFormatter = new Intl.NumberFormat(undefined, {
@@ -918,7 +932,7 @@
 
       const state = {
         dataset: 'jokes',
-        minSimilarity: parseFloat(slider.value) || 0.7,
+        minSimilarity: parseFloat(slider.value) || 0.5,
         search: '',
         sortKey: 'similarity',
         sortDirection: 'desc',
@@ -1077,6 +1091,7 @@
         const maps = {
           jokes: new Map(),
           quotes: new Map(),
+          'cross-deck': new Map(),
         };
 
         if (Array.isArray(window.jokes)) {
@@ -1138,6 +1153,7 @@
           });
         }
 
+        maps['cross-deck'] = new Map([...maps.jokes, ...maps.quotes]);
         return maps;
       }
 
@@ -1544,7 +1560,7 @@
       }
 
       function hydrateDataset(name, report) {
-        const fallbackThreshold = report && typeof report.threshold === 'number' ? report.threshold : 0.7;
+        const fallbackThreshold = report && typeof report.threshold === 'number' ? report.threshold : 0.5;
         const matches = report && Array.isArray(report.matches) ? report.matches : [];
         const bounds = computeSimilarityBounds(matches);
         const hasMatches = matches.length > 0;
