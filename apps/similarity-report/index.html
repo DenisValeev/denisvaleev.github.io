@@ -684,7 +684,7 @@
     <header class="page-header">
       <p class="eyebrow">Vector insights</p>
       <h1>Cosine Similarity Lab</h1>
-      <p class="lead">Inspect the 0.70+ cosine similarity hits that survived the deck cleanup, complete with IDs, previews, and nerdy stats.</p>
+      <p class="lead">Inspect the high cosine similarity hits that survived the deck cleanup, complete with IDs, previews, and nerdy stats.</p>
     </header>
     <section class="control-panel" aria-label="Controls">
       <div class="dataset-toggle" role="group" aria-label="Dataset selector">
@@ -709,8 +709,8 @@
       <div class="control-grid">
         <label>
           <span>
-            Minimum cosine similarity: <strong data-threshold-label>0.70</strong>
-            <span class="slider-floor" data-threshold-floor hidden>(floor 0.70)</span>
+            Minimum cosine similarity: <strong data-threshold-label>0.00</strong>
+            <span class="slider-floor" data-threshold-floor hidden>(floor —)</span>
           </span>
           <input type="range" min="0.7" max="0.95" step="0.001" value="0.7" data-min-similarity>
         </label>
@@ -723,7 +723,7 @@
         <article class="stat-card">
           <h2>Visible pairs</h2>
           <div class="stat-value"><span data-match-count data-count="0">0</span></div>
-          <p class="stat-meta">≥ <span data-threshold-display>0.70</span> cosine similarity</p>
+          <p class="stat-meta">≥ <span data-threshold-display>0.00</span> cosine similarity</p>
         </article>
         <article class="stat-card">
           <h2>Report baseline</h2>
@@ -911,6 +911,10 @@
       let recordMaps = { jokes: new Map(), quotes: new Map() };
 
       const MAX_VISIBLE_PAIRS = 400; // Hard cap to keep the table readable
+      const sliderValueFormatter = new Intl.NumberFormat(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 4,
+      });
 
       const state = {
         dataset: 'jokes',
@@ -951,6 +955,14 @@
 
       function formatSimilarity(value) {
         return typeof value === 'number' ? value.toFixed(3) : '0.000';
+      }
+
+      function formatSliderValue(value) {
+        const numeric = typeof value === 'number' ? value : Number.parseFloat(value);
+        if (!Number.isFinite(numeric)) {
+          return sliderValueFormatter.format(0);
+        }
+        return sliderValueFormatter.format(Math.max(0, Math.min(1, numeric)));
       }
 
       function clamp01(value) {
@@ -1476,7 +1488,10 @@
           recordCountEl.textContent = '—';
           return;
         }
-        baselineEl.textContent = datasetEntry.threshold ? datasetEntry.threshold.toFixed(2) : '—';
+        baselineEl.textContent =
+          typeof datasetEntry.threshold === 'number'
+            ? formatSliderValue(datasetEntry.threshold)
+            : '—';
         modelEl.textContent = datasetEntry.model || '—';
         const provider = (datasetEntry.provider || '').toLowerCase();
         providerEl.textContent = providerLabels[provider] || (datasetEntry.provider || '—');
@@ -1490,8 +1505,8 @@
         if (slider) {
           slider.value = state.minSimilarity.toString();
         }
-        thresholdDisplay.textContent = state.minSimilarity.toFixed(2);
-        sliderLabel.textContent = state.minSimilarity.toFixed(2);
+        thresholdDisplay.textContent = formatSliderValue(state.minSimilarity);
+        sliderLabel.textContent = formatSliderValue(state.minSimilarity);
         const matches = getMatchesForDataset();
         state.visibleMatches = matches;
         updateCount(matches.length);
@@ -1607,7 +1622,7 @@
             const pairCount = datasetEntry.floorPairCount || 0;
             const limitedCount = Math.min(pairCount, MAX_VISIBLE_PAIRS);
             const countLabel = limitedCount ? ` • ≤ ${limitedCount.toLocaleString()} pairs` : '';
-            thresholdFloor.textContent = `(floor ${minBound.toFixed(2)}${countLabel})`;
+            thresholdFloor.textContent = `(floor ${formatSliderValue(minBound)}${countLabel})`;
           } else {
             thresholdFloor.hidden = true;
           }
