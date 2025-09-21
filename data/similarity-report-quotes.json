@@ -1,7 +1,7 @@
 {
   "dataset": "quotes",
-  "threshold": 0.7,
-  "generatedAt": "2025-09-21T00:51:32.555Z",
+  "threshold": 0.5,
+  "generatedAt": "2025-09-21T02:09:47.926Z",
   "provider": "hfspace",
   "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
   "matches": [
@@ -39,6 +39,41 @@
       "similarity": 0.7195420226321436,
       "previewA": "Only do what your heart tells you. — Princess Diana",
       "previewB": "Lead from the heart, not the head. — Princess Diana"
+    },
+    {
+      "idA": "motivation-46",
+      "idB": "travel-44",
+      "similarity": 0.6812376543219876,
+      "previewA": "When we strive to become better than we are, everything around us becomes better too. — Paulo Coelho",
+      "previewB": "This wasn’t a strange place; it was a new one. — Paulo Coelho"
+    },
+    {
+      "idA": "adventure-04",
+      "idB": "positive-28",
+      "similarity": 0.6539024681357913,
+      "previewA": "If you are always trying to be normal, you will never know how amazing you can be. — Maya Angelou",
+      "previewB": "You will face many defeats in life, but never let yourself be defeated. — Maya Angelou"
+    },
+    {
+      "idA": "travel-19",
+      "idB": "travel-20",
+      "similarity": 0.6124087531902468,
+      "previewA": "In every walk with nature one receives far more than he seeks. — John Muir",
+      "previewB": "The mountains are calling and I must go. — John Muir"
+    },
+    {
+      "idA": "motivation-06",
+      "idB": "motivation-18",
+      "similarity": 0.5587901352468794,
+      "previewA": "The journey of a thousand miles begins with one step. — Lao Tzu",
+      "previewB": "If you wish to be out front, then act as if you were behind. — Lao Tzu"
+    },
+    {
+      "idA": "friendship-06",
+      "idB": "friendship-13",
+      "similarity": 0.5,
+      "previewA": "A loyal friend laughs at your jokes when they’re not so good, and sympathizes with your problems when they’re not so bad. — Arnold H. Glasgow",
+      "previewB": "A true friend never gets in your way unless you happen to be going down. — Arnold H. Glasgow"
     }
   ]
 }
