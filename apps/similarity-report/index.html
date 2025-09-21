@@ -135,7 +135,15 @@
       gap: clamp(18px, 3vw, 28px);
     }
 
-    .dataset-toggle {
+    .toggle-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .dataset-toggle,
+    .model-toggle {
       display: inline-flex;
       align-items: center;
       padding: 6px;
@@ -146,7 +154,8 @@
       width: fit-content;
     }
 
-    .dataset-toggle button {
+    .dataset-toggle button,
+    .model-toggle button {
       border: none;
       border-radius: 999px;
       padding: 10px 20px;
@@ -157,7 +166,8 @@
       transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
     }
 
-    .dataset-toggle button.is-active {
+    .dataset-toggle button.is-active,
+    .model-toggle button.is-active {
       background: var(--accent-active);
       color: var(--accent-contrast);
       box-shadow: 0 18px 36px color-mix(in srgb, var(--accent-active) 45%, transparent);
@@ -173,8 +183,15 @@
       box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.45), 0 0 0 5px rgba(14, 165, 233, 0.35);
     }
 
-    .dataset-toggle button:hover {
+    .dataset-toggle button:hover,
+    .model-toggle button:hover {
       transform: translateY(-1px);
+    }
+
+    .model-note {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
     }
 
     .control-grid {
@@ -487,6 +504,14 @@
             rgba(203, 213, 225, 0.92) 100%
           );
       }
+
+      .dedupe-entry {
+        background: rgba(226, 232, 240, 0.38);
+      }
+
+      .dedupe-entry--remove {
+        background: color-mix(in srgb, var(--accent-active) 18%, rgba(226, 232, 240, 0.52));
+      }
     }
 
     .record-tech {
@@ -772,6 +797,154 @@
       transform: rotate(180deg);
     }
 
+    .results[data-layout="dedupe"] {
+      grid-template-columns: 1fr;
+    }
+
+    .results[data-layout="dedupe"] .detail-panel,
+    .results[data-layout="dedupe"] .table-wrapper {
+      display: none;
+    }
+
+    .dedupe-view {
+      background: var(--surface-strong);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      box-shadow: var(--card-shadow);
+      padding: clamp(18px, 3vw, 28px);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .dedupe-empty {
+      margin: 0;
+      font-size: 0.96rem;
+      color: var(--text-secondary);
+      text-align: center;
+      padding: 40px 10px;
+    }
+
+    .dedupe-list {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .dedupe-card {
+      background: var(--card-background);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      box-shadow: var(--card-shadow);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .dedupe-card__header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .dedupe-card__score {
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .dedupe-card__meta {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+
+    .dedupe-card__body {
+      display: grid;
+      gap: 14px;
+    }
+
+    .dedupe-entry {
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--accent-active) 22%, var(--card-border));
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: rgba(15, 23, 42, 0.18);
+    }
+
+    body[data-active-dataset="quotes"] .dedupe-entry {
+      background: rgba(8, 47, 73, 0.18);
+    }
+
+    body[data-active-dataset="cross-deck"] .dedupe-entry {
+      background: rgba(74, 29, 150, 0.18);
+    }
+
+    .dedupe-entry--remove {
+      border-color: color-mix(in srgb, var(--accent-active) 38%, var(--card-border));
+      background: color-mix(in srgb, var(--accent-active) 12%, transparent);
+    }
+
+    .dedupe-entry__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .dedupe-entry__badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      background: color-mix(in srgb, var(--accent-active) 30%, transparent);
+      color: var(--accent-contrast);
+    }
+
+    .dedupe-entry__primary {
+      margin: 0;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .dedupe-entry__secondary {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .dedupe-entry__secondary.is-empty {
+      opacity: 0.6;
+      font-style: italic;
+    }
+
+    .dedupe-entry__meta {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .dedupe-card__action {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .dedupe-card__levenshtein {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
     @media (max-width: 1040px) {
       .results {
         grid-template-columns: 1fr;
@@ -797,33 +970,21 @@
       <p class="lead">Inspect the high cosine similarity hits that survived the deck cleanup across jokes, quotes, and cross-deck blends—complete with IDs, previews, and nerdy stats.</p>
     </header>
     <section class="control-panel" aria-label="Controls">
-      <div class="dataset-toggle" role="group" aria-label="Dataset selector">
-        <button
-          type="button"
-          class="is-active"
-          data-dataset="jokes"
-          data-report="../../data/similarity-report-jokes.json"
-          data-placeholder="Try j-0246 or “impasta”"
-        >
-          Jokes deck
-        </button>
-        <button
-          type="button"
-          data-dataset="quotes"
-          data-report="../../data/similarity-report-quotes.json"
-          data-placeholder="Try travel-02 or “footprints”"
-        >
-          Quotes deck
-        </button>
-        <button
-          type="button"
-          data-dataset="cross-deck"
-          data-report="../../data/similarity-report-cross-deck.json"
-          data-placeholder="Try humor-08 ↔ j-0043"
-        >
-          Cross-deck blend
-        </button>
+      <div class="toggle-row">
+        <div
+          class="model-toggle"
+          role="group"
+          aria-label="Embedding model selector"
+          data-model-toggle
+        ></div>
+        <div
+          class="dataset-toggle"
+          role="group"
+          aria-label="Dataset selector"
+          data-dataset-toggle
+        ></div>
       </div>
+      <p class="model-note" data-model-description>Loading model details…</p>
       <div class="control-grid">
         <label>
           <span>
@@ -839,7 +1000,12 @@
         </label>
         <label>
           <span>Find by ID or text</span>
-          <input type="search" data-search placeholder="Try j-0246 or “impasta”" aria-label="Filter pairs by ID or text">
+          <input
+            type="search"
+            data-search
+            placeholder="Search report"
+            aria-label="Filter pairs by ID or text"
+          >
         </label>
       </div>
       <div class="stats-grid" aria-live="polite">
@@ -865,8 +1031,8 @@
         </article>
       </div>
     </section>
-    <section class="results" aria-label="Similarity matches">
-      <div class="table-wrapper" role="region" aria-live="polite">
+    <section class="results" aria-label="Similarity matches" data-results>
+      <div class="table-wrapper" role="region" aria-live="polite" data-matrix-view>
         <table>
           <thead>
             <tr>
@@ -1026,13 +1192,18 @@
           </div>
         </div>
       </aside>
+      <div class="dedupe-view" data-dedupe-view hidden aria-live="polite">
+        <p class="dedupe-empty" data-dedupe-empty>Loading dedupe recommendations…</p>
+        <div class="dedupe-list" data-dedupe-list></div>
+      </div>
     </section>
   </main>
   <script defer src="../jokes/jokes.js"></script>
   <script defer src="../quotes/quotes-data.js"></script>
   <script>
     (function () {
-      const datasetButtons = document.querySelectorAll('[data-dataset]');
+      const modelToggle = document.querySelector('[data-model-toggle]');
+      const datasetToggle = document.querySelector('[data-dataset-toggle]');
       const minSlider = document.querySelector('[data-min-similarity]');
       const maxSlider = document.querySelector('[data-max-similarity]');
       const minSliderLabel = document.querySelector('[data-threshold-min-label]');
@@ -1041,12 +1212,18 @@
       const thresholdMaxDisplay = document.querySelector('[data-threshold-max-display]');
       const searchInput = document.querySelector('[data-search]');
       const tableBody = document.querySelector('[data-results-body]');
+      const tableWrapper = document.querySelector('[data-matrix-view]');
+      const resultsSection = document.querySelector('[data-results]');
+      const dedupeView = document.querySelector('[data-dedupe-view]');
+      const dedupeList = document.querySelector('[data-dedupe-list]');
+      const dedupeEmpty = document.querySelector('[data-dedupe-empty]');
       const countEl = document.querySelector('[data-match-count]');
       const baselineEl = document.querySelector('[data-baseline]');
       const modelEl = document.querySelector('[data-model-label]');
       const providerEl = document.querySelector('[data-provider-label]');
       const generatedEl = document.querySelector('[data-generated-label]');
       const recordCountEl = document.querySelector('[data-record-count]');
+      const modelDescription = document.querySelector('[data-model-description]');
       const detailEmpty = document.querySelector('[data-detail-empty]');
       const detailBody = document.querySelector('[data-detail-body]');
       const detailTitle = document.querySelector('[data-detail-title]');
@@ -1088,6 +1265,7 @@
       const recordBTechTextHash = document.querySelector('[data-record-b-text-hash]');
       const copyButton = document.querySelector('[data-copy-pair]');
       const sortButtons = document.querySelectorAll('[data-sort]');
+      const detailPanel = document.querySelector('[data-detail]');
 
       const recordAEmbeddingElements = {
         figure: recordAEmbeddingFigure,
@@ -1117,6 +1295,8 @@
 
       if (
         !tableBody
+        || !datasetToggle
+        || !resultsSection
         || !minSlider
         || !maxSlider
         || !minSliderLabel
@@ -1129,23 +1309,6 @@
         return;
       }
 
-      const datasetConfigs = Array.from(datasetButtons).reduce((accumulator, button) => {
-        const datasetName = button.dataset.dataset;
-        if (!datasetName) {
-          return accumulator;
-        }
-        accumulator[datasetName] = {
-          reportUrl: button.dataset.report || '',
-          placeholder: button.dataset.placeholder || 'Search report',
-        };
-        return accumulator;
-      }, {});
-
-      const embeddingSources = {
-        jokes: '../../data/jokes-embeddings.json',
-        quotes: '../../data/quotes-embeddings.json',
-      };
-
       const providerLabels = {
         hfspace: 'Hugging Face Space',
         fake: 'Synthetic generator',
@@ -1153,9 +1316,87 @@
         cohere: 'Cohere embeddings',
         huggingface: 'Hugging Face API',
       };
+      const modelConfigs = {
+        baseline: {
+          key: 'baseline',
+          label: 'MiniLM baseline',
+          description: 'hf.space/BienKieu report with an adjustable cosine window.',
+          layout: 'matrix',
+          initialState: {
+            minSimilarity: 0.5,
+            maxSimilarity: 1,
+            sortKey: 'similarity',
+            sortDirection: 'desc',
+          },
+          datasetOptions: [
+            {
+              dataset: 'jokes',
+              label: 'Jokes deck',
+              report: '../../data/similarity-report-jokes.json',
+              placeholder: 'Try j-0246 or “impasta”',
+            },
+            {
+              dataset: 'quotes',
+              label: 'Quotes deck',
+              report: '../../data/similarity-report-quotes.json',
+              placeholder: 'Try travel-02 or “footprints”',
+            },
+            {
+              dataset: 'cross-deck',
+              label: 'Cross-deck blend',
+              report: '../../data/similarity-report-cross-deck.json',
+              placeholder: 'Try humor-08 ↔ j-0043',
+            },
+          ],
+          embeddings: {
+            jokes: '../../data/jokes-embeddings.json',
+            quotes: '../../data/quotes-embeddings.json',
+          },
+        },
+        secondOpinion: {
+          key: 'secondOpinion',
+          label: 'Second opinion (OpenAI)',
+          description: 'text-embedding-3-large rerun that flags anything at or above 0.80 for removal.',
+          layout: 'dedupe',
+          dedupeThreshold: 0.8,
+          initialState: {
+            minSimilarity: 0.8,
+            maxSimilarity: 1,
+            sortKey: 'similarity',
+            sortDirection: 'desc',
+          },
+          datasetOptions: [
+            {
+              dataset: 'jokes',
+              label: 'Jokes deck',
+              report: '../../data/similarity-report-jokes-second-opinion.json',
+              placeholder: 'Try j-0081 or “waist of time”',
+            },
+            {
+              dataset: 'quotes',
+              label: 'Quotes deck',
+              report: '../../data/similarity-report-quotes-second-opinion.json',
+              placeholder: 'Try motivation-14 ↔ positive-16',
+            },
+            {
+              dataset: 'cross-deck',
+              label: 'Cross-deck blend',
+              report: '../../data/similarity-report-cross-deck-second-opinion.json',
+              placeholder: 'Try humor-01 ↔ j-0001',
+            },
+          ],
+          embeddings: {
+            jokes: '../../data/jokes-embeddings-second-opinion.json',
+            quotes: '../../data/quotes-embeddings-second-opinion.json',
+          },
+        },
+      };
 
+      const DEFAULT_MODEL_KEY = 'baseline';
+      const modelStates = new Map();
+      let datasetButtons = [];
+      let modelButtons = [];
       let recordMaps = { jokes: new Map(), quotes: new Map(), 'cross-deck': new Map() };
-      let embeddingMaps = { jokes: new Map(), quotes: new Map(), 'cross-deck': new Map() };
 
       const MAX_VISIBLE_PAIRS = 400; // Hard cap to keep the table readable
       const sliderValueFormatter = new Intl.NumberFormat(undefined, {
@@ -1164,17 +1405,48 @@
       });
 
       const state = {
+        model: DEFAULT_MODEL_KEY,
         dataset: 'jokes',
-        minSimilarity: parseFloat(minSlider.value) || 0.5,
-        maxSimilarity: parseFloat(maxSlider.value) || 1,
+        minSimilarity: 0.5,
+        maxSimilarity: 1,
         search: '',
         sortKey: 'similarity',
         sortDirection: 'desc',
         activePairKey: null,
         visibleMatches: [],
         data: new Map(),
+        embeddings: { jokes: new Map(), quotes: new Map(), 'cross-deck': new Map() },
+        datasetConfigs: new Map(),
         copyTimeout: null,
       };
+
+      function createEmptyEmbeddingMaps() {
+        return { jokes: new Map(), quotes: new Map(), 'cross-deck': new Map() };
+      }
+
+      function getModelState(key) {
+        if (!modelStates.has(key)) {
+          modelStates.set(key, {
+            data: new Map(),
+            embeddings: createEmptyEmbeddingMaps(),
+            view: {
+              dataset: null,
+              minSimilarity: null,
+              maxSimilarity: null,
+              search: '',
+              sortKey: 'similarity',
+              sortDirection: 'desc',
+            },
+            loaded: false,
+            loadingPromise: null,
+          });
+        }
+        return modelStates.get(key);
+      }
+
+      function getActiveModelConfig() {
+        return modelConfigs[state.model];
+      }
 
       function countWords(text) {
         if (!text) {
@@ -1376,11 +1648,12 @@
         }
         const dataset = getRecordDataset(record) || fallbackDataset;
         const candidates = [];
-        if (dataset && embeddingMaps[dataset]) {
-          candidates.push(embeddingMaps[dataset]);
+        const embeddings = state.embeddings || {};
+        if (dataset && embeddings[dataset]) {
+          candidates.push(embeddings[dataset]);
         }
-        if (embeddingMaps['cross-deck']) {
-          candidates.push(embeddingMaps['cross-deck']);
+        if (embeddings['cross-deck']) {
+          candidates.push(embeddings['cross-deck']);
         }
         for (let index = 0; index < candidates.length; index += 1) {
           const map = candidates[index];
@@ -1755,10 +2028,10 @@
         return maps;
       }
 
-      function hydrateEmbeddingMap(dataset, payload) {
+      function hydrateEmbeddingMap(store, dataset, payload) {
         const map = new Map();
         if (!payload || typeof payload !== 'object') {
-          embeddingMaps[dataset] = map;
+          store[dataset] = map;
           return;
         }
         const records = payload.records && typeof payload.records === 'object' ? payload.records : {};
@@ -1792,13 +2065,13 @@
             previewAspect: 0,
           });
         });
-        embeddingMaps[dataset] = map;
+        store[dataset] = map;
       }
 
-      function rebuildCrossDeckEmbeddingMap() {
+      function rebuildCrossDeckEmbeddingMap(store) {
         const combined = new Map();
         ['jokes', 'quotes'].forEach((key) => {
-          const map = embeddingMaps[key];
+          const map = store[key];
           if (!map) {
             return;
           }
@@ -1806,7 +2079,7 @@
             combined.set(id, value);
           });
         });
-        embeddingMaps['cross-deck'] = combined;
+        store['cross-deck'] = combined;
       }
 
       function enrichMatch(datasetName, match) {
@@ -2130,8 +2403,11 @@
           return [];
         }
         const searchTerm = normalizeString(state.search);
+        const config = getActiveModelConfig();
+        const dedupeFloor = config && typeof config.dedupeThreshold === 'number' ? clamp01(config.dedupeThreshold) : null;
+        const minValue = dedupeFloor !== null ? Math.max(state.minSimilarity, dedupeFloor) : state.minSimilarity;
         return entry.matches
-          .filter((match) => match.similarity >= state.minSimilarity && match.similarity <= state.maxSimilarity)
+          .filter((match) => match.similarity >= minValue && match.similarity <= state.maxSimilarity)
           .filter((match) => {
             if (!searchTerm) {
               return true;
@@ -2163,6 +2439,7 @@
 
       function updateStats() {
         const datasetEntry = state.data.get(state.dataset);
+        const config = getActiveModelConfig();
         if (!datasetEntry) {
           baselineEl.textContent = '—';
           modelEl.textContent = '—';
@@ -2171,20 +2448,35 @@
           recordCountEl.textContent = '—';
           return;
         }
-        baselineEl.textContent =
+        const baselineValue =
           typeof datasetEntry.threshold === 'number'
             ? formatSliderValue(datasetEntry.threshold)
             : '—';
+        if (config && config.layout === 'dedupe') {
+          const floor = config.dedupeThreshold ? formatSliderValue(config.dedupeThreshold) : baselineValue;
+          baselineEl.textContent = `≥ ${floor}`;
+        } else {
+          baselineEl.textContent = baselineValue;
+        }
         modelEl.textContent = datasetEntry.model || '—';
         const provider = (datasetEntry.provider || '').toLowerCase();
         providerEl.textContent = providerLabels[provider] || (datasetEntry.provider || '—');
         generatedEl.textContent = formatDateTime(datasetEntry.generatedAt);
-        const records = recordMaps[state.dataset];
-        const recordCount = records ? records.size : 0;
-        recordCountEl.textContent = recordCount ? `${recordCount.toLocaleString()} vectors` : '—';
+        if (config && config.layout === 'dedupe') {
+          recordCountEl.textContent = `${state.visibleMatches.length.toLocaleString()} pairs flagged`;
+        } else {
+          const records = recordMaps[state.dataset];
+          const recordCount = records ? records.size : 0;
+          recordCountEl.textContent = recordCount ? `${recordCount.toLocaleString()} vectors` : '—';
+        }
       }
 
       function renderAll() {
+        const config = getActiveModelConfig();
+        if (!config) {
+          return;
+        }
+        applyLayoutForModel(config);
         if (minSlider) {
           minSlider.value = state.minSimilarity.toString();
         }
@@ -2198,6 +2490,11 @@
         const matches = getMatchesForDataset();
         state.visibleMatches = matches;
         updateCount(matches.length);
+        if (config.layout === 'dedupe') {
+          renderDedupe(matches, config);
+          updateStats();
+          return;
+        }
         renderTable(matches);
         updateStats();
         applySortIndicators();
@@ -2210,15 +2507,15 @@
         updateActiveRow();
       }
 
-      function loadReports() {
-        const configs = Object.entries(datasetConfigs)
-          .map(([name, config]) => [name, config.reportUrl])
+      function loadReportsForModel(config) {
+        const options = (config.datasetOptions || [])
+          .map((option) => [option.dataset, option.report])
           .filter(([, url]) => typeof url === 'string' && url.length);
-        if (!configs.length) {
+        if (!options.length) {
           return Promise.resolve([]);
         }
         return Promise.all(
-          configs.map(([name, url]) =>
+          options.map(([name, url]) =>
             fetch(url)
               .then((response) => {
                 if (!response.ok) {
@@ -2231,13 +2528,13 @@
         );
       }
 
-      function loadEmbeddings() {
-        const configs = Object.entries(embeddingSources).filter(([, url]) => typeof url === 'string' && url.length);
-        if (!configs.length) {
+      function loadEmbeddingsForModel(config) {
+        const options = Object.entries(config.embeddings || {}).filter(([, url]) => typeof url === 'string' && url.length);
+        if (!options.length) {
           return Promise.resolve([]);
         }
         return Promise.all(
-          configs.map(([name, url]) =>
+          options.map(([name, url]) =>
             fetch(url)
               .then((response) => {
                 if (!response.ok) {
@@ -2254,7 +2551,7 @@
         );
       }
 
-      function hydrateDataset(name, report) {
+      function hydrateDataset(store, name, report) {
         const fallbackThreshold = report && typeof report.threshold === 'number' ? report.threshold : 0.5;
         const matches = report && Array.isArray(report.matches) ? report.matches : [];
         const bounds = computeSimilarityBounds(matches);
@@ -2264,7 +2561,7 @@
         const safeMinBase = hasMatches ? clamp01(bounds.safeMin) : clamp01(fallbackThreshold);
         const safeMinSimilarity = Math.min(maxSimilarity, Number.isFinite(safeMinBase) ? safeMinBase : minSimilarity);
         const enriched = hasMatches ? matches.map((match) => enrichMatch(name, match)) : [];
-        state.data.set(name, {
+        store.set(name, {
           matches: enriched,
           threshold: fallbackThreshold,
           generatedAt: report && report.generatedAt ? report.generatedAt : null,
@@ -2285,6 +2582,19 @@
         cell.textContent = message;
         row.appendChild(cell);
         tableBody.appendChild(row);
+        if (dedupeList) {
+          dedupeList.innerHTML = '';
+        }
+        if (dedupeEmpty) {
+          dedupeEmpty.hidden = false;
+          dedupeEmpty.textContent = message;
+        }
+        if (dedupeView) {
+          dedupeView.hidden = false;
+        }
+        if (resultsSection) {
+          resultsSection.dataset.layout = 'matrix';
+        }
         if (detailBody) {
           detailBody.hidden = true;
         }
@@ -2306,60 +2616,387 @@
           maxSlider.max = '1';
           return;
         }
+        const config = getActiveModelConfig();
         const minBound = clamp01(
           Number.isFinite(datasetEntry.safeMinSimilarity) ? datasetEntry.safeMinSimilarity : 0,
         );
         const maxBound = clamp01(
           Number.isFinite(datasetEntry.maxSimilarity) ? Math.max(datasetEntry.maxSimilarity, minBound) : Math.max(1, minBound),
         );
-        minSlider.min = minBound.toString();
+        const enforcedMin = config && typeof config.dedupeThreshold === 'number'
+          ? Math.max(minBound, clamp01(config.dedupeThreshold))
+          : minBound;
+        minSlider.min = enforcedMin.toString();
         minSlider.max = maxBound.toString();
         minSlider.step = minSlider.step || '0.001';
-        maxSlider.min = minBound.toString();
+        maxSlider.min = enforcedMin.toString();
         maxSlider.max = maxBound.toString();
         maxSlider.step = maxSlider.step || '0.001';
-        const baseline = clamp01(typeof datasetEntry.threshold === 'number' ? datasetEntry.threshold : minBound);
+        const baseline = clamp01(typeof datasetEntry.threshold === 'number' ? datasetEntry.threshold : enforcedMin);
         if (forceBaseline) {
-          state.minSimilarity = Math.max(minBound, baseline);
+          state.minSimilarity = Math.max(enforcedMin, baseline);
           state.maxSimilarity = maxBound;
         } else {
-          state.minSimilarity = Math.min(Math.max(state.minSimilarity, minBound), maxBound);
+          state.minSimilarity = Math.min(Math.max(state.minSimilarity, enforcedMin), maxBound);
           state.maxSimilarity = Math.min(Math.max(state.maxSimilarity, state.minSimilarity), maxBound);
         }
         minSlider.value = state.minSimilarity.toString();
         maxSlider.value = state.maxSimilarity.toString();
       }
 
-      function setActiveDataset(dataset) {
-        if (dataset === state.dataset) {
+      function setActiveDataset(dataset, { skipRender = false } = {}) {
+        if (!dataset) {
           return;
         }
         if (!state.data.has(dataset)) {
           return;
         }
+        if (dataset === state.dataset && !skipRender) {
+          return;
+        }
         state.dataset = dataset;
         state.activePairKey = null;
-        syncSliderWithDataset();
         document.body.setAttribute('data-active-dataset', dataset);
-        const datasetConfig = datasetConfigs[dataset];
-        searchInput.placeholder = datasetConfig && datasetConfig.placeholder ? datasetConfig.placeholder : 'Search report';
-        datasetButtons.forEach((button) => {
-          button.classList.toggle('is-active', button.dataset.dataset === dataset);
-        });
-        renderAll();
+        const datasetConfig = state.datasetConfigs.get(dataset);
+        if (searchInput) {
+          searchInput.placeholder = datasetConfig && datasetConfig.placeholder ? datasetConfig.placeholder : 'Search report';
+        }
+        updateDatasetButtons();
+        if (!skipRender) {
+          syncSliderWithDataset();
+          renderAll();
+        }
       }
 
-      datasetButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          const dataset = button.dataset.dataset;
-          if (!dataset) {
-            return;
-          }
-          setActiveDataset(dataset);
+      function updateDatasetButtons() {
+        if (!Array.isArray(datasetButtons)) {
+          return;
+        }
+        datasetButtons.forEach((button) => {
+          const datasetName = button.dataset.dataset;
+          const isActive = datasetName === state.dataset;
+          button.classList.toggle('is-active', isActive);
+          button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+          button.disabled = !state.data.has(datasetName);
         });
-      });
+      }
+
+      function updateModelButtons() {
+        if (!Array.isArray(modelButtons)) {
+          return;
+        }
+        modelButtons.forEach((button) => {
+          const isActive = button.dataset.model === state.model;
+          button.classList.toggle('is-active', isActive);
+          button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+      }
+
+      function buildModelButtons() {
+        if (!modelToggle) {
+          modelButtons = [];
+          return;
+        }
+        modelToggle.innerHTML = '';
+        modelButtons = [];
+        Object.values(modelConfigs).forEach((config) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.dataset.model = config.key;
+          button.textContent = config.label;
+          button.addEventListener('click', () => {
+            if (config.key !== state.model) {
+              setActiveModel(config.key);
+            }
+          });
+          modelToggle.appendChild(button);
+          modelButtons.push(button);
+        });
+        updateModelButtons();
+      }
+
+      function buildDatasetButtons(config) {
+        if (!datasetToggle) {
+          datasetButtons = [];
+          return;
+        }
+        datasetToggle.innerHTML = '';
+        datasetButtons = [];
+        if (!config || !Array.isArray(config.datasetOptions)) {
+          return;
+        }
+        config.datasetOptions.forEach((option) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.dataset.dataset = option.dataset;
+          button.textContent = option.label;
+          button.addEventListener('click', () => {
+            if (!option.dataset || option.dataset === state.dataset) {
+              return;
+            }
+            setActiveDataset(option.dataset);
+          });
+          datasetToggle.appendChild(button);
+          datasetButtons.push(button);
+        });
+        updateDatasetButtons();
+      }
+
+      function saveActiveModelView() {
+        const modelState = modelStates.get(state.model);
+        if (!modelState) {
+          return;
+        }
+        modelState.view = {
+          dataset: state.dataset,
+          minSimilarity: state.minSimilarity,
+          maxSimilarity: state.maxSimilarity,
+          search: state.search,
+          sortKey: state.sortKey,
+          sortDirection: state.sortDirection,
+        };
+      }
+
+      function applyLayoutForModel(config) {
+        if (!config) {
+          return;
+        }
+        const layout = config.layout === 'dedupe' ? 'dedupe' : 'matrix';
+        if (resultsSection) {
+          resultsSection.dataset.layout = layout;
+        }
+        const isDedupe = layout === 'dedupe';
+        if (tableWrapper) {
+          tableWrapper.hidden = isDedupe;
+        }
+        if (dedupeView) {
+          dedupeView.hidden = !isDedupe;
+        }
+        if (detailPanel) {
+          detailPanel.hidden = isDedupe;
+        }
+        if (copyButton) {
+          copyButton.hidden = isDedupe;
+          if (isDedupe) {
+            copyButton.disabled = true;
+          } else {
+            copyButton.disabled = false;
+          }
+        }
+        if (minSlider) {
+          minSlider.disabled = isDedupe;
+        }
+        if (maxSlider) {
+          maxSlider.disabled = isDedupe;
+        }
+      }
+
+      function createDedupeEntry(match, { record, id, role, fallback, chars, words }) {
+        const entry = document.createElement('section');
+        entry.className = `dedupe-entry dedupe-entry--${role}`;
+        const header = document.createElement('header');
+        header.className = 'dedupe-entry__header';
+        const badge = document.createElement('span');
+        badge.className = 'dedupe-entry__badge';
+        badge.textContent = role === 'remove' ? 'Remove' : 'Keep';
+        const idBadge = document.createElement('span');
+        idBadge.className = 'id-badge';
+        idBadge.textContent = id;
+        header.appendChild(badge);
+        header.appendChild(idBadge);
+        entry.appendChild(header);
+        const preview = buildEmbeddingPreviewFigure(record || null, {
+          variant: 'compact',
+          fallbackId: id,
+          dataset: state.dataset,
+        });
+        if (preview) {
+          entry.appendChild(preview);
+        }
+        const primary = document.createElement('p');
+        primary.className = 'dedupe-entry__primary';
+        primary.textContent = record && record.primary ? record.primary : fallback || '—';
+        entry.appendChild(primary);
+        const secondary = document.createElement('p');
+        secondary.className = 'dedupe-entry__secondary';
+        const secondaryText = record && record.secondary ? record.secondary : '';
+        if (secondaryText) {
+          secondary.textContent = secondaryText;
+        } else if (fallback && fallback !== (record && record.primary ? record.primary : '')) {
+          secondary.textContent = fallback;
+        } else {
+          secondary.textContent = '—';
+          secondary.classList.add('is-empty');
+        }
+        entry.appendChild(secondary);
+        const meta = document.createElement('p');
+        meta.className = 'dedupe-entry__meta';
+        meta.textContent = `Chars ${chars.toLocaleString()} • Words ${words.toLocaleString()}`;
+        entry.appendChild(meta);
+        return entry;
+      }
+
+      function renderDedupe(matches, config) {
+        if (!dedupeView || !dedupeList || !dedupeEmpty) {
+          return;
+        }
+        dedupeList.innerHTML = '';
+        if (!matches.length) {
+          dedupeEmpty.hidden = false;
+          const floor = config && typeof config.dedupeThreshold === 'number' ? formatSliderValue(config.dedupeThreshold) : formatSliderValue(state.minSimilarity);
+          dedupeEmpty.textContent = `No pairs exceed the ${floor} dedupe threshold.`;
+          return;
+        }
+        dedupeEmpty.hidden = true;
+        const fragment = document.createDocumentFragment();
+        matches.forEach((match) => {
+          const card = document.createElement('article');
+          card.className = 'dedupe-card';
+          const header = document.createElement('header');
+          header.className = 'dedupe-card__header';
+          const score = document.createElement('span');
+          score.className = 'dedupe-card__score';
+          score.textContent = `Similarity ${formatSimilarity(match.similarity)}`;
+          header.appendChild(score);
+          const meta = document.createElement('p');
+          meta.className = 'dedupe-card__meta';
+          const levenshteinPercent = formatPercent(match.levenshteinSimilarity);
+          meta.textContent = `Δ chars ${match.lengthDelta.toLocaleString()} • Δ words ${match.wordDelta.toLocaleString()} • Levenshtein ${match.levenshteinDistance.toLocaleString()} (${levenshteinPercent}%)`;
+          header.appendChild(meta);
+          card.appendChild(header);
+          const body = document.createElement('div');
+          body.className = 'dedupe-card__body';
+          body.appendChild(
+            createDedupeEntry(match, {
+              record: match.recordA,
+              id: match.idA,
+              role: 'keep',
+              fallback: match.previewA,
+              chars: match.charA,
+              words: match.wordsA,
+            }),
+          );
+          body.appendChild(
+            createDedupeEntry(match, {
+              record: match.recordB,
+              id: match.idB,
+              role: 'remove',
+              fallback: match.previewB,
+              chars: match.charB,
+              words: match.wordsB,
+            }),
+          );
+          card.appendChild(body);
+          const action = document.createElement('p');
+          action.className = 'dedupe-card__action';
+          action.innerHTML = `Remove <strong>${match.idB}</strong> and keep <strong>${match.idA}</strong> to break the duplicate tie.`;
+          card.appendChild(action);
+          fragment.appendChild(card);
+        });
+        dedupeList.appendChild(fragment);
+      }
+
+      function ensureModelLoaded(modelKey) {
+        const config = modelConfigs[modelKey];
+        if (!config) {
+          return Promise.reject(new Error(`Unknown model: ${modelKey}`));
+        }
+        const modelState = getModelState(modelKey);
+        if (modelState.loaded) {
+          return Promise.resolve(modelState);
+        }
+        if (modelState.loadingPromise) {
+          return modelState.loadingPromise;
+        }
+        modelState.loadingPromise = Promise.all([loadEmbeddingsForModel(config), loadReportsForModel(config)])
+          .then(([embeddingPayload, reports]) => {
+            if (Array.isArray(embeddingPayload)) {
+              embeddingPayload.forEach(([name, payload]) => {
+                hydrateEmbeddingMap(modelState.embeddings, name, payload);
+              });
+              rebuildCrossDeckEmbeddingMap(modelState.embeddings);
+            }
+            if (Array.isArray(reports)) {
+              reports.forEach(([name, report]) => {
+                if (report) {
+                  hydrateDataset(modelState.data, name, report);
+                }
+              });
+            }
+            modelState.loaded = true;
+            return modelState;
+          })
+          .finally(() => {
+            modelState.loadingPromise = null;
+          });
+        return modelState.loadingPromise;
+      }
+
+      function setActiveModel(modelKey, { initial = false } = {}) {
+        const config = modelConfigs[modelKey];
+        if (!config) {
+          return;
+        }
+        if (modelKey === state.model && !initial) {
+          return;
+        }
+        if (!initial) {
+          saveActiveModelView();
+        }
+        state.model = modelKey;
+        state.activePairKey = null;
+        const modelState = getModelState(modelKey);
+        state.data = modelState.data;
+        state.embeddings = modelState.embeddings;
+        if (modelDescription) {
+          modelDescription.textContent = config.description;
+        }
+        state.datasetConfigs = new Map(
+          (config.datasetOptions || []).map((option) => [option.dataset, option]),
+        );
+        buildDatasetButtons(config);
+        updateModelButtons();
+        const viewDefaults = modelState.view || {};
+        state.search = viewDefaults.search || '';
+        state.sortKey = viewDefaults.sortKey || config.initialState.sortKey;
+        state.sortDirection = viewDefaults.sortDirection || config.initialState.sortDirection;
+        state.minSimilarity = typeof viewDefaults.minSimilarity === 'number' ? viewDefaults.minSimilarity : config.initialState.minSimilarity;
+        state.maxSimilarity = typeof viewDefaults.maxSimilarity === 'number' ? viewDefaults.maxSimilarity : config.initialState.maxSimilarity;
+        if (searchInput) {
+          searchInput.value = state.search;
+        }
+        applyLayoutForModel(config);
+        return ensureModelLoaded(modelKey)
+          .then((loadedState) => {
+            state.data = loadedState.data;
+            state.embeddings = loadedState.embeddings;
+            let datasetToUse = viewDefaults.dataset;
+            if (!datasetToUse || !state.data.has(datasetToUse)) {
+              const firstAvailable = (config.datasetOptions || []).find((option) => state.data.has(option.dataset));
+              datasetToUse = firstAvailable ? firstAvailable.dataset : state.data.size ? state.data.keys().next().value : null;
+            }
+            if (!datasetToUse) {
+              showError('No similarity datasets available.');
+              return;
+            }
+            setActiveDataset(datasetToUse, { skipRender: true });
+            syncSliderWithDataset({ forceBaseline: config.layout === 'dedupe' });
+            if (searchInput) {
+              searchInput.value = state.search;
+            }
+            applyLayoutForModel(config);
+            renderAll();
+          })
+          .catch((error) => {
+            console.error(error);
+            showError('Unable to load similarity data.');
+          });
+      }
 
       minSlider.addEventListener('input', (event) => {
+        if (minSlider.disabled) {
+          return;
+        }
         let value = parseFloat(event.target.value);
         if (Number.isNaN(value)) {
           return;
@@ -2383,6 +3020,9 @@
       });
 
       maxSlider.addEventListener('input', (event) => {
+        if (maxSlider.disabled) {
+          return;
+        }
         let value = parseFloat(event.target.value);
         if (Number.isNaN(value)) {
           return;
@@ -2454,6 +3094,10 @@
       }
 
       document.addEventListener('keydown', (event) => {
+        const config = getActiveModelConfig();
+        if (!config || config.layout === 'dedupe') {
+          return;
+        }
         if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') {
           return;
         }
@@ -2481,46 +3125,10 @@
       });
 
       document.addEventListener('DOMContentLoaded', () => {
-        document.body.setAttribute('data-active-dataset', state.dataset);
-        const activeConfig = datasetConfigs[state.dataset];
-        searchInput.placeholder = activeConfig && activeConfig.placeholder ? activeConfig.placeholder : 'Search report';
         recordMaps = buildRecordMaps();
-        Promise.all([loadEmbeddings(), loadReports()])
-          .then(([embeddingPayload, reports]) => {
-            if (Array.isArray(embeddingPayload)) {
-              embeddingPayload.forEach(([name, payload]) => {
-                hydrateEmbeddingMap(name, payload);
-              });
-              rebuildCrossDeckEmbeddingMap();
-            }
-            if (Array.isArray(reports)) {
-              reports.forEach(([name, report]) => {
-                hydrateDataset(name, report);
-              });
-            }
-            if (!state.data.has(state.dataset) && state.data.size) {
-              const firstDataset = state.data.keys().next().value;
-              if (firstDataset) {
-                state.dataset = firstDataset;
-                document.body.setAttribute('data-active-dataset', firstDataset);
-                const fallbackConfig = datasetConfigs[firstDataset];
-                searchInput.placeholder = fallbackConfig && fallbackConfig.placeholder ? fallbackConfig.placeholder : 'Search report';
-                datasetButtons.forEach((button) => {
-                  button.classList.toggle('is-active', button.dataset.dataset === firstDataset);
-                });
-              }
-            }
-            if (!state.data.size) {
-              showError('No similarity datasets available.');
-              return;
-            }
-            syncSliderWithDataset({ forceBaseline: true });
-            renderAll();
-          })
-          .catch((error) => {
-            console.error(error);
-            showError('Unable to load similarity data.');
-          });
+        buildModelButtons();
+        document.body.setAttribute('data-active-dataset', state.dataset || 'jokes');
+        setActiveModel(DEFAULT_MODEL_KEY, { initial: true });
       });
     })();
   </script>

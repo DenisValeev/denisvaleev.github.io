@@ -1,0 +1,37 @@
+{
+  "dataset": "quotes",
+  "threshold": 0.8,
+  "generatedAt": "2025-10-12T09:12:48.000Z",
+  "provider": "openai",
+  "model": "text-embedding-3-large (second opinion)",
+  "matches": [
+    {
+      "idA": "motivation-14",
+      "idB": "positive-16",
+      "similarity": 0.822,
+      "previewA": "Never let the fear of striking out get in your way. — Babe Ruth",
+      "previewB": "Every strike brings me closer to the next home run. — Babe Ruth"
+    },
+    {
+      "idA": "money-23",
+      "idB": "money-25",
+      "similarity": 0.809,
+      "previewA": "That man is richest whose pleasures are cheapest. — Henry David Thoreau",
+      "previewB": "Wealth is the ability to fully experience life. — Henry David Thoreau"
+    },
+    {
+      "idA": "adventure-01",
+      "idB": "adventure-36",
+      "similarity": 0.805,
+      "previewA": "The danger of adventure is worth a thousand days of ease and comfort. — Paulo Coelho",
+      "previewB": "If you think adventure is dangerous, try routine, it is lethal. — Paulo Coelho"
+    },
+    {
+      "idA": "adventure-29",
+      "idB": "travel-02",
+      "similarity": 0.802,
+      "previewA": "Take only memories, leave only footprints. — Chief Seattle",
+      "previewB": "Take only memories, leave only footprints. — Unknown"
+    }
+  ]
+}
