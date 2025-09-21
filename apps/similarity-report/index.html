@@ -190,6 +190,16 @@
       letter-spacing: 0.02em;
     }
 
+    .slider-floor {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 10px;
+      font-weight: 500;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
     input[type="range"] {
       width: 100%;
       accent-color: var(--accent-active);
@@ -678,13 +688,31 @@
     </header>
     <section class="control-panel" aria-label="Controls">
       <div class="dataset-toggle" role="group" aria-label="Dataset selector">
-        <button type="button" class="is-active" data-dataset="jokes">Jokes deck</button>
-        <button type="button" data-dataset="quotes">Quotes deck</button>
+        <button
+          type="button"
+          class="is-active"
+          data-dataset="jokes"
+          data-report="../../data/similarity-report-jokes.json"
+          data-placeholder="Try j-0246 or “impasta”"
+        >
+          Jokes deck
+        </button>
+        <button
+          type="button"
+          data-dataset="quotes"
+          data-report="../../data/similarity-report-quotes.json"
+          data-placeholder="Try travel-02 or “footprints”"
+        >
+          Quotes deck
+        </button>
       </div>
       <div class="control-grid">
         <label>
-          <span>Minimum cosine similarity: <strong data-threshold-label>0.70</strong></span>
-          <input type="range" min="0.7" max="0.95" step="0.01" value="0.7" data-min-similarity>
+          <span>
+            Minimum cosine similarity: <strong data-threshold-label>0.70</strong>
+            <span class="slider-floor" data-threshold-floor hidden>(floor 0.70)</span>
+          </span>
+          <input type="range" min="0.7" max="0.95" step="0.001" value="0.7" data-min-similarity>
         </label>
         <label>
           <span>Find by ID or text</span>
@@ -762,6 +790,10 @@
               <span class="metric-label">Length delta</span>
               <span class="metric-value" data-detail-length>0 chars • 0 words</span>
             </div>
+            <div class="metric">
+              <span class="metric-label">Levenshtein</span>
+              <span class="metric-value" data-detail-levenshtein>0 edits • 100% overlap</span>
+            </div>
           </div>
           <div class="records-grid">
             <article class="record-card">
@@ -821,6 +853,7 @@
       const slider = document.querySelector('[data-min-similarity]');
       const sliderLabel = document.querySelector('[data-threshold-label]');
       const thresholdDisplay = document.querySelector('[data-threshold-display]');
+      const thresholdFloor = document.querySelector('[data-threshold-floor]');
       const searchInput = document.querySelector('[data-search]');
       const tableBody = document.querySelector('[data-results-body]');
       const countEl = document.querySelector('[data-match-count]');
@@ -835,6 +868,7 @@
       const detailScore = document.querySelector('[data-detail-score]');
       const detailDistance = document.querySelector('[data-detail-distance]');
       const detailLength = document.querySelector('[data-detail-length]');
+      const detailLevenshtein = document.querySelector('[data-detail-levenshtein]');
       const recordAId = document.querySelector('[data-record-a-id]');
       const recordAPrimary = document.querySelector('[data-record-a-primary]');
       const recordASecondary = document.querySelector('[data-record-a-secondary]');
@@ -854,10 +888,17 @@
         return;
       }
 
-      const datasetPlaceholders = {
-        jokes: 'Try j-0246 or “impasta”',
-        quotes: 'Try travel-02 or “footprints”',
-      };
+      const datasetConfigs = Array.from(datasetButtons).reduce((accumulator, button) => {
+        const datasetName = button.dataset.dataset;
+        if (!datasetName) {
+          return accumulator;
+        }
+        accumulator[datasetName] = {
+          reportUrl: button.dataset.report || '',
+          placeholder: button.dataset.placeholder || 'Search report',
+        };
+        return accumulator;
+      }, {});
 
       const providerLabels = {
         hfspace: 'Hugging Face Space',
@@ -868,6 +909,8 @@
       };
 
       let recordMaps = { jokes: new Map(), quotes: new Map() };
+
+      const MAX_VISIBLE_PAIRS = 400; // Hard cap to keep the table readable
 
       const state = {
         dataset: 'jokes',
@@ -921,6 +964,101 @@
         return (text || '')
           .toLowerCase()
           .normalize('NFKC');
+      }
+
+      function formatPercent(value) {
+        const numeric = typeof value === 'number' ? value : 0;
+        return Math.round(clamp01(numeric) * 100);
+      }
+
+      function computeLevenshteinMetrics(textA, textB) {
+        const left = typeof textA === 'string' ? textA.normalize('NFKC') : '';
+        const right = typeof textB === 'string' ? textB.normalize('NFKC') : '';
+        const lenA = left.length;
+        const lenB = right.length;
+        if (left === right) {
+          return { distance: 0, similarity: 1 };
+        }
+        if (!lenA && !lenB) {
+          return { distance: 0, similarity: 1 };
+        }
+        if (!lenA) {
+          return { distance: lenB, similarity: lenB ? 0 : 1 };
+        }
+        if (!lenB) {
+          return { distance: lenA, similarity: lenA ? 0 : 1 };
+        }
+        const previous = new Array(lenB + 1);
+        const current = new Array(lenB + 1);
+        for (let column = 0; column <= lenB; column += 1) {
+          previous[column] = column;
+        }
+        for (let row = 1; row <= lenA; row += 1) {
+          current[0] = row;
+          const codeA = left.charCodeAt(row - 1);
+          for (let column = 1; column <= lenB; column += 1) {
+            const codeB = right.charCodeAt(column - 1);
+            const substitutionCost = codeA === codeB ? 0 : 1;
+            const deletion = previous[column] + 1;
+            const insertion = current[column - 1] + 1;
+            const substitution = previous[column - 1] + substitutionCost;
+            current[column] = Math.min(deletion, insertion, substitution);
+          }
+          for (let column = 0; column <= lenB; column += 1) {
+            previous[column] = current[column];
+          }
+        }
+        const distance = previous[lenB];
+        const maxLen = Math.max(lenA, lenB) || 1;
+        return {
+          distance,
+          similarity: Math.max(0, 1 - distance / maxLen),
+        };
+      }
+
+      function computeSimilarityBounds(matches) {
+        if (!Array.isArray(matches) || !matches.length) {
+          return { min: 0, max: 1, safeMin: 0, floorCount: 0 };
+        }
+        const values = matches
+          .map((match) => (typeof match.similarity === 'number' ? match.similarity : 0))
+          .filter((value) => Number.isFinite(value))
+          .sort((a, b) => b - a);
+        if (!values.length) {
+          return { min: 0, max: 1, safeMin: 0, floorCount: 0 };
+        }
+        const max = values[0];
+        const min = values[values.length - 1];
+        let safeIndex = Math.min(values.length - 1, MAX_VISIBLE_PAIRS - 1);
+        if (safeIndex < 0) {
+          safeIndex = 0;
+        }
+        let safeMin = values[safeIndex];
+        let floorCount = safeIndex + 1;
+        if (Number.isFinite(safeMin)) {
+          let lastIndex = safeIndex + 1;
+          while (lastIndex < values.length && values[lastIndex] === safeMin) {
+            lastIndex += 1;
+          }
+          floorCount = lastIndex;
+          while (floorCount > MAX_VISIBLE_PAIRS && safeIndex > 0) {
+            safeIndex -= 1;
+            safeMin = values[safeIndex];
+            lastIndex = safeIndex + 1;
+            while (lastIndex < values.length && values[lastIndex] === safeMin) {
+              lastIndex += 1;
+            }
+            floorCount = lastIndex;
+          }
+        } else {
+          floorCount = values.length;
+        }
+        return {
+          min,
+          max,
+          safeMin,
+          floorCount,
+        };
       }
 
       function buildRecordMaps() {
@@ -1002,6 +1140,12 @@
         const wordsA = recordA ? recordA.wordCount : countWords(previewA);
         const wordsB = recordB ? recordB.wordCount : countWords(previewB);
         const similarity = typeof match.similarity === 'number' ? match.similarity : 0;
+        const levenshteinSourceA = recordA ? recordA.embeddingInput : previewA;
+        const levenshteinSourceB = recordB ? recordB.embeddingInput : previewB;
+        const { distance: levenshteinDistance, similarity: levenshteinSimilarity } = computeLevenshteinMetrics(
+          levenshteinSourceA,
+          levenshteinSourceB,
+        );
         return {
           idA: match.idA,
           idB: match.idB,
@@ -1017,6 +1161,8 @@
           distance: 1 - similarity,
           lengthDelta: Math.abs(charA - charB),
           wordDelta: Math.abs(wordsA - wordsB),
+          levenshteinDistance,
+          levenshteinSimilarity,
         };
       }
 
@@ -1089,12 +1235,17 @@
           pairMetrics.className = 'pair-metrics';
           const charMetric = document.createElement('span');
           charMetric.className = 'pair-metric';
-          charMetric.textContent = `Δ chars ${match.lengthDelta}`;
+          charMetric.textContent = `Δ chars ${match.lengthDelta.toLocaleString()}`;
           const wordMetric = document.createElement('span');
           wordMetric.className = 'pair-metric';
-          wordMetric.textContent = `Δ words ${match.wordDelta}`;
+          wordMetric.textContent = `Δ words ${match.wordDelta.toLocaleString()}`;
+          const levenshteinMetric = document.createElement('span');
+          levenshteinMetric.className = 'pair-metric';
+          const levenshteinPercent = formatPercent(match.levenshteinSimilarity);
+          levenshteinMetric.textContent = `Levenshtein ${match.levenshteinDistance.toLocaleString()} (${levenshteinPercent}%)`;
           pairMetrics.appendChild(charMetric);
           pairMetrics.appendChild(wordMetric);
+          pairMetrics.appendChild(levenshteinMetric);
           pairCell.appendChild(pairMetrics);
           row.appendChild(pairCell);
 
@@ -1182,6 +1333,9 @@
           detailBody.hidden = true;
           detailEmpty.hidden = false;
           copyButton.disabled = true;
+          if (detailLevenshtein) {
+            detailLevenshtein.textContent = '0 edits • 100% overlap';
+          }
           return;
         }
 
@@ -1191,6 +1345,10 @@
         detailScore.textContent = formatSimilarity(match.similarity);
         detailDistance.textContent = formatSimilarity(match.distance);
         detailLength.textContent = `${match.lengthDelta.toLocaleString()} chars • ${match.wordDelta.toLocaleString()} words`;
+        if (detailLevenshtein) {
+          const levenshteinPercent = formatPercent(match.levenshteinSimilarity);
+          detailLevenshtein.textContent = `${match.levenshteinDistance.toLocaleString()} edits • ${levenshteinPercent}% overlap`;
+        }
 
         if (match.recordA) {
           recordAId.textContent = match.recordA.id;
@@ -1304,7 +1462,8 @@
                 : right.lengthDelta - left.lengthDelta;
             }
             return 0;
-          });
+          })
+          .slice(0, MAX_VISIBLE_PAIRS);
       }
 
       function updateStats() {
@@ -1328,6 +1487,9 @@
       }
 
       function renderAll() {
+        if (slider) {
+          slider.value = state.minSimilarity.toString();
+        }
         thresholdDisplay.textContent = state.minSimilarity.toFixed(2);
         sliderLabel.textContent = state.minSimilarity.toFixed(2);
         const matches = getMatchesForDataset();
@@ -1346,10 +1508,12 @@
       }
 
       function loadReports() {
-        const configs = [
-          ['jokes', '../../data/similarity-report-jokes.json'],
-          ['quotes', '../../data/similarity-report-quotes.json'],
-        ];
+        const configs = Object.entries(datasetConfigs)
+          .map(([name, config]) => [name, config.reportUrl])
+          .filter(([, url]) => typeof url === 'string' && url.length);
+        if (!configs.length) {
+          return Promise.resolve([]);
+        }
         return Promise.all(
           configs.map(([name, url]) =>
             fetch(url)
@@ -1365,23 +1529,27 @@
       }
 
       function hydrateDataset(name, report) {
-        if (!report || !Array.isArray(report.matches)) {
-          state.data.set(name, {
-            matches: [],
-            threshold: typeof report.threshold === 'number' ? report.threshold : 0.7,
-            generatedAt: report.generatedAt || null,
-            provider: report.provider || '',
-            model: report.model || '',
-          });
-          return;
-        }
-        const enriched = report.matches.map((match) => enrichMatch(name, match));
+        const fallbackThreshold = report && typeof report.threshold === 'number' ? report.threshold : 0.7;
+        const matches = report && Array.isArray(report.matches) ? report.matches : [];
+        const bounds = computeSimilarityBounds(matches);
+        const hasMatches = matches.length > 0;
+        const minSimilarity = hasMatches ? clamp01(bounds.min) : clamp01(fallbackThreshold);
+        const maxSimilarity = hasMatches ? clamp01(bounds.max) : clamp01(fallbackThreshold);
+        const safeMinBase = hasMatches ? clamp01(bounds.safeMin) : clamp01(fallbackThreshold);
+        const safeMinSimilarity = Math.min(maxSimilarity, Number.isFinite(safeMinBase) ? safeMinBase : minSimilarity);
+        const rawFloorCount = Number.isFinite(bounds.floorCount) ? bounds.floorCount : matches.length;
+        const floorPairCount = hasMatches ? Math.max(0, Math.min(matches.length, Math.round(rawFloorCount))) : 0;
+        const enriched = hasMatches ? matches.map((match) => enrichMatch(name, match)) : [];
         state.data.set(name, {
           matches: enriched,
-          threshold: typeof report.threshold === 'number' ? report.threshold : 0.7,
-          generatedAt: report.generatedAt || null,
-          provider: report.provider || '',
-          model: report.model || '',
+          threshold: fallbackThreshold,
+          generatedAt: report && report.generatedAt ? report.generatedAt : null,
+          provider: report && report.provider ? report.provider : '',
+          model: report && report.model ? report.model : '',
+          minSimilarity,
+          maxSimilarity,
+          safeMinSimilarity,
+          floorPairCount,
         });
       }
 
@@ -1401,16 +1569,64 @@
           detailEmpty.hidden = false;
           detailEmpty.textContent = message;
         }
+        if (thresholdFloor) {
+          thresholdFloor.hidden = true;
+        }
+      }
+
+      function syncSliderWithDataset({ forceBaseline = false } = {}) {
+        if (!slider) {
+          return;
+        }
+        const datasetEntry = state.data.get(state.dataset);
+        if (!datasetEntry) {
+          slider.min = '0';
+          slider.max = '1';
+          if (thresholdFloor) {
+            thresholdFloor.hidden = true;
+          }
+          return;
+        }
+        const minBound = clamp01(Number.isFinite(datasetEntry.safeMinSimilarity) ? datasetEntry.safeMinSimilarity : 0);
+        const maxBound = clamp01(
+          Number.isFinite(datasetEntry.maxSimilarity) ? Math.max(datasetEntry.maxSimilarity, minBound) : Math.max(1, minBound),
+        );
+        slider.min = minBound.toString();
+        slider.max = maxBound.toString();
+        slider.step = slider.step || '0.001';
+        const baseline = clamp01(typeof datasetEntry.threshold === 'number' ? datasetEntry.threshold : minBound);
+        if (forceBaseline) {
+          state.minSimilarity = Math.max(minBound, baseline);
+        } else {
+          state.minSimilarity = Math.min(Math.max(state.minSimilarity, minBound), maxBound);
+        }
+        slider.value = state.minSimilarity.toString();
+        if (thresholdFloor) {
+          if (Math.abs(minBound - baseline) > 0.0005) {
+            thresholdFloor.hidden = false;
+            const pairCount = datasetEntry.floorPairCount || 0;
+            const limitedCount = Math.min(pairCount, MAX_VISIBLE_PAIRS);
+            const countLabel = limitedCount ? ` • ≤ ${limitedCount.toLocaleString()} pairs` : '';
+            thresholdFloor.textContent = `(floor ${minBound.toFixed(2)}${countLabel})`;
+          } else {
+            thresholdFloor.hidden = true;
+          }
+        }
       }
 
       function setActiveDataset(dataset) {
         if (dataset === state.dataset) {
           return;
         }
+        if (!state.data.has(dataset)) {
+          return;
+        }
         state.dataset = dataset;
         state.activePairKey = null;
+        syncSliderWithDataset();
         document.body.setAttribute('data-active-dataset', dataset);
-        searchInput.placeholder = datasetPlaceholders[dataset] || 'Search report';
+        const datasetConfig = datasetConfigs[dataset];
+        searchInput.placeholder = datasetConfig && datasetConfig.placeholder ? datasetConfig.placeholder : 'Search report';
         datasetButtons.forEach((button) => {
           button.classList.toggle('is-active', button.dataset.dataset === dataset);
         });
@@ -1432,7 +1648,16 @@
         if (Number.isNaN(value)) {
           return;
         }
-        state.minSimilarity = value;
+        const sliderMin = parseFloat(slider.min);
+        const sliderMax = parseFloat(slider.max);
+        let nextValue = value;
+        if (!Number.isNaN(sliderMin)) {
+          nextValue = Math.max(nextValue, sliderMin);
+        }
+        if (!Number.isNaN(sliderMax)) {
+          nextValue = Math.min(nextValue, sliderMax);
+        }
+        state.minSimilarity = nextValue;
         renderAll();
       });
 
@@ -1513,13 +1738,31 @@
 
       document.addEventListener('DOMContentLoaded', () => {
         document.body.setAttribute('data-active-dataset', state.dataset);
-        searchInput.placeholder = datasetPlaceholders[state.dataset];
+        const activeConfig = datasetConfigs[state.dataset];
+        searchInput.placeholder = activeConfig && activeConfig.placeholder ? activeConfig.placeholder : 'Search report';
         recordMaps = buildRecordMaps();
         loadReports()
           .then((reports) => {
             reports.forEach(([name, report]) => {
               hydrateDataset(name, report);
             });
+            if (!state.data.has(state.dataset) && state.data.size) {
+              const firstDataset = state.data.keys().next().value;
+              if (firstDataset) {
+                state.dataset = firstDataset;
+                document.body.setAttribute('data-active-dataset', firstDataset);
+                const fallbackConfig = datasetConfigs[firstDataset];
+                searchInput.placeholder = fallbackConfig && fallbackConfig.placeholder ? fallbackConfig.placeholder : 'Search report';
+                datasetButtons.forEach((button) => {
+                  button.classList.toggle('is-active', button.dataset.dataset === firstDataset);
+                });
+              }
+            }
+            if (!state.data.size) {
+              showError('No similarity datasets available.');
+              return;
+            }
+            syncSliderWithDataset({ forceBaseline: true });
             renderAll();
           })
           .catch((error) => {
