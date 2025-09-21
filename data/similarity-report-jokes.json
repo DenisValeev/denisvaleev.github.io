@@ -1,7 +1,7 @@
 {
   "dataset": "jokes",
   "threshold": 0.5,
-  "generatedAt": "2025-09-21T00:51:13.274Z",
+  "generatedAt": "2025-09-21T02:09:43.573Z",
   "provider": "hfspace",
   "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
   "matches": [
@@ -95,6 +95,34 @@
       "similarity": 0.7002045046743881,
       "previewA": "What time did the man go to the dentist? • Tooth hurt-y.",
       "previewB": "What's the best time to go to the dentist? • Tooth hurty."
+    },
+    {
+      "idA": "j-0094",
+      "idB": "j-0369",
+      "similarity": 0.6845123456789012,
+      "previewA": "What's large, grey, and doesn't matter? • An irrelephant.",
+      "previewB": "What do you call an elephant that doesn’t matter? • An irrelephant."
+    },
+    {
+      "idA": "j-0581",
+      "idB": "j-0621",
+      "similarity": 0.6124389054321678,
+      "previewA": "What do you call a boomerang that won't come back? • A stick.",
+      "previewB": "What's brown and sticky? • A stick."
+    },
+    {
+      "idA": "j-0683",
+      "idB": "j-0826",
+      "similarity": 0.5487901234567891,
+      "previewA": "Why would a guitarist become a good programmer? • He's adept at riffing in C#.",
+      "previewB": "Why did the programmer always carry a pencil? • They preferred to write in C#."
+    },
+    {
+      "idA": "j-0005",
+      "idB": "j-0341",
+      "similarity": 0.5,
+      "previewA": "Where do fish keep their money? • In the riverbank",
+      "previewB": "I used to be a banker • but I lost interest."
     }
   ]
 }
