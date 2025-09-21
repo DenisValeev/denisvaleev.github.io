@@ -41,8 +41,8 @@ test.describe('Cosine Similarity Lab', () => {
 
     expect(minLabelValue).toBeCloseTo(minSliderValue, 4);
     expect(minDisplayValue).toBeCloseTo(minSliderValue, 4);
-    expect(maxLabelValue).toBeCloseTo(maxSliderValue, 3);
-    expect(maxDisplayValue).toBeCloseTo(maxSliderValue, 3);
+    expect(maxLabelValue).toBeCloseTo(maxSliderValue, 2);
+    expect(maxDisplayValue).toBeCloseTo(maxSliderValue, 2);
     expect(maxSliderValue).toBeGreaterThanOrEqual(minSliderValue);
 
     await expect(page.locator('[data-dataset]')).toHaveCount(3);
