@@ -6,7 +6,7 @@ A collection of lightweight browser apps served from a single landing page. Each
 
 - **Random Jokes** – Shuffle developer-friendly jokes, reveal punchlines on demand, and jump to the full archive when you need more context.
 - **Quotes** – Shuffle themed quote decks, step back whenever you like, and explore every line in the all-in-one archive.
-- **Cosine Similarity Lab** – Explore the 0.50+ cosine matches we keep on file, tweak the minimum score, and compare entries side by side with vector stats.
+- **Cosine Similarity Lab** – Explore the 0.50+ cosine matches across jokes, quotes, and cross-deck blends, tweak the minimum score, and compare entries side by side with vector stats.
 - **Value Formatter** – Turn newline-separated entries into formatted key-value pairs for quick copy/paste in code reviews or data preparation.
 
 ## Usage
