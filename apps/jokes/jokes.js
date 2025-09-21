@@ -3309,6 +3309,182 @@ window.jokes = [
             "id": "j-0844",
             "joke": "Why was the river rich?",
             "punchline": "Because it had two banks."
+        }, {
+            "id": "j-0845",
+            "joke": "What do you get if you lock a monkey in a room with a typewriter for 8 hours?",
+            "punchline": "A regular expression."
+        }, {
+            "id": "j-0846",
+            "joke": "Why are Assembly programmers always soaking wet?",
+            "punchline": "They work below C-level."
+        }, {
+            "id": "j-0847",
+            "joke": "How can you tell an extroverted programmer?",
+            "punchline": "He looks at YOUR shoes when he's talking."
+        }, {
+            "id": "j-0848",
+            "joke": "Why did the functional programmer get thrown out of school?",
+            "punchline": "Because he refused to take classes."
+        }, {
+            "id": "j-0849",
+            "joke": "Why did the Python programmer not respond to the foreign mails he got?",
+            "punchline": "Because his interpreter was busy collecting garbage."
+        }, {
+            "id": "j-0850",
+            "joke": "Why did the Python data scientist get arrested at customs?",
+            "punchline": "She was caught trying to import pandas!"
+        }, {
+            "id": "j-0851",
+            "joke": "What are bits?",
+            "punchline": "Tiny things left when you drop your computer down the stairs."
+        }, {
+            "id": "j-0852",
+            "joke": "Why do Java programmers hate communism?",
+            "punchline": "They don't want to live in a classless society."
+        }, {
+            "id": "j-0853",
+            "joke": "How many programmers does it take to screw in a light bulb?",
+            "punchline": "None. It's a hardware problem."
+        }, {
+            "id": "j-0854",
+            "joke": "Why was the JavaScript developer sad?",
+            "punchline": "Because they didn't Node how to Express themself!"
+        }, {
+            "id": "j-0855",
+            "joke": "I was feeling depressed, my wife put her hand on my back and said \"Earth.\"",
+            "punchline": "It meant the world to me."
+        }, {
+            "id": "j-0856",
+            "joke": "I asked my wife if I was the only one she's been with.",
+            "punchline": "She said, \"Yes, the others were at least sevens or eights.\""
+        }, {
+            "id": "j-0857",
+            "joke": "What do you call crystal clear urine?",
+            "punchline": "1080p."
+        }, {
+            "id": "j-0858",
+            "joke": "What kind of doctor is Dr. Pepper?",
+            "punchline": "He's a fizzician."
+        }, {
+            "id": "j-0859",
+            "joke": "What's grey and comes in pints?",
+            "punchline": "An elephant."
+        }, {
+            "id": "j-0860",
+            "joke": "What do you call a pile of kittens?",
+            "punchline": "A meowntain."
+        }, {
+            "id": "j-0861",
+            "joke": "What did the cell say when his sister cell stepped on his foot?",
+            "punchline": "Mitosis."
+        }, {
+            "id": "j-0862",
+            "joke": "Why did the banana go see a doctor?",
+            "punchline": "Because it wasn't peeling well."
+        }, {
+            "id": "j-0863",
+            "joke": "Why shouldn't you visit an expensive wig shop?",
+            "punchline": "It's too high a price \"toupee.\""
+        }, {
+            "id": "j-0864",
+            "joke": "What did the customer say to the waiter?",
+            "punchline": "I'm all fed up with your service."
+        }, {
+            "id": "j-0865",
+            "joke": "To prove he was right, the flat-earther walked to the end of the Earth.",
+            "punchline": "He eventually came around."
+        }, {
+            "id": "j-0866",
+            "joke": "What did the fish say when it swam into the wall?",
+            "punchline": "Dam."
+        }, {
+            "id": "j-0867",
+            "joke": "How much did your chimney cost?",
+            "punchline": "Nothing, it was on the house."
+        }, {
+            "id": "j-0868",
+            "joke": "Which part of the hospital has the least privacy?",
+            "punchline": "The ICU."
+        }, {
+            "id": "j-0869",
+            "joke": "Two guys walked into a bar.",
+            "punchline": "The third guy ducked."
+        }, {
+            "id": "j-0870",
+            "joke": "Why do ghosts go on diets?",
+            "punchline": "So they can keep their ghoulish figures."
+        }, {
+            "id": "j-0871",
+            "joke": "What is in a ghost's nose?",
+            "punchline": "Boo-gers."
+        }, {
+            "id": "j-0872",
+            "joke": "What's it like to be kissed by a vampire?",
+            "punchline": "It's a pain in the neck."
+        }, {
+            "id": "j-0873",
+            "joke": "What does a turkey dress up as for Halloween?",
+            "punchline": "A gobblin'!"
+        }, {
+            "id": "j-0874",
+            "joke": "Why did the ghost go inside the bar?",
+            "punchline": "For the boos."
+        }, {
+            "id": "j-0875",
+            "joke": "What happened to the cannibal who showed up late to Halloween dinner?",
+            "punchline": "They gave him the cold shoulder."
+        }, {
+            "id": "j-0876",
+            "joke": "I'm not saying my son is ugly...",
+            "punchline": "But on Halloween he went to tell the neighbors to turn down their TV and they gave him some candy."
+        }, {
+            "id": "j-0877",
+            "joke": "How will Christmas dinner be different after Brexit?",
+            "punchline": "No Brussels!"
+        }, {
+            "id": "j-0878",
+            "joke": "Why did Santa's helper see the doctor?",
+            "punchline": "Because he had a low \"elf\" esteem!"
+        }, {
+            "id": "j-0879",
+            "joke": "What do Santa's little helpers learn at school?",
+            "punchline": "The elf-abet!"
+        }, {
+            "id": "j-0880",
+            "joke": "Why does Santa have three gardens?",
+            "punchline": "So he can 'ho ho ho'!"
+        }, {
+            "id": "j-0881",
+            "joke": "What's Santa's favourite type of music?",
+            "punchline": "Wrap!"
+        }, {
+            "id": "j-0882",
+            "joke": "What kind of motorbike does Santa ride?",
+            "punchline": "A Holly Davidson!"
+        }, {
+            "id": "j-0883",
+            "joke": "Whats the Grinchs least favorite band?",
+            "punchline": "The Who."
+        }, {
+            "id": "j-0884",
+            "joke": "What does Santa suffer from if he gets stuck in a chimney?",
+            "punchline": "Claustrophobia!"
+        }, {
+            "id": "j-0885",
+            "joke": "Why couldn't the skeleton go to the Christmas party?",
+            "punchline": "Because he had no body to go with!"
+        }, {
+            "id": "j-0886",
+            "joke": "Why does Santa go down the chimney?",
+            "punchline": "Because it soots him!"
+        }, {
+            "id": "j-0887",
+            "joke": "What says Oh Oh Oh?",
+            "punchline": "Santa walking backwards!"
+        }, {
+            "id": "j-0888",
+            "joke": "Who hides in the bakery at Christmas?",
+            "punchline": "A mince spy!"
         }
     ];
 
