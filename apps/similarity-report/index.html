@@ -436,24 +436,34 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 6px;
+      --preview-width: 72px;
     }
 
     .embedding-preview img {
       display: block;
-      border-radius: 14px;
-      border: 1px solid var(--card-border);
-      box-shadow: 0 18px 34px rgba(15, 23, 42, 0.28);
-      background: rgba(15, 23, 42, 0.32);
+      width: var(--preview-width);
+      height: auto;
+      aspect-ratio: var(--preview-aspect, 1);
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--accent-active) 35%, var(--card-border));
+      box-shadow:
+        0 18px 34px rgba(15, 23, 42, 0.28),
+        0 0 0 1px color-mix(in srgb, var(--accent-active) 22%, transparent);
+      background:
+        linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--accent-active) 68%, rgba(15, 23, 42, 0.45)) 0%,
+          rgba(15, 23, 42, 0.32) 58%,
+          rgba(15, 23, 42, 0.68) 100%
+        );
     }
 
-    .embedding-preview[data-variant="compact"] img {
-      width: 54px;
-      height: 54px;
+    .embedding-preview[data-variant="compact"] {
+      --preview-width: 54px;
     }
 
-    .embedding-preview[data-variant="detail"] img {
-      width: 78px;
-      height: 78px;
+    .embedding-preview[data-variant="detail"] {
+      --preview-width: 78px;
     }
 
     .embedding-preview figcaption {
@@ -465,8 +475,17 @@
 
     @media (prefers-color-scheme: light) {
       .embedding-preview img {
-        box-shadow: 0 16px 30px rgba(148, 163, 209, 0.28);
-        background: rgba(226, 232, 240, 0.72);
+        border: 1px solid color-mix(in srgb, var(--accent-active) 32%, rgba(148, 163, 209, 0.5));
+        box-shadow:
+          0 16px 30px rgba(148, 163, 209, 0.28),
+          0 0 0 1px color-mix(in srgb, var(--accent-active) 20%, transparent);
+        background:
+          linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--accent-active) 52%, rgba(255, 255, 255, 0.9)) 0%,
+            rgba(226, 232, 240, 0.92) 55%,
+            rgba(203, 213, 225, 0.92) 100%
+          );
       }
     }
 
@@ -889,8 +908,8 @@
               <span class="metric-value" data-detail-length>0 chars • 0 words</span>
             </div>
             <div class="metric">
-              <span class="metric-label">Lev Δ</span>
-              <span class="metric-value" data-detail-levenshtein>Lev Δ 0 • 100% overlap</span>
+              <span class="metric-label">Levenshtein Δ</span>
+              <span class="metric-value" data-detail-levenshtein>Levenshtein Δ 0 • 100% overlap</span>
             </div>
           </div>
           <div class="records-grid">
@@ -1249,25 +1268,50 @@
 
       function createEmbeddingPreview(values) {
         if (!values || !values.length) {
-          return '';
+          return null;
         }
-        const width = Math.ceil(Math.sqrt(values.length));
-        if (!width) {
-          return '';
+        const totalValues = values.length;
+        const targetAspect = 16 / 9;
+        const estimatedColumns = Math.sqrt(totalValues * targetAspect);
+        const minColumns = Math.max(1, Math.floor(estimatedColumns) - 2);
+        const maxColumns = Math.max(minColumns, Math.ceil(estimatedColumns) + 2);
+        let columns = Math.max(1, Math.ceil(estimatedColumns));
+        let rows = Math.max(1, Math.ceil(totalValues / columns));
+        let bestScore = Number.POSITIVE_INFINITY;
+        for (let candidateColumns = minColumns; candidateColumns <= maxColumns; candidateColumns += 1) {
+          const candidateRows = Math.max(1, Math.ceil(totalValues / candidateColumns));
+          const ratio = candidateColumns / candidateRows;
+          const ratioDelta = Math.abs(ratio - targetAspect);
+          const overflow = candidateColumns * candidateRows - totalValues;
+          const overflowPenalty = overflow > 0 ? overflow / totalValues : 0;
+          const score = ratioDelta + overflowPenalty;
+          if (score < bestScore) {
+            columns = candidateColumns;
+            rows = candidateRows;
+            bestScore = score;
+          }
         }
-        const height = Math.ceil(values.length / width);
         const cellSize = 10;
-        const pixelRatio = typeof window !== 'undefined' && window.devicePixelRatio ? window.devicePixelRatio : 1;
+        const pixelWidth = columns * cellSize;
+        const pixelHeight = rows * cellSize;
+        if (!pixelWidth || !pixelHeight) {
+          return null;
+        }
+        const deviceRatio =
+          typeof window !== 'undefined' && Number.isFinite(window.devicePixelRatio) && window.devicePixelRatio > 0
+            ? window.devicePixelRatio
+            : 1;
+        const pixelRatio = deviceRatio || 1;
         const canvas = document.createElement('canvas');
-        canvas.width = width * cellSize * pixelRatio;
-        canvas.height = height * cellSize * pixelRatio;
+        canvas.width = pixelWidth * pixelRatio;
+        canvas.height = pixelHeight * pixelRatio;
         const context = canvas.getContext('2d');
         if (!context) {
-          return '';
+          return null;
         }
         context.scale(pixelRatio, pixelRatio);
         context.fillStyle = 'rgba(15, 23, 42, 0.08)';
-        context.fillRect(0, 0, width * cellSize, height * cellSize);
+        context.fillRect(0, 0, pixelWidth, pixelHeight);
 
         let minValue = Infinity;
         let maxValue = -Infinity;
@@ -1291,19 +1335,25 @@
           maxValue = minValue + 1;
         }
         const range = maxValue - minValue;
-
-        for (let index = 0; index < width * height; index += 1) {
+        const totalCells = columns * rows;
+        for (let index = 0; index < totalCells; index += 1) {
           const value = index < values.length && Number.isFinite(values[index]) ? values[index] : minValue;
           const normalized = Math.min(1, Math.max(0, (value - minValue) / range));
-          const hue = Math.round((normalized * 320 + (index % width) * 3) % 360);
+          const hue = Math.round((normalized * 320 + (index % columns) * 3) % 360);
           const saturation = Math.min(100, Math.max(0, 58 + normalized * 32));
           const lightness = Math.min(100, Math.max(0, 42 + normalized * 28));
-          const x = (index % width) * cellSize;
-          const y = Math.floor(index / width) * cellSize;
+          const x = (index % columns) * cellSize;
+          const y = Math.floor(index / columns) * cellSize;
           context.fillStyle = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
           context.fillRect(x, y, cellSize, cellSize);
         }
-        return canvas.toDataURL('image/png');
+        const aspect = pixelHeight > 0 ? pixelWidth / pixelHeight : 0;
+        return {
+          url: canvas.toDataURL('image/png'),
+          width: pixelWidth,
+          height: pixelHeight,
+          aspect,
+        };
       }
 
       function getRecordDataset(record) {
@@ -1346,10 +1396,57 @@
         if (!entry) {
           return null;
         }
-        if (!entry.previewUrl && entry.values && entry.values.length) {
-          entry.previewUrl = createEmbeddingPreview(entry.values);
+        if (entry.values && entry.values.length) {
+          const hasWidth = Number.isFinite(entry.previewWidth) && entry.previewWidth > 0;
+          const hasHeight = Number.isFinite(entry.previewHeight) && entry.previewHeight > 0;
+          if (!entry.previewUrl || !hasWidth || !hasHeight) {
+            const preview = createEmbeddingPreview(entry.values);
+            if (preview) {
+              entry.previewUrl = preview.url;
+              entry.previewWidth = preview.width;
+              entry.previewHeight = preview.height;
+              entry.previewAspect = Number.isFinite(preview.aspect) && preview.aspect > 0 ? preview.aspect : 0;
+            }
+          }
+        }
+        if (
+          (!Number.isFinite(entry.previewAspect) || entry.previewAspect <= 0) &&
+          Number.isFinite(entry.previewWidth) &&
+          entry.previewWidth > 0 &&
+          Number.isFinite(entry.previewHeight) &&
+          entry.previewHeight > 0
+        ) {
+          entry.previewAspect = entry.previewWidth / entry.previewHeight;
         }
         return entry;
+      }
+
+      function applyPreviewAspect(figure, image, entry) {
+        if (!figure && !image) {
+          return;
+        }
+        const width = entry && Number.isFinite(entry.previewWidth) && entry.previewWidth > 0 ? entry.previewWidth : 0;
+        const height = entry && Number.isFinite(entry.previewHeight) && entry.previewHeight > 0 ? entry.previewHeight : 0;
+        let aspect = entry && Number.isFinite(entry.previewAspect) && entry.previewAspect > 0 ? entry.previewAspect : 0;
+        if (!aspect && width > 0 && height > 0) {
+          aspect = width / height;
+        }
+        if (figure) {
+          if (aspect > 0) {
+            figure.style.setProperty('--preview-aspect', `${aspect}`);
+          } else {
+            figure.style.removeProperty('--preview-aspect');
+          }
+        }
+        if (image) {
+          if (aspect > 0) {
+            image.dataset.aspect = aspect.toFixed(4);
+            image.style.aspectRatio = `${aspect}`;
+          } else {
+            delete image.dataset.aspect;
+            image.style.removeProperty('aspect-ratio');
+          }
+        }
       }
 
       function buildEmbeddingPreviewFigure(
@@ -1368,6 +1465,7 @@
         image.loading = 'lazy';
         const id = record && record.id ? record.id : fallbackId;
         image.alt = id ? `Embedding preview for ${id}` : 'Embedding preview';
+        applyPreviewAspect(figure, image, entry);
         figure.title = entry.model
           ? `${entry.model} • ${entry.dimensions ? entry.dimensions.toLocaleString() : '—'} dims`
           : entry.dimensions
@@ -1409,6 +1507,7 @@
             const id = record && record.id ? record.id : '';
             image.src = entry.previewUrl;
             image.alt = id ? `Embedding preview for ${id}` : 'Embedding preview';
+            applyPreviewAspect(figure, image, entry);
             const dimsLabel = formatDimensions(entry.dimensions);
             if (entry.model && dimsLabel !== '—') {
               caption.textContent = `${dimsLabel} • ${entry.model}`;
@@ -1421,6 +1520,7 @@
             figure.hidden = true;
             image.removeAttribute('src');
             image.alt = '';
+            applyPreviewAspect(figure, image, null);
             caption.textContent = 'Embedding preview';
           }
         }
@@ -1687,6 +1787,9 @@
             textHash: typeof record.textHash === 'string' ? record.textHash : '',
             values: values || null,
             previewUrl: '',
+            previewWidth: 0,
+            previewHeight: 0,
+            previewAspect: 0,
           });
         });
         embeddingMaps[dataset] = map;
@@ -1795,9 +1898,10 @@
           wordDelta.className = 'score-delta';
           wordDelta.textContent = `Δ words ${match.wordDelta.toLocaleString()}`;
           const levenshteinDelta = document.createElement('span');
-          levenshteinDelta.className = 'score-delta';
+          levenshteinDelta.className = 'score-delta pair-metric';
           const levenshteinPercent = formatPercent(match.levenshteinSimilarity);
-          levenshteinDelta.textContent = `Lev Δ ${match.levenshteinDistance.toLocaleString()} (${levenshteinPercent}%)`;
+          levenshteinDelta.textContent = `Levenshtein Δ ${match.levenshteinDistance.toLocaleString()} (${levenshteinPercent}%)`;
+          levenshteinDelta.setAttribute('title', 'Levenshtein distance');
           scoreDeltas.appendChild(charDelta);
           scoreDeltas.appendChild(wordDelta);
           scoreDeltas.appendChild(levenshteinDelta);
@@ -1814,7 +1918,7 @@
           entryALabel.className = 'entry-label';
           entryALabel.textContent = 'A';
           const entryAId = document.createElement('span');
-          entryAId.className = 'entry-id';
+          entryAId.className = 'entry-id id-badge';
           entryAId.textContent = match.idA;
           entryAHeader.appendChild(entryALabel);
           entryAHeader.appendChild(entryAId);
@@ -1855,7 +1959,7 @@
           entryBLabel.className = 'entry-label';
           entryBLabel.textContent = 'B';
           const entryBId = document.createElement('span');
-          entryBId.className = 'entry-id';
+          entryBId.className = 'entry-id id-badge';
           entryBId.textContent = match.idB;
           entryBHeader.appendChild(entryBLabel);
           entryBHeader.appendChild(entryBId);
@@ -1921,7 +2025,7 @@
           detailEmpty.hidden = false;
           copyButton.disabled = true;
           if (detailLevenshtein) {
-            detailLevenshtein.textContent = 'Lev Δ 0 • 100% overlap';
+            detailLevenshtein.textContent = 'Levenshtein Δ 0 • 100% overlap';
           }
           updateEmbeddingDetail(null, recordAEmbeddingElements, { dataset: state.dataset });
           updateEmbeddingDetail(null, recordBEmbeddingElements, { dataset: state.dataset });
@@ -1936,7 +2040,7 @@
         detailLength.textContent = `${match.lengthDelta.toLocaleString()} chars • ${match.wordDelta.toLocaleString()} words`;
         if (detailLevenshtein) {
           const levenshteinPercent = formatPercent(match.levenshteinSimilarity);
-          detailLevenshtein.textContent = `Lev Δ ${match.levenshteinDistance.toLocaleString()} • ${levenshteinPercent}% overlap`;
+          detailLevenshtein.textContent = `Levenshtein Δ ${match.levenshteinDistance.toLocaleString()} • ${levenshteinPercent}% overlap`;
         }
 
         if (match.recordA) {
