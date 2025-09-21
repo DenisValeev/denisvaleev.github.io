@@ -1270,8 +1270,8 @@ window.quotesData = [
     "quotes": [
       {
         "id": "travel-02",
-        "text": "Take only memories, leave only footprints.",
-        "author": "Unknown"
+        "text": "Leave the road, take the trails.",
+        "author": "Pythagoras"
       },
       {
         "id": "travel-03",
@@ -2224,8 +2224,8 @@ window.quotesData = [
       },
       {
         "id": "love-05",
-        "text": "I need you like a heart needs a beat.",
-        "author": "Unknown"
+        "text": "I love you not because of who you are, but because of who I am when I am with you.",
+        "author": "Roy Croft"
       },
       {
         "id": "love-06",
@@ -2375,7 +2375,7 @@ window.quotesData = [
       {
         "id": "love-35",
         "text": "I need you like a heart needs a beat.",
-        "author": "One Republic"
+        "author": "OneRepublic"
       },
       {
         "id": "love-36",

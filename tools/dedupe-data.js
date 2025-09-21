@@ -186,6 +186,7 @@ function createQuoteMeta(entry, index) {
   const authorPreview = authorNormalized.slice(0, 40);
   const comparison = `${textPreview}|${authorPreview}`.trim();
   const tokenSource = `${textNormalized} ${authorNormalized}`.trim();
+  const textKey = textNormalized;
   const tokens = createTokenSet(tokenSource, [
     textPreview.slice(0, 36),
     textPreview.slice(-36),
@@ -198,6 +199,7 @@ function createQuoteMeta(entry, index) {
     tokens,
     authorPreview,
     textPreview,
+    textKey,
     originalIndex: index,
   };
 }
@@ -243,20 +245,30 @@ function logDuplicates(describe, duplicates, metas) {
     return;
   }
 
-  let exactCount = 0;
+  const reasonCounts = new Map();
   duplicates.forEach((dup) => {
-    if (dup.reason === 'exact') {
-      exactCount += 1;
+    const key = dup.reason || 'unknown';
+    reasonCounts.set(key, (reasonCounts.get(key) || 0) + 1);
+  });
+
+  const parts = [];
+  const orderedReasons = [
+    { key: 'exact', label: 'exact' },
+    { key: 'similar', label: 'similar' },
+    { key: 'conflict', label: 'conflicting text' },
+  ];
+
+  orderedReasons.forEach(({ key, label }) => {
+    if (reasonCounts.has(key)) {
+      parts.push(`${reasonCounts.get(key)} ${label}`);
+      reasonCounts.delete(key);
     }
   });
-  const similarCount = duplicates.length - exactCount;
-  const parts = [];
-  if (exactCount) {
-    parts.push(`${exactCount} exact`);
-  }
-  if (similarCount) {
-    parts.push(`${similarCount} similar`);
-  }
+
+  reasonCounts.forEach((count, key) => {
+    parts.push(`${count} ${key}`);
+  });
+
   const breakdown = parts.length ? ` (${parts.join(', ')})` : '';
 
   console.log(`Removed ${duplicates.length} duplicate ${describe}${breakdown}.`);
@@ -264,8 +276,39 @@ function logDuplicates(describe, duplicates, metas) {
   duplicates.slice(0, 5).forEach((dup) => {
     const previewMeta = metas[dup.index];
     const preview = previewMeta && previewMeta.comparison ? previewMeta.comparison.slice(0, 80) : '';
-    const distanceInfo = dup.reason === 'similar' ? ` (distance: ${dup.distance})` : '';
-    console.log(`  - entry ${dup.index} matched ${dup.reason} duplicate of entry ${dup.against}${distanceInfo}`);
+    let detail = '';
+    if (dup.reason === 'similar') {
+      detail = ` (distance: ${dup.distance})`;
+    } else if (dup.reason === 'conflict') {
+      const originalMeta = metas[dup.against];
+      const currentAuthor = previewMeta && previewMeta.authorPreview ? previewMeta.authorPreview : '';
+      const originalAuthor = originalMeta && originalMeta.authorPreview ? originalMeta.authorPreview : '';
+      if (currentAuthor || originalAuthor) {
+        const left = currentAuthor || 'unknown';
+        const right = originalAuthor || 'unknown';
+        detail = ` (authors: ${left} ↔ ${right})`;
+      } else {
+        detail = ' (conflicting attribution)';
+      }
+    }
+
+    let reasonLabel;
+    switch (dup.reason) {
+      case 'exact':
+        reasonLabel = 'exact duplicate';
+        break;
+      case 'similar':
+        reasonLabel = 'similar duplicate';
+        break;
+      case 'conflict':
+        reasonLabel = 'text duplicate';
+        break;
+      default:
+        reasonLabel = `${dup.reason} duplicate`;
+        break;
+    }
+
+    console.log(`  - entry ${dup.index} matched ${reasonLabel} of entry ${dup.against}${detail}`);
     if (preview) {
       console.log(`      preview: ${preview}`);
     }
@@ -301,6 +344,7 @@ function dedupe(entries, options) {
   });
 
   const canonicalMap = new Map();
+  const conflictMap = new Map();
   const removed = new Set();
   const duplicates = [];
   const cleaned = [];
@@ -325,6 +369,23 @@ function dedupe(entries, options) {
       });
       removed.add(i);
       continue;
+    }
+
+    if (meta.textKey) {
+      const conflictIndex = conflictMap.get(meta.textKey);
+      if (conflictIndex !== undefined) {
+        const originalMeta = metas[conflictIndex];
+        duplicates.push({
+          index: meta.originalIndex,
+          reason: 'conflict',
+          against: originalMeta ? originalMeta.originalIndex : conflictIndex,
+          distance: 0,
+          conflictKey: meta.textKey,
+        });
+        removed.add(i);
+        continue;
+      }
+      conflictMap.set(meta.textKey, i);
     }
 
     canonicalMap.set(meta.canonical, i);
