@@ -3,7 +3,7 @@
     "provider": "openai",
     "model": "text-embedding-3-large (second opinion)",
     "dimensions": 64,
-    "generatedAt": "2025-10-12T09:12:48.000Z",
+    "generatedAt": "2025-09-20T22:27:41.541Z",
     "recordCount": 11
   },
   "records": {
