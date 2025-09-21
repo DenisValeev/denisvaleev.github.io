@@ -435,6 +435,106 @@
       font-size: 0.78rem;
     }
 
+    .embedding-preview {
+      margin: 10px 0;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .embedding-preview img {
+      display: block;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 18px 34px rgba(15, 23, 42, 0.28);
+      background: rgba(15, 23, 42, 0.32);
+    }
+
+    .embedding-preview[data-variant="compact"] img {
+      width: 54px;
+      height: 54px;
+    }
+
+    .embedding-preview[data-variant="detail"] img {
+      width: 78px;
+      height: 78px;
+    }
+
+    .embedding-preview figcaption {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    @media (prefers-color-scheme: light) {
+      .embedding-preview img {
+        box-shadow: 0 16px 30px rgba(148, 163, 209, 0.28);
+        background: rgba(226, 232, 240, 0.72);
+      }
+    }
+
+    .record-tech {
+      margin: 14px 0 0 0;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      padding: 10px 12px;
+      background: rgba(59, 73, 110, 0.16);
+    }
+
+    .record-tech summary {
+      list-style: none;
+      position: relative;
+      padding-left: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .record-tech summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .record-tech summary::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translateY(2px);
+      color: var(--text-muted);
+      transition: transform 0.2s ease;
+    }
+
+    .record-tech[open] summary::before {
+      transform: rotate(90deg) translateX(-2px);
+    }
+
+    .record-tech dl {
+      margin: 12px 0 0 0;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .record-tech dt {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .record-tech dd {
+      margin: 2px 0 0 0;
+      font-weight: 600;
+      font-size: 0.86rem;
+      word-break: break-all;
+    }
+
     .detail-panel {
       background: var(--surface-strong);
       border-radius: 22px;
@@ -810,6 +910,10 @@
                 <h3>Entry A</h3>
                 <p class="record-id" data-record-a-id>—</p>
               </header>
+              <figure class="embedding-preview" data-record-a-embedding hidden data-variant="detail">
+                <img data-record-a-embedding-img alt="" loading="lazy">
+                <figcaption data-record-a-embedding-caption>Embedding preview</figcaption>
+              </figure>
               <p class="record-primary" data-record-a-primary>—</p>
               <p class="record-secondary is-empty" data-record-a-secondary>—</p>
               <dl class="record-meta">
@@ -826,12 +930,45 @@
                   <dd data-record-a-origin>—</dd>
                 </div>
               </dl>
+              <details class="record-tech" data-record-a-tech hidden>
+                <summary>Embedding details</summary>
+                <dl>
+                  <div>
+                    <dt>Provider</dt>
+                    <dd data-record-a-provider>—</dd>
+                  </div>
+                  <div>
+                    <dt>Model</dt>
+                    <dd data-record-a-model>—</dd>
+                  </div>
+                  <div>
+                    <dt>Dimensions</dt>
+                    <dd data-record-a-dimensions>—</dd>
+                  </div>
+                  <div>
+                    <dt>Updated</dt>
+                    <dd data-record-a-updated>—</dd>
+                  </div>
+                  <div>
+                    <dt>Vector SHA-256</dt>
+                    <dd data-record-a-vector-hash>—</dd>
+                  </div>
+                  <div>
+                    <dt>Text hash</dt>
+                    <dd data-record-a-text-hash>—</dd>
+                  </div>
+                </dl>
+              </details>
             </article>
             <article class="record-card">
               <header>
                 <h3>Entry B</h3>
                 <p class="record-id" data-record-b-id>—</p>
               </header>
+              <figure class="embedding-preview" data-record-b-embedding hidden data-variant="detail">
+                <img data-record-b-embedding-img alt="" loading="lazy">
+                <figcaption data-record-b-embedding-caption>Embedding preview</figcaption>
+              </figure>
               <p class="record-primary" data-record-b-primary>—</p>
               <p class="record-secondary is-empty" data-record-b-secondary>—</p>
               <dl class="record-meta">
@@ -848,6 +985,35 @@
                   <dd data-record-b-origin>—</dd>
                 </div>
               </dl>
+              <details class="record-tech" data-record-b-tech hidden>
+                <summary>Embedding details</summary>
+                <dl>
+                  <div>
+                    <dt>Provider</dt>
+                    <dd data-record-b-provider>—</dd>
+                  </div>
+                  <div>
+                    <dt>Model</dt>
+                    <dd data-record-b-model>—</dd>
+                  </div>
+                  <div>
+                    <dt>Dimensions</dt>
+                    <dd data-record-b-dimensions>—</dd>
+                  </div>
+                  <div>
+                    <dt>Updated</dt>
+                    <dd data-record-b-updated>—</dd>
+                  </div>
+                  <div>
+                    <dt>Vector SHA-256</dt>
+                    <dd data-record-b-vector-hash>—</dd>
+                  </div>
+                  <div>
+                    <dt>Text hash</dt>
+                    <dd data-record-b-text-hash>—</dd>
+                  </div>
+                </dl>
+              </details>
             </article>
           </div>
         </div>
@@ -886,14 +1052,60 @@
       const recordAChars = document.querySelector('[data-record-a-chars]');
       const recordAWords = document.querySelector('[data-record-a-words]');
       const recordAOrigin = document.querySelector('[data-record-a-origin]');
+      const recordAEmbeddingFigure = document.querySelector('[data-record-a-embedding]');
+      const recordAEmbeddingImage = document.querySelector('[data-record-a-embedding-img]');
+      const recordAEmbeddingCaption = document.querySelector('[data-record-a-embedding-caption]');
+      const recordATechDetails = document.querySelector('[data-record-a-tech]');
+      const recordATechProvider = document.querySelector('[data-record-a-provider]');
+      const recordATechModel = document.querySelector('[data-record-a-model]');
+      const recordATechDimensions = document.querySelector('[data-record-a-dimensions]');
+      const recordATechUpdated = document.querySelector('[data-record-a-updated]');
+      const recordATechVectorHash = document.querySelector('[data-record-a-vector-hash]');
+      const recordATechTextHash = document.querySelector('[data-record-a-text-hash]');
       const recordBId = document.querySelector('[data-record-b-id]');
       const recordBPrimary = document.querySelector('[data-record-b-primary]');
       const recordBSecondary = document.querySelector('[data-record-b-secondary]');
       const recordBChars = document.querySelector('[data-record-b-chars]');
       const recordBWords = document.querySelector('[data-record-b-words]');
       const recordBOrigin = document.querySelector('[data-record-b-origin]');
+      const recordBEmbeddingFigure = document.querySelector('[data-record-b-embedding]');
+      const recordBEmbeddingImage = document.querySelector('[data-record-b-embedding-img]');
+      const recordBEmbeddingCaption = document.querySelector('[data-record-b-embedding-caption]');
+      const recordBTechDetails = document.querySelector('[data-record-b-tech]');
+      const recordBTechProvider = document.querySelector('[data-record-b-provider]');
+      const recordBTechModel = document.querySelector('[data-record-b-model]');
+      const recordBTechDimensions = document.querySelector('[data-record-b-dimensions]');
+      const recordBTechUpdated = document.querySelector('[data-record-b-updated]');
+      const recordBTechVectorHash = document.querySelector('[data-record-b-vector-hash]');
+      const recordBTechTextHash = document.querySelector('[data-record-b-text-hash]');
       const copyButton = document.querySelector('[data-copy-pair]');
       const sortButtons = document.querySelectorAll('[data-sort]');
+
+      const recordAEmbeddingElements = {
+        figure: recordAEmbeddingFigure,
+        image: recordAEmbeddingImage,
+        caption: recordAEmbeddingCaption,
+        techDetails: recordATechDetails,
+        provider: recordATechProvider,
+        model: recordATechModel,
+        dimensions: recordATechDimensions,
+        updated: recordATechUpdated,
+        vectorHash: recordATechVectorHash,
+        textHash: recordATechTextHash,
+      };
+
+      const recordBEmbeddingElements = {
+        figure: recordBEmbeddingFigure,
+        image: recordBEmbeddingImage,
+        caption: recordBEmbeddingCaption,
+        techDetails: recordBTechDetails,
+        provider: recordBTechProvider,
+        model: recordBTechModel,
+        dimensions: recordBTechDimensions,
+        updated: recordBTechUpdated,
+        vectorHash: recordBTechVectorHash,
+        textHash: recordBTechTextHash,
+      };
 
       if (
         !tableBody
@@ -921,6 +1133,11 @@
         return accumulator;
       }, {});
 
+      const embeddingSources = {
+        jokes: '../../data/jokes-embeddings.json',
+        quotes: '../../data/quotes-embeddings.json',
+      };
+
       const providerLabels = {
         hfspace: 'Hugging Face Space',
         fake: 'Synthetic generator',
@@ -930,6 +1147,7 @@
       };
 
       let recordMaps = { jokes: new Map(), quotes: new Map(), 'cross-deck': new Map() };
+      let embeddingMaps = { jokes: new Map(), quotes: new Map(), 'cross-deck': new Map() };
 
       const MAX_VISIBLE_PAIRS = 400; // Hard cap to keep the table readable
       const sliderValueFormatter = new Intl.NumberFormat(undefined, {
@@ -1003,6 +1221,312 @@
       function formatPercent(value) {
         const numeric = typeof value === 'number' ? value : 0;
         return Math.round(clamp01(numeric) * 100);
+      }
+
+      function base64ToUint8Array(base64) {
+        if (typeof base64 !== 'string' || !base64.length) {
+          return null;
+        }
+        try {
+          const binary = atob(base64);
+          const length = binary.length;
+          const bytes = new Uint8Array(length);
+          for (let index = 0; index < length; index += 1) {
+            bytes[index] = binary.charCodeAt(index);
+          }
+          return bytes;
+        } catch (error) {
+          console.error('Failed to decode embedding vector', error);
+          return null;
+        }
+      }
+
+      function decodeEmbeddingVector(base64, expectedDimensions) {
+        const bytes = base64ToUint8Array(base64);
+        if (!bytes || !bytes.length) {
+          return null;
+        }
+        const valueCount = Math.floor(bytes.byteLength / 4);
+        if (!valueCount) {
+          return null;
+        }
+        const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+        const floats = new Float32Array(valueCount);
+        for (let index = 0; index < valueCount; index += 1) {
+          floats[index] = view.getFloat32(index * 4, true);
+        }
+        if (typeof expectedDimensions === 'number' && expectedDimensions > 0 && floats.length !== expectedDimensions) {
+          if (floats.length > expectedDimensions) {
+            return floats.slice(0, expectedDimensions);
+          }
+        }
+        return floats;
+      }
+
+      const EMBEDDING_COLORS = {
+        negative: [34, 211, 238],
+        neutral: [71, 85, 105],
+        positive: [249, 115, 22],
+      };
+
+      function componentToHex(value) {
+        const clamped = Math.max(0, Math.min(255, Math.round(value)));
+        return clamped.toString(16).padStart(2, '0');
+      }
+
+      const EMBEDDING_NEUTRAL_HEX = `#${componentToHex(EMBEDDING_COLORS.neutral[0])}${componentToHex(
+        EMBEDDING_COLORS.neutral[1],
+      )}${componentToHex(EMBEDDING_COLORS.neutral[2])}`;
+
+      function interpolateColor(start, end, amount) {
+        const t = Math.max(0, Math.min(1, Number.isFinite(amount) ? amount : 0));
+        const r = start[0] + (end[0] - start[0]) * t;
+        const g = start[1] + (end[1] - start[1]) * t;
+        const b = start[2] + (end[2] - start[2]) * t;
+        return `#${componentToHex(r)}${componentToHex(g)}${componentToHex(b)}`;
+      }
+
+      function colorForEmbeddingValue(value) {
+        if (!Number.isFinite(value) || value === 0) {
+          return EMBEDDING_NEUTRAL_HEX;
+        }
+        const intensity = Math.min(1, Math.abs(value));
+        if (value > 0) {
+          return interpolateColor(EMBEDDING_COLORS.neutral, EMBEDDING_COLORS.positive, intensity);
+        }
+        return interpolateColor(EMBEDDING_COLORS.negative, EMBEDDING_COLORS.neutral, intensity);
+      }
+
+      function createEmbeddingPreview(values) {
+        if (!values || !values.length) {
+          return '';
+        }
+        const gridSize = Math.ceil(Math.sqrt(values.length));
+        if (!gridSize) {
+          return '';
+        }
+        const cellSize = 10;
+        const pixelRatio = typeof window !== 'undefined' && window.devicePixelRatio ? window.devicePixelRatio : 1;
+        const canvas = document.createElement('canvas');
+        canvas.width = gridSize * cellSize * pixelRatio;
+        canvas.height = gridSize * cellSize * pixelRatio;
+        const context = canvas.getContext('2d');
+        if (!context) {
+          return '';
+        }
+        context.scale(pixelRatio, pixelRatio);
+        context.fillStyle = 'rgba(15, 23, 42, 0.22)';
+        context.fillRect(0, 0, gridSize * cellSize, gridSize * cellSize);
+        let maxMagnitude = 0;
+        for (let index = 0; index < values.length; index += 1) {
+          const magnitude = Math.abs(values[index]);
+          if (Number.isFinite(magnitude) && magnitude > maxMagnitude) {
+            maxMagnitude = magnitude;
+          }
+        }
+        if (!Number.isFinite(maxMagnitude) || maxMagnitude <= 0) {
+          maxMagnitude = 1;
+        }
+        for (let index = 0; index < gridSize * gridSize; index += 1) {
+          const value = index < values.length ? values[index] : 0;
+          const normalized = value / maxMagnitude;
+          const color = colorForEmbeddingValue(normalized);
+          const x = (index % gridSize) * cellSize;
+          const y = Math.floor(index / gridSize) * cellSize;
+          context.fillStyle = color;
+          context.fillRect(x, y, cellSize, cellSize);
+        }
+        return canvas.toDataURL('image/png');
+      }
+
+      function getRecordDataset(record) {
+        if (!record || typeof record !== 'object') {
+          return null;
+        }
+        if (record.type === 'quote') {
+          return 'quotes';
+        }
+        if (record.type === 'joke') {
+          return 'jokes';
+        }
+        return null;
+      }
+
+      function getEmbeddingEntry(record, fallbackDataset, fallbackId) {
+        const id = record && record.id ? record.id : fallbackId;
+        if (!id) {
+          return null;
+        }
+        const dataset = getRecordDataset(record) || fallbackDataset;
+        const candidates = [];
+        if (dataset && embeddingMaps[dataset]) {
+          candidates.push(embeddingMaps[dataset]);
+        }
+        if (embeddingMaps['cross-deck']) {
+          candidates.push(embeddingMaps['cross-deck']);
+        }
+        for (let index = 0; index < candidates.length; index += 1) {
+          const map = candidates[index];
+          if (map && map.has(id)) {
+            return map.get(id);
+          }
+        }
+        return null;
+      }
+
+      function prepareEmbeddingEntry(record, { dataset: fallbackDataset = null, id: fallbackId = null } = {}) {
+        const entry = getEmbeddingEntry(record, fallbackDataset, fallbackId);
+        if (!entry) {
+          return null;
+        }
+        if (!entry.previewUrl && entry.values && entry.values.length) {
+          entry.previewUrl = createEmbeddingPreview(entry.values);
+        }
+        return entry;
+      }
+
+      function buildEmbeddingPreviewFigure(
+        record,
+        { variant = 'compact', fallbackId = '', dataset: fallbackDataset = null } = {},
+      ) {
+        const entry = prepareEmbeddingEntry(record, { dataset: fallbackDataset, id: fallbackId });
+        if (!entry || !entry.previewUrl) {
+          return null;
+        }
+        const figure = document.createElement('figure');
+        figure.className = 'embedding-preview';
+        figure.dataset.variant = variant;
+        const image = document.createElement('img');
+        image.src = entry.previewUrl;
+        image.loading = 'lazy';
+        const id = record && record.id ? record.id : fallbackId;
+        image.alt = id ? `Embedding preview for ${id}` : 'Embedding preview';
+        figure.title = entry.model
+          ? `${entry.model} • ${entry.dimensions ? entry.dimensions.toLocaleString() : '—'} dims`
+          : entry.dimensions
+          ? `${entry.dimensions.toLocaleString()} dims`
+          : 'Embedding preview';
+        figure.appendChild(image);
+        const caption = document.createElement('figcaption');
+        caption.textContent = entry.dimensions ? `${entry.dimensions.toLocaleString()} dims` : 'Embedding';
+        figure.appendChild(caption);
+        return figure;
+      }
+
+      function formatDimensions(dimensions) {
+        return typeof dimensions === 'number' && Number.isFinite(dimensions) && dimensions > 0
+          ? `${dimensions.toLocaleString()} dims`
+          : '—';
+      }
+
+      function updateEmbeddingDetail(record, elements, { dataset: fallbackDataset = null, id: fallbackId = null } = {}) {
+        if (!elements) {
+          return;
+        }
+        const entry = prepareEmbeddingEntry(record, { dataset: fallbackDataset, id: fallbackId });
+        const {
+          figure,
+          image,
+          caption,
+          techDetails,
+          provider,
+          model,
+          dimensions,
+          updated,
+          vectorHash,
+          textHash,
+        } = elements;
+        if (figure && image && caption) {
+          if (entry && entry.previewUrl) {
+            figure.hidden = false;
+            const id = record && record.id ? record.id : '';
+            image.src = entry.previewUrl;
+            image.alt = id ? `Embedding preview for ${id}` : 'Embedding preview';
+            const dimsLabel = formatDimensions(entry.dimensions);
+            if (entry.model && dimsLabel !== '—') {
+              caption.textContent = `${dimsLabel} • ${entry.model}`;
+            } else if (entry.model) {
+              caption.textContent = entry.model;
+            } else {
+              caption.textContent = dimsLabel;
+            }
+          } else {
+            figure.hidden = true;
+            image.removeAttribute('src');
+            image.alt = '';
+            caption.textContent = 'Embedding preview';
+          }
+        }
+        if (techDetails) {
+          if (entry) {
+            techDetails.hidden = false;
+            if (provider) {
+              provider.textContent = entry.provider || '—';
+              if (entry.provider) {
+                provider.setAttribute('title', entry.provider);
+              } else {
+                provider.removeAttribute('title');
+              }
+            }
+            if (model) {
+              model.textContent = entry.model || '—';
+              if (entry.model) {
+                model.setAttribute('title', entry.model);
+              } else {
+                model.removeAttribute('title');
+              }
+            }
+            if (dimensions) {
+              dimensions.textContent = formatDimensions(entry.dimensions);
+            }
+            if (updated) {
+              updated.textContent = formatDateTime(entry.updatedAt);
+            }
+            if (vectorHash) {
+              const hash = entry.vectorSha256 || '—';
+              vectorHash.textContent = hash;
+              if (entry.vectorSha256) {
+                vectorHash.setAttribute('title', entry.vectorSha256);
+              } else {
+                vectorHash.removeAttribute('title');
+              }
+            }
+            if (textHash) {
+              const hash = entry.textHash || '—';
+              textHash.textContent = hash;
+              if (entry.textHash) {
+                textHash.setAttribute('title', entry.textHash);
+              } else {
+                textHash.removeAttribute('title');
+              }
+            }
+          } else {
+            techDetails.hidden = true;
+            techDetails.removeAttribute('open');
+            if (provider) {
+              provider.textContent = '—';
+              provider.removeAttribute('title');
+            }
+            if (model) {
+              model.textContent = '—';
+              model.removeAttribute('title');
+            }
+            if (dimensions) {
+              dimensions.textContent = '—';
+            }
+            if (updated) {
+              updated.textContent = '—';
+            }
+            if (vectorHash) {
+              vectorHash.textContent = '—';
+              vectorHash.removeAttribute('title');
+            }
+            if (textHash) {
+              textHash.textContent = '—';
+              textHash.removeAttribute('title');
+            }
+          }
+        }
       }
 
       function computeLevenshteinMetrics(textA, textB) {
@@ -1164,6 +1688,57 @@
         return maps;
       }
 
+      function hydrateEmbeddingMap(dataset, payload) {
+        const map = new Map();
+        if (!payload || typeof payload !== 'object') {
+          embeddingMaps[dataset] = map;
+          return;
+        }
+        const records = payload.records && typeof payload.records === 'object' ? payload.records : {};
+        const meta = payload.meta && typeof payload.meta === 'object' ? payload.meta : {};
+        const fallbackDimensions = typeof meta.dimensions === 'number' ? meta.dimensions : 0;
+        const fallbackProvider = typeof meta.provider === 'string' ? meta.provider : '';
+        const fallbackModel = typeof meta.model === 'string' ? meta.model : '';
+        const fallbackUpdated = typeof meta.generatedAt === 'string' ? meta.generatedAt : '';
+        Object.entries(records).forEach(([id, record]) => {
+          if (!id || !record || typeof record.vector !== 'string') {
+            return;
+          }
+          const recordDimensions =
+            typeof record.dimensions === 'number' && Number.isFinite(record.dimensions)
+              ? record.dimensions
+              : fallbackDimensions;
+          const values = decodeEmbeddingVector(record.vector, recordDimensions);
+          map.set(id, {
+            id,
+            dataset,
+            provider: typeof record.provider === 'string' ? record.provider : fallbackProvider,
+            model: typeof record.model === 'string' ? record.model : fallbackModel,
+            dimensions: values && values.length ? values.length : recordDimensions,
+            updatedAt: typeof record.updatedAt === 'string' ? record.updatedAt : fallbackUpdated,
+            vectorSha256: typeof record.vectorSha256 === 'string' ? record.vectorSha256 : '',
+            textHash: typeof record.textHash === 'string' ? record.textHash : '',
+            values: values || null,
+            previewUrl: '',
+          });
+        });
+        embeddingMaps[dataset] = map;
+      }
+
+      function rebuildCrossDeckEmbeddingMap() {
+        const combined = new Map();
+        ['jokes', 'quotes'].forEach((key) => {
+          const map = embeddingMaps[key];
+          if (!map) {
+            return;
+          }
+          map.forEach((value, id) => {
+            combined.set(id, value);
+          });
+        });
+        embeddingMaps['cross-deck'] = combined;
+      }
+
       function enrichMatch(datasetName, match) {
         const records = recordMaps[datasetName] || new Map();
         const recordA = records.get(match.idA) || null;
@@ -1292,6 +1867,11 @@
           const entryAPrimary = document.createElement('p');
           entryAPrimary.className = 'entry-primary';
           entryAPrimary.textContent = match.recordA ? match.recordA.primary : match.previewA || '—';
+          const entryAEmbeddingPreview = buildEmbeddingPreviewFigure(match.recordA || null, {
+            variant: 'compact',
+            fallbackId: match.idA,
+            dataset: state.dataset,
+          });
           const entryASecondary = document.createElement('p');
           entryASecondary.className = 'entry-secondary';
           const secondaryAText = match.recordA ? match.recordA.secondary : '';
@@ -1305,6 +1885,9 @@
           entryAMeta.className = 'entry-meta';
           entryAMeta.textContent = `Chars ${match.charA.toLocaleString()} • Words ${match.wordsA.toLocaleString()}`;
           entryACell.appendChild(entryALabel);
+          if (entryAEmbeddingPreview) {
+            entryACell.appendChild(entryAEmbeddingPreview);
+          }
           entryACell.appendChild(entryAPrimary);
           entryACell.appendChild(entryASecondary);
           entryACell.appendChild(entryAMeta);
@@ -1318,6 +1901,11 @@
           const entryBPrimary = document.createElement('p');
           entryBPrimary.className = 'entry-primary';
           entryBPrimary.textContent = match.recordB ? match.recordB.primary : match.previewB || '—';
+          const entryBEmbeddingPreview = buildEmbeddingPreviewFigure(match.recordB || null, {
+            variant: 'compact',
+            fallbackId: match.idB,
+            dataset: state.dataset,
+          });
           const entryBSecondary = document.createElement('p');
           entryBSecondary.className = 'entry-secondary';
           const secondaryBText = match.recordB ? match.recordB.secondary : '';
@@ -1331,6 +1919,9 @@
           entryBMeta.className = 'entry-meta';
           entryBMeta.textContent = `Chars ${match.charB.toLocaleString()} • Words ${match.wordsB.toLocaleString()}`;
           entryBCell.appendChild(entryBLabel);
+          if (entryBEmbeddingPreview) {
+            entryBCell.appendChild(entryBEmbeddingPreview);
+          }
           entryBCell.appendChild(entryBPrimary);
           entryBCell.appendChild(entryBSecondary);
           entryBCell.appendChild(entryBMeta);
@@ -1371,6 +1962,8 @@
           if (detailLevenshtein) {
             detailLevenshtein.textContent = '0 edits • 100% overlap';
           }
+          updateEmbeddingDetail(null, recordAEmbeddingElements, { dataset: state.dataset });
+          updateEmbeddingDetail(null, recordBEmbeddingElements, { dataset: state.dataset });
           return;
         }
 
@@ -1430,6 +2023,15 @@
           recordBWords.textContent = match.wordsB.toLocaleString();
           recordBOrigin.textContent = '—';
         }
+
+        updateEmbeddingDetail(match.recordA || null, recordAEmbeddingElements, {
+          dataset: state.dataset,
+          id: match.idA,
+        });
+        updateEmbeddingDetail(match.recordB || null, recordBEmbeddingElements, {
+          dataset: state.dataset,
+          id: match.idB,
+        });
 
         copyButton.disabled = false;
         copyButton.textContent = 'Copy pair IDs';
@@ -1567,6 +2169,29 @@
                 return response.json();
               })
               .then((json) => [name, json])
+          )
+        );
+      }
+
+      function loadEmbeddings() {
+        const configs = Object.entries(embeddingSources).filter(([, url]) => typeof url === 'string' && url.length);
+        if (!configs.length) {
+          return Promise.resolve([]);
+        }
+        return Promise.all(
+          configs.map(([name, url]) =>
+            fetch(url)
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error(`Failed to load ${url}: ${response.status}`);
+                }
+                return response.json();
+              })
+              .then((json) => [name, json])
+              .catch((error) => {
+                console.error(error);
+                return [name, null];
+              })
           )
         );
       }
@@ -1802,11 +2427,19 @@
         const activeConfig = datasetConfigs[state.dataset];
         searchInput.placeholder = activeConfig && activeConfig.placeholder ? activeConfig.placeholder : 'Search report';
         recordMaps = buildRecordMaps();
-        loadReports()
-          .then((reports) => {
-            reports.forEach(([name, report]) => {
-              hydrateDataset(name, report);
-            });
+        Promise.all([loadEmbeddings(), loadReports()])
+          .then(([embeddingPayload, reports]) => {
+            if (Array.isArray(embeddingPayload)) {
+              embeddingPayload.forEach(([name, payload]) => {
+                hydrateEmbeddingMap(name, payload);
+              });
+              rebuildCrossDeckEmbeddingMap();
+            }
+            if (Array.isArray(reports)) {
+              reports.forEach(([name, report]) => {
+                hydrateDataset(name, report);
+              });
+            }
             if (!state.data.has(state.dataset) && state.data.size) {
               const firstDataset = state.data.keys().next().value;
               if (firstDataset) {
