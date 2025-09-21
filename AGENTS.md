@@ -24,4 +24,5 @@ This project is a static toolbox site. The landing page (`index.html`) lists sma
 - The chevron SVG icon inside the call-to-action span is reused everywhere—copy the existing snippet to keep the visuals aligned.
 
 ## Validation
-- There is no automated test suite. After changes, open the affected HTML files in a browser (or start a simple `python -m http.server`) to confirm layout, theme switching, and keyboard interactions still work.
+- Automated checks are welcome, even though the apps are static. Run the Playwright smoke tests (`npm test`) when you touch the similarity lab, and feel free to add focused scripts for other apps as they evolve.
+- If you skip scripted coverage, at least open the affected HTML files in a browser (or start `python -m http.server`) to confirm layout, theme switching, and keyboard interactions still work.
