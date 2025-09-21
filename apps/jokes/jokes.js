@@ -3342,10 +3342,6 @@ window.jokes = [
             "joke": "Why do Java programmers hate communism?",
             "punchline": "They don't want to live in a classless society."
         }, {
-            "id": "j-0853",
-            "joke": "How many programmers does it take to screw in a light bulb?",
-            "punchline": "None. It's a hardware problem."
-        }, {
             "id": "j-0854",
             "joke": "Why was the JavaScript developer sad?",
             "punchline": "Because they didn't Node how to Express themself!"
@@ -3378,10 +3374,6 @@ window.jokes = [
             "joke": "What did the cell say when his sister cell stepped on his foot?",
             "punchline": "Mitosis."
         }, {
-            "id": "j-0862",
-            "joke": "Why did the banana go see a doctor?",
-            "punchline": "Because it wasn't peeling well."
-        }, {
             "id": "j-0863",
             "joke": "Why shouldn't you visit an expensive wig shop?",
             "punchline": "It's too high a price \"toupee.\""
@@ -3394,10 +3386,6 @@ window.jokes = [
             "joke": "To prove he was right, the flat-earther walked to the end of the Earth.",
             "punchline": "He eventually came around."
         }, {
-            "id": "j-0866",
-            "joke": "What did the fish say when it swam into the wall?",
-            "punchline": "Dam."
-        }, {
             "id": "j-0867",
             "joke": "How much did your chimney cost?",
             "punchline": "Nothing, it was on the house."
@@ -3405,10 +3393,6 @@ window.jokes = [
             "id": "j-0868",
             "joke": "Which part of the hospital has the least privacy?",
             "punchline": "The ICU."
-        }, {
-            "id": "j-0869",
-            "joke": "Two guys walked into a bar.",
-            "punchline": "The third guy ducked."
         }, {
             "id": "j-0870",
             "joke": "Why do ghosts go on diets?",
@@ -3441,10 +3425,6 @@ window.jokes = [
             "id": "j-0877",
             "joke": "How will Christmas dinner be different after Brexit?",
             "punchline": "No Brussels!"
-        }, {
-            "id": "j-0878",
-            "joke": "Why did Santa's helper see the doctor?",
-            "punchline": "Because he had a low \"elf\" esteem!"
         }, {
             "id": "j-0879",
             "joke": "What do Santa's little helpers learn at school?",
