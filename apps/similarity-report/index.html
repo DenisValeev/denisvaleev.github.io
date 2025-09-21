@@ -326,7 +326,8 @@
     }
 
     .cell-score {
-      width: 140px;
+      width: 160px;
+      vertical-align: top;
     }
 
     .score-value {
@@ -352,47 +353,31 @@
       transition: width 0.24s ease;
     }
 
-    .cell-pair {
-      min-width: 200px;
-    }
-
-    .pair-ids {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 600;
-    }
-
-    .id-badge {
-      background: color-mix(in srgb, var(--accent-active) 22%, transparent);
-      color: inherit;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      letter-spacing: 0.04em;
-    }
-
-    .pair-arrow {
-      color: var(--text-muted);
-    }
-
-    .pair-metrics {
+    .score-deltas {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 10px;
+      margin-top: 12px;
       font-size: 0.78rem;
       color: var(--text-secondary);
     }
 
-    .pair-metric {
+    .score-delta {
       padding: 4px 8px;
       border-radius: 999px;
       background: rgba(148, 163, 209, 0.14);
     }
 
     .cell-entry {
-      min-width: 220px;
+      min-width: 240px;
+      vertical-align: top;
+    }
+
+    .entry-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
     }
 
     .entry-label {
@@ -404,7 +389,17 @@
       border-radius: 999px;
       background: color-mix(in srgb, var(--accent-active) 32%, transparent);
       font-weight: 600;
-      margin-bottom: 10px;
+      margin: 0;
+    }
+
+    .entry-id {
+      background: color-mix(in srgb, var(--accent-active) 18%, transparent);
+      color: inherit;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
     }
 
     .entry-primary {
@@ -862,19 +857,13 @@
                   <span class="sort-indicator" aria-hidden="true">↓</span>
                 </button>
               </th>
-              <th scope="col">
-                <button type="button" class="sort-button" data-sort="pair" data-sort-direction="asc" data-sort-label="pair IDs">
-                  Pair
-                  <span class="sort-indicator" aria-hidden="true">↓</span>
-                </button>
-              </th>
               <th scope="col">Entry A</th>
               <th scope="col">Entry B</th>
             </tr>
           </thead>
           <tbody data-results-body>
             <tr class="empty-row">
-              <td colspan="4">Loading similarity report…</td>
+              <td colspan="3">Loading similarity report…</td>
             </tr>
           </tbody>
         </table>
@@ -900,8 +889,8 @@
               <span class="metric-value" data-detail-length>0 chars • 0 words</span>
             </div>
             <div class="metric">
-              <span class="metric-label">Levenshtein</span>
-              <span class="metric-value" data-detail-levenshtein>0 edits • 100% overlap</span>
+              <span class="metric-label">Lev Δ</span>
+              <span class="metric-value" data-detail-levenshtein>Lev Δ 0 • 100% overlap</span>
             </div>
           </div>
           <div class="records-grid">
@@ -1255,85 +1244,63 @@
         for (let index = 0; index < valueCount; index += 1) {
           floats[index] = view.getFloat32(index * 4, true);
         }
-        if (typeof expectedDimensions === 'number' && expectedDimensions > 0 && floats.length !== expectedDimensions) {
-          if (floats.length > expectedDimensions) {
-            return floats.slice(0, expectedDimensions);
-          }
-        }
         return floats;
-      }
-
-      const EMBEDDING_COLORS = {
-        negative: [34, 211, 238],
-        neutral: [71, 85, 105],
-        positive: [249, 115, 22],
-      };
-
-      function componentToHex(value) {
-        const clamped = Math.max(0, Math.min(255, Math.round(value)));
-        return clamped.toString(16).padStart(2, '0');
-      }
-
-      const EMBEDDING_NEUTRAL_HEX = `#${componentToHex(EMBEDDING_COLORS.neutral[0])}${componentToHex(
-        EMBEDDING_COLORS.neutral[1],
-      )}${componentToHex(EMBEDDING_COLORS.neutral[2])}`;
-
-      function interpolateColor(start, end, amount) {
-        const t = Math.max(0, Math.min(1, Number.isFinite(amount) ? amount : 0));
-        const r = start[0] + (end[0] - start[0]) * t;
-        const g = start[1] + (end[1] - start[1]) * t;
-        const b = start[2] + (end[2] - start[2]) * t;
-        return `#${componentToHex(r)}${componentToHex(g)}${componentToHex(b)}`;
-      }
-
-      function colorForEmbeddingValue(value) {
-        if (!Number.isFinite(value) || value === 0) {
-          return EMBEDDING_NEUTRAL_HEX;
-        }
-        const intensity = Math.min(1, Math.abs(value));
-        if (value > 0) {
-          return interpolateColor(EMBEDDING_COLORS.neutral, EMBEDDING_COLORS.positive, intensity);
-        }
-        return interpolateColor(EMBEDDING_COLORS.negative, EMBEDDING_COLORS.neutral, intensity);
       }
 
       function createEmbeddingPreview(values) {
         if (!values || !values.length) {
           return '';
         }
-        const gridSize = Math.ceil(Math.sqrt(values.length));
-        if (!gridSize) {
+        const width = Math.ceil(Math.sqrt(values.length));
+        if (!width) {
           return '';
         }
+        const height = Math.ceil(values.length / width);
         const cellSize = 10;
         const pixelRatio = typeof window !== 'undefined' && window.devicePixelRatio ? window.devicePixelRatio : 1;
         const canvas = document.createElement('canvas');
-        canvas.width = gridSize * cellSize * pixelRatio;
-        canvas.height = gridSize * cellSize * pixelRatio;
+        canvas.width = width * cellSize * pixelRatio;
+        canvas.height = height * cellSize * pixelRatio;
         const context = canvas.getContext('2d');
         if (!context) {
           return '';
         }
         context.scale(pixelRatio, pixelRatio);
-        context.fillStyle = 'rgba(15, 23, 42, 0.22)';
-        context.fillRect(0, 0, gridSize * cellSize, gridSize * cellSize);
-        let maxMagnitude = 0;
+        context.fillStyle = 'rgba(15, 23, 42, 0.08)';
+        context.fillRect(0, 0, width * cellSize, height * cellSize);
+
+        let minValue = Infinity;
+        let maxValue = -Infinity;
         for (let index = 0; index < values.length; index += 1) {
-          const magnitude = Math.abs(values[index]);
-          if (Number.isFinite(magnitude) && magnitude > maxMagnitude) {
-            maxMagnitude = magnitude;
+          const value = values[index];
+          if (!Number.isFinite(value)) {
+            continue;
+          }
+          if (value < minValue) {
+            minValue = value;
+          }
+          if (value > maxValue) {
+            maxValue = value;
           }
         }
-        if (!Number.isFinite(maxMagnitude) || maxMagnitude <= 0) {
-          maxMagnitude = 1;
+        if (!Number.isFinite(minValue) || !Number.isFinite(maxValue)) {
+          minValue = 0;
+          maxValue = 1;
         }
-        for (let index = 0; index < gridSize * gridSize; index += 1) {
-          const value = index < values.length ? values[index] : 0;
-          const normalized = value / maxMagnitude;
-          const color = colorForEmbeddingValue(normalized);
-          const x = (index % gridSize) * cellSize;
-          const y = Math.floor(index / gridSize) * cellSize;
-          context.fillStyle = color;
+        if (minValue === maxValue) {
+          maxValue = minValue + 1;
+        }
+        const range = maxValue - minValue;
+
+        for (let index = 0; index < width * height; index += 1) {
+          const value = index < values.length && Number.isFinite(values[index]) ? values[index] : minValue;
+          const normalized = Math.min(1, Math.max(0, (value - minValue) / range));
+          const hue = Math.round((normalized * 320 + (index % width) * 3) % 360);
+          const saturation = Math.min(100, Math.max(0, 58 + normalized * 32));
+          const lightness = Math.min(100, Math.max(0, 42 + normalized * 28));
+          const x = (index % width) * cellSize;
+          const y = Math.floor(index / width) * cellSize;
+          context.fillStyle = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
           context.fillRect(x, y, cellSize, cellSize);
         }
         return canvas.toDataURL('image/png');
@@ -1792,7 +1759,7 @@
           const row = document.createElement('tr');
           row.className = 'empty-row';
           const cell = document.createElement('td');
-          cell.colSpan = 4;
+          cell.colSpan = 3;
           cell.textContent = state.data.size ? 'No pairs match the current filters.' : 'Loading similarity report…';
           row.appendChild(cell);
           tableBody.appendChild(row);
@@ -1819,51 +1786,38 @@
           scoreFill.className = 'score-meter__fill';
           scoreFill.style.width = `${clamp01(match.similarity) * 100}%`;
           scoreMeter.appendChild(scoreFill);
+          const scoreDeltas = document.createElement('div');
+          scoreDeltas.className = 'score-deltas';
+          const charDelta = document.createElement('span');
+          charDelta.className = 'score-delta';
+          charDelta.textContent = `Δ chars ${match.lengthDelta.toLocaleString()}`;
+          const wordDelta = document.createElement('span');
+          wordDelta.className = 'score-delta';
+          wordDelta.textContent = `Δ words ${match.wordDelta.toLocaleString()}`;
+          const levenshteinDelta = document.createElement('span');
+          levenshteinDelta.className = 'score-delta';
+          const levenshteinPercent = formatPercent(match.levenshteinSimilarity);
+          levenshteinDelta.textContent = `Lev Δ ${match.levenshteinDistance.toLocaleString()} (${levenshteinPercent}%)`;
+          scoreDeltas.appendChild(charDelta);
+          scoreDeltas.appendChild(wordDelta);
+          scoreDeltas.appendChild(levenshteinDelta);
           scoreCell.appendChild(scoreValue);
           scoreCell.appendChild(scoreMeter);
+          scoreCell.appendChild(scoreDeltas);
           row.appendChild(scoreCell);
-
-          const pairCell = document.createElement('td');
-          pairCell.className = 'cell-pair';
-          const ids = document.createElement('div');
-          ids.className = 'pair-ids';
-          const badgeA = document.createElement('span');
-          badgeA.className = 'id-badge';
-          badgeA.textContent = match.idA;
-          const arrow = document.createElement('span');
-          arrow.className = 'pair-arrow';
-          arrow.textContent = '↔';
-          const badgeB = document.createElement('span');
-          badgeB.className = 'id-badge';
-          badgeB.textContent = match.idB;
-          ids.appendChild(badgeA);
-          ids.appendChild(arrow);
-          ids.appendChild(badgeB);
-          pairCell.appendChild(ids);
-
-          const pairMetrics = document.createElement('div');
-          pairMetrics.className = 'pair-metrics';
-          const charMetric = document.createElement('span');
-          charMetric.className = 'pair-metric';
-          charMetric.textContent = `Δ chars ${match.lengthDelta.toLocaleString()}`;
-          const wordMetric = document.createElement('span');
-          wordMetric.className = 'pair-metric';
-          wordMetric.textContent = `Δ words ${match.wordDelta.toLocaleString()}`;
-          const levenshteinMetric = document.createElement('span');
-          levenshteinMetric.className = 'pair-metric';
-          const levenshteinPercent = formatPercent(match.levenshteinSimilarity);
-          levenshteinMetric.textContent = `Levenshtein ${match.levenshteinDistance.toLocaleString()} (${levenshteinPercent}%)`;
-          pairMetrics.appendChild(charMetric);
-          pairMetrics.appendChild(wordMetric);
-          pairMetrics.appendChild(levenshteinMetric);
-          pairCell.appendChild(pairMetrics);
-          row.appendChild(pairCell);
 
           const entryACell = document.createElement('td');
           entryACell.className = 'cell-entry';
+          const entryAHeader = document.createElement('div');
+          entryAHeader.className = 'entry-header';
           const entryALabel = document.createElement('span');
           entryALabel.className = 'entry-label';
           entryALabel.textContent = 'A';
+          const entryAId = document.createElement('span');
+          entryAId.className = 'entry-id';
+          entryAId.textContent = match.idA;
+          entryAHeader.appendChild(entryALabel);
+          entryAHeader.appendChild(entryAId);
           const entryAPrimary = document.createElement('p');
           entryAPrimary.className = 'entry-primary';
           entryAPrimary.textContent = match.recordA ? match.recordA.primary : match.previewA || '—';
@@ -1884,7 +1838,7 @@
           const entryAMeta = document.createElement('p');
           entryAMeta.className = 'entry-meta';
           entryAMeta.textContent = `Chars ${match.charA.toLocaleString()} • Words ${match.wordsA.toLocaleString()}`;
-          entryACell.appendChild(entryALabel);
+          entryACell.appendChild(entryAHeader);
           if (entryAEmbeddingPreview) {
             entryACell.appendChild(entryAEmbeddingPreview);
           }
@@ -1895,9 +1849,16 @@
 
           const entryBCell = document.createElement('td');
           entryBCell.className = 'cell-entry';
+          const entryBHeader = document.createElement('div');
+          entryBHeader.className = 'entry-header';
           const entryBLabel = document.createElement('span');
           entryBLabel.className = 'entry-label';
           entryBLabel.textContent = 'B';
+          const entryBId = document.createElement('span');
+          entryBId.className = 'entry-id';
+          entryBId.textContent = match.idB;
+          entryBHeader.appendChild(entryBLabel);
+          entryBHeader.appendChild(entryBId);
           const entryBPrimary = document.createElement('p');
           entryBPrimary.className = 'entry-primary';
           entryBPrimary.textContent = match.recordB ? match.recordB.primary : match.previewB || '—';
@@ -1918,7 +1879,7 @@
           const entryBMeta = document.createElement('p');
           entryBMeta.className = 'entry-meta';
           entryBMeta.textContent = `Chars ${match.charB.toLocaleString()} • Words ${match.wordsB.toLocaleString()}`;
-          entryBCell.appendChild(entryBLabel);
+          entryBCell.appendChild(entryBHeader);
           if (entryBEmbeddingPreview) {
             entryBCell.appendChild(entryBEmbeddingPreview);
           }
@@ -1960,7 +1921,7 @@
           detailEmpty.hidden = false;
           copyButton.disabled = true;
           if (detailLevenshtein) {
-            detailLevenshtein.textContent = '0 edits • 100% overlap';
+            detailLevenshtein.textContent = 'Lev Δ 0 • 100% overlap';
           }
           updateEmbeddingDetail(null, recordAEmbeddingElements, { dataset: state.dataset });
           updateEmbeddingDetail(null, recordBEmbeddingElements, { dataset: state.dataset });
@@ -1975,7 +1936,7 @@
         detailLength.textContent = `${match.lengthDelta.toLocaleString()} chars • ${match.wordDelta.toLocaleString()} words`;
         if (detailLevenshtein) {
           const levenshteinPercent = formatPercent(match.levenshteinSimilarity);
-          detailLevenshtein.textContent = `${match.levenshteinDistance.toLocaleString()} edits • ${levenshteinPercent}% overlap`;
+          detailLevenshtein.textContent = `Lev Δ ${match.levenshteinDistance.toLocaleString()} • ${levenshteinPercent}% overlap`;
         }
 
         if (match.recordA) {
@@ -2085,13 +2046,6 @@
               return state.sortDirection === 'asc'
                 ? left.similarity - right.similarity
                 : right.similarity - left.similarity;
-            }
-            if (state.sortKey === 'pair') {
-              const leftKey = `${left.idA}-${left.idB}`;
-              const rightKey = `${right.idA}-${right.idB}`;
-              return state.sortDirection === 'asc'
-                ? leftKey.localeCompare(rightKey)
-                : rightKey.localeCompare(leftKey);
             }
             if (state.sortKey === 'lengthDelta') {
               return state.sortDirection === 'asc'
@@ -2223,7 +2177,7 @@
         const row = document.createElement('tr');
         row.className = 'empty-row';
         const cell = document.createElement('td');
-        cell.colSpan = 4;
+        cell.colSpan = 3;
         cell.textContent = message;
         row.appendChild(cell);
         tableBody.appendChild(row);
