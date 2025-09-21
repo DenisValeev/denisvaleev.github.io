@@ -23,6 +23,18 @@ npx serve .
 
 This starts a server on <http://localhost:3000> (or the next available port).
 
+## Testing
+
+Install the dev dependencies once and run the Playwright smoke checks whenever you touch the interactive apps:
+
+```bash
+npm install
+npx playwright install
+npm test
+```
+
+The test runner launches a temporary `python -m http.server` instance, loads the Cosine Similarity Lab, and asserts that the dynamic thresholding and Levenshtein metrics render. Use `npm run test:ui` if you want to watch the checks in the Playwright inspector while iterating locally. `npx playwright install --with-deps` is handy the first time you set things up on a fresh machine that needs the browser dependencies.
+
 ## Data maintenance
 
 - Run `node tools/update-content-metadata.js` after refreshing the jokes or quotes datasets to assign deterministic IDs and
