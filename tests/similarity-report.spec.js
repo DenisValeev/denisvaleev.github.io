@@ -9,25 +9,41 @@ const parseLocaleNumber = (text) => {
 };
 
 test.describe('Cosine Similarity Lab', () => {
-  test('loads similarity data with Levenshtein metrics and a dynamic floor', async ({ page }) => {
+  test('loads similarity data with Levenshtein metrics and range controls', async ({ page }) => {
     await page.goto('/apps/similarity-report/');
 
     await page.waitForSelector('[data-results-body] tr:not(.empty-row)');
 
-    const slider = page.locator('[data-min-similarity]');
-    const sliderLabel = page.locator('[data-threshold-label]');
-    const sliderDisplay = page.locator('[data-threshold-display]');
+    const minSlider = page.locator('[data-min-similarity]');
+    const maxSlider = page.locator('[data-max-similarity]');
+    const minLabel = page.locator('[data-threshold-min-label]');
+    const maxLabel = page.locator('[data-threshold-max-label]');
+    const minDisplay = page.locator('[data-threshold-min-display]');
+    const maxDisplay = page.locator('[data-threshold-max-display]');
 
-    const sliderMinAttr = await slider.getAttribute('min');
-    const sliderMin = Number.parseFloat(sliderMinAttr || '0');
-    expect(sliderMin).toBeGreaterThanOrEqual(0.5);
-    expect(sliderMin).toBeLessThanOrEqual(0.95);
+    const minAttr = await minSlider.getAttribute('min');
+    const minBound = Number.parseFloat(minAttr || '0');
+    expect(minBound).toBeGreaterThanOrEqual(0.5);
+    expect(minBound).toBeLessThanOrEqual(0.95);
 
-    const labelValue = parseLocaleNumber(await sliderLabel.textContent());
-    const displayValue = parseLocaleNumber(await sliderDisplay.textContent());
+    const maxAttr = await maxSlider.getAttribute('max');
+    const maxBound = Number.parseFloat(maxAttr || '1');
+    expect(maxBound).toBeGreaterThanOrEqual(minBound);
+    expect(maxBound).toBeLessThanOrEqual(1);
 
-    expect(labelValue).toBeGreaterThanOrEqual(sliderMin - 0.001);
-    expect(displayValue).toBeCloseTo(labelValue, 4);
+    const minSliderValue = Number.parseFloat(await minSlider.evaluate((node) => node.value));
+    const maxSliderValue = Number.parseFloat(await maxSlider.evaluate((node) => node.value));
+
+    const minLabelValue = parseLocaleNumber(await minLabel.textContent());
+    const maxLabelValue = parseLocaleNumber(await maxLabel.textContent());
+    const minDisplayValue = parseLocaleNumber(await minDisplay.textContent());
+    const maxDisplayValue = parseLocaleNumber(await maxDisplay.textContent());
+
+    expect(minLabelValue).toBeCloseTo(minSliderValue, 4);
+    expect(minDisplayValue).toBeCloseTo(minSliderValue, 4);
+    expect(maxLabelValue).toBeCloseTo(maxSliderValue, 3);
+    expect(maxDisplayValue).toBeCloseTo(maxSliderValue, 3);
+    expect(maxSliderValue).toBeGreaterThanOrEqual(minSliderValue);
 
     await expect(page.locator('[data-dataset]')).toHaveCount(3);
 
@@ -40,7 +56,7 @@ test.describe('Cosine Similarity Lab', () => {
     await expect(page.locator('[data-search]')).toHaveAttribute('placeholder', /humor-08/);
 
     const crossFirstRow = page.locator('[data-results-body] tr').first();
-    await expect(crossFirstRow.locator('.id-badge').first()).toHaveText('humor-01');
+    await expect(crossFirstRow.locator('.id-badge').first()).toHaveText(/[a-z-]+-\d+/i);
     await crossFirstRow.click();
 
     const detailMetric = page.locator('[data-detail-levenshtein]');

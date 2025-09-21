@@ -196,16 +196,6 @@
       letter-spacing: 0.02em;
     }
 
-    .slider-floor {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      margin-left: 10px;
-      font-weight: 500;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
     input[type="range"] {
       width: 100%;
       accent-color: var(--accent-active);
@@ -723,10 +713,15 @@
       <div class="control-grid">
         <label>
           <span>
-            Minimum cosine similarity: <strong data-threshold-label>0.00</strong>
-            <span class="slider-floor" data-threshold-floor hidden>(floor —)</span>
+            Minimum cosine similarity: <strong data-threshold-min-label>0.00</strong>
           </span>
           <input type="range" min="0.5" max="0.95" step="0.001" value="0.5" data-min-similarity>
+        </label>
+        <label>
+          <span>
+            Maximum cosine similarity: <strong data-threshold-max-label>1.00</strong>
+          </span>
+          <input type="range" min="0.5" max="1" step="0.001" value="1" data-max-similarity>
         </label>
         <label>
           <span>Find by ID or text</span>
@@ -737,7 +732,7 @@
         <article class="stat-card">
           <h2>Visible pairs</h2>
           <div class="stat-value"><span data-match-count data-count="0">0</span></div>
-          <p class="stat-meta">≥ <span data-threshold-display>0.00</span> cosine similarity</p>
+          <p class="stat-meta">Cosine similarity between <span data-threshold-min-display>0.00</span> and <span data-threshold-max-display>1.00</span></p>
         </article>
         <article class="stat-card">
           <h2>Report baseline</h2>
@@ -864,10 +859,12 @@
   <script>
     (function () {
       const datasetButtons = document.querySelectorAll('[data-dataset]');
-      const slider = document.querySelector('[data-min-similarity]');
-      const sliderLabel = document.querySelector('[data-threshold-label]');
-      const thresholdDisplay = document.querySelector('[data-threshold-display]');
-      const thresholdFloor = document.querySelector('[data-threshold-floor]');
+      const minSlider = document.querySelector('[data-min-similarity]');
+      const maxSlider = document.querySelector('[data-max-similarity]');
+      const minSliderLabel = document.querySelector('[data-threshold-min-label]');
+      const maxSliderLabel = document.querySelector('[data-threshold-max-label]');
+      const thresholdMinDisplay = document.querySelector('[data-threshold-min-display]');
+      const thresholdMaxDisplay = document.querySelector('[data-threshold-max-display]');
       const searchInput = document.querySelector('[data-search]');
       const tableBody = document.querySelector('[data-results-body]');
       const countEl = document.querySelector('[data-match-count]');
@@ -898,7 +895,17 @@
       const copyButton = document.querySelector('[data-copy-pair]');
       const sortButtons = document.querySelectorAll('[data-sort]');
 
-      if (!tableBody || !slider || !sliderLabel || !thresholdDisplay || !searchInput || !countEl) {
+      if (
+        !tableBody
+        || !minSlider
+        || !maxSlider
+        || !minSliderLabel
+        || !maxSliderLabel
+        || !thresholdMinDisplay
+        || !thresholdMaxDisplay
+        || !searchInput
+        || !countEl
+      ) {
         return;
       }
 
@@ -932,7 +939,8 @@
 
       const state = {
         dataset: 'jokes',
-        minSimilarity: parseFloat(slider.value) || 0.5,
+        minSimilarity: parseFloat(minSlider.value) || 0.5,
+        maxSimilarity: parseFloat(maxSlider.value) || 1,
         search: '',
         sortKey: 'similarity',
         sortDirection: 'desc',
@@ -1044,14 +1052,14 @@
 
       function computeSimilarityBounds(matches) {
         if (!Array.isArray(matches) || !matches.length) {
-          return { min: 0, max: 1, safeMin: 0, floorCount: 0 };
+          return { min: 0, max: 1, safeMin: 0 };
         }
         const values = matches
           .map((match) => (typeof match.similarity === 'number' ? match.similarity : 0))
           .filter((value) => Number.isFinite(value))
           .sort((a, b) => b - a);
         if (!values.length) {
-          return { min: 0, max: 1, safeMin: 0, floorCount: 0 };
+          return { min: 0, max: 1, safeMin: 0 };
         }
         const max = values[0];
         const min = values[values.length - 1];
@@ -1083,7 +1091,6 @@
           min,
           max,
           safeMin,
-          floorCount,
         };
       }
 
@@ -1457,7 +1464,7 @@
         }
         const searchTerm = normalizeString(state.search);
         return entry.matches
-          .filter((match) => match.similarity >= state.minSimilarity)
+          .filter((match) => match.similarity >= state.minSimilarity && match.similarity <= state.maxSimilarity)
           .filter((match) => {
             if (!searchTerm) {
               return true;
@@ -1518,11 +1525,16 @@
       }
 
       function renderAll() {
-        if (slider) {
-          slider.value = state.minSimilarity.toString();
+        if (minSlider) {
+          minSlider.value = state.minSimilarity.toString();
         }
-        thresholdDisplay.textContent = formatSliderValue(state.minSimilarity);
-        sliderLabel.textContent = formatSliderValue(state.minSimilarity);
+        if (maxSlider) {
+          maxSlider.value = state.maxSimilarity.toString();
+        }
+        thresholdMinDisplay.textContent = formatSliderValue(state.minSimilarity);
+        thresholdMaxDisplay.textContent = formatSliderValue(state.maxSimilarity);
+        minSliderLabel.textContent = formatSliderValue(state.minSimilarity);
+        maxSliderLabel.textContent = formatSliderValue(state.maxSimilarity);
         const matches = getMatchesForDataset();
         state.visibleMatches = matches;
         updateCount(matches.length);
@@ -1568,8 +1580,6 @@
         const maxSimilarity = hasMatches ? clamp01(bounds.max) : clamp01(fallbackThreshold);
         const safeMinBase = hasMatches ? clamp01(bounds.safeMin) : clamp01(fallbackThreshold);
         const safeMinSimilarity = Math.min(maxSimilarity, Number.isFinite(safeMinBase) ? safeMinBase : minSimilarity);
-        const rawFloorCount = Number.isFinite(bounds.floorCount) ? bounds.floorCount : matches.length;
-        const floorPairCount = hasMatches ? Math.max(0, Math.min(matches.length, Math.round(rawFloorCount))) : 0;
         const enriched = hasMatches ? matches.map((match) => enrichMatch(name, match)) : [];
         state.data.set(name, {
           matches: enriched,
@@ -1580,7 +1590,6 @@
           minSimilarity,
           maxSimilarity,
           safeMinSimilarity,
-          floorPairCount,
         });
       }
 
@@ -1600,49 +1609,42 @@
           detailEmpty.hidden = false;
           detailEmpty.textContent = message;
         }
-        if (thresholdFloor) {
-          thresholdFloor.hidden = true;
-        }
       }
 
       function syncSliderWithDataset({ forceBaseline = false } = {}) {
-        if (!slider) {
+        if (!minSlider || !maxSlider) {
           return;
         }
         const datasetEntry = state.data.get(state.dataset);
         if (!datasetEntry) {
-          slider.min = '0';
-          slider.max = '1';
-          if (thresholdFloor) {
-            thresholdFloor.hidden = true;
-          }
+          minSlider.min = '0';
+          minSlider.max = '1';
+          maxSlider.min = '0';
+          maxSlider.max = '1';
           return;
         }
-        const minBound = clamp01(Number.isFinite(datasetEntry.safeMinSimilarity) ? datasetEntry.safeMinSimilarity : 0);
+        const minBound = clamp01(
+          Number.isFinite(datasetEntry.safeMinSimilarity) ? datasetEntry.safeMinSimilarity : 0,
+        );
         const maxBound = clamp01(
           Number.isFinite(datasetEntry.maxSimilarity) ? Math.max(datasetEntry.maxSimilarity, minBound) : Math.max(1, minBound),
         );
-        slider.min = minBound.toString();
-        slider.max = maxBound.toString();
-        slider.step = slider.step || '0.001';
+        minSlider.min = minBound.toString();
+        minSlider.max = maxBound.toString();
+        minSlider.step = minSlider.step || '0.001';
+        maxSlider.min = minBound.toString();
+        maxSlider.max = maxBound.toString();
+        maxSlider.step = maxSlider.step || '0.001';
         const baseline = clamp01(typeof datasetEntry.threshold === 'number' ? datasetEntry.threshold : minBound);
         if (forceBaseline) {
           state.minSimilarity = Math.max(minBound, baseline);
+          state.maxSimilarity = maxBound;
         } else {
           state.minSimilarity = Math.min(Math.max(state.minSimilarity, minBound), maxBound);
+          state.maxSimilarity = Math.min(Math.max(state.maxSimilarity, state.minSimilarity), maxBound);
         }
-        slider.value = state.minSimilarity.toString();
-        if (thresholdFloor) {
-          if (Math.abs(minBound - baseline) > 0.0005) {
-            thresholdFloor.hidden = false;
-            const pairCount = datasetEntry.floorPairCount || 0;
-            const limitedCount = Math.min(pairCount, MAX_VISIBLE_PAIRS);
-            const countLabel = limitedCount ? ` • ≤ ${limitedCount.toLocaleString()} pairs` : '';
-            thresholdFloor.textContent = `(floor ${formatSliderValue(minBound)}${countLabel})`;
-          } else {
-            thresholdFloor.hidden = true;
-          }
-        }
+        minSlider.value = state.minSimilarity.toString();
+        maxSlider.value = state.maxSimilarity.toString();
       }
 
       function setActiveDataset(dataset) {
@@ -1674,21 +1676,49 @@
         });
       });
 
-      slider.addEventListener('input', (event) => {
-        const value = parseFloat(event.target.value);
+      minSlider.addEventListener('input', (event) => {
+        let value = parseFloat(event.target.value);
         if (Number.isNaN(value)) {
           return;
         }
-        const sliderMin = parseFloat(slider.min);
-        const sliderMax = parseFloat(slider.max);
-        let nextValue = value;
-        if (!Number.isNaN(sliderMin)) {
-          nextValue = Math.max(nextValue, sliderMin);
+        const sliderMinValue = parseFloat(minSlider.min);
+        const sliderMaxValue = parseFloat(minSlider.max);
+        if (!Number.isNaN(sliderMinValue)) {
+          value = Math.max(value, sliderMinValue);
         }
-        if (!Number.isNaN(sliderMax)) {
-          nextValue = Math.min(nextValue, sliderMax);
+        if (!Number.isNaN(sliderMaxValue)) {
+          value = Math.min(value, sliderMaxValue);
         }
-        state.minSimilarity = nextValue;
+        state.minSimilarity = value;
+        if (value > state.maxSimilarity) {
+          state.maxSimilarity = value;
+          if (maxSlider) {
+            maxSlider.value = value.toString();
+          }
+        }
+        renderAll();
+      });
+
+      maxSlider.addEventListener('input', (event) => {
+        let value = parseFloat(event.target.value);
+        if (Number.isNaN(value)) {
+          return;
+        }
+        const sliderMinValue = parseFloat(maxSlider.min);
+        const sliderMaxValue = parseFloat(maxSlider.max);
+        if (!Number.isNaN(sliderMinValue)) {
+          value = Math.max(value, sliderMinValue);
+        }
+        if (!Number.isNaN(sliderMaxValue)) {
+          value = Math.min(value, sliderMaxValue);
+        }
+        state.maxSimilarity = value;
+        if (value < state.minSimilarity) {
+          state.minSimilarity = value;
+          if (minSlider) {
+            minSlider.value = value.toString();
+          }
+        }
         renderAll();
       });
 
