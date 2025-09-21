@@ -1839,16 +1839,16 @@
         if (!entry) {
           return '';
         }
+        const rows =
+          Number.isFinite(entry.previewRows) && entry.previewRows > 0 ? Math.round(entry.previewRows) : 0;
         const columns =
           Number.isFinite(entry.previewColumns) && entry.previewColumns > 0
             ? Math.round(entry.previewColumns)
             : 0;
-        const rows =
-          Number.isFinite(entry.previewRows) && entry.previewRows > 0 ? Math.round(entry.previewRows) : 0;
-        if (!columns || !rows) {
+        if (!rows || !columns) {
           return '';
         }
-        return `${columns.toLocaleString()} × ${rows.toLocaleString()} grid`;
+        return `${rows.toLocaleString()} × ${columns.toLocaleString()} grid`;
       }
 
       function formatDimensions(dimensions) {
