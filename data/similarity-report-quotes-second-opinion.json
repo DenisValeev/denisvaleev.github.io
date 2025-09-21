@@ -1,37 +1,289 @@
 {
   "dataset": "quotes",
-  "threshold": 0.8,
-  "generatedAt": "2025-09-21T03:05:51.944Z",
+  "threshold": 0.5,
+  "generatedAt": "2025-09-21T23:10:32.460Z",
   "provider": "openai",
   "model": "text-embedding-3-large (second opinion)",
   "matches": [
     {
-      "idA": "motivation-14",
-      "idB": "positive-16",
-      "similarity": 0.822,
-      "previewA": "Never let the fear of striking out get in your way. — Babe Ruth",
-      "previewB": "Every strike brings me closer to the next home run. — Babe Ruth"
+      "idA": "motivation-17",
+      "idB": "creativity-01",
+      "similarity": 0.698526789482,
+      "previewA": "He who would accomplish little must sacrifice little; he who would achieve much must sacrifice much. — James Allen",
+      "previewB": "The industrial landscape is already littered with remains of once successful companies that could not adapt their strate"
     },
     {
-      "idA": "money-23",
-      "idB": "money-25",
-      "similarity": 0.809,
-      "previewA": "That man is richest whose pleasures are cheapest. — Henry David Thoreau",
-      "previewB": "Wealth is the ability to fully experience life. — Henry David Thoreau"
+      "idA": "family-18",
+      "idB": "happiness-12",
+      "similarity": 0.696894832183,
+      "previewA": "Families are the compass that guides us. They are the inspiration to reach great heights, and our comfort when we occasi",
+      "previewB": "Great talent finds happiness in execution. — Johann Wolfgang von Goethe"
     },
     {
-      "idA": "adventure-01",
-      "idB": "adventure-36",
-      "similarity": 0.805,
-      "previewA": "The danger of adventure is worth a thousand days of ease and comfort. — Paulo Coelho",
-      "previewB": "If you think adventure is dangerous, try routine, it is lethal. — Paulo Coelho"
+      "idA": "positive-12",
+      "idB": "creativity-07",
+      "similarity": 0.665544740277,
+      "previewA": "Life is never fair, and perhaps it is a good thing for most of us that it is not. — Oscar Wilde",
+      "previewB": "When I dare to be powerful, to use my strength in the service of my vision, then it becomes less and less important whet"
     },
     {
-      "idA": "adventure-29",
-      "idB": "travel-02",
-      "similarity": 0.802,
-      "previewA": "Take only memories, leave only footprints. — Chief Seattle",
-      "previewB": "Take only memories, leave only footprints. — Unknown"
+      "idA": "time-17",
+      "idB": "love-48",
+      "similarity": 0.657818837806,
+      "previewA": "Time flies over us, but leaves its shadow behind. — Nathaniel Hawthorne, The Marble Faun",
+      "previewB": "Love does not consist in gazing at each other, but in looking outward together in the same direction. — Antoine de Saint"
+    },
+    {
+      "idA": "time-03",
+      "idB": "friendship-27",
+      "similarity": 0.653611479908,
+      "previewA": "All we have to decide is what to do with the time that is given us. — J. R. R. Tolkien, The Fellowship of the Ring",
+      "previewB": "If you have one true friend you have more than your share. — Thomas Fuller"
+    },
+    {
+      "idA": "friendship-05",
+      "idB": "creativity-09",
+      "similarity": 0.643411537931,
+      "previewA": "As much as a BFF can make you go WTF, there’s no denying we’d be a little less rich without them. — Gossip Girl",
+      "previewB": "To hell with circumstances; I create opportunities. — Bruce Lee"
+    },
+    {
+      "idA": "love-27",
+      "idB": "gratitude-11",
+      "similarity": 0.629323681932,
+      "previewA": "If you remember me, then I don’t care if everyone else forgets. — Haruki Murakami",
+      "previewB": "As we express our gratitude, we must never forget that the highest appreciation is not to utter words, but to live by th"
+    },
+    {
+      "idA": "friendship-17",
+      "idB": "happiness-02",
+      "similarity": 0.619764208763,
+      "previewA": "Women’s friendships are like a renewable source of power. — Jane Fonda",
+      "previewB": "To be kind to all, to like many and love a few, to be needed and wanted by those we love, is certainly the nearest we ca"
+    },
+    {
+      "idA": "money-27",
+      "idB": "family-41",
+      "similarity": 0.616997289129,
+      "previewA": "The key to making money is to stay invested. — Suze Orman",
+      "previewB": "Let love be genuine. Abhor what is evil; hold fast to what is good. — Romans 12: 9"
+    },
+    {
+      "idA": "family-05",
+      "idB": "joy-06",
+      "similarity": 0.61477507566,
+      "previewA": "The bond that links your true family is not one of blood, but of respect and joy in each other’s life. — Richard Bach",
+      "previewB": "Scatter joy. — Ralph Waldo Emerson"
+    },
+    {
+      "idA": "time-44",
+      "idB": "money-46",
+      "similarity": 0.610232974319,
+      "previewA": "If you spend too much time thinking about a thing, you’ll never get it done. — Bruce Lee",
+      "previewB": "The better you feel about money, the more money you magnetize to yourself. — Rhonda Byrne"
+    },
+    {
+      "idA": "humor-42",
+      "idB": "money-06",
+      "similarity": 0.609415244269,
+      "previewA": "Good parenting means investing in your child’s future, which is why I am saving to buy mine a hoverboard someday.” — Lin",
+      "previewB": "Never spend your money before you have earned it. — Thomas Jefferson"
+    },
+    {
+      "idA": "family-29",
+      "idB": "positive-15",
+      "similarity": 0.609202087316,
+      "previewA": "Having a place to go is a home. Having someone to love is a family. Having both is a blessing. — Donna Hedges",
+      "previewB": "An unexamined life is not worth living. — Socrates"
+    },
+    {
+      "idA": "motivation-05",
+      "idB": "creativity-03",
+      "similarity": 0.608419423384,
+      "previewA": "Shoot for the moon. Even if you miss, you’ll land among the stars. — Norman Vincent Peale",
+      "previewB": "The art of progress is to preserve order amid change, and to preserve change amid order. — Alfred Whitehead"
+    },
+    {
+      "idA": "music-20",
+      "idB": "money-31",
+      "similarity": 0.606982072009,
+      "previewA": "We are the music makers, and we are the dreamers of dreams. — Arthur O’Shaughnessy",
+      "previewB": "If you would know the value of money, go and try to borrow some; for he that goes a borrowing, goes a sorrowing. — Benja"
+    },
+    {
+      "idA": "love-36",
+      "idB": "joy-03",
+      "similarity": 0.605509971794,
+      "previewA": "Our love is like the wind. I can’t see it, but I can feel it. — A Walk to Remember",
+      "previewB": "Find a place inside where there's joy, and the joy will burn out the pain. — Joseph Campbell"
+    },
+    {
+      "idA": "motivation-36",
+      "idB": "money-10",
+      "similarity": 0.605358405179,
+      "previewA": "Push yourself, because no one else is going to do it for you. — Anonymous",
+      "previewB": "When money realizes that it is in good hands, it wants to stay and multiply in those hands. — Idowu Koyenikan"
+    },
+    {
+      "idA": "friendship-41",
+      "idB": "travel-37",
+      "similarity": 0.603286056857,
+      "previewA": "Some people arrive and make such a beautiful impact on your life, you can barely remember what life was like without the",
+      "previewB": "Don’t listen to what they say. Go see. — Anonymous"
+    },
+    {
+      "idA": "humor-07",
+      "idB": "leadership-01",
+      "similarity": 0.602357172422,
+      "previewA": "The suspense is terrible. I hope it’ll last. — Willy Wonka, “Willy Wonka & the Chocolate Factory",
+      "previewB": "Life is a gift, and it offers us the privilege, opportunity, and responsibility to give something back by becoming more "
+    },
+    {
+      "idA": "motivation-32",
+      "idB": "positive-23",
+      "similarity": 0.601003653888,
+      "previewA": "Run your own race. Who cares what others are doing? The only question that matters is, am I progressing? — Robin Sharma",
+      "previewB": "Make your life matter and have fun doing it. — Aaron Hurst"
+    },
+    {
+      "idA": "motivation-44",
+      "idB": "mindfulness-12",
+      "similarity": 0.60017473921,
+      "previewA": "Be so good they can’t ignore you. — Steve Martin",
+      "previewB": "Through pride we are ever deceiving ourselves. But deep down below the surface of the average conscience a still, small "
+    },
+    {
+      "idA": "motivation-43",
+      "idB": "music-21",
+      "similarity": 0.597445393849,
+      "previewA": "Do the work. Everyone wants to be successful, but nobody wants to do the work. — Gary Vaynerchuk",
+      "previewB": "If I had my life to live over again, I would have made a rule to read some poetry and listen to some music at least once"
+    },
+    {
+      "idA": "motivation-42",
+      "idB": "motivation-50",
+      "similarity": 0.594807861692,
+      "previewA": "If you have everything seems under control, you’re just not going fast enough. — Mario Andretti",
+      "previewB": "Nothing happens unless first we dream. — Carl Sandburg"
+    },
+    {
+      "idA": "time-35",
+      "idB": "travel-32",
+      "similarity": 0.594704289521,
+      "previewA": "To live is so startling, it leaves little time for anything else. — Emily Dickinson",
+      "previewB": "I haven’t been everywhere, but it’s on my list. — Susan Sontag"
+    },
+    {
+      "idA": "money-20",
+      "idB": "money-27",
+      "similarity": 0.594659569527,
+      "previewA": "The first rule is not to lose money. The second rule is not to forget the first rule. — Warren Buffett",
+      "previewB": "The key to making money is to stay invested. — Suze Orman"
+    },
+    {
+      "idA": "friendship-12",
+      "idB": "mindfulness-11",
+      "similarity": 0.59030834591,
+      "previewA": "There is nothing better than a friend, unless it is a friend with chocolate. — Linda Grayson",
+      "previewB": "Many people think of prosperity that concerns money only to forget that true prosperity is of the mind. — Byron Pulsifer"
+    },
+    {
+      "idA": "friendship-27",
+      "idB": "money-11",
+      "similarity": 0.589764177905,
+      "previewA": "If you have one true friend you have more than your share. — Thomas Fuller",
+      "previewB": "Money is a tool. Used properly it makes something beautiful; used wrong, it makes a mess. — Bradley Vinson"
+    },
+    {
+      "idA": "time-09",
+      "idB": "happiness-02",
+      "similarity": 0.588525138766,
+      "previewA": "The future is something which everyone reaches at the rate of sixty minutes an hour, whatever he does, whoever he is. — ",
+      "previewB": "To be kind to all, to like many and love a few, to be needed and wanted by those we love, is certainly the nearest we ca"
+    },
+    {
+      "idA": "time-10",
+      "idB": "love-21",
+      "similarity": 0.58751737808,
+      "previewA": "The bad news is time flies. The good news is you’re the pilot. — Michael Altshuler",
+      "previewB": "If I know what love is, it is because of you. — Hermann Hesse"
+    },
+    {
+      "idA": "happiness-10",
+      "idB": "kindness-04",
+      "similarity": 0.58710838865,
+      "previewA": "Since you get more joy out of giving joy to others, you should put a good deal of thought into the happiness that you ar",
+      "previewB": "To forgive is to set a prisoner free and realize that prisoner was you. — Lewis B. Smedes"
+    },
+    {
+      "idA": "motivation-04",
+      "idB": "humor-10",
+      "similarity": 0.584929819809,
+      "previewA": "Don’t stop when you’re tired. Stop when you’re done. — Wesley Snipes",
+      "previewB": "If you can’t be kind, at least be vague. — Judith Martin"
+    },
+    {
+      "idA": "travel-14",
+      "idB": "family-17",
+      "similarity": 0.584866584841,
+      "previewA": "I’m shaking the dust of this crummy little town off my feet and I’m gonna see the world. — George Bailey in It’s A Wonde",
+      "previewB": "The family is one of nature’s masterpieces. — George Santayana"
+    },
+    {
+      "idA": "friendship-07",
+      "idB": "travel-33",
+      "similarity": 0.583290627149,
+      "previewA": "An old friend will help you move. A good friend will help you move a dead body. — Jim Hayes",
+      "previewB": "Two roads diverged in a wood, and I – I took the one less traveled by — Robert Frost"
+    },
+    {
+      "idA": "mindfulness-08",
+      "idB": "joy-03",
+      "similarity": 0.582975669001,
+      "previewA": "It is the mark of an educated mind to be able to entertain a thought without accepting it. — Aristotle",
+      "previewB": "Find a place inside where there's joy, and the joy will burn out the pain. — Joseph Campbell"
+    },
+    {
+      "idA": "motivation-50",
+      "idB": "humor-15",
+      "similarity": 0.58049998369,
+      "previewA": "Nothing happens unless first we dream. — Carl Sandburg",
+      "previewB": "Accept who you are. Unless you’re a serial killer. — Ellen DeGeneres"
+    },
+    {
+      "idA": "motivation-41",
+      "idB": "family-08",
+      "similarity": 0.576951503666,
+      "previewA": "The best way to predict the future is to create it. — Peter Drucker",
+      "previewB": "Happiness is having a large, loving, caring, close-knit family in another city. — George Burns"
+    },
+    {
+      "idA": "money-07",
+      "idB": "leadership-08",
+      "similarity": 0.576575239014,
+      "previewA": "If you don’t find a way to make money while you sleep, you will work until the day you die. — Warren Buffett",
+      "previewB": "Vision without action is a daydream. Action without vision is a nightmare. — Japanese proverb"
+    },
+    {
+      "idA": "humor-40",
+      "idB": "growth-03",
+      "similarity": 0.576547506522,
+      "previewA": "I’m not insane. My mother had me tested. — Sheldon Cooper, “The Big Bang Theory",
+      "previewB": "In the depth of winter, I finally learned that there was within me an invincible summer. — Albert Camus"
+    },
+    {
+      "idA": "friendship-38",
+      "idB": "creativity-08",
+      "similarity": 0.573312117428,
+      "previewA": "Since there is nothing so well worth having as friends, never lose a chance to make them. — Francesco Guicciardini",
+      "previewB": "The heart has its reasons which reason knows not of. — Blaise Pascal"
+    },
+    {
+      "idA": "love-48",
+      "idB": "creativity-09",
+      "similarity": 0.573123273562,
+      "previewA": "Love does not consist in gazing at each other, but in looking outward together in the same direction. — Antoine de Saint",
+      "previewB": "To hell with circumstances; I create opportunities. — Bruce Lee"
     }
   ]
 }
