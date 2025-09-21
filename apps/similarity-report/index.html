@@ -326,7 +326,8 @@
     }
 
     .cell-score {
-      width: 140px;
+      width: 160px;
+      vertical-align: top;
     }
 
     .score-value {
@@ -352,47 +353,31 @@
       transition: width 0.24s ease;
     }
 
-    .cell-pair {
-      min-width: 200px;
-    }
-
-    .pair-ids {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 600;
-    }
-
-    .id-badge {
-      background: color-mix(in srgb, var(--accent-active) 22%, transparent);
-      color: inherit;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      letter-spacing: 0.04em;
-    }
-
-    .pair-arrow {
-      color: var(--text-muted);
-    }
-
-    .pair-metrics {
+    .score-deltas {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 10px;
+      margin-top: 12px;
       font-size: 0.78rem;
       color: var(--text-secondary);
     }
 
-    .pair-metric {
+    .score-delta {
       padding: 4px 8px;
       border-radius: 999px;
       background: rgba(148, 163, 209, 0.14);
     }
 
     .cell-entry {
-      min-width: 220px;
+      min-width: 240px;
+      vertical-align: top;
+    }
+
+    .entry-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
     }
 
     .entry-label {
@@ -404,7 +389,17 @@
       border-radius: 999px;
       background: color-mix(in srgb, var(--accent-active) 32%, transparent);
       font-weight: 600;
-      margin-bottom: 10px;
+      margin: 0;
+    }
+
+    .entry-id {
+      background: color-mix(in srgb, var(--accent-active) 18%, transparent);
+      color: inherit;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
     }
 
     .entry-primary {
@@ -433,6 +428,106 @@
       margin: 8px 0 0 0;
       color: var(--text-muted);
       font-size: 0.78rem;
+    }
+
+    .embedding-preview {
+      margin: 10px 0;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .embedding-preview img {
+      display: block;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 18px 34px rgba(15, 23, 42, 0.28);
+      background: rgba(15, 23, 42, 0.32);
+    }
+
+    .embedding-preview[data-variant="compact"] img {
+      width: 54px;
+      height: 54px;
+    }
+
+    .embedding-preview[data-variant="detail"] img {
+      width: 78px;
+      height: 78px;
+    }
+
+    .embedding-preview figcaption {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    @media (prefers-color-scheme: light) {
+      .embedding-preview img {
+        box-shadow: 0 16px 30px rgba(148, 163, 209, 0.28);
+        background: rgba(226, 232, 240, 0.72);
+      }
+    }
+
+    .record-tech {
+      margin: 14px 0 0 0;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      padding: 10px 12px;
+      background: rgba(59, 73, 110, 0.16);
+    }
+
+    .record-tech summary {
+      list-style: none;
+      position: relative;
+      padding-left: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .record-tech summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .record-tech summary::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translateY(2px);
+      color: var(--text-muted);
+      transition: transform 0.2s ease;
+    }
+
+    .record-tech[open] summary::before {
+      transform: rotate(90deg) translateX(-2px);
+    }
+
+    .record-tech dl {
+      margin: 12px 0 0 0;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .record-tech dt {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .record-tech dd {
+      margin: 2px 0 0 0;
+      font-weight: 600;
+      font-size: 0.86rem;
+      word-break: break-all;
     }
 
     .detail-panel {
@@ -762,19 +857,13 @@
                   <span class="sort-indicator" aria-hidden="true">↓</span>
                 </button>
               </th>
-              <th scope="col">
-                <button type="button" class="sort-button" data-sort="pair" data-sort-direction="asc" data-sort-label="pair IDs">
-                  Pair
-                  <span class="sort-indicator" aria-hidden="true">↓</span>
-                </button>
-              </th>
               <th scope="col">Entry A</th>
               <th scope="col">Entry B</th>
             </tr>
           </thead>
           <tbody data-results-body>
             <tr class="empty-row">
-              <td colspan="4">Loading similarity report…</td>
+              <td colspan="3">Loading similarity report…</td>
             </tr>
           </tbody>
         </table>
@@ -800,8 +889,8 @@
               <span class="metric-value" data-detail-length>0 chars • 0 words</span>
             </div>
             <div class="metric">
-              <span class="metric-label">Levenshtein</span>
-              <span class="metric-value" data-detail-levenshtein>0 edits • 100% overlap</span>
+              <span class="metric-label">Lev Δ</span>
+              <span class="metric-value" data-detail-levenshtein>Lev Δ 0 • 100% overlap</span>
             </div>
           </div>
           <div class="records-grid">
@@ -810,6 +899,10 @@
                 <h3>Entry A</h3>
                 <p class="record-id" data-record-a-id>—</p>
               </header>
+              <figure class="embedding-preview" data-record-a-embedding hidden data-variant="detail">
+                <img data-record-a-embedding-img alt="" loading="lazy">
+                <figcaption data-record-a-embedding-caption>Embedding preview</figcaption>
+              </figure>
               <p class="record-primary" data-record-a-primary>—</p>
               <p class="record-secondary is-empty" data-record-a-secondary>—</p>
               <dl class="record-meta">
@@ -826,12 +919,45 @@
                   <dd data-record-a-origin>—</dd>
                 </div>
               </dl>
+              <details class="record-tech" data-record-a-tech hidden>
+                <summary>Embedding details</summary>
+                <dl>
+                  <div>
+                    <dt>Provider</dt>
+                    <dd data-record-a-provider>—</dd>
+                  </div>
+                  <div>
+                    <dt>Model</dt>
+                    <dd data-record-a-model>—</dd>
+                  </div>
+                  <div>
+                    <dt>Dimensions</dt>
+                    <dd data-record-a-dimensions>—</dd>
+                  </div>
+                  <div>
+                    <dt>Updated</dt>
+                    <dd data-record-a-updated>—</dd>
+                  </div>
+                  <div>
+                    <dt>Vector SHA-256</dt>
+                    <dd data-record-a-vector-hash>—</dd>
+                  </div>
+                  <div>
+                    <dt>Text hash</dt>
+                    <dd data-record-a-text-hash>—</dd>
+                  </div>
+                </dl>
+              </details>
             </article>
             <article class="record-card">
               <header>
                 <h3>Entry B</h3>
                 <p class="record-id" data-record-b-id>—</p>
               </header>
+              <figure class="embedding-preview" data-record-b-embedding hidden data-variant="detail">
+                <img data-record-b-embedding-img alt="" loading="lazy">
+                <figcaption data-record-b-embedding-caption>Embedding preview</figcaption>
+              </figure>
               <p class="record-primary" data-record-b-primary>—</p>
               <p class="record-secondary is-empty" data-record-b-secondary>—</p>
               <dl class="record-meta">
@@ -848,6 +974,35 @@
                   <dd data-record-b-origin>—</dd>
                 </div>
               </dl>
+              <details class="record-tech" data-record-b-tech hidden>
+                <summary>Embedding details</summary>
+                <dl>
+                  <div>
+                    <dt>Provider</dt>
+                    <dd data-record-b-provider>—</dd>
+                  </div>
+                  <div>
+                    <dt>Model</dt>
+                    <dd data-record-b-model>—</dd>
+                  </div>
+                  <div>
+                    <dt>Dimensions</dt>
+                    <dd data-record-b-dimensions>—</dd>
+                  </div>
+                  <div>
+                    <dt>Updated</dt>
+                    <dd data-record-b-updated>—</dd>
+                  </div>
+                  <div>
+                    <dt>Vector SHA-256</dt>
+                    <dd data-record-b-vector-hash>—</dd>
+                  </div>
+                  <div>
+                    <dt>Text hash</dt>
+                    <dd data-record-b-text-hash>—</dd>
+                  </div>
+                </dl>
+              </details>
             </article>
           </div>
         </div>
@@ -886,14 +1041,60 @@
       const recordAChars = document.querySelector('[data-record-a-chars]');
       const recordAWords = document.querySelector('[data-record-a-words]');
       const recordAOrigin = document.querySelector('[data-record-a-origin]');
+      const recordAEmbeddingFigure = document.querySelector('[data-record-a-embedding]');
+      const recordAEmbeddingImage = document.querySelector('[data-record-a-embedding-img]');
+      const recordAEmbeddingCaption = document.querySelector('[data-record-a-embedding-caption]');
+      const recordATechDetails = document.querySelector('[data-record-a-tech]');
+      const recordATechProvider = document.querySelector('[data-record-a-provider]');
+      const recordATechModel = document.querySelector('[data-record-a-model]');
+      const recordATechDimensions = document.querySelector('[data-record-a-dimensions]');
+      const recordATechUpdated = document.querySelector('[data-record-a-updated]');
+      const recordATechVectorHash = document.querySelector('[data-record-a-vector-hash]');
+      const recordATechTextHash = document.querySelector('[data-record-a-text-hash]');
       const recordBId = document.querySelector('[data-record-b-id]');
       const recordBPrimary = document.querySelector('[data-record-b-primary]');
       const recordBSecondary = document.querySelector('[data-record-b-secondary]');
       const recordBChars = document.querySelector('[data-record-b-chars]');
       const recordBWords = document.querySelector('[data-record-b-words]');
       const recordBOrigin = document.querySelector('[data-record-b-origin]');
+      const recordBEmbeddingFigure = document.querySelector('[data-record-b-embedding]');
+      const recordBEmbeddingImage = document.querySelector('[data-record-b-embedding-img]');
+      const recordBEmbeddingCaption = document.querySelector('[data-record-b-embedding-caption]');
+      const recordBTechDetails = document.querySelector('[data-record-b-tech]');
+      const recordBTechProvider = document.querySelector('[data-record-b-provider]');
+      const recordBTechModel = document.querySelector('[data-record-b-model]');
+      const recordBTechDimensions = document.querySelector('[data-record-b-dimensions]');
+      const recordBTechUpdated = document.querySelector('[data-record-b-updated]');
+      const recordBTechVectorHash = document.querySelector('[data-record-b-vector-hash]');
+      const recordBTechTextHash = document.querySelector('[data-record-b-text-hash]');
       const copyButton = document.querySelector('[data-copy-pair]');
       const sortButtons = document.querySelectorAll('[data-sort]');
+
+      const recordAEmbeddingElements = {
+        figure: recordAEmbeddingFigure,
+        image: recordAEmbeddingImage,
+        caption: recordAEmbeddingCaption,
+        techDetails: recordATechDetails,
+        provider: recordATechProvider,
+        model: recordATechModel,
+        dimensions: recordATechDimensions,
+        updated: recordATechUpdated,
+        vectorHash: recordATechVectorHash,
+        textHash: recordATechTextHash,
+      };
+
+      const recordBEmbeddingElements = {
+        figure: recordBEmbeddingFigure,
+        image: recordBEmbeddingImage,
+        caption: recordBEmbeddingCaption,
+        techDetails: recordBTechDetails,
+        provider: recordBTechProvider,
+        model: recordBTechModel,
+        dimensions: recordBTechDimensions,
+        updated: recordBTechUpdated,
+        vectorHash: recordBTechVectorHash,
+        textHash: recordBTechTextHash,
+      };
 
       if (
         !tableBody
@@ -921,6 +1122,11 @@
         return accumulator;
       }, {});
 
+      const embeddingSources = {
+        jokes: '../../data/jokes-embeddings.json',
+        quotes: '../../data/quotes-embeddings.json',
+      };
+
       const providerLabels = {
         hfspace: 'Hugging Face Space',
         fake: 'Synthetic generator',
@@ -930,6 +1136,7 @@
       };
 
       let recordMaps = { jokes: new Map(), quotes: new Map(), 'cross-deck': new Map() };
+      let embeddingMaps = { jokes: new Map(), quotes: new Map(), 'cross-deck': new Map() };
 
       const MAX_VISIBLE_PAIRS = 400; // Hard cap to keep the table readable
       const sliderValueFormatter = new Intl.NumberFormat(undefined, {
@@ -1003,6 +1210,290 @@
       function formatPercent(value) {
         const numeric = typeof value === 'number' ? value : 0;
         return Math.round(clamp01(numeric) * 100);
+      }
+
+      function base64ToUint8Array(base64) {
+        if (typeof base64 !== 'string' || !base64.length) {
+          return null;
+        }
+        try {
+          const binary = atob(base64);
+          const length = binary.length;
+          const bytes = new Uint8Array(length);
+          for (let index = 0; index < length; index += 1) {
+            bytes[index] = binary.charCodeAt(index);
+          }
+          return bytes;
+        } catch (error) {
+          console.error('Failed to decode embedding vector', error);
+          return null;
+        }
+      }
+
+      function decodeEmbeddingVector(base64, expectedDimensions) {
+        const bytes = base64ToUint8Array(base64);
+        if (!bytes || !bytes.length) {
+          return null;
+        }
+        const valueCount = Math.floor(bytes.byteLength / 4);
+        if (!valueCount) {
+          return null;
+        }
+        const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+        const floats = new Float32Array(valueCount);
+        for (let index = 0; index < valueCount; index += 1) {
+          floats[index] = view.getFloat32(index * 4, true);
+        }
+        return floats;
+      }
+
+      function createEmbeddingPreview(values) {
+        if (!values || !values.length) {
+          return '';
+        }
+        const width = Math.ceil(Math.sqrt(values.length));
+        if (!width) {
+          return '';
+        }
+        const height = Math.ceil(values.length / width);
+        const cellSize = 10;
+        const pixelRatio = typeof window !== 'undefined' && window.devicePixelRatio ? window.devicePixelRatio : 1;
+        const canvas = document.createElement('canvas');
+        canvas.width = width * cellSize * pixelRatio;
+        canvas.height = height * cellSize * pixelRatio;
+        const context = canvas.getContext('2d');
+        if (!context) {
+          return '';
+        }
+        context.scale(pixelRatio, pixelRatio);
+        context.fillStyle = 'rgba(15, 23, 42, 0.08)';
+        context.fillRect(0, 0, width * cellSize, height * cellSize);
+
+        let minValue = Infinity;
+        let maxValue = -Infinity;
+        for (let index = 0; index < values.length; index += 1) {
+          const value = values[index];
+          if (!Number.isFinite(value)) {
+            continue;
+          }
+          if (value < minValue) {
+            minValue = value;
+          }
+          if (value > maxValue) {
+            maxValue = value;
+          }
+        }
+        if (!Number.isFinite(minValue) || !Number.isFinite(maxValue)) {
+          minValue = 0;
+          maxValue = 1;
+        }
+        if (minValue === maxValue) {
+          maxValue = minValue + 1;
+        }
+        const range = maxValue - minValue;
+
+        for (let index = 0; index < width * height; index += 1) {
+          const value = index < values.length && Number.isFinite(values[index]) ? values[index] : minValue;
+          const normalized = Math.min(1, Math.max(0, (value - minValue) / range));
+          const hue = Math.round((normalized * 320 + (index % width) * 3) % 360);
+          const saturation = Math.min(100, Math.max(0, 58 + normalized * 32));
+          const lightness = Math.min(100, Math.max(0, 42 + normalized * 28));
+          const x = (index % width) * cellSize;
+          const y = Math.floor(index / width) * cellSize;
+          context.fillStyle = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+          context.fillRect(x, y, cellSize, cellSize);
+        }
+        return canvas.toDataURL('image/png');
+      }
+
+      function getRecordDataset(record) {
+        if (!record || typeof record !== 'object') {
+          return null;
+        }
+        if (record.type === 'quote') {
+          return 'quotes';
+        }
+        if (record.type === 'joke') {
+          return 'jokes';
+        }
+        return null;
+      }
+
+      function getEmbeddingEntry(record, fallbackDataset, fallbackId) {
+        const id = record && record.id ? record.id : fallbackId;
+        if (!id) {
+          return null;
+        }
+        const dataset = getRecordDataset(record) || fallbackDataset;
+        const candidates = [];
+        if (dataset && embeddingMaps[dataset]) {
+          candidates.push(embeddingMaps[dataset]);
+        }
+        if (embeddingMaps['cross-deck']) {
+          candidates.push(embeddingMaps['cross-deck']);
+        }
+        for (let index = 0; index < candidates.length; index += 1) {
+          const map = candidates[index];
+          if (map && map.has(id)) {
+            return map.get(id);
+          }
+        }
+        return null;
+      }
+
+      function prepareEmbeddingEntry(record, { dataset: fallbackDataset = null, id: fallbackId = null } = {}) {
+        const entry = getEmbeddingEntry(record, fallbackDataset, fallbackId);
+        if (!entry) {
+          return null;
+        }
+        if (!entry.previewUrl && entry.values && entry.values.length) {
+          entry.previewUrl = createEmbeddingPreview(entry.values);
+        }
+        return entry;
+      }
+
+      function buildEmbeddingPreviewFigure(
+        record,
+        { variant = 'compact', fallbackId = '', dataset: fallbackDataset = null } = {},
+      ) {
+        const entry = prepareEmbeddingEntry(record, { dataset: fallbackDataset, id: fallbackId });
+        if (!entry || !entry.previewUrl) {
+          return null;
+        }
+        const figure = document.createElement('figure');
+        figure.className = 'embedding-preview';
+        figure.dataset.variant = variant;
+        const image = document.createElement('img');
+        image.src = entry.previewUrl;
+        image.loading = 'lazy';
+        const id = record && record.id ? record.id : fallbackId;
+        image.alt = id ? `Embedding preview for ${id}` : 'Embedding preview';
+        figure.title = entry.model
+          ? `${entry.model} • ${entry.dimensions ? entry.dimensions.toLocaleString() : '—'} dims`
+          : entry.dimensions
+          ? `${entry.dimensions.toLocaleString()} dims`
+          : 'Embedding preview';
+        figure.appendChild(image);
+        const caption = document.createElement('figcaption');
+        caption.textContent = entry.dimensions ? `${entry.dimensions.toLocaleString()} dims` : 'Embedding';
+        figure.appendChild(caption);
+        return figure;
+      }
+
+      function formatDimensions(dimensions) {
+        return typeof dimensions === 'number' && Number.isFinite(dimensions) && dimensions > 0
+          ? `${dimensions.toLocaleString()} dims`
+          : '—';
+      }
+
+      function updateEmbeddingDetail(record, elements, { dataset: fallbackDataset = null, id: fallbackId = null } = {}) {
+        if (!elements) {
+          return;
+        }
+        const entry = prepareEmbeddingEntry(record, { dataset: fallbackDataset, id: fallbackId });
+        const {
+          figure,
+          image,
+          caption,
+          techDetails,
+          provider,
+          model,
+          dimensions,
+          updated,
+          vectorHash,
+          textHash,
+        } = elements;
+        if (figure && image && caption) {
+          if (entry && entry.previewUrl) {
+            figure.hidden = false;
+            const id = record && record.id ? record.id : '';
+            image.src = entry.previewUrl;
+            image.alt = id ? `Embedding preview for ${id}` : 'Embedding preview';
+            const dimsLabel = formatDimensions(entry.dimensions);
+            if (entry.model && dimsLabel !== '—') {
+              caption.textContent = `${dimsLabel} • ${entry.model}`;
+            } else if (entry.model) {
+              caption.textContent = entry.model;
+            } else {
+              caption.textContent = dimsLabel;
+            }
+          } else {
+            figure.hidden = true;
+            image.removeAttribute('src');
+            image.alt = '';
+            caption.textContent = 'Embedding preview';
+          }
+        }
+        if (techDetails) {
+          if (entry) {
+            techDetails.hidden = false;
+            if (provider) {
+              provider.textContent = entry.provider || '—';
+              if (entry.provider) {
+                provider.setAttribute('title', entry.provider);
+              } else {
+                provider.removeAttribute('title');
+              }
+            }
+            if (model) {
+              model.textContent = entry.model || '—';
+              if (entry.model) {
+                model.setAttribute('title', entry.model);
+              } else {
+                model.removeAttribute('title');
+              }
+            }
+            if (dimensions) {
+              dimensions.textContent = formatDimensions(entry.dimensions);
+            }
+            if (updated) {
+              updated.textContent = formatDateTime(entry.updatedAt);
+            }
+            if (vectorHash) {
+              const hash = entry.vectorSha256 || '—';
+              vectorHash.textContent = hash;
+              if (entry.vectorSha256) {
+                vectorHash.setAttribute('title', entry.vectorSha256);
+              } else {
+                vectorHash.removeAttribute('title');
+              }
+            }
+            if (textHash) {
+              const hash = entry.textHash || '—';
+              textHash.textContent = hash;
+              if (entry.textHash) {
+                textHash.setAttribute('title', entry.textHash);
+              } else {
+                textHash.removeAttribute('title');
+              }
+            }
+          } else {
+            techDetails.hidden = true;
+            techDetails.removeAttribute('open');
+            if (provider) {
+              provider.textContent = '—';
+              provider.removeAttribute('title');
+            }
+            if (model) {
+              model.textContent = '—';
+              model.removeAttribute('title');
+            }
+            if (dimensions) {
+              dimensions.textContent = '—';
+            }
+            if (updated) {
+              updated.textContent = '—';
+            }
+            if (vectorHash) {
+              vectorHash.textContent = '—';
+              vectorHash.removeAttribute('title');
+            }
+            if (textHash) {
+              textHash.textContent = '—';
+              textHash.removeAttribute('title');
+            }
+          }
+        }
       }
 
       function computeLevenshteinMetrics(textA, textB) {
@@ -1164,6 +1655,57 @@
         return maps;
       }
 
+      function hydrateEmbeddingMap(dataset, payload) {
+        const map = new Map();
+        if (!payload || typeof payload !== 'object') {
+          embeddingMaps[dataset] = map;
+          return;
+        }
+        const records = payload.records && typeof payload.records === 'object' ? payload.records : {};
+        const meta = payload.meta && typeof payload.meta === 'object' ? payload.meta : {};
+        const fallbackDimensions = typeof meta.dimensions === 'number' ? meta.dimensions : 0;
+        const fallbackProvider = typeof meta.provider === 'string' ? meta.provider : '';
+        const fallbackModel = typeof meta.model === 'string' ? meta.model : '';
+        const fallbackUpdated = typeof meta.generatedAt === 'string' ? meta.generatedAt : '';
+        Object.entries(records).forEach(([id, record]) => {
+          if (!id || !record || typeof record.vector !== 'string') {
+            return;
+          }
+          const recordDimensions =
+            typeof record.dimensions === 'number' && Number.isFinite(record.dimensions)
+              ? record.dimensions
+              : fallbackDimensions;
+          const values = decodeEmbeddingVector(record.vector, recordDimensions);
+          map.set(id, {
+            id,
+            dataset,
+            provider: typeof record.provider === 'string' ? record.provider : fallbackProvider,
+            model: typeof record.model === 'string' ? record.model : fallbackModel,
+            dimensions: values && values.length ? values.length : recordDimensions,
+            updatedAt: typeof record.updatedAt === 'string' ? record.updatedAt : fallbackUpdated,
+            vectorSha256: typeof record.vectorSha256 === 'string' ? record.vectorSha256 : '',
+            textHash: typeof record.textHash === 'string' ? record.textHash : '',
+            values: values || null,
+            previewUrl: '',
+          });
+        });
+        embeddingMaps[dataset] = map;
+      }
+
+      function rebuildCrossDeckEmbeddingMap() {
+        const combined = new Map();
+        ['jokes', 'quotes'].forEach((key) => {
+          const map = embeddingMaps[key];
+          if (!map) {
+            return;
+          }
+          map.forEach((value, id) => {
+            combined.set(id, value);
+          });
+        });
+        embeddingMaps['cross-deck'] = combined;
+      }
+
       function enrichMatch(datasetName, match) {
         const records = recordMaps[datasetName] || new Map();
         const recordA = records.get(match.idA) || null;
@@ -1217,7 +1759,7 @@
           const row = document.createElement('tr');
           row.className = 'empty-row';
           const cell = document.createElement('td');
-          cell.colSpan = 4;
+          cell.colSpan = 3;
           cell.textContent = state.data.size ? 'No pairs match the current filters.' : 'Loading similarity report…';
           row.appendChild(cell);
           tableBody.appendChild(row);
@@ -1244,54 +1786,46 @@
           scoreFill.className = 'score-meter__fill';
           scoreFill.style.width = `${clamp01(match.similarity) * 100}%`;
           scoreMeter.appendChild(scoreFill);
+          const scoreDeltas = document.createElement('div');
+          scoreDeltas.className = 'score-deltas';
+          const charDelta = document.createElement('span');
+          charDelta.className = 'score-delta';
+          charDelta.textContent = `Δ chars ${match.lengthDelta.toLocaleString()}`;
+          const wordDelta = document.createElement('span');
+          wordDelta.className = 'score-delta';
+          wordDelta.textContent = `Δ words ${match.wordDelta.toLocaleString()}`;
+          const levenshteinDelta = document.createElement('span');
+          levenshteinDelta.className = 'score-delta';
+          const levenshteinPercent = formatPercent(match.levenshteinSimilarity);
+          levenshteinDelta.textContent = `Lev Δ ${match.levenshteinDistance.toLocaleString()} (${levenshteinPercent}%)`;
+          scoreDeltas.appendChild(charDelta);
+          scoreDeltas.appendChild(wordDelta);
+          scoreDeltas.appendChild(levenshteinDelta);
           scoreCell.appendChild(scoreValue);
           scoreCell.appendChild(scoreMeter);
+          scoreCell.appendChild(scoreDeltas);
           row.appendChild(scoreCell);
-
-          const pairCell = document.createElement('td');
-          pairCell.className = 'cell-pair';
-          const ids = document.createElement('div');
-          ids.className = 'pair-ids';
-          const badgeA = document.createElement('span');
-          badgeA.className = 'id-badge';
-          badgeA.textContent = match.idA;
-          const arrow = document.createElement('span');
-          arrow.className = 'pair-arrow';
-          arrow.textContent = '↔';
-          const badgeB = document.createElement('span');
-          badgeB.className = 'id-badge';
-          badgeB.textContent = match.idB;
-          ids.appendChild(badgeA);
-          ids.appendChild(arrow);
-          ids.appendChild(badgeB);
-          pairCell.appendChild(ids);
-
-          const pairMetrics = document.createElement('div');
-          pairMetrics.className = 'pair-metrics';
-          const charMetric = document.createElement('span');
-          charMetric.className = 'pair-metric';
-          charMetric.textContent = `Δ chars ${match.lengthDelta.toLocaleString()}`;
-          const wordMetric = document.createElement('span');
-          wordMetric.className = 'pair-metric';
-          wordMetric.textContent = `Δ words ${match.wordDelta.toLocaleString()}`;
-          const levenshteinMetric = document.createElement('span');
-          levenshteinMetric.className = 'pair-metric';
-          const levenshteinPercent = formatPercent(match.levenshteinSimilarity);
-          levenshteinMetric.textContent = `Levenshtein ${match.levenshteinDistance.toLocaleString()} (${levenshteinPercent}%)`;
-          pairMetrics.appendChild(charMetric);
-          pairMetrics.appendChild(wordMetric);
-          pairMetrics.appendChild(levenshteinMetric);
-          pairCell.appendChild(pairMetrics);
-          row.appendChild(pairCell);
 
           const entryACell = document.createElement('td');
           entryACell.className = 'cell-entry';
+          const entryAHeader = document.createElement('div');
+          entryAHeader.className = 'entry-header';
           const entryALabel = document.createElement('span');
           entryALabel.className = 'entry-label';
           entryALabel.textContent = 'A';
+          const entryAId = document.createElement('span');
+          entryAId.className = 'entry-id';
+          entryAId.textContent = match.idA;
+          entryAHeader.appendChild(entryALabel);
+          entryAHeader.appendChild(entryAId);
           const entryAPrimary = document.createElement('p');
           entryAPrimary.className = 'entry-primary';
           entryAPrimary.textContent = match.recordA ? match.recordA.primary : match.previewA || '—';
+          const entryAEmbeddingPreview = buildEmbeddingPreviewFigure(match.recordA || null, {
+            variant: 'compact',
+            fallbackId: match.idA,
+            dataset: state.dataset,
+          });
           const entryASecondary = document.createElement('p');
           entryASecondary.className = 'entry-secondary';
           const secondaryAText = match.recordA ? match.recordA.secondary : '';
@@ -1304,7 +1838,10 @@
           const entryAMeta = document.createElement('p');
           entryAMeta.className = 'entry-meta';
           entryAMeta.textContent = `Chars ${match.charA.toLocaleString()} • Words ${match.wordsA.toLocaleString()}`;
-          entryACell.appendChild(entryALabel);
+          entryACell.appendChild(entryAHeader);
+          if (entryAEmbeddingPreview) {
+            entryACell.appendChild(entryAEmbeddingPreview);
+          }
           entryACell.appendChild(entryAPrimary);
           entryACell.appendChild(entryASecondary);
           entryACell.appendChild(entryAMeta);
@@ -1312,12 +1849,24 @@
 
           const entryBCell = document.createElement('td');
           entryBCell.className = 'cell-entry';
+          const entryBHeader = document.createElement('div');
+          entryBHeader.className = 'entry-header';
           const entryBLabel = document.createElement('span');
           entryBLabel.className = 'entry-label';
           entryBLabel.textContent = 'B';
+          const entryBId = document.createElement('span');
+          entryBId.className = 'entry-id';
+          entryBId.textContent = match.idB;
+          entryBHeader.appendChild(entryBLabel);
+          entryBHeader.appendChild(entryBId);
           const entryBPrimary = document.createElement('p');
           entryBPrimary.className = 'entry-primary';
           entryBPrimary.textContent = match.recordB ? match.recordB.primary : match.previewB || '—';
+          const entryBEmbeddingPreview = buildEmbeddingPreviewFigure(match.recordB || null, {
+            variant: 'compact',
+            fallbackId: match.idB,
+            dataset: state.dataset,
+          });
           const entryBSecondary = document.createElement('p');
           entryBSecondary.className = 'entry-secondary';
           const secondaryBText = match.recordB ? match.recordB.secondary : '';
@@ -1330,7 +1879,10 @@
           const entryBMeta = document.createElement('p');
           entryBMeta.className = 'entry-meta';
           entryBMeta.textContent = `Chars ${match.charB.toLocaleString()} • Words ${match.wordsB.toLocaleString()}`;
-          entryBCell.appendChild(entryBLabel);
+          entryBCell.appendChild(entryBHeader);
+          if (entryBEmbeddingPreview) {
+            entryBCell.appendChild(entryBEmbeddingPreview);
+          }
           entryBCell.appendChild(entryBPrimary);
           entryBCell.appendChild(entryBSecondary);
           entryBCell.appendChild(entryBMeta);
@@ -1369,8 +1921,10 @@
           detailEmpty.hidden = false;
           copyButton.disabled = true;
           if (detailLevenshtein) {
-            detailLevenshtein.textContent = '0 edits • 100% overlap';
+            detailLevenshtein.textContent = 'Lev Δ 0 • 100% overlap';
           }
+          updateEmbeddingDetail(null, recordAEmbeddingElements, { dataset: state.dataset });
+          updateEmbeddingDetail(null, recordBEmbeddingElements, { dataset: state.dataset });
           return;
         }
 
@@ -1382,7 +1936,7 @@
         detailLength.textContent = `${match.lengthDelta.toLocaleString()} chars • ${match.wordDelta.toLocaleString()} words`;
         if (detailLevenshtein) {
           const levenshteinPercent = formatPercent(match.levenshteinSimilarity);
-          detailLevenshtein.textContent = `${match.levenshteinDistance.toLocaleString()} edits • ${levenshteinPercent}% overlap`;
+          detailLevenshtein.textContent = `Lev Δ ${match.levenshteinDistance.toLocaleString()} • ${levenshteinPercent}% overlap`;
         }
 
         if (match.recordA) {
@@ -1430,6 +1984,15 @@
           recordBWords.textContent = match.wordsB.toLocaleString();
           recordBOrigin.textContent = '—';
         }
+
+        updateEmbeddingDetail(match.recordA || null, recordAEmbeddingElements, {
+          dataset: state.dataset,
+          id: match.idA,
+        });
+        updateEmbeddingDetail(match.recordB || null, recordBEmbeddingElements, {
+          dataset: state.dataset,
+          id: match.idB,
+        });
 
         copyButton.disabled = false;
         copyButton.textContent = 'Copy pair IDs';
@@ -1483,13 +2046,6 @@
               return state.sortDirection === 'asc'
                 ? left.similarity - right.similarity
                 : right.similarity - left.similarity;
-            }
-            if (state.sortKey === 'pair') {
-              const leftKey = `${left.idA}-${left.idB}`;
-              const rightKey = `${right.idA}-${right.idB}`;
-              return state.sortDirection === 'asc'
-                ? leftKey.localeCompare(rightKey)
-                : rightKey.localeCompare(leftKey);
             }
             if (state.sortKey === 'lengthDelta') {
               return state.sortDirection === 'asc'
@@ -1571,6 +2127,29 @@
         );
       }
 
+      function loadEmbeddings() {
+        const configs = Object.entries(embeddingSources).filter(([, url]) => typeof url === 'string' && url.length);
+        if (!configs.length) {
+          return Promise.resolve([]);
+        }
+        return Promise.all(
+          configs.map(([name, url]) =>
+            fetch(url)
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error(`Failed to load ${url}: ${response.status}`);
+                }
+                return response.json();
+              })
+              .then((json) => [name, json])
+              .catch((error) => {
+                console.error(error);
+                return [name, null];
+              })
+          )
+        );
+      }
+
       function hydrateDataset(name, report) {
         const fallbackThreshold = report && typeof report.threshold === 'number' ? report.threshold : 0.5;
         const matches = report && Array.isArray(report.matches) ? report.matches : [];
@@ -1598,7 +2177,7 @@
         const row = document.createElement('tr');
         row.className = 'empty-row';
         const cell = document.createElement('td');
-        cell.colSpan = 4;
+        cell.colSpan = 3;
         cell.textContent = message;
         row.appendChild(cell);
         tableBody.appendChild(row);
@@ -1802,11 +2381,19 @@
         const activeConfig = datasetConfigs[state.dataset];
         searchInput.placeholder = activeConfig && activeConfig.placeholder ? activeConfig.placeholder : 'Search report';
         recordMaps = buildRecordMaps();
-        loadReports()
-          .then((reports) => {
-            reports.forEach(([name, report]) => {
-              hydrateDataset(name, report);
-            });
+        Promise.all([loadEmbeddings(), loadReports()])
+          .then(([embeddingPayload, reports]) => {
+            if (Array.isArray(embeddingPayload)) {
+              embeddingPayload.forEach(([name, payload]) => {
+                hydrateEmbeddingMap(name, payload);
+              });
+              rebuildCrossDeckEmbeddingMap();
+            }
+            if (Array.isArray(reports)) {
+              reports.forEach(([name, report]) => {
+                hydrateDataset(name, report);
+              });
+            }
             if (!state.data.has(state.dataset) && state.data.size) {
               const firstDataset = state.data.keys().next().value;
               if (firstDataset) {
