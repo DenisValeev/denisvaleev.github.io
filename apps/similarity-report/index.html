@@ -1538,31 +1538,82 @@
         return floats;
       }
 
+      function getSnugGridSize(totalValues) {
+        if (!Number.isFinite(totalValues) || totalValues <= 0) {
+          return { rows: 0, columns: 0, overflow: 0 };
+        }
+        const maxFactor = Math.max(1, Math.floor(Math.sqrt(totalValues)));
+        let bestFit = null;
+        for (let factor = maxFactor; factor >= 1; factor -= 1) {
+          if (totalValues % factor !== 0) {
+            continue;
+          }
+          const paired = totalValues / factor;
+          const rows = Math.min(factor, paired);
+          const columns = Math.max(factor, paired);
+          const difference = columns - rows;
+          const aspect = rows > 0 ? columns / rows : columns;
+          if (
+            !bestFit ||
+            difference < bestFit.difference ||
+            (difference === bestFit.difference && aspect < bestFit.aspect)
+          ) {
+            bestFit = {
+              rows,
+              columns,
+              difference,
+              aspect,
+            };
+          }
+        }
+        if (bestFit) {
+          return {
+            rows: bestFit.rows,
+            columns: bestFit.columns,
+            overflow: 0,
+          };
+        }
+        const root = Math.sqrt(totalValues);
+        const minCandidate = Math.max(1, Math.floor(root) - 8);
+        const maxCandidate = Math.max(minCandidate, Math.ceil(root) + 8);
+        let fallback = {
+          rows: 1,
+          columns: totalValues,
+          overflow: Math.max(0, totalValues - 1),
+          score: Number.POSITIVE_INFINITY,
+        };
+        for (let candidateRows = minCandidate; candidateRows <= maxCandidate; candidateRows += 1) {
+          const candidateColumns = Math.ceil(totalValues / candidateRows);
+          const overflow = candidateColumns * candidateRows - totalValues;
+          const width = Math.max(candidateColumns, candidateRows);
+          const height = Math.min(candidateColumns, candidateRows);
+          const difference = width - height;
+          const aspect = height > 0 ? width / height : width;
+          const score = overflow * 4 + difference + Math.abs(aspect - 1);
+          if (score < fallback.score) {
+            fallback = {
+              rows: height,
+              columns: width,
+              overflow,
+              score,
+            };
+          }
+        }
+        return {
+          rows: fallback.rows,
+          columns: fallback.columns,
+          overflow: fallback.overflow,
+        };
+      }
+
       function createEmbeddingPreview(values) {
         if (!values || !values.length) {
           return null;
         }
         const totalValues = values.length;
-        const targetAspect = 16 / 9;
-        const estimatedColumns = Math.sqrt(totalValues * targetAspect);
-        const minColumns = Math.max(1, Math.floor(estimatedColumns) - 2);
-        const maxColumns = Math.max(minColumns, Math.ceil(estimatedColumns) + 2);
-        let columns = Math.max(1, Math.ceil(estimatedColumns));
-        let rows = Math.max(1, Math.ceil(totalValues / columns));
-        let bestScore = Number.POSITIVE_INFINITY;
-        for (let candidateColumns = minColumns; candidateColumns <= maxColumns; candidateColumns += 1) {
-          const candidateRows = Math.max(1, Math.ceil(totalValues / candidateColumns));
-          const ratio = candidateColumns / candidateRows;
-          const ratioDelta = Math.abs(ratio - targetAspect);
-          const overflow = candidateColumns * candidateRows - totalValues;
-          const overflowPenalty = overflow > 0 ? overflow / totalValues : 0;
-          const score = ratioDelta + overflowPenalty;
-          if (score < bestScore) {
-            columns = candidateColumns;
-            rows = candidateRows;
-            bestScore = score;
-          }
-        }
+        const { rows: rawRows, columns: rawColumns } = getSnugGridSize(totalValues);
+        const rows = Math.max(1, Math.round(rawRows || 0));
+        const columns = Math.max(1, Math.round(rawColumns || 0));
         const cellSize = 10;
         const pixelWidth = columns * cellSize;
         const pixelHeight = rows * cellSize;
@@ -1625,6 +1676,8 @@
           width: pixelWidth,
           height: pixelHeight,
           aspect,
+          columns,
+          rows,
         };
       }
 
@@ -1679,6 +1732,28 @@
               entry.previewWidth = preview.width;
               entry.previewHeight = preview.height;
               entry.previewAspect = Number.isFinite(preview.aspect) && preview.aspect > 0 ? preview.aspect : 0;
+              if (Number.isFinite(preview.columns) && preview.columns > 0) {
+                entry.previewColumns = preview.columns;
+              }
+              if (Number.isFinite(preview.rows) && preview.rows > 0) {
+                entry.previewRows = preview.rows;
+              }
+            }
+          }
+          if (
+            !Number.isFinite(entry.previewColumns) ||
+            entry.previewColumns <= 0 ||
+            !Number.isFinite(entry.previewRows) ||
+            entry.previewRows <= 0
+          ) {
+            const grid = getSnugGridSize(entry.values.length);
+            if (grid) {
+              if (Number.isFinite(grid.columns) && grid.columns > 0) {
+                entry.previewColumns = grid.columns;
+              }
+              if (Number.isFinite(grid.rows) && grid.rows > 0) {
+                entry.previewRows = grid.rows;
+              }
             }
           }
         }
@@ -1739,16 +1814,41 @@
         const id = record && record.id ? record.id : fallbackId;
         image.alt = id ? `Embedding preview for ${id}` : 'Embedding preview';
         applyPreviewAspect(figure, image, entry);
-        figure.title = entry.model
-          ? `${entry.model} • ${entry.dimensions ? entry.dimensions.toLocaleString() : '—'} dims`
-          : entry.dimensions
-          ? `${entry.dimensions.toLocaleString()} dims`
-          : 'Embedding preview';
+        const dimsLabel = entry.dimensions && entry.dimensions > 0 ? `${entry.dimensions.toLocaleString()} dims` : '';
+        const gridLabel = formatPreviewGrid(entry);
+        const captionParts = [];
+        if (gridLabel) {
+          captionParts.push(gridLabel);
+        }
+        if (dimsLabel) {
+          captionParts.push(dimsLabel);
+        }
+        if (entry.model) {
+          captionParts.push(entry.model);
+        }
+        const captionText = captionParts.length ? captionParts.join(' • ') : 'Embedding';
+        figure.title = captionParts.length ? captionText : 'Embedding preview';
         figure.appendChild(image);
         const caption = document.createElement('figcaption');
-        caption.textContent = entry.dimensions ? `${entry.dimensions.toLocaleString()} dims` : 'Embedding';
+        caption.textContent = captionText;
         figure.appendChild(caption);
         return figure;
+      }
+
+      function formatPreviewGrid(entry) {
+        if (!entry) {
+          return '';
+        }
+        const rows =
+          Number.isFinite(entry.previewRows) && entry.previewRows > 0 ? Math.round(entry.previewRows) : 0;
+        const columns =
+          Number.isFinite(entry.previewColumns) && entry.previewColumns > 0
+            ? Math.round(entry.previewColumns)
+            : 0;
+        if (!rows || !columns) {
+          return '';
+        }
+        return `${rows.toLocaleString()} × ${columns.toLocaleString()} grid`;
       }
 
       function formatDimensions(dimensions) {
@@ -1782,19 +1882,27 @@
             image.alt = id ? `Embedding preview for ${id}` : 'Embedding preview';
             applyPreviewAspect(figure, image, entry);
             const dimsLabel = formatDimensions(entry.dimensions);
-            if (entry.model && dimsLabel !== '—') {
-              caption.textContent = `${dimsLabel} • ${entry.model}`;
-            } else if (entry.model) {
-              caption.textContent = entry.model;
-            } else {
-              caption.textContent = dimsLabel;
+            const gridLabel = formatPreviewGrid(entry);
+            const captionParts = [];
+            if (gridLabel) {
+              captionParts.push(gridLabel);
             }
+            if (dimsLabel !== '—') {
+              captionParts.push(dimsLabel);
+            }
+            if (entry.model) {
+              captionParts.push(entry.model);
+            }
+            const captionText = captionParts.length ? captionParts.join(' • ') : 'Embedding preview';
+            caption.textContent = captionText;
+            figure.title = captionText;
           } else {
             figure.hidden = true;
             image.removeAttribute('src');
             image.alt = '';
             applyPreviewAspect(figure, image, null);
             caption.textContent = 'Embedding preview';
+            figure.title = 'Embedding preview';
           }
         }
         if (techDetails) {
@@ -1817,7 +1925,15 @@
               }
             }
             if (dimensions) {
-              dimensions.textContent = formatDimensions(entry.dimensions);
+              const dimsLabel = formatDimensions(entry.dimensions);
+              const gridLabel = formatPreviewGrid(entry);
+              if (gridLabel && dimsLabel !== '—') {
+                dimensions.textContent = `${dimsLabel} (${gridLabel})`;
+              } else if (gridLabel) {
+                dimensions.textContent = gridLabel;
+              } else {
+                dimensions.textContent = dimsLabel;
+              }
             }
             if (updated) {
               updated.textContent = formatDateTime(entry.updatedAt);
@@ -2063,6 +2179,8 @@
             previewWidth: 0,
             previewHeight: 0,
             previewAspect: 0,
+            previewColumns: 0,
+            previewRows: 0,
           });
         });
         store[dataset] = map;
