@@ -20,7 +20,7 @@ test.describe('Cosine Similarity Lab', () => {
 
     const sliderMinAttr = await slider.getAttribute('min');
     const sliderMin = Number.parseFloat(sliderMinAttr || '0');
-    expect(sliderMin).toBeGreaterThanOrEqual(0.7);
+    expect(sliderMin).toBeGreaterThanOrEqual(0.5);
     expect(sliderMin).toBeLessThanOrEqual(0.95);
 
     const labelValue = parseLocaleNumber(await sliderLabel.textContent());

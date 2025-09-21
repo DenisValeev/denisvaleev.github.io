@@ -712,7 +712,7 @@
             Minimum cosine similarity: <strong data-threshold-label>0.00</strong>
             <span class="slider-floor" data-threshold-floor hidden>(floor —)</span>
           </span>
-          <input type="range" min="0.7" max="0.95" step="0.001" value="0.7" data-min-similarity>
+          <input type="range" min="0.5" max="0.95" step="0.001" value="0.5" data-min-similarity>
         </label>
         <label>
           <span>Find by ID or text</span>
@@ -727,7 +727,7 @@
         </article>
         <article class="stat-card">
           <h2>Report baseline</h2>
-          <div class="stat-value"><span data-baseline>0.70</span></div>
+          <div class="stat-value"><span data-baseline>0.50</span></div>
           <p class="stat-meta">Threshold baked into the report</p>
         </article>
         <article class="stat-card">
@@ -918,7 +918,7 @@
 
       const state = {
         dataset: 'jokes',
-        minSimilarity: parseFloat(slider.value) || 0.7,
+        minSimilarity: parseFloat(slider.value) || 0.5,
         search: '',
         sortKey: 'similarity',
         sortDirection: 'desc',
@@ -1544,7 +1544,7 @@
       }
 
       function hydrateDataset(name, report) {
-        const fallbackThreshold = report && typeof report.threshold === 'number' ? report.threshold : 0.7;
+        const fallbackThreshold = report && typeof report.threshold === 'number' ? report.threshold : 0.5;
         const matches = report && Array.isArray(report.matches) ? report.matches : [];
         const bounds = computeSimilarityBounds(matches);
         const hasMatches = matches.length > 0;
