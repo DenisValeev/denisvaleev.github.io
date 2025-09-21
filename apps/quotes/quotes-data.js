@@ -2720,6 +2720,666 @@ window.quotesData = [
         "author": "Unknown"
       }
     ]
+  },
+  {
+    "id": "creativity",
+    "label": "Creativity",
+    "quotes": [
+      {
+        "id": "creativity-01",
+        "text": "The industrial landscape is already littered with remains of once successful companies that could not adapt their strategic vision to altered conditions of competition.",
+        "author": "Abernathy"
+      },
+      {
+        "id": "creativity-02",
+        "text": "Imagination is more important than knowledge. For while knowledge defines all we currently know and understand, imagination points to all we might yet discover and create.",
+        "author": "Albert Einstein"
+      },
+      {
+        "id": "creativity-03",
+        "text": "The art of progress is to preserve order amid change, and to preserve change amid order.",
+        "author": "Alfred Whitehead"
+      },
+      {
+        "id": "creativity-04",
+        "text": "How wonderful it is that nobody need wait a single moment before starting to improve the world.",
+        "author": "Anne Frank"
+      },
+      {
+        "id": "creativity-05",
+        "text": "It is only with the heart that one can see rightly, what is essential is invisible to the eye.",
+        "author": "Antoine de Saint-Exupery"
+      },
+      {
+        "id": "creativity-06",
+        "text": "Every man takes the limits of his own field of vision for the limits of the world.",
+        "author": "Arthur Schopenhauer"
+      },
+      {
+        "id": "creativity-07",
+        "text": "When I dare to be powerful, to use my strength in the service of my vision, then it becomes less and less important whether I am afraid.",
+        "author": "Audre Lorde"
+      },
+      {
+        "id": "creativity-08",
+        "text": "The heart has its reasons which reason knows not of.",
+        "author": "Blaise Pascal"
+      },
+      {
+        "id": "creativity-09",
+        "text": "To hell with circumstances; I create opportunities.",
+        "author": "Bruce Lee"
+      },
+      {
+        "id": "creativity-10",
+        "text": "The way is not in the sky. The way is in the heart.",
+        "author": "Buddha"
+      },
+      {
+        "id": "creativity-11",
+        "text": "Sadness may be part of life but there is no need to let it dominate your entire life.",
+        "author": "Byron Pulsifer"
+      },
+      {
+        "id": "creativity-12",
+        "text": "Though no one can go back and make a brand new start, anyone can start from now and make a brand new ending.",
+        "author": "Carl Bard"
+      }
+    ]
+  },
+  {
+    "id": "resilience",
+    "label": "Resilience",
+    "quotes": [
+      {
+        "id": "resilience-01",
+        "text": "One who gains strength by overcoming obstacles possesses the only strength which can overcome adversity.",
+        "author": "Albert Schweitzer"
+      },
+      {
+        "id": "resilience-02",
+        "text": "Life shrinks or expands in proportion to one's courage.",
+        "author": "Anais Nin"
+      },
+      {
+        "id": "resilience-03",
+        "text": "Man cannot discover new oceans unless he has the courage to lose sight of the shore.",
+        "author": "André Gide"
+      },
+      {
+        "id": "resilience-04",
+        "text": "All our talents increase in the using, and the every faculty, both good and bad, strengthen by exercise.",
+        "author": "Anne Bronte"
+      },
+      {
+        "id": "resilience-05",
+        "text": "Moral excellence comes about as a result of habit. We become just by doing just acts, temperate by doing temperate acts, brave by doing brave acts.",
+        "author": "Aristotle"
+      },
+      {
+        "id": "resilience-06",
+        "text": "Without courage, wisdom bears no fruit.",
+        "author": "Baltasar Gracian"
+      },
+      {
+        "id": "resilience-07",
+        "text": "We need to find the courage to say NO to the things and people that are not serving us if we want to rediscover ourselves and live our lives with authenticity.",
+        "author": "Barbara De Angelis"
+      },
+      {
+        "id": "resilience-08",
+        "text": "Through perseverance many people win success out of what seemed destined to be certain failure.",
+        "author": "Benjamin Disraeli"
+      },
+      {
+        "id": "resilience-09",
+        "text": "Yesterday I dared to struggle. Today I dare to win.",
+        "author": "Bernadette Devlin"
+      },
+      {
+        "id": "resilience-10",
+        "text": "Our passion is our strength.",
+        "author": "Billie Armstrong"
+      },
+      {
+        "id": "resilience-11",
+        "text": "Mistakes are always forgivable, if one has the courage to admit them.",
+        "author": "Bruce Lee"
+      },
+      {
+        "id": "resilience-12",
+        "text": "In separateness lies the world's great misery, in compassion lies the world's true strength.",
+        "author": "Buddha"
+      }
+    ]
+  },
+  {
+    "id": "leadership",
+    "label": "Leadership",
+    "quotes": [
+      {
+        "id": "leadership-01",
+        "text": "Life is a gift, and it offers us the privilege, opportunity, and responsibility to give something back by becoming more",
+        "author": "Anthony Robbins"
+      },
+      {
+        "id": "leadership-02",
+        "text": "Meditation brings wisdom; lack of mediation leaves ignorance. Know well what leads you forward and what hold you back, and choose the path that leads to wisdom.",
+        "author": "Buddha"
+      },
+      {
+        "id": "leadership-03",
+        "text": "Responsibility is not inherited, it is a choice that everyone needs to make at some point in their life.",
+        "author": "Byron Pulsifer"
+      },
+      {
+        "id": "leadership-04",
+        "text": "Everything that irritates us about others can lead us to an understanding about ourselves.",
+        "author": "Carl Jung"
+      },
+      {
+        "id": "leadership-05",
+        "text": "The road leading to a goal does not separate you from the destination; it is essentially a part of it.",
+        "author": "Charles DeLint"
+      },
+      {
+        "id": "leadership-06",
+        "text": "There are two primary choices in life: to accept conditions as they exist, or accept the responsibility for changing them.",
+        "author": "Denis Waitley"
+      },
+      {
+        "id": "leadership-07",
+        "text": "Character cannot be developed in ease and quiet. Only through experience of trial and suffering can the soul be strengthened, vision cleared, ambition inspired, and success achieved.",
+        "author": "Helen Keller"
+      },
+      {
+        "id": "leadership-08",
+        "text": "Vision without action is a daydream. Action without vision is a nightmare.",
+        "author": "Japanese proverb"
+      },
+      {
+        "id": "leadership-09",
+        "text": "A leader or a man of action in a crisis almost always acts subconsciously and then thinks of the reasons for his action.",
+        "author": "Jawaharlal Nehru"
+      },
+      {
+        "id": "leadership-10",
+        "text": "If your actions inspire others to dream more, learn more, do more and become more, you are a leader.",
+        "author": "John Quincy Adams"
+      },
+      {
+        "id": "leadership-11",
+        "text": "To lead people walk behind them.",
+        "author": "Lao Tzu"
+      },
+      {
+        "id": "leadership-12",
+        "text": "I allow my intuition to lead my path.",
+        "author": "Manuel Puig"
+      }
+    ]
+  },
+  {
+    "id": "mindfulness",
+    "label": "Mindfulness",
+    "quotes": [
+      {
+        "id": "mindfulness-01",
+        "text": "Most people are about as happy as they make up their minds to be",
+        "author": "Abraham Lincoln"
+      },
+      {
+        "id": "mindfulness-02",
+        "text": "What is necessary to change a person is to change his awareness of himself.",
+        "author": "Abraham Maslow"
+      },
+      {
+        "id": "mindfulness-03",
+        "text": "If you let go a little, you will have a little peace. If you let go a lot, you will have a lot of peace.",
+        "author": "Ajahn Chah"
+      },
+      {
+        "id": "mindfulness-04",
+        "text": "I believe that a simple and unassuming manner of life is best for everyone, best both for the body and the mind.",
+        "author": "Albert Einstein"
+      },
+      {
+        "id": "mindfulness-05",
+        "text": "No person is your friend who demands your silence, or denies your right to grow.",
+        "author": "Alice Walker"
+      },
+      {
+        "id": "mindfulness-06",
+        "text": "The dream was always running ahead of me. To catch up, to live for a moment in unison with it, that was the miracle.",
+        "author": "Anais Nin"
+      },
+      {
+        "id": "mindfulness-07",
+        "text": "I know but one freedom and that is the freedom of the mind.",
+        "author": "Antoine de Saint-Exupery"
+      },
+      {
+        "id": "mindfulness-08",
+        "text": "It is the mark of an educated mind to be able to entertain a thought without accepting it.",
+        "author": "Aristotle"
+      },
+      {
+        "id": "mindfulness-09",
+        "text": "Yesterday is history. Tomorrow is a mystery. And today? Today is a gift. That is why we call it the present.",
+        "author": "Babatunde Olatunji"
+      },
+      {
+        "id": "mindfulness-10",
+        "text": "Peace comes from within. Do not seek it without.",
+        "author": "Buddha"
+      },
+      {
+        "id": "mindfulness-11",
+        "text": "Many people think of prosperity that concerns money only to forget that true prosperity is of the mind.",
+        "author": "Byron Pulsifer"
+      },
+      {
+        "id": "mindfulness-12",
+        "text": "Through pride we are ever deceiving ourselves. But deep down below the surface of the average conscience a still, small voice says to us, Something is out of tune.",
+        "author": "Carl Jung"
+      }
+    ]
+  },
+  {
+    "id": "growth",
+    "label": "Growth",
+    "quotes": [
+      {
+        "id": "growth-01",
+        "text": "Life is just a chance to grow a soul.",
+        "author": "A. Powell Davies"
+      },
+      {
+        "id": "growth-02",
+        "text": "You have to do your own growing no matter how tall your grandfather was.",
+        "author": "Abraham Lincoln"
+      },
+      {
+        "id": "growth-03",
+        "text": "In the depth of winter, I finally learned that there was within me an invincible summer.",
+        "author": "Albert Camus"
+      },
+      {
+        "id": "growth-04",
+        "text": "Learn from yesterday, live for today, hope for tomorrow.",
+        "author": "Albert Einstein"
+      },
+      {
+        "id": "growth-05",
+        "text": "Learn all you can from the mistakes of others. You won't have time to make them all yourself.",
+        "author": "Alfred Sheinwold"
+      },
+      {
+        "id": "growth-06",
+        "text": "From little acorns mighty oaks do grow.",
+        "author": "American proverb"
+      },
+      {
+        "id": "growth-07",
+        "text": "Love at first sight is easy to understand; its when two people have been looking at each other for a lifetime that it becomes a miracle.",
+        "author": "Amy Bloom"
+      },
+      {
+        "id": "growth-08",
+        "text": "You learn to speak by speaking, to study by studying, to run by running, to work by working; in just the same way, you learn to love by loving.",
+        "author": "Anatole France"
+      },
+      {
+        "id": "growth-09",
+        "text": "They say that time changes things, but you actually have to change them yourself.",
+        "author": "Andy Warhol"
+      },
+      {
+        "id": "growth-10",
+        "text": "No one has ever become poor by giving.",
+        "author": "Anne Frank"
+      },
+      {
+        "id": "growth-11",
+        "text": "Your ability to learn faster than your competition is your only sustainable competitive advantage.",
+        "author": "Arie de Gues"
+      },
+      {
+        "id": "growth-12",
+        "text": "Change in all things is sweet.",
+        "author": "Aristotle"
+      }
+    ]
+  },
+  {
+    "id": "joy",
+    "label": "Joy & Smiles",
+    "quotes": [
+      {
+        "id": "joy-01",
+        "text": "Smile, breathe, and go slowly.",
+        "author": "Thich Nhat Hanh"
+      },
+      {
+        "id": "joy-02",
+        "text": "To enjoy life, we must touch much of it lightly.",
+        "author": "Voltaire"
+      },
+      {
+        "id": "joy-03",
+        "text": "Don't cry because it's over. Smile because it happened.",
+        "author": "Dr. Seuss"
+      },
+      {
+        "id": "joy-04",
+        "text": "Time you enjoy wasting, was not wasted.",
+        "author": "John Lennon"
+      },
+      {
+        "id": "joy-05",
+        "text": "The best way to pay for a lovely moment is to enjoy it.",
+        "author": "Richard Bach"
+      },
+      {
+        "id": "joy-06",
+        "text": "Before you put on a frown, make absolutely sure there are no smiles available.",
+        "author": "Jim Beggs"
+      },
+      {
+        "id": "joy-07",
+        "text": "If you spend your whole life waiting for the storm, you'll never enjoy the sunshine.",
+        "author": "Morris West"
+      },
+      {
+        "id": "joy-08",
+        "text": "Every time you smile at someone, it is an action of love, a gift to that person, a beautiful thing.",
+        "author": "Mother Teresa"
+      },
+      {
+        "id": "joy-09",
+        "text": "Sometimes your joy is the source of your smile, but sometimes your smile can be the source of your joy.",
+        "author": "Thich Nhat Hanh"
+      },
+      {
+        "id": "joy-10",
+        "text": "Happiness is not in the mere possession of money; it lies in the joy of achievement, in the thrill of creative effort.",
+        "author": "Franklin Roosevelt"
+      },
+      {
+        "id": "joy-11",
+        "text": "Not what we have but what we enjoy constitutes our abundance.",
+        "author": "John Petit-Senn"
+      },
+      {
+        "id": "joy-12",
+        "text": "When you dance, your purpose is not to get to a certain place on the floor. It's to enjoy each step along the way.",
+        "author": "Wayne Dyer"
+      }
+    ]
+  },
+  {
+    "id": "curiosity",
+    "label": "Curiosity & Wonder",
+    "quotes": [
+      {
+        "id": "curiosity-01",
+        "text": "From error to error one discovers the entire truth.",
+        "author": "Sigmund Freud"
+      },
+      {
+        "id": "curiosity-02",
+        "text": "Wisdom begins in wonder.",
+        "author": "Socrates"
+      },
+      {
+        "id": "curiosity-03",
+        "text": "A prudent question is one half of wisdom.",
+        "author": "Francis Bacon"
+      },
+      {
+        "id": "curiosity-04",
+        "text": "The beginning of knowledge is the discovery of something we do not understand.",
+        "author": "Frank Herbert"
+      },
+      {
+        "id": "curiosity-05",
+        "text": "One of the advantages of being disorderly is that one is constantly making exciting discoveries.",
+        "author": "A. A. Milne"
+      },
+      {
+        "id": "curiosity-06",
+        "text": "Successful people ask better questions, and as a result, they get better answers.",
+        "author": "Tony Robbins"
+      },
+      {
+        "id": "curiosity-07",
+        "text": "You can tell whether a man is clever by his answers. You can tell whether a man is wise by his questions.",
+        "author": "Naguib Mahfouz"
+      },
+      {
+        "id": "curiosity-08",
+        "text": "A wise man can learn more from a foolish question than a fool can learn from a wise answer.",
+        "author": "Bruce Lee"
+      },
+      {
+        "id": "curiosity-09",
+        "text": "One does not discover new lands without consenting to lose sight of the shore for a very long time.",
+        "author": "André Gide"
+      },
+      {
+        "id": "curiosity-10",
+        "text": "The possession of knowledge does not kill the sense of wonder and mystery. There is always more mystery.",
+        "author": "Anais Nin"
+      },
+      {
+        "id": "curiosity-11",
+        "text": "How wonderful that we have met with a paradox. Now we have some hope of making progress.",
+        "author": "Niels Bohr"
+      },
+      {
+        "id": "curiosity-12",
+        "text": "This world, after all our science and sciences, is still a miracle; wonderful, inscrutable, magical and more, to whosoever will think of it.",
+        "author": "Thomas Carlyle"
+      }
+    ]
+  },
+  {
+    "id": "kindness",
+    "label": "Kindness & Compassion",
+    "quotes": [
+      {
+        "id": "kindness-01",
+        "text": "Be kind whenever possible. It is always possible.",
+        "author": "Dalai Lama"
+      },
+      {
+        "id": "kindness-02",
+        "text": "Kind words will unlock an iron door.",
+        "author": "Turkish proverb"
+      },
+      {
+        "id": "kindness-03",
+        "text": "Kind words do not cost much. Yet they accomplish much.",
+        "author": "Blaise Pascal"
+      },
+      {
+        "id": "kindness-04",
+        "text": "To forgive is to set a prisoner free and realize that prisoner was you.",
+        "author": "Lewis B. Smedes"
+      },
+      {
+        "id": "kindness-05",
+        "text": "Love and compassion open our own inner life, reducing stress, distrust and loneliness.",
+        "author": "Dalai Lama"
+      },
+      {
+        "id": "kindness-06",
+        "text": "I have just three things to teach: simplicity, patience, compassion. These three are your greatest treasures.",
+        "author": "Lao Tzu"
+      },
+      {
+        "id": "kindness-07",
+        "text": "Constant kindness can accomplish much. As the sun makes ice melt, kindness causes misunderstanding, mistrust, and hostility to evaporate.",
+        "author": "Albert Schweitzer"
+      },
+      {
+        "id": "kindness-08",
+        "text": "There is no need for temples, no need for complicated philosophies. My brain and my heart are my temples; my philosophy is kindness.",
+        "author": "Dalai Lama"
+      },
+      {
+        "id": "kindness-09",
+        "text": "Always be mindful of the kindness and not the faults of others.",
+        "author": "Buddha"
+      },
+      {
+        "id": "kindness-10",
+        "text": "The weak can never forgive. Forgiveness is the attribute of the strong.",
+        "author": "Mohandas Gandhi"
+      },
+      {
+        "id": "kindness-11",
+        "text": "Kindness is the golden chain by which society is bound together.",
+        "author": "Johann Wolfgang von Goethe"
+      },
+      {
+        "id": "kindness-12",
+        "text": "No act of kindness, no matter how small, is ever wasted.",
+        "author": "Aesop"
+      }
+    ]
+  },
+  {
+    "id": "gratitude",
+    "label": "Gratitude & Grace",
+    "quotes": [
+      {
+        "id": "gratitude-01",
+        "text": "Give thanks for the rain of life that propels us to reach new horizons.",
+        "author": "Byron Pulsifer"
+      },
+      {
+        "id": "gratitude-02",
+        "text": "We should all be thankful for those people who rekindle the inner spirit.",
+        "author": "Albert Schweitzer"
+      },
+      {
+        "id": "gratitude-03",
+        "text": "Let us be grateful to people who make us happy; they are the charming gardeners who make our souls blossom.",
+        "author": "Marcel Proust"
+      },
+      {
+        "id": "gratitude-04",
+        "text": "Appreciation is the highest form of prayer, for it acknowledges the presence of good wherever you shine the light of your thankful thoughts.",
+        "author": "Alan Cohen"
+      },
+      {
+        "id": "gratitude-05",
+        "text": "I would maintain that thanks are the highest form of thought, and that gratitude is happiness doubled by wonder.",
+        "author": "G. K. Chesterton"
+      },
+      {
+        "id": "gratitude-06",
+        "text": "To speak gratitude is courteous and pleasant, to enact gratitude is generous and noble, but to live gratitude is to touch Heaven.",
+        "author": "Johannes Gaertner"
+      },
+      {
+        "id": "gratitude-07",
+        "text": "Happiness cannot be travelled to, owned, earned, worn or consumed. Happiness is the spiritual experience of living every minute with love, grace and gratitude.",
+        "author": "Denis Waitley"
+      },
+      {
+        "id": "gratitude-08",
+        "text": "Some people are always grumbling because roses have thorns; I am thankful that thorns have roses.",
+        "author": "Alphonse Karr"
+      },
+      {
+        "id": "gratitude-09",
+        "text": "Saying thank you is more than good manners. It is good spirituality.",
+        "author": "Alfred Painter"
+      },
+      {
+        "id": "gratitude-10",
+        "text": "It is impossible to feel grateful and depressed in the same moment.",
+        "author": "Naomi Williams"
+      },
+      {
+        "id": "gratitude-11",
+        "text": "As we express our gratitude, we must never forget that the highest appreciation is not to utter words, but to live by them.",
+        "author": "John F. Kennedy"
+      },
+      {
+        "id": "gratitude-12",
+        "text": "Gratitude is the fairest blossom which springs from the soul.",
+        "author": "Henry Beecher"
+      }
+    ]
+  },
+  {
+    "id": "purpose",
+    "label": "Purpose & Dreams",
+    "quotes": [
+      {
+        "id": "purpose-01",
+        "text": "Difficulties increase the nearer we get to the goal.",
+        "author": "Johann Wolfgang von Goethe"
+      },
+      {
+        "id": "purpose-02",
+        "text": "Nothing happens unless first we dream.",
+        "author": "Carl Sandburg"
+      },
+      {
+        "id": "purpose-03",
+        "text": "Goals are the fuel in the furnace of achievement.",
+        "author": "Brian Tracy"
+      },
+      {
+        "id": "purpose-04",
+        "text": "A goal without a plan is just a wish.",
+        "author": "Larry Elder"
+      },
+      {
+        "id": "purpose-05",
+        "text": "A goal is a dream with a deadline.",
+        "author": "Napoleon Hill"
+      },
+      {
+        "id": "purpose-06",
+        "text": "Set your goals high, and don't stop till you get there.",
+        "author": "Bo Jackson"
+      },
+      {
+        "id": "purpose-07",
+        "text": "Do more than dream: work.",
+        "author": "William Arthur Ward"
+      },
+      {
+        "id": "purpose-08",
+        "text": "Who looks outside, dreams; who looks inside, awakes.",
+        "author": "Carl Jung"
+      },
+      {
+        "id": "purpose-09",
+        "text": "If you can dream it, you can do it.",
+        "author": "Walt Disney"
+      },
+      {
+        "id": "purpose-10",
+        "text": "To accomplish great things, we must dream as well as act.",
+        "author": "Anatole France"
+      },
+      {
+        "id": "purpose-11",
+        "text": "The secret of success is constancy to purpose.",
+        "author": "Benjamin Disraeli"
+      },
+      {
+        "id": "purpose-12",
+        "text": "The future belongs to those who believe in the beauty of their dreams.",
+        "author": "Eleanor Roosevelt"
+      }
+    ]
   }
 ];
 
