@@ -2803,8 +2803,8 @@ window.quotesData = [
       },
       {
         "id": "resilience-03",
-        "text": "Man cannot discover new oceans unless he has the courage to lose sight of the shore.",
-        "author": "André Gide"
+        "text": "Fall seven times, stand up eight.",
+        "author": "Japanese Proverb"
       },
       {
         "id": "resilience-04",
@@ -3057,8 +3057,8 @@ window.quotesData = [
     "quotes": [
       {
         "id": "joy-01",
-        "text": "Smile, breathe, and go slowly.",
-        "author": "Thich Nhat Hanh"
+        "text": "Joy does not simply happen to us. We have to choose joy and keep choosing it every day.",
+        "author": "Henri J.M. Nouwen"
       },
       {
         "id": "joy-02",
@@ -3067,8 +3067,8 @@ window.quotesData = [
       },
       {
         "id": "joy-03",
-        "text": "Don't cry because it's over. Smile because it happened.",
-        "author": "Dr. Seuss"
+        "text": "Find a place inside where there's joy, and the joy will burn out the pain.",
+        "author": "Joseph Campbell"
       },
       {
         "id": "joy-04",
@@ -3082,17 +3082,17 @@ window.quotesData = [
       },
       {
         "id": "joy-06",
-        "text": "Before you put on a frown, make absolutely sure there are no smiles available.",
-        "author": "Jim Beggs"
+        "text": "Scatter joy.",
+        "author": "Ralph Waldo Emerson"
       },
       {
         "id": "joy-07",
-        "text": "If you spend your whole life waiting for the storm, you'll never enjoy the sunshine.",
-        "author": "Morris West"
+        "text": "Find ecstasy in life; the mere sense of living is joy enough.",
+        "author": "Emily Dickinson"
       },
       {
         "id": "joy-08",
-        "text": "Every time you smile at someone, it is an action of love, a gift to that person, a beautiful thing.",
+        "text": "Joy is a net of love by which you can catch souls.",
         "author": "Mother Teresa"
       },
       {
@@ -3102,8 +3102,8 @@ window.quotesData = [
       },
       {
         "id": "joy-10",
-        "text": "Happiness is not in the mere possession of money; it lies in the joy of achievement, in the thrill of creative effort.",
-        "author": "Franklin Roosevelt"
+        "text": "Joy is a decision, a really brave one, about how you are going to respond to life.",
+        "author": "Wess Stafford"
       },
       {
         "id": "joy-11",
@@ -3138,8 +3138,8 @@ window.quotesData = [
       },
       {
         "id": "curiosity-04",
-        "text": "The beginning of knowledge is the discovery of something we do not understand.",
-        "author": "Frank Herbert"
+        "text": "Curiosity is the wick in the candle of learning.",
+        "author": "William Arthur Ward"
       },
       {
         "id": "curiosity-05",
@@ -3244,8 +3244,8 @@ window.quotesData = [
       },
       {
         "id": "kindness-12",
-        "text": "No act of kindness, no matter how small, is ever wasted.",
-        "author": "Aesop"
+        "text": "Kindness is a language which the deaf can hear and the blind can see.",
+        "author": "Mark Twain"
       }
     ]
   },
@@ -3326,13 +3326,13 @@ window.quotesData = [
       },
       {
         "id": "purpose-02",
-        "text": "Nothing happens unless first we dream.",
-        "author": "Carl Sandburg"
+        "text": "The meaning of life is to find your gift. The purpose of life is to give it away.",
+        "author": "Pablo Picasso"
       },
       {
         "id": "purpose-03",
-        "text": "Goals are the fuel in the furnace of achievement.",
-        "author": "Brian Tracy"
+        "text": "Efforts and courage are not enough without purpose and direction.",
+        "author": "John F. Kennedy"
       },
       {
         "id": "purpose-04",

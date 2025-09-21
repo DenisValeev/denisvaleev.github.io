@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2025-09-21T02:55:34.979Z",
+    "generatedAt": "2025-09-21T03:07:10.416Z",
     "total": 650,
     "categories": 22,
     "hashAlgorithm": "sha256",
@@ -5463,8 +5463,8 @@
       "embedding": {
         "status": "ready",
         "model": "fake-64",
-        "vectorSha256": "fd2d52aa03ac006feb5680f2e2668bda9c76120cdb0b36e55833dca2124980d6",
-        "updatedAt": "2025-09-20T22:28:15.453Z"
+        "vectorSha256": "dd5175bfe9cf353d3d577d13ef1c358626bd7d69c6f3b4ea59e93d60b86f8a8f",
+        "updatedAt": "2025-09-21T03:05:51.944Z"
       }
     },
     "travel-03": {
@@ -9555,8 +9555,8 @@
       "embedding": {
         "status": "ready",
         "model": "fake-64",
-        "vectorSha256": "3720431a7182267965ab267e6ec345b0793ba7e1993648f2cc814e79cd43f537",
-        "updatedAt": "2025-09-20T22:28:15.458Z"
+        "vectorSha256": "ef17660241701d327207cc049e093a7c116e1a1b04bfcc4e402c6716bd41a106",
+        "updatedAt": "2025-09-21T03:05:51.945Z"
       }
     },
     "love-06": {
@@ -10215,8 +10215,8 @@
       "embedding": {
         "status": "ready",
         "model": "fake-64",
-        "vectorSha256": "7a5890ffdfa4894eb0abf359989c3727091ba84bf5301fc4649850e224745f95",
-        "updatedAt": "2025-09-20T22:28:15.459Z"
+        "vectorSha256": "c877091d4c9aa08ac4e6ad2a00c0a6eb727ec1cd7b58f1cddd73f7b65dc6dc4f",
+        "updatedAt": "2025-09-21T03:05:51.945Z"
       }
     },
     "love-36": {
@@ -11687,10 +11687,10 @@
         "sequence": 1
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "43791e759f3291371ff0352e6dcff668f6158e43b975cbb268eab78f588a9250",
+        "updatedAt": "2025-09-21T03:05:51.945Z"
       }
     },
     "creativity-02": {
@@ -11709,10 +11709,10 @@
         "sequence": 2
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "e9de781d02d54ba3d8336ef403ddcd3bd04d232ff3d409bdc907a258b07f7c9a",
+        "updatedAt": "2025-09-21T03:05:51.945Z"
       }
     },
     "creativity-03": {
@@ -11731,10 +11731,10 @@
         "sequence": 3
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "2a4c052290960861cef4dd8979a66e1d5b9db3432c8609e578aa872d6f63c67d",
+        "updatedAt": "2025-09-21T03:05:51.945Z"
       }
     },
     "creativity-04": {
@@ -11753,10 +11753,10 @@
         "sequence": 4
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "745ad92f5aeb793b0e985e2b8a7d8f32b2391e936de18921810548a4f435ad5c",
+        "updatedAt": "2025-09-21T03:05:51.946Z"
       }
     },
     "creativity-05": {
@@ -11775,10 +11775,10 @@
         "sequence": 5
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "ff6bc611cf594079062ba65ce448c06c1020c0a7b09a5ada6e1c524f626ad8df",
+        "updatedAt": "2025-09-21T03:05:51.946Z"
       }
     },
     "creativity-06": {
@@ -11797,10 +11797,10 @@
         "sequence": 6
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "2c924347f59317fccfcae25bee9597665e0c02933465374e55a647651cf03667",
+        "updatedAt": "2025-09-21T03:05:51.947Z"
       }
     },
     "creativity-07": {
@@ -11819,10 +11819,10 @@
         "sequence": 7
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "5b9ab25cbec80379c94b746adcfefe62eaf771d52e5c13a25e2ae84b9b8d123b",
+        "updatedAt": "2025-09-21T03:05:51.947Z"
       }
     },
     "creativity-08": {
@@ -11841,10 +11841,10 @@
         "sequence": 8
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "781ff85747541690a88fe3128548dc51aedc8a0ab7f3a5a618bcf598f44c726f",
+        "updatedAt": "2025-09-21T03:05:51.947Z"
       }
     },
     "creativity-09": {
@@ -11863,10 +11863,10 @@
         "sequence": 9
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "3049bc80b878fab42024d5dfce6a183343fcf01f0de473a3cd570e9a253c98ca",
+        "updatedAt": "2025-09-21T03:05:51.947Z"
       }
     },
     "creativity-10": {
@@ -11885,10 +11885,10 @@
         "sequence": 10
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "39a4b9aa7b1dd115645d4c63ba26ef5144ee2f8b9137713a4c4a81c5ceefcc60",
+        "updatedAt": "2025-09-21T03:05:51.947Z"
       }
     },
     "creativity-11": {
@@ -11907,10 +11907,10 @@
         "sequence": 11
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "357e279d6e1bbb0e441731da1470f5e5fc0781f9ee93f5a50dda347f458f5f31",
+        "updatedAt": "2025-09-21T03:05:51.948Z"
       }
     },
     "creativity-12": {
@@ -11929,10 +11929,10 @@
         "sequence": 12
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "c580e53ccf245cd2900dd8fbda013ae98eeaef9cbb675bf843bc6a7636d77db6",
+        "updatedAt": "2025-09-21T03:05:51.948Z"
       }
     },
     "resilience-01": {
@@ -11951,10 +11951,10 @@
         "sequence": 1
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "797b5103c116ae3d1a23207ede8475a6d1d8187de71932bf44539fb64b201250",
+        "updatedAt": "2025-09-21T03:05:51.948Z"
       }
     },
     "resilience-02": {
@@ -11973,32 +11973,32 @@
         "sequence": 2
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "b68be5a8b7e4ce1a48e2a26cf976a9d40b7f81dd3084f413b07379127b33e02b",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
       }
     },
     "resilience-03": {
       "hashes": {
-        "text": "5ad140d30a634278b204540aa050942d3fb21866e83b0b1a5032c66405d903a1",
-        "author": "721e582a366549d874f98785108bdf7fb012f464a9296a49d7115f0ae41846db",
-        "combined": "c07e82c70ba2ad60f78ad3a81729dbed4ba27f4eb95fb58543b8d50a9a777263",
-        "tokenSignature": "andr-cannot-courage-discover-gide-has-he-lose-man-new-oceans-of-shore-sight-the-to-unless"
+        "text": "792c9ca9ccd6abe0feb80dcf96cce729fe5e4e9bd13df53542dca6fd789d8437",
+        "author": "26a7535e3e319fa5a4db9b3443fbd0911b07acb56baeff29007a2b8c418ed5a3",
+        "combined": "b49a4af434460ec9a2409e432726c5cc959ec0fee7f4181b0b48c561a9ea8379",
+        "tokenSignature": "eight-fall-japanese-proverb-seven-stand-times-up"
       },
       "lengths": {
-        "text": 84,
-        "author": 10
+        "text": 33,
+        "author": 16
       },
       "source": {
         "categoryId": "resilience",
         "sequence": 3
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "7659e7add19b9b89dee9883a98ddcea11a9dce5ed213d9c5f994f8eaf67ad38f",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
       }
     },
     "resilience-04": {
@@ -12017,10 +12017,10 @@
         "sequence": 4
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "845b25c142a3a6af4164b582d88b5114f348b8caea29432f70b4448bc08456db",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
       }
     },
     "resilience-05": {
@@ -12039,10 +12039,10 @@
         "sequence": 5
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "acd151fa315db9ba336cd73794643007efa83a88254db5236994cdbea7487fdf",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
       }
     },
     "resilience-06": {
@@ -12061,10 +12061,10 @@
         "sequence": 6
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "da19bd499f689353b4b27b985253d23d56c11520720e0e973eea47f1f86cb6fd",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
       }
     },
     "resilience-07": {
@@ -12083,10 +12083,10 @@
         "sequence": 7
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "7c62efae596782fe5460a4fd3d1307b51ecd10c15c1928b5c564335042a627d3",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
       }
     },
     "resilience-08": {
@@ -12105,10 +12105,10 @@
         "sequence": 8
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "4b43c3faed91f7b345a739fc0f282e3ed9651d66d5031eb9e115d43c1cfb2f75",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
       }
     },
     "resilience-09": {
@@ -12127,10 +12127,10 @@
         "sequence": 9
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "658922cd402b7982f5e1467ddd8278560b9d827e9de0c62ed2ef9002dea61904",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
       }
     },
     "resilience-10": {
@@ -12149,10 +12149,10 @@
         "sequence": 10
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "7985b394eb928cffe7d1ad9bee9e8f3950e30ac6c7a6b22881028fede052eb77",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
       }
     },
     "resilience-11": {
@@ -12171,10 +12171,10 @@
         "sequence": 11
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "fe980f42c693c70d45ea36855aec7d9a86f37ad2d6913ff249217a6ae97376e5",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
       }
     },
     "resilience-12": {
@@ -12193,10 +12193,10 @@
         "sequence": 12
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "bff3e5b88cfeed6c2399f023095a1818c75c058cdef59d6f08fce67a73e7efb5",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
       }
     },
     "leadership-01": {
@@ -12215,10 +12215,10 @@
         "sequence": 1
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "f012a76a0382611d48bbc0fdc81d86e89b02cfdd1271c4b0d72d92dc0f9068db",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
       }
     },
     "leadership-02": {
@@ -12237,10 +12237,10 @@
         "sequence": 2
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "24f4b919267d301ff0c42fab7c2ec79915ac27cd5a41512a4e9398db2c3803f5",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
       }
     },
     "leadership-03": {
@@ -12259,10 +12259,10 @@
         "sequence": 3
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "f91e8ee9dcb64563dec796ef35a2cb4b2e8d8b4b9a79166606ebbd4a4c325de9",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
       }
     },
     "leadership-04": {
@@ -12281,10 +12281,10 @@
         "sequence": 4
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "2045c2874a9b4150bf156e674da7226cdf6fde3ad7a586fdcc723d03c4562de3",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
       }
     },
     "leadership-05": {
@@ -12303,10 +12303,10 @@
         "sequence": 5
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "136e064887860517e394d32a9f4b8d400d35d8a9139297069500b9f9b7b1908a",
+        "updatedAt": "2025-09-21T03:05:51.951Z"
       }
     },
     "leadership-06": {
@@ -12325,10 +12325,10 @@
         "sequence": 6
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "d319f8236b3abb1be55b5d6b6653c7bbe091647fef1dbaebb2d143cfff3fce99",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "leadership-07": {
@@ -12347,10 +12347,10 @@
         "sequence": 7
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "40435421ed6a427cf70a5f992327c427c233b126874b2f7e77623883623f1497",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "leadership-08": {
@@ -12369,10 +12369,10 @@
         "sequence": 8
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "450d334a54c91be5ebc3fef5bac2529b37254af90fadf8345f412da133bf7a23",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "leadership-09": {
@@ -12391,10 +12391,10 @@
         "sequence": 9
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "fdc569a4071786778d2c8aa4c02aa174c84859112d9f4f457d838dabfd500893",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "leadership-10": {
@@ -12413,10 +12413,10 @@
         "sequence": 10
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "c79ae44ef920eefdbf8c867cf52f83b8f7c162bd92eaabc0a4bd956a15afaaaf",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "leadership-11": {
@@ -12435,10 +12435,10 @@
         "sequence": 11
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "6c332764a287ef9886e34e6641f7182da43b9ddfe9d42a1bc6da21280c04609f",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "leadership-12": {
@@ -12457,10 +12457,10 @@
         "sequence": 12
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "7c5a338edb5d5e67de4c6a97ea5dd7f30f1883265872ba7d4d6e554db2fc77b9",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "mindfulness-01": {
@@ -12479,10 +12479,10 @@
         "sequence": 1
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "e04fbb202680976715c7df3e8af9e0933c3f104d168208b13d043a5324d88ef8",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "mindfulness-02": {
@@ -12501,10 +12501,10 @@
         "sequence": 2
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "e424698253fa843a910fec4449ecb2e7dc365f0f3e6d2d8c4bb30a6ae61a380d",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "mindfulness-03": {
@@ -12523,10 +12523,10 @@
         "sequence": 3
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "5906d2364e2a4f4276b1580f9dd3b522ebf2d0736804e72b5cdbdc800ae74c66",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "mindfulness-04": {
@@ -12545,10 +12545,10 @@
         "sequence": 4
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "0334a648132f6bb6057da77f28448481ac70fcfd61a1f7eb35550c1c52ae8879",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "mindfulness-05": {
@@ -12567,10 +12567,10 @@
         "sequence": 5
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "72fe38ff643a8a8b3a4f70d77bc87524de43f10ad72895c0e32a085aee7e4fe7",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "mindfulness-06": {
@@ -12589,10 +12589,10 @@
         "sequence": 6
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "66a4723b8f755717575a7cfb9a7e66c4a95688965722037a3aa11cc74aab52af",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "mindfulness-07": {
@@ -12611,10 +12611,10 @@
         "sequence": 7
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "eeb3a037d20915e4e58f9346dce65aadef91a4fa1b2b332f5ff99fc2e01c1dc0",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "mindfulness-08": {
@@ -12633,10 +12633,10 @@
         "sequence": 8
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "3eafadd19e03e26152f7cfe07d2de1d7112ecf4424cea4bfe35b17359bc3e14d",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "mindfulness-09": {
@@ -12655,10 +12655,10 @@
         "sequence": 9
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "95eb23771fc60b20b287dc0fe01d3d6661f435c8af0fe8bbe6758e1075a4f274",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "mindfulness-10": {
@@ -12677,10 +12677,10 @@
         "sequence": 10
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "ac82eba326a7845cd3f967d77554ea41ffff97124c91fffe4e645f5dcea82f8f",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "mindfulness-11": {
@@ -12699,10 +12699,10 @@
         "sequence": 11
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "05a5fa7ea082d3b6ea053a7c77ae4064509678b8496dde696b817e155a6548fc",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "mindfulness-12": {
@@ -12721,10 +12721,10 @@
         "sequence": 12
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "4e06c24b6bb17242c0b24e3bbbcc3f736941e672e8161ba7df975bcc88f29805",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "growth-01": {
@@ -12743,10 +12743,10 @@
         "sequence": 1
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "5918c64c7b17d8cba746313a3810aa3469730192903d407e3173873f7b1bbb56",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "growth-02": {
@@ -12765,10 +12765,10 @@
         "sequence": 2
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "9796ffe46fc40e91c66a6b3a8bbdbb6d1d90bbdf6d88347e057477d8efa6e360",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "growth-03": {
@@ -12787,10 +12787,10 @@
         "sequence": 3
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "7c527a825d421815e615efd6776c9eb62a156624651b0ddda99efaa693167624",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "growth-04": {
@@ -12809,10 +12809,10 @@
         "sequence": 4
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "c35cf22773574c774519cc589a679f766baa94ca769a0e3958941b89bba4265d",
+        "updatedAt": "2025-09-21T03:05:51.952Z"
       }
     },
     "growth-05": {
@@ -12831,10 +12831,10 @@
         "sequence": 5
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "c87be9b714db9828b24d4412cdf2c9c8f606b806ad42de687718012ae34fc5e5",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
       }
     },
     "growth-06": {
@@ -12853,10 +12853,10 @@
         "sequence": 6
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "37a0b4edca56f7b31f6937af75127b84f5a3b23e9040e89d2e7681a5b37c189c",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
       }
     },
     "growth-07": {
@@ -12875,10 +12875,10 @@
         "sequence": 7
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "353c4ab09876fe40cc4bd54f32a80b09d38479802df1cec8f99d3a5356591571",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
       }
     },
     "growth-08": {
@@ -12897,10 +12897,10 @@
         "sequence": 8
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "6453ba147918abd98f15ff9547f7b0de079d433d67745018379a488877077c75",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
       }
     },
     "growth-09": {
@@ -12919,10 +12919,10 @@
         "sequence": 9
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "1c2bda31790a4a1d2be0427e747f8d262c6519f5087d8e9f83344e28ed2b2d15",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
       }
     },
     "growth-10": {
@@ -12941,10 +12941,10 @@
         "sequence": 10
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "8589811571a12a0257580187e13ef1f9ff0ebb9c1cfe2663698d6e892714424f",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
       }
     },
     "growth-11": {
@@ -12963,10 +12963,10 @@
         "sequence": 11
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "25c7f01244cdfb279191e6bf89852f0457d2ed0642fc19a8566302f5a01ff88e",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
       }
     },
     "growth-12": {
@@ -12985,32 +12985,32 @@
         "sequence": 12
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "43b963ec6de8ce308f93c288ea0b18ea365f9451ec35ac23cb86f47b5a33e565",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
       }
     },
     "joy-01": {
       "hashes": {
-        "text": "a268558a1a4f680133f9ed2987b38a0a889733189a85027b05020d29f31b2e6d",
-        "author": "45993a12c75f80b9c842b9592474077e5122c41e084003ed7d80f84935b8ca60",
-        "combined": "5e5a0ad2d7e2d6d95726fb59148811fd8344f86b11c0ca0728b12f58ff891f8e",
-        "tokenSignature": "and-breathe-go-hanh-nhat-slowly-smile-thich"
+        "text": "bff1256b5c59f5ec3cb91c5a5f2bf4c9f38bc117a28f330a6f4e8f6f9042bffe",
+        "author": "233397f653bfd5c21c8d7d18211facf78365280f03a80f8f373cafe1211492ff",
+        "combined": "80dc89d40268a43c83580a50248fb763598ccb0de7c2644b2a64f2db9f1e244d",
+        "tokenSignature": "and-choose-choosing-day-does-every-happen-have-henri-it-j-joy-keep-m-not-nouwen-simply-to-us-we"
       },
       "lengths": {
-        "text": 30,
-        "author": 15
+        "text": 87,
+        "author": 17
       },
       "source": {
         "categoryId": "joy",
         "sequence": 1
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "672e1776cf26af93237f8fb2bf426ff01c143ea2750c0ab0f1ae957bd682534f",
+        "updatedAt": "2025-09-21T03:05:51.953Z"
       }
     },
     "joy-02": {
@@ -13029,32 +13029,32 @@
         "sequence": 2
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "dead38bcdda174c69501d309dd7bb638aa5a2802eaeb7149e8baa58505e86c47",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
       }
     },
     "joy-03": {
       "hashes": {
-        "text": "b83cf0fe5ee384137a4f030ca4ccc7b4c28e0d4a758d0c878f28207148ab9791",
-        "author": "4d963a89b1d8a62d895bdab0e9525510c9743758e4fdd26092b631676f5e1caa",
-        "combined": "d2863f15caa71edb6be5672587939e67fb10925ca1a800c7f6d9de4363ec5897",
-        "tokenSignature": "because-cry-don-dr-happened-it-over-s-seuss-smile-t"
+        "text": "5852101668719ec5a9eb04795c94cfaa1f4061b371413710346654f0c94fc038",
+        "author": "b2eba9283f0122ced47ea614d43d80db2524129ef9e85c68fb856c406ec4ec71",
+        "combined": "67013316871734afa98de0843d65a95daec287142677a7de116fe9fedeb5fc7d",
+        "tokenSignature": "a-and-burn-campbell-find-inside-joseph-joy-out-pain-place-s-the-there-where-will"
       },
       "lengths": {
-        "text": 55,
-        "author": 9
+        "text": 74,
+        "author": 15
       },
       "source": {
         "categoryId": "joy",
         "sequence": 3
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "0bd825a73b8b7813dde0145e28af0804837289397d08a3c25f9b625ff9816b5f",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
       }
     },
     "joy-04": {
@@ -13073,10 +13073,10 @@
         "sequence": 4
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "43444dfa7db310a1b94dd4e6bd8f0eb2a55578abeaf4c2eb87f918916bb7ad93",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
       }
     },
     "joy-05": {
@@ -13095,65 +13095,65 @@
         "sequence": 5
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "ef2160965c5455217b2365dac8aca24ec929dc37930807255e61eb2f2087364a",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
       }
     },
     "joy-06": {
       "hashes": {
-        "text": "fa128731bd944f65dd673341e81e27974da976f1ecc478468945482d270bde1a",
-        "author": "404e99af22014db108daa322697e551022016f4014fc757489cf0989dad456ea",
-        "combined": "0db0f10bd672e1d3f7ddb74fa2fe967feae8c7b9e92d72185476963a4df50f7c",
-        "tokenSignature": "a-absolutely-are-available-before-beggs-frown-jim-make-no-on-put-smiles-sure-there-you"
+        "text": "c6a663983d9418102a8266d321c008d5dfcec3990aada0931c3067893e5dd0fa",
+        "author": "e975576533a7494402684dfe70c67d3e28f05651da40e6dc2b67f89f16dbab7e",
+        "combined": "7e548063b7cd07c0f07b0d5e71afb955ef3140c090598dc7fc1d2e904d834f86",
+        "tokenSignature": "emerson-joy-ralph-scatter-waldo"
       },
       "lengths": {
-        "text": 78,
-        "author": 9
+        "text": 12,
+        "author": 19
       },
       "source": {
         "categoryId": "joy",
         "sequence": 6
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "e74ba9da2ef60a3c41b42337e97030f545b20b94585ded4a9079dc848e534ece",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
       }
     },
     "joy-07": {
       "hashes": {
-        "text": "2e48f142ad8cb68fe0117ca620616f97f19e4d24401a9d748e12d30d53f7f636",
-        "author": "7c0ec53eff0ad7658cb33c8644d8497af62763919d181d92f1aaf5aea5e59402",
-        "combined": "310731fff2194700c51f17e700faf2ded121611f10599fca0d88153ccb86db76",
-        "tokenSignature": "enjoy-for-if-life-ll-morris-never-spend-storm-sunshine-the-waiting-west-whole-you-your"
+        "text": "ffc1e652b267cda380c5791b0001ac81b1a33f2c5aebe1a7d71f35eca2339b1c",
+        "author": "d25edc57bfd0628212efe43b37dd1c028a5c57a5557e09146695ec04e99921fd",
+        "combined": "8115fd4f62635f2d0e2fe2e4ac3a96ce3282efd003d4b371ce365ae5d36a3d03",
+        "tokenSignature": "dickinson-ecstasy-emily-enough-find-in-is-joy-life-living-mere-of-sense-the"
       },
       "lengths": {
-        "text": 84,
-        "author": 11
+        "text": 61,
+        "author": 15
       },
       "source": {
         "categoryId": "joy",
         "sequence": 7
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "ba420c2bc5d17ff43702fefc9b135677d14e8f8d9594dcce103790a3316301f3",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
       }
     },
     "joy-08": {
       "hashes": {
-        "text": "c1d717d55d25c2a6e7b8572c908a2fbae494586542ec52549b34184b29ae63bf",
+        "text": "04d3440d55e9f14fa988ed53f7dfebe38faca347e4cc7b4080dc326cc91fc768",
         "author": "b3bdb63c995e85a64b977ead92e5b6aa2bf2068230b42b3958ccd058bb5a2206",
-        "combined": "a1e1621864afff42fb17e841b6a1d53e8c1217e38f6c29ef1513e3df6ee8d344",
-        "tokenSignature": "a-action-an-at-beautiful-every-gift-is-it-love-mother-of-person-smile-someone-teresa-that-thing-time-to-you"
+        "combined": "0e23b3034284eceee5a6a82b2bcd3521f70e6a5bf8097e7b39fcf2daea978408",
+        "tokenSignature": "a-by-can-catch-is-joy-love-mother-net-of-souls-teresa-which-you"
       },
       "lengths": {
-        "text": 99,
+        "text": 50,
         "author": 13
       },
       "source": {
@@ -13161,10 +13161,10 @@
         "sequence": 8
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "cba90c53710a4c4ff022e2da68612fb6b4511058ba7b4f830c2d91651b722bee",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
       }
     },
     "joy-09": {
@@ -13183,32 +13183,32 @@
         "sequence": 9
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "c9b88d18d160eb51e42b1bc3279279c3b0fb5214dd5680180ad7eede6b0b6a9f",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
       }
     },
     "joy-10": {
       "hashes": {
-        "text": "747ae8b14480b85dd080107272d148274f1d0e14bd04c2f1dff98c8562541278",
-        "author": "d80b3531fb5201784f686cbf43c4d6d81e7df16380c7a1df597e5aaea7d7cff8",
-        "combined": "9b14e4b8a5b4aea65879f8e504e685871d7a54d0644df2898c99cc5afa650402",
-        "tokenSignature": "achievement-creative-effort-franklin-happiness-in-is-it-joy-lies-mere-money-not-of-possession-roosevelt-the-thrill"
+        "text": "161557c77027f0cce6f422949a95b82a48ce4a33cebf8c8666421ea903ae0637",
+        "author": "dfc161fadc1cf6f16fe5f97563ff57eee334ac6180e33c249e19e6f7e631bc83",
+        "combined": "2f03c6fe3917322fb197a24846cee0d8dd18a76752020600289ae053b768c5ff",
+        "tokenSignature": "a-about-are-brave-decision-going-how-is-joy-life-one-really-respond-stafford-to-wess-you"
       },
       "lengths": {
-        "text": 118,
-        "author": 18
+        "text": 82,
+        "author": 13
       },
       "source": {
         "categoryId": "joy",
         "sequence": 10
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "5f0b31b5bde259366a16aec9af851bcb12c680f1cd95b42882777be23467a46f",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
       }
     },
     "joy-11": {
@@ -13227,10 +13227,10 @@
         "sequence": 11
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "467a656a1156adbf29cf0d69b1634f5a871d60f66a671e5e10a12f516035e46a",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
       }
     },
     "joy-12": {
@@ -13249,10 +13249,10 @@
         "sequence": 12
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "9962adba7973d70f871a0b11e13c547f77a6263a0386eb34c850322584b15429",
+        "updatedAt": "2025-09-21T03:05:51.955Z"
       }
     },
     "curiosity-01": {
@@ -13271,10 +13271,10 @@
         "sequence": 1
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "11b611d5c60501f0bbebe1be0532e97a96414ce199b46c1af2c38cf2b14f9ef5",
+        "updatedAt": "2025-09-21T03:05:51.957Z"
       }
     },
     "curiosity-02": {
@@ -13293,10 +13293,10 @@
         "sequence": 2
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "83163d8a779d74b32127e4b37d9d8b5d689ca978b986a6494e8ec906b1c60454",
+        "updatedAt": "2025-09-21T03:05:51.957Z"
       }
     },
     "curiosity-03": {
@@ -13315,32 +13315,32 @@
         "sequence": 3
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "29418d3ca312a674f2d8503015d1bf13639878c93f4b66f27eb77431dacf3ae8",
+        "updatedAt": "2025-09-21T03:05:51.957Z"
       }
     },
     "curiosity-04": {
       "hashes": {
-        "text": "d848de5cf1e0156f1f7ac4a207c7a655b5125ff80d87e6df1fbd0212b8964cac",
-        "author": "65d6efc6dcfdcbcca15d89974d6aa45ac4d732d8954ac427b938e0ae403b9db8",
-        "combined": "5bc977dfde38ee63494af82e6204f725cb2bd60b421faf92ec3e9bf19c1f29f1",
-        "tokenSignature": "beginning-discovery-do-frank-herbert-is-knowledge-not-of-something-the-understand-we"
+        "text": "69fa19a5f14e44beb400f86bf5c1cfecaa5699ca2b789013143946ad28aacaea",
+        "author": "aa859705eb67660aed06e3c994fd69a84e99e457327c66736c6d21628fc74220",
+        "combined": "e9a82ca3ddc41d945a5469d202784f4c54655255309a7bcf8deb8d3c0de52f14",
+        "tokenSignature": "arthur-candle-curiosity-in-is-learning-of-the-ward-wick-william"
       },
       "lengths": {
-        "text": 78,
-        "author": 13
+        "text": 48,
+        "author": 19
       },
       "source": {
         "categoryId": "curiosity",
         "sequence": 4
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "3dfae88ba21015c6c9b65fc02f77316911e52739770ca2338c5148d2fb68847b",
+        "updatedAt": "2025-09-21T03:05:51.957Z"
       }
     },
     "curiosity-05": {
@@ -13359,10 +13359,10 @@
         "sequence": 5
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "528874f00d8fd3ddcf79d3fcdb58aaf0872e518798f79b453465f7bd102661c3",
+        "updatedAt": "2025-09-21T03:05:51.957Z"
       }
     },
     "curiosity-06": {
@@ -13381,10 +13381,10 @@
         "sequence": 6
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "3d481e01530a683a3693a74cc42beb52cf9a6c02e24bbf8500b5b4eb2e2b38bd",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "curiosity-07": {
@@ -13403,10 +13403,10 @@
         "sequence": 7
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "ab060384f561763aaf4c6d8c39627d982fc2c1c664447b4432a5886817773ed9",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "curiosity-08": {
@@ -13425,10 +13425,10 @@
         "sequence": 8
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "65c1cd678337d69e60ba89e43e35e1d4c0883f9e6f34d096cce5c916e9e4d929",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "curiosity-09": {
@@ -13447,10 +13447,10 @@
         "sequence": 9
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "fef56bcb93f4a06869c3f476f3b2d42e9f27d1846c76b52451fe35ae59e2492e",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "curiosity-10": {
@@ -13469,10 +13469,10 @@
         "sequence": 10
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "75fac02834e02a4bcc06d14a08c7c92863e183e7311ed1da1a7bda77a2ffd267",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "curiosity-11": {
@@ -13491,10 +13491,10 @@
         "sequence": 11
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "3f19c6ac7551bac21898f45042e4ccca6a50b36cc3dac57364c9816672c9537c",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "curiosity-12": {
@@ -13513,10 +13513,10 @@
         "sequence": 12
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "cc24b49ed6b03d3e2ba3c665c2845c6c707673df86197bc81f137ca9b129440b",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "kindness-01": {
@@ -13535,10 +13535,10 @@
         "sequence": 1
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "0ba078ab6d2a47fd4d664b0bf0be5b25c2a76a356ce25a8753705ae665348194",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "kindness-02": {
@@ -13557,10 +13557,10 @@
         "sequence": 2
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "f4d7f9ba669a05826841d5fc074b87101fea9a36770dd1890e164a7bea12c5b3",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "kindness-03": {
@@ -13579,10 +13579,10 @@
         "sequence": 3
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "b6f742e79c6aac5974fdc30935c053de4282af217d595dc996c4c73d3f58e322",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "kindness-04": {
@@ -13601,10 +13601,10 @@
         "sequence": 4
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "4ff92cb2ce602a4d13965b182b5203e1916189ffb31cca79ee00d643834861f4",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "kindness-05": {
@@ -13623,10 +13623,10 @@
         "sequence": 5
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "d7c0cc0aaea6b7e0e5eabe64709f5da3764903220d5cd053df4de18e00857e14",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "kindness-06": {
@@ -13645,10 +13645,10 @@
         "sequence": 6
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "bed3500d7736852a92ff9fcc8fb5c54e88eed2e5bf07aef994db86ee3b81f5ad",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "kindness-07": {
@@ -13667,10 +13667,10 @@
         "sequence": 7
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "51fbd002c2dc4f8f838693293d2d472f175bb9dd7e7058529f95c3ba05f67a7e",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "kindness-08": {
@@ -13689,10 +13689,10 @@
         "sequence": 8
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "844f50eb566c0475472ed0aa3985d241967e1791b4d579cacb702f1f04992355",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "kindness-09": {
@@ -13711,10 +13711,10 @@
         "sequence": 9
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "4371cb52b425dc216a11458043bd201004fbf16f145675961fbdf53828788721",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "kindness-10": {
@@ -13733,10 +13733,10 @@
         "sequence": 10
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "92d83aa330c17b2bd0825f325260bff32579327559cd3a6ad3e2f3afbf777a74",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "kindness-11": {
@@ -13755,32 +13755,32 @@
         "sequence": 11
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "aad5d58cadb058a11c751feabbfbaf83b098688fec2223ab9bba49de5eaa2751",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "kindness-12": {
       "hashes": {
-        "text": "ecfc46836a63b6272ed35a4eb74fae6926ed37eadddf56b5226e507d322a4b1a",
-        "author": "bf61abd9c8c94e02103733c96be27852844483acbf580158f224257e620356a8",
-        "combined": "39e078fdb7529e43b0aeb490949423842864f5f605946f39cbaf2237ed2b8beb",
-        "tokenSignature": "act-aesop-ever-how-is-kindness-matter-no-of-small-wasted"
+        "text": "b2391cb1cc2218f1fa1cb36164e149e6aa2c8b7aca4232a6d6721b9c2a47c9b1",
+        "author": "bccf7e154da9c0825bddce594eb2e1a313b8d8b1ec37584b64494abb99a3d407",
+        "combined": "893ff1fd6fa34ec610ac892ba84acff1c9ae64a6d4a13ec07f159e0bc73fe08b",
+        "tokenSignature": "a-and-blind-can-deaf-hear-is-kindness-language-mark-see-the-twain-which"
       },
       "lengths": {
-        "text": 56,
-        "author": 5
+        "text": 69,
+        "author": 10
       },
       "source": {
         "categoryId": "kindness",
         "sequence": 12
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "1b1059f2e0e920466c5f13af579c4a3c2f728383d3160b6616087df2a416c8b3",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "gratitude-01": {
@@ -13799,10 +13799,10 @@
         "sequence": 1
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "634c178d588fa737fa1ce6d1d92dd04d9fac956e43f2aa6d30f4d9624e269cf9",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "gratitude-02": {
@@ -13821,10 +13821,10 @@
         "sequence": 2
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "daea1021a030dd2c32b2a1a9c107b4fb80f9229013ba6fba2a4e1ad73f0346e2",
+        "updatedAt": "2025-09-21T03:05:51.958Z"
       }
     },
     "gratitude-03": {
@@ -13843,10 +13843,10 @@
         "sequence": 3
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "af2a5a48611bd8de443b4e6d46e5bcddd58741f08019be82cbfcc0f1f39ce6d3",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "gratitude-04": {
@@ -13865,10 +13865,10 @@
         "sequence": 4
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "b90ade66444d85caa2cc0dcae672ef8daf03fb0ff0834a69ba324418ef30ec96",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "gratitude-05": {
@@ -13887,10 +13887,10 @@
         "sequence": 5
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "fe2ba92513bb863dc53aa9781f6d6a3d695db82b409d962fe43f7f76cdb6d9a4",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "gratitude-06": {
@@ -13909,10 +13909,10 @@
         "sequence": 6
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "4637bf548aa5ee01a3e43c938fa8ba0b5ecfbfc0fdb3cd9b7f564ddd65394d85",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "gratitude-07": {
@@ -13931,10 +13931,10 @@
         "sequence": 7
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "2504fa9148b7dad455da42e8e9034f342d929feb94c36f880e2db5af2ce1e418",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "gratitude-08": {
@@ -13953,10 +13953,10 @@
         "sequence": 8
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "7848f613311ec83c7b62fef3f4d26665fab1dbb9a0533ab3a92e9c126387d1ee",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "gratitude-09": {
@@ -13975,10 +13975,10 @@
         "sequence": 9
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "374324b46256ce0cf34de62375b7d631a911156fb79f6f3c909d373175425c84",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "gratitude-10": {
@@ -13997,10 +13997,10 @@
         "sequence": 10
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "ee655fe02fa1c3c15cff53edfbcd4cc3fac6a2c60d610e3192271ac0496f66a7",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "gratitude-11": {
@@ -14019,10 +14019,10 @@
         "sequence": 11
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "205061b7d1b2ee5217725598240c747570fb5aceab8b4c51a4821c847c3d4cbd",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "gratitude-12": {
@@ -14041,10 +14041,10 @@
         "sequence": 12
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "272544cb7ebb1434aa5e9073f225ef1bb9f0ff0571be16edcbafa45f680339c7",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "purpose-01": {
@@ -14063,21 +14063,21 @@
         "sequence": 1
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "ef9e7f7ecab4ed2b0b793237f648de35d46190042c8e75f45db2771a05b5985a",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "purpose-02": {
       "hashes": {
-        "text": "759e5716d19886be5bdacf7b09a395ee03bcac83e9c89b06d5c7f282b543bf2b",
-        "author": "47f173d6502dab21563d0260a3ebc3cd505dd9a675dbfa947eff84a07b669555",
-        "combined": "bfef47295a7dcf6d6f7553f1b699e33b8f6d836f543ddb0c68779535ea21b77e",
-        "tokenSignature": "carl-dream-first-happens-nothing-sandburg-unless-we"
+        "text": "d950cf87ef900d241dce9d51303bc65443e28e97f43ecd470c9b334b3049094b",
+        "author": "347592cdcc86efb8d144942915e256f264c751c10b6dc6b4b2627e33461f751e",
+        "combined": "844789eaeeda7f9ccac5a631a1419acb8523060f8d6e7fa064930270e402fac4",
+        "tokenSignature": "away-find-gift-give-is-it-life-meaning-of-pablo-picasso-purpose-the-to-your"
       },
       "lengths": {
-        "text": 38,
+        "text": 81,
         "author": 13
       },
       "source": {
@@ -14085,32 +14085,32 @@
         "sequence": 2
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "1f0768a270834325a915c249a1eed8fb8d313d647c9924a9be225b51372efd42",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "purpose-03": {
       "hashes": {
-        "text": "adbbe09c4197c7c9bf91dba21852b17007b76b2a42cc413335d08f690b234193",
-        "author": "d9243e2d0ea076c4bbf3e2192cb514c87bdf17390fcb6e24329bec17d6a19513",
-        "combined": "dc962cf4c16491864c5e6fc4d5edc24a07746c7fbc510ef96b8e57ae4d283713",
-        "tokenSignature": "achievement-are-brian-fuel-furnace-goals-in-of-the-tracy"
+        "text": "fd0b5aa5967c7e54f0101835693db2cc1f8e464d9e21f10aeba807d6e6b13bc8",
+        "author": "efd5fd072480bf4473669835df358133a5f22e10957fc8ff7c0fe905a9a29bf6",
+        "combined": "c3da64bfa0565ded02f99a50ae8a6316c2bb526df0e6c1296a752fb2d665a7a5",
+        "tokenSignature": "and-are-courage-direction-efforts-enough-f-john-kennedy-not-purpose-without"
       },
       "lengths": {
-        "text": 49,
-        "author": 11
+        "text": 65,
+        "author": 15
       },
       "source": {
         "categoryId": "purpose",
         "sequence": 3
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "0bc0953019f225b51e39fdc67b22e0312161f3b08c1d714b087555854e309cad",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "purpose-04": {
@@ -14129,10 +14129,10 @@
         "sequence": 4
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "49312bcf2f8a63a11b40d32e707ed281126cce189dd5e41ef9ad2bb91cfdd84a",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "purpose-05": {
@@ -14151,10 +14151,10 @@
         "sequence": 5
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "952bbf9c69b57afcf44947c18cae568492184d9c7bfaf53e7c4ce805145cee90",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "purpose-06": {
@@ -14173,10 +14173,10 @@
         "sequence": 6
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "32c510bf6ee9006c914a7adead58bf29de521b2b214a92dc2fad37f415cf14fb",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "purpose-07": {
@@ -14195,10 +14195,10 @@
         "sequence": 7
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "c958f4f2c2afa6da04193930b968c291932e2739a973627607a86b39a961e1b1",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "purpose-08": {
@@ -14217,10 +14217,10 @@
         "sequence": 8
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "524e4a4de22a8e4e0885f7ee9a06c8f58dafb475a15469e16ac970ba739240ac",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "purpose-09": {
@@ -14239,10 +14239,10 @@
         "sequence": 9
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "5346d7d579cef68ea93c0e9a4e0180607d46cecf14b3a5fda8ba55c7092edba1",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "purpose-10": {
@@ -14261,10 +14261,10 @@
         "sequence": 10
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "fe1ebebf2bce9a40521bfe6b82dbe5a5df4bde0313973b82749dd2cf86dd6430",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "purpose-11": {
@@ -14283,10 +14283,10 @@
         "sequence": 11
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "8cf4a058b31721225d8e3a29fac333e7cd29703b4b25ea12f5b9c8e42f05704e",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     },
     "purpose-12": {
@@ -14305,10 +14305,10 @@
         "sequence": 12
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "25c109ac30ac1a76337cc8f1d94c7d9b313ef0138b2690c1c5ce6f8bcb56be7f",
+        "updatedAt": "2025-09-21T03:05:51.959Z"
       }
     }
   }
