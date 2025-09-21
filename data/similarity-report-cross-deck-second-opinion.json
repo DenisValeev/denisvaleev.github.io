@@ -1,37 +1,289 @@
 {
   "dataset": "cross-deck",
-  "threshold": 0.8,
-  "generatedAt": "2025-09-21T03:05:51.944Z",
+  "threshold": 0.5,
+  "generatedAt": "2025-09-21T23:10:32.460Z",
   "provider": "openai",
   "model": "text-embedding-3-large (second opinion)",
   "matches": [
     {
-      "idA": "humor-01",
-      "idB": "j-0001",
-      "similarity": 0.886,
-      "previewA": "I’m sick of following my dreams, man. I’m just going to ask where they’re going and hook up with’em later. — Mitch Hedberg",
-      "previewB": "I'm tired of following my dreams. • I'm just going to ask them where they are going and meet up with them later."
+      "idA": "motivation-12",
+      "idB": "j-0227",
+      "similarity": 0.769099923783,
+      "previewA": "Your biggest failure is the thing you dreamed of contributing but didn’t find the guts to do. — Seth Godin",
+      "previewB": "What kind of dog lives in a particle accelerator? • A Fermilabrador Retriever."
     },
     {
-      "idA": "time-10",
-      "idB": "j-0038",
-      "similarity": 0.843,
-      "previewA": "The bad news is time flies. The good news is you’re the pilot. — Michael Altshuler",
-      "previewB": "Why did the kid throw the clock out the window? • He wanted to see time fly!"
+      "idA": "travel-25",
+      "idB": "j-0870",
+      "similarity": 0.76355323801,
+      "previewA": "Travel is fatal to prejudice, bigotry, and narrow-mindedness. — Mark Twain",
+      "previewB": "Why do ghosts go on diets? • So they can keep their ghoulish figures."
     },
     {
-      "idA": "time-04",
-      "idB": "j-0081",
-      "similarity": 0.832,
-      "previewA": "The most precious resource we all have is time. — Steve Jobs",
-      "previewB": "I made a belt out of watches once... • It was a waist of time."
+      "idA": "adventure-12",
+      "idB": "j-0737",
+      "similarity": 0.720606532244,
+      "previewA": "Don’t get so busy making a living that you forget to make a life. — Dolly Parton",
+      "previewB": "Why do C# and Java developers keep breaking their keyboards? • Because they use a strongly typed language."
     },
     {
-      "idA": "humor-08",
-      "idB": "j-0043",
-      "similarity": 0.821,
-      "previewA": "Why do they call it rush hour when nothing moves? — Robin Williams",
-      "previewB": "What did the traffic light say to the car as it passed? • \"Don't look I'm changing!\""
+      "idA": "money-12",
+      "idB": "j-0085",
+      "similarity": 0.711035531047,
+      "previewA": "You can be young without money, but you can’t be old without it. — Tennessee Williams",
+      "previewB": "My sister bet me $15 that I couldn't build a car out of spaghetti. • You should have seen the look on her face as I drov"
+    },
+    {
+      "idA": "music-24",
+      "idB": "j-0512",
+      "similarity": 0.689559745443,
+      "previewA": "A man should hear a little music, read a little poetry, and see a fine picture every day of his life, in order that worl",
+      "previewB": "What's red and bad for your teeth? • A Brick."
+    },
+    {
+      "idA": "purpose-11",
+      "idB": "j-0400",
+      "similarity": 0.68873388272,
+      "previewA": "The secret of success is constancy to purpose. — Benjamin Disraeli",
+      "previewB": "I used to work at a stationery store. But, I didn't feel like I was going anywhere. So, I got a job at a travel agency. "
+    },
+    {
+      "idA": "music-26",
+      "idB": "j-0457",
+      "similarity": 0.685792839473,
+      "previewA": "Music, once admitted to the soul, becomes a sort of spirit, and never dies. — Edward Bulwer-Lytton",
+      "previewB": "Why does Superman get invited to dinners? • Because he is a Supperhero."
+    },
+    {
+      "idA": "money-49",
+      "idB": "j-0029",
+      "similarity": 0.677524982524,
+      "previewA": "Money may not buy happiness, but I’d rather cry in a Jaguar than on a bus. — Françoise Sagan",
+      "previewB": "Why is Peter Pan always flying? • Because he Neverlands."
+    },
+    {
+      "idA": "money-04",
+      "idB": "j-0433",
+      "similarity": 0.6722171602,
+      "previewA": "Too many people spend money they earned to buy things they don’t want, to impress people they don’t like. — Will Rogers",
+      "previewB": "Where does astronauts hangout after work? • At the spacebar."
+    },
+    {
+      "idA": "motivation-27",
+      "idB": "j-0717",
+      "similarity": 0.670400479407,
+      "previewA": "A somebody was once a nobody who wanted to and did. — John Burroughs",
+      "previewB": "What do you call a factory that sells passable products? • A satisfactory"
+    },
+    {
+      "idA": "friendship-45",
+      "idB": "j-0785",
+      "similarity": 0.66786447657,
+      "previewA": "Wishing to be friends is quick work, but friendship is a slow-ripening fruit. — Aristotle",
+      "previewB": "Due to complaints, Hawaii passed a law where you're not allowed to laugh above a certain decibel. • You can only use a l"
+    },
+    {
+      "idA": "travel-40",
+      "idB": "j-0692",
+      "similarity": 0.662680427292,
+      "previewA": "Blessed are the curious for they shall have adventures. — Lovelle Drachman",
+      "previewB": "A SQL query walks into a bar, walks up to two tables and asks... • 'Can I join you?'"
+    },
+    {
+      "idA": "humor-10",
+      "idB": "j-0512",
+      "similarity": 0.659146860918,
+      "previewA": "If you can’t be kind, at least be vague. — Judith Martin",
+      "previewB": "What's red and bad for your teeth? • A Brick."
+    },
+    {
+      "idA": "travel-41",
+      "idB": "j-0707",
+      "similarity": 0.658624951152,
+      "previewA": "We wander for distraction, but we travel for fulfilment. — Hilaire Belloc",
+      "previewB": "If you're American when you go into the bathroom, and American when you come out, what are you when you're in there? • E"
+    },
+    {
+      "idA": "love-39",
+      "idB": "j-0017",
+      "similarity": 0.657045786518,
+      "previewA": "I would rather spend one lifetime with you, than face all the ages of this world alone. — J. K. K. Tolken",
+      "previewB": "I'll tell you what often gets over looked... • garden fences."
+    },
+    {
+      "idA": "leadership-01",
+      "idB": "j-0708",
+      "similarity": 0.654324766056,
+      "previewA": "Life is a gift, and it offers us the privilege, opportunity, and responsibility to give something back by becoming more ",
+      "previewB": "Want to hear a joke about a piece of paper? • Never mind...it's tearable"
+    },
+    {
+      "idA": "friendship-34",
+      "idB": "j-0234",
+      "similarity": 0.653719645287,
+      "previewA": "No friendship is an accident. — O. Henry",
+      "previewB": "A quick shoutout to all of the sidewalks out there... • Thanks for keeping me off the streets."
+    },
+    {
+      "idA": "music-13",
+      "idB": "j-0294",
+      "similarity": 0.651602516648,
+      "previewA": "Without music, life would be a blank to me. — Jane Austen",
+      "previewB": "I saw a documentary on TV last night about how they put ships together. • It was rivetting."
+    },
+    {
+      "idA": "time-49",
+      "idB": "j-0187",
+      "similarity": 0.648448456292,
+      "previewA": "Punctuality is the thief of time. — Oscar Wilde, The Picture of Dorian Gray",
+      "previewB": "If I could name myself after any Egyptian god • I'd be Set."
+    },
+    {
+      "idA": "time-28",
+      "idB": "j-0426",
+      "similarity": 0.647750767617,
+      "previewA": "You can’t turn back the clock. But you can wind it up again. — Bonnie Prudden",
+      "previewB": "How many seconds are in a year? 12. January 2nd, February 2nd, March 2nd, April 2nd.... • etc"
+    },
+    {
+      "idA": "leadership-05",
+      "idB": "j-0796",
+      "similarity": 0.645827771463,
+      "previewA": "The road leading to a goal does not separate you from the destination; it is essentially a part of it. — Charles DeLint",
+      "previewB": "Why did the programmer's wife leave him? • He didn't know how to commit."
+    },
+    {
+      "idA": "family-04",
+      "idB": "j-0718",
+      "similarity": 0.645342413654,
+      "previewA": "We may have our differences, but nothing’s more important than family. — Coco",
+      "previewB": "When a dad drives past a graveyard: Did you know that's a popular cemetery? • Yep, people are just dying to get in there"
+    },
+    {
+      "idA": "time-30",
+      "idB": "j-0608",
+      "similarity": 0.644918124181,
+      "previewA": "Time has no meaning when you’re in love. — Unknown",
+      "previewB": "I asked a frenchman if he played video games. • He said \"Wii\""
+    },
+    {
+      "idA": "positive-32",
+      "idB": "j-0791",
+      "similarity": 0.643910711126,
+      "previewA": "The only place where success comes before work is in the dictionary. — Vidal Sassoon",
+      "previewB": "How many React developers does it take to change a lightbulb? • None, they prefer dark mode."
+    },
+    {
+      "idA": "money-25",
+      "idB": "j-0800",
+      "similarity": 0.643498462472,
+      "previewA": "Wealth is the ability to fully experience life. — Henry David Thoreau",
+      "previewB": "Why don't programmers like nature? • There's too many bugs."
+    },
+    {
+      "idA": "gratitude-12",
+      "idB": "j-0813",
+      "similarity": 0.643112770927,
+      "previewA": "Gratitude is the fairest blossom which springs from the soul. — Henry Beecher",
+      "previewB": "What do you call a computer mouse that swears a lot? • A cursor!"
+    },
+    {
+      "idA": "money-48",
+      "idB": "j-0185",
+      "similarity": 0.641272040763,
+      "previewA": "Money is usually attracted, no pursued. — Jim Rohn",
+      "previewB": "As I suspected, someone has been adding soil to my garden. • The plot thickens."
+    },
+    {
+      "idA": "friendship-35",
+      "idB": "j-0692",
+      "similarity": 0.639225713432,
+      "previewA": "Friends are honest with each other. Even if the truth hurts. — Sarah Dessen, “Along for the Ride",
+      "previewB": "A SQL query walks into a bar, walks up to two tables and asks... • 'Can I join you?'"
+    },
+    {
+      "idA": "happiness-08",
+      "idB": "j-0533",
+      "similarity": 0.638446909842,
+      "previewA": "Happiness is not in the mere possession of money; it lies in the joy of achievement, in the thrill of creative effort. —",
+      "previewB": "Feeling pretty proud of myself. • The Sesame Street puzzle I bought said 3-5 years, but I finished it in 18 months."
+    },
+    {
+      "idA": "love-02",
+      "idB": "j-0238",
+      "similarity": 0.637624435527,
+      "previewA": "You know you’re in love when you can’t fall asleep because reality is finally better than your dreams. — Dr. Seuss",
+      "previewB": "What is the tallest building in the world? • The library – it’s got the most stories!"
+    },
+    {
+      "idA": "adventure-05",
+      "idB": "j-0256",
+      "similarity": 0.634057129302,
+      "previewA": "Do not go where the path may lead, go instead where there is no path and leave a trail. — Ralph Waldo Emerson",
+      "previewB": "Why do nurses carry around red crayons? • Sometimes they need to draw blood."
+    },
+    {
+      "idA": "family-10",
+      "idB": "j-0731",
+      "similarity": 0.6330911058,
+      "previewA": "The most important thing in the world is family and love. — John Wooden",
+      "previewB": "I started a new business making yachts in my attic this year... • The sails are going through the roof."
+    },
+    {
+      "idA": "money-33",
+      "idB": "j-0415",
+      "similarity": 0.632240707698,
+      "previewA": "Through positive, appreciative attitudes toward money, you can make money your servant, instead of becoming its slave. Y",
+      "previewB": "Pie is $2.50 in Jamaica and $3.00 in The Bahamas. • These are the pie-rates of the Caribbean."
+    },
+    {
+      "idA": "humor-07",
+      "idB": "j-0478",
+      "similarity": 0.631973237258,
+      "previewA": "The suspense is terrible. I hope it’ll last. — Willy Wonka, “Willy Wonka & the Chocolate Factory",
+      "previewB": "What do you get hanging from Apple trees? • Sore arms."
+    },
+    {
+      "idA": "kindness-10",
+      "idB": "j-0322",
+      "similarity": 0.63167348362,
+      "previewA": "The weak can never forgive. Forgiveness is the attribute of the strong. — Mohandas Gandhi",
+      "previewB": "What’s the advantage of living in Switzerland? • Well, the flag is a big plus."
+    },
+    {
+      "idA": "humor-30",
+      "idB": "j-0566",
+      "similarity": 0.631242163592,
+      "previewA": "I’m not superstitious…but I am a little stitious. — Michael Scott, “The Office",
+      "previewB": "Why did the octopus beat the shark in a fight? • Because it was well armed."
+    },
+    {
+      "idA": "motivation-39",
+      "idB": "j-0324",
+      "similarity": 0.628426738359,
+      "previewA": "In this world you only get what you grab for. — Giovanni Boccaccio",
+      "previewB": "Why did the cookie cry? • It was feeling crumby."
+    },
+    {
+      "idA": "joy-09",
+      "idB": "j-0394",
+      "similarity": 0.628351083857,
+      "previewA": "Sometimes your joy is the source of your smile, but sometimes your smile can be the source of your joy. — Thich Nhat Han",
+      "previewB": "People saying 'boo! • to their friends has risen by 85% in the last year.... That's a frightening statistic."
+    },
+    {
+      "idA": "travel-13",
+      "idB": "j-0068",
+      "similarity": 0.628267611885,
+      "previewA": "Twenty years from now you will be more disappointed by the things you didn’t do than by the things you did do. So throw ",
+      "previewB": "Why did the banana go to the doctor? • He was not \"peeling\" well."
+    },
+    {
+      "idA": "motivation-04",
+      "idB": "j-0284",
+      "similarity": 0.627346989468,
+      "previewA": "Don’t stop when you’re tired. Stop when you’re done. — Wesley Snipes",
+      "previewB": "Two peanuts were walking down the street. • One was a salted"
     }
   ]
 }
