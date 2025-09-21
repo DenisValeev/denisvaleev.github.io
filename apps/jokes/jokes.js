@@ -3249,6 +3249,66 @@ window.jokes = [
             "id": "j-0829",
             "joke": "What do you call a thieving alligator?",
             "punchline": "A crookodile!"
+        }, {
+            "id": "j-0830",
+            "joke": ".NET developers are picky when it comes to food.",
+            "punchline": "They only like chicken NuGet."
+        }, {
+            "id": "j-0831",
+            "joke": "What do you call a developer who doesn't comment code?",
+            "punchline": "A developer."
+        }, {
+            "id": "j-0832",
+            "joke": "How did you make your friend rage?",
+            "punchline": "I implemented a Greek question mark in his JavaScript code."
+        }, {
+            "id": "j-0833",
+            "joke": "Hey baby I wish your name was asynchronous...",
+            "punchline": "... so you'd give me a callback."
+        }, {
+            "id": "j-0834",
+            "joke": "Why did the JavaScript heap close shop?",
+            "punchline": "It ran out of memory."
+        }, {
+            "id": "j-0835",
+            "joke": "Why does no one like SQLrillex?",
+            "punchline": "He keeps dropping the database."
+        }, {
+            "id": "j-0836",
+            "joke": "Why did the database administrator leave his wife?",
+            "punchline": "She had one-to-many relationships."
+        }, {
+            "id": "j-0837",
+            "joke": "Why do programmers wear glasses?",
+            "punchline": "Because they need to C#."
+        }, {
+            "id": "j-0838",
+            "joke": "Why do front end developers eat lunch alone?",
+            "punchline": "Because they don't know how to join tables."
+        }, {
+            "id": "j-0839",
+            "joke": "Why did the chicken cross the road, roll in the mud and cross the road again?",
+            "punchline": "He was a dirty double-crosser!"
+        }, {
+            "id": "j-0840",
+            "joke": "Why are modern programming languages so materialistic?",
+            "punchline": "Because they are object-oriented."
+        }, {
+            "id": "j-0841",
+            "joke": "Who is Santa's favourite singer?",
+            "punchline": "Elf-is Presley!"
+        }, {
+            "id": "j-0842",
+            "joke": "What do you call a witch at the beach?",
+            "punchline": "A Sandwich."
+        }, {
+            "id": "j-0843",
+            "joke": "My employer came running to me and said, \"I was looking for you all day! Where have you been?\"",
+            "punchline": "I replied, \"Good employees are hard to find.\""
+        }, {
+            "id": "j-0844",
+            "joke": "Why was the river rich?",
+            "punchline": "Because it had two banks."
         }
     ];
 
