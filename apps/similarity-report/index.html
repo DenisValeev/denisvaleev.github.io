@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosine Similarity Lab</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --background-color: #0f172a;
+      --background-gradient: radial-gradient(circle at top, rgba(99, 102, 241, 0.28), rgba(15, 23, 42, 0.92) 65%);
+      --surface: rgba(15, 23, 42, 0.82);
+      --surface-border: rgba(148, 163, 209, 0.18);
+      --surface-shadow: 0 36px 68px rgba(2, 6, 23, 0.45);
+      --surface-strong: rgba(30, 41, 59, 0.92);
+      --text-primary: #e2e8f0;
+      --text-secondary: rgba(203, 213, 225, 0.78);
+      --text-muted: rgba(148, 163, 184, 0.72);
+      --divider: rgba(148, 163, 209, 0.16);
+      --card-background: rgba(30, 41, 59, 0.78);
+      --card-border: rgba(148, 163, 209, 0.18);
+      --card-shadow: 0 24px 48px rgba(15, 23, 42, 0.32);
+      --toggle-surface: rgba(148, 163, 209, 0.12);
+      --toggle-border: rgba(148, 163, 209, 0.22);
+      --row-hover: rgba(59, 130, 246, 0.08);
+      --accent-jokes: #f97316;
+      --accent-quotes: #22d3ee;
+      --accent-contrast: #0b1120;
+      --accent-active: var(--accent-jokes);
+      --detail-glow: rgba(56, 189, 248, 0.18);
+      --input-background: rgba(15, 23, 42, 0.68);
+      --input-border: rgba(148, 163, 209, 0.3);
+      background-color: var(--background-color);
+      color: var(--text-primary);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --background-color: #f4f7ff;
+        --background-gradient: radial-gradient(circle at top, rgba(99, 102, 241, 0.16), rgba(148, 163, 209, 0.2) 60%);
+        --surface: rgba(255, 255, 255, 0.92);
+        --surface-border: rgba(15, 23, 42, 0.08);
+        --surface-shadow: 0 32px 64px rgba(15, 23, 42, 0.18);
+        --surface-strong: rgba(248, 250, 255, 0.96);
+        --text-primary: #0f172a;
+        --text-secondary: rgba(15, 23, 42, 0.68);
+        --text-muted: rgba(30, 41, 59, 0.54);
+        --divider: rgba(99, 102, 241, 0.18);
+        --card-background: rgba(255, 255, 255, 0.86);
+        --card-border: rgba(15, 23, 42, 0.08);
+        --card-shadow: 0 26px 52px rgba(15, 23, 42, 0.14);
+        --toggle-surface: rgba(99, 102, 241, 0.12);
+        --toggle-border: rgba(99, 102, 241, 0.24);
+        --row-hover: rgba(79, 70, 229, 0.09);
+        --detail-glow: rgba(99, 102, 241, 0.12);
+        --input-background: rgba(248, 250, 255, 0.92);
+        --input-border: rgba(148, 163, 209, 0.32);
+      }
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(18px, 4vw, 48px);
+      background: var(--background-gradient);
+      background-color: var(--background-color);
+      color: var(--text-primary);
+    }
+
+    body[data-active-dataset="jokes"] {
+      --accent-active: var(--accent-jokes);
+      --detail-glow: rgba(249, 115, 22, 0.16);
+    }
+
+    body[data-active-dataset="quotes"] {
+      --accent-active: var(--accent-quotes);
+      --detail-glow: rgba(34, 211, 238, 0.16);
+    }
+
+    main {
+      width: min(1120px, 100%);
+      background: var(--surface);
+      border-radius: 30px;
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--surface-shadow);
+      backdrop-filter: blur(18px);
+      padding: clamp(20px, 4vw, 46px);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(20px, 4vw, 36px);
+    }
+
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .page-header .eyebrow {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .page-header h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 2.4vw + 1.2rem, 2.7rem);
+      font-weight: 700;
+    }
+
+    .page-header .lead {
+      margin: 0;
+      font-size: 1.02rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 48ch;
+    }
+
+    .control-panel {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(18px, 3vw, 28px);
+    }
+
+    .dataset-toggle {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px;
+      gap: 6px;
+      background: var(--toggle-surface);
+      border: 1px solid var(--toggle-border);
+      border-radius: 999px;
+      width: fit-content;
+    }
+
+    .dataset-toggle button {
+      border: none;
+      border-radius: 999px;
+      padding: 10px 20px;
+      background: transparent;
+      color: var(--text-secondary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+    }
+
+    .dataset-toggle button.is-active {
+      background: var(--accent-active);
+      color: var(--accent-contrast);
+      box-shadow: 0 18px 36px color-mix(in srgb, var(--accent-active) 45%, transparent);
+      transform: translateY(-1px);
+    }
+
+    .dataset-toggle button:focus-visible,
+    .sort-button:focus-visible,
+    .copy-button:focus-visible,
+    input:focus-visible,
+    button:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.45), 0 0 0 5px rgba(14, 165, 233, 0.35);
+    }
+
+    .dataset-toggle button:hover {
+      transform: translateY(-1px);
+    }
+
+    .control-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .control-grid label {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+
+    .control-grid label span {
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent-active);
+      cursor: pointer;
+    }
+
+    input[type="search"] {
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--input-border);
+      background: var(--input-background);
+      color: inherit;
+      font-size: 1rem;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    input[type="search"]::placeholder {
+      color: var(--text-muted);
+    }
+
+    input[type="search"]:focus-visible {
+      border-color: var(--accent-active);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-active) 30%, transparent);
+    }
+
+    .stats-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .stat-card {
+      background: var(--card-background);
+      border-radius: 18px;
+      border: 1px solid var(--card-border);
+      box-shadow: var(--card-shadow);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .stat-card h2 {
+      margin: 0;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .stat-meta {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .results {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      align-items: start;
+    }
+
+    .table-wrapper {
+      background: var(--surface-strong);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 820px;
+    }
+
+    thead {
+      background: color-mix(in srgb, var(--surface-strong) 80%, var(--accent-active) 20%);
+    }
+
+    th {
+      text-align: left;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    td {
+      padding: 16px;
+      border-bottom: 1px solid var(--divider);
+      vertical-align: top;
+      font-size: 0.96rem;
+      color: var(--text-primary);
+    }
+
+    tbody tr {
+      transition: background 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
+      cursor: pointer;
+    }
+
+    tbody tr:hover {
+      background: var(--row-hover);
+      transform: translateY(-1px);
+    }
+
+    tbody tr.is-active {
+      background: color-mix(in srgb, var(--accent-active) 12%, transparent);
+      box-shadow: inset 4px 0 0 var(--accent-active);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .empty-row td {
+      text-align: center;
+      color: var(--text-secondary);
+    }
+
+    .cell-score {
+      width: 140px;
+    }
+
+    .score-value {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .score-meter {
+      position: relative;
+      margin-top: 8px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(148, 163, 209, 0.25);
+      overflow: hidden;
+    }
+
+    .score-meter__fill {
+      position: absolute;
+      inset: 0;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-active), color-mix(in srgb, var(--accent-active) 55%, #ffffff 45%));
+      border-radius: inherit;
+      transition: width 0.24s ease;
+    }
+
+    .cell-pair {
+      min-width: 200px;
+    }
+
+    .pair-ids {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+    }
+
+    .id-badge {
+      background: color-mix(in srgb, var(--accent-active) 22%, transparent);
+      color: inherit;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+
+    .pair-arrow {
+      color: var(--text-muted);
+    }
+
+    .pair-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+
+    .pair-metric {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(148, 163, 209, 0.14);
+    }
+
+    .cell-entry {
+      min-width: 220px;
+    }
+
+    .entry-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--accent-active) 32%, transparent);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .entry-primary {
+      margin: 0;
+      font-weight: 600;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .entry-secondary {
+      margin: 6px 0 0 0;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .entry-secondary.is-empty {
+      opacity: 0.6;
+      font-style: italic;
+    }
+
+    .entry-meta {
+      margin: 8px 0 0 0;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    .detail-panel {
+      background: var(--surface-strong);
+      border-radius: 22px;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 28px 48px var(--detail-glow);
+      padding: clamp(18px, 3vw, 26px);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .detail-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid color-mix(in srgb, var(--accent-active) 32%, transparent);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .detail-empty {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.96rem;
+    }
+
+    .detail-body[hidden] {
+      display: none;
+    }
+
+    .detail-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .detail-title {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .detail-score {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 0.96rem;
+      color: var(--text-secondary);
+    }
+
+    .detail-score__value {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--accent-active);
+    }
+
+    .detail-metrics {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .metric {
+      background: rgba(148, 163, 209, 0.12);
+      border-radius: 14px;
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 140px;
+    }
+
+    .metric-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+    }
+
+    .metric-value {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .records-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .record-card {
+      background: rgba(15, 23, 42, 0.25);
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 209, 0.2);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @media (prefers-color-scheme: light) {
+      .record-card {
+        background: rgba(255, 255, 255, 0.82);
+      }
+    }
+
+    .record-card header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .record-card h3 {
+      margin: 0;
+      font-size: 0.98rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+    }
+
+    .record-id {
+      margin: 0;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .record-primary {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .record-secondary {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+
+    .record-secondary.is-empty {
+      opacity: 0.6;
+      font-style: italic;
+    }
+
+    .record-meta {
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .record-meta div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .record-meta dt {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .record-meta dd {
+      margin: 0;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .record-origin {
+      grid-column: 1 / -1;
+    }
+
+    .copy-button {
+      border: none;
+      background: var(--accent-active);
+      color: var(--accent-contrast);
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .copy-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 30px color-mix(in srgb, var(--accent-active) 32%, transparent);
+    }
+
+    .copy-button[disabled] {
+      opacity: 0.6;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .sort-button {
+      border: none;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .sort-indicator {
+      font-size: 1rem;
+      color: var(--text-muted);
+      transition: transform 0.2s ease;
+    }
+
+    .sort-button[data-sort-direction="asc"] .sort-indicator {
+      transform: rotate(180deg);
+    }
+
+    @media (max-width: 1040px) {
+      .results {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      main {
+        padding: clamp(18px, 5vw, 28px);
+      }
+
+      table {
+        min-width: 680px;
+      }
+    }
+  </style>
+</head>
+<body data-active-dataset="jokes">
+  <main>
+    <header class="page-header">
+      <p class="eyebrow">Vector insights</p>
+      <h1>Cosine Similarity Lab</h1>
+      <p class="lead">Inspect the 0.70+ cosine similarity hits that survived the deck cleanup, complete with IDs, previews, and nerdy stats.</p>
+    </header>
+    <section class="control-panel" aria-label="Controls">
+      <div class="dataset-toggle" role="group" aria-label="Dataset selector">
+        <button type="button" class="is-active" data-dataset="jokes">Jokes deck</button>
+        <button type="button" data-dataset="quotes">Quotes deck</button>
+      </div>
+      <div class="control-grid">
+        <label>
+          <span>Minimum cosine similarity: <strong data-threshold-label>0.70</strong></span>
+          <input type="range" min="0.7" max="0.95" step="0.01" value="0.7" data-min-similarity>
+        </label>
+        <label>
+          <span>Find by ID or text</span>
+          <input type="search" data-search placeholder="Try j-0246 or “impasta”" aria-label="Filter pairs by ID or text">
+        </label>
+      </div>
+      <div class="stats-grid" aria-live="polite">
+        <article class="stat-card">
+          <h2>Visible pairs</h2>
+          <div class="stat-value"><span data-match-count data-count="0">0</span></div>
+          <p class="stat-meta">≥ <span data-threshold-display>0.70</span> cosine similarity</p>
+        </article>
+        <article class="stat-card">
+          <h2>Report baseline</h2>
+          <div class="stat-value"><span data-baseline>0.70</span></div>
+          <p class="stat-meta">Threshold baked into the report</p>
+        </article>
+        <article class="stat-card">
+          <h2>Model</h2>
+          <div class="stat-value" data-model-label>—</div>
+          <p class="stat-meta" data-provider-label>—</p>
+        </article>
+        <article class="stat-card">
+          <h2>Generated</h2>
+          <div class="stat-value" data-generated-label>—</div>
+          <p class="stat-meta" data-record-count>—</p>
+        </article>
+      </div>
+    </section>
+    <section class="results" aria-label="Similarity matches">
+      <div class="table-wrapper" role="region" aria-live="polite">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" aria-sort="descending">
+                <button type="button" class="sort-button" data-sort="similarity" data-sort-direction="desc" data-sort-label="cosine similarity">
+                  Score
+                  <span class="sort-indicator" aria-hidden="true">↓</span>
+                </button>
+              </th>
+              <th scope="col">
+                <button type="button" class="sort-button" data-sort="pair" data-sort-direction="asc" data-sort-label="pair IDs">
+                  Pair
+                  <span class="sort-indicator" aria-hidden="true">↓</span>
+                </button>
+              </th>
+              <th scope="col">Entry A</th>
+              <th scope="col">Entry B</th>
+            </tr>
+          </thead>
+          <tbody data-results-body>
+            <tr class="empty-row">
+              <td colspan="4">Loading similarity report…</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <aside class="detail-panel" aria-label="Pair inspector" aria-live="polite" data-detail>
+        <p class="detail-empty" data-detail-empty>Select a row to inspect the vector neighbours.</p>
+        <div class="detail-body" data-detail-body hidden>
+          <div class="detail-header">
+            <h2 class="detail-title" data-detail-title>—</h2>
+            <button type="button" class="copy-button" data-copy-pair disabled>Copy pair IDs</button>
+          </div>
+          <div class="detail-score">
+            <span class="detail-score__value" data-detail-score>0.000</span>
+            <span class="detail-score__label">cosine similarity</span>
+          </div>
+          <div class="detail-metrics">
+            <div class="metric">
+              <span class="metric-label">Cosine distance</span>
+              <span class="metric-value" data-detail-distance>0.000</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Length delta</span>
+              <span class="metric-value" data-detail-length>0 chars • 0 words</span>
+            </div>
+          </div>
+          <div class="records-grid">
+            <article class="record-card">
+              <header>
+                <h3>Entry A</h3>
+                <p class="record-id" data-record-a-id>—</p>
+              </header>
+              <p class="record-primary" data-record-a-primary>—</p>
+              <p class="record-secondary is-empty" data-record-a-secondary>—</p>
+              <dl class="record-meta">
+                <div>
+                  <dt>Characters</dt>
+                  <dd data-record-a-chars>0</dd>
+                </div>
+                <div>
+                  <dt>Words</dt>
+                  <dd data-record-a-words>0</dd>
+                </div>
+                <div class="record-origin">
+                  <dt>Origin</dt>
+                  <dd data-record-a-origin>—</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="record-card">
+              <header>
+                <h3>Entry B</h3>
+                <p class="record-id" data-record-b-id>—</p>
+              </header>
+              <p class="record-primary" data-record-b-primary>—</p>
+              <p class="record-secondary is-empty" data-record-b-secondary>—</p>
+              <dl class="record-meta">
+                <div>
+                  <dt>Characters</dt>
+                  <dd data-record-b-chars>0</dd>
+                </div>
+                <div>
+                  <dt>Words</dt>
+                  <dd data-record-b-words>0</dd>
+                </div>
+                <div class="record-origin">
+                  <dt>Origin</dt>
+                  <dd data-record-b-origin>—</dd>
+                </div>
+              </dl>
+            </article>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+  <script defer src="../jokes/jokes.js"></script>
+  <script defer src="../quotes/quotes-data.js"></script>
+  <script>
+    (function () {
+      const datasetButtons = document.querySelectorAll('[data-dataset]');
+      const slider = document.querySelector('[data-min-similarity]');
+      const sliderLabel = document.querySelector('[data-threshold-label]');
+      const thresholdDisplay = document.querySelector('[data-threshold-display]');
+      const searchInput = document.querySelector('[data-search]');
+      const tableBody = document.querySelector('[data-results-body]');
+      const countEl = document.querySelector('[data-match-count]');
+      const baselineEl = document.querySelector('[data-baseline]');
+      const modelEl = document.querySelector('[data-model-label]');
+      const providerEl = document.querySelector('[data-provider-label]');
+      const generatedEl = document.querySelector('[data-generated-label]');
+      const recordCountEl = document.querySelector('[data-record-count]');
+      const detailEmpty = document.querySelector('[data-detail-empty]');
+      const detailBody = document.querySelector('[data-detail-body]');
+      const detailTitle = document.querySelector('[data-detail-title]');
+      const detailScore = document.querySelector('[data-detail-score]');
+      const detailDistance = document.querySelector('[data-detail-distance]');
+      const detailLength = document.querySelector('[data-detail-length]');
+      const recordAId = document.querySelector('[data-record-a-id]');
+      const recordAPrimary = document.querySelector('[data-record-a-primary]');
+      const recordASecondary = document.querySelector('[data-record-a-secondary]');
+      const recordAChars = document.querySelector('[data-record-a-chars]');
+      const recordAWords = document.querySelector('[data-record-a-words]');
+      const recordAOrigin = document.querySelector('[data-record-a-origin]');
+      const recordBId = document.querySelector('[data-record-b-id]');
+      const recordBPrimary = document.querySelector('[data-record-b-primary]');
+      const recordBSecondary = document.querySelector('[data-record-b-secondary]');
+      const recordBChars = document.querySelector('[data-record-b-chars]');
+      const recordBWords = document.querySelector('[data-record-b-words]');
+      const recordBOrigin = document.querySelector('[data-record-b-origin]');
+      const copyButton = document.querySelector('[data-copy-pair]');
+      const sortButtons = document.querySelectorAll('[data-sort]');
+
+      if (!tableBody || !slider || !sliderLabel || !thresholdDisplay || !searchInput || !countEl) {
+        return;
+      }
+
+      const datasetPlaceholders = {
+        jokes: 'Try j-0246 or “impasta”',
+        quotes: 'Try travel-02 or “footprints”',
+      };
+
+      const providerLabels = {
+        hfspace: 'Hugging Face Space',
+        fake: 'Synthetic generator',
+        openai: 'OpenAI embeddings',
+        cohere: 'Cohere embeddings',
+        huggingface: 'Hugging Face API',
+      };
+
+      let recordMaps = { jokes: new Map(), quotes: new Map() };
+
+      const state = {
+        dataset: 'jokes',
+        minSimilarity: parseFloat(slider.value) || 0.7,
+        search: '',
+        sortKey: 'similarity',
+        sortDirection: 'desc',
+        activePairKey: null,
+        visibleMatches: [],
+        data: new Map(),
+        copyTimeout: null,
+      };
+
+      function countWords(text) {
+        if (!text) {
+          return 0;
+        }
+        return text
+          .trim()
+          .split(/\s+/)
+          .filter(Boolean)
+          .length;
+      }
+
+      function formatDateTime(iso) {
+        if (!iso) {
+          return '—';
+        }
+        const date = new Date(iso);
+        if (Number.isNaN(date.getTime())) {
+          return '—';
+        }
+        return date.toLocaleString(undefined, {
+          dateStyle: 'medium',
+          timeStyle: 'short',
+        });
+      }
+
+      function formatSimilarity(value) {
+        return typeof value === 'number' ? value.toFixed(3) : '0.000';
+      }
+
+      function clamp01(value) {
+        if (Number.isNaN(value)) {
+          return 0;
+        }
+        return Math.max(0, Math.min(1, value));
+      }
+
+      function normalizeString(text) {
+        return (text || '')
+          .toLowerCase()
+          .normalize('NFKC');
+      }
+
+      function buildRecordMaps() {
+        const maps = {
+          jokes: new Map(),
+          quotes: new Map(),
+        };
+
+        if (Array.isArray(window.jokes)) {
+          window.jokes.forEach((entry) => {
+            if (!entry || typeof entry.id !== 'string') {
+              return;
+            }
+            const id = entry.id;
+            const setup = typeof entry.joke === 'string' ? entry.joke.trim() : '';
+            const punchline = typeof entry.punchline === 'string' ? entry.punchline.trim() : '';
+            const embeddingInput = [setup, punchline].filter(Boolean).join(' • ');
+            maps.jokes.set(id, {
+              id,
+              type: 'joke',
+              setup,
+              punchline,
+              primary: setup || punchline || '—',
+              secondary: punchline,
+              charCount: embeddingInput.length,
+              wordCount: countWords(embeddingInput),
+              origin: 'Dad jokes deck',
+              embeddingInput,
+              searchText: normalizeString(`${setup} ${punchline}`),
+            });
+          });
+        }
+
+        if (Array.isArray(window.quotesData)) {
+          window.quotesData.forEach((category) => {
+            const categoryId = category && typeof category.id === 'string' ? category.id : '';
+            const categoryLabel = category && typeof category.label === 'string' ? category.label : '';
+            const quotes = Array.isArray(category && category.quotes) ? category.quotes : [];
+            quotes.forEach((quote) => {
+              if (!quote || typeof quote.id !== 'string') {
+                return;
+              }
+              const id = quote.id;
+              const text = typeof quote.text === 'string' ? quote.text.trim() : '';
+              const author = typeof quote.author === 'string' ? quote.author.trim() : '';
+              const embeddingInput = author ? `${text} — ${author}` : text;
+              maps.quotes.set(id, {
+                id,
+                type: 'quote',
+                text,
+                author,
+                primary: text || '—',
+                secondary: author,
+                charCount: embeddingInput.length,
+                wordCount: countWords(embeddingInput),
+                origin: categoryLabel
+                  ? `Quotes → ${categoryLabel}`
+                  : categoryId
+                  ? `Quotes → ${categoryId}`
+                  : 'Quotes deck',
+                embeddingInput,
+                searchText: normalizeString(`${text} ${author} ${categoryLabel} ${categoryId}`),
+              });
+            });
+          });
+        }
+
+        return maps;
+      }
+
+      function enrichMatch(datasetName, match) {
+        const records = recordMaps[datasetName] || new Map();
+        const recordA = records.get(match.idA) || null;
+        const recordB = records.get(match.idB) || null;
+        const previewA = match.previewA || (recordA ? recordA.embeddingInput : '');
+        const previewB = match.previewB || (recordB ? recordB.embeddingInput : '');
+        const charA = recordA ? recordA.charCount : previewA.length;
+        const charB = recordB ? recordB.charCount : previewB.length;
+        const wordsA = recordA ? recordA.wordCount : countWords(previewA);
+        const wordsB = recordB ? recordB.wordCount : countWords(previewB);
+        const similarity = typeof match.similarity === 'number' ? match.similarity : 0;
+        return {
+          idA: match.idA,
+          idB: match.idB,
+          similarity,
+          previewA,
+          previewB,
+          recordA,
+          recordB,
+          charA,
+          charB,
+          wordsA,
+          wordsB,
+          distance: 1 - similarity,
+          lengthDelta: Math.abs(charA - charB),
+          wordDelta: Math.abs(wordsA - wordsB),
+        };
+      }
+
+      function buildPairKey(dataset, idA, idB) {
+        return `${dataset}:${idA}|${idB}`;
+      }
+
+      function updateCount(count) {
+        const formatted = count.toLocaleString();
+        countEl.textContent = formatted;
+        countEl.dataset.count = formatted;
+      }
+
+      function renderTable(matches) {
+        tableBody.innerHTML = '';
+        if (!matches.length) {
+          const row = document.createElement('tr');
+          row.className = 'empty-row';
+          const cell = document.createElement('td');
+          cell.colSpan = 4;
+          cell.textContent = state.data.size ? 'No pairs match the current filters.' : 'Loading similarity report…';
+          row.appendChild(cell);
+          tableBody.appendChild(row);
+          return;
+        }
+
+        const fragment = document.createDocumentFragment();
+        matches.forEach((match) => {
+          const pairKey = buildPairKey(state.dataset, match.idA, match.idB);
+          const row = document.createElement('tr');
+          row.dataset.pairKey = pairKey;
+          if (state.activePairKey === pairKey) {
+            row.classList.add('is-active');
+          }
+
+          const scoreCell = document.createElement('td');
+          scoreCell.className = 'cell-score';
+          const scoreValue = document.createElement('span');
+          scoreValue.className = 'score-value';
+          scoreValue.textContent = formatSimilarity(match.similarity);
+          const scoreMeter = document.createElement('div');
+          scoreMeter.className = 'score-meter';
+          const scoreFill = document.createElement('div');
+          scoreFill.className = 'score-meter__fill';
+          scoreFill.style.width = `${clamp01(match.similarity) * 100}%`;
+          scoreMeter.appendChild(scoreFill);
+          scoreCell.appendChild(scoreValue);
+          scoreCell.appendChild(scoreMeter);
+          row.appendChild(scoreCell);
+
+          const pairCell = document.createElement('td');
+          pairCell.className = 'cell-pair';
+          const ids = document.createElement('div');
+          ids.className = 'pair-ids';
+          const badgeA = document.createElement('span');
+          badgeA.className = 'id-badge';
+          badgeA.textContent = match.idA;
+          const arrow = document.createElement('span');
+          arrow.className = 'pair-arrow';
+          arrow.textContent = '↔';
+          const badgeB = document.createElement('span');
+          badgeB.className = 'id-badge';
+          badgeB.textContent = match.idB;
+          ids.appendChild(badgeA);
+          ids.appendChild(arrow);
+          ids.appendChild(badgeB);
+          pairCell.appendChild(ids);
+
+          const pairMetrics = document.createElement('div');
+          pairMetrics.className = 'pair-metrics';
+          const charMetric = document.createElement('span');
+          charMetric.className = 'pair-metric';
+          charMetric.textContent = `Δ chars ${match.lengthDelta}`;
+          const wordMetric = document.createElement('span');
+          wordMetric.className = 'pair-metric';
+          wordMetric.textContent = `Δ words ${match.wordDelta}`;
+          pairMetrics.appendChild(charMetric);
+          pairMetrics.appendChild(wordMetric);
+          pairCell.appendChild(pairMetrics);
+          row.appendChild(pairCell);
+
+          const entryACell = document.createElement('td');
+          entryACell.className = 'cell-entry';
+          const entryALabel = document.createElement('span');
+          entryALabel.className = 'entry-label';
+          entryALabel.textContent = 'A';
+          const entryAPrimary = document.createElement('p');
+          entryAPrimary.className = 'entry-primary';
+          entryAPrimary.textContent = match.recordA ? match.recordA.primary : match.previewA || '—';
+          const entryASecondary = document.createElement('p');
+          entryASecondary.className = 'entry-secondary';
+          const secondaryAText = match.recordA ? match.recordA.secondary : '';
+          if (secondaryAText) {
+            entryASecondary.textContent = secondaryAText;
+          } else {
+            entryASecondary.textContent = '—';
+            entryASecondary.classList.add('is-empty');
+          }
+          const entryAMeta = document.createElement('p');
+          entryAMeta.className = 'entry-meta';
+          entryAMeta.textContent = `Chars ${match.charA.toLocaleString()} • Words ${match.wordsA.toLocaleString()}`;
+          entryACell.appendChild(entryALabel);
+          entryACell.appendChild(entryAPrimary);
+          entryACell.appendChild(entryASecondary);
+          entryACell.appendChild(entryAMeta);
+          row.appendChild(entryACell);
+
+          const entryBCell = document.createElement('td');
+          entryBCell.className = 'cell-entry';
+          const entryBLabel = document.createElement('span');
+          entryBLabel.className = 'entry-label';
+          entryBLabel.textContent = 'B';
+          const entryBPrimary = document.createElement('p');
+          entryBPrimary.className = 'entry-primary';
+          entryBPrimary.textContent = match.recordB ? match.recordB.primary : match.previewB || '—';
+          const entryBSecondary = document.createElement('p');
+          entryBSecondary.className = 'entry-secondary';
+          const secondaryBText = match.recordB ? match.recordB.secondary : '';
+          if (secondaryBText) {
+            entryBSecondary.textContent = secondaryBText;
+          } else {
+            entryBSecondary.textContent = '—';
+            entryBSecondary.classList.add('is-empty');
+          }
+          const entryBMeta = document.createElement('p');
+          entryBMeta.className = 'entry-meta';
+          entryBMeta.textContent = `Chars ${match.charB.toLocaleString()} • Words ${match.wordsB.toLocaleString()}`;
+          entryBCell.appendChild(entryBLabel);
+          entryBCell.appendChild(entryBPrimary);
+          entryBCell.appendChild(entryBSecondary);
+          entryBCell.appendChild(entryBMeta);
+          row.appendChild(entryBCell);
+
+          row.addEventListener('click', () => {
+            state.activePairKey = pairKey;
+            renderDetail(match);
+            updateActiveRow();
+          });
+
+          fragment.appendChild(row);
+        });
+
+        tableBody.appendChild(fragment);
+      }
+
+      function updateActiveRow() {
+        const rows = tableBody.querySelectorAll('tr');
+        rows.forEach((row) => {
+          if (row.dataset.pairKey === state.activePairKey) {
+            row.classList.add('is-active');
+          } else {
+            row.classList.remove('is-active');
+          }
+        });
+      }
+
+      function renderDetail(match) {
+        if (!detailBody || !detailEmpty || !copyButton) {
+          return;
+        }
+
+        if (!match) {
+          detailBody.hidden = true;
+          detailEmpty.hidden = false;
+          copyButton.disabled = true;
+          return;
+        }
+
+        detailEmpty.hidden = true;
+        detailBody.hidden = false;
+        detailTitle.textContent = `${match.idA} ↔ ${match.idB}`;
+        detailScore.textContent = formatSimilarity(match.similarity);
+        detailDistance.textContent = formatSimilarity(match.distance);
+        detailLength.textContent = `${match.lengthDelta.toLocaleString()} chars • ${match.wordDelta.toLocaleString()} words`;
+
+        if (match.recordA) {
+          recordAId.textContent = match.recordA.id;
+          recordAPrimary.textContent = match.recordA.primary;
+          if (match.recordA.secondary) {
+            recordASecondary.textContent = match.recordA.secondary;
+            recordASecondary.classList.remove('is-empty');
+          } else {
+            recordASecondary.textContent = '—';
+            recordASecondary.classList.add('is-empty');
+          }
+          recordAChars.textContent = match.charA.toLocaleString();
+          recordAWords.textContent = match.wordsA.toLocaleString();
+          recordAOrigin.textContent = match.recordA.origin;
+        } else {
+          recordAId.textContent = match.idA;
+          recordAPrimary.textContent = match.previewA || '—';
+          recordASecondary.textContent = '—';
+          recordASecondary.classList.add('is-empty');
+          recordAChars.textContent = match.charA.toLocaleString();
+          recordAWords.textContent = match.wordsA.toLocaleString();
+          recordAOrigin.textContent = '—';
+        }
+
+        if (match.recordB) {
+          recordBId.textContent = match.recordB.id;
+          recordBPrimary.textContent = match.recordB.primary;
+          if (match.recordB.secondary) {
+            recordBSecondary.textContent = match.recordB.secondary;
+            recordBSecondary.classList.remove('is-empty');
+          } else {
+            recordBSecondary.textContent = '—';
+            recordBSecondary.classList.add('is-empty');
+          }
+          recordBChars.textContent = match.charB.toLocaleString();
+          recordBWords.textContent = match.wordsB.toLocaleString();
+          recordBOrigin.textContent = match.recordB.origin;
+        } else {
+          recordBId.textContent = match.idB;
+          recordBPrimary.textContent = match.previewB || '—';
+          recordBSecondary.textContent = '—';
+          recordBSecondary.classList.add('is-empty');
+          recordBChars.textContent = match.charB.toLocaleString();
+          recordBWords.textContent = match.wordsB.toLocaleString();
+          recordBOrigin.textContent = '—';
+        }
+
+        copyButton.disabled = false;
+        copyButton.textContent = 'Copy pair IDs';
+        copyButton.dataset.pairKey = buildPairKey(state.dataset, match.idA, match.idB);
+      }
+
+      function applySortIndicators() {
+        sortButtons.forEach((button) => {
+          const { sort, sortLabel } = button.dataset;
+          const th = button.closest('th');
+          const label = sortLabel || button.textContent.trim();
+          if (sort === state.sortKey) {
+            button.dataset.sortDirection = state.sortDirection;
+            if (th) {
+              th.setAttribute('aria-sort', state.sortDirection === 'asc' ? 'ascending' : 'descending');
+            }
+            button.setAttribute("aria-label", `${label} (sorted ${state.sortDirection === 'asc' ? 'ascending' : 'descending'})`);
+          } else {
+            button.dataset.sortDirection = '';
+            if (th) {
+              th.removeAttribute('aria-sort');
+            }
+            button.setAttribute('aria-label', `Sort by ${label}`);
+          }
+        });
+      }
+
+      function getMatchesForDataset() {
+        const entry = state.data.get(state.dataset);
+        if (!entry) {
+          return [];
+        }
+        const searchTerm = normalizeString(state.search);
+        return entry.matches
+          .filter((match) => match.similarity >= state.minSimilarity)
+          .filter((match) => {
+            if (!searchTerm) {
+              return true;
+            }
+            return (
+              match.idA.toLowerCase().includes(searchTerm)
+              || match.idB.toLowerCase().includes(searchTerm)
+              || normalizeString(match.previewA).includes(searchTerm)
+              || normalizeString(match.previewB).includes(searchTerm)
+              || (match.recordA && match.recordA.searchText.includes(searchTerm))
+              || (match.recordB && match.recordB.searchText.includes(searchTerm))
+            );
+          })
+          .sort((left, right) => {
+            if (state.sortKey === 'similarity') {
+              return state.sortDirection === 'asc'
+                ? left.similarity - right.similarity
+                : right.similarity - left.similarity;
+            }
+            if (state.sortKey === 'pair') {
+              const leftKey = `${left.idA}-${left.idB}`;
+              const rightKey = `${right.idA}-${right.idB}`;
+              return state.sortDirection === 'asc'
+                ? leftKey.localeCompare(rightKey)
+                : rightKey.localeCompare(leftKey);
+            }
+            if (state.sortKey === 'lengthDelta') {
+              return state.sortDirection === 'asc'
+                ? left.lengthDelta - right.lengthDelta
+                : right.lengthDelta - left.lengthDelta;
+            }
+            return 0;
+          });
+      }
+
+      function updateStats() {
+        const datasetEntry = state.data.get(state.dataset);
+        if (!datasetEntry) {
+          baselineEl.textContent = '—';
+          modelEl.textContent = '—';
+          providerEl.textContent = '—';
+          generatedEl.textContent = '—';
+          recordCountEl.textContent = '—';
+          return;
+        }
+        baselineEl.textContent = datasetEntry.threshold ? datasetEntry.threshold.toFixed(2) : '—';
+        modelEl.textContent = datasetEntry.model || '—';
+        const provider = (datasetEntry.provider || '').toLowerCase();
+        providerEl.textContent = providerLabels[provider] || (datasetEntry.provider || '—');
+        generatedEl.textContent = formatDateTime(datasetEntry.generatedAt);
+        const records = recordMaps[state.dataset];
+        const recordCount = records ? records.size : 0;
+        recordCountEl.textContent = recordCount ? `${recordCount.toLocaleString()} vectors` : '—';
+      }
+
+      function renderAll() {
+        thresholdDisplay.textContent = state.minSimilarity.toFixed(2);
+        sliderLabel.textContent = state.minSimilarity.toFixed(2);
+        const matches = getMatchesForDataset();
+        state.visibleMatches = matches;
+        updateCount(matches.length);
+        renderTable(matches);
+        updateStats();
+        applySortIndicators();
+        let activeMatch = matches.find((item) => buildPairKey(state.dataset, item.idA, item.idB) === state.activePairKey);
+        if (!activeMatch && matches.length) {
+          activeMatch = matches[0];
+          state.activePairKey = buildPairKey(state.dataset, activeMatch.idA, activeMatch.idB);
+        }
+        renderDetail(activeMatch || null);
+        updateActiveRow();
+      }
+
+      function loadReports() {
+        const configs = [
+          ['jokes', '../../data/similarity-report-jokes.json'],
+          ['quotes', '../../data/similarity-report-quotes.json'],
+        ];
+        return Promise.all(
+          configs.map(([name, url]) =>
+            fetch(url)
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error(`Failed to load ${url}: ${response.status}`);
+                }
+                return response.json();
+              })
+              .then((json) => [name, json])
+          )
+        );
+      }
+
+      function hydrateDataset(name, report) {
+        if (!report || !Array.isArray(report.matches)) {
+          state.data.set(name, {
+            matches: [],
+            threshold: typeof report.threshold === 'number' ? report.threshold : 0.7,
+            generatedAt: report.generatedAt || null,
+            provider: report.provider || '',
+            model: report.model || '',
+          });
+          return;
+        }
+        const enriched = report.matches.map((match) => enrichMatch(name, match));
+        state.data.set(name, {
+          matches: enriched,
+          threshold: typeof report.threshold === 'number' ? report.threshold : 0.7,
+          generatedAt: report.generatedAt || null,
+          provider: report.provider || '',
+          model: report.model || '',
+        });
+      }
+
+      function showError(message) {
+        tableBody.innerHTML = '';
+        const row = document.createElement('tr');
+        row.className = 'empty-row';
+        const cell = document.createElement('td');
+        cell.colSpan = 4;
+        cell.textContent = message;
+        row.appendChild(cell);
+        tableBody.appendChild(row);
+        if (detailBody) {
+          detailBody.hidden = true;
+        }
+        if (detailEmpty) {
+          detailEmpty.hidden = false;
+          detailEmpty.textContent = message;
+        }
+      }
+
+      function setActiveDataset(dataset) {
+        if (dataset === state.dataset) {
+          return;
+        }
+        state.dataset = dataset;
+        state.activePairKey = null;
+        document.body.setAttribute('data-active-dataset', dataset);
+        searchInput.placeholder = datasetPlaceholders[dataset] || 'Search report';
+        datasetButtons.forEach((button) => {
+          button.classList.toggle('is-active', button.dataset.dataset === dataset);
+        });
+        renderAll();
+      }
+
+      datasetButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const dataset = button.dataset.dataset;
+          if (!dataset) {
+            return;
+          }
+          setActiveDataset(dataset);
+        });
+      });
+
+      slider.addEventListener('input', (event) => {
+        const value = parseFloat(event.target.value);
+        if (Number.isNaN(value)) {
+          return;
+        }
+        state.minSimilarity = value;
+        renderAll();
+      });
+
+      searchInput.addEventListener('input', (event) => {
+        state.search = event.target.value || '';
+        renderAll();
+      });
+
+      sortButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const { sort } = button.dataset;
+          if (!sort) {
+            return;
+          }
+          if (state.sortKey === sort) {
+            state.sortDirection = state.sortDirection === 'asc' ? 'desc' : 'asc';
+          } else {
+            state.sortKey = sort;
+            state.sortDirection = sort === 'similarity' ? 'desc' : 'asc';
+          }
+          renderAll();
+        });
+      });
+
+      if (copyButton) {
+        copyButton.addEventListener('click', async () => {
+          if (!state.activePairKey || copyButton.disabled) {
+            return;
+          }
+          const activeMatch = state.visibleMatches.find(
+            (match) => buildPairKey(state.dataset, match.idA, match.idB) === state.activePairKey,
+          );
+          if (!activeMatch) {
+            return;
+          }
+          const text = `${activeMatch.idA} ↔ ${activeMatch.idB} (${formatSimilarity(activeMatch.similarity)})`;
+          try {
+            await navigator.clipboard.writeText(text);
+            copyButton.textContent = 'Copied!';
+          } catch (error) {
+            copyButton.textContent = 'Copy failed';
+          }
+          if (state.copyTimeout) {
+            clearTimeout(state.copyTimeout);
+          }
+          state.copyTimeout = setTimeout(() => {
+            copyButton.textContent = 'Copy pair IDs';
+          }, 2000);
+        });
+      }
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') {
+          return;
+        }
+        if (!state.visibleMatches.length) {
+          return;
+        }
+        const currentIndex = state.visibleMatches.findIndex(
+          (match) => buildPairKey(state.dataset, match.idA, match.idB) === state.activePairKey,
+        );
+        if (event.key === 'ArrowDown') {
+          const nextIndex = currentIndex >= 0 ? Math.min(state.visibleMatches.length - 1, currentIndex + 1) : 0;
+          const match = state.visibleMatches[nextIndex];
+          state.activePairKey = buildPairKey(state.dataset, match.idA, match.idB);
+          renderDetail(match);
+          updateActiveRow();
+          event.preventDefault();
+        } else if (event.key === 'ArrowUp') {
+          const prevIndex = currentIndex >= 0 ? Math.max(0, currentIndex - 1) : 0;
+          const match = state.visibleMatches[prevIndex];
+          state.activePairKey = buildPairKey(state.dataset, match.idA, match.idB);
+          renderDetail(match);
+          updateActiveRow();
+          event.preventDefault();
+        }
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        document.body.setAttribute('data-active-dataset', state.dataset);
+        searchInput.placeholder = datasetPlaceholders[state.dataset];
+        recordMaps = buildRecordMaps();
+        loadReports()
+          .then((reports) => {
+            reports.forEach(([name, report]) => {
+              hydrateDataset(name, report);
+            });
+            renderAll();
+          })
+          .catch((error) => {
+            console.error(error);
+            showError('Unable to load similarity data.');
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

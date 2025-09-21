@@ -1,0 +1,100 @@
+{
+  "dataset": "jokes",
+  "threshold": 0.7,
+  "generatedAt": "2025-09-21T00:51:13.274Z",
+  "provider": "hfspace",
+  "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
+  "matches": [
+    {
+      "idA": "j-0182",
+      "idB": "j-0246",
+      "similarity": 0.7931025110535546,
+      "previewA": "What do you call a cow with no legs? • Ground beef.",
+      "previewB": "What do you call a cow with two legs? • Lean beef."
+    },
+    {
+      "idA": "j-0081",
+      "idB": "j-0673",
+      "similarity": 0.7913226685931444,
+      "previewA": "I made a belt out of watches once... • It was a waist of time.",
+      "previewB": "What do you call a belt made out of watches? • A waist of time."
+    },
+    {
+      "idA": "j-0703",
+      "idB": "j-0759",
+      "similarity": 0.7768457236147934,
+      "previewA": "Why do Java programmers wear glasses? • Because they don't C#.",
+      "previewB": "Why dot net developers don't wear glasses? • Because they see sharp."
+    },
+    {
+      "idA": "j-0410",
+      "idB": "j-0727",
+      "similarity": 0.7759317438473069,
+      "previewA": "What does a clock do when it's hungry? • It goes back four seconds!",
+      "previewB": "Did you hear about the hungry clock? • It went back four seconds."
+    },
+    {
+      "idA": "j-0376",
+      "idB": "j-0624",
+      "similarity": 0.7594325532469558,
+      "previewA": "Why does Norway have barcodes on their battleships? • So when they get back to port, they can Scandinavian.",
+      "previewB": "Why did Sweden start painting barcodes on the sides of their battleships? • So they could Scandinavian."
+    },
+    {
+      "idA": "j-0251",
+      "idB": "j-0760",
+      "similarity": 0.7539410481852793,
+      "previewA": "Why was ten scared of seven? • Because seven ate nine.",
+      "previewB": "Why is seven bigger than nine? • Because seven ate nine."
+    },
+    {
+      "idA": "j-0296",
+      "idB": "j-0542",
+      "similarity": 0.7537369878674044,
+      "previewA": "What did the ocean say to the beach? • Thanks for all the sediment.",
+      "previewB": "What did the ocean say to the shore? • Nothing, it just waved."
+    },
+    {
+      "idA": "j-0089",
+      "idB": "j-0422",
+      "similarity": 0.7382083937540495,
+      "previewA": "If at first you don't succeed • sky diving is not for you!",
+      "previewB": "What is the hardest part about sky diving? • The ground."
+    },
+    {
+      "idA": "j-0459",
+      "idB": "j-0732",
+      "similarity": 0.7341598134272421,
+      "previewA": "A man got hit in the head with a can of Coke • but he was alright because it was a soft drink.",
+      "previewB": "I got hit in the head by a soda can, but it didn't hurt that much... • It was a soft drink."
+    },
+    {
+      "idA": "j-0439",
+      "idB": "j-0828",
+      "similarity": 0.7223288554046721,
+      "previewA": "What do you call a fake noodle? • An impasta.",
+      "previewB": "What do you call fake spaghetti? • An impasta."
+    },
+    {
+      "idA": "j-0499",
+      "idB": "j-0758",
+      "similarity": 0.7220846915207392,
+      "previewA": "When does a joke become a dad joke? • When it becomes apparent.",
+      "previewB": "Why are “Dad Jokes” so good? • Because the punchline is apparent."
+    },
+    {
+      "idA": "j-0277",
+      "idB": "j-0296",
+      "similarity": 0.7124257083465595,
+      "previewA": "What did the sea say to the sand? • \"We have to stop meeting like this.\"",
+      "previewB": "What did the ocean say to the beach? • Thanks for all the sediment."
+    },
+    {
+      "idA": "j-0353",
+      "idB": "j-0679",
+      "similarity": 0.7002045046743881,
+      "previewA": "What time did the man go to the dentist? • Tooth hurt-y.",
+      "previewB": "What's the best time to go to the dentist? • Tooth hurty."
+    }
+  ]
+}

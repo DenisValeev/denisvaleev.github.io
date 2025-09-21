@@ -1858,10 +1858,6 @@ window.jokes = [
             "joke": "Where did Captain Hook get his hook?",
             "punchline": "From a second hand store."
         }, {
-            "id": "j-0465",
-            "joke": "I got fired from a florist",
-            "punchline": "apparently I took too many leaves."
-        }, {
             "id": "j-0466",
             "joke": "Two silk worms had a race.",
             "punchline": "They ended up in a tie."
@@ -2678,10 +2674,6 @@ window.jokes = [
             "joke": "Have you heard about corduroy pillows?",
             "punchline": "They're making headlines!"
         }, {
-            "id": "j-0670",
-            "joke": "What did the fish say when it hit the wall?",
-            "punchline": "Dam."
-        }, {
             "id": "j-0671",
             "joke": "How do you make a tissue dance?",
             "punchline": "You put a little boogie on it."
@@ -2693,10 +2685,6 @@ window.jokes = [
             "id": "j-0673",
             "joke": "What do you call a belt made out of watches?",
             "punchline": "A waist of time."
-        }, {
-            "id": "j-0674",
-            "joke": "Why can't bicycles stand on their own?",
-            "punchline": "They are two tired"
         }, {
             "id": "j-0675",
             "joke": "How does a train eat?",
@@ -2794,10 +2782,6 @@ window.jokes = [
             "joke": "What did the duck say when he bought lipstick?",
             "punchline": "Put it on my bill"
         }, {
-            "id": "j-0699",
-            "joke": "What happens to a frog's car when it breaks down?",
-            "punchline": "It gets toad away"
-        }, {
             "id": "j-0700",
             "joke": "did you know the first French fries weren't cooked in France?",
             "punchline": "they were cooked in Greece"
@@ -2857,14 +2841,6 @@ window.jokes = [
             "id": "j-0714",
             "joke": "Don't look at the eclipse through a colander.",
             "punchline": "You'll strain your eyes."
-        }, {
-            "id": "j-0715",
-            "joke": "I bought some shoes from a drug dealer.",
-            "punchline": "I don't know what he laced them with, but I was tripping all day!"
-        }, {
-            "id": "j-0716",
-            "joke": "Why do chicken coops only have two doors?",
-            "punchline": "Because if they had four, they would be chicken sedans"
         }, {
             "id": "j-0717",
             "joke": "What do you call a factory that sells passable products?",
@@ -2950,14 +2926,6 @@ window.jokes = [
             "joke": "Why do C# and Java developers keep breaking their keyboards?",
             "punchline": "Because they use a strongly typed language."
         }, {
-            "id": "j-0738",
-            "joke": "What do you give to a lemon in need?",
-            "punchline": "Lemonaid."
-        }, {
-            "id": "j-0739",
-            "joke": "A weasel walks into a bar. The bartender says, \"Wow, I've never served a weasel before. What can I get for you?\"",
-            "punchline": "Pop,goes the weasel."
-        }, {
             "id": "j-0740",
             "joke": "Can I watch the TV?",
             "punchline": "Yes, but don’t turn it on."
@@ -2970,17 +2938,9 @@ window.jokes = [
             "joke": "How good are you at Power Point?",
             "punchline": "I Excel at it."
         }, {
-            "id": "j-0743",
-            "joke": "How many seconds are in a year?",
-            "punchline": "12. January 2nd, February 2nd, March 2nd, April 2nd.... etc"
-        }, {
             "id": "j-0744",
             "joke": "What’s 50 Cent’s name in Zimbabwe?",
             "punchline": "200 Dollars."
-        }, {
-            "id": "j-0745",
-            "joke": "Where’s the bin?",
-            "punchline": "I haven’t been anywhere!"
         }, {
             "id": "j-0746",
             "joke": "Knock-knock.",
@@ -3158,10 +3118,6 @@ window.jokes = [
             "joke": "Why did the private classes break up?",
             "punchline": "Because they never saw each other."
         }, {
-            "id": "j-0790",
-            "joke": "Why did the developer quit his job?",
-            "punchline": "Because he didn't get arrays."
-        }, {
             "id": "j-0791",
             "joke": "How many React developers does it take to change a lightbulb?",
             "punchline": "None, they prefer dark mode."
@@ -3194,10 +3150,6 @@ window.jokes = [
             "joke": "Why did the programmer go broke?",
             "punchline": "He used up all his cache"
         }, {
-            "id": "j-0799",
-            "joke": "Why did the programmer always mix up Halloween and Christmas?",
-            "punchline": "Because Oct 31 equals Dec 25."
-        }, {
             "id": "j-0800",
             "joke": "Why don't programmers like nature?",
             "punchline": "There's too many bugs."
@@ -3222,10 +3174,6 @@ window.jokes = [
             "joke": "What did the janitor say when he jumped out of the closet?",
             "punchline": "Supplies!"
         }, {
-            "id": "j-0806",
-            "joke": "What did one ocean say to the other ocean?",
-            "punchline": "Nothing, they just waved."
-        }, {
             "id": "j-0807",
             "joke": "What's the best thing about Switzerland?",
             "punchline": "I don't know, but their flag is a big plus."
@@ -3234,17 +3182,9 @@ window.jokes = [
             "joke": "Why did the golfer bring two pairs of pants?",
             "punchline": "In case he got a hole in one."
         }, {
-            "id": "j-0809",
-            "joke": "Why did the chicken cross the playground?",
-            "punchline": "To get to the other slide."
-        }, {
             "id": "j-0810",
             "joke": "Why don't scientists trust atoms?",
             "punchline": "Because they make up everything."
-        }, {
-            "id": "j-0811",
-            "joke": "Why don't oysters give to charity?",
-            "punchline": "Because they're shellfish."
         }, {
             "id": "j-0812",
             "joke": "Why did the cookie go to the doctor?",
@@ -3257,10 +3197,6 @@ window.jokes = [
             "id": "j-0814",
             "joke": "Why did the designer break up with their font?",
             "punchline": "Because it wasn't their type."
-        }, {
-            "id": "j-0815",
-            "joke": "Why did the programmer quit their job?",
-            "punchline": "They didn't get arrays."
         }, {
             "id": "j-0816",
             "joke": "Why did the developer go broke?",

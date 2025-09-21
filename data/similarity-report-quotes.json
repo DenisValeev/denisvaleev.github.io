@@ -1,0 +1,44 @@
+{
+  "dataset": "quotes",
+  "threshold": 0.7,
+  "generatedAt": "2025-09-21T00:51:32.555Z",
+  "provider": "hfspace",
+  "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
+  "matches": [
+    {
+      "idA": "motivation-14",
+      "idB": "positive-16",
+      "similarity": 0.7937032291268625,
+      "previewA": "Never let the fear of striking out get in your way. — Babe Ruth",
+      "previewB": "Every strike brings me closer to the next home run. — Babe Ruth"
+    },
+    {
+      "idA": "money-23",
+      "idB": "money-25",
+      "similarity": 0.7652924532982731,
+      "previewA": "That man is richest whose pleasures are cheapest. — Henry David Thoreau",
+      "previewB": "Wealth is the ability to fully experience life. — Henry David Thoreau"
+    },
+    {
+      "idA": "adventure-01",
+      "idB": "adventure-36",
+      "similarity": 0.7480768743195906,
+      "previewA": "The danger of adventure is worth a thousand days of ease and comfort. — Paulo Coelho",
+      "previewB": "If you think adventure is dangerous, try routine, it is lethal. — Paulo Coelho"
+    },
+    {
+      "idA": "adventure-29",
+      "idB": "travel-02",
+      "similarity": 0.7473004906823895,
+      "previewA": "Take only memories, leave only footprints. — Chief Seattle",
+      "previewB": "Take only memories, leave only footprints. — Unknown"
+    },
+    {
+      "idA": "love-53",
+      "idB": "positive-31",
+      "similarity": 0.7195420226321436,
+      "previewA": "Only do what your heart tells you. — Princess Diana",
+      "previewB": "Lead from the heart, not the head. — Princess Diana"
+    }
+  ]
+}

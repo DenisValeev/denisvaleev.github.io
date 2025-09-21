@@ -29,11 +29,6 @@ window.quotesData = [
         "author": "Ralph Waldo Emerson"
       },
       {
-        "id": "adventure-06",
-        "text": "Travel makes one modest. You see what a tiny place you occupy in the world.",
-        "author": "Gustav Flaubert"
-      },
-      {
         "id": "adventure-07",
         "text": "A ship in harbor is safe, but that is not what ships are built for.",
         "author": "John A. Shedd"
@@ -182,11 +177,6 @@ window.quotesData = [
         "id": "adventure-36",
         "text": "If you think adventure is dangerous, try routine, it is lethal.",
         "author": "Paulo Coelho"
-      },
-      {
-        "id": "adventure-37",
-        "text": "Travel makes one modest, you see what a tiny place you occupy in the world.",
-        "author": "Gustave Flaubert"
       },
       {
         "id": "adventure-38",
@@ -1279,11 +1269,6 @@ window.quotesData = [
     "label": "Travel",
     "quotes": [
       {
-        "id": "travel-01",
-        "text": "The world is a book, and those who do not travel read only a page.",
-        "author": "Unknown"
-      },
-      {
         "id": "travel-02",
         "text": "Take only memories, leave only footprints.",
         "author": "Unknown"
@@ -1429,11 +1414,6 @@ window.quotesData = [
         "author": "Anonymous"
       },
       {
-        "id": "travel-39",
-        "text": "Collect Moment, Not Things.",
-        "author": "Anonymous"
-      },
-      {
         "id": "travel-40",
         "text": "Blessed are the curious for they shall have adventures.",
         "author": "Lovelle Drachman"
@@ -1452,11 +1432,6 @@ window.quotesData = [
         "id": "travel-44",
         "text": "This wasn’t a strange place; it was a new one.",
         "author": "Paulo Coelho"
-      },
-      {
-        "id": "travel-45",
-        "text": "If we were meant to stay in one place, we’d have roots instead of feet",
-        "author": "Rachel Wolchin"
       },
       {
         "id": "travel-46",
@@ -1713,11 +1688,6 @@ window.quotesData = [
         "id": "humor-46",
         "text": "I generally avoid temptation unless I can’t resist it.",
         "author": "Mae West"
-      },
-      {
-        "id": "humor-48",
-        "text": "If you cannot get rid of the family skeleton, you may as well make it dance.",
-        "author": "George Bernard Shaw, “Immaturity"
       },
       {
         "id": "humor-49",
