@@ -26,6 +26,11 @@ test.describe('Cosine Similarity Lab', () => {
     const dedupeView = page.locator('[data-dedupe-view]');
     const dedupeList = page.locator('[data-dedupe-list]');
     const resultsSection = page.locator('[data-results]');
+    const tableWrapper = page.locator('[data-matrix-view]');
+    const detailPanel = page.locator('[data-detail]');
+    const detailBody = page.locator('[data-detail-body]');
+    const detailTitle = page.locator('[data-detail-title]');
+    const copyButton = page.locator('[data-copy-pair]');
 
     const minAttr = await minSlider.getAttribute('min');
     const minBound = Number.parseFloat(minAttr || '0');
@@ -79,6 +84,12 @@ test.describe('Cosine Similarity Lab', () => {
     await expect(page.locator('body')).toHaveAttribute('data-active-dataset', 'jokes');
     await expect(resultsSection).toHaveAttribute('data-layout', 'dedupe');
     await expect(dedupeView).toBeVisible();
+    await page.waitForSelector('[data-results-body] tr:not(.empty-row)');
+    await expect(tableWrapper).toBeVisible();
+    await expect(detailPanel).toBeVisible();
+    await expect(detailBody).toBeVisible();
+    await expect(detailTitle).toContainText('↔');
+    await expect(copyButton).toBeEnabled();
 
     await page.waitForSelector('[data-dedupe-list] .dedupe-card');
     const dedupeCardCount = await dedupeList.locator('.dedupe-card').count();
@@ -103,6 +114,12 @@ test.describe('Cosine Similarity Lab', () => {
     await expect(cohereButton).toHaveClass(/is-active/);
     await expect(providerEl).toContainText('Cohere embeddings');
     await expect(modelEl).toContainText('embed-english-v3.0');
+    await page.waitForSelector('[data-results-body] tr:not(.empty-row)');
+    await expect(tableWrapper).toBeVisible();
+    await expect(detailPanel).toBeVisible();
+    await expect(detailBody).toBeVisible();
+    await expect(detailTitle).toContainText('↔');
+    await expect(copyButton).toBeEnabled();
 
     const searchPlaceholder = await page.locator('[data-search]').getAttribute('placeholder');
     expect((searchPlaceholder || '').toLowerCase()).toContain('j-0182');
