@@ -19,7 +19,7 @@ The first command should exit silently. The second should print `true` along wit
 Whenever you add or prune jokes, regenerate the embeddings store and refresh the Cosine Similarity Lab data so the new deck participates in dedupe checks:
 
 ```bash
-node tools/review-content-similarity.js --dataset=jokes --provider=fake --write --update-manifest
+node tools/review-content-similarity.js --dataset=jokes --provider=synthetic --write --update-manifest
 node tools/review-content-similarity.js --dataset=jokes --provider=hfspace --model=bienkieu/sentence-embedding --batch-size=8 --force --threshold-jokes=0.5 --report=data/similarity-report-jokes.json
 ```
 

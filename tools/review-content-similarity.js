@@ -19,7 +19,7 @@ function parseArgs(argv) {
     provider: null,
     model: null,
     batchSize: 16,
-    fakeDimensions: 64,
+    syntheticDimensions: 64,
     threshold: {
       jokes: 0.88,
       quotes: 0.92,
@@ -86,10 +86,10 @@ function parseArgs(argv) {
       }
       return;
     }
-    if (arg.startsWith('--fake-dimensions=')) {
-      const parsed = parseInt(arg.slice('--fake-dimensions='.length), 10);
+    if (arg.startsWith('--synthetic-dimensions=')) {
+      const parsed = parseInt(arg.slice('--synthetic-dimensions='.length), 10);
       if (!Number.isNaN(parsed) && parsed > 0) {
-        options.fakeDimensions = parsed;
+        options.syntheticDimensions = parsed;
       }
       return;
     }
@@ -593,7 +593,7 @@ async function requestJson(url, init, retries = 2, retryDelayMs = 2000) {
   throw lastError;
 }
 
-function createFakeEmbedding(text, dimensions) {
+function createSyntheticEmbedding(text, dimensions) {
   const hash = crypto.createHash('sha256').update(text).digest();
   const vector = new Array(dimensions);
   for (let i = 0; i < dimensions; i += 1) {
@@ -604,11 +604,11 @@ function createFakeEmbedding(text, dimensions) {
 }
 
 async function fetchEmbeddings(provider, model, inputs, options) {
-  if (provider === 'fake') {
-    const dims = options.fakeDimensions || 64;
+  if (provider === 'synthetic') {
+    const dims = options.syntheticDimensions || 64;
     return {
-      vectors: inputs.map((input) => createFakeEmbedding(input, dims)),
-      model: model || `fake-${dims}`,
+      vectors: inputs.map((input) => createSyntheticEmbedding(input, dims)),
+      model: model || `synthetic-${dims}`,
       dimensions: dims,
     };
   }

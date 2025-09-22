@@ -11952,7 +11952,7 @@
       },
       "embedding": {
         "status": "ready",
-        "model": "fake-64",
+        "model": "synthetic-64",
         "vectorSha256": "3982af420648236a11df28a66346cce0b6ab3e4a26a8fab8d1f9361dc1a6363d",
         "updatedAt": "2025-09-22T01:31:43.621Z"
       }
@@ -12238,7 +12238,7 @@
       },
       "embedding": {
         "status": "ready",
-        "model": "fake-64",
+        "model": "synthetic-64",
         "vectorSha256": "fcd69e2f035a0d0d68543c530643364fba13ce35bd5aae795345d1af711e25b3",
         "updatedAt": "2025-09-22T01:31:43.622Z"
       }
@@ -12788,7 +12788,7 @@
       },
       "embedding": {
         "status": "ready",
-        "model": "fake-64",
+        "model": "synthetic-64",
         "vectorSha256": "d687ae5ccdaba04e8d24e3df03debd573949dfb244615992d19cb0cad784eec9",
         "updatedAt": "2025-09-22T01:31:43.622Z"
       }
@@ -13338,7 +13338,7 @@
       },
       "embedding": {
         "status": "ready",
-        "model": "fake-64",
+        "model": "synthetic-64",
         "vectorSha256": "3036932c8d7093419f82a4d1a0f3350597a05b5eaba33b2ae62f1ccf8d8120bb",
         "updatedAt": "2025-09-22T01:31:43.622Z"
       }
@@ -13888,7 +13888,7 @@
       },
       "embedding": {
         "status": "ready",
-        "model": "fake-64",
+        "model": "synthetic-64",
         "vectorSha256": "a3a07d17534c24c6592c3d140a42664a3847364758ae324f8baec2e0fcb95754",
         "updatedAt": "2025-09-22T01:31:43.622Z"
       }
@@ -14174,7 +14174,7 @@
       },
       "embedding": {
         "status": "ready",
-        "model": "fake-64",
+        "model": "synthetic-64",
         "vectorSha256": "820afdcc989fe18436c9ca779cd74528cb804d89b04230e26bf8a8de0340055a",
         "updatedAt": "2025-09-22T01:31:43.622Z"
       }
@@ -14460,7 +14460,7 @@
       },
       "embedding": {
         "status": "ready",
-        "model": "fake-64",
+        "model": "synthetic-64",
         "vectorSha256": "ca39acb2bf58f6c3f6ec35ff51f761e8f4c760261d4c028468f3e3c7d872c9fc",
         "updatedAt": "2025-09-22T01:31:43.622Z"
       }
