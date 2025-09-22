@@ -802,11 +802,6 @@
       grid-template-columns: 1fr;
     }
 
-    .results[data-layout="dedupe"] .detail-panel,
-    .results[data-layout="dedupe"] .table-wrapper {
-      display: none;
-    }
-
     .dedupe-view {
       background: var(--surface-strong);
       border: 1px solid var(--card-border);
@@ -2809,12 +2804,10 @@
         const matches = getMatchesForDataset();
         state.visibleMatches = matches;
         updateCount(matches.length);
+        renderTable(matches);
         if (config.layout === 'dedupe') {
           renderDedupe(matches, config);
-          updateStats();
-          return;
         }
-        renderTable(matches);
         updateStats();
         applySortIndicators();
         let activeMatch = matches.find((item) => buildPairKey(state.dataset, item.idA, item.idB) === state.activePairKey);
@@ -2920,6 +2913,10 @@
         if (detailEmpty) {
           detailEmpty.hidden = false;
           detailEmpty.textContent = message;
+        }
+        if (copyButton) {
+          copyButton.disabled = true;
+          copyButton.textContent = 'Copy pair IDs';
         }
       }
 
@@ -3085,21 +3082,16 @@
         }
         const isDedupe = layout === 'dedupe';
         if (tableWrapper) {
-          tableWrapper.hidden = isDedupe;
+          tableWrapper.hidden = false;
         }
         if (dedupeView) {
           dedupeView.hidden = !isDedupe;
         }
         if (detailPanel) {
-          detailPanel.hidden = isDedupe;
+          detailPanel.hidden = false;
         }
         if (copyButton) {
-          copyButton.hidden = isDedupe;
-          if (isDedupe) {
-            copyButton.disabled = true;
-          } else {
-            copyButton.disabled = false;
-          }
+          copyButton.hidden = false;
         }
         if (minSlider) {
           minSlider.disabled = false;
@@ -3415,7 +3407,7 @@
 
       document.addEventListener('keydown', (event) => {
         const config = getActiveModelConfig();
-        if (!config || config.layout === 'dedupe') {
+        if (!config) {
           return;
         }
         if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') {
