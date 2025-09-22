@@ -106,5 +106,11 @@ test.describe('Cosine Similarity Lab', () => {
 
     const searchPlaceholder = await page.locator('[data-search]').getAttribute('placeholder');
     expect((searchPlaceholder || '').toLowerCase()).toContain('j-0182');
+
+    await page.waitForSelector('[data-dedupe-list] .embedding-preview img');
+    const coherePreviewImages = page.locator('[data-dedupe-list] .embedding-preview img');
+    const previewCount = await coherePreviewImages.count();
+    expect(previewCount).toBeGreaterThan(0);
+    await expect(coherePreviewImages.first()).toHaveAttribute('src', /^data:image\//);
   });
 });
