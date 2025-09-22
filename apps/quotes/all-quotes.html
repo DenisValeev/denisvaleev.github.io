@@ -39,6 +39,12 @@
       table {
         border-color: rgba(255, 255, 255, 0.2);
       }
+
+      .filter input[type="search"] {
+        background: rgba(18, 18, 18, 0.9);
+        border-color: rgba(241, 245, 255, 0.35);
+        color: inherit;
+      }
     }
 
     main {
@@ -58,6 +64,36 @@
 
     .count {
       font-weight: 600;
+    }
+
+    .filter {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .filter label {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .filter input[type="search"] {
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.95);
+      color: inherit;
+      padding: 10px 14px;
+      font: inherit;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .filter input[type="search"]:focus-visible {
+      outline: 2px solid rgba(48, 86, 211, 0.55);
+      outline-offset: 2px;
+      box-shadow: 0 0 0 3px rgba(48, 86, 211, 0.18);
     }
 
     table {
@@ -113,7 +149,11 @@
   <main>
     <h1>All Quotes</h1>
     <p>Flip through every quote across the themed decks in one place.</p>
-    <p class="count"><span data-count>0</span> quotes</p>
+    <p class="count">Showing <span data-count>0</span> of <span data-total>0</span> quotes</p>
+    <form class="filter" data-filter-form>
+      <label for="quote-filter">Filter quotes</label>
+      <input id="quote-filter" type="search" name="quote-filter" placeholder="Type to filter…" autocomplete="off" data-filter-input>
+    </form>
     <table>
       <caption>Quote followed by author and category</caption>
       <tbody>
