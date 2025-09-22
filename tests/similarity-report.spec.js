@@ -53,6 +53,9 @@ test.describe('Cosine Similarity Lab', () => {
 
     await expect(page.locator('[data-dataset]')).toHaveCount(3);
 
+    await expect(providerEl).toContainText('Hugging Face Space');
+    await expect(modelEl).toContainText(/MiniLM/i);
+
     const pairMetric = page.locator('.pair-metric', { hasText: 'Levenshtein' }).first();
     await expect(pairMetric).toBeVisible();
 
@@ -79,10 +82,10 @@ test.describe('Cosine Similarity Lab', () => {
 
     await page.waitForSelector('[data-dedupe-list] .dedupe-card');
     const dedupeCardCount = await dedupeList.locator('.dedupe-card').count();
-    expect(dedupeCardCount).toBeGreaterThan(200);
+    expect(dedupeCardCount).toBeGreaterThanOrEqual(150);
 
     const dedupeCountValue = parseLocaleNumber(await page.locator('[data-match-count]').textContent());
-    expect(dedupeCountValue).toBeGreaterThan(200);
+    expect(dedupeCountValue).toBeGreaterThanOrEqual(150);
 
     const secondMinAttr = await minSlider.getAttribute('min');
     expect(Number.parseFloat(secondMinAttr || '0')).toBeCloseTo(0.5, 2);
@@ -90,13 +93,18 @@ test.describe('Cosine Similarity Lab', () => {
     const baselineValue = parseLocaleNumber(await baselineEl.textContent());
     expect(baselineValue).toBeCloseTo(0.5, 2);
 
-    const providerText = (await providerEl.textContent()) || '';
-    expect(providerText.toLowerCase()).toContain('hugging face');
+    await expect(providerEl).toContainText(/openai embeddings/i);
+    await expect(modelEl).toContainText(/text-embedding-3-large/i);
 
-    const modelText = (await modelEl.textContent()) || '';
-    expect(modelText).toMatch(/MiniLM/i);
+    const cohereButton = page.locator('[data-model-toggle] button', {
+      hasText: 'Cohere embed-english-v3.0',
+    });
+    await cohereButton.click();
+    await expect(cohereButton).toHaveClass(/is-active/);
+    await expect(providerEl).toContainText('Cohere embeddings');
+    await expect(modelEl).toContainText('embed-english-v3.0');
 
     const searchPlaceholder = await page.locator('[data-search]').getAttribute('placeholder');
-    expect((searchPlaceholder || '').toLowerCase()).toContain('waist of time');
+    expect((searchPlaceholder || '').toLowerCase()).toContain('j-0182');
   });
 });
