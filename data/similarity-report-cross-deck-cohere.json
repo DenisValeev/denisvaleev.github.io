@@ -1,37 +1,128 @@
 {
   "dataset": "cross-deck",
-  "threshold": 0.78,
-  "generatedAt": "2025-09-21T04:22:03.211Z",
-  "provider": "cohere",
-  "model": "embed-english-v3.0",
+  "threshold": 0.5,
+  "generatedAt": "2025-09-22T00:02:49.928Z",
+  "provider": "hfspace",
+  "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
   "matches": [
     {
       "idA": "humor-01",
       "idB": "j-0001",
-      "similarity": 0.868,
+      "similarity": 0.619893429728,
       "previewA": "I’m sick of following my dreams, man. I’m just going to ask where they’re going and hook up with’em later. — Mitch Hedberg",
       "previewB": "I'm tired of following my dreams. • I'm just going to ask them where they are going and meet up with them later."
     },
     {
-      "idA": "time-10",
-      "idB": "j-0038",
-      "similarity": 0.824,
-      "previewA": "The bad news is time flies. The good news is you’re the pilot. — Michael Altshuler",
-      "previewB": "Why did the kid throw the clock out the window? • He wanted to see time fly!"
+      "idA": "music-06",
+      "idB": "j-0562",
+      "similarity": 0.586942570098,
+      "previewA": "If I were not a physicist, I would probably be a musician. I often think in music. I live my daydreams in music. I see my life in terms of music. — Albert Einst",
+      "previewB": "Did you know Albert Einstein was a real person? • All this time, I thought he was just a theoretical physicist!"
     },
     {
-      "idA": "time-04",
-      "idB": "j-0081",
-      "similarity": 0.815,
-      "previewA": "The most precious resource we all have is time. — Steve Jobs",
-      "previewB": "I made a belt out of watches once... • It was a waist of time."
+      "idA": "time-28",
+      "idB": "j-0727",
+      "similarity": 0.563866975584,
+      "previewA": "You can’t turn back the clock. But you can wind it up again. — Bonnie Prudden",
+      "previewB": "Did you hear about the hungry clock? • It went back four seconds."
+    },
+    {
+      "idA": "money-26",
+      "idB": "j-0685",
+      "similarity": 0.557022814449,
+      "previewA": "I will tell you how to become rich. Close the doors. Be fearful when others are greedy. Be greedy when others are fearful. — Warren Buffett",
+      "previewB": "What's the object-oriented way to become wealthy? • Inheritance"
+    },
+    {
+      "idA": "growth-06",
+      "idB": "j-0632",
+      "similarity": 0.55639716458,
+      "previewA": "From little acorns mighty oaks do grow. — American proverb",
+      "previewB": "Do you want a brief explanation of what an acorn is? • In a nutshell, it's an oak tree."
+    },
+    {
+      "idA": "mindfulness-06",
+      "idB": "j-0520",
+      "similarity": 0.537493991079,
+      "previewA": "The dream was always running ahead of me. To catch up, to live for a moment in unison with it, that was the miracle. — Anais Nin",
+      "previewB": "I had a dream that I was a muffler last night. • I woke up exhausted!"
+    },
+    {
+      "idA": "creativity-02",
+      "idB": "j-0562",
+      "similarity": 0.53688825685,
+      "previewA": "Imagination is more important than knowledge. For while knowledge defines all we currently know and understand, imagination points to all we might yet discover ",
+      "previewB": "Did you know Albert Einstein was a real person? • All this time, I thought he was just a theoretical physicist!"
+    },
+    {
+      "idA": "time-28",
+      "idB": "j-0410",
+      "similarity": 0.526077941259,
+      "previewA": "You can’t turn back the clock. But you can wind it up again. — Bonnie Prudden",
+      "previewB": "What does a clock do when it's hungry? • It goes back four seconds!"
+    },
+    {
+      "idA": "time-20",
+      "idB": "j-0122",
+      "similarity": 0.525858489847,
+      "previewA": "I wish I could turn back the clock and find you sooner so I can love you longer. — Unknown",
+      "previewB": "Every night at 11:11 • I make a wish that someone will come fix my broken clock."
+    },
+    {
+      "idA": "growth-09",
+      "idB": "j-0569",
+      "similarity": 0.523008934254,
+      "previewA": "They say that time changes things, but you actually have to change them yourself. — Andy Warhol",
+      "previewB": "\"What time is it?\" I don't know... • it keeps changing."
     },
     {
       "idA": "humor-08",
-      "idB": "j-0043",
-      "similarity": 0.805,
+      "idB": "j-0213",
+      "similarity": 0.516756676617,
       "previewA": "Why do they call it rush hour when nothing moves? — Robin Williams",
-      "previewB": "What did the traffic light say to the car as it passed? • \"Don't look I'm changing!\""
+      "previewB": "They're making a movie about clocks. • It's about time"
+    },
+    {
+      "idA": "humor-32",
+      "idB": "j-0634",
+      "similarity": 0.510476242387,
+      "previewA": "I’m sure wherever my Dad is, he’s looking down on us. He’s not dead, just very condescending. — Jack Whitehall",
+      "previewB": "Dad died because he couldn't remember his blood type. I will never forget his last words. • Be positive."
+    },
+    {
+      "idA": "time-28",
+      "idB": "j-0038",
+      "similarity": 0.507020022431,
+      "previewA": "You can’t turn back the clock. But you can wind it up again. — Bonnie Prudden",
+      "previewB": "Why did the kid throw the clock out the window? • He wanted to see time fly!"
+    },
+    {
+      "idA": "travel-20",
+      "idB": "j-0782",
+      "similarity": 0.50264396454,
+      "previewA": "The mountains are calling and I must go. — John Muir",
+      "previewB": "You see, mountains aren't just funny. • They are hill areas."
+    },
+    {
+      "idA": "music-04",
+      "idB": "j-0612",
+      "similarity": 0.501876930918,
+      "previewA": "Music gives a soul to the universe, wings to the mind, flight to the imagination and life to everything. — Plato",
+      "previewB": "What kind of music do planets listen to? • Nep-tunes."
+    },
+    {
+      "idA": "travel-20",
+      "idB": "j-0381",
+      "similarity": 0.500966649442,
+      "previewA": "The mountains are calling and I must go. — John Muir",
+      "previewB": "Mountains aren't just funny • they are hill areas"
+    },
+    {
+      "idA": "family-14",
+      "idB": "j-0192",
+      "similarity": 0.500740529777,
+      "previewA": "The other night I ate at a real nice family restaurant. Every table had an argument going. — George Carlin",
+      "previewB": "What did one plate say to the other plate? • Dinner is on me!"
     }
   ]
 }
