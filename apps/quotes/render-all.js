@@ -127,13 +127,15 @@
   }
 
   function applyFilter(term) {
-    const normalized = typeof term === 'string' ? term.trim().toLowerCase() : '';
-    const filtered = normalized
-      ? deck.filter((entry) => entry.searchText.includes(normalized))
+    const trimmed = typeof term === 'string' ? term.trim() : '';
+    const normalized = trimmed.toLowerCase();
+    const keywords = normalized ? normalized.split(/\s+/).filter(Boolean) : [];
+    const filtered = keywords.length
+      ? deck.filter((entry) => keywords.every((keyword) => entry.searchText.includes(keyword)))
       : deck;
 
     updateCount(filtered.length);
-    renderRows(filtered, normalized);
+    renderRows(filtered, trimmed);
   }
 
   applyFilter(filterInput ? filterInput.value : '');
