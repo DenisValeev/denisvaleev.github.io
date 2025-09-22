@@ -1420,6 +1420,7 @@
               label: 'Cross-deck blend',
               report: '../../data/similarity-report-cross-deck-cohere.json',
               placeholder: 'Try humor-08 ↔ j-0043',
+              dedupeThreshold: 0.5,
             },
           ],
           embeddings: {
@@ -1486,6 +1487,27 @@
 
       function getActiveModelConfig() {
         return modelConfigs[state.model];
+      }
+
+      function getDatasetConfig(datasetName) {
+        if (!datasetName) {
+          return null;
+        }
+        return state.datasetConfigs.has(datasetName) ? state.datasetConfigs.get(datasetName) : null;
+      }
+
+      function getDedupeThreshold(config, datasetName) {
+        if (!config || config.layout !== 'dedupe') {
+          return null;
+        }
+        const datasetConfig = getDatasetConfig(datasetName);
+        if (datasetConfig && typeof datasetConfig.dedupeThreshold === 'number') {
+          return clamp01(datasetConfig.dedupeThreshold);
+        }
+        if (typeof config.dedupeThreshold === 'number') {
+          return clamp01(config.dedupeThreshold);
+        }
+        return null;
       }
 
       function countWords(text) {
@@ -2705,7 +2727,7 @@
         }
         const searchTerm = normalizeString(state.search);
         const config = getActiveModelConfig();
-        const dedupeFloor = config && typeof config.dedupeThreshold === 'number' ? clamp01(config.dedupeThreshold) : null;
+        const dedupeFloor = getDedupeThreshold(config, state.dataset);
         const minValue = dedupeFloor !== null ? Math.max(state.minSimilarity, dedupeFloor) : state.minSimilarity;
         return entry.matches
           .filter((match) => match.similarity >= minValue && match.similarity <= state.maxSimilarity)
@@ -2754,8 +2776,9 @@
             ? formatSliderValue(datasetEntry.threshold)
             : '—';
         if (config && config.layout === 'dedupe') {
-          const floor = config.dedupeThreshold ? formatSliderValue(config.dedupeThreshold) : baselineValue;
-          baselineEl.textContent = `≥ ${floor}`;
+          const floor = getDedupeThreshold(config, state.dataset);
+          const formattedFloor = floor !== null ? formatSliderValue(floor) : baselineValue;
+          baselineEl.textContent = `≥ ${formattedFloor}`;
         } else {
           baselineEl.textContent = baselineValue;
         }
@@ -2921,8 +2944,9 @@
         if (datasetEntry && typeof datasetEntry.threshold === 'number') {
           baseline = Math.max(baseline, clamp01(datasetEntry.threshold));
         }
-        if (config && typeof config.dedupeThreshold === 'number') {
-          baseline = Math.max(baseline, clamp01(config.dedupeThreshold));
+        const dedupeThreshold = getDedupeThreshold(config, state.dataset);
+        if (dedupeThreshold !== null) {
+          baseline = Math.max(baseline, dedupeThreshold);
         }
         if (forceBaseline) {
           state.minSimilarity = baseline;
@@ -2951,16 +2975,18 @@
         if (dataset === state.dataset && !skipRender) {
           return;
         }
+        const config = getActiveModelConfig();
         state.dataset = dataset;
         state.activePairKey = null;
         document.body.setAttribute('data-active-dataset', dataset);
-        const datasetConfig = state.datasetConfigs.get(dataset);
+        const datasetConfig = getDatasetConfig(dataset);
         if (searchInput) {
           searchInput.placeholder = datasetConfig && datasetConfig.placeholder ? datasetConfig.placeholder : 'Search report';
         }
         updateDatasetButtons();
         if (!skipRender) {
-          syncSliderWithDataset();
+          const shouldForceBaseline = config && config.layout === 'dedupe';
+          syncSliderWithDataset({ forceBaseline: shouldForceBaseline });
           renderAll();
         }
       }
@@ -3141,8 +3167,9 @@
         dedupeList.innerHTML = '';
         if (!matches.length) {
           dedupeEmpty.hidden = false;
-          const floor = config && typeof config.dedupeThreshold === 'number' ? formatSliderValue(config.dedupeThreshold) : formatSliderValue(state.minSimilarity);
-          dedupeEmpty.textContent = `No pairs exceed the ${floor} dedupe threshold.`;
+          const floor = getDedupeThreshold(config, state.dataset);
+          const formattedFloor = floor !== null ? formatSliderValue(floor) : formatSliderValue(state.minSimilarity);
+          dedupeEmpty.textContent = `No pairs exceed the ${formattedFloor} dedupe threshold.`;
           return;
         }
         dedupeEmpty.hidden = true;
