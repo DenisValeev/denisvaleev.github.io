@@ -1393,11 +1393,11 @@
         cohereEmbedEnglishV3: {
           key: 'cohereEmbedEnglishV3',
           label: 'Cohere embed-english-v3.0',
-          description: 'Cohere sweep with a softer 0.78 floor to confirm near-duplicate pairs.',
+          description: 'Cohere sweep with a softer 0.50 floor to confirm near-duplicate pairs.',
           layout: 'dedupe',
-          dedupeThreshold: 0.78,
+          dedupeThreshold: 0.5,
           initialState: {
-            minSimilarity: 0.78,
+            minSimilarity: 0.5,
             maxSimilarity: 1,
             sortKey: 'similarity',
             sortDirection: 'desc',

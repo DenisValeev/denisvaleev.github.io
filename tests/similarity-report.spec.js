@@ -112,5 +112,53 @@ test.describe('Cosine Similarity Lab', () => {
     const previewCount = await coherePreviewImages.count();
     expect(previewCount).toBeGreaterThan(0);
     await expect(coherePreviewImages.first()).toHaveAttribute('src', /^data:image\//);
+
+    const cohereCardCount = await dedupeList.locator('.dedupe-card').count();
+    expect(cohereCardCount).toBeGreaterThanOrEqual(300);
+
+    const cohereBaselineValue = parseLocaleNumber(await baselineEl.textContent());
+    expect(cohereBaselineValue).toBeCloseTo(0.5, 2);
+
+    const cohereMinSliderValue = Number.parseFloat(await minSlider.evaluate((node) => node.value));
+    expect(cohereMinSliderValue).toBeLessThanOrEqual(0.51);
+    expect(cohereMinSliderValue).toBeGreaterThanOrEqual(0.5);
+
+    const cohereDatasetMin = await page.evaluate(async () => {
+      const response = await fetch('/data/similarity-report-jokes-cohere.json');
+      const data = await response.json();
+      return data.matches.reduce((minimum, match) => {
+        const value = typeof match.similarity === 'number' ? match.similarity : 1;
+        return value < minimum ? value : minimum;
+      }, 1);
+    });
+    expect(cohereDatasetMin).toBeGreaterThanOrEqual(0.5);
+    expect(cohereDatasetMin).toBeLessThanOrEqual(0.51);
+
+    const quotesButton = page.locator('[data-dataset="quotes"]');
+    await quotesButton.click();
+    await expect(page.locator('body')).toHaveAttribute('data-active-dataset', 'quotes');
+    await expect(page.locator('[data-search]')).toHaveAttribute('placeholder', /adventure-01/);
+    await expect(dedupeList.locator('.dedupe-card .id-badge').first()).not.toHaveText(/^j-/);
+
+    const quotesCardCount = await dedupeList.locator('.dedupe-card').count();
+    expect(quotesCardCount).toBeGreaterThanOrEqual(300);
+
+    const quotesBaselineValue = parseLocaleNumber(await baselineEl.textContent());
+    expect(quotesBaselineValue).toBeCloseTo(0.5, 2);
+
+    const quotesMinSliderValue = Number.parseFloat(await minSlider.evaluate((node) => node.value));
+    expect(quotesMinSliderValue).toBeLessThanOrEqual(0.51);
+    expect(quotesMinSliderValue).toBeGreaterThanOrEqual(0.5);
+
+    const quotesDatasetMin = await page.evaluate(async () => {
+      const response = await fetch('/data/similarity-report-quotes-cohere.json');
+      const data = await response.json();
+      return data.matches.reduce((minimum, match) => {
+        const value = typeof match.similarity === 'number' ? match.similarity : 1;
+        return value < minimum ? value : minimum;
+      }, 1);
+    });
+    expect(quotesDatasetMin).toBeGreaterThanOrEqual(0.5);
+    expect(quotesDatasetMin).toBeLessThanOrEqual(0.51);
   });
 });
