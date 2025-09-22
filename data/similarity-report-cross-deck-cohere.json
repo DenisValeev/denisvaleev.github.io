@@ -2,8 +2,8 @@
   "dataset": "cross-deck",
   "threshold": 0.5,
   "generatedAt": "2025-09-22T00:02:49.928Z",
-  "provider": "hfspace",
-  "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
+  "provider": "cohere",
+  "model": "embed-english-v3.0",
   "matches": [
     {
       "idA": "humor-01",
