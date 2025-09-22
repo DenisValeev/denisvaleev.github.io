@@ -46,8 +46,8 @@ function updateReportTimestamp(relativePath, generatedAt) {
 
 function main() {
   const embeddingsFiles = {
-    jokes: 'data/jokes-embeddings-second-opinion.json',
-    quotes: 'data/quotes-embeddings-second-opinion.json',
+    jokes: 'data/jokes-embeddings-openai.json',
+    quotes: 'data/quotes-embeddings-openai.json',
   };
 
   const generatedAtByDataset = Object.entries(embeddingsFiles).reduce((acc, [key, filePath]) => {
@@ -66,14 +66,14 @@ function main() {
   }
   const crossDeckTimestamp = new Date(crossDeckGeneratedAt).toISOString();
 
-  updateReportTimestamp('data/similarity-report-jokes-second-opinion.json', generatedAtByDataset.jokes);
-  console.log(`Updated data/similarity-report-jokes-second-opinion.json → ${generatedAtByDataset.jokes}`);
+  updateReportTimestamp('data/similarity-report-jokes-openai.json', generatedAtByDataset.jokes);
+  console.log(`Updated data/similarity-report-jokes-openai.json → ${generatedAtByDataset.jokes}`);
 
-  updateReportTimestamp('data/similarity-report-quotes-second-opinion.json', generatedAtByDataset.quotes);
-  console.log(`Updated data/similarity-report-quotes-second-opinion.json → ${generatedAtByDataset.quotes}`);
+  updateReportTimestamp('data/similarity-report-quotes-openai.json', generatedAtByDataset.quotes);
+  console.log(`Updated data/similarity-report-quotes-openai.json → ${generatedAtByDataset.quotes}`);
 
-  updateReportTimestamp('data/similarity-report-cross-deck-second-opinion.json', crossDeckTimestamp);
-  console.log(`Updated data/similarity-report-cross-deck-second-opinion.json → ${crossDeckTimestamp}`);
+  updateReportTimestamp('data/similarity-report-cross-deck-openai.json', crossDeckTimestamp);
+  console.log(`Updated data/similarity-report-cross-deck-openai.json → ${crossDeckTimestamp}`);
 }
 
 if (require.main === module) {
