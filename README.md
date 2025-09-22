@@ -48,6 +48,11 @@ The test runner launches a temporary `python -m http.server` instance, loads the
   `--provider=hfspace --model=bienkieu/sentence-embedding`, which pipes batches through the BienKieu Hugging Face Space
   (`sentence-transformers/all-MiniLM-L6-v2`) using `curl`—no API key required. Keep `--batch-size` at 8 or lower to avoid the
   shared queue timing out.
+  - When onboarding an external batch of jokes, run `node tools/onboard-external-jokes.js --input=path/to/new-jokes.json` to
+    compare each candidate against the active embeddings for `fake`, `openai`, and `cohere`. Provide specific candidate
+    embedding stores with `--candidate-embeddings=fake:path,openai:path,...` or let the script fall back to deterministic
+    vectors when API-derived stores are unavailable. The summary report highlights rejections above the cosine threshold
+    (default `0.8`) and can emit filtered JSON via `--output` / `--accepted-output` for follow-up curation.
   - When onboarding new material, add `--candidates=jokes:path/to/new-jokes.json` (or `quotes:...`) to embed the prospective
     entries and compare them against the existing decks at the current cosine threshold. Candidate files accept arrays of
     objects that mirror the dataset fields (`joke`/`punchline` for jokes, `text`/`author` for quotes) and reuse the active
