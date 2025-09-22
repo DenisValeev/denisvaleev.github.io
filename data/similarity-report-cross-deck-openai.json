@@ -3,7 +3,7 @@
   "threshold": 0.5,
   "generatedAt": "2025-09-21T23:10:32.460Z",
   "provider": "openai",
-  "model": "text-embedding-3-large (second opinion)",
+  "model": "text-embedding-3-large",
   "matches": [
     {
       "idA": "motivation-12",

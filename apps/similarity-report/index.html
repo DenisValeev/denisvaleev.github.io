@@ -1320,7 +1320,7 @@
         baseline: {
           key: 'baseline',
           label: 'MiniLM baseline',
-          description: 'hf.space/BienKieu report with an adjustable cosine window.',
+          description: 'hf.space/BienKieu run with an adjustable cosine window.',
           layout: 'matrix',
           initialState: {
             minSimilarity: 0.5,
@@ -1353,10 +1353,10 @@
             quotes: '../../data/quotes-embeddings.json',
           },
         },
-        secondOpinion: {
-          key: 'secondOpinion',
-          label: 'Second opinion (OpenAI)',
-          description: 'text-embedding-3-large rerun that flags anything at or above 0.80 for removal.',
+        openaiTextEmbedding3Large: {
+          key: 'openaiTextEmbedding3Large',
+          label: 'OpenAI text-embedding-3-large',
+          description: 'OpenAI rerun that flags anything at or above 0.80 cosine for removal.',
           layout: 'dedupe',
           dedupeThreshold: 0.8,
           initialState: {
@@ -1369,25 +1369,62 @@
             {
               dataset: 'jokes',
               label: 'Jokes deck',
-              report: '../../data/similarity-report-jokes-second-opinion.json',
-              placeholder: 'Try j-0081 or “waist of time”',
+              report: '../../data/similarity-report-jokes-openai.json',
+              placeholder: 'Try j-0081 ↔ j-0673',
             },
             {
               dataset: 'quotes',
               label: 'Quotes deck',
-              report: '../../data/similarity-report-quotes-second-opinion.json',
+              report: '../../data/similarity-report-quotes-openai.json',
               placeholder: 'Try motivation-14 ↔ positive-16',
             },
             {
               dataset: 'cross-deck',
               label: 'Cross-deck blend',
-              report: '../../data/similarity-report-cross-deck-second-opinion.json',
+              report: '../../data/similarity-report-cross-deck-openai.json',
               placeholder: 'Try humor-01 ↔ j-0001',
             },
           ],
           embeddings: {
-            jokes: '../../data/jokes-embeddings-second-opinion.json',
-            quotes: '../../data/quotes-embeddings-second-opinion.json',
+            jokes: '../../data/jokes-embeddings-openai.json',
+            quotes: '../../data/quotes-embeddings-openai.json',
+          },
+        },
+        cohereEmbedEnglishV3: {
+          key: 'cohereEmbedEnglishV3',
+          label: 'Cohere embed-english-v3.0',
+          description: 'Cohere sweep with a softer 0.78 floor to confirm near-duplicate pairs.',
+          layout: 'dedupe',
+          dedupeThreshold: 0.78,
+          initialState: {
+            minSimilarity: 0.78,
+            maxSimilarity: 1,
+            sortKey: 'similarity',
+            sortDirection: 'desc',
+          },
+          datasetOptions: [
+            {
+              dataset: 'jokes',
+              label: 'Jokes deck',
+              report: '../../data/similarity-report-jokes-cohere.json',
+              placeholder: 'Try j-0182 ↔ j-0246',
+            },
+            {
+              dataset: 'quotes',
+              label: 'Quotes deck',
+              report: '../../data/similarity-report-quotes-cohere.json',
+              placeholder: 'Try adventure-01 ↔ adventure-36',
+            },
+            {
+              dataset: 'cross-deck',
+              label: 'Cross-deck blend',
+              report: '../../data/similarity-report-cross-deck-cohere.json',
+              placeholder: 'Try humor-08 ↔ j-0043',
+            },
+          ],
+          embeddings: {
+            jokes: '../../data/jokes-embeddings-cohere.json',
+            quotes: '../../data/quotes-embeddings-cohere.json',
           },
         },
       };
