@@ -2784,6 +2784,11 @@ window.quotesData = [
         "id": "creativity-12",
         "text": "Though no one can go back and make a brand new start, anyone can start from now and make a brand new ending.",
         "author": "Carl Bard"
+      },
+      {
+        "id": "creativity-13",
+        "text": "Creativity is intelligence having fun.",
+        "author": "Albert Einstein"
       }
     ]
   },
@@ -2850,6 +2855,11 @@ window.quotesData = [
         "id": "resilience-12",
         "text": "In separateness lies the world's great misery, in compassion lies the world's true strength.",
         "author": "Buddha"
+      },
+      {
+        "id": "resilience-13",
+        "text": "Success is stumbling from failure to failure with no loss of enthusiasm.",
+        "author": "Winston Churchill"
       }
     ]
   },
@@ -2982,6 +2992,11 @@ window.quotesData = [
         "id": "mindfulness-12",
         "text": "Through pride we are ever deceiving ourselves. But deep down below the surface of the average conscience a still, small voice says to us, Something is out of tune.",
         "author": "Carl Jung"
+      },
+      {
+        "id": "mindfulness-13",
+        "text": "Patience is not the ability to wait, but the ability to keep a good attitude while waiting.",
+        "author": "Joyce Meyer"
       }
     ]
   },
@@ -3114,6 +3129,11 @@ window.quotesData = [
         "id": "joy-12",
         "text": "When you dance, your purpose is not to get to a certain place on the floor. It's to enjoy each step along the way.",
         "author": "Wayne Dyer"
+      },
+      {
+        "id": "joy-13",
+        "text": "Joy is not in things; it is in us.",
+        "author": "Richard Wagner"
       }
     ]
   },
@@ -3246,6 +3266,11 @@ window.quotesData = [
         "id": "kindness-12",
         "text": "Kindness is a language which the deaf can hear and the blind can see.",
         "author": "Mark Twain"
+      },
+      {
+        "id": "kindness-13",
+        "text": "We rise by lifting others.",
+        "author": "Robert Ingersoll"
       }
     ]
   },
@@ -3312,6 +3337,11 @@ window.quotesData = [
         "id": "gratitude-12",
         "text": "Gratitude is the fairest blossom which springs from the soul.",
         "author": "Henry Beecher"
+      },
+      {
+        "id": "gratitude-13",
+        "text": "Gratitude is when memory is stored in the heart and not in the mind.",
+        "author": "Lionel Hampton"
       }
     ]
   },
@@ -3378,6 +3408,11 @@ window.quotesData = [
         "id": "purpose-12",
         "text": "The future belongs to those who believe in the beauty of their dreams.",
         "author": "Eleanor Roosevelt"
+      },
+      {
+        "id": "purpose-13",
+        "text": "The future depends on what you do today.",
+        "author": "Mahatma Gandhi"
       }
     ]
   }
