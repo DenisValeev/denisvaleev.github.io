@@ -506,13 +506,6 @@
           );
       }
 
-      .dedupe-entry {
-        background: rgba(226, 232, 240, 0.38);
-      }
-
-      .dedupe-entry--remove {
-        background: color-mix(in srgb, var(--accent-active) 18%, rgba(226, 232, 240, 0.52));
-      }
     }
 
     .record-tech {
@@ -798,149 +791,6 @@
       transform: rotate(180deg);
     }
 
-    .results[data-layout="dedupe"] {
-      grid-template-columns: 1fr;
-    }
-
-    .dedupe-view {
-      background: var(--surface-strong);
-      border: 1px solid var(--card-border);
-      border-radius: 22px;
-      box-shadow: var(--card-shadow);
-      padding: clamp(18px, 3vw, 28px);
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .dedupe-empty {
-      margin: 0;
-      font-size: 0.96rem;
-      color: var(--text-secondary);
-      text-align: center;
-      padding: 40px 10px;
-    }
-
-    .dedupe-list {
-      display: grid;
-      gap: 18px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-
-    .dedupe-card {
-      background: var(--card-background);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      box-shadow: var(--card-shadow);
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .dedupe-card__header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .dedupe-card__score {
-      font-weight: 700;
-      font-size: 1.05rem;
-    }
-
-    .dedupe-card__meta {
-      margin: 0;
-      color: var(--text-secondary);
-      font-size: 0.85rem;
-    }
-
-    .dedupe-card__body {
-      display: grid;
-      gap: 14px;
-    }
-
-    .dedupe-entry {
-      border-radius: 16px;
-      border: 1px solid color-mix(in srgb, var(--accent-active) 22%, var(--card-border));
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      background: rgba(15, 23, 42, 0.18);
-    }
-
-    body[data-active-dataset="quotes"] .dedupe-entry {
-      background: rgba(8, 47, 73, 0.18);
-    }
-
-    body[data-active-dataset="cross-deck"] .dedupe-entry {
-      background: rgba(74, 29, 150, 0.18);
-    }
-
-    .dedupe-entry--remove {
-      border-color: color-mix(in srgb, var(--accent-active) 38%, var(--card-border));
-      background: color-mix(in srgb, var(--accent-active) 12%, transparent);
-    }
-
-    .dedupe-entry__header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .dedupe-entry__badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      background: color-mix(in srgb, var(--accent-active) 30%, transparent);
-      color: var(--accent-contrast);
-    }
-
-    .dedupe-entry__primary {
-      margin: 0;
-      font-weight: 600;
-      line-height: 1.5;
-    }
-
-    .dedupe-entry__secondary {
-      margin: 0;
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-    }
-
-    .dedupe-entry__secondary.is-empty {
-      opacity: 0.6;
-      font-style: italic;
-    }
-
-    .dedupe-entry__meta {
-      margin: 0;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    .dedupe-card__action {
-      margin: 0;
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-    }
-
-    .dedupe-card__levenshtein {
-      margin: 0;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
     @media (max-width: 720px) {
       main {
         padding: clamp(18px, 5vw, 28px);
@@ -1182,10 +1032,6 @@
           </tbody>
         </table>
       </div>
-      <div class="dedupe-view" data-dedupe-view hidden aria-live="polite">
-        <p class="dedupe-empty" data-dedupe-empty>Loading dedupe recommendations…</p>
-        <div class="dedupe-list" data-dedupe-list></div>
-      </div>
     </section>
   </main>
   <script defer src="../jokes/jokes.js"></script>
@@ -1204,9 +1050,6 @@
       const tableBody = document.querySelector('[data-results-body]');
       const tableWrapper = document.querySelector('[data-matrix-view]');
       const resultsSection = document.querySelector('[data-results]');
-      const dedupeView = document.querySelector('[data-dedupe-view]');
-      const dedupeList = document.querySelector('[data-dedupe-list]');
-      const dedupeEmpty = document.querySelector('[data-dedupe-empty]');
       const countEl = document.querySelector('[data-match-count]');
       const baselineEl = document.querySelector('[data-baseline]');
       const modelEl = document.querySelector('[data-model-label]');
@@ -1311,7 +1154,6 @@
           key: 'baseline',
           label: 'MiniLM baseline',
           description: 'hf.space/BienKieu run with an adjustable cosine window.',
-          layout: 'matrix',
           initialState: {
             minSimilarity: 0.5,
             maxSimilarity: 1,
@@ -1347,8 +1189,6 @@
           key: 'secondOpinion',
           label: 'Second opinion (HF Space)',
           description: 'sentence-transformers/all-MiniLM-L6-v2 rerun that keeps everything at or above 0.50 on watch.',
-          layout: 'dedupe',
-          dedupeThreshold: 0.5,
           initialState: {
             minSimilarity: 0.5,
             maxSimilarity: 1,
@@ -1384,8 +1224,6 @@
           key: 'cohereEmbedEnglishV3',
           label: 'Cohere embed-english-v3.0',
           description: 'Cohere sweep with a softer 0.50 floor to confirm near-duplicate pairs.',
-          layout: 'dedupe',
-          dedupeThreshold: 0.5,
           initialState: {
             minSimilarity: 0.5,
             maxSimilarity: 1,
@@ -1410,7 +1248,6 @@
               label: 'Cross-deck blend',
               report: '../../data/similarity-report-cross-deck-cohere.json',
               placeholder: 'Try humor-08 ↔ j-0043',
-              dedupeThreshold: 0.5,
             },
           ],
           embeddings: {
@@ -1484,20 +1321,6 @@
           return null;
         }
         return state.datasetConfigs.has(datasetName) ? state.datasetConfigs.get(datasetName) : null;
-      }
-
-      function getDedupeThreshold(config, datasetName) {
-        if (!config || config.layout !== 'dedupe') {
-          return null;
-        }
-        const datasetConfig = getDatasetConfig(datasetName);
-        if (datasetConfig && typeof datasetConfig.dedupeThreshold === 'number') {
-          return clamp01(datasetConfig.dedupeThreshold);
-        }
-        if (typeof config.dedupeThreshold === 'number') {
-          return clamp01(config.dedupeThreshold);
-        }
-        return null;
       }
 
       function countWords(text) {
@@ -2716,9 +2539,7 @@
           return [];
         }
         const searchTerm = normalizeString(state.search);
-        const config = getActiveModelConfig();
-        const dedupeFloor = getDedupeThreshold(config, state.dataset);
-        const minValue = dedupeFloor !== null ? Math.max(state.minSimilarity, dedupeFloor) : state.minSimilarity;
+        const minValue = state.minSimilarity;
         return entry.matches
           .filter((match) => match.similarity >= minValue && match.similarity <= state.maxSimilarity)
           .filter((match) => {
@@ -2752,7 +2573,6 @@
 
       function updateStats() {
         const datasetEntry = state.data.get(state.dataset);
-        const config = getActiveModelConfig();
         if (!datasetEntry) {
           baselineEl.textContent = '—';
           modelEl.textContent = '—';
@@ -2765,24 +2585,14 @@
           typeof datasetEntry.threshold === 'number'
             ? formatSliderValue(datasetEntry.threshold)
             : '—';
-        if (config && config.layout === 'dedupe') {
-          const floor = getDedupeThreshold(config, state.dataset);
-          const formattedFloor = floor !== null ? formatSliderValue(floor) : baselineValue;
-          baselineEl.textContent = `≥ ${formattedFloor}`;
-        } else {
-          baselineEl.textContent = baselineValue;
-        }
+        baselineEl.textContent = baselineValue;
         modelEl.textContent = formatModelLabel(datasetEntry);
         const provider = (datasetEntry.provider || '').toLowerCase();
         providerEl.textContent = providerLabels[provider] || (datasetEntry.provider || '—');
         generatedEl.textContent = formatDateTime(datasetEntry.generatedAt);
-        if (config && config.layout === 'dedupe') {
-          recordCountEl.textContent = `${state.visibleMatches.length.toLocaleString()} pairs flagged`;
-        } else {
-          const records = recordMaps[state.dataset];
-          const recordCount = records ? records.size : 0;
-          recordCountEl.textContent = recordCount ? `${recordCount.toLocaleString()} vectors` : '—';
-        }
+        const records = recordMaps[state.dataset];
+        const recordCount = records ? records.size : 0;
+        recordCountEl.textContent = recordCount ? `${recordCount.toLocaleString()} vectors` : '—';
       }
 
       function renderAll() {
@@ -2805,9 +2615,6 @@
         state.visibleMatches = matches;
         updateCount(matches.length);
         renderTable(matches);
-        if (config.layout === 'dedupe') {
-          renderDedupe(matches, config);
-        }
         updateStats();
         applySortIndicators();
         let activeMatch = matches.find((item) => buildPairKey(state.dataset, item.idA, item.idB) === state.activePairKey);
@@ -2894,16 +2701,6 @@
         cell.textContent = message;
         row.appendChild(cell);
         tableBody.appendChild(row);
-        if (dedupeList) {
-          dedupeList.innerHTML = '';
-        }
-        if (dedupeEmpty) {
-          dedupeEmpty.hidden = false;
-          dedupeEmpty.textContent = message;
-        }
-        if (dedupeView) {
-          dedupeView.hidden = false;
-        }
         if (resultsSection) {
           resultsSection.dataset.layout = 'matrix';
         }
@@ -2924,7 +2721,6 @@
         if (!minSlider || !maxSlider) {
           return;
         }
-        const config = getActiveModelConfig();
         const datasetEntry = state.data.get(state.dataset);
         minSlider.min = MIN_SIMILARITY_FLOOR.toString();
         minSlider.max = MAX_SIMILARITY_CEILING.toString();
@@ -2935,10 +2731,6 @@
         let baseline = MIN_SIMILARITY_FLOOR;
         if (datasetEntry && typeof datasetEntry.threshold === 'number') {
           baseline = Math.max(baseline, clamp01(datasetEntry.threshold));
-        }
-        const dedupeThreshold = getDedupeThreshold(config, state.dataset);
-        if (dedupeThreshold !== null) {
-          baseline = Math.max(baseline, dedupeThreshold);
         }
         if (forceBaseline) {
           state.minSimilarity = baseline;
@@ -2967,7 +2759,6 @@
         if (dataset === state.dataset && !skipRender) {
           return;
         }
-        const config = getActiveModelConfig();
         state.dataset = dataset;
         state.activePairKey = null;
         document.body.setAttribute('data-active-dataset', dataset);
@@ -2977,8 +2768,7 @@
         }
         updateDatasetButtons();
         if (!skipRender) {
-          const shouldForceBaseline = config && config.layout === 'dedupe';
-          syncSliderWithDataset({ forceBaseline: shouldForceBaseline });
+          syncSliderWithDataset();
           renderAll();
         }
       }
@@ -3076,16 +2866,11 @@
         if (!config) {
           return;
         }
-        const layout = config.layout === 'dedupe' ? 'dedupe' : 'matrix';
         if (resultsSection) {
-          resultsSection.dataset.layout = layout;
+          resultsSection.dataset.layout = 'matrix';
         }
-        const isDedupe = layout === 'dedupe';
         if (tableWrapper) {
           tableWrapper.hidden = false;
-        }
-        if (dedupeView) {
-          dedupeView.hidden = !isDedupe;
         }
         if (detailPanel) {
           detailPanel.hidden = false;
@@ -3099,113 +2884,6 @@
         if (maxSlider) {
           maxSlider.disabled = false;
         }
-      }
-
-      function createDedupeEntry(match, { record, id, role, fallback, chars, words }) {
-        const entry = document.createElement('section');
-        entry.className = `dedupe-entry dedupe-entry--${role}`;
-        const header = document.createElement('header');
-        header.className = 'dedupe-entry__header';
-        const badge = document.createElement('span');
-        badge.className = 'dedupe-entry__badge';
-        badge.textContent = role === 'remove' ? 'Remove' : 'Keep';
-        const idBadge = document.createElement('span');
-        idBadge.className = 'id-badge';
-        idBadge.textContent = id;
-        header.appendChild(badge);
-        header.appendChild(idBadge);
-        entry.appendChild(header);
-        const preview = buildEmbeddingPreviewFigure(record || null, {
-          variant: 'compact',
-          fallbackId: id,
-          dataset: state.dataset,
-          fallbackText: fallback,
-        });
-        if (preview) {
-          entry.appendChild(preview);
-        }
-        const primary = document.createElement('p');
-        primary.className = 'dedupe-entry__primary';
-        primary.textContent = record && record.primary ? record.primary : fallback || '—';
-        entry.appendChild(primary);
-        const secondary = document.createElement('p');
-        secondary.className = 'dedupe-entry__secondary';
-        const secondaryText = record && record.secondary ? record.secondary : '';
-        if (secondaryText) {
-          secondary.textContent = secondaryText;
-        } else if (fallback && fallback !== (record && record.primary ? record.primary : '')) {
-          secondary.textContent = fallback;
-        } else {
-          secondary.textContent = '—';
-          secondary.classList.add('is-empty');
-        }
-        entry.appendChild(secondary);
-        const meta = document.createElement('p');
-        meta.className = 'dedupe-entry__meta';
-        meta.textContent = `Chars ${chars.toLocaleString()} • Words ${words.toLocaleString()}`;
-        entry.appendChild(meta);
-        return entry;
-      }
-
-      function renderDedupe(matches, config) {
-        if (!dedupeView || !dedupeList || !dedupeEmpty) {
-          return;
-        }
-        dedupeList.innerHTML = '';
-        if (!matches.length) {
-          dedupeEmpty.hidden = false;
-          const floor = getDedupeThreshold(config, state.dataset);
-          const formattedFloor = floor !== null ? formatSliderValue(floor) : formatSliderValue(state.minSimilarity);
-          dedupeEmpty.textContent = `No pairs exceed the ${formattedFloor} dedupe threshold.`;
-          return;
-        }
-        dedupeEmpty.hidden = true;
-        const fragment = document.createDocumentFragment();
-        matches.forEach((match) => {
-          const card = document.createElement('article');
-          card.className = 'dedupe-card';
-          const header = document.createElement('header');
-          header.className = 'dedupe-card__header';
-          const score = document.createElement('span');
-          score.className = 'dedupe-card__score';
-          score.textContent = `Similarity ${formatSimilarity(match.similarity)}`;
-          header.appendChild(score);
-          const meta = document.createElement('p');
-          meta.className = 'dedupe-card__meta';
-          const levenshteinPercent = formatPercent(match.levenshteinSimilarity);
-          meta.textContent = `Δ chars ${match.lengthDelta.toLocaleString()} • Δ words ${match.wordDelta.toLocaleString()} • Levenshtein ${match.levenshteinDistance.toLocaleString()} (${levenshteinPercent}%)`;
-          header.appendChild(meta);
-          card.appendChild(header);
-          const body = document.createElement('div');
-          body.className = 'dedupe-card__body';
-          body.appendChild(
-            createDedupeEntry(match, {
-              record: match.recordA,
-              id: match.idA,
-              role: 'keep',
-              fallback: match.previewA,
-              chars: match.charA,
-              words: match.wordsA,
-            }),
-          );
-          body.appendChild(
-            createDedupeEntry(match, {
-              record: match.recordB,
-              id: match.idB,
-              role: 'remove',
-              fallback: match.previewB,
-              chars: match.charB,
-              words: match.wordsB,
-            }),
-          );
-          card.appendChild(body);
-          const action = document.createElement('p');
-          action.className = 'dedupe-card__action';
-          action.innerHTML = `Remove <strong>${match.idB}</strong> and keep <strong>${match.idA}</strong> to break the duplicate tie.`;
-          card.appendChild(action);
-          fragment.appendChild(card);
-        });
-        dedupeList.appendChild(fragment);
       }
 
       function ensureModelLoaded(modelKey) {
@@ -3292,7 +2970,7 @@
               return;
             }
             setActiveDataset(datasetToUse, { skipRender: true });
-            syncSliderWithDataset({ forceBaseline: config.layout === 'dedupe' });
+            syncSliderWithDataset();
             if (searchInput) {
               searchInput.value = state.search;
             }
