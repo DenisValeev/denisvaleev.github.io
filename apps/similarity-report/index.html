@@ -988,9 +988,9 @@
       <div class="control-grid">
         <label>
           <span>
-            Minimum cosine similarity: <strong data-threshold-min-label>0.00</strong>
+            Minimum cosine similarity: <strong data-threshold-min-label>0.50</strong>
           </span>
-          <input type="range" min="0.5" max="0.95" step="0.001" value="0.5" data-min-similarity>
+          <input type="range" min="0.5" max="1" step="0.001" value="0.5" data-min-similarity>
         </label>
         <label>
           <span>
@@ -1012,7 +1012,7 @@
         <article class="stat-card">
           <h2>Visible pairs</h2>
           <div class="stat-value"><span data-match-count data-count="0">0</span></div>
-          <p class="stat-meta">Cosine similarity between <span data-threshold-min-display>0.00</span> and <span data-threshold-max-display>1.00</span></p>
+          <p class="stat-meta">Cosine similarity between <span data-threshold-min-display>0.50</span> and <span data-threshold-max-display>1.00</span></p>
         </article>
         <article class="stat-card">
           <h2>Report baseline</h2>
@@ -1436,6 +1436,8 @@
       let recordMaps = { jokes: new Map(), quotes: new Map(), 'cross-deck': new Map() };
 
       const MAX_VISIBLE_PAIRS = 400; // Hard cap to keep the table readable
+      const MIN_SIMILARITY_FLOOR = 0.5;
+      const MAX_SIMILARITY_CEILING = 1;
       const sliderValueFormatter = new Intl.NumberFormat(undefined, {
         minimumFractionDigits: 2,
         maximumFractionDigits: 4,
@@ -1508,6 +1510,23 @@
           dateStyle: 'medium',
           timeStyle: 'short',
         });
+      }
+
+      function formatModelLabel(entry) {
+        if (!entry || typeof entry !== 'object') {
+          return '—';
+        }
+        const rawModel = typeof entry.model === 'string' ? entry.model.trim() : '';
+        const provider = typeof entry.provider === 'string' ? entry.provider.trim() : '';
+        if (!rawModel && !provider) {
+          return '—';
+        }
+        if (!rawModel) {
+          return provider;
+        }
+        const needsCoherePrefix = provider.toLowerCase() === 'cohere'
+          && !rawModel.toLowerCase().startsWith('cohere');
+        return needsCoherePrefix ? `Cohere ${rawModel}` : rawModel;
       }
 
       function formatSimilarity(value) {
@@ -2613,7 +2632,7 @@
         } else {
           baselineEl.textContent = baselineValue;
         }
-        modelEl.textContent = datasetEntry.model || '—';
+        modelEl.textContent = formatModelLabel(datasetEntry);
         const provider = (datasetEntry.provider || '').toLowerCase();
         providerEl.textContent = providerLabels[provider] || (datasetEntry.provider || '—');
         generatedEl.textContent = formatDateTime(datasetEntry.generatedAt);
@@ -2763,56 +2782,33 @@
         if (!minSlider || !maxSlider) {
           return;
         }
-        const datasetEntry = state.data.get(state.dataset);
-        if (!datasetEntry) {
-          minSlider.min = '0';
-          minSlider.max = '1';
-          maxSlider.min = '0';
-          maxSlider.max = '1';
-          return;
-        }
         const config = getActiveModelConfig();
-        let minBound = null;
-        const safeMin = Number.isFinite(datasetEntry.safeMinSimilarity)
-          ? clamp01(datasetEntry.safeMinSimilarity)
-          : null;
-        const observedMin = Number.isFinite(datasetEntry.minSimilarity)
-          ? clamp01(datasetEntry.minSimilarity)
-          : null;
-        const baselineThreshold =
-          typeof datasetEntry.threshold === 'number' ? clamp01(datasetEntry.threshold) : null;
-        if (safeMin !== null) {
-          minBound = safeMin;
-        }
-        if (observedMin !== null) {
-          minBound = minBound === null ? observedMin : Math.min(minBound, observedMin);
-        }
-        if (baselineThreshold !== null) {
-          minBound = minBound === null ? baselineThreshold : Math.min(minBound, baselineThreshold);
-        }
-        if (minBound === null) {
-          minBound = 0;
-        }
-        minBound = clamp01(minBound);
-        const maxBound = clamp01(
-          Number.isFinite(datasetEntry.maxSimilarity) ? Math.max(datasetEntry.maxSimilarity, minBound) : Math.max(1, minBound),
-        );
-        const enforcedMin = config && typeof config.dedupeThreshold === 'number'
-          ? Math.max(minBound, clamp01(config.dedupeThreshold))
-          : minBound;
-        minSlider.min = enforcedMin.toString();
-        minSlider.max = maxBound.toString();
+        const datasetEntry = state.data.get(state.dataset);
+        minSlider.min = MIN_SIMILARITY_FLOOR.toString();
+        minSlider.max = MAX_SIMILARITY_CEILING.toString();
         minSlider.step = minSlider.step || '0.001';
-        maxSlider.min = enforcedMin.toString();
-        maxSlider.max = maxBound.toString();
+        maxSlider.min = MIN_SIMILARITY_FLOOR.toString();
+        maxSlider.max = MAX_SIMILARITY_CEILING.toString();
         maxSlider.step = maxSlider.step || '0.001';
-        const baseline = clamp01(typeof datasetEntry.threshold === 'number' ? datasetEntry.threshold : enforcedMin);
+        let baseline = MIN_SIMILARITY_FLOOR;
+        if (datasetEntry && typeof datasetEntry.threshold === 'number') {
+          baseline = Math.max(baseline, clamp01(datasetEntry.threshold));
+        }
+        if (config && typeof config.dedupeThreshold === 'number') {
+          baseline = Math.max(baseline, clamp01(config.dedupeThreshold));
+        }
         if (forceBaseline) {
-          state.minSimilarity = Math.max(enforcedMin, baseline);
-          state.maxSimilarity = maxBound;
+          state.minSimilarity = baseline;
+          state.maxSimilarity = MAX_SIMILARITY_CEILING;
         } else {
-          state.minSimilarity = Math.min(Math.max(state.minSimilarity, enforcedMin), maxBound);
-          state.maxSimilarity = Math.min(Math.max(state.maxSimilarity, state.minSimilarity), maxBound);
+          state.minSimilarity = Math.min(
+            Math.max(state.minSimilarity, MIN_SIMILARITY_FLOOR),
+            MAX_SIMILARITY_CEILING,
+          );
+          state.maxSimilarity = Math.min(
+            Math.max(state.maxSimilarity, state.minSimilarity),
+            MAX_SIMILARITY_CEILING,
+          );
         }
         minSlider.value = state.minSimilarity.toString();
         maxSlider.value = state.maxSimilarity.toString();
