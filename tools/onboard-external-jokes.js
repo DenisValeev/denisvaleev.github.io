@@ -451,7 +451,7 @@ function formatSimilarity(value) {
 function main() {
   const options = parseArgs(process.argv.slice(2));
   if (!options.inputPath) {
-    console.error('Usage: node tools/onboard-external-jokes.js --input=path/to/candidates.json [--providers=fake,openai,cohere]');
+    console.error('Usage: node tools/onboard-external-jokes.js --input=path/to/candidates.json [--providers=synthetic,openai,cohere]');
     process.exitCode = 1;
     return;
   }
@@ -466,9 +466,9 @@ function main() {
 
   const providers = Array.isArray(options.providers) && options.providers.length
     ? options.providers
-    : ['fake', 'openai', 'cohere'];
+    : ['synthetic', 'openai', 'cohere'];
   const defaultExistingPaths = new Map([
-    ['fake', path.join('data', 'jokes-embeddings.json')],
+    ['synthetic', path.join('data', 'jokes-embeddings.json')],
     ['openai', path.join('data', 'jokes-embeddings-openai.json')],
     ['cohere', path.join('data', 'jokes-embeddings-cohere.json')],
   ]);
@@ -493,7 +493,7 @@ function main() {
     }
     if (!existingInfo) {
       const fallbackDimMap = new Map([
-        ['fake', 64],
+        ['synthetic', 64],
         ['openai', 64],
         ['cohere', 64],
       ]);
