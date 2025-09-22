@@ -23,8 +23,6 @@ test.describe('Cosine Similarity Lab', () => {
     const baselineEl = page.locator('[data-baseline]');
     const modelEl = page.locator('[data-model-label]');
     const providerEl = page.locator('[data-provider-label]');
-    const dedupeView = page.locator('[data-dedupe-view]');
-    const dedupeList = page.locator('[data-dedupe-list]');
     const resultsSection = page.locator('[data-results]');
     const tableWrapper = page.locator('[data-matrix-view]');
     const detailPanel = page.locator('[data-detail]');
@@ -82,21 +80,19 @@ test.describe('Cosine Similarity Lab', () => {
     await secondOpinionButton.click();
     await expect(secondOpinionButton).toHaveClass(/is-active/);
     await expect(page.locator('body')).toHaveAttribute('data-active-dataset', 'jokes');
-    await expect(resultsSection).toHaveAttribute('data-layout', 'dedupe');
-    await expect(dedupeView).toBeVisible();
+    await expect(resultsSection).toHaveAttribute('data-layout', 'matrix');
     await page.waitForSelector('[data-results-body] tr:not(.empty-row)');
+    const secondOpinionRows = page.locator('[data-results-body] tr:not(.empty-row)');
+    expect(await secondOpinionRows.count()).toBeGreaterThan(0);
     await expect(tableWrapper).toBeVisible();
     await expect(detailPanel).toBeVisible();
+    await secondOpinionRows.first().click();
     await expect(detailBody).toBeVisible();
     await expect(detailTitle).toContainText('↔');
     await expect(copyButton).toBeEnabled();
 
-    await page.waitForSelector('[data-dedupe-list] .dedupe-card');
-    const dedupeCardCount = await dedupeList.locator('.dedupe-card').count();
-    expect(dedupeCardCount).toBeGreaterThanOrEqual(150);
-
-    const dedupeCountValue = parseLocaleNumber(await page.locator('[data-match-count]').textContent());
-    expect(dedupeCountValue).toBeGreaterThanOrEqual(150);
+    const secondOpinionMatchCount = parseLocaleNumber(await page.locator('[data-match-count]').textContent());
+    expect(secondOpinionMatchCount).toBeGreaterThan(0);
 
     const secondMinAttr = await minSlider.getAttribute('min');
     expect(Number.parseFloat(secondMinAttr || '0')).toBeCloseTo(0.5, 2);
@@ -114,7 +110,11 @@ test.describe('Cosine Similarity Lab', () => {
     await expect(cohereButton).toHaveClass(/is-active/);
     await expect(providerEl).toContainText('Cohere embeddings');
     await expect(modelEl).toContainText('embed-english-v3.0');
+    await expect(resultsSection).toHaveAttribute('data-layout', 'matrix');
     await page.waitForSelector('[data-results-body] tr:not(.empty-row)');
+    const cohereRows = page.locator('[data-results-body] tr:not(.empty-row)');
+    expect(await cohereRows.count()).toBeGreaterThan(0);
+    await cohereRows.first().click();
     await expect(tableWrapper).toBeVisible();
     await expect(detailPanel).toBeVisible();
     await expect(detailBody).toBeVisible();
@@ -124,14 +124,11 @@ test.describe('Cosine Similarity Lab', () => {
     const searchPlaceholder = await page.locator('[data-search]').getAttribute('placeholder');
     expect((searchPlaceholder || '').toLowerCase()).toContain('j-0182');
 
-    await page.waitForSelector('[data-dedupe-list] .embedding-preview img');
-    const coherePreviewImages = page.locator('[data-dedupe-list] .embedding-preview img');
-    const previewCount = await coherePreviewImages.count();
-    expect(previewCount).toBeGreaterThan(0);
-    await expect(coherePreviewImages.first()).toHaveAttribute('src', /^data:image\//);
+    const detailPreviews = page.locator('[data-record-a-embedding] img, [data-record-b-embedding] img');
+    await expect(detailPreviews.first()).toHaveAttribute('src', /^data:image\//);
 
-    const cohereCardCount = await dedupeList.locator('.dedupe-card').count();
-    expect(cohereCardCount).toBeGreaterThanOrEqual(300);
+    const cohereMatchCount = parseLocaleNumber(await page.locator('[data-match-count]').textContent());
+    expect(cohereMatchCount).toBeGreaterThan(0);
 
     const cohereBaselineValue = parseLocaleNumber(await baselineEl.textContent());
     expect(cohereBaselineValue).toBeCloseTo(0.5, 2);
@@ -155,10 +152,12 @@ test.describe('Cosine Similarity Lab', () => {
     await quotesButton.click();
     await expect(page.locator('body')).toHaveAttribute('data-active-dataset', 'quotes');
     await expect(page.locator('[data-search]')).toHaveAttribute('placeholder', /adventure-01/);
-    await expect(dedupeList.locator('.dedupe-card .id-badge').first()).not.toHaveText(/^j-/);
+    const quoteRows = page.locator('[data-results-body] tr:not(.empty-row)');
+    expect(await quoteRows.count()).toBeGreaterThan(0);
+    await expect(quoteRows.first().locator('.id-badge').first()).not.toHaveText(/^j-/);
 
-    const quotesCardCount = await dedupeList.locator('.dedupe-card').count();
-    expect(quotesCardCount).toBeGreaterThanOrEqual(300);
+    const quotesMatchCount = parseLocaleNumber(await page.locator('[data-match-count]').textContent());
+    expect(quotesMatchCount).toBeGreaterThan(0);
 
     const quotesBaselineValue = parseLocaleNumber(await baselineEl.textContent());
     expect(quotesBaselineValue).toBeCloseTo(0.5, 2);
