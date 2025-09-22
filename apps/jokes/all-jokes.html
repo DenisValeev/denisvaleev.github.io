@@ -36,6 +36,12 @@
       .punchline-row td {
         background: rgba(255, 255, 255, 0.08);
       }
+
+      .filter input[type="search"] {
+        background: rgba(18, 18, 18, 0.9);
+        border-color: rgba(241, 245, 255, 0.35);
+        color: inherit;
+      }
     }
 
     main {
@@ -55,6 +61,36 @@
 
     .count {
       font-weight: 600;
+    }
+
+    .filter {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .filter label {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .filter input[type="search"] {
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.95);
+      color: inherit;
+      padding: 10px 14px;
+      font: inherit;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .filter input[type="search"]:focus-visible {
+      outline: 2px solid rgba(48, 86, 211, 0.55);
+      outline-offset: 2px;
+      box-shadow: 0 0 0 3px rgba(48, 86, 211, 0.18);
     }
 
     table {
@@ -92,8 +128,12 @@
 <body>
   <main>
     <h1>All Jokes</h1>
-    <p>Every joke from the dataset in one place. Use your browser search to find a favourite.</p>
-    <p class="count"><span data-count>0</span> jokes</p>
+    <p>Every joke from the dataset in one place. Use the filter to zero in on a favourite.</p>
+    <p class="count">Showing <span data-count>0</span> of <span data-total>0</span> jokes</p>
+    <form class="filter" data-filter-form>
+      <label for="joke-filter">Filter jokes</label>
+      <input id="joke-filter" type="search" name="joke-filter" placeholder="Type to filter…" autocomplete="off" data-filter-input>
+    </form>
     <table>
       <caption>Setup followed by punchline</caption>
       <tbody>

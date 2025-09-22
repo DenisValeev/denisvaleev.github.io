@@ -1,9 +1,18 @@
 (function () {
   const tbody = document.querySelector('tbody');
   const countTarget = document.querySelector('[data-count]');
+  const totalTarget = document.querySelector('[data-total]');
+  const filterForm = document.querySelector('[data-filter-form]');
+  const filterInput = document.querySelector('[data-filter-input]');
 
   if (!tbody) {
     return;
+  }
+
+  if (filterForm) {
+    filterForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+    });
   }
 
   const categories = Array.isArray(window.quotesData)
@@ -41,60 +50,97 @@
     return copy;
   }
 
-  const deck = shuffle(rows);
+  const deck = shuffle(
+    rows.map((entry) => {
+      const searchText = [entry.text, entry.author, entry.category].filter(Boolean).join(' ').toLowerCase();
+      return {
+        category: entry.category,
+        text: entry.text,
+        author: entry.author,
+        searchText,
+      };
+    })
+  );
 
-  if (countTarget) {
-    countTarget.textContent = deck.length.toLocaleString();
+  const totalCount = deck.length;
+  if (totalTarget) {
+    totalTarget.textContent = totalCount.toLocaleString();
   }
 
-  tbody.textContent = '';
-
-  if (!deck.length) {
-    const emptyRow = document.createElement('tr');
-    const emptyCell = document.createElement('td');
-    emptyCell.textContent = 'No quotes available.';
-    emptyRow.appendChild(emptyCell);
-    tbody.appendChild(emptyRow);
-    return;
+  function updateCount(value) {
+    if (countTarget) {
+      countTarget.textContent = value.toLocaleString();
+    }
   }
 
-  const fragment = document.createDocumentFragment();
+  function renderRows(list, term) {
+    tbody.textContent = '';
 
-  deck.forEach((entry) => {
-    const quoteRow = document.createElement('tr');
-    quoteRow.className = 'quote-row';
-
-    const quoteCell = document.createElement('td');
-    quoteCell.className = 'quote-cell';
-    quoteCell.textContent = entry.text;
-    quoteRow.appendChild(quoteCell);
-
-    const metaRow = document.createElement('tr');
-    metaRow.className = 'meta-row';
-
-    const metaCell = document.createElement('td');
-    metaCell.className = 'meta-cell';
-
-    metaCell.appendChild(document.createTextNode('— '));
-
-    const authorSpan = document.createElement('span');
-    authorSpan.className = 'meta-author';
-    authorSpan.textContent = entry.author;
-    metaCell.appendChild(authorSpan);
-
-    if (entry.category) {
-      metaCell.appendChild(document.createTextNode(' · '));
-      const categorySpan = document.createElement('span');
-      categorySpan.className = 'meta-category';
-      categorySpan.textContent = entry.category;
-      metaCell.appendChild(categorySpan);
+    if (!list.length) {
+      const emptyRow = document.createElement('tr');
+      const emptyCell = document.createElement('td');
+      emptyCell.textContent = term ? `No quotes match “${term}”.` : 'No quotes available.';
+      emptyRow.appendChild(emptyCell);
+      tbody.appendChild(emptyRow);
+      return;
     }
 
-    metaRow.appendChild(metaCell);
+    const fragment = document.createDocumentFragment();
 
-    fragment.appendChild(quoteRow);
-    fragment.appendChild(metaRow);
-  });
+    list.forEach((entry) => {
+      const quoteRow = document.createElement('tr');
+      quoteRow.className = 'quote-row';
 
-  tbody.appendChild(fragment);
+      const quoteCell = document.createElement('td');
+      quoteCell.className = 'quote-cell';
+      quoteCell.textContent = entry.text;
+      quoteRow.appendChild(quoteCell);
+
+      const metaRow = document.createElement('tr');
+      metaRow.className = 'meta-row';
+
+      const metaCell = document.createElement('td');
+      metaCell.className = 'meta-cell';
+
+      metaCell.appendChild(document.createTextNode('— '));
+
+      const authorSpan = document.createElement('span');
+      authorSpan.className = 'meta-author';
+      authorSpan.textContent = entry.author;
+      metaCell.appendChild(authorSpan);
+
+      if (entry.category) {
+        metaCell.appendChild(document.createTextNode(' · '));
+        const categorySpan = document.createElement('span');
+        categorySpan.className = 'meta-category';
+        categorySpan.textContent = entry.category;
+        metaCell.appendChild(categorySpan);
+      }
+
+      metaRow.appendChild(metaCell);
+
+      fragment.appendChild(quoteRow);
+      fragment.appendChild(metaRow);
+    });
+
+    tbody.appendChild(fragment);
+  }
+
+  function applyFilter(term) {
+    const normalized = typeof term === 'string' ? term.trim().toLowerCase() : '';
+    const filtered = normalized
+      ? deck.filter((entry) => entry.searchText.includes(normalized))
+      : deck;
+
+    updateCount(filtered.length);
+    renderRows(filtered, normalized);
+  }
+
+  applyFilter(filterInput ? filterInput.value : '');
+
+  if (filterInput) {
+    filterInput.addEventListener('input', () => {
+      applyFilter(filterInput.value);
+    });
+  }
 })();

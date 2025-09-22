@@ -1,13 +1,19 @@
 (function () {
   const tbody = document.querySelector('tbody');
   const countTarget = document.querySelector('[data-count]');
-
-  const jokes = Array.isArray(window.jokes)
-    ? window.jokes.filter((entry) => entry && entry.joke)
-    : [];
+  const totalTarget = document.querySelector('[data-total]');
+  const filterForm = document.querySelector('[data-filter-form]');
+  const filterInput = document.querySelector('[data-filter-input]');
+  const isCompact = document.body && document.body.dataset.compact === 'true';
 
   if (!tbody) {
     return;
+  }
+
+  if (filterForm) {
+    filterForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+    });
   }
 
   const formatPunchline = (value) => {
@@ -26,46 +32,121 @@
     return copy;
   }
 
-  const deck = shuffle(jokes);
+  const rawJokes = Array.isArray(window.jokes)
+    ? window.jokes
+        .map((entry) => {
+          const setup = entry && typeof entry.joke === 'string' ? entry.joke.trim() : '';
+          const rawPunchline = entry && typeof entry.punchline === 'string' ? entry.punchline.trim() : '';
+          if (!setup) {
+            return null;
+          }
+          return { setup, rawPunchline };
+        })
+        .filter(Boolean)
+    : [];
 
-  if (countTarget) {
-    countTarget.textContent = deck.length.toLocaleString();
+  const deck = shuffle(
+    rawJokes.map((entry) => {
+      const punchline = formatPunchline(entry.rawPunchline);
+      const searchText = `${entry.setup} ${entry.rawPunchline}`.toLowerCase();
+      return {
+        setup: entry.setup,
+        punchline,
+        searchText,
+      };
+    })
+  );
+
+  const totalCount = deck.length;
+  if (totalTarget) {
+    totalTarget.textContent = totalCount.toLocaleString();
   }
 
-  tbody.textContent = '';
-
-  if (!deck.length) {
-    const emptyRow = document.createElement('tr');
-    const emptyCell = document.createElement('td');
-    emptyCell.textContent = 'No jokes available.';
-    emptyRow.appendChild(emptyCell);
-    tbody.appendChild(emptyRow);
-    return;
+  function updateCount(value) {
+    if (countTarget) {
+      countTarget.textContent = value.toLocaleString();
+    }
   }
 
-  const fragment = document.createDocumentFragment();
+  function renderRows(list, term) {
+    tbody.textContent = '';
 
-  deck.forEach((entry) => {
-    const setupRow = document.createElement('tr');
+    if (!list.length) {
+      const emptyRow = document.createElement('tr');
+      const emptyCell = document.createElement('td');
+      if (isCompact) {
+        emptyCell.colSpan = 3;
+      }
+      emptyCell.textContent = term ? `No jokes match “${term}”.` : 'No jokes available.';
+      emptyRow.appendChild(emptyCell);
+      tbody.appendChild(emptyRow);
+      return;
+    }
 
-    const setupCell = document.createElement('td');
-    setupCell.className = 'setup-cell';
-    setupCell.textContent = entry.joke;
+    const fragment = document.createDocumentFragment();
 
-    setupRow.appendChild(setupCell);
+    list.forEach((entry, index) => {
+      if (isCompact) {
+        const row = document.createElement('tr');
 
-    const punchlineRow = document.createElement('tr');
-    punchlineRow.className = 'punchline-row';
+        const indexCell = document.createElement('th');
+        indexCell.scope = 'row';
+        indexCell.textContent = (index + 1).toLocaleString();
+        row.appendChild(indexCell);
 
-    const punchlineCell = document.createElement('td');
-    punchlineCell.className = 'punchline-cell';
-    punchlineCell.textContent = formatPunchline(entry.punchline);
+        const compactSetupCell = document.createElement('td');
+        compactSetupCell.className = 'setup-cell';
+        compactSetupCell.textContent = entry.setup;
+        row.appendChild(compactSetupCell);
 
-    punchlineRow.appendChild(punchlineCell);
+        const compactPunchlineCell = document.createElement('td');
+        compactPunchlineCell.className = 'punchline-cell';
+        compactPunchlineCell.textContent = entry.punchline;
+        row.appendChild(compactPunchlineCell);
 
-    fragment.appendChild(setupRow);
-    fragment.appendChild(punchlineRow);
-  });
+        fragment.appendChild(row);
+        return;
+      }
 
-  tbody.appendChild(fragment);
+      const setupRow = document.createElement('tr');
+
+      const setupCell = document.createElement('td');
+      setupCell.className = 'setup-cell';
+      setupCell.textContent = entry.setup;
+
+      setupRow.appendChild(setupCell);
+
+      const punchlineRow = document.createElement('tr');
+      punchlineRow.className = 'punchline-row';
+
+      const punchlineCell = document.createElement('td');
+      punchlineCell.className = 'punchline-cell';
+      punchlineCell.textContent = entry.punchline;
+
+      punchlineRow.appendChild(punchlineCell);
+
+      fragment.appendChild(setupRow);
+      fragment.appendChild(punchlineRow);
+    });
+
+    tbody.appendChild(fragment);
+  }
+
+  function applyFilter(term) {
+    const normalized = typeof term === 'string' ? term.trim().toLowerCase() : '';
+    const filtered = normalized
+      ? deck.filter((entry) => entry.searchText.includes(normalized))
+      : deck;
+
+    updateCount(filtered.length);
+    renderRows(filtered, normalized);
+  }
+
+  applyFilter(filterInput ? filterInput.value : '');
+
+  if (filterInput) {
+    filterInput.addEventListener('input', () => {
+      applyFilter(filterInput.value);
+    });
+  }
 })();
