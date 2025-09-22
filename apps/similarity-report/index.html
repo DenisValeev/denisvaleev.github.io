@@ -276,8 +276,8 @@
 
     .results {
       display: grid;
-      gap: 24px;
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: clamp(20px, 3vw, 28px);
+      grid-template-columns: minmax(0, 1fr);
       align-items: start;
     }
 
@@ -286,7 +286,8 @@
       border: 1px solid var(--card-border);
       border-radius: 22px;
       box-shadow: var(--card-shadow);
-      overflow: hidden;
+      overflow-x: auto;
+      overflow-y: hidden;
       position: relative;
     }
 
@@ -945,12 +946,6 @@
       color: var(--text-muted);
     }
 
-    @media (max-width: 1040px) {
-      .results {
-        grid-template-columns: 1fr;
-      }
-    }
-
     @media (max-width: 720px) {
       main {
         padding: clamp(18px, 5vw, 28px);
@@ -1032,27 +1027,6 @@
       </div>
     </section>
     <section class="results" aria-label="Similarity matches" data-results>
-      <div class="table-wrapper" role="region" aria-live="polite" data-matrix-view>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col" aria-sort="descending">
-                <button type="button" class="sort-button" data-sort="similarity" data-sort-direction="desc" data-sort-label="cosine similarity">
-                  Score
-                  <span class="sort-indicator" aria-hidden="true">↓</span>
-                </button>
-              </th>
-              <th scope="col">Entry A</th>
-              <th scope="col">Entry B</th>
-            </tr>
-          </thead>
-          <tbody data-results-body>
-            <tr class="empty-row">
-              <td colspan="3">Loading similarity report…</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
       <aside class="detail-panel" aria-label="Pair inspector" aria-live="polite" data-detail>
         <p class="detail-empty" data-detail-empty>Select a row to inspect the vector neighbours.</p>
         <div class="detail-body" data-detail-body hidden>
@@ -1192,6 +1166,27 @@
           </div>
         </div>
       </aside>
+      <div class="table-wrapper" role="region" aria-live="polite" data-matrix-view>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" aria-sort="descending">
+                <button type="button" class="sort-button" data-sort="similarity" data-sort-direction="desc" data-sort-label="cosine similarity">
+                  Score
+                  <span class="sort-indicator" aria-hidden="true">↓</span>
+                </button>
+              </th>
+              <th scope="col">Entry A</th>
+              <th scope="col">Entry B</th>
+            </tr>
+          </thead>
+          <tbody data-results-body>
+            <tr class="empty-row">
+              <td colspan="3">Loading similarity report…</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <div class="dedupe-view" data-dedupe-view hidden aria-live="polite">
         <p class="dedupe-empty" data-dedupe-empty>Loading dedupe recommendations…</p>
         <div class="dedupe-list" data-dedupe-list></div>
