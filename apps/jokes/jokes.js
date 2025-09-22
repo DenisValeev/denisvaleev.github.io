@@ -3465,6 +3465,94 @@ window.jokes = [
             "id": "j-0888",
             "joke": "Who hides in the bakery at Christmas?",
             "punchline": "A mince spy!"
+        }, {
+            "id": "j-0889",
+            "joke": "I got fired from a florist",
+            "punchline": "apparently I took too many leaves."
+        }, {
+            "id": "j-0890",
+            "joke": "What did the fish say when it hit the wall?",
+            "punchline": "Dam."
+        }, {
+            "id": "j-0891",
+            "joke": "Why can't bicycles stand on their own?",
+            "punchline": "They are two tired"
+        }, {
+            "id": "j-0892",
+            "joke": "What happens to a frog's car when it breaks down?",
+            "punchline": "It gets toad away"
+        }, {
+            "id": "j-0893",
+            "joke": "I bought some shoes from a drug dealer.",
+            "punchline": "I don't know what he laced them with, but I was tripping all day!"
+        }, {
+            "id": "j-0894",
+            "joke": "Why do chicken coops only have two doors?",
+            "punchline": "Because if they had four, they would be chicken sedans"
+        }, {
+            "id": "j-0895",
+            "joke": "What do you give to a lemon in need?",
+            "punchline": "Lemonaid."
+        }, {
+            "id": "j-0896",
+            "joke": "Hey, dad, did you get a haircut?",
+            "punchline": "No, I got them all cut."
+        }, {
+            "id": "j-0897",
+            "joke": "What time is it?",
+            "punchline": "I don't know... it keeps changing."
+        }, {
+            "id": "j-0898",
+            "joke": "A weasel walks into a bar. The bartender says, \"Wow, I've never served a weasel before. What can I get for you?\"",
+            "punchline": "Pop,goes the weasel."
+        }, {
+            "id": "j-0899",
+            "joke": "How many optometrists does it take to change a light bulb?",
+            "punchline": "1 or 2? 1... or 2?"
+        }, {
+            "id": "j-0900",
+            "joke": "How many seconds are in a year?",
+            "punchline": "12. January 2nd, February 2nd, March 2nd, April 2nd.... etc"
+        }, {
+            "id": "j-0901",
+            "joke": "What did the spaghetti say to the other spaghetti?",
+            "punchline": "Pasta la vista, baby!"
+        }, {
+            "id": "j-0902",
+            "joke": "Where’s the bin?",
+            "punchline": "I haven’t been anywhere!"
+        }, {
+            "id": "j-0903",
+            "joke": "Why did the developer quit his job?",
+            "punchline": "Because he didn't get arrays."
+        }, {
+            "id": "j-0904",
+            "joke": "Why did the programmer always mix up Halloween and Christmas?",
+            "punchline": "Because Oct 31 equals Dec 25."
+        }, {
+            "id": "j-0905",
+            "joke": "What did one ocean say to the other ocean?",
+            "punchline": "Nothing, they just waved."
+        }, {
+            "id": "j-0906",
+            "joke": "Why did the chicken cross the playground?",
+            "punchline": "To get to the other slide."
+        }, {
+            "id": "j-0907",
+            "joke": "Why don't oysters give to charity?",
+            "punchline": "Because they're shellfish."
+        }, {
+            "id": "j-0908",
+            "joke": "Why did the golfer wear two pairs of pants?",
+            "punchline": "In case he got a hole in one."
+        }, {
+            "id": "j-0909",
+            "joke": "Why did the programmer quit their job?",
+            "punchline": "They didn't get arrays."
+        }, {
+            "id": "j-0910",
+            "joke": "Why don't programmers like nature?",
+            "punchline": "Too many bugs."
         }
     ];
 

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2025-09-21T03:25:02.717Z",
-    "total": 866,
+    "generatedAt": "2025-09-22T01:51:00.474Z",
+    "total": 888,
     "hashAlgorithm": "sha256",
     "tokenSignature": "unique-words-v1",
     "fields": [
@@ -18194,6 +18194,468 @@
         "model": "fake-64",
         "vectorSha256": "5d17b1090c12d0c39e75511db1c16af2b9c6a3a6afa5ae1ae84fada6a58db7ac",
         "updatedAt": "2025-09-21T03:21:38.309Z"
+      }
+    },
+    "j-0889": {
+      "hashes": {
+        "setup": "16e71b4f91b12483fbe4bb5b6c62263505b178aad59c7a55a14ec6813eb1db88",
+        "punchline": "e044264e0b72ed7fcb001254832b6e83ce0ba6e8c55b203415758d4ca27fccf3",
+        "combined": "2310c095e156e69b169457634ab0b377f07ae09dbb1660a461b686f6fc21f5d7",
+        "tokenSignature": "a-apparently-fired-florist-from-got-i-leaves-many-too-took"
+      },
+      "lengths": {
+        "joke": 26,
+        "punchline": 34
+      },
+      "source": {
+        "sequence": 867
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "57c8d6f2ea3311bc8b08762e7990f7aba11e1b2ace143cfe819b1c3e93a61d34",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0890": {
+      "hashes": {
+        "setup": "2c47158659cfe64f88f31943ed7b79590cb575f5812006a264b12ccd8b90da95",
+        "punchline": "84077336f1a1ecdee358fd20167476a8e1831807a042953eca41c13223c38650",
+        "combined": "a8e366863afaf6f6e4ba04f4752b03715381189a3724458895285b9ab7c397a7",
+        "tokenSignature": "dam-did-fish-hit-it-say-the-wall-what-when"
+      },
+      "lengths": {
+        "joke": 43,
+        "punchline": 4
+      },
+      "source": {
+        "sequence": 868
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "21174797ee82f15337e53c54028598a1d3c111b8fe397a5a372ba6169e623c99",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0891": {
+      "hashes": {
+        "setup": "9f7ed7386e8be80e3c691ca64f8178534d4077c44a70829b964ea5a3d4d48f73",
+        "punchline": "a7d44042a78f9b5c2c0a2d5f3d8c54dd304db4c5c63e4853d5c5750819960665",
+        "combined": "82ed69a5ec7c6412e59c7b207b8dd860c1b6dee5b92a554dc86e9f6e60c2038c",
+        "tokenSignature": "are-bicycles-can-on-own-stand-t-their-they-tired-two-why"
+      },
+      "lengths": {
+        "joke": 38,
+        "punchline": 18
+      },
+      "source": {
+        "sequence": 869
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "f36c635bcf2cc1595d1a9e91b90114a3d3030ede18682ca074fece9df7341070",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0892": {
+      "hashes": {
+        "setup": "53c66a41c47250b36d8df590e96f75b0335a84b7782eea83909452d7808a7c22",
+        "punchline": "698dfd38e87e2d9da1982a390956720b42e20fa029a2d9f27e6b7b20b043e6a3",
+        "combined": "d66003ee34450abb848d39aa2bfbcb939320677a8eac89a7ec5f860666144910",
+        "tokenSignature": "a-away-breaks-car-down-frog-gets-happens-it-s-to-toad-what-when"
+      },
+      "lengths": {
+        "joke": 49,
+        "punchline": 17
+      },
+      "source": {
+        "sequence": 870
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "083e78e1ba07bca84b995bf1d8e7f5e3c2c22bdf01b71482965059ee065dc004",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0893": {
+      "hashes": {
+        "setup": "aa68f6c8701566c8b53d9675c08051550d561287dfc8e44b575cec408c78ce88",
+        "punchline": "fba1d8e92e7d6f157cd549b2e9f577ff26f3b7cfd4f64b50456fd54a5f95e623",
+        "combined": "a8dfacf77c43bcf3076bdc57d9214ccc0520a077c77db5d7862d88611cfc6396",
+        "tokenSignature": "a-all-bought-but-day-dealer-don-drug-from-he-i-know-laced-shoes-some-t-them-tripping-was-what-with"
+      },
+      "lengths": {
+        "joke": 39,
+        "punchline": 65
+      },
+      "source": {
+        "sequence": 871
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "c4c5eec91735f17cd6777dda81e3ce4d1d71739374bdbb6cf7f4afd16632ad8c",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0894": {
+      "hashes": {
+        "setup": "086e660440f2ba2a13821b75569e0fc0bced448071f0c92f6251eaba6745c4b9",
+        "punchline": "25cf8bb4440d026605a5132c7140d5e0c19310c5702d3d70c78fc0f6734bdff9",
+        "combined": "c1c1a7d67209d52bcbc6d586270260798aa78d2f9667c534da07c0d601b1acb3",
+        "tokenSignature": "be-because-chicken-coops-do-doors-four-had-have-if-only-sedans-they-two-why-would"
+      },
+      "lengths": {
+        "joke": 41,
+        "punchline": 54
+      },
+      "source": {
+        "sequence": 872
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "189cf325010bf609bd857b7fd660e1d1ec977accd22a9cdf88f1576a35c82a8c",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0895": {
+      "hashes": {
+        "setup": "b7eac12ae658f93eec3775ba768563dc7c509bf24ba0535e3fd67233e07416f1",
+        "punchline": "bd99bc161256dc536445680e7fdd2787e36591eaf2699291e917a168ddf84d7e",
+        "combined": "f69c5ef86ff426ee2d25b9507c2f9bcfc65f7822761660e0e05ff7a4f7f04882",
+        "tokenSignature": "a-do-give-in-lemon-lemonaid-need-to-what-you"
+      },
+      "lengths": {
+        "joke": 36,
+        "punchline": 9
+      },
+      "source": {
+        "sequence": 873
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "91ad232463875d8f2b88864e9b5310f0734c21d9844e76974591e6f7ca04de26",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0896": {
+      "hashes": {
+        "setup": "78c1d25b1f17d3e06196ec0a03a2856e7a5d86e4db6c4c390f53f656633bfa03",
+        "punchline": "5b3678ae92852dfffe45ffef1c2151fa6fb245705a078987143535de23b8ed69",
+        "combined": "cbd7f5aa3f56e0a0dc9d0dbc1391d4aeb7ed6b2d04a55b79058e49abe90f93f4",
+        "tokenSignature": "a-all-cut-dad-did-get-got-haircut-hey-i-no-them-you"
+      },
+      "lengths": {
+        "joke": 32,
+        "punchline": 23
+      },
+      "source": {
+        "sequence": 874
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "f63d37d6823ddaea233196fb87ef4ca261821b41af8c70ebc2bc55846fbeab38",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0897": {
+      "hashes": {
+        "setup": "482bbb9128050f734a2e44f15c0bb1066848c6b18444a90c771061c030ff2534",
+        "punchline": "aa44ee7a384ad6ac2f1c7a55848a47277de6b8c6ce182f47e4218a8754bfab3d",
+        "combined": "8bd07c895b5f196d383084c4ff74e309f294cb472f9c7e8e04135593f2a58a63",
+        "tokenSignature": "changing-don-i-is-it-keeps-know-t-time-what"
+      },
+      "lengths": {
+        "joke": 16,
+        "punchline": 34
+      },
+      "source": {
+        "sequence": 875
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "27b93e8f6d4dc7316b6e659018e304b47c01f9cb7025fa2bac1f84a6283b4176",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0898": {
+      "hashes": {
+        "setup": "83a8b79ef6835590540053947891310ba6c8bcbbbee70bfdc304ea6b2c6bf82b",
+        "punchline": "19163dc794fce3b492497e109ff9471464022c2d32a994cb5c2242bb23f4e2f6",
+        "combined": "096eaa425183d54949d9b932bfcb0ea97fb143926c741f8aec73b661e8542884",
+        "tokenSignature": "a-bar-bartender-before-can-for-get-goes-i-into-never-pop-says-served-the-ve-walks-weasel-what-wow-you"
+      },
+      "lengths": {
+        "joke": 112,
+        "punchline": 20
+      },
+      "source": {
+        "sequence": 876
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "b69681d9e54be388bad3b1286ec8643dd4938fc2c5a8728e8a1e2f1fd06025a9",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0899": {
+      "hashes": {
+        "setup": "973098166a2dfdf36c62bd35adc35483637ce0c5853d8eabfec31504ffa83fba",
+        "punchline": "14699d1816ac5808fe9b1b7d4aca37b11f90d430bb808bd459f5bcca487ec9ea",
+        "combined": "b86c67c8e05eabd952f29aa7f64bf04fb6b46b7fa96df926b064fa37c9d5b8fa",
+        "tokenSignature": "1-2-a-bulb-change-does-how-it-light-many-optometrists-or-take-to"
+      },
+      "lengths": {
+        "joke": 58,
+        "punchline": 18
+      },
+      "source": {
+        "sequence": 877
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "35a60b12de91dec276a2d39ebe198c09618c9b2c428e271a4d00e2b3e4c871f7",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0900": {
+      "hashes": {
+        "setup": "87f800db89cd5ba3f352f901911d8f04349a07385ce93d3d60c1a89767dfa027",
+        "punchline": "6eb05ff604740d43879b47dd71910a4f3e2b63a5e8e5effbb20ecd8b8881ff9b",
+        "combined": "5eb8faa76d4bee55041b51c810620759572241f914a961478b012b80f2bb3a97",
+        "tokenSignature": "12-2nd-a-april-are-etc-february-how-in-january-many-march-seconds-year"
+      },
+      "lengths": {
+        "joke": 31,
+        "punchline": 59
+      },
+      "source": {
+        "sequence": 878
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "7973c50507dd12c9e5e34b1e6c92360ffe1617cba20a396fcdb2850fc8baac67",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0901": {
+      "hashes": {
+        "setup": "c520a3a2614940fa03fade473ac722218aaa5404160d12711d0ecb520d9c17dc",
+        "punchline": "b9c0a5ed32fb85762b4448713d2ea063d4f11852b530e0ddd108477c6f285674",
+        "combined": "3099fceccdf5ad55097fe978ae839f400aab0e1c8117119708b671ac305bf758",
+        "tokenSignature": "baby-did-la-other-pasta-say-spaghetti-the-to-vista-what"
+      },
+      "lengths": {
+        "joke": 50,
+        "punchline": 21
+      },
+      "source": {
+        "sequence": 879
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "98ae0b1b4cda8727c5d745a25f6850cc1827356d369fef6068b708e031754d27",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0902": {
+      "hashes": {
+        "setup": "b22c1df822ae72976f690540f29d1014d7d9919b663be4470b09a9aaebb354bc",
+        "punchline": "d6acce58810d89e5a423471d83cbb0ed7c85ad9dd1080e35af7a384ce01ca140",
+        "combined": "989c17ec5220c771f8a14d6a3f903c699ad9a5dbf0887f95a4db55572fc8615b",
+        "tokenSignature": "anywhere-been-bin-haven-i-s-t-the-where"
+      },
+      "lengths": {
+        "joke": 16,
+        "punchline": 24
+      },
+      "source": {
+        "sequence": 880
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "e8b9719686c43b64c4744698a06b0e155b2501c0d13ee394a51584f634cb1ba7",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0903": {
+      "hashes": {
+        "setup": "c227f141cbf6028f4ee4c5c34b7ae22cef0c118efe99e55a8d8df558a49107aa",
+        "punchline": "4f3dc2cfd1ad0bab8cc7648eb3fa85b633922714c0652a3cda36e085f1948099",
+        "combined": "893c567afbb79c75e512e2abcad2a59acaf2934331f9a609534a93202526b22d",
+        "tokenSignature": "arrays-because-developer-did-didn-get-he-his-job-quit-t-the-why"
+      },
+      "lengths": {
+        "joke": 35,
+        "punchline": 29
+      },
+      "source": {
+        "sequence": 881
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "b47d38e48001d82199942916d858ff18089e01ed1d8268a5951568b55772b0a9",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0904": {
+      "hashes": {
+        "setup": "482a56fefd39cff71ecdcbd3db58c39067b7fdc9b1c3d5b21dad82ab770eaf2c",
+        "punchline": "9926ac340b2c372c68bbef10d88ca697e87d3b47cc8d55cb7abbe802375f8029",
+        "combined": "305f821151eb9119c242f91bf23da9c9742cf9a4b71feaf1c74d5ed28a6b9184",
+        "tokenSignature": "25-31-always-and-because-christmas-dec-did-equals-halloween-mix-oct-programmer-the-up-why"
+      },
+      "lengths": {
+        "joke": 61,
+        "punchline": 29
+      },
+      "source": {
+        "sequence": 882
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "0ddb22dcb7c0199e97b907d40ac517413d04036eabae4c9fee328809771d482f",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0905": {
+      "hashes": {
+        "setup": "bfc2e27a170ca98453df9459bb8b44ac7c57be5c46831ae5d8b773e690af2501",
+        "punchline": "62fea14ac493eab395ef489be0d1a7a636c9134c88d96ed3e998e7359f4cfb97",
+        "combined": "0cc36d87fdd06a21ab2cc0f9ece3decc28c1b15d90c2b91c76687257b5230d41",
+        "tokenSignature": "did-just-nothing-ocean-one-other-say-the-they-to-waved-what"
+      },
+      "lengths": {
+        "joke": 42,
+        "punchline": 25
+      },
+      "source": {
+        "sequence": 883
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "ede517f93ee7749ac7846f0e575fb4c14883eb8b7afc6d0f8d975bd659b357cf",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0906": {
+      "hashes": {
+        "setup": "fa215373155eb039e49df92f948ecced743a631024179ea2c1a397a1746097d6",
+        "punchline": "e4d8a609f14d805cd3ab1794e306b10f6554b61fd6cd298feae4dbd78a23fc03",
+        "combined": "8dc58fe651249256a134eb83be77bc3103038cc1c4c169f7f0aa46a1e1f64159",
+        "tokenSignature": "chicken-cross-did-get-other-playground-slide-the-to-why"
+      },
+      "lengths": {
+        "joke": 41,
+        "punchline": 26
+      },
+      "source": {
+        "sequence": 884
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "1c7ad0d1b898c3be0e3329869f24445e5298c1bb8441a02f64bf9d72e4bcc2ff",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0907": {
+      "hashes": {
+        "setup": "e214dc6dad8030e0137cc9d0dc7f3f39be50f4de9a408aa243de93b3b393a2b8",
+        "punchline": "f68b11fe7347a81f8ac2a7c89116bc58c3b174648a23fd16306b0a36ff6a466a",
+        "combined": "e200117ed5af52ecc44d8bc806bbc50f2c51920a95e9a03bb7f6ba27240b08f7",
+        "tokenSignature": "because-charity-don-give-oysters-re-shellfish-t-they-to-why"
+      },
+      "lengths": {
+        "joke": 34,
+        "punchline": 26
+      },
+      "source": {
+        "sequence": 885
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "4587526c81f5b052cd26bddbed4531f81060966da62ccf42b714b71faf9aca6c",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0908": {
+      "hashes": {
+        "setup": "80641917e368db452b67ee0694a68e018fab2b38601acfe52b2bf3319632d7f3",
+        "punchline": "62e89142b93a11403e1242cebabeaf6eacda1538f6d75e9408518910948d7c03",
+        "combined": "e4ff33071c64474531bc4e12ca2fdc89077f16441e59bd0174f449af2c850ba4",
+        "tokenSignature": "a-case-did-golfer-got-he-hole-in-of-one-pairs-pants-the-two-wear-why"
+      },
+      "lengths": {
+        "joke": 43,
+        "punchline": 29
+      },
+      "source": {
+        "sequence": 886
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "82a19cd6c44ab9a182c4411df1580220dc3312ecb706998432eaad550aab1db7",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0909": {
+      "hashes": {
+        "setup": "257fd70e76bb2c1f989a1bbf027eae391bfb6e1ca7bb5e20b4c5235eddf25d2d",
+        "punchline": "7ca8ffd20a8f6197e189329d688c8e573bfbaedc21dc3c703bdc3f4c8e0d72b9",
+        "combined": "1c170a1fcd6b262a438f06020bf39c2f41212f0deb173c7607bfc08a08d11996",
+        "tokenSignature": "arrays-did-didn-get-job-programmer-quit-t-the-their-they-why"
+      },
+      "lengths": {
+        "joke": 38,
+        "punchline": 23
+      },
+      "source": {
+        "sequence": 887
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "cb9ef8ee1475cbaa836b0bbf67c811054702724fcab037ce5d301d572dee7830",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
+      }
+    },
+    "j-0910": {
+      "hashes": {
+        "setup": "c9482a8c6b434cdfa54143911e785f574ac189f67359199d952e3dfb274e0d26",
+        "punchline": "849a9707e3c60b2373cd5e19076d2dd664dc6edc4dd1c02c0c6f1b7db78df3fd",
+        "combined": "5563de1b687cc4815956da3641caa253a42231cd60f30c7040c5f0135ae8889d",
+        "tokenSignature": "bugs-don-like-many-nature-programmers-t-too-why"
+      },
+      "lengths": {
+        "joke": 34,
+        "punchline": 14
+      },
+      "source": {
+        "sequence": 888
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "fake-64",
+        "vectorSha256": "58a045ee8bb3d81bcf362529ea19cb6cefbcd32dc5e1ac78b63ec134b9777b09",
+        "updatedAt": "2025-09-22T01:50:07.859Z"
       }
     }
   }
