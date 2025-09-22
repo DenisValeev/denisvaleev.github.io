@@ -1355,12 +1355,12 @@
         },
         secondOpinion: {
           key: 'secondOpinion',
-          label: 'Second opinion (OpenAI)',
-          description: 'text-embedding-3-large rerun that flags anything at or above 0.80 for removal.',
+          label: 'Second opinion (HF Space)',
+          description: 'sentence-transformers/all-MiniLM-L6-v2 rerun that keeps everything at or above 0.50 on watch.',
           layout: 'dedupe',
-          dedupeThreshold: 0.8,
+          dedupeThreshold: 0.5,
           initialState: {
-            minSimilarity: 0.8,
+            minSimilarity: 0.5,
             maxSimilarity: 1,
             sortKey: 'similarity',
             sortDirection: 'desc',
@@ -2735,9 +2735,28 @@
           return;
         }
         const config = getActiveModelConfig();
-        const minBound = clamp01(
-          Number.isFinite(datasetEntry.safeMinSimilarity) ? datasetEntry.safeMinSimilarity : 0,
-        );
+        let minBound = null;
+        const safeMin = Number.isFinite(datasetEntry.safeMinSimilarity)
+          ? clamp01(datasetEntry.safeMinSimilarity)
+          : null;
+        const observedMin = Number.isFinite(datasetEntry.minSimilarity)
+          ? clamp01(datasetEntry.minSimilarity)
+          : null;
+        const baselineThreshold =
+          typeof datasetEntry.threshold === 'number' ? clamp01(datasetEntry.threshold) : null;
+        if (safeMin !== null) {
+          minBound = safeMin;
+        }
+        if (observedMin !== null) {
+          minBound = minBound === null ? observedMin : Math.min(minBound, observedMin);
+        }
+        if (baselineThreshold !== null) {
+          minBound = minBound === null ? baselineThreshold : Math.min(minBound, baselineThreshold);
+        }
+        if (minBound === null) {
+          minBound = 0;
+        }
+        minBound = clamp01(minBound);
         const maxBound = clamp01(
           Number.isFinite(datasetEntry.maxSimilarity) ? Math.max(datasetEntry.maxSimilarity, minBound) : Math.max(1, minBound),
         );

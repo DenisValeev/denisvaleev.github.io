@@ -20,6 +20,12 @@ test.describe('Cosine Similarity Lab', () => {
     const maxLabel = page.locator('[data-threshold-max-label]');
     const minDisplay = page.locator('[data-threshold-min-display]');
     const maxDisplay = page.locator('[data-threshold-max-display]');
+    const baselineEl = page.locator('[data-baseline]');
+    const modelEl = page.locator('[data-model-label]');
+    const providerEl = page.locator('[data-provider-label]');
+    const dedupeView = page.locator('[data-dedupe-view]');
+    const dedupeList = page.locator('[data-dedupe-list]');
+    const resultsSection = page.locator('[data-results]');
 
     const minAttr = await minSlider.getAttribute('min');
     const minBound = Number.parseFloat(minAttr || '0');
@@ -61,5 +67,36 @@ test.describe('Cosine Similarity Lab', () => {
 
     const detailMetric = page.locator('[data-detail-levenshtein]');
     await expect(detailMetric).toContainText('overlap');
+
+    const secondOpinionButton = page.locator('[data-model-toggle] button', {
+      hasText: 'Second opinion (HF Space)',
+    });
+    await secondOpinionButton.click();
+    await expect(secondOpinionButton).toHaveClass(/is-active/);
+    await expect(page.locator('body')).toHaveAttribute('data-active-dataset', 'jokes');
+    await expect(resultsSection).toHaveAttribute('data-layout', 'dedupe');
+    await expect(dedupeView).toBeVisible();
+
+    await page.waitForSelector('[data-dedupe-list] .dedupe-card');
+    const dedupeCardCount = await dedupeList.locator('.dedupe-card').count();
+    expect(dedupeCardCount).toBeGreaterThan(200);
+
+    const dedupeCountValue = parseLocaleNumber(await page.locator('[data-match-count]').textContent());
+    expect(dedupeCountValue).toBeGreaterThan(200);
+
+    const secondMinAttr = await minSlider.getAttribute('min');
+    expect(Number.parseFloat(secondMinAttr || '0')).toBeCloseTo(0.5, 2);
+
+    const baselineValue = parseLocaleNumber(await baselineEl.textContent());
+    expect(baselineValue).toBeCloseTo(0.5, 2);
+
+    const providerText = (await providerEl.textContent()) || '';
+    expect(providerText.toLowerCase()).toContain('hugging face');
+
+    const modelText = (await modelEl.textContent()) || '';
+    expect(modelText).toMatch(/MiniLM/i);
+
+    const searchPlaceholder = await page.locator('[data-search]').getAttribute('placeholder');
+    expect((searchPlaceholder || '').toLowerCase()).toContain('waist of time');
   });
 });
