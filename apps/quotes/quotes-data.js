@@ -2784,6 +2784,11 @@ window.quotesData = [
         "id": "creativity-13",
         "text": "Creativity is intelligence having fun.",
         "author": "Albert Einstein"
+      },
+      {
+        "id": "creativity-14",
+        "text": "Creativity involves breaking out of expected patterns to look at things in a different way.",
+        "author": "Edward de Bono"
       }
     ]
   },
@@ -2850,6 +2855,11 @@ window.quotesData = [
         "id": "resilience-13",
         "text": "Success is stumbling from failure to failure with no loss of enthusiasm.",
         "author": "Winston Churchill"
+      },
+      {
+        "id": "resilience-14",
+        "text": "She stood in the storm, and when the wind did not blow her way, she adjusted her sails.",
+        "author": "Elizabeth Edwards"
       }
     ]
   },
@@ -2916,6 +2926,11 @@ window.quotesData = [
         "id": "leadership-12",
         "text": "I allow my intuition to lead my path.",
         "author": "Manuel Puig"
+      },
+      {
+        "id": "leadership-13",
+        "text": "Leadership is about making others better as a result of your presence and making sure that impact lasts in your absence.",
+        "author": "Sheryl Sandberg"
       }
     ]
   },
@@ -2987,6 +3002,11 @@ window.quotesData = [
         "id": "mindfulness-13",
         "text": "Patience is not the ability to wait, but the ability to keep a good attitude while waiting.",
         "author": "Joyce Meyer"
+      },
+      {
+        "id": "mindfulness-14",
+        "text": "Mindfulness isn't difficult, we just need to remember to do it.",
+        "author": "Sharon Salzberg"
       }
     ]
   },
@@ -3068,6 +3088,11 @@ window.quotesData = [
         "id": "growth-16",
         "text": "If you're not growing, you're dying.",
         "author": "William S. Burroughs"
+      },
+      {
+        "id": "growth-17",
+        "text": "What we fear of doing most is usually what we most need to do.",
+        "author": "Ralph Waldo Emerson"
       }
     ]
   },
@@ -3134,6 +3159,11 @@ window.quotesData = [
         "id": "joy-13",
         "text": "Joy is not in things; it is in us.",
         "author": "Richard Wagner"
+      },
+      {
+        "id": "joy-14",
+        "text": "Joy is the serious business of heaven.",
+        "author": "C. S. Lewis"
       }
     ]
   },
@@ -3220,6 +3250,11 @@ window.quotesData = [
         "id": "curiosity-16",
         "text": "Stay hungry, stay foolish.",
         "author": "Steve Jobs"
+      },
+      {
+        "id": "curiosity-17",
+        "text": "The mind that opens to a new idea never returns to its original size.",
+        "author": "Albert Einstein"
       }
     ]
   },
@@ -3306,6 +3341,11 @@ window.quotesData = [
         "id": "kindness-16",
         "text": "Carry out a random act of kindness, with no expectation of reward, safe in the knowledge that one day someone might do the same for you.",
         "author": "Princess Diana"
+      },
+      {
+        "id": "kindness-17",
+        "text": "Kindness begins with the understanding that we all struggle.",
+        "author": "Charles Glassman"
       }
     ]
   },
@@ -3397,6 +3437,11 @@ window.quotesData = [
         "id": "gratitude-17",
         "text": "Gratitude is not only the greatest of virtues, but the parent of all others.",
         "author": "Cicero"
+      },
+      {
+        "id": "gratitude-18",
+        "text": "The more grateful I am, the more beauty I see.",
+        "author": "Mary Davis"
       }
     ]
   },
@@ -3488,6 +3533,11 @@ window.quotesData = [
         "id": "purpose-17",
         "text": "Dreams are the seeds of change. Nothing ever grows without a seed, and nothing ever changes without a dream.",
         "author": "Debby Boone"
+      },
+      {
+        "id": "purpose-18",
+        "text": "What you get by achieving your goals is not as important as what you become by achieving your goals.",
+        "author": "Zig Ziglar"
       }
     ]
   }

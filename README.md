@@ -81,6 +81,8 @@ The script inspects every deck’s dataset, manifest, embedding store, similarit
   `--provider=hfspace --model=bienkieu/sentence-embedding`, which pipes batches through the BienKieu Hugging Face Space
   (`sentence-transformers/all-MiniLM-L6-v2`) using `curl`—no API key required. Keep `--batch-size` at 8 or lower to avoid the
   shared queue timing out.
+  - When reviewing quote candidates, treat cosine scores at or above `0.8` as duplicates and reject them so near-identical
+    lines do not slip through as "false similar" matches.
   - When onboarding an external batch of jokes, run `node tools/onboard-external-jokes.js --input=path/to/new-jokes.json` to
     compare each candidate against the active embeddings for `fake`, `openai`, and `cohere`. Provide specific candidate
     embedding stores with `--candidate-embeddings=fake:path,openai:path,...` or let the script fall back to deterministic

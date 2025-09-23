@@ -46,16 +46,26 @@ test('quotes dataset exposes populated categories and entries', () => {
 
 test('newly onboarded quotes mirror the curated dataset', () => {
   const targetIds = [
+    'creativity-14',
+    'resilience-14',
+    'leadership-13',
+    'mindfulness-14',
     'growth-15',
     'growth-16',
+    'growth-17',
     'curiosity-15',
     'curiosity-16',
+    'curiosity-17',
     'kindness-15',
     'kindness-16',
+    'kindness-17',
     'gratitude-16',
     'gratitude-17',
+    'gratitude-18',
+    'joy-14',
     'purpose-16',
     'purpose-17',
+    'purpose-18',
   ];
 
   const categories = loadQuotesData();
