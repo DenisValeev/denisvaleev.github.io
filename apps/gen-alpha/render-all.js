@@ -15,6 +15,15 @@
     });
   }
 
+  function shuffle(array) {
+    const copy = array.slice();
+    for (let i = copy.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  }
+
   const rawEntries = Array.isArray(window.genAlphaSlang)
     ? window.genAlphaSlang
         .map((entry) => {
@@ -40,7 +49,7 @@
         .filter(Boolean)
     : [];
 
-  const deck = rawEntries.slice().sort((a, b) => a.term.localeCompare(b.term));
+  const deck = shuffle(rawEntries);
   const totalCount = deck.length;
 
   if (totalTarget) {
