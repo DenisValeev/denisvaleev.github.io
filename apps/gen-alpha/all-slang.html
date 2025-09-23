@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Gen Alpha Slang</title>
+  <title>All Gen α Slang</title>
   <style>
     :root {
       color-scheme: light dark;
@@ -39,10 +39,6 @@
 
       .example-row td {
         background: rgba(109, 97, 255, 0.16);
-      }
-
-      .example-label {
-        color: rgba(226, 232, 240, 0.72);
       }
 
       .filter input[type="search"] {
@@ -117,14 +113,14 @@
       text-align: left;
     }
 
-    th {
-      width: 72px;
-      font-weight: 600;
-    }
-
     .term-cell,
     .definition-cell {
       white-space: pre-wrap;
+    }
+
+    .term-cell {
+      font-size: clamp(1.05rem, 0.4vw + 1rem, 1.2rem);
+      font-weight: 600;
     }
 
     .definition-row td {
@@ -157,15 +153,6 @@
       font-family: "Times New Roman", serif;
     }
 
-    .example-label {
-      margin-top: 10px;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #475569;
-      font-weight: 600;
-    }
-
     caption {
       text-align: left;
       font-weight: 600;
@@ -175,15 +162,15 @@
 </head>
 <body>
   <main>
-    <h1>All Gen Alpha Slang</h1>
-    <p>Browse every slang term in the deck, filter by keyword, and open the main navigator when you want to study in shuffle mode with meanings and usage examples on hand.</p>
+    <h1>All Gen α Slang</h1>
+    <p>Browse every slang term in the deck, filter by keyword, and open the main navigator when you want to study in shuffle mode with meanings and usage tips on hand.</p>
     <p class="count">Showing <span data-count>0</span> of <span data-total>0</span> terms</p>
     <form class="filter" data-filter-form>
       <label for="slang-filter">Filter slang terms</label>
       <input id="slang-filter" type="search" name="slang-filter" placeholder="Type to filter…" autocomplete="off" data-filter-input>
     </form>
     <table>
-      <caption>Slang term followed by its meaning and an example sentence</caption>
+      <caption>Slang term followed by its meaning and a usage example</caption>
       <tbody>
         <tr>
           <td>Loading slang…</td>
