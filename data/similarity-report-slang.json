@@ -1,7 +1,7 @@
 {
   "dataset": "slang",
-  "threshold": 0.88,
-  "generatedAt": "2025-09-23T01:23:08.354Z",
+  "threshold": 0.8,
+  "generatedAt": "2025-09-23T22:56:02.858Z",
   "provider": "synthetic",
   "model": "synthetic-64",
   "matches": []

@@ -24,3 +24,5 @@ node tools/review-content-similarity.js --dataset=jokes --provider=hfspace --mod
 ```
 
 Review the high-similarity pairs printed by the second command to decide which newcomers should be removed before committing.
+Anything at or above a 0.8 cosine score is usually treated as a duplicate—either drop the weaker joke or add the pair to
+`data/similarity-overrides.json` under `jokes.protectedPairs` with a short note when the overlap is intentional.

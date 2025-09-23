@@ -1,7 +1,7 @@
 {
   "dataset": "jokes",
   "threshold": 0.5,
-  "generatedAt": "2025-09-23T04:03:02.199Z",
+  "generatedAt": "2025-09-23T22:54:39.022Z",
   "provider": "hfspace",
   "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
   "matches": [

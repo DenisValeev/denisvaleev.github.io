@@ -1,7 +1,7 @@
 {
   "dataset": "slang",
   "threshold": 0.88,
-  "generatedAt": "2025-09-23T01:44:54.640Z",
+  "generatedAt": "2025-09-23T23:06:37.564Z",
   "provider": "hfspace",
   "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
   "matches": []
