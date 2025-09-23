@@ -100,24 +100,30 @@
 
     ul.apps li {
       margin: 0;
-    }
-
-    a.app-card {
       display: flex;
       flex-direction: column;
+      gap: 12px;
+    }
+
+    a.app-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       gap: 14px;
-      padding: 12px;
-      border-radius: 20px;
+      padding: 18px 22px;
+      border-radius: 999px;
       background: var(--card-background);
       text-decoration: none;
       color: inherit;
       box-shadow: var(--card-shadow);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
       border: 1px solid transparent;
+      font-size: 1.1rem;
+      font-weight: 600;
     }
 
-    a.app-card:hover,
-    a.app-card:focus-visible {
+    a.app-button:hover,
+    a.app-button:focus-visible {
       transform: translateY(-6px);
       box-shadow: var(--card-hover-shadow);
       background: var(--card-hover-background);
@@ -125,17 +131,44 @@
       border-color: rgba(115, 135, 255, 0.45);
     }
 
-    a.app-card h2 {
-      margin: 0;
-      font-size: 1.32rem;
-      font-weight: 600;
+    a.app-button span[aria-hidden="true"] {
+      font-size: 1.5rem;
     }
 
-    a.app-card p {
-      margin: 0;
-      color: var(--text-secondary);
-      line-height: 1.5;
-      font-size: 0.98rem;
+    .app-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    a.app-secondary,
+    a.dev-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--dev-link-background);
+      color: inherit;
+      text-decoration: none;
+      font-weight: 500;
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+    }
+
+    a.app-secondary:hover,
+    a.app-secondary:focus-visible,
+    a.dev-link:hover,
+    a.dev-link:focus-visible {
+      background: var(--dev-link-hover);
+      transform: translateY(-2px);
+      outline: none;
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.18);
+    }
+
+    a.app-secondary span[aria-hidden="true"],
+    a.dev-link span[aria-hidden="true"] {
+      font-size: 1.2rem;
     }
 
     section.dev-tools {
@@ -146,40 +179,15 @@
       margin-top: clamp(18px, 3vw, 28px);
     }
 
-    a.dev-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      border-radius: 999px;
-      background: var(--dev-link-background);
-      color: inherit;
-      text-decoration: none;
-      font-weight: 500;
-      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
-    }
-
-    a.dev-link:hover,
-    a.dev-link:focus-visible {
-      background: var(--dev-link-hover);
-      transform: translateY(-2px);
-      outline: none;
-      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.18);
-    }
-
     a.dev-link:focus-visible,
-    a.app-card:focus-visible {
+    a.app-button:focus-visible,
+    a.app-secondary:focus-visible {
       box-shadow: 0 0 0 3px rgba(121, 134, 255, 0.35), inset 0 0 0 1px rgba(121, 134, 255, 0.6);
     }
 
     @media (max-width: 640px) {
       main {
         padding: clamp(12px, 4vw, 18px);
-      }
-
-      a.app-card {
-        padding: 10px;
       }
 
       header.site-header h1 {
@@ -192,28 +200,41 @@
   <main aria-label="Apps">
     <ul class="apps">
       <li>
-        <a class="app-card" href="apps/jokes/">
-          <h2>Dad Jokes</h2>
-          <p>Shuffle developer-friendly jokes, step back for another look, and reveal punchlines when you are ready.</p>
+        <a class="app-button" href="apps/jokes/">
+          <span aria-hidden="true">😂</span>
+          <span class="app-label">Dad Jokes</span>
         </a>
+        <div class="app-links" aria-label="Dad jokes extras">
+          <a class="app-secondary" href="apps/jokes/all-jokes.html">
+            <span aria-hidden="true">📚</span>
+            <span>All Jokes</span>
+          </a>
+        </div>
       </li>
       <li>
-        <a class="app-card" href="apps/quotes/">
-          <h2>Quotes</h2>
-          <p>Shuffle through themed quote decks, jump back, and switch categories without losing momentum.</p>
+        <a class="app-button" href="apps/quotes/">
+          <span aria-hidden="true">💬</span>
+          <span class="app-label">Quotes</span>
         </a>
+        <div class="app-links" aria-label="Quote extras">
+          <a class="app-secondary" href="apps/quotes/all-quotes.html">
+            <span aria-hidden="true">🗂️</span>
+            <span>All Quotes</span>
+          </a>
+        </div>
       </li>
       <li>
-        <a class="app-card" href="apps/similarity-report/">
-          <h2>Cosine Similarity Lab</h2>
-          <p>Review 0.50+ cosine matches across jokes, quotes, and cross-deck mashups, filter by score or text, and inspect each pair’s geeky vector stats.</p>
+        <a class="app-button" href="apps/similarity-report/">
+          <span aria-hidden="true">🧪</span>
+          <span class="app-label">Cosine Similarity Lab</span>
         </a>
       </li>
     </ul>
     <section class="dev-tools" aria-label="Utility pages">
-      <a class="dev-link" href="apps/value-formatter/">Value Formatter — Quick mapping for long lists.</a>
-      <a class="dev-link" href="apps/jokes/all-jokes.html">All Jokes</a>
-      <a class="dev-link" href="apps/quotes/all-quotes.html">All Quotes</a>
+      <a class="dev-link" href="apps/value-formatter/">
+        <span aria-hidden="true">🧮</span>
+        <span>Value Formatter</span>
+      </a>
     </section>
   </main>
 </body>

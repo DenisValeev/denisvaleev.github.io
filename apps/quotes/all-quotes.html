@@ -40,6 +40,16 @@
         border-color: rgba(255, 255, 255, 0.2);
       }
 
+      .home-link {
+        border-color: rgba(241, 245, 255, 0.35);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .home-link:hover {
+        background: rgba(255, 255, 255, 0.14);
+        box-shadow: 0 12px 24px rgba(15, 23, 42, 0.45);
+      }
+
       .filter input[type="search"] {
         background: rgba(18, 18, 18, 0.9);
         border-color: rgba(241, 245, 255, 0.35);
@@ -50,6 +60,42 @@
     main {
       max-width: 960px;
       margin: 0 auto;
+    }
+
+    .home-nav {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(48, 86, 211, 0.4);
+      text-decoration: none;
+      color: inherit;
+      font-weight: 600;
+      background: rgba(48, 86, 211, 0.08);
+      transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .home-link span[aria-hidden="true"] {
+      font-size: 1.2rem;
+    }
+
+    .home-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(48, 86, 211, 0.18);
+      background: rgba(48, 86, 211, 0.14);
+    }
+
+    .home-link:focus-visible {
+      outline: 2px solid rgba(48, 86, 211, 0.6);
+      outline-offset: 3px;
+      box-shadow: 0 0 0 3px rgba(48, 86, 211, 0.25);
     }
 
     h1 {
@@ -147,6 +193,12 @@
 </head>
 <body>
   <main>
+    <nav class="home-nav" aria-label="Home navigation">
+      <a class="home-link" href="../../">
+        <span aria-hidden="true">←</span>
+        <span>Home</span>
+      </a>
+    </nav>
     <h1>All Quotes</h1>
     <p>Flip through every quote across the themed decks in one place.</p>
     <p class="count">Showing <span data-count>0</span> of <span data-total>0</span> quotes</p>
