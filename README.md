@@ -25,15 +25,22 @@ This starts a server on <http://localhost:3000> (or the next available port).
 
 ## Testing
 
-Install the dev dependencies once and run the Playwright smoke checks whenever you touch the interactive apps:
+Install the dev dependencies and download the Playwright browser bundle the first time you set up the repo:
 
 ```bash
 npm install
 npx playwright install
+```
+
+On fresh machines that lack the Chromium dependencies, run `npx playwright install --with-deps chromium` instead of the plain install above.
+
+With the tooling in place, execute the full suite:
+
+```bash
 npm test
 ```
 
-The test runner launches a temporary `python -m http.server` instance, loads the Cosine Similarity Lab, and asserts that the dynamic thresholding and Levenshtein metrics render. Use `npm run test:ui` if you want to watch the checks in the Playwright inspector while iterating locally. `npx playwright install --with-deps` is handy the first time you set things up on a fresh machine that needs the browser dependencies.
+The tests spin up a temporary `python -m http.server` instance and exercise every interactive app: Random Jokes (deck navigation and punchline reveal), Quotes (category filtering and keyboard shortcuts), Value Formatter (preset transforms and localStorage persistence), and the Cosine Similarity Lab (dataset toggles and Levenshtein metrics). Use `npm run test:ui` if you want to watch the checks in the Playwright inspector while iterating locally.
 
 ## Data maintenance
 
