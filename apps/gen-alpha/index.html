@@ -196,7 +196,7 @@
     }
 
     .card__hint {
-      margin: 16px 0 0;
+      margin: 0;
       display: grid;
       gap: 6px;
       color: var(--meaning-color);
@@ -333,13 +333,13 @@
           <p id="slang-term">Loading slang…</p>
         </div>
         <p id="slang-meaning" aria-hidden="true"></p>
-        <figure id="slang-example-wrapper" class="card__example" aria-hidden="true">
+        <figure id="slang-example-wrapper" class="card__example" aria-hidden="true" hidden>
           <blockquote id="slang-example" class="card__quote"></blockquote>
-          <figcaption id="slang-hint-wrapper" class="card__hint">
-            <span class="card__hint-label">Usage hint</span>
-            <span id="slang-hint" class="card__hint-text"></span>
-          </figcaption>
         </figure>
+        <div id="slang-hint-wrapper" class="card__hint" aria-hidden="true" hidden>
+          <span class="card__hint-label">Usage hint</span>
+          <span id="slang-hint" class="card__hint-text"></span>
+        </div>
       </div>
     </article>
     <div class="controls">
