@@ -1,6 +1,14 @@
 const { test, expect } = require('@playwright/test');
 
 test.describe('Playwright Run Telemetry console', () => {
+  test('includes a home navigation shortcut', async ({ page }) => {
+    await page.goto('/apps/run-telemetry/');
+
+    const homeLink = page.locator('.home-link');
+    await expect(homeLink).toHaveAttribute('href', '../../');
+    await expect(homeLink).toHaveText(/Home/);
+  });
+
   test('renders summaries, supports filters, and exposes the activity log', async ({ page }) => {
     await page.goto('/apps/run-telemetry/');
 
@@ -36,6 +44,10 @@ test.describe('Playwright Run Telemetry console', () => {
     const logEntries = page.locator('[data-log-entry]');
     expect(await logEntries.count()).toBeGreaterThan(0);
     await expect(logEntries.first()).toBeVisible();
+
+    const checklistItems = page.locator('.instruction-checklist li');
+    await expect(checklistItems).toHaveCount(3);
+    await expect(checklistItems.first()).toContainText('Scan the filters');
 
     const refresh = page.locator('[data-refresh-button]');
     await refresh.click();
