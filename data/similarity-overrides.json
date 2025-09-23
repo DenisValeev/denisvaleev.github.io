@@ -1,11 +1,28 @@
 {
   "meta": {
     "description": "Manual overrides for cosine similarity reports. Pairs listed here were reviewed and should not be treated as duplicates.",
-    "updatedAt": "2025-09-22T23:16:21.950Z"
+    "updatedAt": "2025-09-23T04:01:55.055Z"
   },
   "datasets": {
     "jokes": {
-      "protectedPairs": []
+      "protectedPairs": [
+        {
+          "ids": [
+            "j-0018",
+            "j-0906"
+          ],
+          "label": "Keep both",
+          "reason": "Kid and chicken setups share the slide punchline but land differently when told back-to-back."
+        },
+        {
+          "ids": [
+            "j-0502",
+            "j-0907"
+          ],
+          "label": "Keep both",
+          "reason": "Crab and oyster versions both hinge on shellfish wordplay with different sea creatures."
+        }
+      ]
     },
     "quotes": {
       "protectedPairs": [
