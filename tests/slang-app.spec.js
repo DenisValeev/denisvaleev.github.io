@@ -10,15 +10,16 @@ const deterministicRandomInitScript = () => {
   };
 };
 
-test.describe('Gen Alpha slang app', () => {
+test.describe('Slang app', () => {
   test.beforeEach(async ({ page }) => {
     await page.addInitScript(deterministicRandomInitScript);
   });
 
-  test('shuffles terms, allows navigation, and reveals definitions with examples', async ({ page }) => {
-    await page.goto('/apps/gen-alpha/');
+  test('supports category filtering, shuffling, and reveals with examples', async ({ page }) => {
+    await page.goto('/apps/slang/');
 
     const term = page.locator('#slang-term');
+    const category = page.locator('#slang-category');
     const meaning = page.locator('#slang-meaning');
     const exampleWrapper = page.locator('#slang-example-wrapper');
     const example = page.locator('#slang-example');
@@ -27,7 +28,10 @@ test.describe('Gen Alpha slang app', () => {
     const revealButton = page.locator('#reveal-button');
     const nextButton = page.locator('#next-button');
     const prevButton = page.locator('#prev-button');
+    const categorySelect = page.locator('#category-select');
 
+    await expect(categorySelect).toHaveValue('all');
+    await expect(category).not.toHaveText(/Loading/i);
     await expect(term).not.toHaveText(/Loading slang…?/i);
     await expect(meaning).not.toHaveClass(/is-visible/);
     await expect(meaning).toHaveAttribute('aria-hidden', 'true');
@@ -40,7 +44,9 @@ test.describe('Gen Alpha slang app', () => {
     await expect(prevButton).toBeEnabled();
 
     const firstTerm = ((await term.textContent()) || '').trim();
+    const firstCategory = ((await category.textContent()) || '').trim();
     expect(firstTerm.length).toBeGreaterThan(0);
+    expect(firstCategory.length).toBeGreaterThan(0);
 
     await revealButton.click();
 
@@ -69,8 +75,21 @@ test.describe('Gen Alpha slang app', () => {
     expect(secondTerm.length).toBeGreaterThan(0);
     expect(secondTerm).not.toBe(firstTerm);
 
-    await page.keyboard.press('ArrowLeft');
-    await expect(term).toHaveText(firstTerm);
+    const categoryOption = await categorySelect.evaluate((select) => {
+      const option = Array.from(select.options).find((item) => item.value !== 'all');
+      return option ? { value: option.value, label: option.textContent || '' } : null;
+    });
+    expect(categoryOption).toBeTruthy();
+    expect(['Gen Alpha', 'Gen Z']).toContain(categoryOption.label.trim());
+
+    await categorySelect.selectOption(categoryOption.value);
+    await expect(categorySelect).toHaveValue(categoryOption.value);
+
+    const filteredCategory = ((await category.textContent()) || '').trim();
+    expect(filteredCategory).toBe(categoryOption.label.trim());
+
+    await prevButton.click();
+    await page.keyboard.press('ArrowRight');
 
     await page.evaluate(() => {
       const active = document.activeElement;

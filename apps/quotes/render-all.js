@@ -4,6 +4,7 @@
   const totalTarget = document.querySelector('[data-total]');
   const filterForm = document.querySelector('[data-filter-form]');
   const filterInput = document.querySelector('[data-filter-input]');
+  const categorySelect = document.querySelector('[data-category-select]');
 
   if (!tbody) {
     return;
@@ -18,6 +19,7 @@
   const categories = Array.isArray(window.quotesData)
     ? window.quotesData
         .map((entry) => ({
+          id: entry && typeof entry.id === 'string' ? entry.id.trim() : '',
           label: entry && typeof entry.label === 'string' ? entry.label.trim() : '',
           quotes: Array.isArray(entry && entry.quotes)
             ? entry.quotes
@@ -29,11 +31,31 @@
                 .filter(Boolean)
             : [],
         }))
-        .filter((entry) => entry.label && entry.quotes.length > 0)
+        .filter((entry) => entry.id && entry.label && entry.quotes.length > 0)
     : [];
+
+  if (categorySelect) {
+    const optionFragment = document.createDocumentFragment();
+    const allOption = document.createElement('option');
+    allOption.value = 'all';
+    allOption.textContent = 'All categories';
+    optionFragment.appendChild(allOption);
+
+    categories.forEach((category) => {
+      const option = document.createElement('option');
+      option.value = category.id;
+      option.textContent = category.label;
+      optionFragment.appendChild(option);
+    });
+
+    categorySelect.appendChild(optionFragment);
+    categorySelect.value = 'all';
+    categorySelect.disabled = categories.length === 0;
+  }
 
   const rows = categories.reduce((list, category) => {
     const items = category.quotes.map((quote) => ({
+      categoryId: category.id,
       category: category.label,
       text: quote.text,
       author: quote.author,
@@ -54,6 +76,7 @@
     rows.map((entry) => {
       const searchText = [entry.text, entry.author, entry.category].filter(Boolean).join(' ').toLowerCase();
       return {
+        categoryId: entry.categoryId,
         category: entry.category,
         text: entry.text,
         author: entry.author,
@@ -73,13 +96,13 @@
     }
   }
 
-  function renderRows(list, term) {
+  function renderRows(list, emptyMessage) {
     tbody.textContent = '';
 
     if (!list.length) {
       const emptyRow = document.createElement('tr');
       const emptyCell = document.createElement('td');
-      emptyCell.textContent = term ? `No quotes match “${term}”.` : 'No quotes available.';
+      emptyCell.textContent = emptyMessage || 'No quotes available.';
       emptyRow.appendChild(emptyCell);
       tbody.appendChild(emptyRow);
       return;
@@ -126,23 +149,52 @@
     tbody.appendChild(fragment);
   }
 
-  function applyFilter(term) {
+  let activeCategory = 'all';
+
+  function applyFilter() {
+    const term = filterInput ? filterInput.value : '';
     const trimmed = typeof term === 'string' ? term.trim() : '';
     const normalized = trimmed.toLowerCase();
     const keywords = normalized ? normalized.split(/\s+/).filter(Boolean) : [];
-    const filtered = keywords.length
-      ? deck.filter((entry) => keywords.every((keyword) => entry.searchText.includes(keyword)))
-      : deck;
+
+    const filtered = deck.filter((entry) => {
+      if (activeCategory !== 'all' && entry.categoryId !== activeCategory) {
+        return false;
+      }
+
+      if (!keywords.length) {
+        return true;
+      }
+
+      return keywords.every((keyword) => entry.searchText.includes(keyword));
+    });
+
+    let emptyMessage = 'No quotes available.';
+
+    if (activeCategory !== 'all' && keywords.length) {
+      emptyMessage = `No quotes in this category match “${trimmed}”.`;
+    } else if (activeCategory !== 'all') {
+      emptyMessage = 'No quotes available in this category yet.';
+    } else if (keywords.length) {
+      emptyMessage = `No quotes match “${trimmed}”.`;
+    }
 
     updateCount(filtered.length);
-    renderRows(filtered, trimmed);
+    renderRows(filtered, emptyMessage);
   }
 
-  applyFilter(filterInput ? filterInput.value : '');
+  applyFilter();
 
   if (filterInput) {
     filterInput.addEventListener('input', () => {
-      applyFilter(filterInput.value);
+      applyFilter();
+    });
+  }
+
+  if (categorySelect) {
+    categorySelect.addEventListener('change', (event) => {
+      activeCategory = event.target.value;
+      applyFilter();
     });
   }
 })();

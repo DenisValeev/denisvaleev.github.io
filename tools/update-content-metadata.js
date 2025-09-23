@@ -6,14 +6,14 @@ const vm = require('vm');
 
 const rootDir = path.join(__dirname, '..');
 const jokesPreamble = '// Maintenance: run the commands in apps/jokes/AGENTS.md after editing this dataset to keep the syntax valid.';
-const genAlphaPreamble = '// Maintenance: run the commands in apps/gen-alpha/AGENTS.md after editing this dataset to keep the syntax valid.';
+const slangPreamble = '// Maintenance: run the commands in apps/slang/AGENTS.md after editing this dataset to keep the syntax valid.';
 
-const supportedDatasets = new Set(['jokes', 'quotes', 'genalpha']);
+const supportedDatasets = new Set(['jokes', 'quotes', 'slang']);
 
 function parseDatasets(argv) {
   const datasetArg = argv.find((arg) => arg.startsWith('--dataset='));
   if (!datasetArg) {
-    return new Set(['jokes', 'quotes', 'genalpha']);
+    return new Set(['jokes', 'quotes', 'slang']);
   }
   const values = datasetArg
     .slice('--dataset='.length)
@@ -29,7 +29,7 @@ function parseDatasets(argv) {
     }
   });
   if (!selection.size) {
-    return new Set(['jokes', 'quotes', 'genalpha']);
+    return new Set(['jokes', 'quotes', 'slang']);
   }
   return selection;
 }
@@ -75,24 +75,28 @@ function ensureJokeIds(entries) {
   });
 }
 
-function ensureGenAlphaIds(entries) {
+function ensureSlangIds(entries) {
   const width = Math.max(4, String(entries.length).length);
   const seen = new Set();
   return entries.map((entry, index) => {
     const base = entry && typeof entry.id === 'string' ? entry.id.trim() : '';
-    const fallback = `ga-${padNumber(index + 1, width)}`;
+    const fallback = `sl-${padNumber(index + 1, width)}`;
     const id = base && !seen.has(base) ? base : fallback;
     seen.add(id);
     const term = entry && typeof entry.term === 'string' ? entry.term : '';
     const definition = entry && typeof entry.definition === 'string' ? entry.definition : '';
     const example = entry && typeof entry.example === 'string' ? entry.example : '';
     const hint = entry && typeof entry.hint === 'string' ? entry.hint : '';
+    const category = entry && typeof entry.category === 'string' ? entry.category : '';
+    const categoryId = entry && typeof entry.categoryId === 'string' ? entry.categoryId : '';
     return {
       id,
       term,
       definition,
       example,
       hint,
+      category,
+      categoryId,
     };
   });
 }
@@ -141,8 +145,8 @@ function formatJokes(entries) {
   return lines.join('\n');
 }
 
-function formatGenAlpha(entries) {
-  const lines = [genAlphaPreamble, '', 'window.genAlphaSlang = ['];
+function formatSlang(entries) {
+  const lines = [slangPreamble, '', 'window.slangEntries = ['];
   entries.forEach((entry, index) => {
     if (index === 0) {
       lines.push('        {');
@@ -151,7 +155,9 @@ function formatGenAlpha(entries) {
     lines.push(`            "term": ${JSON.stringify(entry.term)},`);
     lines.push(`            "definition": ${JSON.stringify(entry.definition)},`);
     lines.push(`            "example": ${JSON.stringify(entry.example)},`);
-    lines.push(`            "hint": ${JSON.stringify(entry.hint || '')}`);
+    lines.push(`            "hint": ${JSON.stringify(entry.hint || '')},`);
+    lines.push(`            "category": ${JSON.stringify(entry.category || '')},`);
+    lines.push(`            "categoryId": ${JSON.stringify(entry.categoryId || '')}`);
     if (index === entries.length - 1) {
       lines.push('        }');
     } else {
@@ -277,13 +283,14 @@ function buildJokesManifest(jokes) {
   };
 }
 
-function buildGenAlphaManifest(entries) {
+function buildSlangManifest(entries) {
   const records = {};
   entries.forEach((entry, index) => {
     const termNormalized = normalizeText(entry.term || '');
     const definitionNormalized = normalizeText(entry.definition || '');
     const exampleNormalized = normalizeText(entry.example || '');
     const hintNormalized = normalizeText(entry.hint || '');
+    const categoryNormalized = normalizeText(entry.category || '');
     const combinedParts = [];
     if (termNormalized) {
       combinedParts.push(termNormalized);
@@ -297,6 +304,9 @@ function buildGenAlphaManifest(entries) {
     if (hintNormalized) {
       combinedParts.push(hintNormalized);
     }
+    if (categoryNormalized) {
+      combinedParts.push(categoryNormalized);
+    }
     const combinedNormalized = combinedParts.join('|');
     records[entry.id] = {
       hashes: {
@@ -304,17 +314,20 @@ function buildGenAlphaManifest(entries) {
         definition: sha256(definitionNormalized),
         example: sha256(exampleNormalized),
         hint: sha256(hintNormalized),
+        category: sha256(categoryNormalized),
         combined: sha256(combinedNormalized),
-        tokenSignature: tokenSignature(entry.term, entry.definition, entry.example, entry.hint),
+        tokenSignature: tokenSignature(entry.term, entry.definition, entry.example, entry.hint, entry.category),
       },
       lengths: {
         term: typeof entry.term === 'string' ? entry.term.length : 0,
         definition: typeof entry.definition === 'string' ? entry.definition.length : 0,
         example: typeof entry.example === 'string' ? entry.example.length : 0,
         hint: typeof entry.hint === 'string' ? entry.hint.length : 0,
+        category: typeof entry.category === 'string' ? entry.category.length : 0,
       },
       source: {
         sequence: index + 1,
+        categoryId: entry.categoryId || null,
       },
       embedding: {
         status: 'pending',
@@ -330,7 +343,7 @@ function buildGenAlphaManifest(entries) {
       total: entries.length,
       hashAlgorithm: 'sha256',
       tokenSignature: 'unique-words-v1',
-      fields: ['term', 'definition', 'example', 'hint'],
+      fields: ['term', 'definition', 'example', 'hint', 'category'],
     },
     records,
   };
@@ -414,13 +427,13 @@ function main() {
     console.log(`Updated ${totalQuotes} quotes and wrote ${path.relative(rootDir, quotesManifestPath)}`);
   }
 
-  if (datasets.has('genalpha')) {
-    const genAlphaData = loadDataset(path.join('apps', 'gen-alpha', 'slang.js'), 'genAlphaSlang');
-    const genAlphaWithIds = ensureGenAlphaIds(genAlphaData.data);
-    writeFile(genAlphaData.absolutePath, formatGenAlpha(genAlphaWithIds));
-    const genAlphaManifestPath = path.join(rootDir, 'data', 'genalpha-manifest.json');
-    writeJson(genAlphaManifestPath, buildGenAlphaManifest(genAlphaWithIds));
-    console.log(`Updated ${genAlphaWithIds.length} slang terms and wrote ${path.relative(rootDir, genAlphaManifestPath)}`);
+  if (datasets.has('slang')) {
+    const slangData = loadDataset(path.join('apps', 'slang', 'slang.js'), 'slangEntries');
+    const slangWithIds = ensureSlangIds(slangData.data);
+    writeFile(slangData.absolutePath, formatSlang(slangWithIds));
+    const slangManifestPath = path.join(rootDir, 'data', 'slang-manifest.json');
+    writeJson(slangManifestPath, buildSlangManifest(slangWithIds));
+    console.log(`Updated ${slangWithIds.length} slang terms and wrote ${path.relative(rootDir, slangManifestPath)}`);
   }
 }
 
@@ -431,15 +444,15 @@ if (require.main === module) {
     loadDataset,
     ensureJokeIds,
     ensureQuoteIds,
-    ensureGenAlphaIds,
+    ensureSlangIds,
     formatJokes,
-    formatGenAlpha,
+    formatSlang,
     formatQuotes,
     buildJokesManifest,
-    buildGenAlphaManifest,
+    buildSlangManifest,
     buildQuotesManifest,
     jokesPreamble,
-    genAlphaPreamble,
+    slangPreamble,
     parseDatasets,
   };
 }
