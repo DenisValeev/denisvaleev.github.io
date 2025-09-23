@@ -137,6 +137,7 @@
 
     if (hintWrapper) {
       const shouldShowHint = visible && hasHint;
+      hintWrapper.classList.toggle('is-visible', shouldShowHint);
       hintWrapper.hidden = !shouldShowHint;
       hintWrapper.setAttribute('aria-hidden', shouldShowHint ? 'false' : 'true');
       if (hintText) {
