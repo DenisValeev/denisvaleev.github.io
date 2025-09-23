@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2025-09-23T01:27:49.602Z",
-    "total": 672,
+    "generatedAt": "2025-09-23T22:58:55.578Z",
+    "total": 682,
     "categories": 22,
     "hashAlgorithm": "sha256",
     "tokenSignature": "unique-words-v1",
@@ -5502,7 +5502,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 4
+        "sequence": 3
       },
       "embedding": {
         "status": "pending",
@@ -5524,7 +5524,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 5
+        "sequence": 4
       },
       "embedding": {
         "status": "pending",
@@ -5546,7 +5546,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 6
+        "sequence": 5
       },
       "embedding": {
         "status": "pending",
@@ -5568,7 +5568,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 7
+        "sequence": 6
       },
       "embedding": {
         "status": "pending",
@@ -5590,7 +5590,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 8
+        "sequence": 7
       },
       "embedding": {
         "status": "pending",
@@ -5612,7 +5612,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 9
+        "sequence": 8
       },
       "embedding": {
         "status": "pending",
@@ -5634,7 +5634,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 10
+        "sequence": 9
       },
       "embedding": {
         "status": "pending",
@@ -5656,7 +5656,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 11
+        "sequence": 10
       },
       "embedding": {
         "status": "pending",
@@ -5678,7 +5678,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 12
+        "sequence": 11
       },
       "embedding": {
         "status": "pending",
@@ -5700,7 +5700,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 13
+        "sequence": 12
       },
       "embedding": {
         "status": "pending",
@@ -5722,7 +5722,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 14
+        "sequence": 13
       },
       "embedding": {
         "status": "pending",
@@ -5744,7 +5744,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 15
+        "sequence": 14
       },
       "embedding": {
         "status": "pending",
@@ -5766,7 +5766,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 16
+        "sequence": 15
       },
       "embedding": {
         "status": "pending",
@@ -5788,7 +5788,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 17
+        "sequence": 16
       },
       "embedding": {
         "status": "pending",
@@ -5810,7 +5810,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 18
+        "sequence": 17
       },
       "embedding": {
         "status": "pending",
@@ -5832,7 +5832,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 19
+        "sequence": 18
       },
       "embedding": {
         "status": "pending",
@@ -5854,7 +5854,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 20
+        "sequence": 19
       },
       "embedding": {
         "status": "pending",
@@ -5876,7 +5876,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 21
+        "sequence": 20
       },
       "embedding": {
         "status": "pending",
@@ -5898,7 +5898,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 22
+        "sequence": 21
       },
       "embedding": {
         "status": "pending",
@@ -5920,7 +5920,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 23
+        "sequence": 22
       },
       "embedding": {
         "status": "pending",
@@ -5942,7 +5942,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 24
+        "sequence": 23
       },
       "embedding": {
         "status": "pending",
@@ -5964,7 +5964,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 25
+        "sequence": 24
       },
       "embedding": {
         "status": "pending",
@@ -5986,7 +5986,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 26
+        "sequence": 25
       },
       "embedding": {
         "status": "pending",
@@ -6008,7 +6008,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 27
+        "sequence": 26
       },
       "embedding": {
         "status": "pending",
@@ -6030,7 +6030,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 28
+        "sequence": 27
       },
       "embedding": {
         "status": "pending",
@@ -6052,7 +6052,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 29
+        "sequence": 28
       },
       "embedding": {
         "status": "pending",
@@ -6074,7 +6074,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 30
+        "sequence": 29
       },
       "embedding": {
         "status": "pending",
@@ -6096,7 +6096,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 31
+        "sequence": 30
       },
       "embedding": {
         "status": "pending",
@@ -6118,7 +6118,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 32
+        "sequence": 31
       },
       "embedding": {
         "status": "pending",
@@ -6140,7 +6140,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 33
+        "sequence": 32
       },
       "embedding": {
         "status": "pending",
@@ -6162,7 +6162,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 34
+        "sequence": 33
       },
       "embedding": {
         "status": "pending",
@@ -6184,7 +6184,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 35
+        "sequence": 34
       },
       "embedding": {
         "status": "pending",
@@ -6206,7 +6206,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 36
+        "sequence": 35
       },
       "embedding": {
         "status": "pending",
@@ -6228,7 +6228,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 37
+        "sequence": 36
       },
       "embedding": {
         "status": "pending",
@@ -6250,7 +6250,7 @@
       },
       "source": {
         "categoryId": "travel",
-        "sequence": 38
+        "sequence": 37
       },
       "embedding": {
         "status": "pending",
@@ -11929,10 +11929,32 @@
         "sequence": 13
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "3982af420648236a11df28a66346cce0b6ab3e4a26a8fab8d1f9361dc1a6363d",
-        "updatedAt": "2025-09-22T01:31:43.621Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "creativity-14": {
+      "hashes": {
+        "text": "a7d0395432c31aefef2f74645fe4e81fa18635a84a5315703a8caeef760b56dd",
+        "author": "d4a690fe7557b61c7a0c2754fefa053c9be67769639ebd4d2e65d17f667e1124",
+        "combined": "4fc7fd1437961ac1993f5f36e7726457ffe7ffd2870ba987659befc58e9f92b7",
+        "tokenSignature": "a-at-bono-breaking-creativity-de-different-edward-expected-in-involves-look-of-out-patterns-things-to-way"
+      },
+      "lengths": {
+        "text": 91,
+        "author": 14
+      },
+      "source": {
+        "categoryId": "creativity",
+        "sequence": 14
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "resilience-01": {
@@ -11970,7 +11992,7 @@
       },
       "source": {
         "categoryId": "resilience",
-        "sequence": 3
+        "sequence": 2
       },
       "embedding": {
         "status": "pending",
@@ -11992,7 +12014,7 @@
       },
       "source": {
         "categoryId": "resilience",
-        "sequence": 4
+        "sequence": 3
       },
       "embedding": {
         "status": "pending",
@@ -12014,7 +12036,7 @@
       },
       "source": {
         "categoryId": "resilience",
-        "sequence": 5
+        "sequence": 4
       },
       "embedding": {
         "status": "pending",
@@ -12036,7 +12058,7 @@
       },
       "source": {
         "categoryId": "resilience",
-        "sequence": 6
+        "sequence": 5
       },
       "embedding": {
         "status": "pending",
@@ -12058,7 +12080,7 @@
       },
       "source": {
         "categoryId": "resilience",
-        "sequence": 7
+        "sequence": 6
       },
       "embedding": {
         "status": "pending",
@@ -12080,7 +12102,7 @@
       },
       "source": {
         "categoryId": "resilience",
-        "sequence": 8
+        "sequence": 7
       },
       "embedding": {
         "status": "pending",
@@ -12102,7 +12124,7 @@
       },
       "source": {
         "categoryId": "resilience",
-        "sequence": 9
+        "sequence": 8
       },
       "embedding": {
         "status": "pending",
@@ -12124,7 +12146,7 @@
       },
       "source": {
         "categoryId": "resilience",
-        "sequence": 10
+        "sequence": 9
       },
       "embedding": {
         "status": "pending",
@@ -12146,7 +12168,7 @@
       },
       "source": {
         "categoryId": "resilience",
-        "sequence": 11
+        "sequence": 10
       },
       "embedding": {
         "status": "pending",
@@ -12168,7 +12190,7 @@
       },
       "source": {
         "categoryId": "resilience",
-        "sequence": 12
+        "sequence": 11
       },
       "embedding": {
         "status": "pending",
@@ -12190,13 +12212,35 @@
       },
       "source": {
         "categoryId": "resilience",
+        "sequence": 12
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "resilience-14": {
+      "hashes": {
+        "text": "a2bbd2ba48cefe7e2c49f8c0c99ebfa1a313714b273c4776dbcc3287dd5083d8",
+        "author": "09c2528ef7c5fbfa629ca2ed20b39835312476ae866e62acaec5605b74798185",
+        "combined": "24d283cb80417f00c5088b1a75cfbbc90ab3c108acd2ed2574bc12c6f1301195",
+        "tokenSignature": "adjusted-and-blow-did-edwards-elizabeth-her-in-not-sails-she-stood-storm-the-way-when-wind"
+      },
+      "lengths": {
+        "text": 87,
+        "author": 17
+      },
+      "source": {
+        "categoryId": "resilience",
         "sequence": 13
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "fcd69e2f035a0d0d68543c530643364fba13ce35bd5aae795345d1af711e25b3",
-        "updatedAt": "2025-09-22T01:31:43.622Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "leadership-01": {
@@ -12455,6 +12499,28 @@
       "source": {
         "categoryId": "leadership",
         "sequence": 12
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "leadership-13": {
+      "hashes": {
+        "text": "043b859aeca966216607c0e175093cf66a06f046d75ef0866001822580e5b34f",
+        "author": "a1c563d6f0bdbc8507fe3bb27ce2b0e9b96aa19d708b62d77122004b48c80b8c",
+        "combined": "35772ca2fc666fd0367f0a76816ad6be862c32ee565bcd54a39e1f2fcbfec3d5",
+        "tokenSignature": "a-about-absence-and-as-better-impact-in-is-lasts-leadership-making-of-others-presence-result-sandberg-sheryl-sure-that-your"
+      },
+      "lengths": {
+        "text": 120,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "leadership",
+        "sequence": 13
       },
       "embedding": {
         "status": "pending",
@@ -12743,10 +12809,32 @@
         "sequence": 13
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "d687ae5ccdaba04e8d24e3df03debd573949dfb244615992d19cb0cad784eec9",
-        "updatedAt": "2025-09-22T01:31:43.622Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "mindfulness-14": {
+      "hashes": {
+        "text": "ee1b39d5ab930cf8dbd3564e2bb96e39cf323da9d091533c02784d24abeb07ec",
+        "author": "697baf9b14177913d0c20dbaf4289f76a1df1c267e2ffb0053ed43ba14ae9114",
+        "combined": "7a9ff306088a30686b72c4dd8f6fa3d4e9c0fe8313100fe1d65c121b278ab97d",
+        "tokenSignature": "difficult-do-isn-it-just-mindfulness-need-remember-salzberg-sharon-t-to-we"
+      },
+      "lengths": {
+        "text": 63,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "mindfulness",
+        "sequence": 14
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "growth-01": {
@@ -12938,7 +13026,7 @@
       },
       "source": {
         "categoryId": "growth",
-        "sequence": 10
+        "sequence": 9
       },
       "embedding": {
         "status": "pending",
@@ -12960,7 +13048,7 @@
       },
       "source": {
         "categoryId": "growth",
-        "sequence": 11
+        "sequence": 10
       },
       "embedding": {
         "status": "pending",
@@ -12982,7 +13070,7 @@
       },
       "source": {
         "categoryId": "growth",
-        "sequence": 12
+        "sequence": 11
       },
       "embedding": {
         "status": "pending",
@@ -13079,6 +13167,28 @@
         "updatedAt": null
       }
     },
+    "growth-17": {
+      "hashes": {
+        "text": "5d2948c2ba77b7952e3df4402aa26271d38707b8adb3ba2c2f33af12dd001d66",
+        "author": "e975576533a7494402684dfe70c67d3e28f05651da40e6dc2b67f89f16dbab7e",
+        "combined": "44a4e58b73ecfd52c1e613e3207089408b95239545900baa09d7b842aa4aec24",
+        "tokenSignature": "do-doing-emerson-fear-is-most-need-of-ralph-to-usually-waldo-we-what"
+      },
+      "lengths": {
+        "text": 62,
+        "author": 19
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 16
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
     "joy-01": {
       "hashes": {
         "text": "bff1256b5c59f5ec3cb91c5a5f2bf4c9f38bc117a28f330a6f4e8f6f9042bffe",
@@ -13158,7 +13268,7 @@
       },
       "source": {
         "categoryId": "joy",
-        "sequence": 5
+        "sequence": 4
       },
       "embedding": {
         "status": "pending",
@@ -13180,7 +13290,7 @@
       },
       "source": {
         "categoryId": "joy",
-        "sequence": 6
+        "sequence": 5
       },
       "embedding": {
         "status": "pending",
@@ -13202,7 +13312,7 @@
       },
       "source": {
         "categoryId": "joy",
-        "sequence": 7
+        "sequence": 6
       },
       "embedding": {
         "status": "pending",
@@ -13224,7 +13334,7 @@
       },
       "source": {
         "categoryId": "joy",
-        "sequence": 8
+        "sequence": 7
       },
       "embedding": {
         "status": "pending",
@@ -13246,7 +13356,7 @@
       },
       "source": {
         "categoryId": "joy",
-        "sequence": 9
+        "sequence": 8
       },
       "embedding": {
         "status": "pending",
@@ -13268,7 +13378,7 @@
       },
       "source": {
         "categoryId": "joy",
-        "sequence": 10
+        "sequence": 9
       },
       "embedding": {
         "status": "pending",
@@ -13290,7 +13400,7 @@
       },
       "source": {
         "categoryId": "joy",
-        "sequence": 11
+        "sequence": 10
       },
       "embedding": {
         "status": "pending",
@@ -13312,7 +13422,7 @@
       },
       "source": {
         "categoryId": "joy",
-        "sequence": 12
+        "sequence": 11
       },
       "embedding": {
         "status": "pending",
@@ -13334,13 +13444,35 @@
       },
       "source": {
         "categoryId": "joy",
+        "sequence": 12
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "joy-14": {
+      "hashes": {
+        "text": "e3c2d332294e52e4d8a8515ebff3e2470c024c19a78689d856a8b94e5022ef6a",
+        "author": "848f2611f93ebfb4786326ff7d501554394306d45220d48b9577ac24c9450b50",
+        "combined": "bfa515950f18e15ea528fc315ad87de18c35c9220898a5631aa2414cd7fb12d6",
+        "tokenSignature": "business-c-heaven-is-joy-lewis-of-s-serious-the"
+      },
+      "lengths": {
+        "text": 38,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "joy",
         "sequence": 13
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "3036932c8d7093419f82a4d1a0f3350597a05b5eaba33b2ae62f1ccf8d8120bb",
-        "updatedAt": "2025-09-22T01:31:43.622Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "curiosity-01": {
@@ -13695,6 +13827,28 @@
         "updatedAt": null
       }
     },
+    "curiosity-17": {
+      "hashes": {
+        "text": "3e33a689692376debcdb0492ec0c517c72fe950fa67cf4630c27399584e696a4",
+        "author": "b3de298fc1dd3007b7c95be8bec4386b0bd0a44091f3657124240515cdd8c017",
+        "combined": "32c81d85cc2029668acbd50ed88380ef0450d1d3e2a143921644ab8c33c96d50",
+        "tokenSignature": "a-albert-einstein-idea-its-mind-never-new-opens-original-returns-size-that-the-to"
+      },
+      "lengths": {
+        "text": 69,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 17
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
     "kindness-01": {
       "hashes": {
         "text": "3980d940bc3d3e0a2f9f6ab756456345c417599932e702d026a3764a06e5e883",
@@ -13975,10 +14129,10 @@
         "sequence": 13
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "a3a07d17534c24c6592c3d140a42664a3847364758ae324f8baec2e0fcb95754",
-        "updatedAt": "2025-09-22T01:31:43.622Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "kindness-14": {
@@ -14039,6 +14193,28 @@
       "source": {
         "categoryId": "kindness",
         "sequence": 16
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "kindness-17": {
+      "hashes": {
+        "text": "83d18152066ff1d24447e49195cccf63a92bbf5ce00667317c00d1a1a5be1c9e",
+        "author": "26bd812fbeb19abec2a01f361e3b887b3142c8a59232ec386e4677deddec7343",
+        "combined": "23c07dc913348b7d1fa5cbcc5f4e220d39c08c9cb2d3f723e3f487a2a3b61f30",
+        "tokenSignature": "all-begins-charles-glassman-kindness-struggle-that-the-understanding-we-with"
+      },
+      "lengths": {
+        "text": 60,
+        "author": 16
+      },
+      "source": {
+        "categoryId": "kindness",
+        "sequence": 17
       },
       "embedding": {
         "status": "pending",
@@ -14327,10 +14503,10 @@
         "sequence": 13
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "820afdcc989fe18436c9ca779cd74528cb804d89b04230e26bf8a8de0340055a",
-        "updatedAt": "2025-09-22T01:31:43.622Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "gratitude-14": {
@@ -14413,6 +14589,28 @@
       "source": {
         "categoryId": "gratitude",
         "sequence": 17
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "gratitude-18": {
+      "hashes": {
+        "text": "fb13fc2499de629ff9486de63632a4c5f6a5e3191897049bb0c5c0ef86b8b9ac",
+        "author": "23c422d81647fe612a21578bdba14fe5aa201ca78940dff8c0bb248afb6f1e89",
+        "combined": "20c4693128c435772604f43c7520f21456e51949bb741e65f7c4b0d6829a2e11",
+        "tokenSignature": "am-beauty-davis-grateful-i-mary-more-see-the"
+      },
+      "lengths": {
+        "text": 46,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 18
       },
       "embedding": {
         "status": "pending",
@@ -14701,10 +14899,10 @@
         "sequence": 13
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "ca39acb2bf58f6c3f6ec35ff51f761e8f4c760261d4c028468f3e3c7d872c9fc",
-        "updatedAt": "2025-09-22T01:31:43.622Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "purpose-14": {
@@ -14787,6 +14985,28 @@
       "source": {
         "categoryId": "purpose",
         "sequence": 17
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "purpose-18": {
+      "hashes": {
+        "text": "9500b26bc22ed151ea7b09608c5ed9e20aa4b47a2d04be642eddefa2ab242f01",
+        "author": "9681ea02f9e5cb3fad23c5a9b76d3aae89b3bf7df1754a7781371342f02b58e4",
+        "combined": "1b58176ff9bbb7d70b8ee3d0c97d203ab869e7d7aebf88d7ae30cfd0816ddf33",
+        "tokenSignature": "achieving-as-become-by-get-goals-important-is-not-what-you-your-zig-ziglar"
+      },
+      "lengths": {
+        "text": 100,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 18
       },
       "embedding": {
         "status": "pending",

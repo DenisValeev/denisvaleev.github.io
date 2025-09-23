@@ -1,5 +1,5 @@
 window.assetObservatoryData = {
-  "generatedAt": "2025-09-23T13:00:39.349Z",
+  "generatedAt": "2025-09-23T22:58:58.892Z",
   "datasets": [
     {
       "id": "jokes",
@@ -96,14 +96,14 @@ window.assetObservatoryData = {
       "label": "Quotes",
       "dataset": {
         "path": "apps/quotes/quotes-data.js",
-        "bytes": 121995
+        "bytes": 123746
       },
       "manifest": {
         "path": "data/quotes-manifest.json",
-        "bytes": 478829,
-        "generatedAt": "2025-09-23T01:27:49.602Z"
+        "bytes": 485291,
+        "generatedAt": "2025-09-23T22:58:55.578Z"
       },
-      "entries": 672,
+      "entries": 682,
       "embeddings": [
         {
           "path": "data/quotes-embeddings.json",
@@ -157,7 +157,7 @@ window.assetObservatoryData = {
         {
           "path": "data/curated-quotes.json",
           "label": "Curated quotes source",
-          "bytes": 22094
+          "bytes": 23552
         }
       ],
       "totals": {
@@ -172,12 +172,12 @@ window.assetObservatoryData = {
       "label": "Slang",
       "dataset": {
         "path": "apps/slang/slang.js",
-        "bytes": 19734
+        "bytes": 19170
       },
       "manifest": {
         "path": "data/slang-manifest.json",
-        "bytes": 52401,
-        "generatedAt": "2025-09-23T13:00:35.800Z"
+        "bytes": 51910,
+        "generatedAt": "2025-09-23T17:59:48.748Z"
       },
       "entries": 45,
       "embeddings": [
@@ -335,14 +335,14 @@ window.assetObservatoryData = {
       "datasetId": "quotes",
       "label": "Curated quotes source",
       "path": "data/curated-quotes.json",
-      "bytes": 22094
+      "bytes": 23552
     }
   ],
   "totals": {
     "datasets": 3,
-    "entries": 1567,
-    "datasetBytes": 283073,
-    "manifestBytes": 1098788,
+    "entries": 1577,
+    "datasetBytes": 284260,
+    "manifestBytes": 1104759,
     "embeddingVectors": 3981,
     "embeddingBytes": 2905710,
     "embeddingStores": 8,
@@ -350,7 +350,7 @@ window.assetObservatoryData = {
     "similarityBytes": 679472,
     "similarityReports": 12,
     "totalFiles": 29,
-    "totalBytes": 5174188,
+    "totalBytes": 5182804,
     "providerCount": 4
   }
 };
