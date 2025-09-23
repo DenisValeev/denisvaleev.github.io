@@ -82,7 +82,9 @@
       revealButton.hidden = true;
       prevButton.disabled = true;
       nextButton.disabled = true;
-      revealButton.disabled = true;
+      if (shuffleButton) {
+        shuffleButton.disabled = true;
+      }
       currentEntry = null;
 
       if (exampleWrapper && exampleText) {

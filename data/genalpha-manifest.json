@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2025-09-23T02:57:42.622Z",
+    "generatedAt": "2025-09-23T02:58:09.957Z",
     "total": 45,
     "hashAlgorithm": "sha256",
     "tokenSignature": "unique-words-v1",
@@ -15,14 +15,14 @@
       "hashes": {
         "term": "95ef5a31d084e89425c9e30a864d6cba7fb5a4d1c0e031029cd58c1a433adb5d",
         "definition": "9261daaec669ebcd60bb70aafcccd9b5ac782b1f5064148959a87c586f7f2b01",
-        "example": "d0b294ca55cc7cb4269303fb600b19b529d1b0daac472e9b1ab1c3dc496fc424",
-        "combined": "0e9baf61afdf9fbd628113e983406feef2d2b9af06573366b4fce518ad5f4fa4",
-        "tokenSignature": "ability-charisma-charm-effortless-flirt-for-group-has-he-jordan-listen-much-or-rizz-short-so-someone-speaks-that-the-to-turns-when-whole-with"
+        "example": "c3ac3ebe0b36144c9912c955de7023f5a4e4526c5f812618c99e782784914d73",
+        "combined": "838338a2ee252cf19c84b485891c276f95bbb94ebdb452571a2e748b54ecb264",
+        "tokenSignature": "ability-charisma-charm-effortless-flirt-for-group-has-he-hype-it-jordan-listen-much-natural-or-rizz-short-so-someone-speaks-that-the-to-turns-use-when-whole-with-you"
       },
       "lengths": {
         "term": 4,
         "definition": 74,
-        "example": 76
+        "example": 124
       },
       "source": {
         "sequence": 1
@@ -38,14 +38,14 @@
       "hashes": {
         "term": "57901d91dc9f3209c2f87975849e8ae3e5edc4c8157d9188f3f87e27da99fe63",
         "definition": "6a41577cb4f8d027cdbe8805e95efb6542801bd8c5274c04e4b1b9b4d6fad2f8",
-        "example": "5a745f1f1430f0a07f7acb2715b9de1fb5f937e645971be711c7f91977a2c155",
-        "combined": "73ff97bc8da51ec17d2ee3bbca7b79c184c8614c393286d2ec159b8158907747",
-        "tokenSignature": "admiration-an-at-came-everyone-exclamation-gyat-impressive-lights-of-on-or-reacting-reveal-shock-something-surprise-the-to-usually-when-yelled"
+        "example": "4bfdccba3bd0f7af3d514ae855145acafb85022e0c99f5c9627a440968089329",
+        "combined": "78728e9f256dccaa19544b4fc1bdd7eb99a5c1ad580b046d18a6c5d3d2a02089",
+        "tokenSignature": "admiration-amazed-an-at-came-everyone-exclamation-gyat-impressive-it-leaves-lights-of-on-or-react-reacting-reveal-shock-something-surprise-the-to-use-usually-when-whenever-yelled-you"
       },
       "lengths": {
         "term": 4,
         "definition": 80,
-        "example": 69
+        "example": 123
       },
       "source": {
         "sequence": 2
@@ -61,14 +61,14 @@
       "hashes": {
         "term": "38de90475bb334fb3dea5d54f250500aba60fe2c6158115d342b06bcb46e39bf",
         "definition": "c394ce16bb4df6f010a8cc5084d89e5d1926eba5b52e582f44a35c8a3fecbe7a",
-        "example": "337807a321614f7da6f3216c76052360aa102d723ab6d86b077a374ee4ba25c6",
-        "combined": "5ba902252f4fdd88a50f8ae87ada8a3fb0c4fadee44d2146041ec123ce4a06b7",
-        "tokenSignature": "a-and-by-confident-crowd-focusing-gossip-her-independently-maya-move-moves-on-project-pulled-sigma-skipping-someone-the-unbothered-who"
+        "example": "9ffe50b64583b341453ae24cfc885701855260bcb564d264e4b4e89caf2877a1",
+        "combined": "e08433149d83dfc6b6cfc4cbc1cfcffa23019e95d8f67ae6104c8a02cd4bb450",
+        "tokenSignature": "a-and-by-confidence-confident-crowd-focusing-gossip-her-independent-independently-it-life-maya-move-moves-on-project-pulled-sigma-skipping-someone-the-through-unbothered-use-when-who-with"
       },
       "lengths": {
         "term": 5,
         "definition": 71,
-        "example": 76
+        "example": 144
       },
       "source": {
         "sequence": 3
@@ -84,14 +84,14 @@
       "hashes": {
         "term": "89b315eb8f4ac40c1fc295f02f6c62a6c2add4e9e025b123e002a5d7d97dc0c2",
         "definition": "44cdf7f40212ead915c27c7e6781d91f5d234bf64e9fc6386826f7dd5d066b1d",
-        "example": "cd8097e02bc95f4b9cd7b4053f2aa6a8195e8af9989585469e2e2c5f2540c1fa",
-        "combined": "63cc6dc0d335a59e755a34fe31003766d54f9ed05e4b382a580ceb9d13992390",
-        "tokenSignature": "assignment-calling-daydream-delulu-expectations-for-grade-itself-level-myself-optimism-or-out-playfully-the-thinking-unrealistic-would"
+        "example": "78b00f8ed7932e5c9c8e2952ccb78f8b2b371c44b5abd8c950b46d535e83e5e6",
+        "combined": "589bbafc06c93bbdcedf3cde76eec53f198bc0ca42f254436a6e2530c27904e9",
+        "tokenSignature": "a-assignment-calling-check-daydream-delulu-expectations-for-grade-it-itself-level-myself-needs-optimism-or-out-playful-playfully-reality-the-thinking-unrealistic-use-when-would"
       },
       "lengths": {
         "term": 6,
         "definition": 74,
-        "example": 69
+        "example": 123
       },
       "source": {
         "sequence": 4
@@ -107,14 +107,14 @@
       "hashes": {
         "term": "60a997a9c8666ba6172b5c42c406f46724c6331f8afea42b3dd35dd028ed5ba7",
         "definition": "c527cd91741bec20a0692a350556d0c1cc73e02bfa9e0094c6568e58d7132715",
-        "example": "9aa8bb975bb20ec1fa830a899ec8bfeca25cf7cdca4241fee2bb776a8c1f313b",
-        "combined": "a5ef7452ab1f72f58beedeebdf637780cd8a371be3ae6fb8da982e41c23c3058",
-        "tokenSignature": "a-and-because-before-box-by-can-fanum-food-friends-fry-grabbing-hand-i-little-of-or-over-pay-snacks-take-tax-taxing-the-their-whole-you"
+        "example": "b350920f3818c4fa19ee17c263447a9c96ab191c86606acfb3b61e2081a4de2a",
+        "combined": "a2d2d470efa2ebb5785333f3e2e08ac8af4d66cd1660a758c9206b31965c8894",
+        "tokenSignature": "a-and-because-before-box-by-can-claim-fanum-food-friends-from-fry-grabbing-hand-i-it-jokingly-little-of-or-over-pay-snack-snacks-take-tax-taxing-the-their-use-when-whole-you"
       },
       "lengths": {
         "term": 9,
         "definition": 76,
-        "example": 66
+        "example": 123
       },
       "source": {
         "sequence": 5
@@ -130,14 +130,14 @@
       "hashes": {
         "term": "1912766d6ba0e50e8b1bacfb51207e83b95b7ac0cd8ce15307cdf4965e7e3f6c",
         "definition": "1fc5bde2ffab4d7b53f8aa2b99ec8e6779b2a37273b682aa459833149352ce35",
-        "example": "fc1559516f647feb52acdb52fc222ce960d67a3ca7bdd2115e1d702a6096b1fb",
-        "combined": "81bcb6999add910b5d07fb8fdd9bbe588fa3a1950f0128239b11f3b50cd92e5f",
-        "tokenSignature": "absurd-and-break-class-confused-dance-during-energy-feels-had-laughing-meme-nonsense-or-pure-skibidi-something-teacher-that-the-used-when-worthy"
+        "example": "935a392aa1baeb61ecadac2bb774c236b029b975fb9cba7bf9e89d86c7bff627",
+        "combined": "9bc36e049c12dfebf0b59a5f95563783266916e0eb9777084c704d955825bb7e",
+        "tokenSignature": "absurd-and-break-chaotic-class-confused-dance-during-energy-feels-had-into-it-laughing-meme-moment-nonsense-or-pure-skibidi-something-teacher-that-the-turns-use-used-when-worthy"
       },
       "lengths": {
         "term": 7,
         "definition": 70,
-        "example": 76
+        "example": 131
       },
       "source": {
         "sequence": 6
@@ -153,14 +153,14 @@
       "hashes": {
         "term": "7837b0277c547e94ac9420be4253bc3f6402fd529750015d4c0f2b2b61c6197e",
         "definition": "326462aad55a0c21443ce978330c716dd1ef30e772f6b832411e3db06d1fee7a",
-        "example": "af7e65f3af76467e6213d38ca28dfd4a10e1ec692049e2bb223ea786d709f2d4",
-        "combined": "a179934131aa556a474b1dc866b9df95acd4b283b69e1214e53a9b6055571e36",
-        "tokenSignature": "absolute-afterward-approval-asking-effort-everyone-execute-flawlessly-for-look-of-or-presentation-s-slay-slides-someone-something-that-to-you-your"
+        "example": "02ddaac8093b6e902b079c584492b7ee7da16f8c13c02c20e1032a8e452ef33e",
+        "combined": "75275f41dc734407b20be719ec9366d80db671bd4c3200116f3fdddec65fbd25",
+        "tokenSignature": "a-absolute-afterward-approval-asking-effort-everyone-execute-flawless-flawlessly-for-it-look-of-or-performance-praise-presentation-s-slay-slides-someone-something-that-to-use-you-your"
       },
       "lengths": {
         "term": 4,
         "definition": 79,
-        "example": 71
+        "example": 120
       },
       "source": {
         "sequence": 7
@@ -176,14 +176,14 @@
       "hashes": {
         "term": "2b2ecf14a00226ae8b8328406f2b3de9d4c4ef0ef6fe2833b99022c130ebc939",
         "definition": "187c0dbc4a2ebf979c48f613c3b5151689916425f1e1c114bfdab6854e051570",
-        "example": "2dec0d395eb84b55528d65882af46a026c4a474f072a9b3db34ee4555f4ac60a",
-        "combined": "5e70f869019de288d9a99343a37be4586d1d1dacf68ad6350797b6cfb3a78aac",
-        "tokenSignature": "another-are-bussin-describes-exceptionally-food-good-grabbing-i-is-m-mango-moments-or-outfits-round-smoothie-so-that-this"
+        "example": "a4e4379dd445d7e20e1cf796baa03cc9b69fe1adf73018f15a3ffefd100e71e6",
+        "combined": "382dc1236c7ff6e4e7b3d4a76ef9bb7f3ea4e8095278fcd2d9a1a617f23b9d5c",
+        "tokenSignature": "an-another-are-bussin-describes-exceptionally-experience-food-good-grabbing-i-is-it-m-mango-moments-or-outfits-round-smoothie-so-that-this-unbelievably-use-whenever"
       },
       "lengths": {
         "term": 6,
         "definition": 64,
-        "example": 61
+        "example": 121
       },
       "source": {
         "sequence": 8
@@ -199,14 +199,14 @@
       "hashes": {
         "term": "0e4084b4cf48eb86a7c18f14fb681e32d409269e267d08d3178221eed5c500a5",
         "definition": "bf4c5a170d504806677e6d3477ff4e9e6f6898745625b8f9d2106d399f62979b",
-        "example": "469310acf44826acbc537c13267205c8581040117dd3fc668b65f83cf979ed12",
-        "combined": "9763cd500a47fc2bae9ef34df591e672e80695e21fe3a432d5411d7faac0e882",
-        "tokenSignature": "a-brutal-cap-exaggerating-exam-facts-no-not-only-promise-re-straight-that-was-you"
+        "example": "fd9f65eee70043d77e23f0069ee72c6b921261ade3755066f95967f08bbb3ebb",
+        "combined": "f3a8930146fe0336602e1653b6e3f26ff4f83fe07fa80e0c0060cb236606d505",
+        "tokenSignature": "a-are-brutal-cap-exaggerating-exam-facts-it-no-not-only-plain-promise-re-sharing-straight-that-the-to-truth-underline-use-was-you"
       },
       "lengths": {
         "term": 6,
         "definition": 59,
-        "example": 29
+        "example": 87
       },
       "source": {
         "sequence": 9
@@ -222,14 +222,14 @@
       "hashes": {
         "term": "90ac16783fbc54c3689c63b3ab89b39cea28f8743a88ff34e6a1c61ed746d0e2",
         "definition": "88244a1827982b8173ffcb02eff879e48a9277b1bcd12215967c413cf02eba5e",
-        "example": "20afcdb0a35f6030cf4cb146aebe8a4ac11cb956c6f4643cda3990338c77c290",
-        "combined": "0b05e22911aab12f9025530e83e22716e8f14f38941bcb252a9ecfaeb5d95c53",
-        "tokenSignature": "average-bailed-but-definitely-halfway-hype-mid-not-sequel-so-something-terrible-the-through-totally-was-we-worth"
+        "example": "578dca070f1c5a6ba8a2cd7ae15e4348f08376f8f28748f5bfd2f7c800849d64",
+        "combined": "09cba891e3893c9e4a9c3033c95f69443554a2ed6f81e3a5e0d4382666ea6e18",
+        "tokenSignature": "and-average-bailed-but-call-definitely-extra-halfway-hype-it-mid-not-sequel-so-something-terrible-the-through-to-totally-use-was-we-worth"
       },
       "lengths": {
         "term": 3,
         "definition": 74,
-        "example": 49
+        "example": 108
       },
       "source": {
         "sequence": 10
@@ -245,14 +245,14 @@
       "hashes": {
         "term": "0ae467cc10e077a17e83f500d7fd946343aa4d475db7bf45b6283bec00675e1a",
         "definition": "fc5514ccd12d24db94cc5be07576de68650cd215d840a32b3b673249cd2181fd",
-        "example": "55a9ccd757c150d9964c63c7722b40195787b9e4601d854fdd908d33048d90d3",
-        "combined": "85dddf5733bf3bb3a1733062f2f437a0e209daa880ad893e350d8b72906efc73",
-        "tokenSignature": "a-agreement-as-bet-confident-do-doubles-finished-hopping-i-it-level-m-me-on-that-the-to-watch-yes-you"
+        "example": "3b0efb6a2b4d7d652a2b4fa631a61f8d68dfa6a7750469d7d95ec6b52e558155",
+        "combined": "6f13b8b2d84ed6e966f988aabc740268dec51bce4fc6ce268786b29db7fa9c7b",
+        "tokenSignature": "a-agree-agreement-and-are-as-bet-confident-do-doubles-finished-hopping-i-in-it-jump-level-m-me-on-ready-that-the-to-use-watch-when-yes-you"
       },
       "lengths": {
         "term": 3,
         "definition": 60,
-        "example": 53
+        "example": 101
       },
       "source": {
         "sequence": 11
@@ -268,14 +268,14 @@
       "hashes": {
         "term": "a76b338874117acd5c4151e0f532cb7bd4d84764d818a52d61acdb44aa7a4a16",
         "definition": "64a1e61d1da21e360c29b54878d1f620a0dc1f6cfd1841b54c88871ffaec001c",
-        "example": "5160f218eb88696dfbc89525ff382234d2ec39f79a95479a92d3616a37e9a12b",
-        "combined": "1513a8be6b9b9c62a128cec9e2feab1088cfaa58006506d63cae2d29d62a1f4b",
-        "tokenSignature": "a-checked-credit-email-extra-felt-for-i-isn-or-quite-right-short-so-someone-something-sus-suspicious-t-teacher-that-the-vibe-with"
+        "example": "65d0ba9429a48dc1cf7b17903cba6e4aa04374171b90c16de940fbdaced7c8e9",
+        "combined": "0f8fbb6465dcfa24335578644c70709179554a7d5b0b57cd48adfcffb9d2b210",
+        "tokenSignature": "a-checked-credit-email-extra-feels-felt-for-i-isn-it-off-or-questionable-quite-right-short-so-someone-something-sus-suspicious-t-teacher-that-the-use-vibe-when-with"
       },
       "lengths": {
         "term": 3,
         "definition": 73,
-        "example": 64
+        "example": 113
       },
       "source": {
         "sequence": 12
@@ -291,14 +291,14 @@
       "hashes": {
         "term": "cbc2eed6acea381a49fe15c9172823f59b1b4ba735cdc2b6477f66e0579a01f0",
         "definition": "65a1a62841ea76cab87fc6e22d3f2716fb41c5c19db1a01a83f50d56cf2f0cdd",
-        "example": "58c06d85ee268c2f355d46d9791e7c69585cc34abd6ba8029f1e8aba2bb77968",
-        "combined": "c301c75cd90bf5d7f514a621bd9afed09bdbb7f9a105241026bac6669930d1c0",
-        "tokenSignature": "and-chasing-drippy-expensive-festival-him-his-is-kept-on-outfit-photographers-point-probably-serious-serving-so-style-that-the-was"
+        "example": "5e202295834c6f7052439c41c9aaad019d0397afce8a4d27f93d97c3aa590ea9",
+        "combined": "32a858f73f48165cd2f30105d89894b86f03ffa871cfd5802af64b5ba83283ea",
+        "tokenSignature": "accessory-an-and-chasing-drippy-expensive-festival-him-his-is-it-kept-on-oozes-or-outfit-photographers-point-probably-serious-serving-so-style-that-the-use-was-when"
       },
       "lengths": {
         "term": 6,
         "definition": 69,
-        "example": 70
+        "example": 118
       },
       "source": {
         "sequence": 13
@@ -314,14 +314,14 @@
       "hashes": {
         "term": "6983e434cc382a05f656841a990129913be50a9e9f9bf22690a276e6c9f4ab14",
         "definition": "8e6fbedc33a0830dfa39c907e08402547979f76a14345dad74c70bdbc94e2441",
-        "example": "f61759f4c5a32ff7d5344ed8e594f2935c37c843f58f943ea027482df831d1f6",
-        "combined": "e51bd1c3d8d3fae02432a2ae4ac8be292e1dd1dacb17e47692f04389b72534c9",
-        "tokenSignature": "an-and-ate-choreography-crushed-encore-energy-for-had-hard-it-left-nothing-perfect-performance-s-she-so-still-that-the-there-was"
+        "example": "65f2ec652c0715a074e0cc571e4872fb4f59d7c08f994320ee6dd6d8a0e0e414",
+        "combined": "c5a7ea3cc5b8f5eef3e81d39a7da840fa0afbbf161c22700d3ab96b54afed4ae",
+        "tokenSignature": "absolutely-an-and-ate-choreography-crushed-do-encore-energy-for-had-hard-it-left-nails-nothing-perfect-performance-s-she-so-someone-still-that-the-there-they-use-was-what-when"
       },
       "lengths": {
         "term": 3,
         "definition": 69,
-        "example": 61
+        "example": 112
       },
       "source": {
         "sequence": 14
@@ -337,14 +337,14 @@
       "hashes": {
         "term": "d6b55e9a4a2faa3a9887dd335b8db7b6be462999423b7ba2d052ceabae36e00d",
         "definition": "360813334ed2dc4920ca9af5329f9dd60d86895cd9d198d70d2e64820b15c2af",
-        "example": "5e2ad4dcdf27363a82ec62a2acd2c2b3ad3e06561f6a991adb428bcd092a291c",
-        "combined": "4868f3c3e982e2d890b7e48f4235042180c06b31db2a816f356489aeb9750515",
-        "tokenSignature": "after-all-coach-goalie-goated-good-greatest-in-is-locked-of-our-re-ridiculous-said-save-status-that-they-time-untouchably"
+        "example": "55c51982aa371109dbe308378f25a801418f387b4c22529e9bc7f0a8c72a3faf",
+        "combined": "8b6eb638ca3df237ec3ffbbd0e50405a423c8ffe06b66e2889bd4bdfd2d065ba",
+        "tokenSignature": "after-all-coach-deserves-goalie-goated-good-greatest-in-is-it-locked-of-our-re-ridiculous-said-save-someone-status-that-they-time-untouchably-use-when"
       },
       "lengths": {
         "term": 6,
         "definition": 64,
-        "example": 59
+        "example": 117
       },
       "source": {
         "sequence": 15
@@ -360,14 +360,14 @@
       "hashes": {
         "term": "bcb7f490a4f8ef10aa022c4344b2e9357b2aae0b8f93df24cd9dc37877fcb5d3",
         "definition": "85cf799086755a09ba70cdd9c5bcc518cf435ab847c06882a7e0db22a1669103",
-        "example": "aa777593fcfb425b4c8278d4d4b3c59239c7f3bb258630376480d9815faf57d3",
-        "combined": "c8ca2f4c7f1b8de20ae6a4390ec77fe21fac30c2fe17a0ced5464fa6b309095c",
-        "tokenSignature": "a-awkward-from-glow-habits-had-his-iconic-improvement-inside-major-often-or-out-semester-study-this-to-up"
+        "example": "ff6d2eca6504a178d148ffb13a80fb54540dbc831b0debd2dccf0ba25ead10ed",
+        "combined": "bfa19d6320148b8e19a903bbc60c877c638e2fc2cbdafdadd3a2ac5a436f9cea",
+        "tokenSignature": "a-awkward-from-glow-habits-had-his-iconic-improvement-inside-it-major-notice-often-or-out-semester-standout-study-this-to-transformation-up-use-when-you"
       },
       "lengths": {
         "term": 7,
         "definition": 65,
-        "example": 45
+        "example": 110
       },
       "source": {
         "sequence": 16
@@ -383,14 +383,14 @@
       "hashes": {
         "term": "857ae31caba5df8fad1bcf31a9ed207ac5ed13abbb1ffb692e9f8f18d57e1d0e",
         "definition": "2457661c9d19f9d00b3901c793815665f6d46f5c46bf7461e9ccc93a1f72c6e3",
-        "example": "f30db2392f006a2d7d2e6bd99625e3394a029e8735f6683935e6f0ba5a518485",
-        "combined": "8beea1c32b5e96727ab2a7c4537ee11db3b607a7530aeba0643160395e598db1",
-        "tokenSignature": "a-before-chat-check-did-energy-group-inviting-mood-off-on-quick-read-something-the-them-throws-to-used-vibe-we-when"
+        "example": "49c2b9aff60343c4938bd241a853b9cc495f133885d0ac6afcd8e52040c8ec6b",
+        "combined": "2d433e70e8666d817799e592a064e8bccc530238f8af15b2df4b6d7491b2b169",
+        "tokenSignature": "a-are-before-chat-check-did-energy-forward-group-inviting-it-mood-moving-off-on-quick-read-something-testing-the-them-throws-to-use-used-vibe-we-when-you"
       },
       "lengths": {
         "term": 10,
         "definition": 68,
-        "example": 65
+        "example": 125
       },
       "source": {
         "sequence": 17
@@ -406,14 +406,14 @@
       "hashes": {
         "term": "1c5e32e88bee1774074439fe185f425948a2a2eb4f4c4f3ac7c91224872f9973",
         "definition": "cfbefe9b89fe7d4683b0d48d9aa8d391a253f8464dc60c868b7dba6720bae348",
-        "example": "fbe0fcb7be6e6c32722325435a70390b289b24f0fc573f3129c697327b94a1c9",
-        "combined": "0c66d285e49447436d4eb1f5127fec77f6e2bc7574d00799e144ddefbe4190c1",
-        "tokenSignature": "acting-after-all-character-contest-eyes-halls-is-land-life-like-main-movie-naturally-on-someone-strutting-the-their-them-through-winning"
+        "example": "fc14cc05b8bc88e7cb8295a834e063dc5c37fa914c746369270a7fd09b7bebfb",
+        "combined": "71fda2f9b6efb73f433f1c0372749b9e6f43aaf7b3a8e1153786c166d2b77cde",
+        "tokenSignature": "acting-after-all-character-clearly-contest-eyes-halls-is-it-land-life-like-main-movie-naturally-on-owns-someone-spotlight-strutting-the-their-them-through-use-when-winning"
       },
       "lengths": {
         "term": 14,
         "definition": 73,
-        "example": 78
+        "example": 126
       },
       "source": {
         "sequence": 18
@@ -429,14 +429,14 @@
       "hashes": {
         "term": "2f04a79ef13b95c1f6a2ebb41fd14762468c9ea28a8c07dec25849ce2187963a",
         "definition": "fa877316679b9b47a212086e556fc92a2ea76e582cd31e5086c172676ba1705f",
-        "example": "fe56208c9e4c131c0046010bdb26eb4579f723ae65f6c9273dbc4b25a6d1088f",
-        "combined": "b668250d1f1d636d8650c0295cd9d8b67144d1a84c3fd8e2501ac26a0bea7fbb",
-        "tokenSignature": "and-clapback-five-her-in-likes-minutes-online-original-outnumber-post-posts-quote-ratio-ratioed-replies-the-thread-where"
+        "example": "ae0778308a1aa1908f5eee8b20ce2508856f2fdae36055b4c178e4d9070828c8",
+        "combined": "24a958955a346c4f59e766d604ce7177576981d25dfdf3ccd1b48c7cb8e6b19d",
+        "tokenSignature": "and-clapback-completely-five-her-in-it-likes-minutes-online-original-outnumber-outshine-post-posts-quote-ratio-ratioed-replies-responses-the-thread-use-when-where"
       },
       "lengths": {
         "term": 5,
         "definition": 75,
-        "example": 62
+        "example": 123
       },
       "source": {
         "sequence": 19
@@ -452,14 +452,14 @@
       "hashes": {
         "term": "3619a1d05b1fe41a17aeede95dca3b2075c283281e17af896b2116f207ee3495",
         "definition": "7234442335ad5301289bdf80f0cb52d00b7ca512b9899acc7f4999c453787fd7",
-        "example": "eef2a704c12a59cff975bc9a4d2d90d6a97dd01e696d265324f6c78bbc49ff97",
-        "combined": "4b639ffabeb78161efd847d48a51830730adb88b33e764b43c28723145af6815",
-        "tokenSignature": "a-actually-ask-because-beyond-debate-evidence-for-handy-keep-kept-ll-or-paid-pizza-point-prove-receipts-screenshots-the-they-to-who"
+        "example": "16d317667a643e209f09ab277b799ac26ee7be1905a48023ab7c06c88ebee7b1",
+        "combined": "8edbd9350c604364878ba6af75e134c650f876a17fa61959d693eb486fc3079a",
+        "tokenSignature": "a-actually-are-ask-because-beyond-claim-debate-evidence-for-handy-it-keep-kept-ll-of-or-paid-pizza-point-present-proof-prove-ready-receipts-screenshots-the-they-to-use-when-who-you"
       },
       "lengths": {
         "term": 8,
         "definition": 66,
-        "example": 66
+        "example": 121
       },
       "source": {
         "sequence": 20
@@ -475,14 +475,14 @@
       "hashes": {
         "term": "8aed5ed93e11c2efac0c3871b3f4cbb038434f0845bb634aad9f4a75553b274c",
         "definition": "9e4b5333743d0b7fff71d0ac5c79039dfd0e290a29ec1b36fcde052ef385179a",
-        "example": "959c51f6a07a08e4bc0cead59da73c9bbc58e6e2af653a7061c4189b3cacc27f",
-        "combined": "f43d355158e880d3476d0d6d7fd5802a7ca489ad1b395a8bd5c51f2b43fd85ee",
-        "tokenSignature": "can-funny-i-is-laughing-launched-me-meme-metaphorically-of-or-out-re-room-sending-so-stop-t-that-the-wild-you"
+        "example": "f72b6f228cd5a11a957503434b564fa56df75f21ac68ee178a11fa498720550c",
+        "combined": "eb8d725eb08d54bcf551603c6fe94407d959a607daf2ce7c3c99d3c31869fe7c",
+        "tokenSignature": "can-funny-hilariously-i-is-it-laughing-launched-me-meme-metaphorically-of-or-out-overwhelming-re-room-sending-so-something-stop-t-that-the-use-when-wild-you"
       },
       "lengths": {
         "term": 10,
         "definition": 69,
-        "example": 46
+        "example": 97
       },
       "source": {
         "sequence": 21
@@ -498,14 +498,14 @@
       "hashes": {
         "term": "ee0ce9ede6703084a234ee6e1af7e70192c3053e3014fc01bcbe016de432433d",
         "definition": "bf1c83c749d8f15cf0c96d1a19e5b03bafc628b898ce2da417608824f25e2215",
-        "example": "a055373c9e4b4c41f05dd614a383ef6266152328458e4319d7b8555254a17517",
-        "combined": "94f87829794840f2686a2e04b204d93dd990dc856bef67958765a09c77d17c7c",
-        "tokenSignature": "a-advice-before-bestie-drink-endearment-for-friends-give-more-of-or-playful-please-roast-soften-sometimes-term-to-water-you"
+        "example": "d6e53a5d53a0a66a8464fc4bb303735bfdc221238b727d36832e560953bac437",
+        "combined": "60f309e482cd2de71d32fa4c3dc4654d78590f85b50438d2779a0a1e3bc86d7c",
+        "tokenSignature": "a-advice-as-before-bestie-chatting-drink-endearment-for-friends-give-it-more-nickname-of-or-playful-please-roast-soften-sometimes-term-to-use-water-when-with-you"
       },
       "lengths": {
         "term": 6,
         "definition": 72,
-        "example": 55
+        "example": 112
       },
       "source": {
         "sequence": 22
@@ -521,14 +521,14 @@
       "hashes": {
         "term": "e15348ae477f16c01edc67a48d82db15e719f3a2f3efcc817e8ce25fe983755e",
         "definition": "ba57defc3d63aa1e179c13cbec7f709dc043b8e26008e743a63651b386a7cfec",
-        "example": "332a6422444b2010e9b1f985ac92f1ede65d105d4d59694b0a2a4e05e4a1ded9",
-        "combined": "40415890744ade4420e12db2f314a359380bbebed6bd2460904bcdafaaf74d74",
-        "tokenSignature": "about-bothered-can-go-he-it-let-losing-minor-or-pressed-question-s-salty-something-still-t-that-trivia-visibly"
+        "example": "c635e1dc0050bf5a849ecb8b54072dfc1ac7b70d5b8019932ccc6c6572803163",
+        "combined": "b7609254acc8a15739c2db874593844a04823247bb5e333809334c8e2b1bbbbc",
+        "tokenSignature": "about-bothered-can-go-he-it-let-losing-minor-or-pressed-question-s-salty-small-someone-something-stays-still-t-that-trivia-upset-use-visibly-when"
       },
       "lengths": {
         "term": 7,
         "definition": 65,
-        "example": 53
+        "example": 108
       },
       "source": {
         "sequence": 23
@@ -544,14 +544,14 @@
       "hashes": {
         "term": "debb1cb9383bfea82ab7f7d606340452f892c3efbd6889492eb1e842b2c99667",
         "definition": "0e39e86bc8434c943deccb4e20653bf0c87a06aca053ea61d608a161a5a05746",
-        "example": "79d59e28e8587e24707732c47ec58c9f7567c359602db7424e984330a1d4adec",
-        "combined": "1ad15965ea65bc02ee470b1224d4c47c29dce3f64270ebeb9b0c81975cf22caf",
-        "tokenSignature": "a-and-be-check-dance-exaggerating-for-give-honest-nobody-real-reality-rehearsed-request-so-stop-take-that-the-tiktok"
+        "example": "d6e754ded03bbc9ec43b7ff7b63cf9388eb96ce1f5f29e8e139e93b01cc5dfb1",
+        "combined": "fb869b4aeea4f931d10da01daaf9652acf83e815e52a2f3e6cc2045eaa6e2c0c",
+        "tokenSignature": "a-and-be-check-dance-drop-exaggerating-exaggeration-for-give-honest-it-nobody-real-reality-rehearsed-request-so-someone-stop-take-that-the-tiktok-to-use-want-when-you"
       },
       "lengths": {
         "term": 14,
         "definition": 68,
-        "example": 51
+        "example": 106
       },
       "source": {
         "sequence": 24
@@ -567,14 +567,14 @@
       "hashes": {
         "term": "e6eac82a189f455371b8dd0b08bb4828c655dcaac87fb43ceb39c5b2692d6003",
         "definition": "bbe6e3cabbb67f9dbd2d5cdb0ec06ce070b51be005df0d56aac39fc0e6a27b2e",
-        "example": "2e4e32bdae164d5162defec496d5f7caff684e901235449914e5b6809773fa7f",
-        "combined": "2967542069ca69376bfd2ccabef60286836d329856507543dcf1c9c6808c874a",
-        "tokenSignature": "a-after-am-caught-completely-cooked-defeated-done-exhausted-finals-for-i-in-misbehaving-or-row-three-whether"
+        "example": "1e55ef8c11ad678169abfe150ded5c7a03259a2cef60afa3d84350072c0f6ff0",
+        "combined": "313ac4be339d2a9c8f197ff31835bd9adfa697ad0e0a28b75577fe8f4f1bc331",
+        "tokenSignature": "a-after-am-busted-caught-completely-cooked-defeated-done-exhausted-finals-for-i-in-is-it-misbehaving-or-person-row-three-undeniably-use-when-whether"
       },
       "lengths": {
         "term": 6,
         "definition": 71,
-        "example": 40
+        "example": 96
       },
       "source": {
         "sequence": 25
@@ -590,14 +590,14 @@
       "hashes": {
         "term": "87e31e75d0229aeac6909b2c12dd5feb43380238b011f985ee9e58bf8e4d40ee",
         "definition": "dc4b333a809fe467285649637fb45b5c1632480245c035a71b5766a3f9304100",
-        "example": "f83d3fd04a47313d963b4f262055a29beeb2684d221b923f25177518098e7c26",
-        "combined": "aa44823c5a675124e9526bb9e66ed4daaf272084d1a361dd79b3b0df722ca769",
-        "tokenSignature": "an-autopilot-barista-default-dialogue-handing-life-like-moving-npc-on-out-quests-repeated-script-someone-the-through-with"
+        "example": "d1223431b76eb64815244db9f7e389f8e0120ce818ff6c50554cac96a05c4b29",
+        "combined": "a249e3af1557a1c72bce499840ebb8113148e04a738e572112567c884c319edc",
+        "tokenSignature": "an-autopilot-barista-be-default-dialogue-handing-it-life-like-moving-npc-on-out-quests-repeated-running-script-seems-someone-the-through-to-use-when-with"
       },
       "lengths": {
         "term": 3,
         "definition": 63,
-        "example": 63
+        "example": 117
       },
       "source": {
         "sequence": 26
@@ -613,14 +613,14 @@
       "hashes": {
         "term": "9493dba59d4c11a1772f374a2b5f453723e9860852d3fec9eb0b379cf7323e0c",
         "definition": "5d6ed2a4f509732fe6eac9c04717f7ca83758eeb08a72c44d34528a86cf5d1e7",
-        "example": "e35d4433fdea93e01aadcb1686d71d68124b5e97223ff7c35c6c04738a2cd8a9",
-        "combined": "9c5aaf09ab9bfd46b2a030e6ef921c590afb7d3508da436cc7f8790d67ff7d2a",
-        "tokenSignature": "a-aesthetic-arcade-carpet-energy-giving-is-it-jacket-mood-neon-of-or-reference-reminds-s-specific-that-the-vibe-you"
+        "example": "c8aeedaddb0bed178221bf658e9cf1783b35ddfd21634b4ef2a9bbbbc61803c1",
+        "combined": "9aed3ede713dc9ca320ca89afff265fdbac258ec14704f089b149917a1f94d38",
+        "tokenSignature": "a-aesthetic-arcade-carpet-energy-giving-is-it-jacket-mood-name-neon-of-or-reference-reminds-s-sense-specific-that-the-to-use-vibe-want-when-you"
       },
       "lengths": {
         "term": 11,
         "definition": 66,
-        "example": 48
+        "example": 97
       },
       "source": {
         "sequence": 27
@@ -636,14 +636,14 @@
       "hashes": {
         "term": "38a8a9d5de692f604d69850a6758d95c6cdcb03b4dfa0a35197ecc6f3c50b636",
         "definition": "161a9afc61fb262e2b3fdca324d51cd9f34c4b6a577b640638a2cf2c5b45ebd0",
-        "example": "1c3c92e6173f016d330a7cd9fbc4b1057dc9e8b360e8845c7d83e42c95c6d266",
-        "combined": "9f53a12f679297e57a2664e4f7746afa032f4a7ad5fa04448faea98b380626b6",
-        "tokenSignature": "a-answer-day-debate-final-needs-no-off-on-period-re-statement-taking-that-the-to-underline-used-we"
+        "example": "156e2ec1842e1c05ad2b43cf5470ea8b0e4c250692fce1d48cecfbadd2d39645",
+        "combined": "5c4abc481d4dfa2c646de1b48a6559ac4c2dbfe1c76c69c1e9b3b41222d3f1c8",
+        "tokenSignature": "a-answer-argument-beyond-day-debate-declare-final-it-needs-no-off-on-period-point-re-statement-taking-that-the-to-underline-use-used-want-we-when-you"
       },
       "lengths": {
         "term": 9,
         "definition": 64,
-        "example": 36
+        "example": 93
       },
       "source": {
         "sequence": 28
@@ -659,14 +659,14 @@
       "hashes": {
         "term": "e5d5b971139eefeb36d6edb9938fa246740c90da2003626487eb2d5d9646aec6",
         "definition": "28073bd558685f12551c9170a67b28da2f02568daf5f51163151fa81e0714925",
-        "example": "dc1a2a19e9643eff18e5e03e83313e6ac073fa172c82ff5982bef419a7d2e853",
-        "combined": "f930aeac4061c565dfe0b0a7d8ca9019956301a27e8c1b31e5946ba131476848",
-        "tokenSignature": "after-date-fictional-for-i-or-people-project-real-root-science-ship-their-those-to-totally-two-watching"
+        "example": "9d13a1c2cfe41e26c56c026170a88a900033609045401f08b65853cce110ebcc",
+        "combined": "91eb21c595a33e235713473ec4497dfc160c37d4b01ce421e59764bbe5c40345",
+        "tokenSignature": "a-after-become-cheer-date-fictional-for-i-it-or-pairing-people-project-real-root-science-ship-their-those-to-totally-two-use-watching-when-you"
       },
       "lengths": {
         "term": 4,
         "definition": 50,
-        "example": 62
+        "example": 114
       },
       "source": {
         "sequence": 29
@@ -682,14 +682,14 @@
       "hashes": {
         "term": "b6d2770771a96fb485c8386e99447df1361b0d5e416fa6817370f4e4e2cf18b7",
         "definition": "636afd27f98a5e50c44d96c9bf73535cc3873dc0bab9ce95bc248fac31ca40eb",
-        "example": "a9de6484282438617ffa1cdf04763075e711618b2bc11e95bda874118e5a20e3",
-        "combined": "e4268cc9340cc2bd9ab90e0594a96ee6782116287670de0933e674f31e04f709",
-        "tokenSignature": "and-chill-complain-don-it-keep-keeping-key-low-neighbors-or-party-quiet-re-secretive-so-something-subtle-t-the-we"
+        "example": "f63de471f41875fdbe77846661b5a310e1ab9fbcd10d5748aaa7ac56e45dfb65",
+        "combined": "30f1cd80c4378c3505f3be8b62a23a476005bcc836dffcdb907dd3f127a107a4",
+        "tokenSignature": "and-chill-complain-don-feelings-it-keep-keeping-key-low-neighbors-or-party-plans-quiet-re-secretive-so-something-stay-subtle-t-the-to-use-want-we-when-you"
       },
       "lengths": {
         "term": 7,
         "definition": 55,
-        "example": 64
+        "example": 119
       },
       "source": {
         "sequence": 30
@@ -705,14 +705,14 @@
       "hashes": {
         "term": "8ddef1fefe8c2dd4883111669645b43b7744d319a2d6c6bbe9b9434ee9bfecab",
         "definition": "949816915d142d3ac7a31fe5ad16a469140b0ec8c364198661e82de5d24f1a92",
-        "example": "fc8911abbaa28da6e6a2cbb93d782ccf238029b8643eb2b1f396ade6cd3309c1",
-        "combined": "4a10b254264c083b7a73fbde05445df2841e3f1b805a1ae3c49dffd21c261158",
-        "tokenSignature": "and-excited-expansion-for-high-i-impossible-key-loud-low-m-miss-new-of-opposite-pack-proud-the-to"
+        "example": "eb994fa83455c8ee6846c837848401db884223640d8518e9ad1ede6c438dfca0",
+        "combined": "5b7eaa1fc1303f9f738d8ca9183b90538865fdfec5b0962844bd069b74e8acaf",
+        "tokenSignature": "about-and-be-excited-expansion-for-high-i-impossible-it-key-loud-low-m-miss-new-obvious-of-opposite-pack-proud-something-the-to-use-want-when-you"
       },
       "lengths": {
         "term": 8,
         "definition": 60,
-        "example": 48
+        "example": 109
       },
       "source": {
         "sequence": 31
@@ -728,14 +728,14 @@
       "hashes": {
         "term": "6f8b55d48cde0c3e11baabf68b8d928eb15f18dbf8802e0a2602a772cde42b09",
         "definition": "d4d1363ec38cd14df19749ab02ce1a973b2aaf8c63ba7ffbc8c1d331c3a6aa8c",
-        "example": "c336242e3894d13d68dcd08feb20cc813bcdef6a41eaf9ef4ceaee23bf856aa8",
-        "combined": "49d6a15ae05e9672385e5b48aab983257d44f2225859224bc735f44a9742cf7a",
-        "tokenSignature": "about-an-can-even-free-head-idea-if-in-is-living-my-rent-song-stop-t-that-theme-thinking-to-want-you"
+        "example": "fe8b76fe4266ab2bdcfade0079b97b564236381cd96390a03d8dfc13ac64e28a",
+        "combined": "c660ed9b43e3fa799e413ece9f0217cf850de645086be528af4da08254d5f2f4",
+        "tokenSignature": "a-about-an-can-even-free-head-idea-if-in-is-it-keeps-living-looping-mind-my-rent-song-stop-t-that-theme-thinking-thought-to-use-want-when-you-your"
       },
       "lengths": {
         "term": 16,
         "definition": 59,
-        "example": 47
+        "example": 97
       },
       "source": {
         "sequence": 32
@@ -751,14 +751,14 @@
       "hashes": {
         "term": "bf6efd4b9ad00e65ac8bd0a1abb6090266d48d2bfb744c52ef13704ded541b8e",
         "definition": "4949ac5368b656adf8519b9ff23d44b8158f1e5a826d3a0164a622a38aa79494",
-        "example": "3c3b47b2722b93562e9ed177a95fd2cdd3ffbe822aaf29c4967ff836e9f53588",
-        "combined": "53c7a273ebf3f861fadf04acf82b71757444810eabf2143f875ea75090cffc6d",
-        "tokenSignature": "a-claimed-disapproval-eye-gave-he-invented-look-really-recipe-says-she-side-silent-that-the-when-without-word"
+        "example": "cab5d8f5cf5c332dd1a8d3a0cbc1e41b85bbc3886e34407db5229d6b1f254967",
+        "combined": "982248bcfa8af56d64bd55964614b698a34a6b2efbc6a9b76768ab889216706e",
+        "tokenSignature": "a-behavior-call-claimed-disapproval-eye-gave-he-invented-it-look-out-questionable-really-recipe-says-she-side-silent-silently-that-the-use-when-without-word-you"
       },
       "lengths": {
         "term": 8,
         "definition": 60,
-        "example": 61
+        "example": 118
       },
       "source": {
         "sequence": 33
@@ -774,14 +774,14 @@
       "hashes": {
         "term": "27b0a2cee6a45031b79da79fdb10303ece8a8cbd02d87e35236f73caecd92414",
         "definition": "221c32aab67d149ec6b6fe9ce6abb59a88ed8769ceab29a715a90dfdf5604875",
-        "example": "c02e91b8bf5a60ae46ac30e51324b10b7d81e58ed32560032452d162faf13e8d",
-        "combined": "67668a722506f54463a8c380d69629fda1142df6f7fe16a8e58b92f71e859165",
-        "tokenSignature": "aesthetic-an-clips-collage-corecore-edit-edits-emotional-into-made-mashes-pure-sense-that-the-together-unrelated-vibe-was-with-zero"
+        "example": "55750705a1424729836f0ac4e1c5069ce668be9bd150b8a0e67a2fd9e942eef5",
+        "combined": "e6672332b0750a519bf143131e393896c68b16093dbc7bcb84419be6ed7c0ca7",
+        "tokenSignature": "aesthetic-an-art-clips-collage-corecore-edit-edits-emotional-feels-into-it-like-made-mashes-pure-sense-that-the-together-unrelated-use-vibe-was-when-with-zero"
       },
       "lengths": {
         "term": 8,
         "definition": 75,
-        "example": 68
+        "example": 122
       },
       "source": {
         "sequence": 34
@@ -797,14 +797,14 @@
       "hashes": {
         "term": "3946c26699d6e392b355f7c746aee4ec19a9189bd7daed5494b20d39344fe605",
         "definition": "92eafbb3cfdf3e80ed8a66178ec26124c2802271721834a0aa4b9614ef8332ce",
-        "example": "d635023ce8a68423a2ed2fdd345f02e2099eb0acd3455ed037ec724d14fb1be3",
-        "combined": "b7def58dad6f136a6bc11d4e4f9bcd1183b3b317c39de2e8ef0a2d16eeab1dea",
-        "tokenSignature": "a-about-at-backstory-band-days-dinner-drama-drop-grandma-her-lore-of-recontextualizes-reveal-s-story-sudden-that-the-was-whole"
+        "example": "45b398250cd4497d4ca9555238a37a0e67506debcd99cd85d78a56e05ae76913",
+        "combined": "3c09d6ee9cd9e285554c29b4000eae57cabac21e6ba3f05da0b71c9f323e4ca8",
+        "tokenSignature": "a-about-at-backstory-band-days-dinner-drama-drop-grandma-her-it-lore-of-recontextualizes-reveal-reveals-s-someone-story-sudden-surprising-that-the-use-was-when-whole"
       },
       "lengths": {
         "term": 9,
         "definition": 67,
-        "example": 62
+        "example": 112
       },
       "source": {
         "sequence": 35
@@ -820,14 +820,14 @@
       "hashes": {
         "term": "3b281019fbb21f2f491c9ad11e2e196e253555a0fcbdd6f05a4adc52176590e1",
         "definition": "6ab372974f15ba5b96ac61a3013e8164c2812457a004efe8d39737fd180343e8",
-        "example": "7210aba71caed298f83ef0340d0d8162d73d9d80938aa4c0b7ef516febcb77cf",
-        "combined": "15be994f6caa2b7cc64d03fbb2a6d98f9453b7488e121ec8337f26e3e7d319f5",
-        "tokenSignature": "a-about-brain-dream-game-giving-head-i-in-is-it-loops-me-meme-nonstop-now-or-puzzle-rot-show-song-this-when-your"
+        "example": "c61cfea81e9cadce4fb7b73d49c871121349c4fd77c9894a0c90dc58655cf272",
+        "combined": "98f35ee199b8e58f995b8ee926c500d1047914b11870f70657bf6203a84450ed",
+        "tokenSignature": "a-about-brain-cannot-dream-game-giving-head-i-in-is-it-loops-me-meme-nonstop-now-or-puzzle-rot-show-song-stop-thinking-this-trend-use-when-you-your"
       },
       "lengths": {
         "term": 9,
         "definition": 54,
-        "example": 62
+        "example": 122
       },
       "source": {
         "sequence": 36
@@ -843,14 +843,14 @@
       "hashes": {
         "term": "cf0622ef2a661cd2f11b0b644e40e4e00eb962918424a8c8ba53842fdf290235",
         "definition": "9b31107dfd3b38400d228cafab573cddf7cfa47b9c407f54bcac69b431dd54fc",
-        "example": "50651449b6e552ded3fa63e5ad4b62a60508bd4e3468e23d4c1c9e651c25da55",
-        "combined": "46b39101fa3f8e99663ce240aa1c105ef3c6fa588c02c3090a50228bd32943f8",
-        "tokenSignature": "a-and-compliment-crowd-dominates-fierce-for-immediately-moment-mother-on-she-someone-stage-style-the-walked-who-with-yelled"
+        "example": "3b65bde893fd6f790539eddd6e561e7094487679be5779434f203159590bb6c1",
+        "combined": "938054be8c137d04e84641b9c8cc6c29026b755b471456538bb6a65789695f69",
+        "tokenSignature": "a-and-commands-compliment-crowd-dominates-energy-fierce-for-immediately-it-major-moment-mother-on-she-someone-stage-style-the-use-walked-when-who-with-yelled"
       },
       "lengths": {
         "term": 6,
         "definition": 68,
-        "example": 63
+        "example": 122
       },
       "source": {
         "sequence": 37
@@ -866,14 +866,14 @@
       "hashes": {
         "term": "b2e500e55b13d3e22299dba9f823dffc2e8b1c67dbd68b9bceee5caee73a7fd5",
         "definition": "74ab42920a40a45e15518138058765ad1614d0650a5e094ae52a7890e0eb66b9",
-        "example": "d81ceee284458d089af43cc5f0902d0be490914b95394758c8611fc98af3c1ab",
-        "combined": "709b1e1562cf93f096799abccbc19c47e35e74484bdf17658b841f889cd8b7f1",
-        "tokenSignature": "all-content-feel-hard-hits-it-music-or-physically-practice-remix-replayed-slaps-so-that-the-we-you"
+        "example": "6e23b6ab9341a6ec6887fa7bb9f68b9980f02491d41e417b06f1474f19f9e0d5",
+        "combined": "dfa0842d558ee4b8b403e1244ce7dcb41a33f29552c838d5adf6ade9593798a3",
+        "tokenSignature": "a-all-clip-content-especially-feel-hard-hits-it-music-or-physically-practice-remix-replayed-slaps-so-that-the-track-use-we-when-you"
       },
       "lengths": {
         "term": 5,
         "definition": 58,
-        "example": 52
+        "example": 102
       },
       "source": {
         "sequence": 38
@@ -889,14 +889,14 @@
       "hashes": {
         "term": "dfd6824324fa248886b700da03101529e5ef0dd604ae57a9a2b087c4959d1675",
         "definition": "a984cf387a57cb0245e1e3b643b87de76d6c014d9fb5c892af2f639d609bf3da",
-        "example": "44f0a5fe66a775d8fcd08052c4477e4fe82a1bcce5f16bbc7c9144b17a99f2f0",
-        "combined": "7f03c798a982de40932c9b4b38ccd25c8362dacef5c8d63d4f2e5b135ada5156",
-        "tokenSignature": "about-behaviour-comment-his-inappropriate-just-line-of-or-out-past-pocket-s-teacher-that-the-was-way-wild"
+        "example": "b5134c170763b6b0a1922cc26c3fc561affcad517e4bf3f126b9581f5960c69d",
+        "combined": "056f4b2daec68eecac01495c9d21ae6281cdf662131795ce8ff5404375dcf5fe",
+        "tokenSignature": "a-about-behavior-behaviour-comment-crosses-his-in-inappropriate-it-just-line-of-or-out-past-pocket-s-teacher-that-the-use-was-way-when-wild"
       },
       "lengths": {
         "term": 13,
         "definition": 64,
-        "example": 52
+        "example": 105
       },
       "source": {
         "sequence": 39
@@ -912,14 +912,14 @@
       "hashes": {
         "term": "abc0a3e8b2e871d5aef96db4270efbe2e9c030f533108bcb95a991f996dab0c0",
         "definition": "181eebf79418db6ab36d2ab1b07ea225233a2a70e9b65143f17d51c283b8d495",
-        "example": "91049581091101a04854b9d94d7de6d506e4de18d629dd7adda4adf2aa68fd74",
-        "combined": "c7ba9af630abf68b404eebe00907fd88b1da4b2d196d5e55aace9a07400d8741",
-        "tokenSignature": "a-at-details-hinting-launch-launched-matching-mugs-news-of-or-photo-project-relationship-reveal-she-soft-teaser-the-two-with-without"
+        "example": "dca95bde443b19d681c29b900ebb25584dfcca6cd80b7d7f99b5283c821f1159",
+        "combined": "7ddec5aeaad0409d04ecd83b1c62fb6df61d62fc82f6beeb4ea6c938786c2e43",
+        "tokenSignature": "a-at-details-full-giving-hinting-it-launch-launched-matching-mugs-news-of-or-photo-project-relationship-reveal-she-soft-tease-teaser-the-two-use-when-with-without-you"
       },
       "lengths": {
         "term": 11,
         "definition": 78,
-        "example": 69
+        "example": 125
       },
       "source": {
         "sequence": 40
@@ -935,14 +935,14 @@
       "hashes": {
         "term": "fc403ee9d4d380573defc9817ebf7e312fe278bc1c127ab7ad1ab62afa945212",
         "definition": "ca0806884155481f7ef21a5bdae2b2a69ba1b550c6b27b2c86ce33317945501f",
-        "example": "ead9b09958e9f5022959cebc6278aadb602f17bf907fe7ca9c68d7643488c565",
-        "combined": "f88cb5389f9248734540e8c2f2de704fd1e2a91b9668e08fa25b1ab333e0e798",
-        "tokenSignature": "a-and-argument-before-gentle-gets-go-grass-log-nudge-off-outside-reality-reconnect-the-to-touch-wild-with"
+        "example": "16e4e9f155db4d82c3786addd8a4ff92fbfcc5ce9748fd2c256f57958af88b83",
+        "combined": "27106e8bb8bbb2819e40dae693fed843db231cf4d9e533d1620e99e53b2aa564",
+        "tokenSignature": "a-and-argument-before-friend-gentle-gets-go-grass-it-log-needs-nudge-off-offline-outside-reality-reconnect-reset-the-to-touch-unplug-use-when-wild-with"
       },
       "lengths": {
         "term": 11,
         "definition": 66,
-        "example": 54
+        "example": 110
       },
       "source": {
         "sequence": 41
@@ -958,14 +958,14 @@
       "hashes": {
         "term": "4219c164aa96c271fe2fa61aa94d886168a9f6f4780618484fc42a0a28485a54",
         "definition": "84e86739f86aec16769205d1ebae85e3c38b6744ba71155756d4de7c5b5c2c80",
-        "example": "efebb9ee25f4f53c9e3d8e18299655ddc9af4758aa9481096d20d219a00a1db3",
-        "combined": "7b97258ce12638aeff10f371386fafc47712cd5b5dc820b1820c59e0d57587a4",
-        "tokenSignature": "4k-busted-caught-definition-denying-dessert-evidence-extra-happened-he-high-in-it-livestream-no-on-s-sneaking-the-there-was-with"
+        "example": "4764e14d230078d412676aa5bd737d81ec0440e12bbd20aca23c584feee4964d",
+        "combined": "31b9448850548bcf45a748fe527362ed46f659aaed7b26184a7a951ad8f31e82",
+        "tokenSignature": "4k-busted-catches-caught-clarity-crystal-definition-denying-dessert-evidence-extra-happened-he-high-in-it-livestream-no-on-s-sneaking-someone-the-there-use-was-when-with"
       },
       "lengths": {
         "term": 12,
         "definition": 69,
-        "example": 61
+        "example": 120
       },
       "source": {
         "sequence": 42
@@ -981,14 +981,14 @@
       "hashes": {
         "term": "cf5ddc645e30679cb99721805661d3cdab8b1a0dfd39514bce0ddb94ed7d6518",
         "definition": "be46a1bec9f6838c3cae4a2bb95264a570a33c787ca545093588d4cec7ba20ec",
-        "example": "b231111cbe32256b8fa1e187d5731e851d9395a832351559eac764a47634f975",
-        "combined": "a8609e7ed076e0a3e6d6105c2b55cb3aa73d2161135369f35ecee9b35f9eaf36",
-        "tokenSignature": "a-aesthetic-and-bun-cheeks-clean-dewy-girl-glowy-hair-her-is-look-minimalist-on-point-skin-slick-the-uncluttered-vibes-works"
+        "example": "8e2df0810895d66f7c3a73cf84976a0e617d28687f3a0c6eb49a9e4899e0cbc9",
+        "combined": "2b3b16da2e313f481e08a1a4ca6309898ff720a3c2cec87a5852c2f99cbe1ea8",
+        "tokenSignature": "a-aesthetic-and-bun-cheeks-clean-dewy-girl-glowy-hair-her-is-it-look-minimalist-nails-on-point-polished-skin-slick-someone-the-uncluttered-use-vibe-vibes-when-works"
       },
       "lengths": {
         "term": 10,
         "definition": 69,
-        "example": 66
+        "example": 120
       },
       "source": {
         "sequence": 43
@@ -1004,14 +1004,14 @@
       "hashes": {
         "term": "cd505c55968c515a984c259809947788799db05fbbca0b558b3135addc437aa4",
         "definition": "91d27de16fd24e027e80e81d530ba802dadc03b973eebfd239222cefca85f4ed",
-        "example": "5239627ce1da237161374885ea9e52c0189b504d075fb4457dc21d9c37cc2af7",
-        "combined": "35eb6d207821069f1c72c13b559b24becd0f2a5c4ac66efa8041752a74919e03",
-        "tokenSignature": "all-and-been-coder-cookin-creating-feature-great-has-in-new-night-now-on-our-right-something-that-the-zone"
+        "example": "3fa56ff34851df5dbd59749eb4e9ee7bb245fd914e0428c99915c825633fec5d",
+        "combined": "8f08fe8a16a330a4f3cd656f9d769c13afffdf41c04dbfcac3d089b60792bccd",
+        "tokenSignature": "actively-all-and-been-coder-cookin-creating-feature-great-has-in-is-it-new-night-now-on-our-producing-results-right-someone-something-that-the-use-when-zone"
       },
       "lengths": {
         "term": 7,
         "definition": 51,
-        "example": 57
+        "example": 114
       },
       "source": {
         "sequence": 44
@@ -1027,14 +1027,14 @@
       "hashes": {
         "term": "f87f5666f551174c59d80ba7a1c5a88b4f344fc32611e4ef5a637b00d82e3aab",
         "definition": "9de28a082bb344650ba27fc3b8be74ec65d569b8cb1ceacf480d71964ac249e5",
-        "example": "77f4b44e44cead9740455d406cfd5c26df7c959a9b9634d7ccfae04a99aaa9db",
-        "combined": "2f20dc7a62b71d9c90bc6fb33082cb1a59028b14c8fd4f301032d9a61e05d5fc",
-        "tokenSignature": "a-and-asked-dropped-drops-he-input-minute-nobody-rant-someone-ten-unnecessary-used-wanted-when-whispered-who"
+        "example": "414ab5a210137d29a6ceb049606c42c052068ee9d5a050fc989b011b70e135d1",
+        "combined": "1216f662ebb26ddd8fd89d77a583427ee1076d659f2af87a8ec21a6e91ae13d0",
+        "tokenSignature": "a-an-and-asked-dropped-drops-he-input-it-minute-nobody-opinion-rant-requested-shows-someone-ten-that-unnecessary-up-use-used-wanted-when-whispered-who"
       },
       "lengths": {
         "term": 9,
         "definition": 56,
-        "example": 64
+        "example": 119
       },
       "source": {
         "sequence": 45
