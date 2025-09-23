@@ -1,7 +1,7 @@
 {
   "dataset": "cross-deck",
   "threshold": 0.5,
-  "generatedAt": "2025-09-22T00:02:49.928Z",
+  "generatedAt": "2025-09-22T23:19:57.715Z",
   "provider": "cohere",
   "model": "embed-english-v3.0",
   "matches": [
@@ -69,13 +69,6 @@
       "previewB": "Every night at 11:11 • I make a wish that someone will come fix my broken clock."
     },
     {
-      "idA": "growth-09",
-      "idB": "j-0569",
-      "similarity": 0.523008934254,
-      "previewA": "They say that time changes things, but you actually have to change them yourself. — Andy Warhol",
-      "previewB": "\"What time is it?\" I don't know... • it keeps changing."
-    },
-    {
       "idA": "humor-08",
       "idB": "j-0213",
       "similarity": 0.516756676617,
@@ -95,13 +88,6 @@
       "similarity": 0.507020022431,
       "previewA": "You can’t turn back the clock. But you can wind it up again. — Bonnie Prudden",
       "previewB": "Why did the kid throw the clock out the window? • He wanted to see time fly!"
-    },
-    {
-      "idA": "travel-20",
-      "idB": "j-0782",
-      "similarity": 0.50264396454,
-      "previewA": "The mountains are calling and I must go. — John Muir",
-      "previewB": "You see, mountains aren't just funny. • They are hill areas."
     },
     {
       "idA": "music-04",

@@ -32,6 +32,9 @@
       --detail-glow: rgba(56, 189, 248, 0.18);
       --input-background: rgba(15, 23, 42, 0.68);
       --input-border: rgba(148, 163, 209, 0.3);
+      --flag-protect-bg: rgba(34, 197, 94, 0.18);
+      --flag-protect-text: rgba(34, 197, 94, 0.92);
+      --flag-protect-border: rgba(34, 197, 94, 0.32);
       background-color: var(--background-color);
       color: var(--text-primary);
     }
@@ -57,6 +60,9 @@
         --detail-glow: rgba(99, 102, 241, 0.12);
         --input-background: rgba(248, 250, 255, 0.92);
         --input-border: rgba(148, 163, 209, 0.32);
+        --flag-protect-bg: rgba(34, 197, 94, 0.14);
+        --flag-protect-text: rgba(21, 128, 61, 0.9);
+        --flag-protect-border: rgba(21, 128, 61, 0.28);
       }
     }
 
@@ -353,6 +359,29 @@
       font-size: 1.1rem;
     }
 
+    .score-flags {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+
+    .score-flag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: var(--flag-protect-bg);
+      color: var(--flag-protect-text);
+      border: 1px solid var(--flag-protect-border);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     .score-meter {
       position: relative;
       margin-top: 8px;
@@ -378,6 +407,27 @@
       margin-top: 12px;
       font-size: 0.78rem;
       color: var(--text-secondary);
+    }
+
+    tbody tr.is-protected .score-value {
+      color: var(--flag-protect-text);
+    }
+
+    tbody tr.is-protected .score-deltas {
+      color: color-mix(in srgb, var(--flag-protect-text) 55%, var(--text-secondary) 45%);
+    }
+
+    tbody tr.is-protected {
+      position: relative;
+    }
+
+    tbody tr.is-protected::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      border: 1px dashed var(--flag-protect-border);
+      pointer-events: none;
     }
 
     .score-delta {
@@ -612,6 +662,42 @@
       font-size: 1.2rem;
       font-weight: 700;
       letter-spacing: 0.04em;
+    }
+
+    .detail-title-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .detail-flag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--flag-protect-border);
+      background: var(--flag-protect-bg);
+      color: var(--flag-protect-text);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .detail-flag[hidden] {
+      display: none;
+    }
+
+    .detail-flag-reason {
+      margin: 6px 0 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .detail-flag-reason[hidden] {
+      display: none;
     }
 
     .detail-score {
@@ -876,9 +962,13 @@
         <p class="detail-empty" data-detail-empty>Select a row to inspect the vector neighbours.</p>
         <div class="detail-body" data-detail-body hidden>
           <div class="detail-header">
-            <h2 class="detail-title" data-detail-title>—</h2>
+            <div class="detail-title-group">
+              <h2 class="detail-title" data-detail-title>—</h2>
+              <span class="detail-flag" data-detail-flag hidden>Protected pair</span>
+            </div>
             <button type="button" class="copy-button" data-copy-pair disabled>Copy pair IDs</button>
           </div>
+          <p class="detail-flag-reason" data-detail-flag-reason hidden></p>
           <div class="detail-score">
             <span class="detail-score__value" data-detail-score>0.000</span>
             <span class="detail-score__label">cosine similarity</span>
@@ -1060,6 +1150,8 @@
       const detailEmpty = document.querySelector('[data-detail-empty]');
       const detailBody = document.querySelector('[data-detail-body]');
       const detailTitle = document.querySelector('[data-detail-title]');
+      const detailFlag = document.querySelector('[data-detail-flag]');
+      const detailFlagReason = document.querySelector('[data-detail-flag-reason]');
       const detailScore = document.querySelector('[data-detail-score]');
       const detailDistance = document.querySelector('[data-detail-distance]');
       const detailLength = document.querySelector('[data-detail-length]');
@@ -1271,6 +1363,9 @@
         minimumFractionDigits: 2,
         maximumFractionDigits: 4,
       });
+
+      let overrideIndex = new Map();
+      let overridesPromise = null;
 
       const state = {
         model: DEFAULT_MODEL_KEY,
@@ -2231,6 +2326,7 @@
           levenshteinSourceA,
           levenshteinSourceB,
         );
+        const override = getOverrideForPair(datasetName, match.idA, match.idB);
         return {
           idA: match.idA,
           idB: match.idB,
@@ -2248,11 +2344,114 @@
           wordDelta: Math.abs(wordsA - wordsB),
           levenshteinDistance,
           levenshteinSimilarity,
+          override,
+          isProtected: Boolean(override),
         };
       }
 
       function buildPairKey(dataset, idA, idB) {
         return `${dataset}:${idA}|${idB}`;
+      }
+
+      function sortIdsForOverride(idA, idB) {
+        const left = typeof idA === 'string' ? idA.trim() : '';
+        const right = typeof idB === 'string' ? idB.trim() : '';
+        if (!left || !right) {
+          return [left, right];
+        }
+        return left <= right ? [left, right] : [right, left];
+      }
+
+      function createOverrideKey(dataset, idA, idB) {
+        const datasetName = typeof dataset === 'string' ? dataset.trim() : '';
+        if (!datasetName) {
+          return null;
+        }
+        const [left, right] = sortIdsForOverride(idA, idB);
+        if (!left || !right) {
+          return null;
+        }
+        return `${datasetName}:${left}|${right}`;
+      }
+
+      function getOverrideForPair(dataset, idA, idB) {
+        const key = createOverrideKey(dataset, idA, idB);
+        if (!key) {
+          return null;
+        }
+        if (!(overrideIndex instanceof Map) || !overrideIndex.has(dataset)) {
+          return null;
+        }
+        const datasetOverrides = overrideIndex.get(dataset);
+        return datasetOverrides instanceof Map && datasetOverrides.has(key)
+          ? datasetOverrides.get(key)
+          : null;
+      }
+
+      function parseOverrides(payload) {
+        const index = new Map();
+        if (!payload || typeof payload !== 'object') {
+          return index;
+        }
+        const datasets = payload.datasets && typeof payload.datasets === 'object' ? payload.datasets : {};
+        Object.entries(datasets).forEach(([datasetName, datasetPayload]) => {
+          if (!datasetName || !datasetPayload || typeof datasetPayload !== 'object') {
+            return;
+          }
+          const pairs = Array.isArray(datasetPayload.protectedPairs) ? datasetPayload.protectedPairs : [];
+          if (!pairs.length) {
+            return;
+          }
+          const datasetMap = new Map();
+          pairs.forEach((entry) => {
+            if (!entry || typeof entry !== 'object' || !Array.isArray(entry.ids) || entry.ids.length < 2) {
+              return;
+            }
+            const [idA, idB] = entry.ids;
+            const key = createOverrideKey(datasetName, idA, idB);
+            if (!key) {
+              return;
+            }
+            const label = typeof entry.label === 'string' && entry.label.trim()
+              ? entry.label.trim()
+              : 'Protected pair';
+            const reason = typeof entry.reason === 'string' ? entry.reason.trim() : '';
+            const action = entry.action === 'hide' ? 'hide' : 'protect';
+            datasetMap.set(key, {
+              ids: [idA, idB],
+              label,
+              reason,
+              action,
+            });
+          });
+          if (datasetMap.size) {
+            index.set(datasetName, datasetMap);
+          }
+        });
+        return index;
+      }
+
+      function loadOverrides() {
+        if (overridesPromise) {
+          return overridesPromise;
+        }
+        overridesPromise = fetch('../../data/similarity-overrides.json')
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`Failed to load overrides (${response.status})`);
+            }
+            return response.json();
+          })
+          .then((json) => {
+            overrideIndex = parseOverrides(json);
+            return overrideIndex;
+          })
+          .catch((error) => {
+            console.warn(error);
+            overrideIndex = new Map();
+            return overrideIndex;
+          });
+        return overridesPromise;
       }
 
       function updateCount(count) {
@@ -2282,12 +2481,26 @@
           if (state.activePairKey === pairKey) {
             row.classList.add('is-active');
           }
+          if (match.override) {
+            row.classList.add('is-protected');
+          }
 
           const scoreCell = document.createElement('td');
           scoreCell.className = 'cell-score';
           const scoreValue = document.createElement('span');
           scoreValue.className = 'score-value';
           scoreValue.textContent = formatSimilarity(match.similarity);
+          const scoreFlags = document.createElement('div');
+          scoreFlags.className = 'score-flags';
+          if (match.override) {
+            const flag = document.createElement('span');
+            flag.className = 'score-flag';
+            flag.textContent = match.override.label || 'Protected pair';
+            if (match.override.reason) {
+              flag.title = match.override.reason;
+            }
+            scoreFlags.appendChild(flag);
+          }
           const scoreMeter = document.createElement('div');
           scoreMeter.className = 'score-meter';
           const scoreFill = document.createElement('div');
@@ -2311,6 +2524,9 @@
           scoreDeltas.appendChild(wordDelta);
           scoreDeltas.appendChild(levenshteinDelta);
           scoreCell.appendChild(scoreValue);
+          if (scoreFlags.childElementCount) {
+            scoreCell.appendChild(scoreFlags);
+          }
           scoreCell.appendChild(scoreMeter);
           scoreCell.appendChild(scoreDeltas);
           row.appendChild(scoreCell);
@@ -2427,6 +2643,15 @@
           return;
         }
 
+        if (detailFlag) {
+          detailFlag.hidden = true;
+          detailFlag.textContent = 'Protected pair';
+        }
+        if (detailFlagReason) {
+          detailFlagReason.hidden = true;
+          detailFlagReason.textContent = '';
+        }
+
         if (!match) {
           detailBody.hidden = true;
           detailEmpty.hidden = false;
@@ -2448,6 +2673,19 @@
         if (detailLevenshtein) {
           const levenshteinPercent = formatPercent(match.levenshteinSimilarity);
           detailLevenshtein.textContent = `Levenshtein Δ ${match.levenshteinDistance.toLocaleString()} • ${levenshteinPercent}% overlap`;
+        }
+        if (detailFlag && match.override) {
+          detailFlag.hidden = false;
+          detailFlag.textContent = match.override.label || 'Protected pair';
+        }
+        if (detailFlagReason) {
+          if (match.override && match.override.reason) {
+            detailFlagReason.hidden = false;
+            detailFlagReason.textContent = match.override.reason;
+          } else {
+            detailFlagReason.hidden = true;
+            detailFlagReason.textContent = '';
+          }
         }
 
         if (match.recordA) {
@@ -2541,6 +2779,15 @@
         const searchTerm = normalizeString(state.search);
         const minValue = state.minSimilarity;
         return entry.matches
+          .filter((match) => {
+            if (!match) {
+              return false;
+            }
+            if (match.override && match.override.action === 'hide') {
+              return false;
+            }
+            return true;
+          })
           .filter((match) => match.similarity >= minValue && match.similarity <= state.maxSimilarity)
           .filter((match) => {
             if (!searchTerm) {
@@ -3116,9 +3363,13 @@
 
       document.addEventListener('DOMContentLoaded', () => {
         recordMaps = buildRecordMaps();
-        buildModelButtons();
-        document.body.setAttribute('data-active-dataset', state.dataset || 'jokes');
-        setActiveModel(DEFAULT_MODEL_KEY, { initial: true });
+        loadOverrides()
+          .catch(() => new Map())
+          .finally(() => {
+            buildModelButtons();
+            document.body.setAttribute('data-active-dataset', state.dataset || 'jokes');
+            setActiveModel(DEFAULT_MODEL_KEY, { initial: true });
+          });
       });
     })();
   </script>

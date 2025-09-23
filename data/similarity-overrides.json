@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "description": "Manual overrides for cosine similarity reports. Pairs listed here were reviewed and should not be treated as duplicates.",
+    "updatedAt": "2025-09-22T23:16:21.950Z"
+  },
+  "datasets": {
+    "jokes": {
+      "protectedPairs": []
+    },
+    "quotes": {
+      "protectedPairs": [
+        {
+          "ids": [
+            "positive-11",
+            "purpose-09"
+          ],
+          "label": "Keep both",
+          "reason": "Distinct Walt Disney quotes that land on similar optimism but with different language."
+        },
+        {
+          "ids": [
+            "resilience-08",
+            "purpose-11"
+          ],
+          "label": "Keep both",
+          "reason": "Different Benjamin Disraeli quotes that focus on perseverance versus purpose."
+        }
+      ]
+    }
+  }
+}

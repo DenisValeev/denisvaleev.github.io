@@ -1,7 +1,7 @@
 {
   "dataset": "jokes",
   "threshold": 0.5,
-  "generatedAt": "2025-09-21T03:25:51.227Z",
+  "generatedAt": "2025-09-22T23:19:57.669Z",
   "provider": "hfspace",
   "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
   "matches": [
@@ -158,13 +158,6 @@
       "similarity": 0.6653848909210538,
       "previewA": "What do you get if you cross a turkey with a ghost? • A poultry-geist!",
       "previewB": "What do you get when you cross a chicken with a skunk? • A fowl smell!"
-    },
-    {
-      "idA": "j-0597",
-      "idB": "j-0812",
-      "similarity": 0.664461413796912,
-      "previewA": "Why did the cookie cry? • Because his mother was a wafer so long",
-      "previewB": "Why did the cookie go to the doctor? • Because it was feeling crumbly."
     },
     {
       "idA": "j-0559",
@@ -398,13 +391,6 @@
       "previewB": "A ham sandwhich walks into a bar and orders a beer. The bartender says... • I'm sorry, we don't serve food here"
     },
     {
-      "idA": "j-0428",
-      "idB": "j-0755",
-      "similarity": 0.5613069754657056,
-      "previewA": "Ever wondered why bees hum? • It's because they don't know the words.",
-      "previewB": "What do you call a bee that can't make up its mind? • A maybe."
-    },
-    {
       "idA": "j-0683",
       "idB": "j-0826",
       "similarity": 0.5587112843234565,
@@ -510,25 +496,11 @@
       "previewB": "Where do bees go to the bathroom? • The BP station."
     },
     {
-      "idA": "j-0816",
-      "idB": "j-0824",
-      "similarity": 0.5381453808416483,
-      "previewA": "Why did the developer go broke? • They kept spending all their cache.",
-      "previewB": "Why did the programmer bring a broom to work? • To clean up all the bugs."
-    },
-    {
       "idA": "j-0687",
       "idB": "j-0824",
       "similarity": 0.5356864038428624,
       "previewA": "Why did the programmer quit his job? • Because he didn't get arrays.",
       "previewB": "Why did the programmer bring a broom to work? • To clean up all the bugs."
-    },
-    {
-      "idA": "j-0816",
-      "idB": "j-0834",
-      "similarity": 0.5331451321761588,
-      "previewA": "Why did the developer go broke? • They kept spending all their cache.",
-      "previewB": "Why did the JavaScript heap close shop? • It ran out of memory."
     },
     {
       "idA": "j-0192",
@@ -585,13 +557,6 @@
       "similarity": 0.5237665256846151,
       "previewA": "Why do trees seem suspicious on sunny days? • Dunno, they're just a bit shady.",
       "previewB": "Why do you never see elephants hiding in trees? • Because they're so good at it."
-    },
-    {
-      "idA": "j-0068",
-      "idB": "j-0812",
-      "similarity": 0.522817692593297,
-      "previewA": "Why did the banana go to the doctor? • He was not \"peeling\" well.",
-      "previewB": "Why did the cookie go to the doctor? • Because it was feeling crumbly."
     },
     {
       "idA": "j-0129",

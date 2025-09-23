@@ -1,7 +1,7 @@
 {
   "dataset": "jokes",
   "threshold": 0.5,
-  "generatedAt": "2025-09-21T23:10:32.417Z",
+  "generatedAt": "2025-09-22T23:19:57.672Z",
   "provider": "openai",
   "model": "text-embedding-3-large",
   "matches": [
@@ -109,13 +109,6 @@
       "similarity": 0.643096296265,
       "previewA": "Why don't sharks eat clowns? • Because they taste funny.",
       "previewB": "My friend keeps telling me \"Cheer up. • You aren't stuck in a deep hole in the ground, filled with water.\" I know he mea"
-    },
-    {
-      "idA": "j-0350",
-      "idB": "j-0812",
-      "similarity": 0.641189739102,
-      "previewA": "A man was caught stealing in a supermarket today while balanced on the shoulders of a couple of vampires. • He was charg",
-      "previewB": "Why did the cookie go to the doctor? • Because it was feeling crumbly."
     },
     {
       "idA": "j-0009",
@@ -783,13 +776,6 @@
       "previewB": "I went to the zoo the other day, there was only one dog in it. • It was a shitzu."
     },
     {
-      "idA": "j-0531",
-      "idB": "j-0771",
-      "similarity": 0.569073406997,
-      "previewA": "Why do wizards clean their teeth three times a day? • To prevent bat breath!",
-      "previewB": "Why did the kid throw the watch out the window? • So time would fly."
-    },
-    {
       "idA": "j-0081",
       "idB": "j-0152",
       "similarity": 0.568372003614,
@@ -802,20 +788,6 @@
       "similarity": 0.568304742539,
       "previewA": "What do you call cheese by itself? • Provolone.",
       "previewB": "Did you hear about the bread factory burning down? • They say the business is toast."
-    },
-    {
-      "idA": "j-0401",
-      "idB": "j-0779",
-      "similarity": 0.568007629063,
-      "previewA": "I used to work in a shoe recycling shop. • It was sole destroying.",
-      "previewB": "A grocery store cashier asked if I would like my milk in a bag. • I told her 'No, thanks. The carton works fine.'"
-    },
-    {
-      "idA": "j-0435",
-      "idB": "j-0779",
-      "similarity": 0.566908165515,
-      "previewA": "I’ve deleted the phone numbers of all the Germans I know from my mobile phone. • Now it’s Hans free.",
-      "previewB": "A grocery store cashier asked if I would like my milk in a bag. • I told her 'No, thanks. The carton works fine.'"
     },
     {
       "idA": "j-0154",
@@ -916,13 +888,6 @@
       "previewB": "What kind of motorbike does Santa ride? • A Holly Davidson!"
     },
     {
-      "idA": "j-0065",
-      "idB": "j-0816",
-      "similarity": 0.564065281419,
-      "previewA": "I got a reversible jacket for Christmas • I can't wait to see how it turns out.",
-      "previewB": "Why did the developer go broke? • They kept spending all their cache."
-    },
-    {
       "idA": "j-0202",
       "idB": "j-0838",
       "similarity": 0.563855122946,
@@ -991,13 +956,6 @@
       "similarity": 0.561370132468,
       "previewA": "What do you call a factory that sells passable products? • A satisfactory",
       "previewB": "Why did the programmer bring a broom to work? • To clean up all the bugs."
-    },
-    {
-      "idA": "j-0669",
-      "idB": "j-0816",
-      "similarity": 0.560806381927,
-      "previewA": "Have you heard about corduroy pillows? • They're making headlines!",
-      "previewB": "Why did the developer go broke? • They kept spending all their cache."
     },
     {
       "idA": "j-0120",

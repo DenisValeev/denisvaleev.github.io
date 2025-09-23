@@ -3,8 +3,8 @@
     "provider": "synthetic",
     "model": "synthetic-64",
     "dimensions": 64,
-    "generatedAt": "2025-09-22T01:31:43.622Z",
-    "recordCount": 657
+    "generatedAt": "2025-09-22T23:16:21.899Z",
+    "recordCount": 653
   },
   "records": {
     "adventure-01": {
@@ -2246,15 +2246,6 @@
       "provider": "synthetic",
       "dimensions": 64,
       "textHash": "2c32725f349b14eff9838983c6f257d6e8729e5b199bfbfd7323b4b94abba05f",
-      "updatedAt": "2025-09-20T22:28:15.453Z"
-    },
-    "travel-05": {
-      "vector": "pqUlP6qpKT/Hxsa+xsVFv52cHL6CgQE/rKsrP+Hg4DzIx0e/q6qqvuPi4r6EgwO/zMtLP8nIyL2dnBw+tLMzP4qJCb+opye/6OdnP+Pi4j6JiIi96ejovZeWlr7k42M/qaioPeno6D2DgoI+zMtLv9LRUb/t7Gy+6ulpP8PCwj6mpSU/qqkpP8fGxr7GxUW/nZwcvoKBAT+sqys/4eDgPMjHR7+rqqq+4+LivoSDA7/My0s/ycjIvZ2cHD60szM/iokJv6inJ7/o52c/4+LiPomIiL3p6Oi9l5aWvuTjYz+pqKg96ejoPYOCgj7My0u/0tFRv+3sbL7q6Wk/w8LCPg==",
-      "vectorSha256": "2fa19280ba06641e9575ec0f47f3e169a2f7c429633cbe20a609a51dc13d82ef",
-      "model": "synthetic-64",
-      "provider": "synthetic",
-      "dimensions": 64,
-      "textHash": "d2d44e1d6cc0d5831c55473ee57393d93b2cf3b877715af18a8ea01a1762f4b0",
       "updatedAt": "2025-09-20T22:28:15.453Z"
     },
     "travel-07": {
@@ -4894,15 +4885,6 @@
       "textHash": "be315d9901c675547584adbab4b30b8fd47b8b41d6156336a30ff2b64965b183",
       "updatedAt": "2025-09-21T03:05:51.948Z"
     },
-    "resilience-02": {
-      "vector": "m5qaPomIiL3KyUk/hYQEPv79fb/BwEA88vFxv66tLT/Ix0e/9PNzP+/u7r6TkpI+j46OvtXUVD6KiQm/iIcHP/79fb+2tTW/iYiIPdfW1r6WlRU/4+LivvPy8r6ZmJg90tFRP8bFRb+joqK+5eRkPvb1dT+RkBA9urk5P9XUVD6bmpo+iYiIvcrJST+FhAQ+/v19v8HAQDzy8XG/rq0tP8jHR7/083M/7+7uvpOSkj6Pjo6+1dRUPoqJCb+Ihwc//v19v7a1Nb+JiIg919bWvpaVFT/j4uK+8/LyvpmYmD3S0VE/xsVFv6Oior7l5GQ+9vV1P5GQED26uTk/1dRUPg==",
-      "vectorSha256": "b68be5a8b7e4ce1a48e2a26cf976a9d40b7f81dd3084f413b07379127b33e02b",
-      "model": "synthetic-64",
-      "provider": "synthetic",
-      "dimensions": 64,
-      "textHash": "a677e490018107d61cf944a45c9a3bc30125884aca474389e81d579cfa84dc9a",
-      "updatedAt": "2025-09-21T03:05:51.951Z"
-    },
     "resilience-03": {
       "vector": "2NdXv+zra7/y8XE/s7KyvrW0NL739vY+zMtLP5WUFD7R0FA9/Pt7v66tLT+xsDA9wL8/P+/u7r6SkRG//Pt7P9XUVL7Z2Ng92NdXv93cXD6vrq6+paQkPoSDA7/KyUm/0M9Pv6SjIz/q6Wk/5uVlP52cHL6UkxM/sbAwPevq6r7Y11e/7Otrv/LxcT+zsrK+tbQ0vvf29j7My0s/lZQUPtHQUD38+3u/rq0tP7GwMD3Avz8/7+7uvpKREb/8+3s/1dRUvtnY2D3Y11e/3dxcPq+urr6lpCQ+hIMDv8rJSb/Qz0+/pKMjP+rpaT/m5WU/nZwcvpSTEz+xsDA96+rqvg==",
       "vectorSha256": "7659e7add19b9b89dee9883a98ddcea11a9dce5ed213d9c5f994f8eaf67ad38f",
@@ -5281,15 +5263,6 @@
       "textHash": "0a8e21e52e1de939743b570234ef0eb52aa84ef50dd1b2be2b3957b87d8b17b8",
       "updatedAt": "2025-09-21T03:05:51.953Z"
     },
-    "growth-09": {
-      "vector": "zs1Nv7CvL7+koyM/np0dP5mYmD339va+hYQEvtzbWz+TkpK+ubi4vdXUVD61tDS+9PNzv7++vr6SkRG/oqEhv/HwcL2urS0/vr09v+7tbb+mpSW/i4qKvrCvLz/b2to+y8rKPp2cHD7DwsI+np0dv4eGhr7u7W2/kI8PP83MTD7OzU2/sK8vv6SjIz+enR0/mZiYPff29r6FhAS+3NtbP5OSkr65uLi91dRUPrW0NL7083O/v76+vpKREb+ioSG/8fBwva6tLT++vT2/7u1tv6alJb+Lioq+sK8vP9va2j7Lyso+nZwcPsPCwj6enR2/h4aGvu7tbb+Qjw8/zcxMPg==",
-      "vectorSha256": "1c2bda31790a4a1d2be0427e747f8d262c6519f5087d8e9f83344e28ed2b2d15",
-      "model": "synthetic-64",
-      "provider": "synthetic",
-      "dimensions": 64,
-      "textHash": "1928d1ce89426fed5b749a690650372f78d621092d5dd7b6b293b0315e09c799",
-      "updatedAt": "2025-09-21T03:05:51.953Z"
-    },
     "growth-10": {
       "vector": "4eDgvKmoqD2dnBy+7+7uPoqJCb/u7W0/trU1v7q5OT/19HS+3dxcvqSjIz/a2Vk/iokJP4OCgr6pqKg9xsVFP7a1NT+zsrI+2djYPeno6D2ZmJg9wL8/P4yLCz+urS2/qaiovbW0NL7x8HA9AACAv5KREb+fnp4+5eRkvo6NDb/h4OC8qaioPZ2cHL7v7u4+iokJv+7tbT+2tTW/urk5P/X0dL7d3Fy+pKMjP9rZWT+KiQk/g4KCvqmoqD3GxUU/trU1P7Oysj7Z2Ng96ejoPZmYmD3Avz8/jIsLP66tLb+pqKi9tbQ0vvHwcD0AAIC/kpERv5+enj7l5GS+jo0Nvw==",
       "vectorSha256": "8589811571a12a0257580187e13ef1f9ff0ebb9c1cfe2663698d6e892714424f",
@@ -5342,15 +5315,6 @@
       "provider": "synthetic",
       "dimensions": 64,
       "textHash": "a9f5ca67ca389e12db5e5a143114ef90ebe0a80b121f3a61d0acf9e1aad69ab4",
-      "updatedAt": "2025-09-21T03:05:51.955Z"
-    },
-    "joy-04": {
-      "vector": "goEBP4iHBz+joqK++fj4vcPCwr7GxUU/oJ8fv9LRUb+OjQ0/zcxMPtPS0j7NzEy+qKcnv6GgoLy0szM/pqUlP9DPT7+bmpq+nZwcvsvKyr69vDw+lZQUPrKxMb/My0u//fx8PrOysj6TkpI+7exsPuPi4j7x8HC9sbAwvYGAgDuCgQE/iIcHP6Oior75+Pi9w8LCvsbFRT+gnx+/0tFRv46NDT/NzEw+09LSPs3MTL6opye/oaCgvLSzMz+mpSU/0M9Pv5uamr6dnBy+y8rKvr28PD6VlBQ+srExv8zLS7/9/Hw+s7KyPpOSkj7t7Gw+4+LiPvHwcL2xsDC9gYCAOw==",
-      "vectorSha256": "43444dfa7db310a1b94dd4e6bd8f0eb2a55578abeaf4c2eb87f918916bb7ad93",
-      "model": "synthetic-64",
-      "provider": "synthetic",
-      "dimensions": 64,
-      "textHash": "c0c357704fe23017c699b4662c7dd9d218596c4d9792271a9faca49db8787a80",
       "updatedAt": "2025-09-21T03:05:51.955Z"
     },
     "joy-05": {

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2025-09-22T01:51:00.474Z",
-    "total": 888,
+    "generatedAt": "2025-09-22T23:16:21.809Z",
+    "total": 865,
     "hashAlgorithm": "sha256",
     "tokenSignature": "unique-words-v1",
     "fields": [
@@ -6646,27 +6646,6 @@
         "updatedAt": "2025-09-20T22:27:41.524Z"
       }
     },
-    "j-0317": {
-      "hashes": {
-        "setup": "3fe4218b2d6cfbebd91f6373a58f82e0e539f375fee5d1f3ace0401e1364fb8e",
-        "punchline": "57a10103d560459e6e07f89c75d2ccb05b340d4b3d0a419514d84cda8db810ae",
-        "combined": "a7c44a2a8c92584a170ce195f356b56deaceaf2ad2f852c9d8ed60a5efcf40e7",
-        "tokenSignature": "ahead-around-can-did-go-hang-hat-i-just-ll-on-say-scarf-the-to-what-you"
-      },
-      "lengths": {
-        "joke": 55,
-        "punchline": 22
-      },
-      "source": {
-        "sequence": 317
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "a278be6d7f5fa994007aea3bafb895c737e9752041efc6aa5f13363fea8b6d7f",
-        "updatedAt": "2025-09-20T22:27:41.524Z"
-      }
-    },
     "j-0318": {
       "hashes": {
         "setup": "599c73cbbbcee631cb1eb0a06f9be7faa4806ec615613d74d4cc6111dee27020",
@@ -8977,27 +8956,6 @@
         "updatedAt": "2025-09-20T22:27:41.533Z"
       }
     },
-    "j-0428": {
-      "hashes": {
-        "setup": "ba28988d88511a1a6ca7beebc89c13a8e048ae864a382b93a06b72cc00863db0",
-        "punchline": "ff8d9f73f6feee7079610926ca1ea8b6454b2efa59ba6ba582c6c8616f1bf365",
-        "combined": "1d09940788d83b70518b2864aca81e97b8f076896861d94ac85b64d021d7b329",
-        "tokenSignature": "because-bees-don-ever-hum-it-know-s-t-the-they-why-wondered-words"
-      },
-      "lengths": {
-        "joke": 27,
-        "punchline": 39
-      },
-      "source": {
-        "sequence": 428
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "66bd48857ec5e500869b16b4adfe1f23667d651e54705ce0cb00cf26bde68244",
-        "updatedAt": "2025-09-20T22:27:41.533Z"
-      }
-    },
     "j-0429": {
       "hashes": {
         "setup": "289806e5ae02b7c9a8effcbf86dd59a82c784db1eb33eefe333b8fc817ff7614",
@@ -10906,27 +10864,6 @@
         "status": "ready",
         "model": "synthetic-64",
         "vectorSha256": "0493995de949b2c0de6ca255fbd53459b925500ce395fd5e6c25037a642d404c",
-        "updatedAt": "2025-09-20T22:27:41.535Z"
-      }
-    },
-    "j-0521": {
-      "hashes": {
-        "setup": "0246326cd7bec0b3dd655876f321392382eeff44d7a259cfa448c73047c3f28a",
-        "punchline": "f731a9e79e83825f74d3257d9ce2c369c0f0a0525289d9916e861aeec9bc0d02",
-        "combined": "57d061f0fe7f923dad663de58ee0dabe705327eec83999790ff7675a40736f48",
-        "tokenSignature": "a-after-but-can-car-dad-his-just-says-son-sponge-t-the-use-washes-while-why-with-you"
-      },
-      "lengths": {
-        "joke": 34,
-        "punchline": 67
-      },
-      "source": {
-        "sequence": 520
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "86963172ccc275d8e4352fd849227a3838dbfc0c35ece3fa04939975f66255dd",
         "updatedAt": "2025-09-20T22:27:41.535Z"
       }
     },
@@ -14374,27 +14311,6 @@
         "updatedAt": "2025-09-20T22:27:41.539Z"
       }
     },
-    "j-0688": {
-      "hashes": {
-        "setup": "7b7cc7e5d5c24b0c94ed659afe177f44eb1d916f1e04343d01dd81d77166bdfb",
-        "punchline": "d90893c35f1501680cfa221aaf5083e433905c2d321d5309e31b9558e3bb7bf4",
-        "combined": "22e7a1c57266e0b1359d8e60540e7f923c8d6e87bc4874dace3e9721a38dc78d",
-        "tokenSignature": "a-about-did-ended-hear-in-it-race-silk-the-tie-two-worms-you"
-      },
-      "lengths": {
-        "joke": 48,
-        "punchline": 18
-      },
-      "source": {
-        "sequence": 685
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "aa9b90186f16b311a3568f1bb998dd4db5b9c6cc9cafca2bcae87b4f2db2bdb5",
-        "updatedAt": "2025-09-20T22:27:41.539Z"
-      }
-    },
     "j-0689": {
       "hashes": {
         "setup": "1704f287293e56c3167eac6b4093266c3e6ae91eb361781580946db100ccb945",
@@ -14605,27 +14521,6 @@
         "updatedAt": "2025-09-20T22:27:41.539Z"
       }
     },
-    "j-0700": {
-      "hashes": {
-        "setup": "24367ca15151319e39dac74978c99aded07885f11aa25090332324809ba19a3e",
-        "punchline": "6ff1a02afb0fd223466e67239aed45f25098f21e155fc86157bc61a34315ffc1",
-        "combined": "0d8c1bd2cdd069c72baaa472c34963fc828c7e835f31bffa55bb98cddcd8e20b",
-        "tokenSignature": "cooked-did-first-france-french-fries-greece-in-know-t-the-they-were-weren-you"
-      },
-      "lengths": {
-        "joke": 61,
-        "punchline": 26
-      },
-      "source": {
-        "sequence": 696
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "acd18cf8a952bff98d4105a57fedb891cfbd8d0014c270677160781573abb29a",
-        "updatedAt": "2025-09-20T22:27:41.539Z"
-      }
-    },
     "j-0701": {
       "hashes": {
         "setup": "4ad34c24df6bd971d8c4831e7cf703c10fb9e494f527554138d109ed76ce3b19",
@@ -14728,27 +14623,6 @@
         "status": "ready",
         "model": "synthetic-64",
         "vectorSha256": "c7920ca23923709b3b41a892075c984e0b385d5bd4855945a4e9b6c98964b999",
-        "updatedAt": "2025-09-20T22:27:41.540Z"
-      }
-    },
-    "j-0706": {
-      "hashes": {
-        "setup": "b4128cf80a48ce46518076c3e4cb859f1f44d2f4e316e5def87d728741d21fcf",
-        "punchline": "f6e4f86148dcdee1e9b7ae71949ef47ded2211c4dbf0ca8a455eae61f8d801c7",
-        "combined": "76c5fc6d41386e4c4ddd9c0b6165cb464660837ab6401649b9622c4cce2623aa",
-        "tokenSignature": "a-about-anti-book-down-gravity-i-impossible-it-m-put-reading-s-to"
-      },
-      "lengths": {
-        "joke": 40,
-        "punchline": 27
-      },
-      "source": {
-        "sequence": 702
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "ed7d6f243d69bed63ef80e6fa7a4f746d5417cf14f9e4d36f6341cb034fb4212",
         "updatedAt": "2025-09-20T22:27:41.540Z"
       }
     },
@@ -14938,27 +14812,6 @@
         "status": "ready",
         "model": "synthetic-64",
         "vectorSha256": "11b62431a07341bf42249771a70dc5b0eab5bb341cc9e9a1ac7d340348459dd7",
-        "updatedAt": "2025-09-20T22:27:41.540Z"
-      }
-    },
-    "j-0718": {
-      "hashes": {
-        "setup": "835dd0bd928e6913fce77b9e8fd98bee421a728213a1067ece7ba4b8d6b8e344",
-        "punchline": "bbf6a640d54a863c5a71900d33c03910f5378a33c8cd672347b90e1d15974cae",
-        "combined": "a22b0a72032a16f8427c4c4337ee6cd064bec3bcaba4ce94ebc1e7a209e035d7",
-        "tokenSignature": "a-are-cemetery-dad-did-drives-dying-get-graveyard-in-just-know-past-people-popular-s-that-there-to-when-yep-you"
-      },
-      "lengths": {
-        "joke": 75,
-        "punchline": 42
-      },
-      "source": {
-        "sequence": 712
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "ab7306f36f77462b4158ae173856fcaa0804017410d19325c2b2dd8cacb108f3",
         "updatedAt": "2025-09-20T22:27:41.540Z"
       }
     },
@@ -15172,27 +15025,6 @@
         "updatedAt": "2025-09-20T22:27:41.541Z"
       }
     },
-    "j-0729": {
-      "hashes": {
-        "setup": "50202d3d188e5dd2096c077f8ccfa48fd56ead011c1252c2ed1e8d2bb04fa8d6",
-        "punchline": "b53dcc6f17a28042146f9c90b53760348756383015f96fe38284ca6ad48bdffc",
-        "combined": "0d335bffe78680b06fc2b6010da4512653c5418fa66a80f0e9041781b053c892",
-        "tokenSignature": "about-cheese-dairy-did-hear-it-legend-saved-story-that-the-was-world-you"
-      },
-      "lengths": {
-        "joke": 61,
-        "punchline": 20
-      },
-      "source": {
-        "sequence": 723
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "6a2eaf11770497fe37e356d698dbf05c5b6555fa4b1718667bc1ec1fa394a381",
-        "updatedAt": "2025-09-20T22:27:41.541Z"
-      }
-    },
     "j-0730": {
       "hashes": {
         "setup": "137352b369d5bc148a07e7ecf2e36d6c9062253ad37bdec6f0dde82e008e7cb8",
@@ -15277,27 +15109,6 @@
         "updatedAt": "2025-09-20T22:27:41.541Z"
       }
     },
-    "j-0734": {
-      "hashes": {
-        "setup": "098797d527b83cad533859879b3018ba7c91badad6a37d7bcf7c96fa9a25274f",
-        "punchline": "350c6fcb0b368801b81219a24c7e2d3ad1751e65104577bcf2d33ab82c7737fb",
-        "combined": "1a1df9fb75001f13a7af26d926bb4e84c3f70ed9919a154b91b71e2fa454ccf1",
-        "tokenSignature": "a-at-booked-couldn-fully-get-i-library-reservation-t-the-they-were"
-      },
-      "lengths": {
-        "joke": 46,
-        "punchline": 23
-      },
-      "source": {
-        "sequence": 728
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "8f6c06d184cfb5f89db4de054d1145210f38cbd2f801f360fd0cea7ba2e4f32e",
-        "updatedAt": "2025-09-20T22:27:41.541Z"
-      }
-    },
     "j-0735": {
       "hashes": {
         "setup": "2d1baff68b7133c94dd79cc662cd756354b166e1324618a6cadfc97f76a20fac",
@@ -15358,27 +15169,6 @@
         "status": "ready",
         "model": "synthetic-64",
         "vectorSha256": "45de56d1fcbe9575d1ac9872c732f220c13b21e80e769dcd87ac57c3c47c4d9e",
-        "updatedAt": "2025-09-20T22:27:41.541Z"
-      }
-    },
-    "j-0740": {
-      "hashes": {
-        "setup": "f90546c74b6637bca789cedd33bf3c53f8dd689d62cce2bfefabe965e4202e52",
-        "punchline": "322be6b147f67d75d43a0a329cbc8dab32ad879819d7cd421947645f32153098",
-        "combined": "424561e86a4d18d2de036c5c48380b78f720075eae6d03a328600aa25c218bef",
-        "tokenSignature": "but-can-don-i-it-on-t-the-turn-tv-watch-yes"
-      },
-      "lengths": {
-        "joke": 19,
-        "punchline": 26
-      },
-      "source": {
-        "sequence": 732
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "8c2edcbf9aafc681e7cd3fe6b2bc6f0abe7c5107c519e472666919b1495cf3de",
         "updatedAt": "2025-09-20T22:27:41.541Z"
       }
     },
@@ -15886,48 +15676,6 @@
         "updatedAt": "2025-09-20T22:27:41.541Z"
       }
     },
-    "j-0767": {
-      "hashes": {
-        "setup": "6d0620adbd0c48d39ec19a253ca9a2c033d7e3902430fb55b9ac374f921e549d",
-        "punchline": "ef15a992bf1a8da5f4b7f890eaaa7aa715abc0cbc1088bb7d098b25aad97a599",
-        "combined": "b1cc353d1c200a9aa9dad1c6dfa9468c6c4095cd6dd3d3901750c5dc29e52301",
-        "tokenSignature": "because-crack-don-each-eggs-jokes-other-t-tell-they-up-why-would"
-      },
-      "lengths": {
-        "joke": 26,
-        "punchline": 39
-      },
-      "source": {
-        "sequence": 757
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "2d78dde195c4a14da1dc54a87a6de7331c3378b4826c0f78de37b3ffff4aa5fc",
-        "updatedAt": "2025-09-20T22:27:41.541Z"
-      }
-    },
-    "j-0768": {
-      "hashes": {
-        "setup": "ea18d09a8b293068c2d1103b8af8c5874d2d78f0247362f5ed2a520e10e9abd8",
-        "punchline": "4882645d942c5829e5b5ffde5e78cc7aededbe62337dbaed0a5ffb599215b25c",
-        "combined": "cc39ef732d305b0c9f0504b02d4c5adae56f2bad6ae94b0858bb8a9ca5b9c2ab",
-        "tokenSignature": "add-and-disappear-do-g-gone-how-it-letter-make-number-one-s-the-you"
-      },
-      "lengths": {
-        "joke": 41,
-        "punchline": 33
-      },
-      "source": {
-        "sequence": 758
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "cd3dc3d67b52beb649400bc80d95cb2cc0e1f656673f84e61c6374c3d81aec17",
-        "updatedAt": "2025-09-20T22:27:41.541Z"
-      }
-    },
     "j-0769": {
       "hashes": {
         "setup": "dd3c52fbdcf1165f44be7bede76d844290ad4403425159b458e448d1587d912e",
@@ -15968,27 +15716,6 @@
         "model": "synthetic-64",
         "vectorSha256": "9491bed5afbaf7854de146c23e10bce1dccbfed858337ffe35d7582b6b5e49ea",
         "updatedAt": "2025-09-20T22:27:41.541Z"
-      }
-    },
-    "j-0771": {
-      "hashes": {
-        "setup": "6d369997773a894bf726c402d089774c22e4e65c2174f2c34b3f431a7e8fbce7",
-        "punchline": "ed05a2624b0cc99b63c28a2c287ddb37eb1f42b7b95e67856bd354850949a71d",
-        "combined": "58d91d81ce360b0382b06f0535ff66abd25e402877b8d4ec63c766ae7c9feee3",
-        "tokenSignature": "did-fly-kid-out-so-the-throw-time-watch-why-window-would"
-      },
-      "lengths": {
-        "joke": 47,
-        "punchline": 18
-      },
-      "source": {
-        "sequence": 761
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "89397a803e63205d027f4b44e078694b7381cc362bd64900ff93f53fa097bf35",
-        "updatedAt": "2025-09-20T22:27:41.542Z"
       }
     },
     "j-0772": {
@@ -16138,27 +15865,6 @@
         "updatedAt": "2025-09-20T22:27:41.542Z"
       }
     },
-    "j-0779": {
-      "hashes": {
-        "setup": "1bcb4f014a8102216395c45d1609671668e0733a3999c6032a1e046592ec132d",
-        "punchline": "a4be21f4d35f902bdca4a5797841be91382c80960b225303c8ad0ccaa107f008",
-        "combined": "fd0cc3243dcc8515338e8cb7258d20cb885b5e16a64f4a751365cc05f88acd4e",
-        "tokenSignature": "a-asked-bag-carton-cashier-fine-grocery-her-i-if-in-like-milk-my-no-store-thanks-the-told-works-would"
-      },
-      "lengths": {
-        "joke": 63,
-        "punchline": 47
-      },
-      "source": {
-        "sequence": 769
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "48b36fde78d2f0991588d429013032d54ea1f6eada22f6271dc6d070ebc7ef27",
-        "updatedAt": "2025-09-20T22:27:41.542Z"
-      }
-    },
     "j-0780": {
       "hashes": {
         "setup": "b2518fc5325f67d86a04cd68c233222863284cd0043d915272fd0b9df65f3c54",
@@ -16177,48 +15883,6 @@
         "status": "ready",
         "model": "synthetic-64",
         "vectorSha256": "faa64b2a2b9f2f57921de54b9f9efd42ff713ed9580fce2d32a7d0aa545a86ea",
-        "updatedAt": "2025-09-20T22:27:41.542Z"
-      }
-    },
-    "j-0781": {
-      "hashes": {
-        "setup": "4426db68dd6d5f4ba44be2bcd5611c0a36c2e69ec5bf08da2de10f2b433447e9",
-        "punchline": "34629a76a86e6043bf7c430549e0181c38fee0f788fda98c19e89f96c371e6b7",
-        "combined": "1dfe6b4e1eb00534a246fbe0ab47bc86c462cd07fc0841feb9d25e811c1f15d6",
-        "tokenSignature": "at-enough-factory-fired-from-got-i-in-job-just-keyboard-me-my-putting-shifts-t-the-they-told-wasn"
-      },
-      "lengths": {
-        "joke": 53,
-        "punchline": 47
-      },
-      "source": {
-        "sequence": 771
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "5c918cd07f307ea8167f6e3c5ad61c5a116bf4c92cb2d7ab2e9ea02d9056e320",
-        "updatedAt": "2025-09-20T22:27:41.542Z"
-      }
-    },
-    "j-0782": {
-      "hashes": {
-        "setup": "71ef58b3817e3a43dbf95f72c470e4241eec112d6d8227449783128eada36e83",
-        "punchline": "4de4cb9911107c3d5083625784ea7ff74a42340558391062de6357ba64011417",
-        "combined": "e84ad14400205ebc8e58647bdab74666665a1031e5237069f70dfad37f5949f1",
-        "tokenSignature": "are-areas-aren-funny-hill-just-mountains-see-t-they-you"
-      },
-      "lengths": {
-        "joke": 37,
-        "punchline": 20
-      },
-      "source": {
-        "sequence": 772
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "ba606466997a78f09d311588300767cc92e3fa2cc6005268affaebbe774fbcac",
         "updatedAt": "2025-09-20T22:27:41.542Z"
       }
     },
@@ -16579,27 +16243,6 @@
         "updatedAt": "2025-09-20T22:27:41.542Z"
       }
     },
-    "j-0802": {
-      "hashes": {
-        "setup": "4733e35dc985bf2fa2019c50dcb7fee919ecd96d90e734cb5f8a5e92001cb435",
-        "punchline": "789315824e52d11c7f941ae7988e8443851884c777ed78f82d5fb9ac6a8d73e2",
-        "combined": "5ac86a058c138fda601d16fcb773384acf411c015c64d2997dead077f2704aec",
-        "tokenSignature": "bicycle-by-couldn-it-itself-stand-t-the-tired-two-up-was-why"
-      },
-      "lengths": {
-        "joke": 44,
-        "punchline": 17
-      },
-      "source": {
-        "sequence": 790
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "52162787fb154545bce6cc61bc12ee36117c52c6136f45def58ee76621f56009",
-        "updatedAt": "2025-09-20T22:27:41.542Z"
-      }
-    },
     "j-0803": {
       "hashes": {
         "setup": "8548bc771407d24b394c5f032c3e3164568d0c838641571985a1795ebe46b91b",
@@ -16663,27 +16306,6 @@
         "updatedAt": "2025-09-20T22:27:41.542Z"
       }
     },
-    "j-0807": {
-      "hashes": {
-        "setup": "e0926209ba078d6e20091dfadb80097c3570e4e1b76036330b2a1e079c1d9bc3",
-        "punchline": "857a6670161dfdf1803018b21d4f52e685142660dbad847320721e2abf9f3161",
-        "combined": "5e4c199e2eb313de8b8d80b6763402c168d4acd417b928497c4dd39e8035fb5e",
-        "tokenSignature": "a-about-best-big-but-don-flag-i-is-know-plus-s-switzerland-t-the-their-thing-what"
-      },
-      "lengths": {
-        "joke": 40,
-        "punchline": 43
-      },
-      "source": {
-        "sequence": 794
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "e30d7de7a9a509ef3c80fa33c9f11908468e1f83de1991e9bff1acdb31e9dc3f",
-        "updatedAt": "2025-09-20T22:27:41.542Z"
-      }
-    },
     "j-0808": {
       "hashes": {
         "setup": "a82eddf136a9f62f0d7e62905958edaf1761b00bc126167546715d08c615c626",
@@ -16702,48 +16324,6 @@
         "status": "ready",
         "model": "synthetic-64",
         "vectorSha256": "c4d9d18f9c9e258c4197ffceb53b15de28101ce32bb12f678af48c51a1f0d83c",
-        "updatedAt": "2025-09-20T22:27:41.542Z"
-      }
-    },
-    "j-0810": {
-      "hashes": {
-        "setup": "9ac28f2ed7b6488c5f740f704bbb5009a3b5160c49f26ebc44f12521b8554c65",
-        "punchline": "eb4e3bba7846a47b1fa79f454df693a242025e799ace6649263a190f9c2c659b",
-        "combined": "c180d4760dacd8bb85afdfce3ca731aaba576cecacad31e8feebb530b3adf947",
-        "tokenSignature": "atoms-because-don-everything-make-scientists-t-they-trust-up-why"
-      },
-      "lengths": {
-        "joke": 33,
-        "punchline": 32
-      },
-      "source": {
-        "sequence": 796
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "da32261017a13f91f0eb14038cee54cb844da342454ea6389381a539def5504a",
-        "updatedAt": "2025-09-20T22:27:41.542Z"
-      }
-    },
-    "j-0812": {
-      "hashes": {
-        "setup": "8d2724551dd3d981e4ed577e3f28bcdab93904ebbad26e1e4c26e46e3a51a65d",
-        "punchline": "43f96185410869223321356f92baad7ea38d3efa9787e198a1dece8215dfab51",
-        "combined": "9b9c059a3125d27ca606ddadf56cd5d2e861e5917a66b9dd3654c65d8316fe94",
-        "tokenSignature": "because-cookie-crumbly-did-doctor-feeling-go-it-the-to-was-why"
-      },
-      "lengths": {
-        "joke": 36,
-        "punchline": 31
-      },
-      "source": {
-        "sequence": 797
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "cb652c1a58432880807c19192f20880677605ee8081dcc9fd4b196f162a36422",
         "updatedAt": "2025-09-20T22:27:41.542Z"
       }
     },
@@ -16786,27 +16366,6 @@
         "status": "ready",
         "model": "synthetic-64",
         "vectorSha256": "bf2f7302c429257e99ca7ff6195006509dd1fdb3c3fa6f37479d3e925faa13f8",
-        "updatedAt": "2025-09-20T22:27:41.542Z"
-      }
-    },
-    "j-0816": {
-      "hashes": {
-        "setup": "e95931d3455b660786da3f547f2bd2a70cc7b0bb7c7f99583aff901fc1e3bbf2",
-        "punchline": "6567138f1b89dcd96ba62d048ecd7a32ac27a312be7a00342e3d7d639c686cb6",
-        "combined": "35003a75bdaf2c4d6356233f07a472e9615e2f6d4cce9e91e2e79cae6ae9282f",
-        "tokenSignature": "all-broke-cache-developer-did-go-kept-spending-the-their-they-why"
-      },
-      "lengths": {
-        "joke": 31,
-        "punchline": 35
-      },
-      "source": {
-        "sequence": 800
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "9e2a1283088a8f3133e9e8afa50933d057c7f423086ddb243b1aeee7066530f4",
         "updatedAt": "2025-09-20T22:27:41.542Z"
       }
     },
@@ -17206,27 +16765,6 @@
         "status": "ready",
         "model": "synthetic-64",
         "vectorSha256": "96a13b9c8f12389e99bad1d8c1a01bb885df5a062bac77e745f14c324231c737",
-        "updatedAt": "2025-09-21T03:21:38.303Z"
-      }
-    },
-    "j-0837": {
-      "hashes": {
-        "setup": "1f93da15a541792cd14be3e52f7c60be9139d2d79926f4a7e81934f795b436ac",
-        "punchline": "c9286de21e9841094bfd801fed594042b4b905667018125049e119c2f4170fbf",
-        "combined": "b1b70ac8e9be0e63d114aca639d1499f18731c65886765dcc03dc9bbaced2d19",
-        "tokenSignature": "because-c-do-glasses-need-programmers-they-to-wear-why"
-      },
-      "lengths": {
-        "joke": 32,
-        "punchline": 24
-      },
-      "source": {
-        "sequence": 820
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "eda3cd2439ed74618abeb0c443e55be782c93b4f7a3b27ede178ed135b35f868",
         "updatedAt": "2025-09-21T03:21:38.303Z"
       }
     },
@@ -17668,27 +17206,6 @@
         "status": "ready",
         "model": "synthetic-64",
         "vectorSha256": "a8488f178d28c2d1f13ad030bb62363de3124ee27fdaa9f367274c012aad4984",
-        "updatedAt": "2025-09-21T03:21:38.305Z"
-      }
-    },
-    "j-0860": {
-      "hashes": {
-        "setup": "0d8f81ef4e9de3ae307178e3454716947dadfb31e50660ef8b89df6b73d90a66",
-        "punchline": "856f2e4f1d6ab4c36e10c1bed4fb2e78d7550a9fff72aa78a20b7c0c0a25277e",
-        "combined": "9d923d1f908f1a71a8e94368d8b735350548e89def8368f4cd7354389c665f52",
-        "tokenSignature": "a-call-do-kittens-meowntain-of-pile-what-you"
-      },
-      "lengths": {
-        "joke": 35,
-        "punchline": 12
-      },
-      "source": {
-        "sequence": 842
-      },
-      "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "29bc09355a1ec5d17ac7a96d39ab99e48f1a7e2975cf2654795cfbd1a7f2c11d",
         "updatedAt": "2025-09-21T03:21:38.305Z"
       }
     },

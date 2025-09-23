@@ -1,38 +1,10 @@
 {
   "dataset": "quotes",
   "threshold": 0.5,
-  "generatedAt": "2025-09-22T00:02:49.928Z",
+  "generatedAt": "2025-09-22T23:19:57.697Z",
   "provider": "cohere",
   "model": "embed-english-v3.0",
   "matches": [
-    {
-      "idA": "motivation-37",
-      "idB": "resilience-02",
-      "similarity": 0.997051670604,
-      "previewA": "Life shrinks or expands in proportion to one’s courage. — Anais Nin",
-      "previewB": "Life shrinks or expands in proportion to one's courage. — Anais Nin"
-    },
-    {
-      "idA": "adventure-16",
-      "idB": "travel-05",
-      "similarity": 0.992743000508,
-      "previewA": "Every man dies. Not every man really lives. — William Wallace",
-      "previewB": "Every man dies, but not every man really lives. — William Wallace"
-    },
-    {
-      "idA": "time-38",
-      "idB": "joy-04",
-      "similarity": 0.951974557573,
-      "previewA": "Time you enjoy wasted was not time wasted. — John Lennon",
-      "previewB": "Time you enjoy wasting, was not wasted. — John Lennon"
-    },
-    {
-      "idA": "time-24",
-      "idB": "growth-09",
-      "similarity": 0.912285160637,
-      "previewA": "They always say time changes things, but you actually have to change them yourself. — Andy Warhol, The Philosophy of Andy Warhol",
-      "previewB": "They say that time changes things, but you actually have to change them yourself. — Andy Warhol"
-    },
     {
       "idA": "resilience-08",
       "idB": "purpose-11",
@@ -690,13 +662,6 @@
       "similarity": 0.631665035859,
       "previewA": "Every time you smile at someone, it is an action of love, a gift to that person, a beautiful thing. — Mother Teresa",
       "previewB": "Sometimes your joy is the source of your smile, but sometimes your smile can be the source of your joy. — Thich Nhat Hanh"
-    },
-    {
-      "idA": "time-41",
-      "idB": "growth-09",
-      "similarity": 0.631428375834,
-      "previewA": "Time, which changes people, does not alter the image we have of them. — Marcel Proust",
-      "previewB": "They say that time changes things, but you actually have to change them yourself. — Andy Warhol"
     },
     {
       "idA": "motivation-24",
@@ -3926,13 +3891,6 @@
       "previewB": "Friendship is the hardest thing in the world to explain. It’s not something you learn in school. But if you haven’t learned the meaning of friendship, you reall"
     },
     {
-      "idA": "time-05",
-      "idB": "growth-09",
-      "similarity": 0.546729124742,
-      "previewA": "Time has a wonderful way of showing us what really matters. — Margaret Peters",
-      "previewB": "They say that time changes things, but you actually have to change them yourself. — Andy Warhol"
-    },
-    {
       "idA": "kindness-07",
       "idB": "kindness-11",
       "similarity": 0.546608451565,
@@ -4822,13 +4780,6 @@
       "previewB": "Scatter joy. — Ralph Waldo Emerson"
     },
     {
-      "idA": "love-52",
-      "idB": "joy-04",
-      "similarity": 0.535967050236,
-      "previewA": "Love is the flower you've got to let grow. — John Lennon",
-      "previewB": "Time you enjoy wasting, was not wasted. — John Lennon"
-    },
-    {
       "idA": "music-05",
       "idB": "music-07",
       "similarity": 0.535941782541,
@@ -5690,13 +5641,6 @@
       "previewB": "Music . . . can name the unnameable and communicate the unknowable. — Leonard Bernstein"
     },
     {
-      "idA": "time-25",
-      "idB": "joy-04",
-      "similarity": 0.52765511139,
-      "previewA": "Time is a waste of money. — Oscar Wilde",
-      "previewB": "Time you enjoy wasting, was not wasted. — John Lennon"
-    },
-    {
       "idA": "humor-22",
       "idB": "money-49",
       "similarity": 0.527653988959,
@@ -6073,13 +6017,6 @@
       "similarity": 0.524254884408,
       "previewA": "Whoever said that money can’t buy happiness, simply didn’t know where to go shopping. — Bo Derek",
       "previewB": "Too many people spend money they earned to buy things they don’t want, to impress people they don’t like. — Will Rogers"
-    },
-    {
-      "idA": "time-48",
-      "idB": "growth-09",
-      "similarity": 0.524206391693,
-      "previewA": "Own time, or time will own you. — Brian Norgard",
-      "previewB": "They say that time changes things, but you actually have to change them yourself. — Andy Warhol"
     },
     {
       "idA": "family-05",
@@ -6586,13 +6523,6 @@
       "previewB": "Sometimes your joy is the source of your smile, but sometimes your smile can be the source of your joy. — Thich Nhat Hanh"
     },
     {
-      "idA": "time-37",
-      "idB": "growth-09",
-      "similarity": 0.520494967297,
-      "previewA": "The only reason for time is so that everything doesn’t happen at once. — Albert Einstein",
-      "previewB": "They say that time changes things, but you actually have to change them yourself. — Andy Warhol"
-    },
-    {
       "idA": "humor-22",
       "idB": "happiness-01",
       "similarity": 0.520451082196,
@@ -6822,13 +6752,6 @@
       "similarity": 0.518995804065,
       "previewA": "If you don’t find a way to make money while you sleep, you will work until the day you die. — Warren Buffett",
       "previewB": "If you cannot control your emotions, you cannot control your money. — Warren Buffett"
-    },
-    {
-      "idA": "time-29",
-      "idB": "growth-09",
-      "similarity": 0.518971642891,
-      "previewA": "Time and tide wait for no man, but time always stands still for a woman of 30. — Robert Frost",
-      "previewB": "They say that time changes things, but you actually have to change them yourself. — Andy Warhol"
     },
     {
       "idA": "motivation-22",
@@ -7368,13 +7291,6 @@
       "similarity": 0.515056436801,
       "previewA": "How is it that music can, without words, evoke our laughter, our fears, our highest aspirations? — Jane Swan",
       "previewB": "The most exciting rhythms seem unexpected and complex, the most beautiful melodies simple and inevitable. — W. H. Auden"
-    },
-    {
-      "idA": "positive-27",
-      "idB": "joy-04",
-      "similarity": 0.515049666197,
-      "previewA": "The most wasted of days is one without laughter. — E. E. Cummings",
-      "previewB": "Time you enjoy wasting, was not wasted. — John Lennon"
     },
     {
       "idA": "money-16",
@@ -8119,13 +8035,6 @@
       "previewB": "Leave the road, take the trails. — Pythagoras"
     },
     {
-      "idA": "time-22",
-      "idB": "growth-09",
-      "similarity": 0.509159796298,
-      "previewA": "You will never find time for anything. If you want time, you must make it. — Charles Buxton",
-      "previewB": "They say that time changes things, but you actually have to change them yourself. — Andy Warhol"
-    },
-    {
       "idA": "travel-07",
       "idB": "gratitude-07",
       "similarity": 0.509105870474,
@@ -8334,13 +8243,6 @@
       "similarity": 0.507788725113,
       "previewA": "People say that money is not the key to happiness, but I always figured if you have enough money, you can have a key made. — Joan Rivers",
       "previewB": "Having money isn’t everything, not having it, is. — Kanye West"
-    },
-    {
-      "idA": "adventure-19",
-      "idB": "resilience-02",
-      "similarity": 0.507728832151,
-      "previewA": "It is not length of life, but depth of life. — Ralph Waldo Emerson",
-      "previewB": "Life shrinks or expands in proportion to one's courage. — Anais Nin"
     },
     {
       "idA": "music-01",
@@ -8572,13 +8474,6 @@
       "similarity": 0.506312180173,
       "previewA": "Music, once admitted to the soul, becomes a sort of spirit, and never dies. — Edward Bulwer-Lytton",
       "previewB": "Music is the language of the spirit. It opens the secret of life bringing peace, abolishing strife. — Kahlil Gibran"
-    },
-    {
-      "idA": "creativity-11",
-      "idB": "resilience-02",
-      "similarity": 0.506243132554,
-      "previewA": "Sadness may be part of life but there is no need to let it dominate your entire life. — Byron Pulsifer",
-      "previewB": "Life shrinks or expands in proportion to one's courage. — Anais Nin"
     },
     {
       "idA": "friendship-41",
@@ -9057,13 +8952,6 @@
       "previewB": "Sadness may be part of life but there is no need to let it dominate your entire life. — Byron Pulsifer"
     },
     {
-      "idA": "time-25",
-      "idB": "growth-09",
-      "similarity": 0.503112808127,
-      "previewA": "Time is a waste of money. — Oscar Wilde",
-      "previewB": "They say that time changes things, but you actually have to change them yourself. — Andy Warhol"
-    },
-    {
       "idA": "positive-20",
       "idB": "happiness-03",
       "similarity": 0.503087573084,
@@ -9188,13 +9076,6 @@
       "similarity": 0.502393039266,
       "previewA": "Without music, life would be a mistake — Friedrich Nietzsche",
       "previewB": "A man should hear a little music, read a little poetry, and see a fine picture every day of his life, in order that worldly cares may not obliterate the sense o"
-    },
-    {
-      "idA": "resilience-02",
-      "idB": "leadership-07",
-      "similarity": 0.502292598162,
-      "previewA": "Life shrinks or expands in proportion to one's courage. — Anais Nin",
-      "previewB": "Character cannot be developed in ease and quiet. Only through experience of trial and suffering can the soul be strengthened, vision cleared, ambition inspired,"
     },
     {
       "idA": "mindfulness-10",

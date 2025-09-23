@@ -3,8 +3,8 @@
     "provider": "openai",
     "model": "text-embedding-3-large",
     "dimensions": 64,
-    "generatedAt": "2025-09-22T01:50:07.859Z",
-    "recordCount": 888
+    "generatedAt": "2025-09-22T23:16:21.852Z",
+    "recordCount": 865
   },
   "records": {
     "j-0001": {
@@ -2851,15 +2851,6 @@
       "textHash": "2e7cbaa621c65b1b0a89d0bfe4d1814f0f0d5194fbb75009fede86c77110c20a",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
-    "j-0317": {
-      "vector": "y8rKvuLhYT/5+Pg9qqkpv9PS0r6VlBS+qqkpv5STEz+fnp6+yslJv9rZWT/j4uI+6ejovfTzc7/R0FC9mZiYPd/e3j6gnx+/kZAQPbOysj7DwsI+goEBv/j3d7/z8vI+uLc3v97dXb+0szO/19bWvuTjYz/c21s/8O9vP9jXVz/Lysq+4uFhP/n4+D2qqSm/09LSvpWUFL6qqSm/lJMTP5+enr7KyUm/2tlZP+Pi4j7p6Oi99PNzv9HQUL2ZmJg9397ePqCfH7+RkBA9s7KyPsPCwj6CgQG/+Pd3v/Py8j64tze/3t1dv7SzM7/X1ta+5ONjP9zbWz/w728/2NdXPw==",
-      "vectorSha256": "3e2db19ee73f160ed5f7f73d33cc3e8fc2a03353c603e38b288c2ebd2e3a5f51",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "3d322d3250dbcf92a4edd45cced926832c328e88981bfef4b1d53034016ad772",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
     "j-0318": {
       "vector": "8vFxv/r5eb/KyUk/9/b2vufm5r7FxEQ+zcxMvoWEBD7S0VG/6Odnv/j3d7+3tra+tLMzP7++vr7Z2Ni9u7q6vp+enr7y8XG/urk5P/j3dz/l5GS+qKcnv52cHD7Hxsa+vLs7P5CPDz/R0FC99/b2vurpaT+8uzu/goEBv/j3dz/y8XG/+vl5v8rJST/39va+5+bmvsXERD7NzEy+hYQEPtLRUb/o52e/+Pd3v7e2tr60szM/v76+vtnY2L27urq+n56evvLxcb+6uTk/+Pd3P+XkZL6opye/nZwcPsfGxr68uzs/kI8PP9HQUL339va+6ulpP7y7O7+CgQG/+Pd3Pw==",
       "vectorSha256": "7d53492e8bf5fe244db63a7f4b6afa29fe2af02e3fe5fda94f3ad70f00779370",
@@ -3850,15 +3841,6 @@
       "textHash": "2a1dfe1645d5e6edcf4afe8d23a0f516fea52ec9ace243501dca35b9df465036",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
-    "j-0428": {
-      "vector": "7exsvpKRET/R0FA9ubi4vYmIiL2SkRE/kZAQveno6D3k42O/jYwMPsTDQ7/8+3s/0dBQvYOCgj6WlRW/oqEhP6qpKb+vrq6+vbw8PsLBQb+Lioo+j46OPpGQED3HxsY+np0dv9rZWT+KiQk/q6qqPtPS0j6zsrI+/Pt7v9PS0j7t7Gy+kpERP9HQUD25uLi9iYiIvZKRET+RkBC96ejoPeTjY7+NjAw+xMNDv/z7ez/R0FC9g4KCPpaVFb+ioSE/qqkpv6+urr69vDw+wsFBv4uKij6Pjo4+kZAQPcfGxj6enR2/2tlZP4qJCT+rqqo+09LSPrOysj78+3u/09LSPg==",
-      "vectorSha256": "e2306caa317144567de05df134c416c41095dbfd05291ddacb29ed4f7ee38808",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "10993f06cbc0b3e8f14153315fc713e6c50e3c1b8d258fde45020572d45392c5",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
     "j-0429": {
       "vector": "mpkZv52cHD7FxEQ+lZQUPtXUVD7z8vK+r66uPoqJCb/R0FC9lpUVv5WUFL6koyO/x8bGPuzra7+6uTk/l5aWvtXUVD6koyM/6ejoPaKhIT/p6Og9xsVFv9/e3j7Y11e/vLs7v4KBAb/Ix0c/y8rKPvLxcT/NzEw+3t1dP7CvL7+amRm/nZwcPsXERD6VlBQ+1dRUPvPy8r6vrq4+iokJv9HQUL2WlRW/lZQUvqSjI7/HxsY+7Otrv7q5OT+Xlpa+1dRUPqSjIz/p6Og9oqEhP+no6D3GxUW/397ePtjXV7+8uzu/goEBv8jHRz/Lyso+8vFxP83MTD7e3V0/sK8vvw==",
       "vectorSha256": "2708bdcd493c30630291c14809f745556f7932afdeb8aefad7320b9f9c6b9eb6",
@@ -4676,15 +4658,6 @@
       "provider": "openai",
       "dimensions": 64,
       "textHash": "5d5bb2db70d28d42f07b1ce702540e1142952896f67c30e1ee9358b5501a749c",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
-    "j-0521": {
-      "vector": "vbw8vvTzcz+UkxO/rawsPtPS0j7Hxsa+qKcnv5KREb/z8vK+vr09P6WkJL7X1tY+oqEhP5CPDz+SkRE/6+rqvsTDQ7/X1ta++/r6Pu7tbb/v7u6+9PNzP8/Ozj7e3V2/xsVFv5ybGz+4tze/nZwcPtva2r7f3t4+y8rKvuXkZL69vDy+9PNzP5STE7+trCw+09LSPsfGxr6opye/kpERv/Py8r6+vT0/paQkvtfW1j6ioSE/kI8PP5KRET/r6uq+xMNDv9fW1r77+vo+7u1tv+/u7r7083M/z87OPt7dXb/GxUW/nJsbP7i3N7+dnBw+29ravt/e3j7Lysq+5eRkvg==",
-      "vectorSha256": "8f6fb8f5b8f3246cbd6aedd6f582e29067c0f2346ebf40ab5ea4b77116e62704",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "69d23236d2409920cdf496f3c410c326d64d447694a53c0267440f10c1edc68e",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
     "j-0522": {
@@ -6163,15 +6136,6 @@
       "textHash": "dc9a7fea085ae7e6d6666f61aa2ee6599a5aa7edbaddfe809860252b7d48cb25",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
-    "j-0688": {
-      "vector": "2NdXv8TDQz+3trY+tbQ0PqqpKb/Ew0M///7+vsjHR7/BwEA8y8rKPszLS7/T0tI+m5qaPuzra7+OjQ2/iYiIPfDvbz/5+Pi9m5qavp2cHL6dnBy+/fx8vqOioj6Ylxc/0dBQPZeWlj7R0FC9oqEhv5eWlj6lpCQ+AACAP5mYmD3Y11e/xMNDP7e2tj61tDQ+qqkpv8TDQz///v6+yMdHv8HAQDzLyso+zMtLv9PS0j6bmpo+7Otrv46NDb+JiIg98O9vP/n4+L2bmpq+nZwcvp2cHL79/Hy+o6KiPpiXFz/R0FA9l5aWPtHQUL2ioSG/l5aWPqWkJD4AAIA/mZiYPQ==",
-      "vectorSha256": "fb52c90b31b3ebd6e2e26c92333bed15421f32f2e5a9cba00c63728ad4241922",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "0bd36d37f14e18b7dfc57a28517744dab95565897cd58c7780e117d0c62bb965",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
     "j-0689": {
       "vector": "wL8/P4eGhj6enR2/xcREPpmYmD3R0FA9gYCAO6SjI7/Lysq+sK8vP/n4+D2vrq4+oaCgvL69Pb/My0u/s7KyvoqJCb/493c/iIcHP62sLD66uTm/i4qKvvn4+D3//v4+hIMDv6KhIT/KyUk/wsFBP7CvL7+UkxM/1dRUPqempr7Avz8/h4aGPp6dHb/FxEQ+mZiYPdHQUD2BgIA7pKMjv8vKyr6wry8/+fj4Pa+urj6hoKC8vr09v8zLS7+zsrK+iokJv/j3dz+Ihwc/rawsPrq5Ob+Lioq++fj4Pf/+/j6EgwO/oqEhP8rJST/CwUE/sK8vv5STEz/V1FQ+p6amvg==",
       "vectorSha256": "58c36c74c65a5023ed54df41fd0d752ccac09f66bdaa2a1aa8409be9c4e77865",
@@ -6262,15 +6226,6 @@
       "textHash": "6eb935d001203eff2fe076cca7a7c171f1771b3f4d1a44b9a975b9a6d07fb354",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
-    "j-0700": {
-      "vector": "qqkpv7e2tr6amRk/kpERv6SjI7+urS0/09LSvri3N7/Ix0e/j46OPq2sLL7Pzs4+xsVFP5uamj7S0VG/rKsrv8LBQT/GxUW/sK8vv+3sbD7z8vK+kZAQPZeWlj7a2Vk/jIsLv+XkZL7p6Oi9tbQ0Pu3sbL7GxUW/7Otrv4aFBT+qqSm/t7a2vpqZGT+SkRG/pKMjv66tLT/T0tK+uLc3v8jHR7+Pjo4+rawsvs/Ozj7GxUU/m5qaPtLRUb+sqyu/wsFBP8bFRb+wry+/7exsPvPy8r6RkBA9l5aWPtrZWT+Miwu/5eRkvuno6L21tDQ+7exsvsbFRb/s62u/hoUFPw==",
-      "vectorSha256": "4b8a05d66909871b576e68d478819e2d0b3ec826c041d4c20bcc7cd044345563",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "2d9fd38cf95d80941777ffb2f1b62e1cb897d128c7335de78e033c040e6fa07a",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
     "j-0701": {
       "vector": "iYiIvdHQUD2ZmJi9lZQUPoGAgDvHxsa+lZQUvuTjYz+qqSk/ubi4vYOCgj6ZmJi92djYvfPy8r79/Hw+o6Kivurpab/BwEC8n56evrm4uL22tTU/09LSvszLS7+bmpo+wsFBv7W0NL7DwsI+sbAwvf79fb+5uLg96Odnv4+Ojr6JiIi90dBQPZmYmL2VlBQ+gYCAO8fGxr6VlBS+5ONjP6qpKT+5uLi9g4KCPpmYmL3Z2Ni98/Lyvv38fD6joqK+6ulpv8HAQLyfnp6+ubi4vba1NT/T0tK+zMtLv5uamj7CwUG/tbQ0vsPCwj6xsDC9/v19v7m4uD3o52e/j46Ovg==",
       "vectorSha256": "c5233337051f43c805e43806ee80402b0eb6793c57db3fd51b17f49d076de8af",
@@ -6314,15 +6269,6 @@
       "provider": "openai",
       "dimensions": 64,
       "textHash": "e963c62c16fd2ab183cd2ff0018220269112b18d77fa6a74fe7c27826934cdb5",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
-    "j-0706": {
-      "vector": "4eDgvISDA7/h4OC8iokJP6WkJL6dnBy+//7+PpWUFD6Ihwe/gYCAu5qZGT/5+Pi9vLs7v+XkZL6CgQG/vr09v8LBQT/g31+//v19v4qJCb/My0u/kpERP6moqD3u7W2/5ONjP9/e3r7Y11e/l5aWPs3MTD7GxUW/q6qqPq2sLL7h4OC8hIMDv+Hg4LyKiQk/paQkvp2cHL7//v4+lZQUPoiHB7+BgIC7mpkZP/n4+L28uzu/5eRkvoKBAb++vT2/wsFBP+DfX7/+/X2/iokJv8zLS7+SkRE/qaioPe7tbb/k42M/397evtjXV7+XlpY+zcxMPsbFRb+rqqo+rawsvg==",
-      "vectorSha256": "f640e18c3c11f5fe43e618365b92f0a63c842f9ed0b67fb02781ef333f17ed66",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "c71d8a07d29e3121a8ae9746b8964f41c941f04baacd71b2dab3bd417d45f459",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
     "j-0707": {
@@ -6404,15 +6350,6 @@
       "provider": "openai",
       "dimensions": 64,
       "textHash": "de73ac7910cff31987295f895986ac85392d1a9a7bf95c538e4f7bed124739e6",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
-    "j-0718": {
-      "vector": "3NtbP4eGhr6qqSm/6Odnv8fGxr7u7W0/lpUVv6alJT/Avz+/rawsvqWkJD6EgwO/iokJv6moqL3+/X0/9/b2Pv/+/r65uLi9+vl5P/79fb+Qjw+/yMdHP4uKij6pqKg9xsVFv8vKyj6SkRG/trU1P5qZGb+SkRG/sbAwvd/e3r7c21s/h4aGvqqpKb/o52e/x8bGvu7tbT+WlRW/pqUlP8C/P7+trCy+paQkPoSDA7+KiQm/qaiovf79fT/39vY+//7+vrm4uL36+Xk//v19v5CPD7/Ix0c/i4qKPqmoqD3GxUW/y8rKPpKREb+2tTU/mpkZv5KREb+xsDC9397evg==",
-      "vectorSha256": "eb12cb53439493e52f0732c49bef7c234a84dcecc5d34c15dcfa3b7795396019",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "456645fb565637e84fe9cdd4fda2360f6e1938d22092a8b4bba8c77fd152e09d",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
     "j-0719": {
@@ -6505,15 +6442,6 @@
       "textHash": "7e0c789a0442f27ca15d54980a72dd1445a37237327cb5d568f48e77a6f041fd",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
-    "j-0729": {
-      "vector": "oaCgPLm4uD2urS0/8O9vv4iHBz/493c/3t1dv/X0dD6RkBA9rKsrP5+enj6EgwM/kpERv/j3d7++vT2/yslJv4uKij6JiIi9hoUFP7y7O7/493c/s7KyPq2sLD7CwUE/5uVlv/f29j7Avz+/29ravr++vr6SkRE/4N9fP+vq6r6hoKA8ubi4Pa6tLT/w72+/iIcHP/j3dz/e3V2/9fR0PpGQED2sqys/n56ePoSDAz+SkRG/+Pd3v769Pb/KyUm/i4qKPomIiL2GhQU/vLs7v/j3dz+zsrI+rawsPsLBQT/m5WW/9/b2PsC/P7/b2tq+v76+vpKRET/g318/6+rqvg==",
-      "vectorSha256": "8f6d093d6f07ad627a2639991fbc9a21ea77962eadfb28b6bc8b382d4fe79f8c",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "83f89a927a4300df12702a50833ab3fb04e974dfe1ee55030e01643715c97f5f",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
     "j-0730": {
       "vector": "xsVFP/n4+D2joqI+ycjIva+urr6zsrI+jo0Nv6GgoDzX1ta+7+7uPoKBAT+0szO/nJsbP4WEBL7Y11c/397ePvb1db/Y11c/tLMzv62sLD7//v6+iokJP6empj7e3V0/i4qKPrm4uD3V1FQ+8fBwPa+urr6GhQW/6ejovdTTUz/GxUU/+fj4PaOioj7JyMi9r66uvrOysj6OjQ2/oaCgPNfW1r7v7u4+goEBP7SzM7+cmxs/hYQEvtjXVz/f3t4+9vV1v9jXVz+0szO/rawsPv/+/r6KiQk/p6amPt7dXT+Lioo+ubi4PdXUVD7x8HA9r66uvoaFBb/p6Oi91NNTPw==",
       "vectorSha256": "b48a1af81a67fb20726a22d2b5818b7f60302c2bf298bbc724f708333e8be891",
@@ -6550,15 +6478,6 @@
       "textHash": "abc390e916cdc4b698783c3214110de61b984b418552bb9162833b490ae97beb",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
-    "j-0734": {
-      "vector": "u7q6Pt3cXD68uzu/2tlZP+DfXz/y8XG/2NdXv9/e3j6hoKC87OtrP6qpKT/n5uY+z87OvvDvb7/5+Pi9xMNDP8vKyr7w72+/k5KSPpmYmL3V1FS+09LSvp+enj79/Hy+4+LivsC/Pz+zsrK+1tVVP+no6L3My0s/o6KiPuno6D27uro+3dxcPry7O7/a2Vk/4N9fP/Lxcb/Y11e/397ePqGgoLzs62s/qqkpP+fm5j7Pzs6+8O9vv/n4+L3Ew0M/y8rKvvDvb7+TkpI+mZiYvdXUVL7T0tK+n56ePv38fL7j4uK+wL8/P7Oysr7W1VU/6ejovczLSz+joqI+6ejoPQ==",
-      "vectorSha256": "b21c1a123de374811e4993a5a49f96a4413f4941b69635c5964bda90a0f83410",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "c63a610e84def940b8db734f1e5c79fef7f66fa31719497842b368e1947c2295",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
     "j-0735": {
       "vector": "t7a2Ps7NTT/Lyso+qKcnv9va2r6lpCS+qaioPbi3Nz+Pjo6+yslJP769PT+FhAQ+hYQEvri3N7/j4uI+z87OvrOysj6qqSm/jIsLv4eGhr7S0VE/nZwcPpCPD7/GxUW/kI8PP7GwML329XW//Pt7v+jnZz+zsrK+4uFhP4GAgDu3trY+zs1NP8vKyj6opye/29ravqWkJL6pqKg9uLc3P4+Ojr7KyUk/vr09P4WEBD6FhAS+uLc3v+Pi4j7Pzs6+s7KyPqqpKb+Miwu/h4aGvtLRUT+dnBw+kI8Pv8bFRb+Qjw8/sbAwvfb1db/8+3u/6OdnP7Oysr7i4WE/gYCAOw==",
       "vectorSha256": "c48adedfd93e2e0adc8be1e83e5b64508c8690121e2476f96fb64615f31a0ce1",
@@ -6584,15 +6503,6 @@
       "provider": "openai",
       "dimensions": 64,
       "textHash": "2ab56142ea720b794504a5f2590fa7fe45a754d4ff3712732add82a8a8ef855b",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
-    "j-0740": {
-      "vector": "xsVFv6KhIT+UkxO/lpUVv4qJCT/CwUG/t7a2PqSjIz+zsrK+np0dP9va2j64tzc/iYiIPeLhYb/GxUU/zMtLv/v6+r6SkRE/3dxcPvX0dD6koyM/trU1P6KhIb/Z2Ng9rKsrv7u6ur7BwEA8xMNDv6moqD27urq+1NNTv8zLS7/GxUW/oqEhP5STE7+WlRW/iokJP8LBQb+3trY+pKMjP7Oysr6enR0/29raPri3Nz+JiIg94uFhv8bFRT/My0u/+/r6vpKRET/d3Fw+9fR0PqSjIz+2tTU/oqEhv9nY2D2sqyu/u7q6vsHAQDzEw0O/qaioPbu6ur7U01O/zMtLvw==",
-      "vectorSha256": "98a731193b7ffcdb2caddeabd20c7a17c831a74007122564ae95d9159778659a",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "11db585c7670fdd7e46bcf8802103443f3921fbbbbabfcabbbafef5b15d7291b",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
     "j-0741": {
@@ -6811,24 +6721,6 @@
       "textHash": "0a8d011f4bd0f57f9c4d5b0e91bb8659e1ea839efb5415532df2016c355d0c4b",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
-    "j-0767": {
-      "vector": "trU1v6qpKb+fnp6+vr09P6qpKb/OzU2/+fj4Pd3cXL7FxES+yslJP5WUFD7Avz+/nJsbP5+enj6Qjw8/2tlZP//+/j6urS2/6ejovdDPT7+ZmJg9x8bGvqinJz+wry+/4+LiPtHQUD2urS0/wL8/P6SjIz+CgQE/zs1Nv+TjY7+2tTW/qqkpv5+enr6+vT0/qqkpv87NTb/5+Pg93dxcvsXERL7KyUk/lZQUPsC/P7+cmxs/n56ePpCPDz/a2Vk///7+Pq6tLb/p6Oi90M9Pv5mYmD3Hxsa+qKcnP7CvL7/j4uI+0dBQPa6tLT/Avz8/pKMjP4KBAT/OzU2/5ONjvw==",
-      "vectorSha256": "099ae114648e593567a0e650f248497c5080f772b8e69b47a860a908e49a1b37",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "a34368ed4fe7995bf9569fbf783c350199d58c8a412c48b7210b8ff5855cb7ab",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
-    "j-0768": {
-      "vector": "9fR0Puzraz+amRk/hoUFv5OSkj62tTU/urk5v4qJCb+8uzu/6+rqPp+enj7l5GS+6ulpv8jHRz/h4OA8xcREPu7tbT/n5ua+6Odnv8HAQLzBwEA8u7q6vuzraz+7uro+/fx8PrGwML3U01M/jIsLv46NDT+VlBS+srExv8fGxr719HQ+7OtrP5qZGT+GhQW/k5KSPra1NT+6uTm/iokJv7y7O7/r6uo+n56ePuXkZL7q6Wm/yMdHP+Hg4DzFxEQ+7u1tP+fm5r7o52e/wcBAvMHAQDy7urq+7OtrP7u6uj79/Hw+sbAwvdTTUz+Miwu/jo0NP5WUFL6ysTG/x8bGvg==",
-      "vectorSha256": "32ae375d9445d399dd47f576e42af8ee318d846d531a1e14283fc3c329dd75e5",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "004b86d985130fde39c850a47e38bc65542531b21b72ccbf8fedacb48a290ad5",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
     "j-0769": {
       "vector": "sK8vv7i3N7/p6Oi9qKcnP4SDA7/Lysq+mpkZv7++vr719HQ+nJsbP7m4uL3w728/+vl5v6KhIT/+/X0/2djYPc3MTL6/vr4+4N9fv66tLT+ioSE/kpERP42MDD6ioSE/k5KSPoWEBD7DwsI+9PNzP7Oysj6Ihwc/9vV1P/LxcT+wry+/uLc3v+no6L2opyc/hIMDv8vKyr6amRm/v76+vvX0dD6cmxs/ubi4vfDvbz/6+Xm/oqEhP/79fT/Z2Ng9zcxMvr++vj7g31+/rq0tP6KhIT+SkRE/jYwMPqKhIT+TkpI+hYQEPsPCwj7083M/s7KyPoiHBz/29XU/8vFxPw==",
       "vectorSha256": "27ff6d29f7a2f458f960c39db5778e295962eee21979a3111877c0f0488ce8c0",
@@ -6845,15 +6737,6 @@
       "provider": "openai",
       "dimensions": 64,
       "textHash": "0a868ec1f17fac1812c10ea026c46641d39f6903fe61a632ddc393f0057ad1dc",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
-    "j-0771": {
-      "vector": "p6amPpGQEL3l5GQ+zcxMPublZb/S0VG/sK8vv4iHBz+GhQW/iokJP6Oioj7u7W0/qKcnv8HAQDyJiIg94N9fP/Lxcb+opyc/8fBwvYGAgDu7urq+kZAQPaWkJL6Miwu/srExv97dXb/083M/qaiovd/e3r6ZmJg92tlZP9DPTz+npqY+kZAQveXkZD7NzEw+5uVlv9LRUb+wry+/iIcHP4aFBb+KiQk/o6KiPu7tbT+opye/wcBAPImIiD3g318/8vFxv6inJz/x8HC9gYCAO7u6ur6RkBA9paQkvoyLC7+ysTG/3t1dv/Tzcz+pqKi9397evpmYmD3a2Vk/0M9PPw==",
-      "vectorSha256": "5d3503e30294d4887869e93a153c34fe0896738d5caebe14d589de4fb38e7a18",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "51388aa2b83016102b19f27cd861d9e8b1775e93a3f072e79bf2cec508ef6fc3",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
     "j-0772": {
@@ -6919,15 +6802,6 @@
       "textHash": "c4cccb6375dae89054f76cdf7195e25195002010c3d034eccb1e53aba54fac0f",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
-    "j-0779": {
-      "vector": "iYiIPaOioj6amRk/iokJv/Tzcz+ysTE/4uFhv7y7O7+VlBQ+hIMDv4uKir78+3s/t7a2PrCvL7/e3V2//fx8vtnY2L27urq+6ulpP//+/r75+Pi9ubi4vQAAgL+DgoK++fj4vdHQUL2NjAy+j46OPo2MDD6ysTE/qKcnv+vq6r6JiIg9o6KiPpqZGT+KiQm/9PNzP7KxMT/i4WG/vLs7v5WUFD6EgwO/i4qKvvz7ez+3trY+sK8vv97dXb/9/Hy+2djYvbu6ur7q6Wk///7+vvn4+L25uLi9AACAv4OCgr75+Pi90dBQvY2MDL6Pjo4+jYwMPrKxMT+opye/6+rqvg==",
-      "vectorSha256": "a941901304c8b754ebb2e23d560eb739fdb9ebe88590144278486b16af70b4d0",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "3d283d7cda842784ac5aaf9734556ef24aa7532180b2ef61acef1d52b156e8b3",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
     "j-0780": {
       "vector": "v76+vtva2j7c21s/p6amvsTDQz+sqys/1tVVP7m4uL3W1VW/z87OPtTTU7+Hhoa+6ejovZiXF7+SkRG/mZiYvfHwcL2wry+/wsFBP6KhIT/u7W2/+/r6Po6NDT+amRm/qaiova6tLb/f3t6+ubi4PczLS7/R0FA9hYQEPoGAgLu/vr6+29raPtzbWz+npqa+xMNDP6yrKz/W1VU/ubi4vdbVVb/Pzs4+1NNTv4eGhr7p6Oi9mJcXv5KREb+ZmJi98fBwvbCvL7/CwUE/oqEhP+7tbb/7+vo+jo0NP5qZGb+pqKi9rq0tv9/e3r65uLg9zMtLv9HQUD2FhAQ+gYCAuw==",
       "vectorSha256": "7eb211ed5d806eb16d3f689019a343febb3b74f8a1f263e388a1d662ee8ec5a8",
@@ -6935,24 +6809,6 @@
       "provider": "openai",
       "dimensions": 64,
       "textHash": "2bc565d2049c1ec2a89e2e4bc8c3f65f7be7355dcb9c5f31de711b5506aa9d50",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
-    "j-0781": {
-      "vector": "lpUVv9HQUL3S0VE/ycjIverpaT/t7Gw+o6KiPpKRET/j4uK+qKcnP5qZGT/Ix0e/9vV1P4eGhr6wry8/rKsrP+zra7/q6Wk/jYwMvtjXVz+0szM/sbAwvaGgoLz19HQ+6ejovQAAgD/Ix0c/ubi4vYKBAT+XlpY+sK8vP6KhIb+WlRW/0dBQvdLRUT/JyMi96ulpP+3sbD6joqI+kpERP+Pi4r6opyc/mpkZP8jHR7/29XU/h4aGvrCvLz+sqys/7Otrv+rpaT+NjAy+2NdXP7SzMz+xsDC9oaCgvPX0dD7p6Oi9AACAP8jHRz+5uLi9goEBP5eWlj6wry8/oqEhvw==",
-      "vectorSha256": "bbc7fba6fa6278084f62d68eb142c9ba3e324b82bcae9b6ddb36b2020489e9d6",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "b88cd1e621b502064e4c945273c49dd6a8105af96b8f91108724f8fef682ae26",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
-    "j-0782": {
-      "vector": "6ulpv9TTU7/x8HA9urk5v5uamr6Miwu//v19P5CPD7/m5WU//v19P9va2j6hoKA82tlZv56dHT+2tTU/w8LCvtjXV7+0szM/vr09v8LBQb+1tDS+m5qavq6tLT/29XW/0tFRP7y7O7/My0u/qqkpP4iHB7+trCw+3dxcPuDfX7/q6Wm/1NNTv/HwcD26uTm/m5qavoyLC7/+/X0/kI8Pv+blZT/+/X0/29raPqGgoDza2Vm/np0dP7a1NT/DwsK+2NdXv7SzMz++vT2/wsFBv7W0NL6bmpq+rq0tP/b1db/S0VE/vLs7v8zLS7+qqSk/iIcHv62sLD7d3Fw+4N9fvw==",
-      "vectorSha256": "2da576b8a0e95ae49c9c53a8e63cba899a71be36db2ebb1af8ce10bf0482f0c4",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "8533e1cb18619f5f5877d638197224b07b1461aa27ade73d6f26a97fda29b846",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
     "j-0783": {
@@ -7108,15 +6964,6 @@
       "textHash": "a4444d95fb1ae8419e343ad8a5ef31c34e47a512b4a84cf11b6e8679268639b8",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
-    "j-0802": {
-      "vector": "xcREvu/u7j6trCw+oqEhv/f29j7GxUW/sbAwverpaT/r6uq+kZAQvbm4uD3+/X2/srExP9fW1r79/Hw+lpUVv9PS0r7My0u/8O9vv6CfHz/z8vK+jYwMPsTDQ7+urS0/2tlZP+vq6r7r6uq+0M9PP9DPT7/k42M/yMdHv769PT/FxES+7+7uPq2sLD6ioSG/9/b2PsbFRb+xsDC96ulpP+vq6r6RkBC9ubi4Pf79fb+ysTE/19bWvv38fD6WlRW/09LSvszLS7/w72+/oJ8fP/Py8r6NjAw+xMNDv66tLT/a2Vk/6+rqvuvq6r7Qz08/0M9Pv+TjYz/Ix0e/vr09Pw==",
-      "vectorSha256": "dad8c7bcd881f99919dfb1d575436ab3cfd5243d5a472f1caed6cf5a01c0e045",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "a100424b941a5fdcd2d71806d027da8cd942e7ccaf082a5996c513ab563dfabe",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
     "j-0803": {
       "vector": "hIMDP/v6+j7JyMi95uVlP4uKir78+3u/19bWPsbFRT+NjAy+hYQEvvf29r6mpSU/wcBAvJuamj66uTk/zMtLP9LRUb/o52c/oJ8fv7GwMD2OjQ0/3NtbP8XERD7CwUE/mZiYPdva2j729XW/mpkZv6qpKb/d3Fw+wcBAvNzbWz+EgwM/+/r6PsnIyL3m5WU/i4qKvvz7e7/X1tY+xsVFP42MDL6FhAS+9/b2vqalJT/BwEC8m5qaPrq5OT/My0s/0tFRv+jnZz+gnx+/sbAwPY6NDT/c21s/xcREPsLBQT+ZmJg929raPvb1db+amRm/qqkpv93cXD7BwEC83NtbPw==",
       "vectorSha256": "8e6a657cec59feef53caa2837ef6d173e115cb22eed5ee87fb98abece6cfbb71",
@@ -7144,15 +6991,6 @@
       "textHash": "add96b451187078e3879032409672fcff138f9fd8ae4905d0b0d7057f9f91843",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
-    "j-0807": {
-      "vector": "pKMjv7Oysr7CwUG/w8LCPsfGxr7DwsI+vLs7P4qJCT+2tTU/paQkPoqJCb+qqSk/hoUFv9rZWb/6+Xm/mpkZP8/Ozr7GxUW/nZwcPqinJz+Lioq+19bWPqqpKb/n5ua+19bWvouKir62tTW/5uVlP5eWlr76+Xk/1dRUvsjHR7+koyO/s7KyvsLBQb/DwsI+x8bGvsPCwj68uzs/iokJP7a1NT+lpCQ+iokJv6qpKT+GhQW/2tlZv/r5eb+amRk/z87OvsbFRb+dnBw+qKcnP4uKir7X1tY+qqkpv+fm5r7X1ta+i4qKvra1Nb/m5WU/l5aWvvr5eT/V1FS+yMdHvw==",
-      "vectorSha256": "6156c5c89d1e0f1a82458bd646802442eeebd98b64cdc01d87ede54846535947",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "92d93108a5426bbfa862970c6a8d95c69572ba5786e32b7ac9e296695b4c288b",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
     "j-0808": {
       "vector": "w8LCPq+urj6bmpq+mpkZv4eGhj6EgwO/oqEhv4SDAz+6uTk/hYQEvvj3d7+VlBS+hoUFP8PCwr7X1ta+9vV1P9HQUD3X1tY+oJ8fP/X0dL6cmxs/wcBAvKWkJD6EgwM/5uVlv9PS0r739va+goEBv7a1Nb/+/X2///7+PpSTE7/DwsI+r66uPpuamr6amRm/h4aGPoSDA7+ioSG/hIMDP7q5OT+FhAS++Pd3v5WUFL6GhQU/w8LCvtfW1r729XU/0dBQPdfW1j6gnx8/9fR0vpybGz/BwEC8paQkPoSDAz/m5WW/09LSvvf29r6CgQG/trU1v/79fb///v4+lJMTvw==",
       "vectorSha256": "3d2aa94b0bf9f113e474180cb847fcf6d85220873cd6040c026ff3e4df9c72cc",
@@ -7160,24 +6998,6 @@
       "provider": "openai",
       "dimensions": 64,
       "textHash": "c1b009eb020a14d60654b1159fb72bb1002a60f0954da57b4600ad1f62676c84",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
-    "j-0810": {
-      "vector": "29raPufm5j7u7W2/mZiYPeno6L2XlpY+jIsLv769Pb/19HS+trU1P6SjIz+npqa+gYCAO6CfH7/Y11c/3Ntbv8C/Pz+qqSm/oqEhv9zbWz+WlRW/+Pd3v6alJT/s62s/s7KyvtbVVb+4tze/srExP4GAgLv7+vq+4+LiPvLxcb/b2to+5+bmPu7tbb+ZmJg96ejovZeWlj6Miwu/vr09v/X0dL62tTU/pKMjP6empr6BgIA7oJ8fv9jXVz/c21u/wL8/P6qpKb+ioSG/3NtbP5aVFb/493e/pqUlP+zraz+zsrK+1tVVv7i3N7+ysTE/gYCAu/v6+r7j4uI+8vFxvw==",
-      "vectorSha256": "a44a8c44019a00a9f6d09b9a80727c3939d84b60915076e2a05d0df0fc447019",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "ff742ce77844f022759d6f065c639b2f170073c0dcbb4f6f18759175bbde16d8",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
-    "j-0812": {
-      "vector": "1NNTP7GwMD2zsrI+v76+Pufm5j6enR0/mJcXP8XERD79/Hw+tbQ0vuXkZL7FxES+5ONjv8bFRb+6uTk/8fBwvcHAQLz19HQ+lJMTP/LxcT+JiIg9/v19P9TTUz+enR0/2tlZP6KhIb/7+vo+4uFhP4+Ojr6/vr6+np0dP8jHR7/U01M/sbAwPbOysj6/vr4+5+bmPp6dHT+Ylxc/xcREPv38fD61tDS+5eRkvsXERL7k42O/xsVFv7q5OT/x8HC9wcBAvPX0dD6UkxM/8vFxP4mIiD3+/X0/1NNTP56dHT/a2Vk/oqEhv/v6+j7i4WE/j46Ovr++vr6enR0/yMdHvw==",
-      "vectorSha256": "c9d7113a0de5a487c48c0fa93b2138c36b2df887b23f3e646061e6b16a629db7",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "41bef813145369ca78679d10362bb4f58e9d7abf655c2b6aa4473e5347d7f1fd",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
     "j-0813": {
@@ -7196,15 +7016,6 @@
       "provider": "openai",
       "dimensions": 64,
       "textHash": "b5d8786be895e07a634c5e6222b25fac09d8b29fbbb2f047cf4639861f8381f9",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
-    "j-0816": {
-      "vector": "l5aWPra1NT+cmxu/o6KiPufm5j7S0VG/lJMTv6CfHz/U01O/xMNDP5ybGz+pqKi95+bmvr28PD6fnp4+qaiovbKxMT/5+Pi9n56ePpqZGb+NjAy+7exsPtPS0j6CgQG/tLMzv/Tzc7+5uLg919bWvsbFRT+xsDA9hYQEPqWkJL6XlpY+trU1P5ybG7+joqI+5+bmPtLRUb+UkxO/oJ8fP9TTU7/Ew0M/nJsbP6moqL3n5ua+vbw8Pp+enj6pqKi9srExP/n4+L2fnp4+mpkZv42MDL7t7Gw+09LSPoKBAb+0szO/9PNzv7m4uD3X1ta+xsVFP7GwMD2FhAQ+paQkvg==",
-      "vectorSha256": "7d8cf81457a986d51ad6b05ee2cdd42b7aee8a6e7f5e618417d9025855fe72d6",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "58cebb6582e1d0e2814e00e14f2e7904c2476c60939a4559b5e75408252f0322",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
     "j-0817": {
@@ -7376,15 +7187,6 @@
       "provider": "openai",
       "dimensions": 64,
       "textHash": "c1f5171ffcfb9807b86e5e0a6b19ae757a7c1551040714735ef7d62062bf517c",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
-    "j-0837": {
-      "vector": "l5aWPvr5eT+WlRW/trU1v+DfX7/e3V0/iYiIvcC/P7/a2Vk/0M9Pv4uKij7My0u//Pt7v5STE7/DwsI+2tlZP8zLS7+gnx8/8/LyvuXkZL6zsrK+5ONjv5STE7+mpSW/wsFBP+zra7+5uLi9//7+vqinJ7/x8HC9pqUlP4SDAz+XlpY++vl5P5aVFb+2tTW/4N9fv97dXT+JiIi9wL8/v9rZWT/Qz0+/i4qKPszLS7/8+3u/lJMTv8PCwj7a2Vk/zMtLv6CfHz/z8vK+5eRkvrOysr7k42O/lJMTv6alJb/CwUE/7Otrv7m4uL3//v6+qKcnv/HwcL2mpSU/hIMDPw==",
-      "vectorSha256": "9debac2bc83aa2878777eb8874ce4699080a842b4253675002ea71bb2c2fb53f",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "bb2876a420317c775dd4b18beb3803a0742b3787f703c3c58537f5801898bedc",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
     "j-0838": {
@@ -7574,15 +7376,6 @@
       "provider": "openai",
       "dimensions": 64,
       "textHash": "8d5f892748545d8a467a2eb3c00e7e816f0c1e70c838e2e95661c1b5af329770",
-      "updatedAt": "2025-09-21T23:10:32.417Z"
-    },
-    "j-0860": {
-      "vector": "4eDgPOjnZ7/u7W0/mZiYPe/u7r6RkBA9sK8vP7++vr60szO/o6KiPpmYmL3h4OA8oaCgPNnY2L0AAIA/iYiIveXkZL63tra+rq0tP5eWlj6Qjw+/19bWPqOior7JyMg96ulpv7Oysr6Lioo+kI8PP6CfHz/p6Og9vr09v5KREb/h4OA86Odnv+7tbT+ZmJg97+7uvpGQED2wry8/v76+vrSzM7+joqI+mZiYveHg4DyhoKA82djYvQAAgD+JiIi95eRkvre2tr6urS0/l5aWPpCPD7/X1tY+o6KivsnIyD3q6Wm/s7KyvouKij6Qjw8/oJ8fP+no6D2+vT2/kpERvw==",
-      "vectorSha256": "9beecf2f0bbfae775c89e2a5f9fc9b070af50b6f6ca9d3cec409e181e0137346",
-      "model": "text-embedding-3-large (second opinion)",
-      "provider": "openai",
-      "dimensions": 64,
-      "textHash": "0d93f1526e0def5e4d078465effe25756db083e576dafaf8a8be31e9fcbde9ec",
       "updatedAt": "2025-09-21T23:10:32.417Z"
     },
     "j-0861": {
