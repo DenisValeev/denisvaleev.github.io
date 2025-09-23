@@ -23,13 +23,15 @@
           }
           const term = typeof entry.term === 'string' ? entry.term.trim() : '';
           const definition = typeof entry.definition === 'string' ? entry.definition.trim() : '';
+          const example = typeof entry.example === 'string' ? entry.example.trim() : '';
           if (!term) {
             return null;
           }
-          const searchText = `${term} ${definition}`.toLowerCase();
+          const searchText = `${term} ${definition} ${example}`.toLowerCase();
           return {
             term,
             definition: definition || 'Meaning coming soon.',
+            example,
             searchText,
           };
         })
@@ -92,6 +94,31 @@
 
       fragment.appendChild(termRow);
       fragment.appendChild(definitionRow);
+
+      if (entry.example) {
+        const exampleRow = document.createElement('tr');
+        exampleRow.className = 'example-row';
+
+        const exampleSpacer = document.createElement('td');
+        exampleSpacer.textContent = '';
+        exampleSpacer.setAttribute('aria-hidden', 'true');
+        exampleRow.appendChild(exampleSpacer);
+
+        const exampleCell = document.createElement('td');
+        exampleCell.className = 'example-cell';
+
+        const quote = document.createElement('blockquote');
+        quote.textContent = entry.example;
+        exampleCell.appendChild(quote);
+
+        const label = document.createElement('p');
+        label.className = 'example-label';
+        label.textContent = 'Example sentence';
+        exampleCell.appendChild(label);
+
+        exampleRow.appendChild(exampleCell);
+        fragment.appendChild(exampleRow);
+      }
     });
 
     tbody.appendChild(fragment);

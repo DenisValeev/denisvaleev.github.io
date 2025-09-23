@@ -83,10 +83,14 @@ function ensureGenAlphaIds(entries) {
     const fallback = `ga-${padNumber(index + 1, width)}`;
     const id = base && !seen.has(base) ? base : fallback;
     seen.add(id);
+    const term = entry && typeof entry.term === 'string' ? entry.term : '';
+    const definition = entry && typeof entry.definition === 'string' ? entry.definition : '';
+    const example = entry && typeof entry.example === 'string' ? entry.example : '';
     return {
       id,
-      term: entry.term,
-      definition: entry.definition,
+      term,
+      definition,
+      example,
     };
   });
 }
@@ -143,7 +147,8 @@ function formatGenAlpha(entries) {
     }
     lines.push(`            "id": ${JSON.stringify(entry.id)},`);
     lines.push(`            "term": ${JSON.stringify(entry.term)},`);
-    lines.push(`            "definition": ${JSON.stringify(entry.definition)}`);
+    lines.push(`            "definition": ${JSON.stringify(entry.definition)},`);
+    lines.push(`            "example": ${JSON.stringify(entry.example)}`);
     if (index === entries.length - 1) {
       lines.push('        }');
     } else {
@@ -274,6 +279,7 @@ function buildGenAlphaManifest(entries) {
   entries.forEach((entry, index) => {
     const termNormalized = normalizeText(entry.term || '');
     const definitionNormalized = normalizeText(entry.definition || '');
+    const exampleNormalized = normalizeText(entry.example || '');
     const combinedParts = [];
     if (termNormalized) {
       combinedParts.push(termNormalized);
@@ -281,17 +287,22 @@ function buildGenAlphaManifest(entries) {
     if (definitionNormalized) {
       combinedParts.push(definitionNormalized);
     }
+    if (exampleNormalized) {
+      combinedParts.push(exampleNormalized);
+    }
     const combinedNormalized = combinedParts.join('|');
     records[entry.id] = {
       hashes: {
         term: sha256(termNormalized),
         definition: sha256(definitionNormalized),
+        example: sha256(exampleNormalized),
         combined: sha256(combinedNormalized),
-        tokenSignature: tokenSignature(entry.term, entry.definition),
+        tokenSignature: tokenSignature(entry.term, entry.definition, entry.example),
       },
       lengths: {
         term: typeof entry.term === 'string' ? entry.term.length : 0,
         definition: typeof entry.definition === 'string' ? entry.definition.length : 0,
+        example: typeof entry.example === 'string' ? entry.example.length : 0,
       },
       source: {
         sequence: index + 1,
@@ -310,7 +321,7 @@ function buildGenAlphaManifest(entries) {
       total: entries.length,
       hashAlgorithm: 'sha256',
       tokenSignature: 'unique-words-v1',
-      fields: ['term', 'definition'],
+      fields: ['term', 'definition', 'example'],
     },
     records,
   };
