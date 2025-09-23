@@ -102,13 +102,6 @@
       font-weight: 700;
     }
 
-    header.site-header p {
-      margin: 0;
-      color: var(--text-secondary);
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
     .section-title {
       margin: 0;
       font-size: clamp(0.95rem, 0.4vw + 0.9rem, 1.1rem);
@@ -137,36 +130,27 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 14px;
-      padding: clamp(16px, 2vw + 10px, 24px);
-      border-radius: 20px;
-      background: var(--row-background);
-      border: 1px solid var(--row-border);
-      box-shadow: var(--row-shadow);
-      transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+      gap: clamp(12px, 1vw + 8px, 18px);
+      padding: clamp(8px, 1vw + 6px, 14px) 0;
+      border-bottom: 1px solid rgba(74, 99, 255, 0.12);
     }
 
-    .app-row:hover,
-    .app-row:focus-within {
-      background: var(--row-hover);
-      transform: translateY(-2px);
-      box-shadow: var(--row-shadow-hover);
+    .app-row:last-child {
+      border-bottom: none;
     }
 
-    .app-row__label {
+    .app-row__title {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: var(--label-pill);
-      color: var(--label-text);
+      margin: 0;
+      font-size: clamp(1.05rem, 0.5vw + 1rem, 1.2rem);
       font-weight: 600;
-      letter-spacing: 0.02em;
-      font-size: clamp(1rem, 0.4vw + 0.95rem, 1.1rem);
+      letter-spacing: 0.01em;
+      color: var(--label-text);
     }
 
-    .app-row__label span[aria-hidden="true"] {
+    .app-row__title span[aria-hidden="true"] {
       font-size: 1.3rem;
     }
 
@@ -239,7 +223,8 @@
     @media (max-width: 720px) {
       .app-row {
         flex-direction: column;
-        align-items: stretch;
+        align-items: flex-start;
+        gap: 12px;
       }
 
       .app-row__actions {
@@ -249,7 +234,6 @@
 
       .app-row__actions a.app-button {
         flex: 1 1 auto;
-        justify-content: center;
       }
     }
   </style>
@@ -258,50 +242,52 @@
   <main aria-label="Apps">
     <header class="site-header">
       <h1>Toolbox</h1>
-      <p>Choose an app to explore curated decks, formatting helpers, and other quick experiments.</p>
     </header>
     <section class="app-groups" aria-labelledby="deck-section">
       <h2 id="deck-section" class="section-title">Deck collections</h2>
       <ul class="app-groups__list">
-        <li class="app-row" data-group="jokes" role="group" aria-labelledby="group-jokes-label">
-          <span class="app-row__label" id="group-jokes-label">
+        <li class="app-row" data-group="jokes" role="group" aria-labelledby="group-jokes-title">
+          <h3 class="app-row__title" id="group-jokes-title">
             <span aria-hidden="true">😂</span>
             <span>Jokes</span>
-          </span>
-          <div class="app-row__actions" aria-label="Jokes shortcuts">
+          </h3>
+          <div class="app-row__actions" aria-labelledby="group-jokes-title">
             <a class="app-button app-button--primary" href="apps/jokes/">
-              Dad Jokes
+              <span aria-hidden="true">😂</span>
+              <span>Dad Jokes</span>
             </a>
             <a class="app-button app-button--secondary" href="apps/jokes/all-jokes.html">
-              All Jokes
+              <span>All Jokes</span>
             </a>
           </div>
         </li>
-        <li class="app-row" data-group="quotes" role="group" aria-labelledby="group-quotes-label">
-          <span class="app-row__label" id="group-quotes-label">
+        <li class="app-row" data-group="quotes" role="group" aria-labelledby="group-quotes-title">
+          <h3 class="app-row__title" id="group-quotes-title">
             <span aria-hidden="true">💬</span>
             <span>Quotes</span>
-          </span>
-          <div class="app-row__actions" aria-label="Quote shortcuts">
+          </h3>
+          <div class="app-row__actions" aria-labelledby="group-quotes-title">
             <a class="app-button app-button--primary" href="apps/quotes/">
-              Quotes
+              <span aria-hidden="true">💬</span>
+              <span>Quotes</span>
             </a>
             <a class="app-button app-button--secondary" href="apps/quotes/all-quotes.html">
-              All Quotes
+              <span>All Quotes</span>
             </a>
           </div>
         </li>
-        <li class="app-row" data-group="gen-alpha" role="group" aria-labelledby="group-gen-alpha-label">
-          <span class="app-row__label" id="group-gen-alpha-label">
+        <li class="app-row" data-group="gen-alpha" role="group" aria-labelledby="group-gen-alpha-title">
+          <h3 class="app-row__title" id="group-gen-alpha-title">
             <span aria-hidden="true">🧒</span>
             <span>Gen Alpha</span>
-          </span>
-          <div class="app-row__actions" aria-label="Gen Alpha shortcuts">
+          </h3>
+          <div class="app-row__actions" aria-labelledby="group-gen-alpha-title">
             <a class="app-button app-button--primary" href="apps/gen-alpha/">
-              Gen Alpha Slang
+              <span aria-hidden="true">🧒</span>
+              <span>Gen Alpha Slang</span>
             </a>
             <a class="app-button app-button--secondary" href="apps/gen-alpha/all-slang.html">
-              All Gen Alpha Slang
+              <span>All Slang</span>
             </a>
           </div>
         </li>

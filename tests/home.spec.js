@@ -12,7 +12,7 @@ test.describe('Landing page', () => {
     await expect(deckRows).toHaveCount(3);
     await expect(deckRows.first()).toHaveAttribute('role', 'group');
 
-    const groupLabels = await deckRows.locator('.app-row__label span:last-child').allTextContents();
+    const groupLabels = await deckRows.locator('.app-row__title span:last-child').allTextContents();
     const normalizedLabels = groupLabels.map((text) => text.trim());
     expect(normalizedLabels).toEqual(['Jokes', 'Quotes', 'Gen Alpha']);
 
@@ -27,16 +27,16 @@ test.describe('Landing page', () => {
 
     expect(deckLinkSets).toEqual([
       [
-        { href: 'apps/jokes/', text: 'Dad Jokes' },
+        { href: 'apps/jokes/', text: '😂 Dad Jokes' },
         { href: 'apps/jokes/all-jokes.html', text: 'All Jokes' },
       ],
       [
-        { href: 'apps/quotes/', text: 'Quotes' },
+        { href: 'apps/quotes/', text: '💬 Quotes' },
         { href: 'apps/quotes/all-quotes.html', text: 'All Quotes' },
       ],
       [
-        { href: 'apps/gen-alpha/', text: 'Gen Alpha Slang' },
-        { href: 'apps/gen-alpha/all-slang.html', text: 'All Gen Alpha Slang' },
+        { href: 'apps/gen-alpha/', text: '🧒 Gen Alpha Slang' },
+        { href: 'apps/gen-alpha/all-slang.html', text: 'All Slang' },
       ],
     ]);
 

@@ -10,24 +10,30 @@ test.describe('Landing page', () => {
     const expectedRows = [
       {
         group: 'jokes',
-        texts: ['Dad Jokes', 'All Jokes'],
+        heading: 'Jokes',
+        texts: ['😂 Dad Jokes', 'All Jokes'],
         hrefs: ['apps/jokes/', 'apps/jokes/all-jokes.html'],
       },
       {
         group: 'quotes',
-        texts: ['Quotes', 'All Quotes'],
+        heading: 'Quotes',
+        texts: ['💬 Quotes', 'All Quotes'],
         hrefs: ['apps/quotes/', 'apps/quotes/all-quotes.html'],
       },
       {
         group: 'gen-alpha',
-        texts: ['Gen Alpha Slang', 'All Gen Alpha Slang'],
+        heading: 'Gen Alpha',
+        texts: ['🧒 Gen Alpha Slang', 'All Slang'],
         hrefs: ['apps/gen-alpha/', 'apps/gen-alpha/all-slang.html'],
       },
     ];
 
-    for (const { group, texts, hrefs } of expectedRows) {
+    for (const { group, heading: expectedHeading, texts, hrefs } of expectedRows) {
       const row = page.locator(`[data-group="${group}"]`);
       await expect(row).toBeVisible();
+
+      const heading = row.locator('.app-row__title span:last-child');
+      await expect(heading).toHaveText(expectedHeading);
 
       const buttons = row.locator('a.app-button');
       await expect(buttons).toHaveCount(texts.length);

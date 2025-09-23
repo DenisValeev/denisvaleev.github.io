@@ -77,6 +77,38 @@
       backdrop-filter: blur(16px);
     }
 
+    .home-nav {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: inherit;
+      background: rgba(70, 95, 255, 0.12);
+      border: 1px solid rgba(70, 95, 255, 0.24);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .home-link span[aria-hidden="true"] {
+      font-size: 1.1rem;
+    }
+
+    .home-link:hover,
+    .home-link:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(70, 95, 255, 0.28);
+      background: rgba(70, 95, 255, 0.18);
+      outline: none;
+    }
+
     .page-header {
       display: flex;
       flex-direction: column;
@@ -146,7 +178,7 @@
       padding: clamp(16px, 3vw, 24px);
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       background: rgba(70, 95, 255, 0.08);
     }
 
@@ -156,10 +188,38 @@
       font-weight: 600;
     }
 
+    .run-instructions h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
     .run-instructions p {
       margin: 0;
       color: var(--text-secondary);
       line-height: 1.5;
+    }
+
+    .instruction-checklist {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .instruction-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    .instruction-checklist span[aria-hidden="true"] {
+      font-size: 1rem;
+      line-height: 1.4;
     }
 
     .run-instructions pre {
@@ -526,6 +586,12 @@
 </head>
 <body>
   <main aria-label="Playwright telemetry console">
+    <nav class="home-nav" aria-label="Home navigation">
+      <a class="home-link" href="../../">
+        <span aria-hidden="true">←</span>
+        <span>Home</span>
+      </a>
+    </nav>
     <header class="page-header">
       <h1>Playwright Run Telemetry</h1>
       <p>Peek behind the curtain of the agentic smoke tests. Every run of <code>npm run test:record</code> stores a JSON stream that keeps this console alive, even on a static site.</p>
@@ -545,9 +611,25 @@
         <button type="button" data-refresh-button aria-label="Refresh Playwright logs">Refresh</button>
       </div>
     </header>
-    <section class="run-instructions" aria-label="How to update the logs">
-      <h2>Update the feed</h2>
-      <p>Record a fresh log whenever you tweak the suite. The script runs the inspector-friendly line reporter and emits a normalized JSON artefact.</p>
+    <section class="run-instructions" aria-label="How to keep the suite healthy">
+      <h2>Keep the suite healthy</h2>
+      <p>Run through this checklist after every Playwright change so the dashboard keeps reflecting reality.</p>
+      <ul class="instruction-checklist">
+        <li>
+          <span aria-hidden="true">👀</span>
+          <span><strong>Scan the filters:</strong> Flip to the Failed and Flaky tabs to make sure they stay empty before you merge.</span>
+        </li>
+        <li>
+          <span aria-hidden="true">🗂️</span>
+          <span><strong>Inspect details:</strong> Open the slowest tests, read through the activity log, and download attachments when anomalies pop up.</span>
+        </li>
+        <li>
+          <span aria-hidden="true">⏱️</span>
+          <span><strong>Watch the timers:</strong> Compare the captured duration against recent runs so creeping regressions do not slip in.</span>
+        </li>
+      </ul>
+      <h3>Record a fresh snapshot</h3>
+      <p>Whenever you adjust assertions or fix flakes, capture a new log. The recorder uses the line reporter and emits a normalized JSON artefact.</p>
       <pre><code>npm run test:record</code></pre>
       <p class="note">The command writes <code>data/test-runs/latest.json</code>, which this console fetches (or falls back to the bundled snapshot when you are offline).</p>
     </section>
