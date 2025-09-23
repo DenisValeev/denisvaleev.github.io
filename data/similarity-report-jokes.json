@@ -1,10 +1,171 @@
 {
   "dataset": "jokes",
   "threshold": 0.5,
-  "generatedAt": "2025-09-22T23:19:57.669Z",
+  "generatedAt": "2025-09-23T01:03:32.987Z",
   "provider": "hfspace",
   "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
   "matches": [
+    {
+      "idA": "j-0429",
+      "idB": "j-0899",
+      "similarity": 0.9987134296946547,
+      "previewA": "How many optometrists does it take to change a light bulb? 1 or 2? • 1... or 2?",
+      "previewB": "How many optometrists does it take to change a light bulb? • 1 or 2? 1... or 2?"
+    },
+    {
+      "idA": "j-0800",
+      "idB": "j-0910",
+      "similarity": 0.9942716816336866,
+      "previewA": "Why don't programmers like nature? • There's too many bugs.",
+      "previewB": "Why don't programmers like nature? • Too many bugs."
+    },
+    {
+      "idA": "j-0426",
+      "idB": "j-0900",
+      "similarity": 0.9899130422112801,
+      "previewA": "How many seconds are in a year? 12. January 2nd, February 2nd, March 2nd, April 2nd.... • etc",
+      "previewB": "How many seconds are in a year? • 12. January 2nd, February 2nd, March 2nd, April 2nd.... etc"
+    },
+    {
+      "idA": "j-0170",
+      "idB": "j-0889",
+      "similarity": 0.9888571043627349,
+      "previewA": "I just got fired from a florist • apparently I took too many leaves.",
+      "previewB": "I got fired from a florist • apparently I took too many leaves."
+    },
+    {
+      "idA": "j-0290",
+      "idB": "j-0898",
+      "similarity": 0.9869892198217917,
+      "previewA": "A weasel walks into a bar. The bartender says, \"Wow, I've never served a weasel before. • What can I get for you?\" \"Pop,",
+      "previewB": "A weasel walks into a bar. The bartender says, \"Wow, I've never served a weasel before. What can I get for you?\" • Pop,g"
+    },
+    {
+      "idA": "j-0258",
+      "idB": "j-0894",
+      "similarity": 0.9777018734794799,
+      "previewA": "Why does a chicken coop only have two doors? • Because if it had four doors it would be a chicken sedan.",
+      "previewB": "Why do chicken coops only have two doors? • Because if they had four, they would be chicken sedans"
+    },
+    {
+      "idA": "j-0808",
+      "idB": "j-0908",
+      "similarity": 0.9765614224635286,
+      "previewA": "Why did the golfer bring two pairs of pants? • In case he got a hole in one.",
+      "previewB": "Why did the golfer wear two pairs of pants? • In case he got a hole in one."
+    },
+    {
+      "idA": "j-0687",
+      "idB": "j-0909",
+      "similarity": 0.9765537811504814,
+      "previewA": "Why did the programmer quit his job? • Because he didn't get arrays.",
+      "previewB": "Why did the programmer quit their job? • They didn't get arrays."
+    },
+    {
+      "idA": "j-0412",
+      "idB": "j-0893",
+      "similarity": 0.976474716588536,
+      "previewA": "I bought shoes from a drug dealer once. • I don't know what he laced them with, but I was tripping all day.",
+      "previewB": "I bought some shoes from a drug dealer. • I don't know what he laced them with, but I was tripping all day!"
+    },
+    {
+      "idA": "j-0306",
+      "idB": "j-0892",
+      "similarity": 0.972301723422015,
+      "previewA": "What happens to a frog's car when it breaks down? • It gets toad.",
+      "previewB": "What happens to a frog's car when it breaks down? • It gets toad away"
+    },
+    {
+      "idA": "j-0765",
+      "idB": "j-0904",
+      "similarity": 0.9518423232769507,
+      "previewA": "Why do programmers always get Christmas and Halloween mixed up? • Because DEC 25 = OCT 31",
+      "previewB": "Why did the programmer always mix up Halloween and Christmas? • Because Oct 31 equals Dec 25."
+    },
+    {
+      "idA": "j-0404",
+      "idB": "j-0901",
+      "similarity": 0.9492391618899723,
+      "previewA": "Q: What did the spaghetti say to the other spaghetti? • A: Pasta la vista, baby!",
+      "previewB": "What did the spaghetti say to the other spaghetti? • Pasta la vista, baby!"
+    },
+    {
+      "idA": "j-0687",
+      "idB": "j-0903",
+      "similarity": 0.9359708607201127,
+      "previewA": "Why did the programmer quit his job? • Because he didn't get arrays.",
+      "previewB": "Why did the developer quit his job? • Because he didn't get arrays."
+    },
+    {
+      "idA": "j-0342",
+      "idB": "j-0891",
+      "similarity": 0.921786475423563,
+      "previewA": "Why can't a bicycle stand on its own? • It's two-tired.",
+      "previewB": "Why can't bicycles stand on their own? • They are two tired"
+    },
+    {
+      "idA": "j-0903",
+      "idB": "j-0909",
+      "similarity": 0.9204315525155635,
+      "previewA": "Why did the developer quit his job? • Because he didn't get arrays.",
+      "previewB": "Why did the programmer quit their job? • They didn't get arrays."
+    },
+    {
+      "idA": "j-0132",
+      "idB": "j-0902",
+      "similarity": 0.8830924360322465,
+      "previewA": "Where’s the bin? • Dad: I haven’t been anywhere!",
+      "previewB": "Where’s the bin? • I haven’t been anywhere!"
+    },
+    {
+      "idA": "j-0167",
+      "idB": "j-0895",
+      "similarity": 0.8789559937066833,
+      "previewA": "What do you give a sick lemon? • Lemonaid.",
+      "previewB": "What do you give to a lemon in need? • Lemonaid."
+    },
+    {
+      "idA": "j-0542",
+      "idB": "j-0905",
+      "similarity": 0.876686037658057,
+      "previewA": "What did the ocean say to the shore? • Nothing, it just waved.",
+      "previewB": "What did one ocean say to the other ocean? • Nothing, they just waved."
+    },
+    {
+      "idA": "j-0451",
+      "idB": "j-0890",
+      "similarity": 0.8746644499437756,
+      "previewA": "What did the fish say when it swam into a wall? • Damn!",
+      "previewB": "What did the fish say when it hit the wall? • Dam."
+    },
+    {
+      "idA": "j-0569",
+      "idB": "j-0897",
+      "similarity": 0.8489520167198789,
+      "previewA": "\"What time is it?\" I don't know... • it keeps changing.",
+      "previewB": "What time is it? • I don't know... it keeps changing."
+    },
+    {
+      "idA": "j-0606",
+      "idB": "j-0896",
+      "similarity": 0.8404811348567082,
+      "previewA": "\"Hey, dad, did you get a haircut?\" \"No • I got them all cut.\"",
+      "previewB": "Hey, dad, did you get a haircut? • No, I got them all cut."
+    },
+    {
+      "idA": "j-0502",
+      "idB": "j-0907",
+      "similarity": 0.8387986810106479,
+      "previewA": "Why do crabs never give to charity? • Because they’re shellfish.",
+      "previewB": "Why don't oysters give to charity? • Because they're shellfish."
+    },
+    {
+      "idA": "j-0018",
+      "idB": "j-0906",
+      "similarity": 0.818469115629107,
+      "previewA": "Why did the kid cross the playground? • To get to the other slide.",
+      "previewB": "Why did the chicken cross the playground? • To get to the other slide."
+    },
     {
       "idA": "j-0182",
       "idB": "j-0246",
@@ -15,14 +176,14 @@
     {
       "idA": "j-0081",
       "idB": "j-0673",
-      "similarity": 0.7913226685931444,
+      "similarity": 0.7913226776266734,
       "previewA": "I made a belt out of watches once... • It was a waist of time.",
       "previewB": "What do you call a belt made out of watches? • A waist of time."
     },
     {
       "idA": "j-0703",
       "idB": "j-0759",
-      "similarity": 0.7768457236147934,
+      "similarity": 0.7768457671159666,
       "previewA": "Why do Java programmers wear glasses? • Because they don't C#.",
       "previewB": "Why dot net developers don't wear glasses? • Because they see sharp."
     },
@@ -36,7 +197,7 @@
     {
       "idA": "j-0376",
       "idB": "j-0624",
-      "similarity": 0.7594325532469558,
+      "similarity": 0.7594325221312935,
       "previewA": "Why does Norway have barcodes on their battleships? • So when they get back to port, they can Scandinavian.",
       "previewB": "Why did Sweden start painting barcodes on the sides of their battleships? • So they could Scandinavian."
     },
@@ -50,7 +211,7 @@
     {
       "idA": "j-0296",
       "idB": "j-0542",
-      "similarity": 0.7537369878674044,
+      "similarity": 0.7537369831920194,
       "previewA": "What did the ocean say to the beach? • Thanks for all the sediment.",
       "previewB": "What did the ocean say to the shore? • Nothing, it just waved."
     },
@@ -71,7 +232,7 @@
     {
       "idA": "j-0439",
       "idB": "j-0828",
-      "similarity": 0.722328856366367,
+      "similarity": 0.7223288554046721,
       "previewA": "What do you call a fake noodle? • An impasta.",
       "previewB": "What do you call fake spaghetti? • An impasta."
     },
@@ -92,9 +253,16 @@
     {
       "idA": "j-0353",
       "idB": "j-0679",
-      "similarity": 0.7002045046743881,
+      "similarity": 0.7002045544900977,
       "previewA": "What time did the man go to the dentist? • Tooth hurt-y.",
       "previewB": "What's the best time to go to the dentist? • Tooth hurty."
+    },
+    {
+      "idA": "j-0296",
+      "idB": "j-0905",
+      "similarity": 0.6987150309024556,
+      "previewA": "What did the ocean say to the beach? • Thanks for all the sediment.",
+      "previewB": "What did one ocean say to the other ocean? • Nothing, they just waved."
     },
     {
       "idA": "j-0211",
@@ -106,7 +274,7 @@
     {
       "idA": "j-0252",
       "idB": "j-0332",
-      "similarity": 0.6862737317451986,
+      "similarity": 0.6862737233237042,
       "previewA": "What do you get when you cross a rabbit with a water hose? • Hare spray.",
       "previewB": "What do you do when your bunny gets wet? • You get your hare dryer."
     },
@@ -120,7 +288,7 @@
     {
       "idA": "j-0277",
       "idB": "j-0542",
-      "similarity": 0.6778182693128005,
+      "similarity": 0.6778182636347915,
       "previewA": "What did the sea say to the sand? • \"We have to stop meeting like this.\"",
       "previewB": "What did the ocean say to the shore? • Nothing, it just waved."
     },
@@ -134,7 +302,7 @@
     {
       "idA": "j-0447",
       "idB": "j-0570",
-      "similarity": 0.6719956711136543,
+      "similarity": 0.6719957549275105,
       "previewA": "This is my step ladder. • I never knew my real ladder.",
       "previewB": "You can't trust a ladder. • It will always let you down"
     },
@@ -162,21 +330,21 @@
     {
       "idA": "j-0559",
       "idB": "j-0827",
-      "similarity": 0.6595081988318428,
+      "similarity": 0.6595082193500498,
       "previewA": "Why are skeletons so calm? • Because nothing gets under their skin.",
       "previewB": "Why don't skeletons fight each other? • They don't have the guts."
     },
     {
       "idA": "j-0003",
       "idB": "j-0827",
-      "similarity": 0.6551756476860807,
+      "similarity": 0.6551756764065436,
       "previewA": "Why didn’t the skeleton cross the road? • Because he had no guts.",
       "previewB": "Why don't skeletons fight each other? • They don't have the guts."
     },
     {
       "idA": "j-0049",
       "idB": "j-0570",
-      "similarity": 0.6476584404991982,
+      "similarity": 0.6476583906856038,
       "previewA": "I don't trust stairs. • They're always up to something.",
       "previewB": "You can't trust a ladder. • It will always let you down"
     },
@@ -188,6 +356,13 @@
       "previewB": "Why don’t skeletons ever go trick or treating? • Because they have nobody to go with."
     },
     {
+      "idA": "j-0277",
+      "idB": "j-0905",
+      "similarity": 0.6423135819800875,
+      "previewA": "What did the sea say to the sand? • \"We have to stop meeting like this.\"",
+      "previewB": "What did one ocean say to the other ocean? • Nothing, they just waved."
+    },
+    {
       "idA": "j-0043",
       "idB": "j-0295",
       "similarity": 0.6413861056083212,
@@ -197,7 +372,7 @@
     {
       "idA": "j-0032",
       "idB": "j-0467",
-      "similarity": 0.6321058719740068,
+      "similarity": 0.6321058979692789,
       "previewA": "I was fired from the keyboard factory yesterday. • I wasn't putting in enough shifts.",
       "previewB": "I got fired from the transmission factor • turns out I didn't put on enough shifts..."
     },
@@ -218,14 +393,14 @@
     {
       "idA": "j-0182",
       "idB": "j-0578",
-      "similarity": 0.6203596855811926,
+      "similarity": 0.6203596950935031,
       "previewA": "What do you call a cow with no legs? • Ground beef.",
       "previewB": "What do you call a cow on a trampoline? • A milk shake!"
     },
     {
       "idA": "j-0736",
       "idB": "j-0747",
-      "similarity": 0.6153354375480261,
+      "similarity": 0.615335465436931,
       "previewA": "The punchline often arrives before the set-up. • Do you know the problem with UDP jokes?",
       "previewB": "What's the best part about TCP jokes? • I get to keep telling them until you get them."
     },
@@ -239,14 +414,14 @@
     {
       "idA": "j-0149",
       "idB": "j-0353",
-      "similarity": 0.6079771491772771,
+      "similarity": 0.6079771000488302,
       "previewA": "Why did the tree go to the dentist? • It needed a root canal.",
       "previewB": "What time did the man go to the dentist? • Tooth hurt-y."
     },
     {
       "idA": "j-0150",
       "idB": "j-0543",
-      "similarity": 0.6059935036622541,
+      "similarity": 0.6059935565147245,
       "previewA": "It was raining cats and dogs the other day. • I almost stepped in a poodle.",
       "previewB": "I went to the zoo the other day, there was only one dog in it. • It was a shitzu."
     },
@@ -260,7 +435,7 @@
     {
       "idA": "j-0246",
       "idB": "j-0578",
-      "similarity": 0.5960058643163268,
+      "similarity": 0.5960058854438577,
       "previewA": "What do you call a cow with two legs? • Lean beef.",
       "previewB": "What do you call a cow on a trampoline? • A milk shake!"
     },
@@ -288,7 +463,7 @@
     {
       "idA": "j-0625",
       "idB": "j-0867",
-      "similarity": 0.5886864973985346,
+      "similarity": 0.5886864560419148,
       "previewA": "Want to hear a chimney joke? • Got stacks of em! First one's on the house",
       "previewB": "How much did your chimney cost? • Nothing, it was on the house."
     },
@@ -302,7 +477,7 @@
     {
       "idA": "j-0618",
       "idB": "j-0829",
-      "similarity": 0.5862661088623364,
+      "similarity": 0.5862661026054123,
       "previewA": "What do you call an alligator in a vest? • An in-vest-igator!",
       "previewB": "What do you call a thieving alligator? • A crookodile!"
     },
@@ -330,21 +505,21 @@
     {
       "idA": "j-0332",
       "idB": "j-0443",
-      "similarity": 0.5714966317519543,
+      "similarity": 0.571496620832867,
       "previewA": "What do you do when your bunny gets wet? • You get your hare dryer.",
       "previewB": "Where do rabbits go after they get married? • On a bunny-moon."
     },
     {
       "idA": "j-0406",
       "idB": "j-0542",
-      "similarity": 0.5680829465239485,
+      "similarity": 0.5680829440570755,
       "previewA": "Why is the ocean always blue? • Because the shore never waves back.",
       "previewB": "What did the ocean say to the shore? • Nothing, it just waved."
     },
     {
       "idA": "j-0880",
       "idB": "j-0886",
-      "similarity": 0.5671673159028517,
+      "similarity": 0.5671674268519845,
       "previewA": "Why does Santa have three gardens? • So he can 'ho ho ho'!",
       "previewB": "Why does Santa go down the chimney? • Because it soots him!"
     },
@@ -393,7 +568,7 @@
     {
       "idA": "j-0683",
       "idB": "j-0826",
-      "similarity": 0.5587112843234565,
+      "similarity": 0.5587112077246287,
       "previewA": "Why would a guitarist become a good programmer? • He's adept at riffing in C#.",
       "previewB": "Why did the programmer always carry a pencil? • They preferred to write in C#."
     },
@@ -414,9 +589,16 @@
     {
       "idA": "j-0458",
       "idB": "j-0872",
-      "similarity": 0.5532895437201264,
+      "similarity": 0.5532895680226011,
       "previewA": "Why is no one friends with Dracula? • Because he's a pain in the neck.",
       "previewB": "What's it like to be kissed by a vampire? • It's a pain in the neck."
+    },
+    {
+      "idA": "j-0796",
+      "idB": "j-0909",
+      "similarity": 0.5522187673420884,
+      "previewA": "Why did the programmer's wife leave him? • He didn't know how to commit.",
+      "previewB": "Why did the programmer quit their job? • They didn't get arrays."
     },
     {
       "idA": "j-0358",
@@ -428,7 +610,7 @@
     {
       "idA": "j-0016",
       "idB": "j-0755",
-      "similarity": 0.5514547323492176,
+      "similarity": 0.551454792925918,
       "previewA": "What creature is smarter than a talking parrot? • A spelling bee.",
       "previewB": "What do you call a bee that can't make up its mind? • A maybe."
     },
@@ -442,7 +624,7 @@
     {
       "idA": "j-0191",
       "idB": "j-0458",
-      "similarity": 0.5476989174799072,
+      "similarity": 0.5476988402293682,
       "previewA": "Why did Dracula lie in the wrong coffin? • He made a grave mistake.",
       "previewB": "Why is no one friends with Dracula? • Because he's a pain in the neck."
     },
@@ -496,9 +678,16 @@
       "previewB": "Where do bees go to the bathroom? • The BP station."
     },
     {
+      "idA": "j-0824",
+      "idB": "j-0909",
+      "similarity": 0.536343763476834,
+      "previewA": "Why did the programmer bring a broom to work? • To clean up all the bugs.",
+      "previewB": "Why did the programmer quit their job? • They didn't get arrays."
+    },
+    {
       "idA": "j-0687",
       "idB": "j-0824",
-      "similarity": 0.5356864038428624,
+      "similarity": 0.5356864832194758,
       "previewA": "Why did the programmer quit his job? • Because he didn't get arrays.",
       "previewB": "Why did the programmer bring a broom to work? • To clean up all the bugs."
     },
@@ -559,11 +748,32 @@
       "previewB": "Why do you never see elephants hiding in trees? • Because they're so good at it."
     },
     {
+      "idA": "j-0406",
+      "idB": "j-0905",
+      "similarity": 0.5224431503274164,
+      "previewA": "Why is the ocean always blue? • Because the shore never waves back.",
+      "previewB": "What did one ocean say to the other ocean? • Nothing, they just waved."
+    },
+    {
+      "idA": "j-0310",
+      "idB": "j-0906",
+      "similarity": 0.5210259657834401,
+      "previewA": "What do you get when you cross a chicken with a skunk? • A fowl smell!",
+      "previewB": "Why did the chicken cross the playground? • To get to the other slide."
+    },
+    {
       "idA": "j-0129",
       "idB": "j-0503",
       "similarity": 0.5200077259778232,
       "previewA": "What do you call a fish with no eyes? • A fsh.",
       "previewB": "What do you call a pig with three eyes? • Piiig"
+    },
+    {
+      "idA": "j-0824",
+      "idB": "j-0903",
+      "similarity": 0.5198571735512049,
+      "previewA": "Why did the programmer bring a broom to work? • To clean up all the bugs.",
+      "previewB": "Why did the developer quit his job? • Because he didn't get arrays."
     },
     {
       "idA": "j-0121",
@@ -582,7 +792,7 @@
     {
       "idA": "j-0337",
       "idB": "j-0434",
-      "similarity": 0.515734994427174,
+      "similarity": 0.5157349183758512,
       "previewA": "What do you call someone with no nose? • Nobody knows.",
       "previewB": "What do you call a bear with no teeth? • A gummy bear!"
     },
@@ -617,7 +827,7 @@
     {
       "idA": "j-0250",
       "idB": "j-0858",
-      "similarity": 0.5107761652929275,
+      "similarity": 0.5107760502285911,
       "previewA": "Who is the coolest Doctor in the hospital? • The hip Doctor!",
       "previewB": "What kind of doctor is Dr. Pepper? • He's a fizzician."
     },
@@ -631,7 +841,7 @@
     {
       "idA": "j-0596",
       "idB": "j-0604",
-      "similarity": 0.5093345131360725,
+      "similarity": 0.5093345704037432,
       "previewA": "What is a vampire's favorite fruit? • A blood orange.",
       "previewB": "How can you tell a vampire has a cold? • They start coffin."
     },
@@ -645,9 +855,16 @@
     {
       "idA": "j-0232",
       "idB": "j-0328",
-      "similarity": 0.5078527069546366,
+      "similarity": 0.5078526725560454,
       "previewA": "Where did you learn to make ice cream? • Sunday school.",
       "previewB": "Where do you learn to make banana splits? • At sundae school."
+    },
+    {
+      "idA": "j-0796",
+      "idB": "j-0903",
+      "similarity": 0.5060160268239098,
+      "previewA": "Why did the programmer's wife leave him? • He didn't know how to commit.",
+      "previewB": "Why did the developer quit his job? • Because he didn't get arrays."
     },
     {
       "idA": "j-0090",
@@ -657,11 +874,32 @@
       "previewB": "I thought about going on an all-almond diet. • But that's just nuts."
     },
     {
+      "idA": "j-0243",
+      "idB": "j-0899",
+      "similarity": 0.5052839721013682,
+      "previewA": "How many kids with ADD does it take to change a lightbulb? • Let's go ride bikes!",
+      "previewB": "How many optometrists does it take to change a light bulb? • 1 or 2? 1... or 2?"
+    },
+    {
+      "idA": "j-0335",
+      "idB": "j-0908",
+      "similarity": 0.5049958119526822,
+      "previewA": "Why did the fireman wear red, white, and blue suspenders? • To hold his pants up.",
+      "previewB": "Why did the golfer wear two pairs of pants? • In case he got a hole in one."
+    },
+    {
       "idA": "j-0066",
       "idB": "j-0203",
       "similarity": 0.5045177834753811,
       "previewA": "What do you get when you cross a pig and a pineapple? • A porky pine",
       "previewB": "what happens when you cross a sheep with a kangaroo? • A woolly jumper!"
+    },
+    {
+      "idA": "j-0834",
+      "idB": "j-0903",
+      "similarity": 0.504514928062778,
+      "previewA": "Why did the JavaScript heap close shop? • It ran out of memory.",
+      "previewB": "Why did the developer quit his job? • Because he didn't get arrays."
     },
     {
       "idA": "j-0027",
@@ -680,7 +918,7 @@
     {
       "idA": "j-0139",
       "idB": "j-0755",
-      "similarity": 0.5021312830898457,
+      "similarity": 0.5021312907221004,
       "previewA": "What do you get when you cross a bee and a sheep? • A bah-humbug.",
       "previewB": "What do you call a bee that can't make up its mind? • A maybe."
     },
