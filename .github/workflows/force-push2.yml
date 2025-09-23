@@ -1,0 +1,62 @@
+name: Merge PR into main (prefer PR changes, fallback to reset)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  merge-prefer-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Check open PRs
+        id: check
+        run: |
+          prs=$(gh pr list --json number,headRefName --jq '.[]')
+          count=$(echo "$prs" | jq -s 'length')
+          if [ "$count" -ne 1 ]; then
+            echo "❌ There are $count open PRs. Aborting."
+            exit 1
+          fi
+          branch=$(echo "$prs" | jq -r '.headRefName')
+          echo "branch=$branch" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Set Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Try merge PR branch into main
+        id: merge
+        run: |
+          set -e
+          git fetch origin
+          git checkout main
+          if git merge -s recursive -X theirs origin/${{ steps.check.outputs.branch }}; then
+            echo "merge_succeeded=true" >> $GITHUB_OUTPUT
+          else
+            echo "merge_succeeded=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Push merge result
+        if: steps.merge.outputs.merge_succeeded == 'true'
+        run: git push origin main
+
+      - name: Fallback force PR branch onto main
+        if: steps.merge.outputs.merge_succeeded == 'false'
+        run: |
+          echo "⚠️ Merge failed, replacing main with PR branch."
+          git checkout main
+          git reset --hard origin/${{ steps.check.outputs.branch }}
+          git push origin main --force
