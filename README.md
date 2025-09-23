@@ -8,6 +8,7 @@ A collection of lightweight browser apps served from a single landing page. Each
 - **Quotes** – Shuffle themed quote decks, step back whenever you like, and explore every line in the all-in-one archive.
 - **Cosine Similarity Lab** – Explore the 0.50+ cosine matches across jokes, quotes, and cross-deck blends, tweak the minimum score, and compare entries side by side with vector stats.
 - **Value Formatter** – Turn newline-separated entries into formatted key-value pairs for quick copy/paste in code reviews or data preparation.
+- **Playwright Run Telemetry** – Inspect JSON-backed timelines from the automated smoke tests, filter statuses, and review per-spec activity logs directly from the bundled JSON report.
 
 ## Usage
 
@@ -25,15 +26,44 @@ This starts a server on <http://localhost:3000> (or the next available port).
 
 ## Testing
 
-Install the dev dependencies once and run the Playwright smoke checks whenever you touch the interactive apps:
+Install the dev dependencies and download the Playwright browser bundle the first time you set up the repo:
 
 ```bash
 npm install
 npx playwright install
+```
+
+On fresh machines that lack the Chromium dependencies, run `npx playwright install --with-deps chromium` instead of the plain install above.
+
+With the tooling in place, execute the full suite:
+
+```bash
 npm test
 ```
 
-The test runner launches a temporary `python -m http.server` instance, loads the Cosine Similarity Lab, and asserts that the dynamic thresholding and Levenshtein metrics render. Use `npm run test:ui` if you want to watch the checks in the Playwright inspector while iterating locally. `npx playwright install --with-deps` is handy the first time you set things up on a fresh machine that needs the browser dependencies.
+The tests spin up a temporary `python -m http.server` instance and exercise every interactive surface:
+
+- `tests/index.spec.js` keeps the landing grid honest so newly added apps remain discoverable.
+- `tests/jokes.spec.js` and `tests/quotes.spec.js` cover the deck navigation, punchline reveals, category filtering, and keyboard shortcuts.
+- `tests/value-formatter.spec.js` validates preset transforms, ad-hoc scripts, and persistence.
+- `tests/similarity-report.spec.js` exercises dataset toggles, thresholds, and similarity overlays.
+- `tests/run-telemetry.spec.js` walks through the telemetry console filters, detail panel, and refresh flow.
+
+Use `npm run test:ui` if you want to watch the checks in the Playwright inspector while iterating locally. To focus on a single spec, pass its filename to Playwright, for example:
+
+```bash
+npx playwright test tests/run-telemetry.spec.js
+```
+
+### Refreshing the telemetry console
+
+Run the dedicated recording script whenever you want to update the live log that powers `apps/run-telemetry/`:
+
+```bash
+npm run test:record
+```
+
+The helper executes the full suite with the line reporter, normalizes absolute paths inside the generated JSON, and writes the result to `data/test-runs/latest.json`. The telemetry console fetches this file (or falls back to the bundled snapshot when you are offline) and surfaces each spec’s timeline, errors, and attachments. Commit the refreshed JSON when you want the static site to showcase the latest run.
 
 ## Data maintenance
 
