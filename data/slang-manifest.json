@@ -1,0 +1,1277 @@
+{
+  "meta": {
+    "generatedAt": "2025-09-23T13:37:57.863Z",
+    "total": 45,
+    "hashAlgorithm": "sha256",
+    "tokenSignature": "unique-words-v1",
+    "fields": [
+      "term",
+      "definition",
+      "example",
+      "hint",
+      "category"
+    ]
+  },
+  "records": {
+    "sl-0001": {
+      "hashes": {
+        "term": "95ef5a31d084e89425c9e30a864d6cba7fb5a4d1c0e031029cd58c1a433adb5d",
+        "definition": "35d1a7288e3cde1a3c55e248f12dccba969fd2a317e72dff737abf1a665db6b4",
+        "example": "5f3c242556f31fbc33173b3459e747b6b6034667cd8cb1f746de1c1af3b53f8c",
+        "hint": "408b9738d607203d25bc3f65df1591eac5fcf88c8765ec6e678e874afb923064",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "c4c1ed3576f0125b655ef4ad8f86acd07642a8ec94c8ca1db2e91b3eef0abaa3",
+        "tokenSignature": "charisma-charm-connecting-effortless-everyone-feel-flirting-gen-group-hype-into-it-jaden-make-makes-much-natural-or-over-people-rizz-room-scooted-so-someone-study-that-the-to-trying-use-walked-whose-wins-with-without-z"
+      },
+      "lengths": {
+        "term": 4,
+        "definition": 67,
+        "example": 92,
+        "hint": 67,
+        "category": 5
+      },
+      "source": {
+        "sequence": 1,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0002": {
+      "hashes": {
+        "term": "7837b0277c547e94ac9420be4253bc3f6402fd529750015d4c0f2b2b61c6197e",
+        "definition": "9e428e81ba5334a6cf04d4342a1e3a77d46c9607c3633c295ed0ea93549d9429",
+        "example": "b1eedd3246d3a999efeeac040ed8d2145aa30cf578a22f131967b5f4b4f61dd4",
+        "hint": "57fdb1df370e8cf6174b31d39f21e545ad6d5766fe72064dacd91bc869396cc5",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "d5a55bf282034ecc966460ba117edd96dfac252851cb8a2d1e725128e2ed0758",
+        "tokenSignature": "and-asked-assignment-call-client-completely-every-execute-flair-flawlessly-gen-intro-it-nails-present-slay-so-someone-something-style-team-the-time-to-undeniable-use-when-with-you-z"
+      },
+      "lengths": {
+        "term": 4,
+        "definition": 58,
+        "example": 80,
+        "hint": 63,
+        "category": 5
+      },
+      "source": {
+        "sequence": 2,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0003": {
+      "hashes": {
+        "term": "6983e434cc382a05f656841a990129913be50a9e9f9bf22690a276e6c9f4ab14",
+        "definition": "0c881ee87cffb571f7f8682897dc250de552317d49a9515e2fac737ebfecece5",
+        "example": "ec64525a5ebea60ca4d82b4e0b4e1baa4b8ecac6e15ab20fcfe7d618aed9c93a",
+        "hint": "466c33a3ec2aa1e9f5e784883e9f9408bc6ad3408913a114ef5d3561b9e114b3",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "841c32ce512ec0ba2eb03823bd805122793adf81abac522673a33360dbbb48e3",
+        "tokenSignature": "a-add-and-are-ate-choreography-delivered-effort-energy-gen-give-good-had-it-left-maya-no-notes-nothing-of-performance-rest-s-so-someone-still-strong-such-teach-that-the-there-to-us-use-was-when-z"
+      },
+      "lengths": {
+        "term": 3,
+        "definition": 69,
+        "example": 82,
+        "hint": 68,
+        "category": 5
+      },
+      "source": {
+        "sequence": 3,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0004": {
+      "hashes": {
+        "term": "d6b55e9a4a2faa3a9887dd335b8db7b6be462999423b7ba2d052ceabae36e00d",
+        "definition": "0a7ce80d8b773e6b1203321eb8701fcd3b2861ce34957e382b13de98103dffa2",
+        "example": "863a1aaee6275221b54d258fe8006186e0b92da8c8be268da2256bbf05617353",
+        "hint": "5e6da8594c0764aae1e18132ff75cb70cfb756435b6c5b0ce6d373c6e9287954",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "27c2e06d63fd9ea05da959ff0a41d25a6f8ab3a290d496f2fad1d88e45c2f5ed",
+        "tokenSignature": "a-achievement-after-all-at-best-blocking-crown-do-every-for-gen-goalie-goated-greatest-in-is-it-locked-of-or-our-overtime-shot-skill-someone-status-the-they-time-to-undeniable-use-what-z"
+      },
+      "lengths": {
+        "term": 6,
+        "definition": 65,
+        "example": 59,
+        "hint": 60,
+        "category": 5
+      },
+      "source": {
+        "sequence": 4,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0005": {
+      "hashes": {
+        "term": "2b2ecf14a00226ae8b8328406f2b3de9d4c4ef0ef6fe2833b99022c130ebc939",
+        "definition": "62bb33c05da25d5a134c0104b88b2d87c2767b1ec24972ef4e3791f7442c46d7",
+        "example": "41d6c8adb3b27517f81575c7bbb5c4fdab65be7dc319844c9083f91b120cc301",
+        "hint": "f1bf871782389e35bdcae1a9a71c42cf547fb7710695e2c17b1ff25e69cec70f",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "a4b29ca730de75807adf45f398480fe2c23c4f2dae1c39b2b754581733ee77e8",
+        "tokenSignature": "about-an-another-bowl-bussin-can-definitely-experience-feels-food-gen-good-help-i-is-it-late-loud-m-night-or-ordering-out-ramen-reacting-so-something-t-tastes-that-this-unbelievably-use-usually-when-you-z"
+      },
+      "lengths": {
+        "term": 6,
+        "definition": 83,
+        "example": 73,
+        "hint": 56,
+        "category": 5
+      },
+      "source": {
+        "sequence": 5,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0006": {
+      "hashes": {
+        "term": "85d30a7009595afc7f6f70ec75094dabda6980055aab8d2dc425da6198264c96",
+        "definition": "00e72a335bb857dd122d2a229a9909be7dfe291d46d6df5db86212c4129f7a7e",
+        "example": "2366ebd75695fec11d0d0fab2fb09cf10f39b85256b090366d1e41e484086939",
+        "hint": "515c810c77d27fd8fd5b8acf3c35f52689f0633c52dc6f239c10354af5e9e68c",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "ce1779b6e949845f966cf666471c71f747f89096072a23d1267d84b1861439da",
+        "tokenSignature": "amazingly-and-best-contagious-crowd-dance-dj-energy-erupts-filled-floor-gen-go-in-instantly-it-off-or-performing-pop-possible-someone-something-start-the-to-told-up-use-way-when-with-z"
+      },
+      "lengths": {
+        "term": 7,
+        "definition": 66,
+        "example": 73,
+        "hint": 65,
+        "category": 5
+      },
+      "source": {
+        "sequence": 6,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0007": {
+      "hashes": {
+        "term": "ec654fac9599f62e79e2706abef23dfb7c07c08185aa86db4d8695f0b718d1b3",
+        "definition": "cd1dad6e11a5e284dc50b5cab3ed20ee1db98ade3b05236673a9c9b028b41a46",
+        "example": "28b7d78d6f85572ab623653e55bd50028f24ae1498164e4017cfc7f24e27d041",
+        "hint": "c967e7b4893c3ece8dd104eb087c242372507e0d49a0de00a8c6cf891941d249",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "c1950504e7938500b4f41a1d4ab2e5603cb7caf0ba3e0928e5912574cb540df2",
+        "tokenSignature": "absolutely-adding-an-cosigning-gen-genuinely-good-half-hesitation-i-idea-is-it-m-my-on-opinion-or-outfit-playlist-point-rotation-these-to-tracks-trustworthy-use-valid-when-without-worth-your-z"
+      },
+      "lengths": {
+        "term": 5,
+        "definition": 67,
+        "example": 68,
+        "hint": 63,
+        "category": 5
+      },
+      "source": {
+        "sequence": 7,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0008": {
+      "hashes": {
+        "term": "89b315eb8f4ac40c1fc295f02f6c62a6c2add4e9e025b123e002a5d7d97dc0c2",
+        "definition": "6005d39355a28588697c548d98012817da10ebe7b1cf1ffeba7dee9e5dc44e2a",
+        "example": "e99a10ed5bf16325338663959d40f2c513d38d2fe0941d2fac5c2c4f7b038115",
+        "hint": "d21687b3c78e87417e0204c99282f73294388da9399a9439e57f8883613ae319",
+        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
+        "combined": "08d11e4de692800e26ad47e15e0a56c102bffed5e0e32c92692ae6d4c04de307",
+        "tokenSignature": "a-alpha-believing-calling-cancel-check-daydream-delulu-fantasy-for-friend-gen-gentle-i-it-m-needs-optimism-or-out-playfully-professor-quiz-reality-s-someone-the-thinking-tomorrow-unrealistic-use-when-will"
+      },
+      "lengths": {
+        "term": 6,
+        "definition": 75,
+        "example": 67,
+        "hint": 61,
+        "category": 9
+      },
+      "source": {
+        "sequence": 8,
+        "categoryId": "gen-alpha"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "d6f0445ddbb863a31ce967c253e4363948947e524152940dcfc1f6ebdd78115e",
+        "updatedAt": "2025-09-23T13:38:00.162Z"
+      }
+    },
+    "sl-0009": {
+      "hashes": {
+        "term": "0e4084b4cf48eb86a7c18f14fb681e32d409269e267d08d3178221eed5c500a5",
+        "definition": "27e0dca023606c19f991b8e714ad39bd36d97e5f8efb44e2051acf8c1303b8e9",
+        "example": "32b62d96fd923c4625dbbf224aa7500c128385fdd64baadbcaab888af3f10591",
+        "hint": "636eea61ba8a7d04183757d5ae036daa31c41a91b78a56638db24c03e2921973",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "f17233859c40173d080ee08ac2505c87b3a62d639ec0e06998f2e9d651c6934e",
+        "tokenSignature": "a-being-cap-completely-exaggeration-facts-finale-gen-had-honest-is-it-me-no-promise-re-saying-straight-tearing-that-the-to-underline-up-use-what-with-you-z-zero"
+      },
+      "lengths": {
+        "term": 6,
+        "definition": 75,
+        "example": 37,
+        "hint": 56,
+        "category": 5
+      },
+      "source": {
+        "sequence": 9,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0010": {
+      "hashes": {
+        "term": "90ac16783fbc54c3689c63b3ab89b39cea28f8743a88ff34e6a1c61ed746d0e2",
+        "definition": "ecb580ee574086625c0e2de9d497de5ceaa60c46f51194db25b399d7766dc6d5",
+        "example": "8f60102f205ef351429acebc341ab42c118bb4b631b61d6a90138b88ab87deb0",
+        "hint": "dd7eb4b8002513e9f7ef4ce6586fd7e15b808db5ff20ff576646f4c7f98cc22c",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "2ba9ec64ee6dbfc789b9e0ec8475fa401d58b5a6a1fe63459bfa836428c7c243",
+        "tokenSignature": "after-aggressively-and-average-backlash-bounced-brunch-call-gen-highly-hype-it-mid-more-not-nothing-okay-one-or-plate-rated-so-something-spot-that-the-to-totally-use-was-we-worth-z"
+      },
+      "lengths": {
+        "term": 3,
+        "definition": 55,
+        "example": 69,
+        "hint": 60,
+        "category": 5
+      },
+      "source": {
+        "sequence": 10,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0011": {
+      "hashes": {
+        "term": "a76b338874117acd5c4151e0f532cb7bd4d84764d818a52d61acdb44aa7a4a16",
+        "definition": "90a1dcdf08d47c1975fba39065ed7a3c60707df78c8e256282410f482538dada",
+        "example": "dc09876f21fddbcace962046abb49928e49167a01aa23b2c3b421c76bbf73c59",
+        "hint": "3b11eb5d2ecc9596b00111aa7190f43c3627eef2d8df6990561763a71b448024",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "42d9e87d32831cbeacdac6129551957867fb77aada2ed3c512382f5762adbb86",
+        "tokenSignature": "a-and-checked-details-double-energy-feels-for-gen-has-investigation-invite-it-last-minute-needs-off-short-signals-situation-so-something-sounded-sus-suspicious-that-the-use-we-weird-when-z"
+      },
+      "lengths": {
+        "term": 3,
+        "definition": 55,
+        "example": 70,
+        "hint": 65,
+        "category": 5
+      },
+      "source": {
+        "sequence": 11,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0012": {
+      "hashes": {
+        "term": "2f04a79ef13b95c1f6a2ebb41fd14762468c9ea28a8c07dec25849ce2187963a",
+        "definition": "e8c522029cc08c83152e722ff3359f0c744dc90fd6807e509537f9d2d4d90399",
+        "example": "fe56208c9e4c131c0046010bdb26eb4579f723ae65f6c9273dbc4b25a6d1088f",
+        "hint": "9fde5b811c160c14fc62955dffd14ac467f51a316f7a2787b007f05d2a7e37ec",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "edd4a07dbdab3dc26d3cc53dee6225960e446d04ae753c7fff4b3a0881855515",
+        "tokenSignature": "a-and-clapback-completely-five-gen-her-in-it-likes-minutes-or-original-outnumber-outperforms-post-posts-quote-ratio-ratioed-replies-response-spotlight-steal-the-thread-use-when-z"
+      },
+      "lengths": {
+        "term": 5,
+        "definition": 81,
+        "example": 62,
+        "hint": 64,
+        "category": 5
+      },
+      "source": {
+        "sequence": 12,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0013": {
+      "hashes": {
+        "term": "3619a1d05b1fe41a17aeede95dca3b2075c283281e17af896b2116f207ee3495",
+        "definition": "44b6503e7f4e9eccf0ba1ca5a95e865af38c366ece1071cc4bdf952cbc0bc43b",
+        "example": "a40d9d85f5c0c372fbf53ca2d21790256344ea5e06e9077c14b3391f39e0601e",
+        "hint": "9fb37671cf168820430edf0c4790d4c6fc65f14e7376003751c9bff0a1d04b0a",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "815d1836950e70e62d43b921373e882c4b304c458bb9d7bfe700a4d492b60064",
+        "tokenSignature": "bailed-before-believing-claiming-confirm-demand-drop-evidence-gen-going-he-if-irl-it-on-online-or-project-proof-re-receipts-say-screenshots-tea-that-the-to-use-what-when-you-z"
+      },
+      "lengths": {
+        "term": 8,
+        "definition": 69,
+        "example": 66,
+        "hint": 57,
+        "category": 5
+      },
+      "source": {
+        "sequence": 13,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0014": {
+      "hashes": {
+        "term": "e15348ae477f16c01edc67a48d82db15e719f3a2f3efcc817e8ce25fe983755e",
+        "definition": "7474db25d33cf74fdb2de62bb91133b90df9ec004c3d24cc44d5dd41541e4f13",
+        "example": "54c5525eb49a4fb4372c07515025d11dc8346e210dbb58b6587087539bf61fb5",
+        "hint": "9702ced1be27017c7dcd80bb5ca662d3f48d037d288512ce95c45766840a476c",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "9779f9652e1bc5f2419500d95ddc81876f45f0679d4bdb26a6be519baa645328",
+        "tokenSignature": "a-about-bothered-can-gen-go-in-inconvenience-it-kart-last-let-losing-mario-minor-or-pressed-s-seriously-she-small-someone-something-still-stressed-t-use-weekend-when-z"
+      },
+      "lengths": {
+        "term": 7,
+        "definition": 53,
+        "example": 60,
+        "hint": 55,
+        "category": 5
+      },
+      "source": {
+        "sequence": 14,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0015": {
+      "hashes": {
+        "term": "863ac33a07f3538661f01f93af6e3e8afc8fcbcbcce8e0b61e73380dd985f37f",
+        "definition": "237c9aab7c93a946e61451a06754a1583b892c211724a2dcf0aa9ac65cb3d5f3",
+        "example": "3772c519dfbcc478ac6199cbb25392499884297ceb69fe9b9158bbd234ef3f6c",
+        "hint": "c7e8f54105e556b8c6da5c0a60ae25a33caf5d7362ee63a0a12d98bff108359c",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "cb37b3e13b85dec445e2e97b2e0bab29e095582b84e4c673f2c16d7e52331ff1",
+        "tokenSignature": "a-an-awkward-big-charts-cringe-dramatic-embarrassment-forgetting-gen-his-is-it-livestream-messy-moment-name-off-on-or-reaction-secondhand-situation-the-to-use-was-when-yikes-z"
+      },
+      "lengths": {
+        "term": 9,
+        "definition": 60,
+        "example": 61,
+        "hint": 55,
+        "category": 5
+      },
+      "source": {
+        "sequence": 15,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0016": {
+      "hashes": {
+        "term": "1912766d6ba0e50e8b1bacfb51207e83b95b7ac0cd8ce15307cdf4965e7e3f6c",
+        "definition": "40bab8099aba068dbf90b24acf8fa81a819f9e36f41bc3700b07c4728b1def33",
+        "example": "559ea58526a511911793e2ce2b171153995c0f39b31c5e61f35436759c1482b6",
+        "hint": "19d2af05f51882b3892b24a870f0881683c22d1faae30bd2a4019cc1e14a7bd5",
+        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
+        "combined": "38cb2c4013405b662feef7ead23f1b1e26828df16637d7626f16d1e75881831e",
+        "tokenSignature": "a-absurd-alpha-and-break-chaos-chaotic-dance-during-energy-feels-for-full-gen-had-homeroom-into-it-meme-moment-no-nonsense-pure-reason-skibidi-something-speechless-teacher-that-the-turns-use-used-when"
+      },
+      "lengths": {
+        "term": 7,
+        "definition": 71,
+        "example": 68,
+        "hint": 62,
+        "category": 9
+      },
+      "source": {
+        "sequence": 16,
+        "categoryId": "gen-alpha"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0017": {
+      "hashes": {
+        "term": "59c4cb609ecbf4c7ad0d1052670024372cf13c72975e5d5d31654c7be8365f11",
+        "definition": "56d2cb4c053d3d00980ad42c849a3e2923c183bd44d56ff96cb22f8ef08c822c",
+        "example": "675819d2dacc5a8639a9b2d5a8631f3d40de48e7dfac2a91520cfa5cccb9e122",
+        "hint": "7cfb7b57bb203af06fdbed2264df04afb3c7eb4baf84b240179522c0036554ad",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "a3daa1dda756a6131ecd04c7e705931c278f3a70c57ecc6130c2d70a8537523c",
+        "tokenSignature": "after-bad-can-died-doomscroll-doomscrolling-down-even-feed-gen-i-it-keep-long-my-news-out-phone-put-s-scrolling-should-someone-stayed-stop-stressing-t-the-them-though-through-to-until-up-updates-use-when-wildfire-you-z"
+      },
+      "lengths": {
+        "term": 10,
+        "definition": 62,
+        "example": 63,
+        "hint": 80,
+        "category": 5
+      },
+      "source": {
+        "sequence": 17,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0018": {
+      "hashes": {
+        "term": "fc403ee9d4d380573defc9817ebf7e312fe278bc1c127ab7ad1ab62afa945212",
+        "definition": "bb00d7214912ad61ced1c21a5f6ce4b5f851de8806b18e5d4e3e12482fd29516",
+        "example": "0169fcfaa9c09e7e5ae15605698ddc249d1ac69ed935f0476309d42758a275a3",
+        "hint": "a30f509e954b1dcc02444d26efef355fa7156f279e60de6dada744557c617c26",
+        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
+        "combined": "a1de2fe3812491ae21189a1169d01022685c7c08137f4f83286ba36899a6004a",
+        "tokenSignature": "a-alpha-and-been-being-bit-break-comments-extremely-fighting-for-from-gen-go-grass-hours-in-it-log-needs-off-online-reality-rejoin-reminder-someone-the-to-touch-use-ve-when-you"
+      },
+      "lengths": {
+        "term": 11,
+        "definition": 51,
+        "example": 62,
+        "hint": 62,
+        "category": 9
+      },
+      "source": {
+        "sequence": 18,
+        "categoryId": "gen-alpha"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0019": {
+      "hashes": {
+        "term": "87e31e75d0229aeac6909b2c12dd5feb43380238b011f985ee9e58bf8e4d40ee",
+        "definition": "a27d10bba6d95ee2eeb4c96007797ce18c15219980c9c86a39a4a9a2311fd705",
+        "example": "f5ef994f725debf442aebcca04b8cc0acc8a46da9ad70105ff6f8ca6ab2e519d",
+        "hint": "e1d24e3afd4d0717e06fb2cc2e5edbf76a38505854086af6e76ec1fe382f7769",
+        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
+        "combined": "9a5a1fe9dc6322db586ffa5b35882a68a38c92cea48a02c50a0d62dabdab112e",
+        "tokenSignature": "a-acting-alpha-at-autopilot-be-cashier-customer-every-felt-gen-it-like-line-moment-move-npc-of-on-or-out-person-real-repeating-robotic-same-scripted-seems-someone-the-to-total-touch-use-vibes-when-with-without"
+      },
+      "lengths": {
+        "term": 3,
+        "definition": 66,
+        "example": 81,
+        "hint": 65,
+        "category": 9
+      },
+      "source": {
+        "sequence": 19,
+        "categoryId": "gen-alpha"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0020": {
+      "hashes": {
+        "term": "e85c0e3a43b915aaf063186d3a4433d1c04a1e70be0c8593080967a84b86c75a",
+        "definition": "1b2f9579685311b2f16cf79c71eb2453e050881e5ebc0d2f85268879c03b6d36",
+        "example": "c4fb2b5f1e3ee6623f0ac78ff86eb3132d20549b0fc6c31d90c0c7e8c14da282",
+        "hint": "de27276f8ed600dc8775f3a6234699af7265b377e09524b47cf14f78cc9881e4",
+        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
+        "combined": "0f8618a4f8d65cdcc018c8994b7417843e73848b3c26ca39680da575ef5136fb",
+        "tokenSignature": "a-alpha-arc-because-becomes-canon-chaotic-event-future-gen-i-into-it-life-major-met-missing-moment-my-of-on-origin-part-personal-platform-roommate-shapes-story-that-the-train-turned-use-when-your"
+      },
+      "lengths": {
+        "term": 11,
+        "definition": 56,
+        "example": 94,
+        "hint": 63,
+        "category": 9
+      },
+      "source": {
+        "sequence": 20,
+        "categoryId": "gen-alpha"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0021": {
+      "hashes": {
+        "term": "b66df240f683d7358fe45e1c01e933583e4830e24ed58a8a0af89451042811e9",
+        "definition": "8226ba240648ef01b13b9f4c85b86c4437e0400a9252cf40c8616cda016dec8d",
+        "example": "e303cf6ed616049b0c4f35b6819c92170ee32fb414919c25180ecb9dbabf3d34",
+        "hint": "ac453d765e576b589f6462496d473472187134f88f4edf8f80ec1d9955f366f9",
+        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
+        "combined": "a2d0932bbc581c4739b0f71de92af78589dfa3879f702508e2ff3d52350283f1",
+        "tokenSignature": "a-alpha-behavior-calling-chronically-clearly-context-culture-deep-era-every-forgotten-gen-gets-in-inconvenience-internet-is-it-left-life-never-online-peak-real-s-so-someone-takes-that-the-timeline-use-villain-when"
+      },
+      "lengths": {
+        "term": 18,
+        "definition": 66,
+        "example": 78,
+        "hint": 60,
+        "category": 9
+      },
+      "source": {
+        "sequence": 21,
+        "categoryId": "gen-alpha"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0022": {
+      "hashes": {
+        "term": "d096dfafa1713316041d782d619795cbe406826f3ca64fc033186281511548af",
+        "definition": "14cec629e77851e246385e76f1155adaa70bf1898ed54332978e8740a560e6a7",
+        "example": "9568249f958af6d11ad739db5f628da499a0f823d9b35af06eefee695cc3a400",
+        "hint": "5fd21594cf02ae4468baaf6c6cb71a1eab50afcb4f98eb70071d96117addcbbc",
+        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
+        "combined": "bcd620cf51a989a510e6f3ed9ed7ccf7341b1da621886c1879e862c5398562c6",
+        "tokenSignature": "a-album-all-alpha-because-brainrot-consumes-conversation-every-gen-got-has-have-is-it-k-literally-meme-new-obsession-one-or-over-play-pop-show-song-taken-the-thoughts-use-ve-we-when-you-your"
+      },
+      "lengths": {
+        "term": 8,
+        "definition": 64,
+        "example": 72,
+        "hint": 55,
+        "category": 9
+      },
+      "source": {
+        "sequence": 22,
+        "categoryId": "gen-alpha"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0023": {
+      "hashes": {
+        "term": "a172ddf41dd327dcac2c4211c298221f360f2d7488f9f1225070ece19b262991",
+        "definition": "19ac16100ccca78f898f6d21265e476cb744a89fc75ff388a0b2514c26aa2954",
+        "example": "305148be301538cb2a4c76ef3c1e8bc7b99707a40674577fae156ec0d40ade9b",
+        "hint": "02d9b3a7855a80fab713780029575b1f1033a0fee53cc86d3cabc47fba63561b",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "5f331b920204d7252519be38af8fedf75bb91948cce870e2bf4a66ab62952618",
+        "tokenSignature": "across-and-at-before-blowing-content-crashed-diy-enough-everyone-explodes-fast-gen-her-hours-it-light-lunch-online-ring-sees-shop-speed-that-timelines-tutorial-up-use-viral-went-when-within-z"
+      },
+      "lengths": {
+        "term": 5,
+        "definition": 65,
+        "example": 67,
+        "hint": 61,
+        "category": 5
+      },
+      "source": {
+        "sequence": 23,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0024": {
+      "hashes": {
+        "term": "60a997a9c8666ba6172b5c42c406f46724c6331f8afea42b3dd35dd028ed5ba7",
+        "definition": "fd6bb3a7637d12fb3bb1ec77996758f824132620247238e16c8a25302a44e1b2",
+        "example": "791225591effe585f12f7d0b4feeff9813bbc2f1d2f869fe08531afc5e81dfa0",
+        "hint": "108f1f0c743c6f1219306baa2a4fd35ad14910a700c28b1858c9bf05c1fcd933",
+        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
+        "combined": "fdb39579ee70e42fe942b4f4e0dc0765f71de95fa68c41505f57d91ec45eacf2",
+        "tokenSignature": "a-alpha-and-basket-because-before-bite-can-claiming-demand-fanum-food-friend-from-fry-gen-hand-i-it-jokingly-just-of-over-pay-raid-s-snacks-squad-tax-the-use-when-whole-you-your"
+      },
+      "lengths": {
+        "term": 9,
+        "definition": 59,
+        "example": 69,
+        "hint": 54,
+        "category": 9
+      },
+      "source": {
+        "sequence": 24,
+        "categoryId": "gen-alpha"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0025": {
+      "hashes": {
+        "term": "c9f943332257b022c3c1131e23c9199e87bb91cf8b09cd1ea6549f98e21f2629",
+        "definition": "542c4508ed4d7cab304996aa1bd3cbcb3b9316f65a4e6dc7d13f557dadfd47f3",
+        "example": "7340bc165fdd614af74e4a12532e01a043823c9a6a559a5adb51ed1bde0c3a83",
+        "hint": "b5eba26be8048a76bbec612fa789d77108b9ee554af0858cdfa7572d614df309",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "fac5df5a70f0f8311a914639cf6237e56dcfb1c615820f66844bbf65f4393a56",
+        "tokenSignature": "a-been-but-defined-feels-for-friends-fully-gen-hasn-in-it-labeled-labels-months-more-movie-nights-no-not-official-relationship-romantic-s-situationship-t-than-that-use-ve-vibe-we-when-z"
+      },
+      "lengths": {
+        "term": 13,
+        "definition": 63,
+        "example": 65,
+        "hint": 66,
+        "category": 5
+      },
+      "source": {
+        "sequence": 25,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0026": {
+      "hashes": {
+        "term": "abc0a3e8b2e871d5aef96db4270efbe2e9c030f533108bcb95a991f996dab0c0",
+        "definition": "6092c472b1eb8b11d089a7908b2d8e5066dc6e2aa188c481c2a46502c881eec8",
+        "example": "3795dc92894dcb8fbfb0061e46ec50e55806180920fc45e3dfde46406c6c2642",
+        "hint": "58b8de61be727bd362edba45ea45ff4fb13c27c0989d6324bf8a4d85f51e750b",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "3ce8d1087a871f03882af78857a07fe8c4da6c65289c4159e78b140e7ff10e1f",
+        "tokenSignature": "a-and-announcement-before-coffee-cups-feed-full-gen-her-hints-instead-is-it-launch-launched-new-no-of-or-partner-project-relationship-reveal-she-soft-someone-story-subtle-tags-teasing-the-two-up-use-warming-when-with-z"
+      },
+      "lengths": {
+        "term": 11,
+        "definition": 76,
+        "example": 74,
+        "hint": 70,
+        "category": 5
+      },
+      "source": {
+        "sequence": 26,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0027": {
+      "hashes": {
+        "term": "3b9ee364170884096708249a57d729720800a205ee087f493959d9f9373c2801",
+        "definition": "cfec34d270dba00fb4c350e03f1d8efb31cbc0e019c9eb00ee3983a1f7a4a2bf",
+        "example": "4b736cad0db5cea37b09048998138fc0d4e640663bd0de7cd78fb73658ff4b99",
+        "hint": "8fb8e8eb5805ba46c65eb32587ae6ab2231a98f4df797dcc0a7a94256ac4cccd",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "207dfe494a1211ef945d40a5c9fcbe5f217345e08485407783c547b5d5a59146",
+        "tokenSignature": "a-after-and-caption-carousel-ends-gen-hard-is-it-launch-leaves-months-mystery-no-of-official-photos-questions-reveal-tags-teasing-that-the-their-unmistakable-use-vacation-was-when-z"
+      },
+      "lengths": {
+        "term": 11,
+        "definition": 73,
+        "example": 66,
+        "hint": 60,
+        "category": 5
+      },
+      "source": {
+        "sequence": 27,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0028": {
+      "hashes": {
+        "term": "ebd2bd72130f2933c460923e5697256a1c826ddedc95bd8cd0b8294aa76b7773",
+        "definition": "706bf828a6d1d08517508bd1ac643dcbd1835efe1cb088d25f9b537894a42ade",
+        "example": "91daae1a24258d0237120b7772cd71e3e1ee3b038496a1980aedaa67c220e989",
+        "hint": "5ff6b004265e2b7c37086ace8c172baf5a062f7aae8234b530bae62a9331bf7b",
+        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
+        "combined": "2ff2facb67e0b3da2cece170716a5fb9db79cffa571f4eb985648eda4bbf38e8",
+        "tokenSignature": "a-adventure-alpha-becomes-but-day-detour-detours-edition-for-from-gen-grocery-highlight-hunt-it-limited-main-of-or-plan-quest-random-shopping-side-sneakers-spontaneous-task-that-the-to-took-use-we-were-when"
+      },
+      "lengths": {
+        "term": 10,
+        "definition": 59,
+        "example": 84,
+        "hint": 66,
+        "category": 9
+      },
+      "source": {
+        "sequence": 28,
+        "categoryId": "gen-alpha"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0029": {
+      "hashes": {
+        "term": "10b7c2b94f8684a22e076b665de21955ed2f5c1209ed8e6419fd569fc14d9182",
+        "definition": "fa63b8120c92e2c5464e03a004f9d6f9c4af7771947f547a445beaa591807ea2",
+        "example": "6403fa87f2c53e709f62955e705825c4c74237c55afdb35f2f2fca952fee483f",
+        "hint": "6a87477963f9248fe4b3d9788b760ab2fa488a9b42a9bca7d9959a0c8b8e9fa9",
+        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
+        "combined": "121eb93cc0a628e05a9105c267a350ea711f94230ef58f1fb0c5715e3b3d5b84",
+        "tokenSignature": "a-alpha-and-assembled-cheese-cobble-cooking-cozy-crackers-dinner-from-gen-girl-good-in-instead-is-it-kitchen-looks-meal-my-of-plate-snack-strawberries-style-the-three-together-tonight-types-use-whatever-when-you"
+      },
+      "lengths": {
+        "term": 11,
+        "definition": 69,
+        "example": 76,
+        "hint": 70,
+        "category": 9
+      },
+      "source": {
+        "sequence": 29,
+        "categoryId": "gen-alpha"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0030": {
+      "hashes": {
+        "term": "ee0ce9ede6703084a234ee6e1af7e70192c3053e3014fc01bcbe016de432433d",
+        "definition": "8e438d92bd54803352b40f6d674bac0df80df1ad62acdfa1addfdeced897ece8",
+        "example": "3c198d4de6ffa08dd3d32e4f5de7362b30848f873500353cc4bc08a95fa61daf",
+        "hint": "636bcaff2dc4b5e766f90cab7c5f82a8cfa665954a5201dac82fa24baed3f977",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "16a62f474688e38e5f85a65d7f7ff732746c287563f839617d5d049556e303a6",
+        "tokenSignature": "a-before-bestie-circle-closest-endearment-fave-for-friend-gen-go-hyping-in-inner-it-jacket-link-me-of-online-or-out-re-sells-send-someone-term-that-the-to-use-when-you-your-z"
+      },
+      "lengths": {
+        "term": 6,
+        "definition": 66,
+        "example": 60,
+        "hint": 55,
+        "category": 5
+      },
+      "source": {
+        "sequence": 30,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0031": {
+      "hashes": {
+        "term": "fdb245f95228f48619adb5136949ac2efffd934a30cebfe16b4e589e57d75c94",
+        "definition": "504a389f421157c246a37c1a6ba90a0f3bee5aae63f7f24352bc2f3ca72f7c2c",
+        "example": "1164a2602369c414ec5d9f9f6dc6bd7271f472c985189fb1b31facd287277f60",
+        "hint": "440aa18fd97b69c521aae1bbf2400a54e02ef4d71f7875d34df62a487046c9f2",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "c5d8569c001e8f0b39c3f5d3765f7b6357c7094eb25f65049c611b0dfc0989dc",
+        "tokenSignature": "a-adulting-all-and-catching-chores-d-emails-even-felt-folding-gen-grown-handling-human-it-laundry-like-not-on-or-paperwork-peak-rather-re-responsibilities-responsible-sunday-tackling-up-use-when-you-z"
+      },
+      "lengths": {
+        "term": 8,
+        "definition": 62,
+        "example": 77,
+        "hint": 73,
+        "category": 5
+      },
+      "source": {
+        "sequence": 31,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0032": {
+      "hashes": {
+        "term": "66780f1fb0171bd83d644b990afe3b02c4a96c0d7102d7ab10cdd977c980b845",
+        "definition": "352ca04b03319f3b86fbc193f993e0e10d7c31fe45c429cf0b8a05b5efb841b7",
+        "example": "665a2f20cba7fea8072ae8c2d2690aaa7e0dc042d2680d99801e1b7486f4199d",
+        "hint": "512afd51d8d22ce499e25514f013e7a4c7e5a9ee232b2e5f50fff99b0a3e99e8",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "52edddab04dcce151ebf542eba5ce301794b44641afe63ab9640e1c4da6af656",
+        "tokenSignature": "a-accessory-chasing-drip-effortlessly-fashionable-festival-for-game-gen-had-him-his-is-it-look-or-outfit-photographers-s-seriously-shots-someone-street-style-stylish-use-when-z"
+      },
+      "lengths": {
+        "term": 4,
+        "definition": 45,
+        "example": 71,
+        "hint": 55,
+        "category": 5
+      },
+      "source": {
+        "sequence": 32,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0033": {
+      "hashes": {
+        "term": "67ea34b66552fb85efae1f29d262eb75bcc2454276c81178fa1723d649a0563b",
+        "definition": "ab560d29dfabe41ccdfb9ecdf2a42b029263d5c495f26d3ebe6b5733ca05218e",
+        "example": "fa0bbaf5f9751f6581458e553295358616462868262c5fb1058d36b5ea1eb0f0",
+        "hint": "70a88606a45f7b6e4782f37ba7b9e648de8c4e315f5a725d95ba4f2c8dce456c",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "cbbf45b0f85c0c209f1efbc0b2a0bd2d345c34efcbacf2bea319b7b898700e60",
+        "tokenSignature": "a-accident-before-by-chat-check-don-drop-fit-from-gen-group-head-in-it-leave-of-or-outfit-outfits-quick-rate-rating-s-show-showcase-so-someone-squad-t-the-their-to-toe-twin-use-want-we-when-you-your-z"
+      },
+      "lengths": {
+        "term": 9,
+        "definition": 64,
+        "example": 83,
+        "hint": 61,
+        "category": 5
+      },
+      "source": {
+        "sequence": 33,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0034": {
+      "hashes": {
+        "term": "cf5ddc645e30679cb99721805661d3cdab8b1a0dfd39514bce0ddb94ed7d6518",
+        "definition": "b39f931207420a636104195441b507f856412c78f45ae4b9d6dddb437def314a",
+        "example": "3b71d50c171c5b5b6a7a2f648e36368e6db4b051b3d977848287ac15d56bba05",
+        "hint": "90353e6a7eb4018e65f16a9da4d19b5d67d376f15ddd184d484c4543ccb9fa91",
+        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
+        "combined": "6ce9b14d736f807580216eaf238eb03eb23ba574d6c7a81efd22e5a9fbc4d20a",
+        "tokenSignature": "a-aesthetic-alpha-and-bun-clean-dewy-fit-fresh-full-gen-girl-gold-hair-hoops-in-is-it-look-minimal-mode-monochrome-neutral-polished-pulled-put-s-she-simple-skin-slick-someone-together-tones-ultra-up-use-when-with"
+      },
+      "lengths": {
+        "term": 10,
+        "definition": 76,
+        "example": 82,
+        "hint": 68,
+        "category": 9
+      },
+      "source": {
+        "sequence": 34,
+        "categoryId": "gen-alpha"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0035": {
+      "hashes": {
+        "term": "04b7c04cd0f72211d3c763ae2f6dc6c501d8447eba31635162e9d584ed1217bb",
+        "definition": "5f959e2c1bef32dba8f4aa4015290328560f3fa61776fc022eef6ae6174b252c",
+        "example": "6d6cbef35437a6997f786ab36b437239da77fefc424c0960dbbd1f9d0470e85f",
+        "hint": "51c16e47cd08da583b6354d63a290bbcff54ec8937fbef3bca8d28708458c53b",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "deae4ac18423efff6c7bade32d5b4fcdaff01572d9bf3f90eb96109b3d661821",
+        "tokenSignature": "a-after-and-cinched-crazy-dress-gen-glam-had-her-is-it-look-looking-makeup-often-on-or-perfectly-photos-point-prep-prom-sculpted-sharply-snatched-styled-tailored-the-use-waist-went-when-z"
+      },
+      "lengths": {
+        "term": 8,
+        "definition": 70,
+        "example": 64,
+        "hint": 61,
+        "category": 5
+      },
+      "source": {
+        "sequence": 35,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0036": {
+      "hashes": {
+        "term": "6045a27a237671e2b25288e6821d38928e92b917eadd81783795f8ff0f3f2bb3",
+        "definition": "dbf9ffb12117a890fde5dc571a68690d1d0a392d79f196c309854185f7247596",
+        "example": "e7537b9dae590a4c3a87691be2c952bd322068a7581cc5933ff507623b6327ad",
+        "hint": "1868dbf1eb0da7cb5cd90d0ec23a10f6db3c37fc3f5941aab038dde8bc1c2063",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "fcb7d05d4df0d6df8242ffefbfa622f0b547648fb8a79c36c7de35cbd20d8dc8",
+        "tokenSignature": "a-and-begged-everyone-finds-for-found-from-full-gems-gen-haul-he-it-name-of-off-posted-reveal-scored-secondhand-show-store-tees-the-thrift-thrifting-use-vintage-when-while-you-z"
+      },
+      "lengths": {
+        "term": 11,
+        "definition": 51,
+        "example": 84,
+        "hint": 60,
+        "category": 5
+      },
+      "source": {
+        "sequence": 36,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0037": {
+      "hashes": {
+        "term": "bcb7f490a4f8ef10aa022c4344b2e9357b2aae0b8f93df24cd9dc37877fcb5d3",
+        "definition": "e5ffaf392d75ba9eb42fe1196aafe23f4bb4f8ca91748602ebad3aa196883c62",
+        "example": "79a6dabf995bd51a99b7271c9379ea69c7a271fbbe3a62bcea1c2a9d95ae2b2f",
+        "hint": "e1e03306b561ce7e809d562df1d7e3d3b42bd9c6c4c216e416f341a00368548a",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "b22bf9768faf12dc2eeaecc6cfc1d9692e3a490b2d1a8fbe57f54e4ceb059555",
+        "tokenSignature": "a-and-confidence-deserves-gen-glow-hair-her-improvement-in-included-it-job-major-new-or-overall-s-someone-spotlight-style-this-transformation-unstoppable-up-use-vibe-when-year-z"
+      },
+      "lengths": {
+        "term": 7,
+        "definition": 58,
+        "example": 79,
+        "hint": 58,
+        "category": 5
+      },
+      "source": {
+        "sequence": 37,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0038": {
+      "hashes": {
+        "term": "857ae31caba5df8fad1bcf31a9ed207ac5ed13abbb1ffb692e9f8f18d57e1d0e",
+        "definition": "df6e55138cbcda70432d23e4984fc05837b8ada72d84cf0f0fb843e291c4172d",
+        "example": "38da859d40d3b7916faa0e27edf94909d94b0d656cbcb7540f1f532d03f5fe2a",
+        "hint": "1fbf37ac8307883c2a1ff7ed5f7e2a07085c7e512404955209e9a9dab9fe3a5e",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "330e17616a64bc3eafa77b37c6b1ca02545ffad98519495f4d18a01e12c67b01",
+        "tokenSignature": "a-afterparty-before-check-class-did-energy-gauging-gen-in-inviting-it-jumping-making-mood-move-on-quick-re-read-room-s-the-to-use-vibe-we-when-whole-you-z"
+      },
+      "lengths": {
+        "term": 10,
+        "definition": 55,
+        "example": 70,
+        "hint": 54,
+        "category": 5
+      },
+      "source": {
+        "sequence": 38,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0039": {
+      "hashes": {
+        "term": "9493dba59d4c11a1772f374a2b5f453723e9860852d3fec9eb0b379cf7323e0c",
+        "definition": "ef9b3101258f7afdae2fdb8a9f5e85bc1af5e328fef5d8db9ed266da36e25bae",
+        "example": "940dee7635e38f77a68be0a6885722fb584b5c174ff11e8b471594cfc3d904dd",
+        "hint": "98308ae417510ff70ca7e40f34b840ce1e053f128b8b093a57c97a34ce15d54a",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "6603d9262f6ad5c9eb7750abfa3c61cfaeb97c38ff7180bd0751ba0c4d7216e4",
+        "tokenSignature": "a-aesthetic-bookstore-compare-cozy-decor-energy-game-gen-giving-idea-is-it-look-lounge-mixed-moment-nails-new-night-or-particular-s-someone-specific-the-to-use-vibe-way-when-with-z"
+      },
+      "lengths": {
+        "term": 11,
+        "definition": 64,
+        "example": 68,
+        "hint": 55,
+        "category": 5
+      },
+      "source": {
+        "sequence": 39,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0040": {
+      "hashes": {
+        "term": "b6d2770771a96fb485c8386e99447df1361b0d5e416fa6817370f4e4e2cf18b7",
+        "definition": "e2f4d521039038895949bf7c22c41f2f362593a8e73d2e22dd85f5b45e177a6f",
+        "example": "f20dc565e9d001f2c4d3eb634c38caa8c2a4258a16b53f626549a107b7d65152",
+        "hint": "4c1655cc1b8901ca00b2a985418682b10396ae0ddc70d01b344d114bfc845a38",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "a5d5c93398e45c3043f28fec73bb5211b98136eb2b941c2603ac2bb0bc72aacd",
+        "tokenSignature": "a-admit-big-cool-even-excited-for-gen-i-it-keep-key-low-m-or-playing-presentation-quiet-scene-secretly-softly-something-spotlight-subtle-the-though-to-true-use-want-wanting-when-without-you-z"
+      },
+      "lengths": {
+        "term": 7,
+        "definition": 60,
+        "example": 76,
+        "hint": 69,
+        "category": 5
+      },
+      "source": {
+        "sequence": 40,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0041": {
+      "hashes": {
+        "term": "8ddef1fefe8c2dd4883111669645b43b7744d319a2d6c6bbe9b9434ee9bfecab",
+        "definition": "65f98d667dd85f282a7460360eafdcd56811a6b4de6e29901c8aa69791f5fdbe",
+        "example": "719a3239e5d962d499945b43d612e73d3187c7745e25743a5a26d20288a4be10",
+        "hint": "350799351cf74133e229af0594675ce1569c85588c7bdd4fd1f527481651ea7b",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "e5a582538025717e537de3b1a8ac07544e04a9f8f4f3b84cf9f3fed82416e456",
+        "tokenSignature": "about-afraid-and-be-blatant-book-drop-everything-feel-gen-hide-high-i-impossible-it-key-loud-not-obvious-or-re-that-to-trip-use-very-want-weekend-what-when-you-z"
+      },
+      "lengths": {
+        "term": 8,
+        "definition": 42,
+        "example": 62,
+        "hint": 64,
+        "category": 5
+      },
+      "source": {
+        "sequence": 41,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0042": {
+      "hashes": {
+        "term": "1c5e32e88bee1774074439fe185f425948a2a2eb4f4c4f3ac7c91224872f9973",
+        "definition": "9206a06253e5e0502f80b5329872f1765ef808ef76c5b61a75d067d3c97c7e9d",
+        "example": "f28b27c3d40475fc1b680ebf4f4928e9fba3af0a72cf0ac42c102f4b373ffd2a",
+        "hint": "086cec1f2b7c0eac4641ac98929dfa6d3decc7bd291adf751b375cf60d11da5a",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "eb2c002ba885486c65e088ef68e690dd4c3caf628051b6876cc89bd378b9107b",
+        "tokenSignature": "acing-acting-after-all-and-are-campus-character-exam-eyes-gen-her-in-is-it-knows-life-like-main-motion-movie-on-owns-she-slow-someone-spotlight-the-their-them-through-use-walked-when-z"
+      },
+      "lengths": {
+        "term": 14,
+        "definition": 65,
+        "example": 86,
+        "hint": 52,
+        "category": 5
+      },
+      "source": {
+        "sequence": 42,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0043": {
+      "hashes": {
+        "term": "1ac858b9d3f739fb5f1bb839224005e470ed8d43cd51b052377bd68383fa5050",
+        "definition": "8633fa9c9026a15978c7913bddc46c2cb7dcb92f58f20ce36a3dba9d8eea1b58",
+        "example": "ac2e54f09beb4a1b168e26141c28ae8c58b7f34c6c61e00770da4e5d0d01961d",
+        "hint": "23c780c63b0881580ee0e0944d435392bd1543cb49e8d669afa9bcf708132fc9",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "dda30e9e413011764bbf5e9f11d2da04fb864a4f9db8fa21114deb26c0d8a3d2",
+        "tokenSignature": "a-after-back-bed-big-brunch-crawling-extremely-feel-feeling-feels-gen-how-into-is-it-matches-mood-now-or-perfectly-relatable-right-situation-something-that-use-when-you-z"
+      },
+      "lengths": {
+        "term": 8,
+        "definition": 54,
+        "example": 60,
+        "hint": 53,
+        "category": 5
+      },
+      "source": {
+        "sequence": 43,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0044": {
+      "hashes": {
+        "term": "fc0f1f3dceb3fb35dc6de16c79e87591e424c5f1af6fdacdb136703e9db600b3",
+        "definition": "04a3794a857eae60d10235bc619c8fe66ccb5dd1d4b36e6aa6b01ac527c16189",
+        "example": "0a872308d2baba99980898acc84e7e7a261663105fb0b3fd4f85d3fb4134187d",
+        "hint": "33708c22c74ea91821a50ffb9cb1aff58a3238417eba7376690aea2d0b745e48",
+        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
+        "combined": "bec17b99707bb3167f82941b408b576b89ff21ede432b3546f2044645c4be606",
+        "tokenSignature": "allowed-alpha-are-completely-concentration-distractions-finals-focused-for-full-game-gen-in-is-it-locked-mode-nights-on-pause-re-so-someone-use-we-week-when-with-zero"
+      },
+      "lengths": {
+        "term": 9,
+        "definition": 50,
+        "example": 61,
+        "hint": 50,
+        "category": 9
+      },
+      "source": {
+        "sequence": 44,
+        "categoryId": "gen-alpha"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0045": {
+      "hashes": {
+        "term": "a1d839eec206bd2d68eb82ee739099cbe9192d3519bddb7d833451cede9fc067",
+        "definition": "418d96c456ef698a3395d8024d4749052c1daf8f126e10fb667d7ad573eee782",
+        "example": "8233067e6ae4e125cbbd6bce2b6cbbbffddb4677ed9522a3d31e9665ff85905e",
+        "hint": "e2d4e0d84a873e82f6cea97df56ca2ee7fae22339513aa194a3a36c1b0385603",
+        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
+        "combined": "a4055035652184638087735b146b0a0235b26ebbb534aebbf69999216d18898b",
+        "tokenSignature": "a-alpha-because-booked-doing-for-gen-great-interesting-it-just-keep-last-later-life-mainly-make-minute-plot-purely-risk-road-something-story-take-the-to-trip-use-we-when-will-you"
+      },
+      "lengths": {
+        "term": 12,
+        "definition": 64,
+        "example": 56,
+        "hint": 58,
+        "category": 9
+      },
+      "source": {
+        "sequence": 45,
+        "categoryId": "gen-alpha"
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    }
+  }
+}

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Gen α Slang</title>
+  <title>Gen α Slang Archive (moved)</title>
+  <meta http-equiv="refresh" content="0; url=../slang/all-slang.html">
   <style>
     :root {
       color-scheme: light dark;
@@ -12,204 +13,57 @@
 
     body {
       margin: 0;
-      padding: 32px 16px 48px;
-      background-color: #f6f7ff;
-      color: #1e293b;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: #f4f5ff;
+      color: #0f172a;
     }
 
     @media (prefers-color-scheme: dark) {
       body {
-        background-color: #0b1020;
-        color: #e2e8f0;
-      }
-
-      table {
-        background: rgba(255, 255, 255, 0.04);
-      }
-
-      th,
-      td,
-      table {
-        border-color: rgba(226, 232, 240, 0.2);
-      }
-
-      .definition-row td {
-        background: rgba(148, 163, 209, 0.12);
-      }
-
-      .example-row td {
-        background: rgba(109, 97, 255, 0.16);
-      }
-
-      .hint-row td {
-        background: rgba(148, 163, 209, 0.22);
-      }
-
-      .hint-label {
-        color: rgba(181, 187, 255, 0.9);
-      }
-
-      .filter input[type="search"] {
-        background: rgba(15, 23, 42, 0.92);
-        border-color: rgba(148, 163, 209, 0.4);
-        color: inherit;
+        background: #0b1023;
+        color: #e2e8ff;
       }
     }
 
     main {
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    h1 {
-      margin-bottom: 0.25rem;
-      font-size: clamp(1.8rem, 2vw + 1.2rem, 2.4rem);
-    }
-
-    p {
-      margin: 0 0 1rem;
-      line-height: 1.6;
-    }
-
-    .count {
-      font-weight: 600;
-    }
-
-    .filter {
-      margin-top: 1.5rem;
+      max-width: 520px;
+      text-align: center;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 12px;
     }
 
-    .filter label {
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .filter input[type="search"] {
-      width: 100%;
-      box-sizing: border-box;
-      border-radius: 12px;
-      border: 1px solid rgba(15, 23, 42, 0.2);
-      background: rgba(255, 255, 255, 0.96);
-      color: inherit;
-      padding: 10px 14px;
-      font: inherit;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .filter input[type="search"]:focus-visible {
-      outline: 2px solid rgba(109, 97, 255, 0.45);
-      outline-offset: 2px;
-      box-shadow: 0 0 0 3px rgba(109, 97, 255, 0.18);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1.5rem;
-      border: 1px solid rgba(15, 23, 42, 0.15);
-      background: rgba(255, 255, 255, 0.92);
-    }
-
-    td,
-    th {
-      padding: 12px 14px;
-      border: 1px solid rgba(15, 23, 42, 0.15);
-      vertical-align: top;
-      text-align: left;
-    }
-
-    .term-cell,
-    .definition-cell {
-      white-space: pre-wrap;
-    }
-
-    .term-cell {
-      font-size: clamp(1.05rem, 0.4vw + 1rem, 1.2rem);
+    a {
+      color: #6d61ff;
       font-weight: 600;
     }
 
-    .definition-row td {
-      font-style: italic;
-      background: rgba(109, 97, 255, 0.08);
-    }
-
-    .example-row td {
-      background: rgba(109, 97, 255, 0.05);
-    }
-
-    .example-cell {
-      white-space: pre-wrap;
-    }
-
-    .example-cell blockquote {
-      margin: 0;
-      padding-left: 28px;
-      font-style: normal;
-      position: relative;
-    }
-
-    .example-cell blockquote::before {
-      content: '“';
-      position: absolute;
-      left: 0;
-      top: -10px;
-      font-size: 2.4rem;
-      color: rgba(109, 97, 255, 0.4);
-      font-family: "Times New Roman", serif;
-    }
-
-    .hint-row td {
-      background: rgba(109, 97, 255, 0.08);
-    }
-
-    .hint-cell {
-      display: grid;
-      gap: 6px;
-      white-space: pre-wrap;
-    }
-
-    .hint-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: rgba(109, 97, 255, 0.82);
-    }
-
-    .hint-text {
-      font-size: clamp(0.95rem, 0.6vw + 0.9rem, 1.05rem);
-      line-height: 1.6;
-    }
-
-    caption {
-      text-align: left;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
+    @media (prefers-color-scheme: dark) {
+      a {
+        color: #a0a6ff;
+      }
     }
   </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      const target = '../slang/all-slang.html';
+      if (typeof window.location.replace === 'function') {
+        window.location.replace(target);
+      } else {
+        window.location.href = target;
+      }
+    });
+  </script>
 </head>
 <body>
   <main>
-    <h1>All Gen α Slang</h1>
-    <p>Browse every slang term in the deck, filter by keyword, and open the main navigator when you want to study in shuffle mode with meanings and usage tips on hand.</p>
-    <p class="count">Showing <span data-count>0</span> of <span data-total>0</span> terms</p>
-    <form class="filter" data-filter-form>
-      <label for="slang-filter">Filter slang terms</label>
-      <input id="slang-filter" type="search" name="slang-filter" placeholder="Type to filter…" autocomplete="off" data-filter-input>
-    </form>
-    <table>
-      <caption>Slang term followed by its meaning, a usage example, and a usage hint</caption>
-      <tbody>
-        <tr>
-          <td>Loading slang…</td>
-        </tr>
-      </tbody>
-    </table>
+    <h1>Archive moved</h1>
+    <p>The full Gen α slang list now lives at <a href="../slang/all-slang.html">Slang → All Slang</a>.</p>
+    <p>If you are not redirected automatically, use the link above to continue.</p>
   </main>
-  <script src="slang.js" defer></script>
-  <script src="render-all.js" defer></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 {
-  "dataset": "genalpha",
+  "dataset": "slang",
   "threshold": 0.88,
-  "generatedAt": "2025-09-23T01:44:58.612Z",
+  "generatedAt": "2025-09-23T13:38:08.904Z",
   "provider": "synthetic",
   "model": "synthetic-128",
   "matches": []

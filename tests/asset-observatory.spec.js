@@ -27,7 +27,7 @@ test.describe('Asset Observatory dashboard', () => {
     const tableRows = page.locator('[data-dataset-table] tr');
     await expect(tableRows).toHaveCount(3);
     const deckNames = await tableRows.locator('td.dataset-name').allTextContents();
-    expect(deckNames).toEqual(['Dad Jokes', 'Gen α Slang', 'Quotes']);
+    expect(deckNames).toEqual(['Dad Jokes', 'Quotes', 'Slang']);
 
     const similarityCards = page.locator('.similarity-card');
     await expect(similarityCards).toHaveCount(4);
