@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asset Observatory</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --background: radial-gradient(circle at top, rgba(120, 131, 255, 0.24), rgba(14, 18, 36, 0.08) 62%);
+      --background-solid: #f4f6ff;
+      --text-primary: #0b1224;
+      --text-secondary: rgba(11, 18, 36, 0.7);
+      --surface: rgba(255, 255, 255, 0.94);
+      --surface-border: rgba(11, 18, 36, 0.08);
+      --surface-shadow: 0 28px 70px rgba(12, 18, 36, 0.16);
+      --accent: #6c7dff;
+      --accent-soft: rgba(108, 125, 255, 0.18);
+      --accent-ring: rgba(108, 125, 255, 0.38);
+      --accent-alt: #ffbd5c;
+      --grid-line: rgba(11, 18, 36, 0.08);
+      --chart-fill: linear-gradient(135deg, rgba(108, 125, 255, 0.8), rgba(135, 149, 255, 0.6));
+      --chart-fill-alt: linear-gradient(135deg, rgba(255, 189, 92, 0.78), rgba(255, 211, 133, 0.58));
+      --chip-bg: rgba(11, 18, 36, 0.06);
+      --chip-text: rgba(11, 18, 36, 0.72);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background: radial-gradient(circle at top, rgba(108, 125, 255, 0.36), rgba(6, 10, 24, 0.92) 65%);
+        --background-solid: #080c1b;
+        --text-primary: #eef1ff;
+        --text-secondary: rgba(238, 241, 255, 0.7);
+        --surface: rgba(16, 22, 44, 0.88);
+        --surface-border: rgba(238, 241, 255, 0.08);
+        --surface-shadow: 0 32px 80px rgba(0, 0, 0, 0.45);
+        --accent: #9ca9ff;
+        --accent-soft: rgba(156, 169, 255, 0.2);
+        --accent-ring: rgba(156, 169, 255, 0.48);
+        --accent-alt: #ffcc7a;
+        --grid-line: rgba(238, 241, 255, 0.12);
+        --chip-bg: rgba(238, 241, 255, 0.12);
+        --chip-text: rgba(238, 241, 255, 0.8);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      background: var(--background);
+      background-color: var(--background-solid);
+      color: var(--text-primary);
+      padding: clamp(20px, 5vw, 44px);
+    }
+
+    main {
+      width: min(1100px, 100%);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(20px, 3vw, 32px);
+      background: var(--surface);
+      border-radius: 30px;
+      padding: clamp(20px, 3vw, 34px);
+      box-shadow: var(--surface-shadow);
+      border: 1px solid var(--surface-border);
+      backdrop-filter: blur(18px);
+    }
+
+    .home-nav {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: inherit;
+      background: var(--accent-soft);
+      border: 1px solid rgba(108, 125, 255, 0.32);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .home-link span[aria-hidden="true"] {
+      font-size: 1.1rem;
+    }
+
+    .home-link:hover,
+    .home-link:focus-visible {
+      transform: translateY(-1px);
+      background: rgba(108, 125, 255, 0.24);
+      border-color: rgba(108, 125, 255, 0.5);
+      box-shadow: 0 16px 34px rgba(108, 125, 255, 0.28);
+      outline: none;
+    }
+
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .page-header h1 {
+      margin: 0;
+      font-size: clamp(2rem, 2vw + 1.4rem, 2.7rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .page-header p {
+      margin: 0;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 72ch;
+    }
+
+    .page-meta {
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px clamp(18px, 3vw, 32px);
+    }
+
+    .page-meta div {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 140px;
+    }
+
+    .page-meta dt {
+      margin: 0;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-secondary);
+    }
+
+    .page-meta dd {
+      margin: 0;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: clamp(16px, 3vw, 22px);
+    }
+
+    .summary-card {
+      border-radius: 20px;
+      border: 1px solid rgba(11, 18, 36, 0.1);
+      padding: clamp(16px, 2vw, 22px);
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 20px 44px rgba(12, 18, 36, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .summary-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(108, 125, 255, 0.12), transparent 60%);
+      pointer-events: none;
+    }
+
+    .summary-card h3 {
+      margin: 0;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-secondary);
+    }
+
+    .summary-card strong {
+      font-size: clamp(1.6rem, 1.6vw + 1.2rem, 2.1rem);
+      font-weight: 700;
+    }
+
+    .summary-card p {
+      margin: 0;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(16px, 3vw, 24px);
+    }
+
+    .chart-card {
+      border-radius: 22px;
+      border: 1px solid rgba(11, 18, 36, 0.1);
+      padding: clamp(18px, 2.4vw, 24px);
+      background: rgba(255, 255, 255, 0.92);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 24px 48px rgba(12, 18, 36, 0.12);
+    }
+
+    .chart-card header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .chart-card h2 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .chart-card p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .chart-shell {
+      position: relative;
+      border-radius: 18px;
+      background: rgba(11, 18, 36, 0.03);
+      border: 1px solid rgba(11, 18, 36, 0.08);
+      padding: 16px;
+    }
+
+    .chart-shell svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .chart-shell .grid-line {
+      stroke: var(--grid-line);
+      stroke-dasharray: 4 6;
+      stroke-width: 1;
+    }
+
+    .chart-legend {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .chart-legend li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--chip-bg);
+      color: var(--chip-text);
+    }
+
+    .chart-legend span.swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      display: inline-flex;
+    }
+
+    .dataset-section,
+    .similarity-section,
+    .sources-section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .dataset-section header,
+    .similarity-section header,
+    .sources-section header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .dataset-section h2,
+    .similarity-section h2,
+    .sources-section h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .dataset-section p,
+    .similarity-section p,
+    .sources-section p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .table-shell {
+      overflow-x: auto;
+      border-radius: 20px;
+      border: 1px solid rgba(11, 18, 36, 0.1);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 20px 42px rgba(12, 18, 36, 0.12);
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 720px;
+    }
+
+    thead {
+      background: rgba(108, 125, 255, 0.08);
+    }
+
+    th,
+    td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(11, 18, 36, 0.08);
+      font-size: 0.95rem;
+    }
+
+    th {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-secondary);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .dataset-name {
+      font-weight: 600;
+    }
+
+    .metric {
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .similarity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: clamp(14px, 3vw, 20px);
+    }
+
+    .similarity-card {
+      border-radius: 18px;
+      border: 1px solid rgba(11, 18, 36, 0.1);
+      background: rgba(255, 255, 255, 0.92);
+      padding: clamp(14px, 2vw, 20px);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 18px 36px rgba(12, 18, 36, 0.12);
+    }
+
+    .similarity-card h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .similarity-card p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .badge-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge-list li {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--chip-bg);
+      color: var(--chip-text);
+      font-size: 0.82rem;
+    }
+
+    .sources-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+
+    .sources-list li {
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(11, 18, 36, 0.1);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 14px 30px rgba(12, 18, 36, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .sources-list span.label {
+      font-weight: 600;
+    }
+
+    .sources-list span.meta {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+    }
+
+    code {
+      font-family: "Fira Code", "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
+    }
+
+    @media (max-width: 720px) {
+      .page-meta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .summary-card {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main aria-label="Asset Observatory dashboard">
+    <nav class="home-nav" aria-label="Home navigation">
+      <a class="home-link" href="../../">
+        <span aria-hidden="true">←</span>
+        <span>Home</span>
+      </a>
+    </nav>
+    <header class="page-header">
+      <h1>Asset Observatory</h1>
+      <p>The toolbox decks ship with more than cute emojis—this console inventories every payload, embedding store, and similarity sweep that keeps our content deduped. Perfect when you need to compare footprint against the embeddings we roll.</p>
+      <dl class="page-meta">
+        <div>
+          <dt>Snapshot generated</dt>
+          <dd data-generated-at>—</dd>
+        </div>
+        <div>
+          <dt>Embedding providers</dt>
+          <dd data-provider-count>0</dd>
+        </div>
+      </dl>
+    </header>
+    <section class="summary-grid" aria-label="Global asset metrics" data-summary></section>
+    <section class="chart-grid" aria-label="Deck payload visualisations">
+      <article class="chart-card">
+        <header>
+          <h2>Deck payload spectrum</h2>
+          <p>Dataset bytes versus entry counts for each deck. Bubble radius tracks total records—bigger circles mean bigger joke piles.</p>
+        </header>
+        <div class="chart-shell" data-dataset-chart aria-hidden="true"></div>
+        <ul class="chart-legend">
+          <li><span class="swatch" style="background: var(--chart-fill);"></span>Dataset size</li>
+          <li><span class="swatch" style="background: var(--chart-fill-alt);"></span>Entries bubble</li>
+        </ul>
+      </article>
+      <article class="chart-card">
+        <header>
+          <h2>Embedding provider load</h2>
+          <p>Vector inventories aggregated per provider. Taller bars indicate more vectors under management.</p>
+        </header>
+        <div class="chart-shell" data-provider-chart aria-hidden="true"></div>
+        <ul class="chart-legend">
+          <li><span class="swatch" style="background: var(--accent);"></span>Vectors tracked</li>
+        </ul>
+      </article>
+    </section>
+    <section class="dataset-section" aria-label="Deck ledger">
+      <header>
+        <h2>Deck inventory ledger</h2>
+        <p>Every deck’s footprint in plain numbers—dataset payloads, manifest metadata, embedding stores, and similarity budgets.</p>
+      </header>
+      <div class="table-shell">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Deck</th>
+              <th scope="col">Entries</th>
+              <th scope="col">Dataset</th>
+              <th scope="col">Manifest</th>
+              <th scope="col">Embedding stores</th>
+              <th scope="col">Vectors</th>
+              <th scope="col">Embedding payload</th>
+              <th scope="col">Similarity pairs</th>
+              <th scope="col">Similarity payload</th>
+            </tr>
+          </thead>
+          <tbody data-dataset-table></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="similarity-section" aria-label="Similarity report summary">
+      <header>
+        <h2>Similarity sweeps</h2>
+        <p>High-similarity pairs flagged by our dedupe runs, including cross-deck scans. Use this to keep vector stores in check.</p>
+      </header>
+      <div class="similarity-grid" data-similarity-grid></div>
+    </section>
+    <section class="sources-section" aria-label="Source payloads">
+      <header>
+        <h2>Upstream source payloads</h2>
+        <p>The raw JSON artefacts that feed our decks—helpful when you need to sanity-check ingestion size.</p>
+      </header>
+      <ul class="sources-list" data-source-list></ul>
+    </section>
+  </main>
+  <script src="asset-data.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -99,7 +99,7 @@ const run = () => {
       const summary = summarize(report);
       console.log(`\n${summary}`);
       console.log(`JSON log saved to ${relative(process.cwd(), finalReportPath)}.`);
-      console.log('Open apps/run-telemetry/ to explore the run timeline.');
+      console.log('Inspect the JSON directly or wire it into your own visualiser.');
     } catch (error) {
       console.error('Failed to normalize Playwright report:', error);
       process.exit(1);

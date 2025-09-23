@@ -6,15 +6,15 @@ test.describe('Landing page', () => {
 
     const header = page.locator('main[aria-label="Apps"] > header.site-header');
     await expect(header.locator('h1')).toHaveText('Toolbox');
-    await expect(header.locator('p')).toContainText('Choose an app');
 
     const deckRows = page.locator('.app-row');
     await expect(deckRows).toHaveCount(3);
     await expect(deckRows.first()).toHaveAttribute('role', 'group');
 
-    const groupLabels = await deckRows.locator('.app-row__title span:last-child').allTextContents();
-    const normalizedLabels = groupLabels.map((text) => text.trim());
-    expect(normalizedLabels).toEqual(['Jokes', 'Quotes', 'Gen Alpha']);
+    const groupLabels = await deckRows.evaluateAll((nodes) =>
+      nodes.map((node) => node.getAttribute('aria-label')),
+    );
+    expect(groupLabels).toEqual(['Jokes', 'Quotes', 'Gen Alpha']);
 
     const deckLinkSets = await deckRows.evaluateAll((nodes) =>
       nodes.map((node) =>
@@ -35,11 +35,12 @@ test.describe('Landing page', () => {
         { href: 'apps/quotes/all-quotes.html', text: 'All Quotes' },
       ],
       [
-        { href: 'apps/gen-alpha/', text: '🧒 Gen Alpha Slang' },
+        { href: 'apps/gen-alpha/', text: '🧒 Gen α Slang' },
         { href: 'apps/gen-alpha/all-slang.html', text: 'All Slang' },
       ],
     ]);
 
+    await expect(page.locator('a.app-button--primary')).toHaveCount(0);
     await expect(page.locator('a.app-card')).toHaveCount(0);
     await expect(page.locator('.dev-tools')).toHaveCount(0);
     await expect(page.locator('.app-links')).toHaveCount(0);

@@ -9,7 +9,7 @@ A collection of lightweight browser apps served from a single landing page. Each
 - **Quotes** – Shuffle themed quote decks, step back whenever you like, and explore every line in the all-in-one archive.
 - **Cosine Similarity Lab** – Explore the 0.50+ cosine matches across jokes, quotes, and cross-deck blends, tweak the minimum score, and compare entries side by side with vector stats.
 - **Value Formatter** – Turn newline-separated entries into formatted key-value pairs for quick copy/paste in code reviews or data preparation.
-- **Playwright Run Telemetry** – Inspect JSON-backed timelines from the automated smoke tests, filter statuses, and review per-spec activity logs directly from the bundled JSON report.
+- **Asset Observatory** – Summarise dataset payloads, embedding stores, and similarity sweeps across the toolbox with nerdy charts and a full ledger view.
 
 ## Usage
 
@@ -48,23 +48,24 @@ The tests spin up a temporary `python -m http.server` instance and exercise ever
 - `tests/jokes.spec.js` and `tests/quotes.spec.js` cover the deck navigation, punchline reveals, category filtering, and keyboard shortcuts.
 - `tests/value-formatter.spec.js` validates preset transforms, ad-hoc scripts, and persistence.
 - `tests/similarity-report.spec.js` exercises dataset toggles, thresholds, and similarity overlays.
-- `tests/run-telemetry.spec.js` walks through the telemetry console filters, detail panel, and refresh flow.
+- `tests/asset-observatory.spec.js` keeps the asset dashboard honest so charts, summaries, and the ledger stay in sync.
+- `tests/home-navigation.spec.js` ensures every app exposes the Home shortcut.
 
 Use `npm run test:ui` if you want to watch the checks in the Playwright inspector while iterating locally. To focus on a single spec, pass its filename to Playwright, for example:
 
 ```bash
-npx playwright test tests/run-telemetry.spec.js
+npx playwright test tests/asset-observatory.spec.js
 ```
 
-### Refreshing the telemetry console
+### Refreshing the asset observatory snapshot
 
-Run the dedicated recording script whenever you want to update the live log that powers `apps/run-telemetry/`:
+Regenerate the observatory’s dataset whenever you add content or tweak embeddings so the dashboard reflects the latest assets:
 
 ```bash
-npm run test:record
+node tools/generate-asset-report.js
 ```
 
-The helper executes the full suite with the line reporter, normalizes absolute paths inside the generated JSON, and writes the result to `data/test-runs/latest.json`. The telemetry console fetches this file (or falls back to the bundled snapshot when you are offline) and surfaces each spec’s timeline, errors, and attachments. Commit the refreshed JSON when you want the static site to showcase the latest run.
+The script inspects every deck’s dataset, manifest, embedding store, similarity report, and upstream source file. It then writes an updated `apps/asset-observatory/asset-data.js` snapshot that the dashboard consumes to render charts and tables. Commit the refreshed file alongside your changes.
 
 ## Data maintenance
 
