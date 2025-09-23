@@ -23,6 +23,11 @@
     return;
   }
 
+  const allowedCategories = new Map([
+    ['gen-alpha', 'Gen Alpha'],
+    ['gen-z', 'Gen Z'],
+  ]);
+
   const entries = Array.isArray(window.slangEntries)
     ? window.slangEntries
         .map((entry) => {
@@ -35,14 +40,23 @@
           const definition = typeof entry.definition === 'string' ? entry.definition.trim() : '';
           const example = typeof entry.example === 'string' ? entry.example.trim() : '';
           const hint = typeof entry.hint === 'string' ? entry.hint.trim() : '';
-          const category = typeof entry.category === 'string' ? entry.category.trim() : '';
-          const categoryId = typeof entry.categoryId === 'string' ? entry.categoryId.trim() : '';
+          const rawCategoryId = typeof entry.categoryId === 'string' ? entry.categoryId.trim() : '';
+          const normalizedCategoryId = rawCategoryId.toLowerCase();
+          const normalizedCategory = allowedCategories.get(normalizedCategoryId);
 
-          if (!id || !term || !category || !categoryId) {
+          if (!id || !term || !normalizedCategoryId || !normalizedCategory) {
             return null;
           }
 
-          return { id, term, definition, example, hint, category, categoryId };
+          return {
+            id,
+            term,
+            definition,
+            example,
+            hint,
+            category: normalizedCategory,
+            categoryId: normalizedCategoryId,
+          };
         })
         .filter(Boolean)
     : [];

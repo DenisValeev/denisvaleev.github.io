@@ -31,6 +31,17 @@ test.describe('Slang app', () => {
     const categorySelect = page.locator('#category-select');
 
     await expect(categorySelect).toHaveValue('all');
+    const categoryOptions = await categorySelect.evaluate((select) =>
+      Array.from(select.options).map((option) => ({
+        value: option.value,
+        label: ((option.textContent || '')).trim(),
+      }))
+    );
+    expect(categoryOptions).toEqual([
+      { value: 'all', label: 'All categories' },
+      { value: 'gen-alpha', label: 'Gen Alpha' },
+      { value: 'gen-z', label: 'Gen Z' },
+    ]);
     await expect(category).not.toHaveText(/Loading/i);
     await expect(term).not.toHaveText(/Loading slang…?/i);
     await expect(meaning).not.toHaveClass(/is-visible/);
