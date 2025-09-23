@@ -4,50 +4,50 @@ test.describe('Landing page', () => {
   test('shows grouped deck buttons with clear shortcuts', async ({ page }) => {
     await page.goto('/');
 
-    const groupedRows = page.locator('[data-group]');
+    const groupedRows = page.locator('.app-row[data-group]');
     await expect(groupedRows).toHaveCount(3);
 
     const expectedRows = [
       {
         group: 'jokes',
-        heading: 'Jokes',
+        label: 'Jokes',
         texts: ['😂 Dad Jokes', 'All Jokes'],
         hrefs: ['apps/jokes/', 'apps/jokes/all-jokes.html'],
       },
       {
         group: 'quotes',
-        heading: 'Quotes',
+        label: 'Quotes',
         texts: ['💬 Quotes', 'All Quotes'],
         hrefs: ['apps/quotes/', 'apps/quotes/all-quotes.html'],
       },
       {
         group: 'gen-alpha',
-        heading: 'Gen Alpha',
-        texts: ['🧒 Gen Alpha Slang', 'All Slang'],
+        label: 'Gen Alpha',
+        texts: ['🧒 Gen α Slang', 'All Slang'],
         hrefs: ['apps/gen-alpha/', 'apps/gen-alpha/all-slang.html'],
       },
     ];
 
-    for (const { group, heading: expectedHeading, texts, hrefs } of expectedRows) {
-      const row = page.locator(`[data-group="${group}"]`);
+    for (const { group, label, texts, hrefs } of expectedRows) {
+      const row = page.locator(`.app-row[data-group="${group}"]`);
       await expect(row).toBeVisible();
-
-      const heading = row.locator('.app-row__title span:last-child');
-      await expect(heading).toHaveText(expectedHeading);
+      await expect(row).toHaveAttribute('aria-label', label);
 
       const buttons = row.locator('a.app-button');
       await expect(buttons).toHaveCount(texts.length);
 
-      const buttonTexts = await buttons.allTextContents();
-      const normalizedTexts = buttonTexts.map((text) => text.replace(/\s+/g, ' ').trim());
-      expect(normalizedTexts).toEqual(texts);
+      const buttonTexts = await buttons.evaluateAll((nodes) =>
+        nodes.map((node) => (node.textContent || '').replace(/\s+/g, ' ').trim()),
+      );
+      expect(buttonTexts).toEqual(texts);
 
       const buttonHrefs = await buttons.evaluateAll((nodes) =>
         nodes.map((node) => node.getAttribute('href')),
       );
       expect(buttonHrefs).toEqual(hrefs);
 
-      await expect(buttons.first()).toHaveClass(/app-button--primary/);
+      await expect(buttons.first()).not.toHaveClass(/app-button--primary/);
+      await expect(buttons.first()).toHaveClass(/app-button--secondary/);
     }
   });
 
@@ -67,7 +67,7 @@ test.describe('Landing page', () => {
 
     expect(toolInfo).toEqual([
       { text: '🧪 Cosine Similarity Lab', href: 'apps/similarity-report/' },
-      { text: '📈 Playwright Run Telemetry', href: 'apps/run-telemetry/' },
+      { text: '📊 Asset Observatory', href: 'apps/asset-observatory/' },
       { text: '🧰 Value Formatter', href: 'apps/value-formatter/' },
     ]);
 
