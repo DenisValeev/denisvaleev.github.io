@@ -59,21 +59,20 @@
     meaningEl.setAttribute('aria-hidden', visible ? 'false' : 'true');
     revealButton.setAttribute('aria-pressed', visible ? 'true' : 'false');
 
+    const hasExample = currentEntry && typeof currentEntry.example === 'string' && currentEntry.example.length > 0;
+    const hasHint = currentEntry && typeof currentEntry.hint === 'string' && currentEntry.hint.length > 0;
+
     if (exampleWrapper) {
-      const hasExample = currentEntry && typeof currentEntry.example === 'string' && currentEntry.example.length > 0;
-      const hasHint = currentEntry && typeof currentEntry.hint === 'string' && currentEntry.hint.length > 0;
-      const hasUsage = hasExample || hasHint;
-      const shouldShowWrapper = visible && hasUsage;
+      const shouldShowExample = visible && hasExample;
+      exampleWrapper.classList.toggle('is-visible', shouldShowExample);
+      exampleWrapper.hidden = !shouldShowExample;
+      exampleWrapper.setAttribute('aria-hidden', shouldShowExample ? 'false' : 'true');
+    }
 
-      exampleWrapper.classList.toggle('is-visible', shouldShowWrapper);
-      exampleWrapper.hidden = !shouldShowWrapper;
-      exampleWrapper.setAttribute('aria-hidden', shouldShowWrapper ? 'false' : 'true');
-
-      if (hintWrapper) {
-        const shouldShowHint = visible && hasHint;
-        hintWrapper.hidden = !shouldShowHint;
-        hintWrapper.setAttribute('aria-hidden', shouldShowHint ? 'false' : 'true');
-      }
+    if (hintWrapper) {
+      const shouldShowHint = visible && hasHint;
+      hintWrapper.hidden = !shouldShowHint;
+      hintWrapper.setAttribute('aria-hidden', shouldShowHint ? 'false' : 'true');
     }
   }
 
