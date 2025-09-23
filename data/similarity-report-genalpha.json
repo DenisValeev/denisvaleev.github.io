@@ -1,0 +1,8 @@
+{
+  "dataset": "genalpha",
+  "threshold": 0.88,
+  "generatedAt": "2025-09-23T01:23:08.354Z",
+  "provider": "synthetic",
+  "model": "synthetic-64",
+  "matches": []
+}

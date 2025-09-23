@@ -5,6 +5,7 @@ A collection of lightweight browser apps served from a single landing page. Each
 ## Available apps
 
 - **Random Jokes** – Shuffle developer-friendly jokes, reveal punchlines on demand, and jump to the full archive when you need more context.
+- **Gen Alpha Slang** – Learn trending Gen Alpha terms, shuffle the deck, and reveal definitions when you’re ready for the context.
 - **Quotes** – Shuffle themed quote decks, step back whenever you like, and explore every line in the all-in-one archive.
 - **Cosine Similarity Lab** – Explore the 0.50+ cosine matches across jokes, quotes, and cross-deck blends, tweak the minimum score, and compare entries side by side with vector stats.
 - **Value Formatter** – Turn newline-separated entries into formatted key-value pairs for quick copy/paste in code reviews or data preparation.
@@ -44,10 +45,11 @@ The tests spin up a temporary `python -m http.server` instance and exercise ever
 
 ## Data maintenance
 
-- Run `node tools/update-content-metadata.js` after refreshing the jokes or quotes datasets to assign deterministic IDs and
-  regenerate the manifest files under `data/`. The script rewrites `apps/jokes/jokes.js` and `apps/quotes/quotes-data.js` in the
-  house style and emits `data/jokes-manifest.json` / `data/quotes-manifest.json` with normalized hashes and embedding metadata
-  placeholders for downstream deduplication workflows.
+- Run `node tools/update-content-metadata.js` after refreshing the jokes, quotes, or Gen Alpha slang datasets to assign
+  deterministic IDs and regenerate the manifest files under `data/`. The script rewrites `apps/jokes/jokes.js`,
+  `apps/quotes/quotes-data.js`, and `apps/gen-alpha/slang.js` in the house style and emits manifest files with normalized
+  hashes plus embedding metadata placeholders for downstream deduplication workflows. Use `--dataset=genalpha` to update only
+  the slang deck when you do not want to rewrite the larger archives.
 - Use `node tools/review-content-similarity.js` to fetch embeddings from public APIs (OpenAI, Cohere, Hugging Face, or the
   built-in deterministic `fake` provider), persist them under `data/*-embeddings.json`, and surface cosine-similar pairs for
   manual review. Pass `--write` to persist embeddings, `--update-manifest` to sync embedding metadata back into the manifests,

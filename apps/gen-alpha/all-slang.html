@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Gen Alpha Slang</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 32px 16px 48px;
+      background-color: #f6f7ff;
+      color: #1e293b;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #0b1020;
+        color: #e2e8f0;
+      }
+
+      table {
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      th,
+      td,
+      table {
+        border-color: rgba(226, 232, 240, 0.2);
+      }
+
+      .definition-row td {
+        background: rgba(148, 163, 209, 0.12);
+      }
+
+      .filter input[type="search"] {
+        background: rgba(15, 23, 42, 0.92);
+        border-color: rgba(148, 163, 209, 0.4);
+        color: inherit;
+      }
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin-bottom: 0.25rem;
+      font-size: clamp(1.8rem, 2vw + 1.2rem, 2.4rem);
+    }
+
+    p {
+      margin: 0 0 1rem;
+      line-height: 1.6;
+    }
+
+    .count {
+      font-weight: 600;
+    }
+
+    .filter {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .filter label {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .filter input[type="search"] {
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 23, 42, 0.2);
+      background: rgba(255, 255, 255, 0.96);
+      color: inherit;
+      padding: 10px 14px;
+      font: inherit;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .filter input[type="search"]:focus-visible {
+      outline: 2px solid rgba(109, 97, 255, 0.45);
+      outline-offset: 2px;
+      box-shadow: 0 0 0 3px rgba(109, 97, 255, 0.18);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      border: 1px solid rgba(15, 23, 42, 0.15);
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    td,
+    th {
+      padding: 12px 14px;
+      border: 1px solid rgba(15, 23, 42, 0.15);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      width: 72px;
+      font-weight: 600;
+    }
+
+    .term-cell,
+    .definition-cell {
+      white-space: pre-wrap;
+    }
+
+    .definition-row td {
+      font-style: italic;
+      background: rgba(109, 97, 255, 0.08);
+    }
+
+    caption {
+      text-align: left;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>All Gen Alpha Slang</h1>
+    <p>Browse every slang term in the deck, filter by keyword, and open the main navigator when you want to study in shuffle mode.</p>
+    <p class="count">Showing <span data-count>0</span> of <span data-total>0</span> terms</p>
+    <form class="filter" data-filter-form>
+      <label for="slang-filter">Filter slang terms</label>
+      <input id="slang-filter" type="search" name="slang-filter" placeholder="Type to filter…" autocomplete="off" data-filter-input>
+    </form>
+    <table>
+      <caption>Slang term followed by its meaning</caption>
+      <tbody>
+        <tr>
+          <td>Loading slang…</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+  <script src="slang.js" defer></script>
+  <script src="render-all.js" defer></script>
+</body>
+</html>

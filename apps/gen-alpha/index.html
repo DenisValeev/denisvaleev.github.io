@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gen Alpha Slang</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --background-color: #f4f5ff;
+      --background-gradient: radial-gradient(circle at top, rgba(123, 97, 255, 0.18), transparent 65%);
+      --card-background: rgba(255, 255, 255, 0.9);
+      --card-border: rgba(16, 24, 56, 0.06);
+      --card-shadow: 0 28px 56px -28px rgba(16, 24, 56, 0.32);
+      --text-primary: #0f172a;
+      --text-secondary: rgba(15, 23, 42, 0.7);
+      --meaning-color: #334155;
+      --accent: #6d61ff;
+      --accent-contrast: #ffffff;
+      --accent-soft: rgba(109, 97, 255, 0.12);
+      background: var(--background-gradient);
+      background-color: var(--background-color);
+      color: var(--text-primary);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background-color: #0b1023;
+        --background-gradient: radial-gradient(circle at top, rgba(109, 97, 255, 0.28), rgba(6, 10, 26, 0.92) 60%);
+        --card-background: rgba(14, 20, 40, 0.92);
+        --card-border: rgba(148, 163, 209, 0.1);
+        --card-shadow: 0 34px 68px -30px rgba(0, 0, 0, 0.6);
+        --text-primary: #e2e8ff;
+        --text-secondary: rgba(226, 232, 255, 0.74);
+        --meaning-color: rgba(226, 232, 255, 0.86);
+        --accent: #9ea6ff;
+        --accent-contrast: #0b1023;
+        --accent-soft: rgba(158, 166, 255, 0.16);
+      }
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(20px, 6vw, 40px);
+    }
+
+    main {
+      max-width: 760px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(22px, 4vw, 40px);
+    }
+
+    .app-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .app-header h1 {
+      margin: 0;
+      font-size: clamp(1.9rem, 2.4vw + 1.2rem, 2.6rem);
+      font-weight: 700;
+    }
+
+    .app-header p {
+      margin: 0;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .card {
+      background: var(--card-background);
+      border-radius: 22px;
+      border: 1px solid var(--card-border);
+      box-shadow: var(--card-shadow);
+      backdrop-filter: blur(16px);
+      padding: clamp(28px, 6vw, 44px);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-height: 260px;
+    }
+
+    .card__content {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    #slang-term {
+      margin: 0;
+      font-size: clamp(1.5rem, 2.6vw + 1.1rem, 2.3rem);
+      line-height: 1.35;
+      font-weight: 600;
+    }
+
+    #slang-meaning {
+      margin: 0;
+      font-size: clamp(1.1rem, 1.8vw + 0.9rem, 1.7rem);
+      line-height: 1.6;
+      color: var(--meaning-color);
+      display: none;
+    }
+
+    #slang-meaning.is-visible {
+      display: block;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .controls__nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .controls__meaning {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 12px 22px;
+      font-size: 1rem;
+      cursor: pointer;
+      background: var(--accent);
+      color: var(--accent-contrast);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      touch-action: manipulation;
+    }
+
+    button.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid currentColor;
+      box-shadow: none;
+    }
+
+    button.ghost {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(109, 97, 255, 0.4);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      button.secondary {
+        color: #b5bbff;
+        border-color: rgba(181, 187, 255, 0.55);
+        background: rgba(158, 166, 255, 0.14);
+      }
+
+      button.ghost {
+        border-color: rgba(181, 187, 255, 0.38);
+        color: #b5bbff;
+      }
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    button:not(:disabled):hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(109, 97, 255, 0.28);
+    }
+
+    button:focus-visible {
+      outline: 2px solid rgba(109, 97, 255, 0.6);
+      outline-offset: 3px;
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      button:not(:disabled) {
+        transition: none;
+      }
+
+      button:not(:disabled):hover,
+      button:not(:disabled):active,
+      button:not(:disabled):focus {
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main aria-label="Gen Alpha slang navigator">
+    <header class="app-header">
+      <h1>Gen Alpha Slang</h1>
+      <p>Shuffle through the latest Gen Alpha terms, move back when you need a recap, and reveal meanings only when you’re ready.</p>
+    </header>
+    <article class="card" aria-live="polite">
+      <div class="card__content">
+        <p id="slang-term">Loading slang…</p>
+        <p id="slang-meaning" aria-hidden="true"></p>
+      </div>
+    </article>
+    <div class="controls">
+      <div class="controls__nav">
+        <button id="prev-button" type="button" aria-label="Show previous slang term">⟵ Previous</button>
+        <button id="shuffle-button" class="ghost" type="button" aria-label="Shuffle the slang deck">Shuffle</button>
+        <button id="next-button" type="button" aria-label="Show next slang term">Next ⟶</button>
+      </div>
+      <div class="controls__meaning">
+        <button id="reveal-button" class="secondary" type="button" aria-pressed="false">Meaning</button>
+      </div>
+    </div>
+  </main>
+  <script src="slang.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
