@@ -3461,6 +3461,26 @@ window.jokes = [
             "id": "j-0910",
             "joke": "Why don't programmers like nature?",
             "punchline": "Too many bugs."
+        }, {
+            "id": "j-0911",
+            "joke": "Why was the keyboard always calm during meetings?",
+            "punchline": "It could always hit Escape."
+        }, {
+            "id": "j-0912",
+            "joke": "Why did the math book start a workout routine?",
+            "punchline": "It wanted to improve its figures."
+        }, {
+            "id": "j-0913",
+            "joke": "Why did the baker get invited to every party?",
+            "punchline": "They knew how to roll with it."
+        }, {
+            "id": "j-0914",
+            "joke": "Why did the calendar get nervous?",
+            "punchline": "Its days were numbered."
+        }, {
+            "id": "j-0915",
+            "joke": "Why did the scientist bring a notebook to dinner?",
+            "punchline": "In case there was a table of contents."
         }
     ];
 
