@@ -24,14 +24,16 @@
           const term = typeof entry.term === 'string' ? entry.term.trim() : '';
           const definition = typeof entry.definition === 'string' ? entry.definition.trim() : '';
           const example = typeof entry.example === 'string' ? entry.example.trim() : '';
+          const hint = typeof entry.hint === 'string' ? entry.hint.trim() : '';
           if (!term) {
             return null;
           }
-          const searchText = `${term} ${definition} ${example}`.toLowerCase();
+          const searchText = `${term} ${definition} ${example} ${hint}`.toLowerCase();
           return {
             term,
             definition: definition || 'Meaning coming soon.',
             example,
+            hint,
             searchText,
           };
         })
@@ -98,6 +100,27 @@
 
         exampleRow.appendChild(exampleCell);
         fragment.appendChild(exampleRow);
+      }
+
+      if (entry.hint) {
+        const hintRow = document.createElement('tr');
+        hintRow.className = 'hint-row';
+
+        const hintCell = document.createElement('td');
+        hintCell.className = 'hint-cell';
+
+        const label = document.createElement('span');
+        label.className = 'hint-label';
+        label.textContent = 'Usage hint';
+        hintCell.appendChild(label);
+
+        const hintText = document.createElement('span');
+        hintText.className = 'hint-text';
+        hintText.textContent = entry.hint;
+        hintCell.appendChild(hintText);
+
+        hintRow.appendChild(hintCell);
+        fragment.appendChild(hintRow);
       }
     });
 

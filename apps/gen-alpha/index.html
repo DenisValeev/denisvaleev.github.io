@@ -160,6 +160,26 @@
       font-family: "Times New Roman", serif;
     }
 
+    .card__hint {
+      margin: 16px 0 0;
+      display: grid;
+      gap: 6px;
+      color: var(--meaning-color);
+    }
+
+    .card__hint-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: rgba(109, 97, 255, 0.85);
+    }
+
+    .card__hint-text {
+      font-size: clamp(0.95rem, 1.2vw + 0.8rem, 1.1rem);
+      line-height: 1.6;
+    }
+
     .controls {
       display: flex;
       flex-direction: column;
@@ -222,6 +242,10 @@
       .card__quote::before {
         color: rgba(158, 166, 255, 0.55);
       }
+
+      .card__hint-label {
+        color: rgba(181, 187, 255, 0.9);
+      }
     }
 
     button:disabled {
@@ -259,7 +283,7 @@
   <main aria-label="Gen Alpha slang navigator">
     <header class="app-header">
       <h1>Gen α Slang</h1>
-      <p>Shuffle through the latest Gen Alpha terms, move back when you need a recap, and reveal the meaning plus a usage example when you’re ready.</p>
+      <p>Shuffle through the latest Gen Alpha terms, move back when you need a recap, and reveal the meaning, a usage example, and a hint for when to drop it.</p>
     </header>
     <article class="card" aria-live="polite">
       <div class="card__content">
@@ -270,6 +294,10 @@
         <p id="slang-meaning" aria-hidden="true"></p>
         <figure id="slang-example-wrapper" class="card__example" aria-hidden="true">
           <blockquote id="slang-example" class="card__quote"></blockquote>
+          <figcaption id="slang-hint-wrapper" class="card__hint">
+            <span class="card__hint-label">Usage hint</span>
+            <span id="slang-hint" class="card__hint-text"></span>
+          </figcaption>
         </figure>
       </div>
     </article>
@@ -279,7 +307,7 @@
         <button id="next-button" type="button" aria-label="Show next slang term">Next ⟶</button>
       </div>
       <div class="controls__meaning">
-        <button id="reveal-button" class="secondary" type="button" aria-pressed="false">Meaning &amp; usage</button>
+        <button id="reveal-button" class="secondary" type="button" aria-pressed="false">Meaning, example &amp; hint</button>
       </div>
     </div>
   </main>

@@ -22,6 +22,8 @@ test.describe('Gen Alpha slang app', () => {
     const meaning = page.locator('#slang-meaning');
     const exampleWrapper = page.locator('#slang-example-wrapper');
     const example = page.locator('#slang-example');
+    const hintWrapper = page.locator('#slang-hint-wrapper');
+    const hint = page.locator('#slang-hint');
     const revealButton = page.locator('#reveal-button');
     const nextButton = page.locator('#next-button');
     const prevButton = page.locator('#prev-button');
@@ -31,6 +33,7 @@ test.describe('Gen Alpha slang app', () => {
     await expect(meaning).toHaveAttribute('aria-hidden', 'true');
     await expect(exampleWrapper).not.toHaveClass(/is-visible/);
     await expect(exampleWrapper).toHaveAttribute('aria-hidden', 'true');
+    await expect(hintWrapper).toHaveAttribute('aria-hidden', 'true');
     await expect(revealButton).toHaveAttribute('aria-pressed', 'false');
     await expect(revealButton).toBeEnabled();
     await expect(nextButton).toBeEnabled();
@@ -50,6 +53,9 @@ test.describe('Gen Alpha slang app', () => {
     await expect(exampleWrapper).toHaveAttribute('aria-hidden', 'false');
     const exampleText = ((await example.textContent()) || '').trim();
     expect(exampleText.length).toBeGreaterThan(0);
+    await expect(hintWrapper).toHaveAttribute('aria-hidden', 'false');
+    const hintText = ((await hint.textContent()) || '').trim();
+    expect(hintText.length).toBeGreaterThan(0);
 
     await nextButton.click();
 
@@ -57,6 +63,7 @@ test.describe('Gen Alpha slang app', () => {
     await expect(meaning).toHaveAttribute('aria-hidden', 'true');
     await expect(revealButton).toHaveAttribute('aria-pressed', 'false');
     await expect(exampleWrapper).not.toHaveClass(/is-visible/);
+    await expect(hintWrapper).toHaveAttribute('aria-hidden', 'true');
 
     const secondTerm = ((await term.textContent()) || '').trim();
     expect(secondTerm.length).toBeGreaterThan(0);

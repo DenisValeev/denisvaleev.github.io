@@ -263,13 +263,15 @@ function loadDataset(name) {
       .map((entry) => {
         const term = entry.term || '';
         const definition = entry.definition || '';
-        const combined = [term, definition].filter(Boolean).join(' \u2022 ');
+        const hint = entry.hint || '';
+        const combined = [term, definition, hint].filter(Boolean).join(' \u2022 ');
         return {
           id: entry.id,
           term,
           definition,
+          hint,
           textHash: sha256(combined),
-          normalized: normalizeText(`${term} ${definition}`),
+          normalized: normalizeText(`${term} ${definition} ${hint}`),
           embeddingInput: combined,
         };
       });
@@ -322,17 +324,19 @@ function prepareGenAlphaCandidate(entry, index) {
   const label = labelBase || id;
   const term = toStringOrEmpty(entry.term).trim();
   const definition = toStringOrEmpty(entry.definition).trim();
+  const hint = toStringOrEmpty(entry.hint).trim();
   if (!term) {
     return null;
   }
-  const embeddingInput = [term, definition].filter(Boolean).join(' \u2022 ');
+  const embeddingInput = [term, definition, hint].filter(Boolean).join(' \u2022 ');
   return {
     id,
     label,
     term,
     definition,
+    hint,
     embeddingInput,
-    normalized: normalizeText(`${term} ${definition}`),
+    normalized: normalizeText(`${term} ${definition} ${hint}`),
     textHash: sha256(embeddingInput),
     source: entry,
   };
