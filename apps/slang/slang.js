@@ -361,6 +361,38 @@ window.slangEntries = [
             "hint": "Use it when you take a risk just to keep life interesting.",
             "category": "Gen Z",
             "categoryId": "gen-z"
+        }, {
+            "id": "sl-0046",
+            "term": "girl math",
+            "definition": "Playfully rationalizing a purchase or decision with creative logic.",
+            "example": "Calling the concert tickets free because you used last month’s refund is pure girl math.",
+            "hint": "Use it when someone justifies a splurge by bending the numbers until they agree.",
+            "category": "Gen Alpha",
+            "categoryId": "gen-alpha"
+        }, {
+            "id": "sl-0047",
+            "term": "beige flag",
+            "definition": "A mildly odd trait that’s neither a deal-breaker nor a green flag.",
+            "example": "His beige flag is narrating the GPS directions in a pirate voice every time we drive.",
+            "hint": "Use it to call out quirks that are more amusing than alarming.",
+            "category": "Gen Z",
+            "categoryId": "gen-z"
+        }, {
+            "id": "sl-0048",
+            "term": "lore dump",
+            "definition": "Dropping a full backstory all at once so everyone understands the drama.",
+            "example": "She lore dumped about her old job so we’d get why group projects stress her out.",
+            "hint": "Use it when someone unloads every detail to make the plot make sense.",
+            "category": "Gen Alpha",
+            "categoryId": "gen-alpha"
+        }, {
+            "id": "sl-0049",
+            "term": "be so for real",
+            "definition": "A demand for honesty or seriousness when someone’s being ridiculous.",
+            "example": "Be so for real—there’s no way you’re texting your ex during the meeting.",
+            "hint": "Use it to snap someone back to reality when they’re acting delulu.",
+            "category": "Gen Alpha",
+            "categoryId": "gen-alpha"
         }
     ];
 

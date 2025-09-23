@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2025-09-23T17:59:48.748Z",
-    "total": 45,
+    "generatedAt": "2025-09-23T22:54:36.502Z",
+    "total": 49,
     "hashAlgorithm": "sha256",
     "tokenSignature": "unique-words-v1",
     "fields": [
@@ -35,10 +35,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "8e9e84e1919d0a38951335f35ce3e5b68ea0aaea1d7267480a813cc7ba1d4ad8",
+        "updatedAt": "2025-09-23T22:54:38.982Z"
       }
     },
     "sl-0002": {
@@ -63,10 +63,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "ff2179630aa33290f5c4985a42e55db821fac4a4ad5da2843ab1c21ff1a8db5f",
+        "updatedAt": "2025-09-23T22:54:38.983Z"
       }
     },
     "sl-0003": {
@@ -91,10 +91,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "e300b80dbefe7d898d9735e09a229c78b034b42502556c2ecafb5906458dd306",
+        "updatedAt": "2025-09-23T22:54:38.983Z"
       }
     },
     "sl-0004": {
@@ -119,10 +119,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "38c46875508f110c25297ef3ec9b3f1a505316684082084584937a20215fab95",
+        "updatedAt": "2025-09-23T22:54:38.983Z"
       }
     },
     "sl-0005": {
@@ -147,10 +147,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "2a2d82d522dd281d09fe099ca26db1aa606d66667dba218b9dd8c7061169f0fa",
+        "updatedAt": "2025-09-23T22:54:38.983Z"
       }
     },
     "sl-0006": {
@@ -175,10 +175,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "97af3887f0f71e9d648c16e8068e0852664ccb2e1b1afaf858c32b3c2312b86d",
+        "updatedAt": "2025-09-23T22:54:38.983Z"
       }
     },
     "sl-0007": {
@@ -203,10 +203,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "624670fadf8da88a9d3116748a47d0b0168b376145e0f9f9719ddf8ccec57a08",
+        "updatedAt": "2025-09-23T22:54:38.983Z"
       }
     },
     "sl-0008": {
@@ -231,10 +231,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "2a670f2ef1bd230b1c1e5a8c39c0928205dd2f484f148f18a566869765fad602",
+        "updatedAt": "2025-09-23T22:54:38.983Z"
       }
     },
     "sl-0009": {
@@ -259,10 +259,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "6dc73cbcf5b406303bf02ee66b8da7c4ff29d5d86eec0b8e906be4b79eba91ef",
+        "updatedAt": "2025-09-23T22:54:38.984Z"
       }
     },
     "sl-0010": {
@@ -287,10 +287,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "1aeb038553bbb76eb47ea540e3ccdb673eb34627603072f3dae99a6bae73d236",
+        "updatedAt": "2025-09-23T22:54:38.984Z"
       }
     },
     "sl-0011": {
@@ -315,10 +315,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "ffd574d8389c0830ba4d9e992743a39ca5bf5052d5c64b662d99fdab01843cc3",
+        "updatedAt": "2025-09-23T22:54:38.984Z"
       }
     },
     "sl-0012": {
@@ -343,10 +343,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "cb51e40ff45e47051039bf348f6ae47d52399f717ac45acdbdb493f5cf7ae104",
+        "updatedAt": "2025-09-23T22:54:38.985Z"
       }
     },
     "sl-0013": {
@@ -371,10 +371,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "eafda8f925933314999554f88fef8cf22d04c68afeffc22a572321602a165012",
+        "updatedAt": "2025-09-23T22:54:38.986Z"
       }
     },
     "sl-0014": {
@@ -399,10 +399,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "1b57a30f522d40703e2f9b7dfe49ff0bf48efbb64fd9eea190bc89ccc4f617ed",
+        "updatedAt": "2025-09-23T22:54:38.986Z"
       }
     },
     "sl-0015": {
@@ -427,10 +427,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "f7276d3e134e108a8d217bf96ef64a3881e4b033dc19cbeb6c1b77dce3b75ec2",
+        "updatedAt": "2025-09-23T22:54:38.986Z"
       }
     },
     "sl-0016": {
@@ -455,10 +455,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "1572109754f6817c313d375037619cac114dfe975916ee225331866b60ff727d",
+        "updatedAt": "2025-09-23T22:54:38.987Z"
       }
     },
     "sl-0017": {
@@ -483,10 +483,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "6481bee077a0a475fec2d48cafa79ebbf74fddde07979119a3bd19c0c3cd8473",
+        "updatedAt": "2025-09-23T22:54:38.989Z"
       }
     },
     "sl-0018": {
@@ -511,10 +511,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "9408d117b1d97e581acca1ace2fa1a5d423e2abc75a78f58e72ec02330a4392e",
+        "updatedAt": "2025-09-23T22:54:38.989Z"
       }
     },
     "sl-0019": {
@@ -539,10 +539,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "7cd8647c4c876c62101739ad759dc859f93e687206203be9733d1650399ac9ae",
+        "updatedAt": "2025-09-23T22:54:38.989Z"
       }
     },
     "sl-0020": {
@@ -567,10 +567,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "211267643d9c9302c5b235be1c679736ccf299613394926c841df6614c43f51b",
+        "updatedAt": "2025-09-23T22:54:38.989Z"
       }
     },
     "sl-0021": {
@@ -595,10 +595,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "7dcc2cf112a5b37cccbd1ea7553284e57c06090f491906283b91fe3dc8afeb1e",
+        "updatedAt": "2025-09-23T22:54:38.989Z"
       }
     },
     "sl-0022": {
@@ -623,10 +623,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "881b4db475b12c31a4987375bd9a9976ae2a3e20fc7ad4f785fb6de3e69af5d9",
+        "updatedAt": "2025-09-23T22:54:38.989Z"
       }
     },
     "sl-0023": {
@@ -651,10 +651,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "0eb595d94d61a792b4af503c6737e4fa388b9886cda9ce3bf2cec363f4078a83",
+        "updatedAt": "2025-09-23T22:54:38.989Z"
       }
     },
     "sl-0024": {
@@ -679,10 +679,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "7c4b5cdaf51a1c5593b4d546e3921b1e96d67266f29c594ae3bfe0036b3b78dd",
+        "updatedAt": "2025-09-23T22:54:38.989Z"
       }
     },
     "sl-0025": {
@@ -707,10 +707,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "30779ad41a2b35dd9fa1177539d2fbb014740a9da509e42ba7254bc4e7a316d4",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0026": {
@@ -735,10 +735,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "35cc5c0e16e7ce1c2940cdfc69db28794d451758b6d137a1864d2c287b714ffa",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0027": {
@@ -763,10 +763,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "e88c8aaebd5558934e1b3de4d77ebe96e7c778b025e82bb43dab9342f2ec883e",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0028": {
@@ -791,10 +791,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "e57a3c482205eae5b6b87bb20fa524a6c6ed63694a38c9e529541a2c138f3f9b",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0029": {
@@ -819,10 +819,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "d93e6286400546067368240ecf2c70483e3b611b885050895fad32eaf71d99d4",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0030": {
@@ -847,10 +847,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "2f0f38ecd992a3231c6eb286cc50ed20688ab5e30cb42f916c464cd0764c6f62",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0031": {
@@ -875,10 +875,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "3ea1dd4adfd7a1cb53593be7adba6d3b27e73f9c79b9180930bc61706ca7c115",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0032": {
@@ -903,10 +903,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "1faa0dee4f3b1ed0c214eb722a09c5af01e516796d6c20636399804b65f59607",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0033": {
@@ -931,10 +931,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "f5abb0d96981a35bb4c6cd1c41567db9cfb42a679c18fc2952adcc3e8436b332",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0034": {
@@ -959,10 +959,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "7ae6da4d582e3124573d1c1fc3b528146e3be803e1ea694a8821946f57028366",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0035": {
@@ -987,10 +987,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "bc3443b8715925396a1adbb9dc38b8d37ff73d2a82c4a7b41388c48bbdc8c30e",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0036": {
@@ -1015,10 +1015,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "fc0d75f2bd2035812466101a17bb21a5298a40e1085dd2c6a6074cf28b300dae",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0037": {
@@ -1043,10 +1043,10 @@
         "categoryId": "gen-alpha"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "834472781e8728e6610e50be48c8c578d96a56530346f552e99807947552b0b2",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0038": {
@@ -1071,10 +1071,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "28a7f149199c948cd8de438747cda0b434076a2a0b0bd72e794f855be3c3e1de",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0039": {
@@ -1099,10 +1099,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "d63715bf4ec01002a33bb48341b3c07e1e18c4dd24aeb00b75b0ac7365391187",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0040": {
@@ -1127,10 +1127,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "de91dcef90069c5083d5999964ee5a061700fc40f55b756783847c0f198d40ee",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0041": {
@@ -1155,10 +1155,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "55213baacca311a7b1659a092037e15aed8a478b85c3f1ddb9360cdc720c1418",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0042": {
@@ -1183,10 +1183,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "190fe079e2e20e1939cf5d7d2c440a52dfd91bc9d3333acb8d1abbb2a907c738",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0043": {
@@ -1211,10 +1211,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "7593652d331521d22d7367b5f8ced1b6e4774965540cc31fc8d6c4951627fa6b",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0044": {
@@ -1239,10 +1239,10 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "cf171a125e188248eb8c86cda8bec8d4dd10da3c650af4e9f4bda6b28402a17b",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
       }
     },
     "sl-0045": {
@@ -1267,10 +1267,122 @@
         "categoryId": "gen-z"
       },
       "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "f423769e83c15673a9f16761c56c38e0e8fbf17c03eed8d305338af5d15bbd73",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
+      }
+    },
+    "sl-0046": {
+      "hashes": {
+        "term": "92587bb07b1c9915c0ba6a3fac0c6c4894942f6b4f75d9d62f8de231918640d5",
+        "definition": "959e3351a1edef7b340e94b91a27e5aac6d8963f4e2e81f3afa0d06866a6b103",
+        "example": "99db382d9fa2c4d98440f4a3d44f90ef618e770da8172dd06929b51fe9f7e295",
+        "hint": "349ee42c708690ddf9836b0ff93a1c8be6e911019cab2566f226383af5204f90",
+        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
+        "combined": "721b7d1dcb294967879e7a9ce8a5459b8390578bf46f46209c1a1c74e42d19e7",
+        "tokenSignature": "a-agree-alpha-because-bending-by-calling-concert-creative-decision-free-gen-girl-is-it-justifies-last-logic-math-month-numbers-or-playfully-purchase-pure-rationalizing-refund-s-someone-splurge-the-they-tickets-until-use-used-when-with-you"
+      },
+      "lengths": {
+        "term": 9,
+        "definition": 67,
+        "example": 88,
+        "hint": 80,
+        "category": 9
+      },
+      "source": {
+        "sequence": 46,
+        "categoryId": "gen-alpha"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "eaa18e5e80a0af7cd3cf6ce556f48d16f79e4a2ee92b3b9854792c12445be04d",
+        "updatedAt": "2025-09-23T22:54:38.990Z"
+      }
+    },
+    "sl-0047": {
+      "hashes": {
+        "term": "d6fd7c81418decebe00ad07fbf17c6e97aa06fe15cab290f27409a1092eae234",
+        "definition": "68cae4a3e733af42952dc559ae4627e2b66f4fb6de3ab4ecb0fa3ea6af1a440d",
+        "example": "fc06a53a3d5481f7e02c550832a42d4b0492cfffa163a7062c4a76c537cbcac8",
+        "hint": "ab24d93b18a15364889c139469dd403ebf551bddabb6f5bbd62a4b82c21c72d1",
+        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
+        "combined": "324f0905d21210adb7ba66262b400f2f928518634574bd62adb559ae02054436",
+        "tokenSignature": "a-alarming-amusing-are-beige-breaker-call-deal-directions-drive-every-flag-gen-gps-green-his-in-is-it-mildly-more-narrating-neither-nor-odd-out-pirate-quirks-s-than-that-the-time-to-trait-use-voice-we-z"
+      },
+      "lengths": {
+        "term": 10,
+        "definition": 66,
+        "example": 85,
+        "hint": 62,
+        "category": 5
+      },
+      "source": {
+        "sequence": 47,
+        "categoryId": "gen-z"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "f01676a5491ac9f317c02a19688e3a806aea9fd0724af8c4db30ff96e3e33881",
+        "updatedAt": "2025-09-23T22:54:38.991Z"
+      }
+    },
+    "sl-0048": {
+      "hashes": {
+        "term": "b4a0fd5d468454227e24588c22b66d8f39ec1d92b23e70491cd3a90383409b21",
+        "definition": "da5c924e90d8c5446199acc553c6b2a51fcbb2e5a6b9515b3bb36cd74ec2d2e0",
+        "example": "958c3cbdc39ed1e9aa0131f9c92dd6975755e3400a0d89e18ebb420753d38fce",
+        "hint": "ca23026b84289fab2e317eabfb9ac5d56ac5b2bf990037a3794d511002ccda49",
+        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
+        "combined": "b653e4b7328f5373a6832d8a5e5a19a56865ecb86213f4464edc3def6996146f",
+        "tokenSignature": "a-about-all-alpha-at-backstory-d-detail-drama-dropping-dump-dumped-every-everyone-full-gen-get-group-her-it-job-lore-make-old-once-out-plot-projects-sense-she-so-someone-stress-the-to-understands-unloads-use-we-when-why"
+      },
+      "lengths": {
+        "term": 9,
+        "definition": 72,
+        "example": 80,
+        "hint": 69,
+        "category": 9
+      },
+      "source": {
+        "sequence": 48,
+        "categoryId": "gen-alpha"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "45f5afb6d20227ab39a11ff5a5a55535e9b7d28a0fb242ec4abb5f4fa9ff3845",
+        "updatedAt": "2025-09-23T22:54:38.991Z"
+      }
+    },
+    "sl-0049": {
+      "hashes": {
+        "term": "debb1cb9383bfea82ab7f7d606340452f892c3efbd6889492eb1e842b2c99667",
+        "definition": "1d26276f81f0ea2b6fd842332f6f6ee05c545a261d1de9b92196c7822986668f",
+        "example": "d332298ff1834f7592dd86a3b8e243476b5eba73eb559079d858819ea09e95a3",
+        "hint": "a9607d6a94589008aeb8d040198ed991a859dedbf899768ae00f4212a9a93ed2",
+        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
+        "combined": "46f0719efcba5865b26aa639d79e86b038a4634de0ce92697775880902c4c67b",
+        "tokenSignature": "a-acting-alpha-back-be-being-delulu-demand-during-ex-for-gen-honesty-it-meeting-no-or-re-real-reality-ridiculous-s-seriousness-snap-so-someone-texting-the-there-they-to-use-way-when-you-your"
+      },
+      "lengths": {
+        "term": 14,
+        "definition": 68,
+        "example": 72,
+        "hint": 66,
+        "category": 9
+      },
+      "source": {
+        "sequence": 49,
+        "categoryId": "gen-alpha"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "6423e1c57f7d3dd351050c7ea89f73b707579df3434f990b400bb39480f271b6",
+        "updatedAt": "2025-09-23T22:54:38.991Z"
       }
     }
   }
