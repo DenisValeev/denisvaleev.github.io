@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playwright Run Telemetry</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --background: radial-gradient(circle at top, rgba(84, 112, 225, 0.18), rgba(15, 21, 40, 0.08) 60%);
+      --background-solid: #f5f7ff;
+      --text-primary: #10172a;
+      --text-secondary: rgba(16, 23, 42, 0.66);
+      --surface: rgba(255, 255, 255, 0.92);
+      --surface-border: rgba(15, 23, 42, 0.08);
+      --surface-shadow: 0 30px 80px rgba(15, 23, 42, 0.15);
+      --accent: #465fff;
+      --accent-soft: rgba(70, 95, 255, 0.12);
+      --accent-soft-hover: rgba(70, 95, 255, 0.2);
+      --passed: #1f9b56;
+      --failed: #e23c4a;
+      --flaky: #c47b0b;
+      --timed: #ba51d8;
+      --skipped: #6b7280;
+      --muted-border: rgba(16, 23, 42, 0.08);
+      --scroll-thumb: rgba(15, 23, 42, 0.18);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background: radial-gradient(circle at top, rgba(121, 145, 255, 0.34), rgba(8, 14, 30, 0.92) 65%);
+        --background-solid: #090d18;
+        --text-primary: #f5f7ff;
+        --text-secondary: rgba(245, 247, 255, 0.68);
+        --surface: rgba(16, 22, 42, 0.82);
+        --surface-border: rgba(245, 247, 255, 0.08);
+        --surface-shadow: 0 32px 90px rgba(0, 0, 0, 0.4);
+        --accent: #90a2ff;
+        --accent-soft: rgba(144, 162, 255, 0.18);
+        --accent-soft-hover: rgba(144, 162, 255, 0.28);
+        --passed: #34d399;
+        --failed: #f97373;
+        --flaky: #f4a261;
+        --timed: #c084fc;
+        --skipped: #a1a1aa;
+        --muted-border: rgba(245, 247, 255, 0.12);
+        --scroll-thumb: rgba(144, 162, 255, 0.28);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      background: var(--background);
+      background-color: var(--background-solid);
+      color: var(--text-primary);
+      padding: clamp(18px, 5vw, 40px);
+    }
+
+    main {
+      width: min(1100px, 100%);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(20px, 3vw, 28px);
+      background: var(--surface);
+      border-radius: 28px;
+      padding: clamp(18px, 3vw, 32px);
+      box-shadow: var(--surface-shadow);
+      border: 1px solid var(--surface-border);
+      backdrop-filter: blur(16px);
+    }
+
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .page-header h1 {
+      margin: 0;
+      font-size: clamp(1.9rem, 2vw + 1.3rem, 2.6rem);
+      font-weight: 700;
+    }
+
+    .page-header p {
+      margin: 0;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    .run-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px clamp(16px, 3vw, 28px);
+      align-items: center;
+      padding: 12px clamp(14px, 3vw, 22px);
+      border-radius: 18px;
+      background: var(--accent-soft);
+      border: 1px solid var(--muted-border);
+    }
+
+    .run-meta div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 120px;
+    }
+
+    .run-meta span.meta-label {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+    }
+
+    .run-meta button {
+      margin-left: auto;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .run-meta button:hover,
+    .run-meta button:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(70, 95, 255, 0.36);
+      outline: none;
+    }
+
+    .run-instructions {
+      border-radius: 22px;
+      border: 1px dashed var(--muted-border);
+      padding: clamp(16px, 3vw, 24px);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: rgba(70, 95, 255, 0.08);
+    }
+
+    .run-instructions h2 {
+      margin: 0;
+      font-size: 1.22rem;
+      font-weight: 600;
+    }
+
+    .run-instructions p {
+      margin: 0;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .run-instructions pre {
+      margin: 0;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.08);
+      overflow: auto;
+      font-size: 0.95rem;
+    }
+
+    .run-instructions code {
+      font-family: "Fira Code", "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
+    }
+
+    .run-instructions .note {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .filter-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--muted-border);
+      background: rgba(255, 255, 255, 0.6);
+      color: inherit;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    .filter-button .count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8px;
+      min-width: 28px;
+      height: 24px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.08);
+      font-size: 0.85rem;
+    }
+
+    .filter-button.is-active {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: transparent;
+      transform: translateY(-1px);
+    }
+
+    .filter-button:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(70, 95, 255, 0.45);
+    }
+
+    .console {
+      display: grid;
+      grid-template-columns: minmax(240px, 320px) 1fr;
+      gap: clamp(18px, 3vw, 28px);
+    }
+
+    .test-list {
+      border-radius: 22px;
+      border: 1px solid var(--muted-border);
+      background: rgba(255, 255, 255, 0.72);
+      padding: clamp(12px, 2.6vw, 18px);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 520px;
+      overflow: hidden;
+    }
+
+    .test-list ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--scroll-thumb) transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .test-list ul::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .test-list ul::-webkit-scrollbar-thumb {
+      background: var(--scroll-thumb);
+      border-radius: 999px;
+    }
+
+    .test-list button {
+      width: 100%;
+      border: 1px solid transparent;
+      background: rgba(15, 23, 42, 0.04);
+      border-radius: 16px;
+      padding: 12px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+      color: inherit;
+    }
+
+    .test-list button:hover,
+    .test-list button:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(70, 95, 255, 0.4);
+      outline: none;
+      background: rgba(70, 95, 255, 0.12);
+    }
+
+    .test-list button[aria-current="true"] {
+      border-color: var(--accent);
+      background: rgba(70, 95, 255, 0.18);
+      box-shadow: inset 0 0 0 1px rgba(70, 95, 255, 0.4);
+    }
+
+    .test-label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .test-meta {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      display: inline-flex;
+      background: var(--skipped);
+      flex-shrink: 0;
+    }
+
+    .status-dot.passed {
+      background: var(--passed);
+    }
+
+    .status-dot.failed {
+      background: var(--failed);
+    }
+
+    .status-dot.flaky {
+      background: var(--flaky);
+    }
+
+    .status-dot.timedOut,
+    .status-dot.interrupted {
+      background: var(--timed);
+    }
+
+    .empty-state {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .detail-panel {
+      border-radius: 24px;
+      border: 1px solid var(--muted-border);
+      background: rgba(255, 255, 255, 0.75);
+      padding: clamp(16px, 2.8vw, 24px);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      min-height: 420px;
+      position: relative;
+    }
+
+    .detail-panel header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .detail-panel h2 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .detail-panel .detail-status {
+      margin: 0;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .detail-panel .detail-location {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.78rem;
+    }
+
+    .pill.passed {
+      background: rgba(31, 155, 86, 0.15);
+      color: var(--passed);
+    }
+
+    .pill.failed {
+      background: rgba(226, 60, 74, 0.15);
+      color: var(--failed);
+    }
+
+    .pill.flaky {
+      background: rgba(196, 123, 11, 0.18);
+      color: var(--flaky);
+    }
+
+    .pill.timedOut,
+    .pill.interrupted {
+      background: rgba(186, 81, 216, 0.2);
+      color: var(--timed);
+    }
+
+    .pill.skipped {
+      background: rgba(107, 114, 128, 0.2);
+      color: var(--skipped);
+    }
+
+    .detail-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin: 0;
+    }
+
+    .detail-meta div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.05);
+    }
+
+    .detail-meta dt {
+      margin: 0;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+    }
+
+    .detail-meta dd {
+      margin: 0;
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .detail-section h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+    }
+
+    .detail-section ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .log-entry {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.05);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .log-entry .badge {
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      align-self: start;
+    }
+
+    .log-entry.stderr {
+      border-left: 4px solid var(--failed);
+    }
+
+    .log-entry.stdout {
+      border-left: 4px solid var(--accent);
+    }
+
+    .log-entry.synthetic {
+      border-left: 4px solid var(--skipped);
+    }
+
+    .attachment-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.05);
+      font-size: 0.9rem;
+    }
+
+    .attachment-item a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .attachment-item a:hover,
+    .attachment-item a:focus-visible {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 880px) {
+      .console {
+        grid-template-columns: 1fr;
+      }
+
+      .test-list {
+        max-height: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main aria-label="Playwright telemetry console">
+    <header class="page-header">
+      <h1>Playwright Run Telemetry</h1>
+      <p>Peek behind the curtain of the agentic smoke tests. Every run of <code>npm run test:record</code> stores a JSON stream that keeps this console alive, even on a static site.</p>
+      <div class="run-meta" data-run-meta>
+        <div>
+          <span class="meta-label">Captured</span>
+          <time data-run-start aria-live="polite">--</time>
+        </div>
+        <div>
+          <span class="meta-label">Duration</span>
+          <span data-run-duration>--</span>
+        </div>
+        <div>
+          <span class="meta-label">Total tests</span>
+          <span data-run-total>0</span>
+        </div>
+        <button type="button" data-refresh-button aria-label="Refresh Playwright logs">Refresh</button>
+      </div>
+    </header>
+    <section class="run-instructions" aria-label="How to update the logs">
+      <h2>Update the feed</h2>
+      <p>Record a fresh log whenever you tweak the suite. The script runs the inspector-friendly line reporter and emits a normalized JSON artefact.</p>
+      <pre><code>npm run test:record</code></pre>
+      <p class="note">The command writes <code>data/test-runs/latest.json</code>, which this console fetches (or falls back to the bundled snapshot when you are offline).</p>
+    </section>
+    <section class="filters" aria-label="Filter tests by status">
+      <button class="filter-button is-active" type="button" data-filter-button="all">
+        <span>All</span>
+        <span class="count" data-filter-count="all">0</span>
+      </button>
+      <button class="filter-button" type="button" data-filter-button="passed">
+        <span>Passed</span>
+        <span class="count" data-filter-count="passed">0</span>
+      </button>
+      <button class="filter-button" type="button" data-filter-button="failed">
+        <span>Failed</span>
+        <span class="count" data-filter-count="failed">0</span>
+      </button>
+      <button class="filter-button" type="button" data-filter-button="flaky">
+        <span>Flaky</span>
+        <span class="count" data-filter-count="flaky">0</span>
+      </button>
+      <button class="filter-button" type="button" data-filter-button="skipped">
+        <span>Skipped</span>
+        <span class="count" data-filter-count="skipped">0</span>
+      </button>
+    </section>
+    <div class="console">
+      <aside class="test-list" aria-label="Recorded Playwright tests">
+        <ul data-test-list></ul>
+        <p class="empty-state" data-empty-state hidden>No tests were found for this filter.</p>
+      </aside>
+      <section class="detail-panel" aria-live="polite" data-detail-panel>
+        <header>
+          <p class="detail-status">
+            <span class="pill" data-detail-pill>Waiting</span>
+          </p>
+          <h2 data-detail-title>Pick a test to explore its timeline</h2>
+          <p class="detail-location" data-detail-location></p>
+        </header>
+        <dl class="detail-meta">
+          <div>
+            <dt>Started</dt>
+            <dd data-detail-start>--</dd>
+          </div>
+          <div>
+            <dt>Duration</dt>
+            <dd data-detail-duration>--</dd>
+          </div>
+          <div>
+            <dt>Project</dt>
+            <dd data-detail-project>--</dd>
+          </div>
+        </dl>
+        <section class="detail-section detail-errors" data-detail-errors hidden>
+          <h3>Errors</h3>
+          <ul data-error-list></ul>
+        </section>
+        <section class="detail-section detail-log" data-detail-log>
+          <h3>Activity log</h3>
+          <ul data-log-list></ul>
+        </section>
+        <section class="detail-section detail-attachments" data-detail-attachments hidden>
+          <h3>Attachments</h3>
+          <ul data-attachment-list></ul>
+        </section>
+      </section>
+    </div>
+  </main>
+  <script src="log-data.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
