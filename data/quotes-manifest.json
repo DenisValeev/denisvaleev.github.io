@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2025-09-22T23:16:21.888Z",
-    "total": 653,
+    "generatedAt": "2025-09-23T01:27:49.602Z",
+    "total": 672,
     "categories": 22,
     "hashAlgorithm": "sha256",
     "tokenSignature": "unique-words-v1",
@@ -12991,6 +12991,94 @@
         "updatedAt": null
       }
     },
+    "growth-13": {
+      "hashes": {
+        "text": "c0296bcff86e3fef3ef39c230b8770d81c9f1c7b614b7b9d728bc08de8310354",
+        "author": "dc98536b0ef1b6e5d0844066d915791e2898f34594ebc4c062dafda6c5bc194f",
+        "combined": "c8ae12b28c225fe58b3cb04434494e7752664016c21e253ac5fef6636cc6dd47",
+        "tokenSignature": "as-belong-but-change-don-growth-hale-is-mandy-nothing-painful-somewhere-staying-stuck-t-you"
+      },
+      "lengths": {
+        "text": 108,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 12
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "growth-14": {
+      "hashes": {
+        "text": "2e6a53b13a7e454bb3b2a28daee71df89fecf7a20b10a2d25a231934932ef767",
+        "author": "e143ef29ac6bb9f267d165cffd870b73f157210d3ac615103b6ebe50dc412bbf",
+        "combined": "7a0134b77d182dcb130d9aedeff358536cdb3316de029e4546d9cf927681ead6",
+        "tokenSignature": "are-be-become-by-can-need-oprah-remaining-t-to-we-what-winfrey"
+      },
+      "lengths": {
+        "text": 60,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 13
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "growth-15": {
+      "hashes": {
+        "text": "bcdb057150b081f59b479d9289547d845a386488ed596d1b8eca8476ce678054",
+        "author": "1b643f6f73199acf1883d00c82e8e46d6dad8b61957ac9402e84b673ee345158",
+        "combined": "bc1d95c6ceae84ccc19aa56896104fb718516b60bdc1772fca07162d3e2fc866",
+        "tokenSignature": "alan-and-change-dance-into-is-it-join-make-move-of-only-out-plunge-sense-the-to-watts-way-with"
+      },
+      "lengths": {
+        "text": 96,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 14
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "growth-16": {
+      "hashes": {
+        "text": "2a33e3f3fde1f291e3c29670fe2900e9f980f0ed8815c52990e07cbbef5f7029",
+        "author": "d3dcf61b005839493330bd1eee973b5ec414454ebb3fac8ce24d29080bd9cb64",
+        "combined": "9bac98d71d0aab2d7573832df096bece74dc3ab99bb477ca1e2a873c152e1266",
+        "tokenSignature": "burroughs-dying-growing-if-not-re-s-william-you"
+      },
+      "lengths": {
+        "text": 36,
+        "author": 20
+      },
+      "source": {
+        "categoryId": "growth",
+        "sequence": 15
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
     "joy-01": {
       "hashes": {
         "text": "bff1256b5c59f5ec3cb91c5a5f2bf4c9f38bc117a28f330a6f4e8f6f9042bffe",
@@ -13519,6 +13607,94 @@
         "updatedAt": null
       }
     },
+    "curiosity-13": {
+      "hashes": {
+        "text": "d4e524016ed061395f947bf14ac534e4f8e03824fce22a80d02d1b08a138baae",
+        "author": "39c74a3aba1e406cce035fb9a3ae060e022de0306eed966eedd9f675f6da5180",
+        "combined": "a7062eb7da6cf2e0aa67454f5f43e89ed2501393ac5c3f3c7db293bb78810242",
+        "tokenSignature": "achievement-curiosity-engine-is-ken-of-robinson-the"
+      },
+      "lengths": {
+        "text": 39,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 13
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "curiosity-14": {
+      "hashes": {
+        "text": "1deb5dff19cf3568f74a7d9ee9e578c5f3e2823988ba5afb2ff33a47cb45396b",
+        "author": "69b28ac7e43618bf9347b5140f1ea60c27c158a7d44bfb95798b7e8332b86c7f",
+        "combined": "8718f026e8cdfaf686287e02ca9464aa1cdf8bbe077a49e2ef875cdbed2012b2",
+        "tokenSignature": "curiosity-fear-of-penelope-replace-the-unknown-ward-with"
+      },
+      "lengths": {
+        "text": 43,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 14
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "curiosity-15": {
+      "hashes": {
+        "text": "65a8269fcfd182af243f5f6b8c68979ae174182e36c987c1d3fd3ae2b0a68ad0",
+        "author": "b3de298fc1dd3007b7c95be8bec4386b0bd0a44091f3657124240515cdd8c017",
+        "combined": "39653d308b47c06c84838da1018a6d0852292ed58220f8824ddf6fac13238ebe",
+        "tokenSignature": "albert-curiosity-einstein-existing-for-has-important-is-its-not-own-questioning-reason-stop-the-thing-to"
+      },
+      "lengths": {
+        "text": 90,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 15
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "curiosity-16": {
+      "hashes": {
+        "text": "73eec43f6c40abae8276507b8320f0b1bc78938a66e459c1255c5c5e1cfc4613",
+        "author": "e28bde4d9e57a3098c72a914df85bb4be9afeafc77bb7dd3d55e6e03f3e25c57",
+        "combined": "bd683b5c6580263586001a0e61785b0cc09fc56bfb99f426cd03863e06bf4d2f",
+        "tokenSignature": "foolish-hungry-jobs-stay-steve"
+      },
+      "lengths": {
+        "text": 26,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "curiosity",
+        "sequence": 16
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
     "kindness-01": {
       "hashes": {
         "text": "3980d940bc3d3e0a2f9f6ab756456345c417599932e702d026a3764a06e5e883",
@@ -13803,6 +13979,72 @@
         "model": "synthetic-64",
         "vectorSha256": "a3a07d17534c24c6592c3d140a42664a3847364758ae324f8baec2e0fcb95754",
         "updatedAt": "2025-09-22T01:31:43.622Z"
+      }
+    },
+    "kindness-14": {
+      "hashes": {
+        "text": "7d17cd8b8f8e0f6b26c8ef1b5dafdac826c07b186e533521f3d73a71cf710d85",
+        "author": "f2fea11d2ece3188c99b6b7c208952c105662e100336bcc27a0db0022016aa68",
+        "combined": "f52da1d2667d1dd352c306efd4a151b67d3300daa804927e26cb88aaf52fdf0c",
+        "tokenSignature": "are-bit-bits-desmond-do-good-it-little-of-overwhelm-put-s-that-the-those-together-tutu-where-world-you-your"
+      },
+      "lengths": {
+        "text": 111,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "kindness",
+        "sequence": 14
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "kindness-15": {
+      "hashes": {
+        "text": "f0d248f75268d2b887067e25cace2bbdd8f73fd1bff2f01015ce5135c2d4c05f",
+        "author": "1aa42de957aa4c529a279992df281b7f3b3ca62125481fbfa44bedbda6993e2f",
+        "combined": "e2b841574c8e5589dce4d5642ded416672cdae5d1938a5d6bfce860bf169464d",
+        "tokenSignature": "a-an-being-for-human-is-kindness-opportunity-seneca-there-wherever"
+      },
+      "lengths": {
+        "text": 72,
+        "author": 6
+      },
+      "source": {
+        "categoryId": "kindness",
+        "sequence": 15
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "kindness-16": {
+      "hashes": {
+        "text": "24e18a8be2428654816aa13564e501d9121914b4e6afb18595cce4e4625d38ec",
+        "author": "b57295ecf08e949b643536a8d40eeb5bd782a09a50a1d260590a74596d5ed901",
+        "combined": "e92c45ed41c977d9cbebe9009092970fa190da4bfce88099e12d9b5366da1a17",
+        "tokenSignature": "a-act-carry-day-diana-do-expectation-for-in-kindness-knowledge-might-no-of-one-out-princess-random-reward-safe-same-someone-that-the-with-you"
+      },
+      "lengths": {
+        "text": 136,
+        "author": 14
+      },
+      "source": {
+        "categoryId": "kindness",
+        "sequence": 16
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "gratitude-01": {
@@ -14091,6 +14333,94 @@
         "updatedAt": "2025-09-22T01:31:43.622Z"
       }
     },
+    "gratitude-14": {
+      "hashes": {
+        "text": "8e4b9f1ff47f727536500667ea20359cdc2e902de10ddca8301d824e50c0fec5",
+        "author": "bf61abd9c8c94e02103733c96be27852844483acbf580158f224257e620356a8",
+        "combined": "ac719fe23f3412955dbfa2c922868a88c44b9da4c923cad668b0c1a29703da37",
+        "tokenSignature": "aesop-enough-gratitude-have-into-turns-we-what"
+      },
+      "lengths": {
+        "text": 41,
+        "author": 5
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 14
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "gratitude-15": {
+      "hashes": {
+        "text": "6912b6a020aa12a4538bc7b93035b1074f94b45073cea575f8ef9e1f1f7ade72",
+        "author": "fb509b02fa6426db7179d382b0544dd6228fabde5be8eac5f31edaf484751db2",
+        "combined": "db6ea52f0609660c7a343b05ceae575bf4c36158697776511b7508e7023fe468",
+        "tokenSignature": "a-and-cloak-corner-every-feed-gratitude-it-life-like-of-rumi-wear-will-your"
+      },
+      "lengths": {
+        "text": 71,
+        "author": 4
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 15
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "gratitude-16": {
+      "hashes": {
+        "text": "453dfc70462dc6bcdf5ae0a2f89b313d468dc9ced6cf1c25729edd874385e5c6",
+        "author": "a8e10fe13a65fed6b88e4749706d073e5c315347a8d20a1ba4a438847e287bcf",
+        "combined": "26510f33b28bbae409f114a382a6a0345a78c3dba4857e364184372bfb39daf1",
+        "tokenSignature": "abundance-and-appears-are-disappears-fear-grateful-robbins-tony-when-you"
+      },
+      "lengths": {
+        "text": 61,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 16
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "gratitude-17": {
+      "hashes": {
+        "text": "f50410e7c7da188efe997a9285f3a4de1ae7f4a42ba635c7684035339d5c582b",
+        "author": "13a3714f3ff179531edc457c5c56f8c4f66601917d77d4770ce7efe6d1d7e023",
+        "combined": "5da2ba94495ae702200686e38fc475af447ad6408569b0361d8b4c7b9cdb8b17",
+        "tokenSignature": "all-but-cicero-gratitude-greatest-is-not-of-only-others-parent-the-virtues"
+      },
+      "lengths": {
+        "text": 76,
+        "author": 6
+      },
+      "source": {
+        "categoryId": "gratitude",
+        "sequence": 17
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
     "purpose-01": {
       "hashes": {
         "text": "80dfa388a4e3a1d236d341ea72013dfac69dd8c7dba46c7a05cdb5718fcf2334",
@@ -14375,6 +14705,94 @@
         "model": "synthetic-64",
         "vectorSha256": "ca39acb2bf58f6c3f6ec35ff51f761e8f4c760261d4c028468f3e3c7d872c9fc",
         "updatedAt": "2025-09-22T01:31:43.622Z"
+      }
+    },
+    "purpose-14": {
+      "hashes": {
+        "text": "44f56c1a513b6c321b105a0477945d88e31815d7865e6a151379e228d168ecf1",
+        "author": "a277eeb7e3594a7a64bc0e1b19da1c2af64a3f46e12b0a14ba6b44d7e2e28e66",
+        "combined": "b41f0b9f8cc2aa501b75f60ab6ce784560934c8f9408232a18a1369aa8c283d8",
+        "tokenSignature": "a-byrne-is-life-of-purpose-robert-the"
+      },
+      "lengths": {
+        "text": 41,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 14
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "purpose-15": {
+      "hashes": {
+        "text": "2a3a7ce0c93c07e080965ebb9c6c1dec7bd49f9f11eea5cfcb96991b3681217f",
+        "author": "92b4907e29abdbcde3652eddb4b84e58a19aa4f8568f96426f830b645b8a30d8",
+        "combined": "ab7ffcff44f269d4b889cad8094d8b086e4b60ac595b81a134ec92d636572c6a",
+        "tokenSignature": "be-de-everywhere-fixed-has-in-is-life-lost-michel-montaigne-no-nowhere-purpose-soul-the-to-which"
+      },
+      "lengths": {
+        "text": 88,
+        "author": 19
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 15
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "purpose-16": {
+      "hashes": {
+        "text": "3711ebca9d5d2b30167d2e66d87cc4282f0b237437713af77e19cbacb795c506",
+        "author": "bccf7e154da9c0825bddce594eb2e1a313b8d8b1ec37584b64494abb99a3d407",
+        "combined": "8dc30f7548ddb3348a2eee8d6aec73e93bf2dedb6c6ade569f0c4dc45a81c2a5",
+        "tokenSignature": "and-are-born-day-days-find-important-in-life-mark-most-out-the-twain-two-why-you-your"
+      },
+      "lengths": {
+        "text": 95,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 16
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "purpose-17": {
+      "hashes": {
+        "text": "ea0aa448c7f4935f6a12c3f3a87e0119466bbe7ff348169e41bfd36f379278bd",
+        "author": "3bc37a1afd858242c1d3bfd633a06f00fa593ad7d3b2a10c4358d905959583fd",
+        "combined": "12ccaeb05163f19a6e2b1d7aececd7591e9bc33c2a1697e328ac4dd4a554d253",
+        "tokenSignature": "a-and-are-boone-change-changes-debby-dream-dreams-ever-grows-nothing-of-seed-seeds-the-without"
+      },
+      "lengths": {
+        "text": 108,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "purpose",
+        "sequence": 17
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     }
   }
