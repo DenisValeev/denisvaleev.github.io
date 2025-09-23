@@ -15,14 +15,21 @@
       --surface: rgba(255, 255, 255, 0.94);
       --surface-shadow: 0 28px 70px rgba(15, 23, 42, 0.14);
       --surface-border: rgba(15, 23, 42, 0.08);
-      --card-background: rgba(255, 255, 255, 0.88);
-      --card-hover-background: rgba(255, 255, 255, 0.96);
-      --card-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
-      --card-hover-shadow: 0 26px 52px rgba(15, 23, 42, 0.16);
-      --accent: #4a63ff;
-      --accent-contrast: #0b1020;
-      --dev-link-background: rgba(74, 99, 255, 0.12);
-      --dev-link-hover: rgba(74, 99, 255, 0.18);
+      --row-background: rgba(255, 255, 255, 0.86);
+      --row-border: rgba(74, 99, 255, 0.22);
+      --row-hover: rgba(255, 255, 255, 0.94);
+      --row-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+      --row-shadow-hover: 0 24px 42px rgba(15, 23, 42, 0.18);
+      --label-pill: rgba(74, 99, 255, 0.14);
+      --label-text: #10172a;
+      --button-primary-background: linear-gradient(135deg, #4a63ff, #7687ff);
+      --button-primary-text: #0b1020;
+      --button-secondary-background: rgba(74, 99, 255, 0.12);
+      --button-secondary-text: #12172b;
+      --button-border: rgba(74, 99, 255, 0.45);
+      --button-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+      --button-shadow-hover: 0 14px 28px rgba(15, 23, 42, 0.16);
+      --focus-ring: rgba(121, 134, 255, 0.38);
     }
 
     @media (prefers-color-scheme: dark) {
@@ -34,15 +41,26 @@
         --surface: rgba(12, 17, 31, 0.85);
         --surface-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
         --surface-border: rgba(255, 255, 255, 0.04);
-        --card-background: rgba(255, 255, 255, 0.06);
-        --card-hover-background: rgba(255, 255, 255, 0.1);
-        --card-shadow: 0 20px 40px rgba(12, 18, 40, 0.3);
-        --card-hover-shadow: 0 28px 54px rgba(12, 18, 40, 0.38);
-        --accent: #9ba9ff;
-        --accent-contrast: #0a1020;
-        --dev-link-background: rgba(255, 255, 255, 0.08);
-        --dev-link-hover: rgba(255, 255, 255, 0.12);
+        --row-background: rgba(255, 255, 255, 0.08);
+        --row-border: rgba(155, 169, 255, 0.26);
+        --row-hover: rgba(255, 255, 255, 0.12);
+        --row-shadow: 0 20px 42px rgba(0, 0, 0, 0.32);
+        --row-shadow-hover: 0 28px 56px rgba(0, 0, 0, 0.4);
+        --label-pill: rgba(155, 169, 255, 0.18);
+        --label-text: #f5f7ff;
+        --button-primary-background: linear-gradient(135deg, #7f8dff, #a7b5ff);
+        --button-primary-text: #050914;
+        --button-secondary-background: rgba(155, 169, 255, 0.16);
+        --button-secondary-text: #f5f7ff;
+        --button-border: rgba(155, 169, 255, 0.5);
+        --button-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
+        --button-shadow-hover: 0 18px 36px rgba(0, 0, 0, 0.38);
+        --focus-ring: rgba(155, 169, 255, 0.52);
       }
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -53,7 +71,7 @@
       align-items: center;
       background: var(--body-gradient);
       background-color: var(--body-base);
-      padding: clamp(12px, 2.5vw, 28px);
+      padding: clamp(14px, 2.8vw, 32px);
       color: var(--text-primary);
     }
 
@@ -64,16 +82,18 @@
       box-shadow: var(--surface-shadow);
       backdrop-filter: blur(14px);
       border: 1px solid var(--surface-border);
-      padding: clamp(12px, 2vw, 24px) clamp(16px, 2.5vw, 30px) clamp(16px, 2.5vw, 30px);
+      padding: clamp(14px, 2vw, 24px) clamp(18px, 2.8vw, 32px) clamp(18px, 2.8vw, 32px);
       display: flex;
       flex-direction: column;
-      gap: clamp(14px, 2.5vw, 22px);
+      gap: clamp(18px, 3vw, 32px);
     }
 
     header.site-header {
       display: flex;
       flex-direction: column;
       gap: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(74, 99, 255, 0.12);
     }
 
     header.site-header h1 {
@@ -89,165 +109,147 @@
       line-height: 1.5;
     }
 
-    ul.apps {
-      list-style: none;
-      padding: 0;
+    .section-title {
       margin: 0;
-      display: grid;
-      gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      font-size: clamp(0.95rem, 0.4vw + 0.9rem, 1.1rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
     }
 
-    ul.apps li {
-      margin: 0;
+    .app-groups {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 18px;
     }
 
-    a.app-card {
+    .app-groups__list,
+    .tool-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
       display: flex;
       flex-direction: column;
       gap: 16px;
-      padding: clamp(22px, 2vw + 16px, 28px);
-      border-radius: 20px;
-      background: var(--card-background);
-      text-decoration: none;
-      color: inherit;
-      border: 1px solid transparent;
-      box-shadow: var(--card-shadow);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
     }
 
-    a.app-card:hover,
-    a.app-card:focus-visible {
-      transform: translateY(-6px);
-      box-shadow: var(--card-hover-shadow);
-      background: var(--card-hover-background);
-      border-color: rgba(115, 135, 255, 0.45);
-      outline: none;
-    }
-
-    .app-card__icon {
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-    }
-
-    .app-card__content {
+    .app-row {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      padding: clamp(16px, 2vw + 10px, 24px);
+      border-radius: 20px;
+      background: var(--row-background);
+      border: 1px solid var(--row-border);
+      box-shadow: var(--row-shadow);
+      transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .app-row:hover,
+    .app-row:focus-within {
+      background: var(--row-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--row-shadow-hover);
+    }
+
+    .app-row__label {
+      display: inline-flex;
+      align-items: center;
       gap: 10px;
-    }
-
-    .app-card__content h2 {
-      margin: 0;
-      font-size: clamp(1.2rem, 1.2vw + 1.1rem, 1.6rem);
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--label-pill);
+      color: var(--label-text);
       font-weight: 600;
+      letter-spacing: 0.02em;
+      font-size: clamp(1rem, 0.4vw + 0.95rem, 1.1rem);
     }
 
-    .app-card__content p {
-      margin: 0;
-      color: var(--text-secondary);
-      line-height: 1.6;
+    .app-row__label span[aria-hidden="true"] {
+      font-size: 1.3rem;
     }
 
-    .app-card__cta {
+    .app-row__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-left: auto;
+      justify-content: flex-end;
+    }
+
+    a.app-button {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    .app-card__cta svg {
-      width: 1.15rem;
-      height: 1.15rem;
-      transition: transform 0.18s ease;
-    }
-
-    a.app-card:hover .app-card__cta svg,
-    a.app-card:focus-visible .app-card__cta svg {
-      transform: translateX(3px);
-    }
-
-    .app-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    a.app-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
+      padding: 10px 18px;
       border-radius: 999px;
-      background: var(--dev-link-background);
-      color: inherit;
       text-decoration: none;
-      font-weight: 500;
-      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border: 1px solid var(--button-border);
+      color: var(--button-secondary-text);
+      background: var(--button-secondary-background);
+      box-shadow: var(--button-shadow);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
     }
 
-    a.app-secondary:hover,
-    a.app-secondary:focus-visible {
-      background: var(--dev-link-hover);
-      transform: translateY(-2px);
-      outline: none;
-      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.16);
-    }
-
-    a.app-secondary span[aria-hidden="true"] {
+    a.app-button span[aria-hidden="true"] {
       font-size: 1.1rem;
     }
 
-    a.dev-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      background: var(--dev-link-background);
-      color: inherit;
-      text-decoration: none;
-      font-weight: 500;
-      transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+    a.app-button:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--button-shadow-hover);
     }
 
-    a.dev-link:hover,
-    a.dev-link:focus-visible {
-      background: var(--dev-link-hover);
-      transform: translateY(-2px);
+    a.app-button:focus-visible {
       outline: none;
-      box-shadow: 0 18px 36px rgba(15, 23, 42, 0.18);
+      transform: translateY(-1px);
+      box-shadow: 0 0 0 3px var(--focus-ring), var(--button-shadow-hover);
     }
 
-    a.dev-link span[aria-hidden="true"] {
-      font-size: 1.2rem;
+    a.app-button--primary {
+      background: var(--button-primary-background);
+      color: var(--button-primary-text);
+      border-color: transparent;
     }
 
-    section.dev-tools {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-top: clamp(18px, 3vw, 28px);
+    a.app-button--primary:hover,
+    a.app-button--primary:focus-visible {
+      background: linear-gradient(135deg, #6377ff, #8f9fff);
     }
 
-    a.app-card:focus-visible,
-    a.app-secondary:focus-visible,
-    a.dev-link:focus-visible {
-      box-shadow: 0 0 0 3px rgba(121, 134, 255, 0.35), inset 0 0 0 1px rgba(121, 134, 255, 0.6);
+    a.app-button--secondary:hover,
+    a.app-button--secondary:focus-visible {
+      background: rgba(74, 99, 255, 0.2);
     }
 
-    @media (max-width: 640px) {
-      main {
-        padding: clamp(12px, 4vw, 18px);
+    .tool-list li {
+      margin: 0;
+    }
+
+    a.app-button--wide {
+      width: 100%;
+      justify-content: flex-start;
+      font-size: clamp(1rem, 0.35vw + 0.95rem, 1.12rem);
+      padding: clamp(12px, 2vw + 8px, 18px) clamp(16px, 2vw + 12px, 24px);
+    }
+
+    @media (max-width: 720px) {
+      .app-row {
+        flex-direction: column;
+        align-items: stretch;
       }
 
-      header.site-header h1 {
-        font-size: clamp(1.6rem, 4vw + 1rem, 2.2rem);
+      .app-row__actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .app-row__actions a.app-button {
+        flex: 1 1 auto;
+        justify-content: center;
       }
     }
   </style>
@@ -258,109 +260,75 @@
       <h1>Toolbox</h1>
       <p>Choose an app to explore curated decks, formatting helpers, and other quick experiments.</p>
     </header>
-    <ul class="apps">
-      <li>
-        <a class="app-card" href="apps/jokes/">
-          <span class="app-card__icon" aria-hidden="true">😂</span>
-          <div class="app-card__content">
-            <h2>Dad Jokes</h2>
-            <p>Cycle through curated dad jokes, revisit punchlines, and only reveal the payoff when you want.</p>
-          </div>
-          <span class="app-card__cta">
-            Open app
-            <svg aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
-            </svg>
+    <section class="app-groups" aria-labelledby="deck-section">
+      <h2 id="deck-section" class="section-title">Deck collections</h2>
+      <ul class="app-groups__list">
+        <li class="app-row" data-group="jokes" role="group" aria-labelledby="group-jokes-label">
+          <span class="app-row__label" id="group-jokes-label">
+            <span aria-hidden="true">😂</span>
+            <span>Jokes</span>
           </span>
-        </a>
-        <div class="app-links" aria-label="Dad jokes extras">
-          <a class="app-secondary" href="apps/jokes/all-jokes.html">
-            <span aria-hidden="true">📚</span>
-            <span>All Jokes</span>
+          <div class="app-row__actions" aria-label="Jokes shortcuts">
+            <a class="app-button app-button--primary" href="apps/jokes/">
+              Dad Jokes
+            </a>
+            <a class="app-button app-button--secondary" href="apps/jokes/all-jokes.html">
+              All Jokes
+            </a>
+          </div>
+        </li>
+        <li class="app-row" data-group="quotes" role="group" aria-labelledby="group-quotes-label">
+          <span class="app-row__label" id="group-quotes-label">
+            <span aria-hidden="true">💬</span>
+            <span>Quotes</span>
+          </span>
+          <div class="app-row__actions" aria-label="Quote shortcuts">
+            <a class="app-button app-button--primary" href="apps/quotes/">
+              Quotes
+            </a>
+            <a class="app-button app-button--secondary" href="apps/quotes/all-quotes.html">
+              All Quotes
+            </a>
+          </div>
+        </li>
+        <li class="app-row" data-group="gen-alpha" role="group" aria-labelledby="group-gen-alpha-label">
+          <span class="app-row__label" id="group-gen-alpha-label">
+            <span aria-hidden="true">🧒</span>
+            <span>Gen Alpha</span>
+          </span>
+          <div class="app-row__actions" aria-label="Gen Alpha shortcuts">
+            <a class="app-button app-button--primary" href="apps/gen-alpha/">
+              Gen Alpha Slang
+            </a>
+            <a class="app-button app-button--secondary" href="apps/gen-alpha/all-slang.html">
+              All Gen Alpha Slang
+            </a>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section class="app-groups" aria-labelledby="tools-section">
+      <h2 id="tools-section" class="section-title">Labs &amp; tools</h2>
+      <ul class="tool-list">
+        <li>
+          <a class="app-button app-button--primary app-button--wide" href="apps/similarity-report/">
+            <span aria-hidden="true">🧪</span>
+            <span>Cosine Similarity Lab</span>
           </a>
-        </div>
-      </li>
-      <li>
-        <a class="app-card" href="apps/gen-alpha/">
-          <span class="app-card__icon" aria-hidden="true">🧒</span>
-          <div class="app-card__content">
-            <h2>Gen Alpha Slang</h2>
-            <p>Browse Gen Alpha slang cards, move back for a refresher, and reveal the meaning only when you’re ready.</p>
-          </div>
-          <span class="app-card__cta">
-            Open app
-            <svg aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
-            </svg>
-          </span>
-        </a>
-        <div class="app-links" aria-label="Gen Alpha slang extras">
-          <a class="app-secondary" href="apps/gen-alpha/all-slang.html">
-            <span aria-hidden="true">🗂️</span>
-            <span>All Slang</span>
+        </li>
+        <li>
+          <a class="app-button app-button--wide" href="apps/run-telemetry/">
+            <span aria-hidden="true">📈</span>
+            <span>Playwright Run Telemetry</span>
           </a>
-        </div>
-      </li>
-      <li>
-        <a class="app-card" href="apps/quotes/">
-          <span class="app-card__icon" aria-hidden="true">💬</span>
-          <div class="app-card__content">
-            <h2>Quotes</h2>
-            <p>Shuffle themed quote decks, jump back through the flow, and switch categories without losing context.</p>
-          </div>
-          <span class="app-card__cta">
-            Open app
-            <svg aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
-            </svg>
-          </span>
-        </a>
-        <div class="app-links" aria-label="Quote extras">
-          <a class="app-secondary" href="apps/quotes/all-quotes.html">
-            <span aria-hidden="true">🗂️</span>
-            <span>All Quotes</span>
+        </li>
+        <li>
+          <a class="app-button app-button--wide" href="apps/value-formatter/">
+            <span aria-hidden="true">🧰</span>
+            <span>Value Formatter</span>
           </a>
-        </div>
-      </li>
-      <li>
-        <a class="app-card" href="apps/similarity-report/">
-          <span class="app-card__icon" aria-hidden="true">🧪</span>
-          <div class="app-card__content">
-            <h2>Cosine Similarity Lab</h2>
-            <p>Compare embeddings, inspect dataset metadata, and sanity-check similarity reports in the browser.</p>
-          </div>
-          <span class="app-card__cta">
-            Open app
-            <svg aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
-            </svg>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a class="app-card" href="apps/run-telemetry/">
-          <h2>Playwright Run Telemetry</h2>
-          <p>Inspect JSON-backed timelines from the automated Playwright smoke tests, filter their status, and drill into the per-spec activity log.</p>
-        </a>
-      </li>
-    </ul>
-    <section class="dev-tools" aria-label="Utility pages">
-      <a class="dev-link" href="apps/value-formatter/">
-        <span aria-hidden="true">🧰</span>
-        <span>Value Formatter — Quick mapping for long lists.</span>
-      </a>
-      <a class="dev-link" href="apps/jokes/all-jokes.html">
-        <span aria-hidden="true">😂</span>
-        <span>All Jokes</span>
-      </a>
-      <a class="dev-link" href="apps/quotes/all-quotes.html">
-        <span aria-hidden="true">💬</span>
-        <span>All Quotes</span>
-      </a>
-      <a class="dev-link" href="apps/gen-alpha/all-slang.html">
-        <span aria-hidden="true">🧾</span>
-        <span>All Gen Alpha Slang</span>
-      </a>
+        </li>
+      </ul>
     </section>
   </main>
 </body>
