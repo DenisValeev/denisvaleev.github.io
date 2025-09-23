@@ -4,11 +4,10 @@
   const prevButton = document.getElementById('prev-button');
   const nextButton = document.getElementById('next-button');
   const revealButton = document.getElementById('reveal-button');
-  const shuffleButton = document.getElementById('shuffle-button');
   const exampleWrapper = document.getElementById('slang-example-wrapper');
   const exampleText = document.getElementById('slang-example');
 
-  if (!termEl || !meaningEl || !prevButton || !nextButton || !revealButton || !shuffleButton) {
+  if (!termEl || !meaningEl || !prevButton || !nextButton || !revealButton) {
     return;
   }
 
@@ -83,7 +82,7 @@
       revealButton.hidden = true;
       prevButton.disabled = true;
       nextButton.disabled = true;
-      shuffleButton.disabled = true;
+      revealButton.disabled = true;
       currentEntry = null;
 
       if (exampleWrapper && exampleText) {
@@ -105,6 +104,7 @@
     termEl.textContent = current.term;
     meaningEl.textContent = definitionText;
     revealButton.hidden = false;
+    revealButton.disabled = false;
 
     if (exampleWrapper && exampleText) {
       if (hasExample) {
