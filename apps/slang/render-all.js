@@ -10,6 +10,11 @@
     return;
   }
 
+  const allowedCategories = new Map([
+    ['gen-alpha', 'Gen Alpha'],
+    ['gen-z', 'Gen Z'],
+  ]);
+
   if (filterForm) {
     filterForm.addEventListener('submit', (event) => {
       event.preventDefault();
@@ -27,15 +32,16 @@
           const definition = typeof entry.definition === 'string' ? entry.definition.trim() : '';
           const example = typeof entry.example === 'string' ? entry.example.trim() : '';
           const hint = typeof entry.hint === 'string' ? entry.hint.trim() : '';
-          const category = typeof entry.category === 'string' ? entry.category.trim() : '';
-          const categoryId = typeof entry.categoryId === 'string' ? entry.categoryId.trim() : '';
+          const rawCategoryId = typeof entry.categoryId === 'string' ? entry.categoryId.trim() : '';
+          const normalizedCategoryId = rawCategoryId.toLowerCase();
+          const normalizedCategory = allowedCategories.get(normalizedCategoryId);
 
-          if (!term || !category || !categoryId) {
+          if (!term || !normalizedCategoryId || !normalizedCategory) {
             return null;
           }
 
           const normalizedDefinition = definition || 'Meaning coming soon.';
-          const searchText = [term, normalizedDefinition, example, hint, category]
+          const searchText = [term, normalizedDefinition, example, hint, normalizedCategory]
             .filter(Boolean)
             .join(' ')
             .toLowerCase();
@@ -45,8 +51,8 @@
             definition: normalizedDefinition,
             example,
             hint,
-            category,
-            categoryId,
+            category: normalizedCategory,
+            categoryId: normalizedCategoryId,
             searchText,
           };
         })
