@@ -1,46 +1,46 @@
 window.assetObservatoryData = {
-  "generatedAt": "2025-09-23T03:41:46.316Z",
+  "generatedAt": "2025-09-23T13:00:39.349Z",
   "datasets": [
     {
       "id": "jokes",
       "label": "Dad Jokes",
       "dataset": {
         "path": "apps/jokes/jokes.js",
-        "bytes": 144599
+        "bytes": 141344
       },
       "manifest": {
         "path": "data/jokes-manifest.json",
-        "bytes": 657047,
-        "generatedAt": "2025-09-22T23:16:21.809Z"
+        "bytes": 567558,
+        "generatedAt": "2025-09-23T04:05:28.246Z"
       },
-      "entries": 865,
+      "entries": 850,
       "embeddings": [
         {
           "path": "data/jokes-embeddings.json",
           "provider": "synthetic",
           "model": "synthetic-64",
           "dimensions": 64,
-          "records": 870,
-          "bytes": 604839,
-          "generatedAt": "2025-09-23T01:02:19.484Z"
+          "records": 850,
+          "bytes": 590939,
+          "generatedAt": "2025-09-23T04:04:56.265Z"
         },
         {
           "path": "data/jokes-embeddings-openai.json",
           "provider": "openai",
           "model": "text-embedding-3-large",
           "dimensions": 64,
-          "records": 865,
-          "bytes": 621944,
-          "generatedAt": "2025-09-22T23:16:21.852Z"
+          "records": 845,
+          "bytes": 607564,
+          "generatedAt": "2025-09-23T04:06:44.339Z"
         },
         {
           "path": "data/jokes-embeddings-cohere.json",
           "provider": "cohere",
           "model": "embed-english-v3.0",
           "dimensions": 64,
-          "records": 865,
-          "bytes": 603962,
-          "generatedAt": "2025-09-22T23:16:21.862Z"
+          "records": 845,
+          "bytes": 590002,
+          "generatedAt": "2025-09-23T04:06:44.318Z"
         }
       ],
       "similarityReports": [
@@ -49,9 +49,9 @@ window.assetObservatoryData = {
           "provider": "hfspace",
           "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
           "threshold": 0.5,
-          "pairs": 137,
-          "bytes": 39018,
-          "generatedAt": "2025-09-23T01:03:32.987Z"
+          "pairs": 106,
+          "bytes": 30044,
+          "generatedAt": "2025-09-23T04:03:02.199Z"
         },
         {
           "path": "data/similarity-report-jokes-openai.json",
@@ -85,89 +85,10 @@ window.assetObservatoryData = {
         }
       ],
       "totals": {
-        "embeddingBytes": 1830745,
-        "embeddingVectors": 2600,
-        "similarityBytes": 183952,
-        "similarityPairs": 641
-      }
-    },
-    {
-      "id": "genalpha",
-      "label": "Gen α Slang",
-      "dataset": {
-        "path": "apps/gen-alpha/slang.js",
-        "bytes": 14209
-      },
-      "manifest": {
-        "path": "data/genalpha-manifest.json",
-        "bytes": 39386,
-        "generatedAt": "2025-09-23T02:58:09.957Z"
-      },
-      "entries": 45,
-      "embeddings": [
-        {
-          "path": "data/genalpha-embeddings.json",
-          "provider": "synthetic",
-          "model": "synthetic-64",
-          "dimensions": 64,
-          "records": 45,
-          "bytes": 31508,
-          "generatedAt": "2025-09-23T01:22:46.845Z"
-        },
-        {
-          "path": "data/genalpha-embeddings-hfspace.json",
-          "provider": "hfspace",
-          "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-          "dimensions": 384,
-          "records": 45,
-          "bytes": 110258,
-          "generatedAt": "2025-09-23T01:44:54.613Z"
-        },
-        {
-          "path": "data/genalpha-embeddings-synthetic128.json",
-          "provider": "synthetic",
-          "model": "synthetic-128",
-          "dimensions": 128,
-          "records": 45,
-          "bytes": 46900,
-          "generatedAt": "2025-09-23T01:22:57.576Z"
-        }
-      ],
-      "similarityReports": [
-        {
-          "path": "data/similarity-report-genalpha.json",
-          "provider": "synthetic",
-          "model": "synthetic-64",
-          "threshold": 0.88,
-          "pairs": 0,
-          "bytes": 165,
-          "generatedAt": "2025-09-23T01:23:08.354Z"
-        },
-        {
-          "path": "data/similarity-report-genalpha-hfspace.json",
-          "provider": "hfspace",
-          "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-          "threshold": 0.88,
-          "pairs": 0,
-          "bytes": 209,
-          "generatedAt": "2025-09-23T01:44:54.640Z"
-        },
-        {
-          "path": "data/similarity-report-genalpha-s128.json",
-          "provider": "synthetic",
-          "model": "synthetic-128",
-          "threshold": 0.88,
-          "pairs": 0,
-          "bytes": 166,
-          "generatedAt": "2025-09-23T01:44:58.612Z"
-        }
-      ],
-      "sources": [],
-      "totals": {
-        "embeddingBytes": 188666,
-        "embeddingVectors": 135,
-        "similarityBytes": 540,
-        "similarityPairs": 0
+        "embeddingBytes": 1788505,
+        "embeddingVectors": 2540,
+        "similarityBytes": 174978,
+        "similarityPairs": 610
       }
     },
     {
@@ -245,14 +166,93 @@ window.assetObservatoryData = {
         "similarityBytes": 483197,
         "similarityPairs": 1408
       }
+    },
+    {
+      "id": "slang",
+      "label": "Slang",
+      "dataset": {
+        "path": "apps/slang/slang.js",
+        "bytes": 19734
+      },
+      "manifest": {
+        "path": "data/slang-manifest.json",
+        "bytes": 52401,
+        "generatedAt": "2025-09-23T13:00:35.800Z"
+      },
+      "entries": 45,
+      "embeddings": [
+        {
+          "path": "data/slang-embeddings.json",
+          "provider": "synthetic",
+          "model": "synthetic-64",
+          "dimensions": 64,
+          "records": 45,
+          "bytes": 31508,
+          "generatedAt": "2025-09-23T01:22:46.845Z"
+        },
+        {
+          "path": "data/slang-embeddings-hfspace.json",
+          "provider": "hfspace",
+          "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
+          "dimensions": 384,
+          "records": 45,
+          "bytes": 110258,
+          "generatedAt": "2025-09-23T01:44:54.613Z"
+        },
+        {
+          "path": "data/slang-embeddings-synthetic128.json",
+          "provider": "synthetic",
+          "model": "synthetic-128",
+          "dimensions": 128,
+          "records": 45,
+          "bytes": 46900,
+          "generatedAt": "2025-09-23T01:22:57.576Z"
+        }
+      ],
+      "similarityReports": [
+        {
+          "path": "data/similarity-report-slang.json",
+          "provider": "synthetic",
+          "model": "synthetic-64",
+          "threshold": 0.88,
+          "pairs": 0,
+          "bytes": 162,
+          "generatedAt": "2025-09-23T01:23:08.354Z"
+        },
+        {
+          "path": "data/similarity-report-slang-hfspace.json",
+          "provider": "hfspace",
+          "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
+          "threshold": 0.88,
+          "pairs": 0,
+          "bytes": 206,
+          "generatedAt": "2025-09-23T01:44:54.640Z"
+        },
+        {
+          "path": "data/similarity-report-slang-s128.json",
+          "provider": "synthetic",
+          "model": "synthetic-128",
+          "threshold": 0.88,
+          "pairs": 0,
+          "bytes": 163,
+          "generatedAt": "2025-09-23T01:44:58.612Z"
+        }
+      ],
+      "sources": [],
+      "totals": {
+        "embeddingBytes": 188666,
+        "embeddingVectors": 135,
+        "similarityBytes": 531,
+        "similarityPairs": 0
+      }
     }
   ],
   "providers": [
     {
       "id": "synthetic",
       "stores": 4,
-      "bytes": 1139830,
-      "vectorCount": 1613,
+      "bytes": 1125930,
+      "vectorCount": 1593,
       "dimensions": [
         64,
         128
@@ -261,8 +261,8 @@ window.assetObservatoryData = {
     {
       "id": "openai",
       "stores": 2,
-      "bytes": 1093900,
-      "vectorCount": 1518,
+      "bytes": 1079520,
+      "vectorCount": 1498,
       "dimensions": [
         64
       ]
@@ -270,8 +270,8 @@ window.assetObservatoryData = {
     {
       "id": "cohere",
       "stores": 1,
-      "bytes": 603962,
-      "vectorCount": 865,
+      "bytes": 590002,
+      "vectorCount": 845,
       "dimensions": [
         64
       ]
@@ -340,17 +340,17 @@ window.assetObservatoryData = {
   ],
   "totals": {
     "datasets": 3,
-    "entries": 1582,
-    "datasetBytes": 280803,
-    "manifestBytes": 1175262,
-    "embeddingVectors": 4041,
-    "embeddingBytes": 2947950,
+    "entries": 1567,
+    "datasetBytes": 283073,
+    "manifestBytes": 1098788,
+    "embeddingVectors": 3981,
+    "embeddingBytes": 2905710,
     "embeddingStores": 8,
-    "similarityPairs": 2113,
-    "similarityBytes": 688455,
+    "similarityPairs": 2082,
+    "similarityBytes": 679472,
     "similarityReports": 12,
     "totalFiles": 29,
-    "totalBytes": 5299615,
+    "totalBytes": 5174188,
     "providerCount": 4
   }
 };

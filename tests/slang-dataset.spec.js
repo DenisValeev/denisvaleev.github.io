@@ -4,7 +4,7 @@ const vm = require('node:vm');
 
 const { test, expect } = require('@playwright/test');
 
-const datasetPath = path.join(__dirname, '..', 'apps/gen-alpha/slang.js');
+const datasetPath = path.join(__dirname, '..', 'apps/slang/slang.js');
 
 const loadSlang = async () => {
   const source = await fs.readFile(datasetPath, 'utf8');
@@ -12,17 +12,18 @@ const loadSlang = async () => {
   const script = new vm.Script(source, { filename: 'slang.js' });
   vm.createContext(context);
   script.runInContext(context);
-  return context.window.genAlphaSlang;
+  return context.window.slangEntries;
 };
 
-test.describe('Gen Alpha slang dataset', () => {
-  test('includes definitions, example sentences, and usage hints for every entry', async () => {
+test.describe('Slang dataset', () => {
+  test('includes definitions, categories, examples, and hints for every entry', async () => {
     const slang = await loadSlang();
 
     expect(Array.isArray(slang)).toBeTruthy();
     expect(slang.length).toBeGreaterThan(0);
 
     const ids = new Set();
+    const categoryIds = new Map();
 
     for (const entry of slang) {
       expect(entry).toBeTruthy();
@@ -49,15 +50,30 @@ test.describe('Gen Alpha slang dataset', () => {
       const trimmedHint = entry.hint.trim();
       expect(trimmedHint.length).toBeGreaterThan(0);
       expect(trimmedHint).toMatch(/^Use it/);
+
+      expect(typeof entry.category).toBe('string');
+      expect(entry.category.trim().length).toBeGreaterThan(0);
+      expect(typeof entry.categoryId).toBe('string');
+      expect(entry.categoryId.trim().length).toBeGreaterThan(0);
+
+      const categoryId = entry.categoryId.trim();
+      const label = entry.category.trim();
+      const existing = categoryIds.get(categoryId);
+      if (!existing) {
+        categoryIds.set(categoryId, label);
+      } else {
+        expect(existing).toBe(label);
+      }
     }
+
+    expect(categoryIds.size).toBeGreaterThan(3);
   });
 
-  test('keeps the new usage example and hint for cookin’', async () => {
+  test('tracks updated Gen Z staples with categories', async () => {
     const slang = await loadSlang();
-
-    const record = slang.find((entry) => entry.id === 'ga-0044');
+    const record = slang.find((entry) => entry.term === 'rizz');
     expect(record).toBeTruthy();
-    expect(record.example).toBe("Our coder has been cookin’ all night on that new feature.");
-    expect(record.hint).toBe('Use it when someone is actively producing great results.');
+    expect(record.category).toBe('Compliments & Hype');
+    expect(record.hint).toBe('Use it to hype someone whose charm wins people over without trying.');
   });
 });

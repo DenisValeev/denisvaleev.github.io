@@ -21,10 +21,10 @@ test.describe('Landing page', () => {
         hrefs: ['apps/quotes/', 'apps/quotes/all-quotes.html'],
       },
       {
-        group: 'gen-alpha',
-        label: 'Gen Alpha',
-        texts: ['🧒 Gen α Slang', 'All Slang'],
-        hrefs: ['apps/gen-alpha/', 'apps/gen-alpha/all-slang.html'],
+        group: 'slang',
+        label: 'Slang',
+        texts: ['🗣️ Slang', 'All Slang'],
+        hrefs: ['apps/slang/', 'apps/slang/all-slang.html'],
       },
     ];
 

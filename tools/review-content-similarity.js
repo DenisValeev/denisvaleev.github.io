@@ -23,7 +23,7 @@ function parseArgs(argv) {
     threshold: {
       jokes: 0.88,
       quotes: 0.92,
-      genalpha: 0.88,
+      slang: 0.88,
     },
     write: false,
     updateManifest: false,
@@ -114,10 +114,10 @@ function parseArgs(argv) {
       }
       return;
     }
-    if (arg.startsWith('--threshold-genalpha=')) {
-      const parsed = parseFloat(arg.slice('--threshold-genalpha='.length));
+    if (arg.startsWith('--threshold-slang=')) {
+      const parsed = parseFloat(arg.slice('--threshold-slang='.length));
       if (!Number.isNaN(parsed)) {
-        options.threshold.genalpha = parsed;
+        options.threshold.slang = parsed;
       }
       return;
     }
@@ -194,7 +194,7 @@ function sha256(text) {
   return crypto.createHash('sha256').update(text).digest('hex');
 }
 
-const supportedDatasets = new Set(['jokes', 'quotes', 'genalpha']);
+const supportedDatasets = new Set(['jokes', 'quotes', 'slang']);
 
 function normalizeStoreSuffix(value) {
   if (!value) {
@@ -255,23 +255,26 @@ function loadDataset(name) {
     return { datasetPath, entries };
   }
 
-  if (name === 'genalpha') {
-    const datasetPath = path.join(rootDir, 'apps', 'gen-alpha', 'slang.js');
-    const raw = loadWindowData(datasetPath, 'genAlphaSlang');
+  if (name === 'slang') {
+    const datasetPath = path.join(rootDir, 'apps', 'slang', 'slang.js');
+    const raw = loadWindowData(datasetPath, 'slangEntries');
     const entries = raw
       .filter((entry) => entry && typeof entry.id === 'string')
       .map((entry) => {
         const term = entry.term || '';
         const definition = entry.definition || '';
         const hint = entry.hint || '';
-        const combined = [term, definition, hint].filter(Boolean).join(' \u2022 ');
+        const category = entry.category || '';
+        const combined = [term, definition, hint, category].filter(Boolean).join(' \u2022 ');
         return {
           id: entry.id,
           term,
           definition,
           hint,
+          category,
+          categoryId: entry.categoryId || null,
           textHash: sha256(combined),
-          normalized: normalizeText(`${term} ${definition} ${hint}`),
+          normalized: normalizeText(`${term} ${definition} ${hint} ${category}`),
           embeddingInput: combined,
         };
       });
@@ -314,7 +317,7 @@ function prepareJokeCandidate(entry, index) {
   };
 }
 
-function prepareGenAlphaCandidate(entry, index) {
+function prepareSlangCandidate(entry, index) {
   if (!entry || typeof entry !== 'object') {
     return null;
   }
@@ -325,18 +328,20 @@ function prepareGenAlphaCandidate(entry, index) {
   const term = toStringOrEmpty(entry.term).trim();
   const definition = toStringOrEmpty(entry.definition).trim();
   const hint = toStringOrEmpty(entry.hint).trim();
+  const category = toStringOrEmpty(entry.category).trim();
   if (!term) {
     return null;
   }
-  const embeddingInput = [term, definition, hint].filter(Boolean).join(' \u2022 ');
+  const embeddingInput = [term, definition, hint, category].filter(Boolean).join(' \u2022 ');
   return {
     id,
     label,
     term,
     definition,
     hint,
+    category,
     embeddingInput,
-    normalized: normalizeText(`${term} ${definition} ${hint}`),
+    normalized: normalizeText(`${term} ${definition} ${hint} ${category}`),
     textHash: sha256(embeddingInput),
     source: entry,
   };
@@ -389,8 +394,8 @@ function loadCandidateFile(datasetName, filePath) {
       candidate = prepareJokeCandidate(entry, index);
     } else if (datasetName === 'quotes') {
       candidate = prepareQuoteCandidate(entry, index);
-    } else if (datasetName === 'genalpha') {
-      candidate = prepareGenAlphaCandidate(entry, index);
+    } else if (datasetName === 'slang') {
+      candidate = prepareSlangCandidate(entry, index);
     }
     if (candidate) {
       prepared.push(candidate);
@@ -1199,8 +1204,8 @@ async function main() {
     let threshold = options.threshold.jokes;
     if (datasetName === 'quotes') {
       threshold = options.threshold.quotes;
-    } else if (datasetName === 'genalpha') {
-      threshold = options.threshold.genalpha;
+    } else if (datasetName === 'slang') {
+      threshold = options.threshold.slang;
     }
     const matches = findSimilarPairs(datasetName, entries, manifest, store, threshold, options);
 
