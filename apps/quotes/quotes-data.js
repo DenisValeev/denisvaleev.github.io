@@ -3048,6 +3048,26 @@ window.quotesData = [
         "id": "growth-12",
         "text": "Change in all things is sweet.",
         "author": "Aristotle"
+      },
+      {
+        "id": "growth-13",
+        "text": "Growth is painful. Change is painful. But nothing is as painful as staying stuck somewhere you don't belong.",
+        "author": "Mandy Hale"
+      },
+      {
+        "id": "growth-14",
+        "text": "We can't become what we need to be by remaining what we are.",
+        "author": "Oprah Winfrey"
+      },
+      {
+        "id": "growth-15",
+        "text": "The only way to make sense out of change is to plunge into it, move with it, and join the dance.",
+        "author": "Alan Watts"
+      },
+      {
+        "id": "growth-16",
+        "text": "If you're not growing, you're dying.",
+        "author": "William S. Burroughs"
       }
     ]
   },
@@ -3180,6 +3200,26 @@ window.quotesData = [
         "id": "curiosity-12",
         "text": "This world, after all our science and sciences, is still a miracle; wonderful, inscrutable, magical and more, to whosoever will think of it.",
         "author": "Thomas Carlyle"
+      },
+      {
+        "id": "curiosity-13",
+        "text": "Curiosity is the engine of achievement.",
+        "author": "Ken Robinson"
+      },
+      {
+        "id": "curiosity-14",
+        "text": "Replace fear of the unknown with curiosity.",
+        "author": "Penelope Ward"
+      },
+      {
+        "id": "curiosity-15",
+        "text": "The important thing is not to stop questioning. Curiosity has its own reason for existing.",
+        "author": "Albert Einstein"
+      },
+      {
+        "id": "curiosity-16",
+        "text": "Stay hungry, stay foolish.",
+        "author": "Steve Jobs"
       }
     ]
   },
@@ -3251,6 +3291,21 @@ window.quotesData = [
         "id": "kindness-13",
         "text": "We rise by lifting others.",
         "author": "Robert Ingersoll"
+      },
+      {
+        "id": "kindness-14",
+        "text": "Do your little bit of good where you are; it's those little bits of good put together that overwhelm the world.",
+        "author": "Desmond Tutu"
+      },
+      {
+        "id": "kindness-15",
+        "text": "Wherever there is a human being, there is an opportunity for a kindness.",
+        "author": "Seneca"
+      },
+      {
+        "id": "kindness-16",
+        "text": "Carry out a random act of kindness, with no expectation of reward, safe in the knowledge that one day someone might do the same for you.",
+        "author": "Princess Diana"
       }
     ]
   },
@@ -3322,6 +3377,26 @@ window.quotesData = [
         "id": "gratitude-13",
         "text": "Gratitude is when memory is stored in the heart and not in the mind.",
         "author": "Lionel Hampton"
+      },
+      {
+        "id": "gratitude-14",
+        "text": "Gratitude turns what we have into enough.",
+        "author": "Aesop"
+      },
+      {
+        "id": "gratitude-15",
+        "text": "Wear gratitude like a cloak and it will feed every corner of your life.",
+        "author": "Rumi"
+      },
+      {
+        "id": "gratitude-16",
+        "text": "When you are grateful, fear disappears and abundance appears.",
+        "author": "Tony Robbins"
+      },
+      {
+        "id": "gratitude-17",
+        "text": "Gratitude is not only the greatest of virtues, but the parent of all others.",
+        "author": "Cicero"
       }
     ]
   },
@@ -3393,6 +3468,26 @@ window.quotesData = [
         "id": "purpose-13",
         "text": "The future depends on what you do today.",
         "author": "Mahatma Gandhi"
+      },
+      {
+        "id": "purpose-14",
+        "text": "The purpose of life is a life of purpose.",
+        "author": "Robert Byrne"
+      },
+      {
+        "id": "purpose-15",
+        "text": "The soul which has no fixed purpose in life is lost; to be everywhere, is to be nowhere.",
+        "author": "Michel de Montaigne"
+      },
+      {
+        "id": "purpose-16",
+        "text": "The two most important days in your life are the day you are born and the day you find out why.",
+        "author": "Mark Twain"
+      },
+      {
+        "id": "purpose-17",
+        "text": "Dreams are the seeds of change. Nothing ever grows without a seed, and nothing ever changes without a dream.",
+        "author": "Debby Boone"
       }
     ]
   }
