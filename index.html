@@ -200,25 +200,51 @@
     }
 
     .offline-card {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
       padding: clamp(16px, 2vw + 10px, 22px);
       border-radius: 18px;
       background: var(--row-background);
       border: 1px solid var(--row-border);
       box-shadow: var(--row-shadow);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .offline-card:focus-within {
+      box-shadow: 0 0 0 3px var(--focus-ring), var(--row-shadow);
+    }
+
+    .offline-card__summary {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 12px;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .offline-card__summary:focus-visible {
+      outline: none;
     }
 
     .offline-card h2 {
       margin: 0;
       font-size: clamp(1.1rem, 0.5vw + 1rem, 1.35rem);
+      flex: 1 1 auto;
     }
 
     .offline-card__status {
-      margin: 0;
+      margin: 0 0 0 auto;
       color: var(--text-secondary);
       font-size: 0.98rem;
+      text-align: right;
+      flex: 1 1 220px;
+      min-width: 0;
+    }
+
+    .offline-card__content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 12px;
     }
 
     .offline-card__meta {
@@ -227,18 +253,32 @@
       font-size: 0.9rem;
     }
 
+    .offline-card__progress-note {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
     .offline-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 0;
+      padding: 0;
+      margin: 0;
+      z-index: 1000;
+      pointer-events: none;
     }
 
     .offline-progress__bar {
       position: relative;
       width: 100%;
-      height: 12px;
+      height: 4px;
+      background: rgba(74, 99, 255, 0.25);
       border-radius: 999px;
-      background: rgba(74, 99, 255, 0.18);
       overflow: hidden;
     }
 
@@ -252,9 +292,15 @@
     }
 
     .offline-progress__detail {
-      margin: 0;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     .offline-card__hint {
@@ -306,36 +352,31 @@
       .app-row__actions a.app-button {
         flex: 1 1 auto;
       }
+
+      .offline-card__summary {
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .offline-card__status {
+        margin-left: 0;
+        text-align: left;
+        flex-basis: 100%;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="offline-progress" data-offline-progress hidden>
+    <div class="offline-progress__bar" role="progressbar" aria-label="Offline bundle caching progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-offline-progress-bar>
+      <span class="offline-progress__fill" data-offline-progress-fill></span>
+    </div>
+    <p class="offline-progress__detail" data-offline-progress-detail aria-live="polite"></p>
+  </div>
   <main aria-label="Apps">
     <header class="site-header">
       <h1>Toolbox</h1>
     </header>
-    <section class="offline-card" data-offline-card aria-labelledby="offline-title">
-      <h2 id="offline-title">Offline bundle</h2>
-      <p class="offline-card__status" data-offline-status aria-live="polite">Loading offline manifest…</p>
-      <p class="offline-card__meta" data-offline-meta hidden></p>
-      <div class="offline-progress" data-offline-progress hidden>
-        <div class="offline-progress__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-offline-progress-bar>
-          <span class="offline-progress__fill" data-offline-progress-fill></span>
-        </div>
-        <p class="offline-progress__detail" data-offline-progress-detail></p>
-      </div>
-      <p class="offline-card__hint">
-        On iPhone, open Safari’s Share menu and choose <strong>Add to Home Screen</strong> after the download completes to launch the toolbox like an app.
-      </p>
-      <details class="offline-card__steps">
-        <summary>Step-by-step install</summary>
-        <ol>
-          <li>Load this page with a connection so the offline bundle can download.</li>
-          <li>Tap the Share icon <span aria-hidden="true">⬆️</span> in Safari.</li>
-          <li>Select <strong>Add to Home Screen</strong>, then confirm the shortcut name.</li>
-        </ol>
-      </details>
-    </section>
     <section class="app-groups" aria-labelledby="deck-section">
       <h2 id="deck-section" class="section-title">Deck collections</h2>
       <ul class="app-groups__list">
@@ -403,6 +444,29 @@
         </li>
       </ul>
     </section>
+    <section class="offline-section" aria-labelledby="offline-title">
+      <details class="offline-card" data-offline-card>
+        <summary class="offline-card__summary">
+          <h2 id="offline-title">Offline bundle</h2>
+          <span class="offline-card__status" data-offline-status aria-live="polite">Loading offline manifest…</span>
+        </summary>
+        <div class="offline-card__content">
+          <p class="offline-card__meta" data-offline-meta hidden></p>
+          <p class="offline-card__progress-note" data-offline-progress-note hidden></p>
+          <p class="offline-card__hint">
+            On iPhone, open Safari’s Share menu and choose <strong>Add to Home Screen</strong> after the download completes to launch the toolbox like an app.
+          </p>
+          <details class="offline-card__steps">
+            <summary>Step-by-step install</summary>
+            <ol>
+              <li>Load this page with a connection so the offline bundle can download.</li>
+              <li>Tap the Share icon <span aria-hidden="true">⬆️</span> in Safari.</li>
+              <li>Select <strong>Add to Home Screen</strong>, then confirm the shortcut name.</li>
+            </ol>
+          </details>
+        </div>
+      </details>
+    </section>
   </main>
   <script>
     (function () {
@@ -413,10 +477,11 @@
 
       const statusEl = offlineCard.querySelector('[data-offline-status]');
       const metaEl = offlineCard.querySelector('[data-offline-meta]');
-      const progressWrapper = offlineCard.querySelector('[data-offline-progress]');
-      const progressBar = offlineCard.querySelector('[data-offline-progress-bar]');
-      const progressFill = offlineCard.querySelector('[data-offline-progress-fill]');
-      const progressDetail = offlineCard.querySelector('[data-offline-progress-detail]');
+      const progressWrapper = document.querySelector('[data-offline-progress]');
+      const progressBar = progressWrapper ? progressWrapper.querySelector('[data-offline-progress-bar]') : null;
+      const progressFill = progressWrapper ? progressWrapper.querySelector('[data-offline-progress-fill]') : null;
+      const progressDetail = progressWrapper ? progressWrapper.querySelector('[data-offline-progress-detail]') : null;
+      const progressNote = offlineCard.querySelector('[data-offline-progress-note]');
 
       if (!statusEl || !progressWrapper || !progressBar || !progressFill || !progressDetail) {
         return;
@@ -429,6 +494,7 @@
 
       function setStatus(message) {
         statusEl.textContent = message;
+        statusEl.setAttribute('title', message);
       }
 
       function updateMeta(text) {
@@ -469,6 +535,21 @@
         progressFill.style.transform = `scaleX(${clamped / 100})`;
       }
 
+      function updateProgressDetail(message) {
+        const text = message || '';
+        progressDetail.textContent = text;
+
+        if (progressNote) {
+          if (text) {
+            progressNote.hidden = false;
+            progressNote.textContent = text;
+          } else {
+            progressNote.hidden = true;
+            progressNote.textContent = '';
+          }
+        }
+      }
+
       function handleMessage(event) {
         const payload = event.data;
         if (!payload || payload.type !== 'offline-cache') {
@@ -483,7 +564,7 @@
         if (payload.state === 'start') {
           progressWrapper.hidden = false;
           setProgress(0);
-          progressDetail.textContent = `Downloading ${formatBytes(totalBytes)} of data…`;
+          updateProgressDetail(`Downloading ${formatBytes(totalBytes)} of data…`);
           setStatus('Caching offline bundle…');
         } else if (payload.state === 'progress') {
           const completed = typeof detail.completed === 'number' ? detail.completed : 0;
@@ -493,11 +574,11 @@
 
           progressWrapper.hidden = false;
           setProgress(percent);
-          progressDetail.textContent = [
+          updateProgressDetail([
             `Cached ${completed} of ${totalAssets} files`,
             `${formatBytes(loadedBytes)} / ${formatBytes(totalBytes)}`,
             assetPath ? assetPath : null
-          ].filter(Boolean).join(' • ');
+          ].filter(Boolean).join(' • '));
           setStatus('Caching offline bundle…');
         } else if (payload.state === 'complete') {
           progressWrapper.hidden = true;
@@ -505,8 +586,10 @@
           const readyText = detail.alreadyCached ? 'Offline bundle is up to date.' : 'Offline bundle ready for offline use.';
           setStatus(readyText);
           updateMeta(bundleSummary);
+          updateProgressDetail('');
         } else if (payload.state === 'error') {
           progressWrapper.hidden = true;
+          updateProgressDetail('');
           setStatus('Offline caching failed. Refresh when you have a connection.');
         }
       }
