@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gen Alpha Slang</title>
+  <title>Gen α Slang</title>
   <style>
     :root {
       color-scheme: light dark;
@@ -160,15 +160,6 @@
       font-family: "Times New Roman", serif;
     }
 
-    .card__example figcaption {
-      margin-top: 14px;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-secondary);
-      font-weight: 600;
-    }
-
     .controls {
       display: flex;
       flex-direction: column;
@@ -267,8 +258,8 @@
 <body>
   <main aria-label="Gen Alpha slang navigator">
     <header class="app-header">
-      <h1>Gen Alpha Slang</h1>
-      <p>Shuffle through the latest Gen Alpha terms, move back when you need a recap, and reveal the meaning plus an example sentence when you’re ready.</p>
+      <h1>Gen α Slang</h1>
+      <p>Shuffle through the latest Gen Alpha terms, move back when you need a recap, and reveal the meaning plus a usage example when you’re ready.</p>
     </header>
     <article class="card" aria-live="polite">
       <div class="card__content">
@@ -279,7 +270,6 @@
         <p id="slang-meaning" aria-hidden="true"></p>
         <figure id="slang-example-wrapper" class="card__example" aria-hidden="true">
           <blockquote id="slang-example" class="card__quote"></blockquote>
-          <figcaption>Example sentence</figcaption>
         </figure>
       </div>
     </article>
@@ -289,7 +279,7 @@
         <button id="next-button" type="button" aria-label="Show next slang term">Next ⟶</button>
       </div>
       <div class="controls__meaning">
-        <button id="reveal-button" class="secondary" type="button" aria-pressed="false">Meaning &amp; example</button>
+        <button id="reveal-button" class="secondary" type="button" aria-pressed="false">Meaning &amp; usage</button>
       </div>
     </div>
   </main>

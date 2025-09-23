@@ -57,7 +57,6 @@
     if (!list.length) {
       const emptyRow = document.createElement('tr');
       const emptyCell = document.createElement('td');
-      emptyCell.colSpan = 2;
       emptyCell.textContent = term ? `No slang matches “${term}”.` : 'No slang available.';
       emptyRow.appendChild(emptyCell);
       tbody.appendChild(emptyRow);
@@ -66,26 +65,17 @@
 
     const fragment = document.createDocumentFragment();
 
-    list.forEach((entry, index) => {
+    list.forEach((entry) => {
       const termRow = document.createElement('tr');
 
-      const indexCell = document.createElement('th');
-      indexCell.scope = 'row';
-      indexCell.textContent = (index + 1).toLocaleString();
-      termRow.appendChild(indexCell);
-
-      const termCell = document.createElement('td');
+      const termCell = document.createElement('th');
+      termCell.scope = 'row';
       termCell.className = 'term-cell';
       termCell.textContent = entry.term;
       termRow.appendChild(termCell);
 
       const definitionRow = document.createElement('tr');
       definitionRow.className = 'definition-row';
-
-      const spacerCell = document.createElement('td');
-      spacerCell.textContent = '';
-      spacerCell.setAttribute('aria-hidden', 'true');
-      definitionRow.appendChild(spacerCell);
 
       const definitionCell = document.createElement('td');
       definitionCell.className = 'definition-cell';
@@ -99,22 +89,12 @@
         const exampleRow = document.createElement('tr');
         exampleRow.className = 'example-row';
 
-        const exampleSpacer = document.createElement('td');
-        exampleSpacer.textContent = '';
-        exampleSpacer.setAttribute('aria-hidden', 'true');
-        exampleRow.appendChild(exampleSpacer);
-
         const exampleCell = document.createElement('td');
         exampleCell.className = 'example-cell';
 
         const quote = document.createElement('blockquote');
         quote.textContent = entry.example;
         exampleCell.appendChild(quote);
-
-        const label = document.createElement('p');
-        label.className = 'example-label';
-        label.textContent = 'Example sentence';
-        exampleCell.appendChild(label);
 
         exampleRow.appendChild(exampleCell);
         fragment.appendChild(exampleRow);

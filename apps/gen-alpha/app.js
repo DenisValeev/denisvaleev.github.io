@@ -8,7 +8,7 @@
   const exampleWrapper = document.getElementById('slang-example-wrapper');
   const exampleText = document.getElementById('slang-example');
 
-  if (!termEl || !meaningEl || !prevButton || !nextButton || !revealButton || !shuffleButton) {
+  if (!termEl || !meaningEl || !prevButton || !nextButton || !revealButton) {
     return;
   }
 
@@ -83,7 +83,9 @@
       revealButton.hidden = true;
       prevButton.disabled = true;
       nextButton.disabled = true;
-      shuffleButton.disabled = true;
+      if (shuffleButton) {
+        shuffleButton.disabled = true;
+      }
       currentEntry = null;
 
       if (exampleWrapper && exampleText) {

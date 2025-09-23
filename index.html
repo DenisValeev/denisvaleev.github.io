@@ -24,9 +24,10 @@
       --label-text: #10172a;
       --button-primary-background: linear-gradient(135deg, #4a63ff, #7687ff);
       --button-primary-text: #0b1020;
-      --button-secondary-background: rgba(74, 99, 255, 0.12);
+      --button-secondary-background: rgba(16, 23, 42, 0.08);
+      --button-secondary-hover: rgba(16, 23, 42, 0.14);
       --button-secondary-text: #12172b;
-      --button-border: rgba(74, 99, 255, 0.45);
+      --button-border: rgba(16, 23, 42, 0.12);
       --button-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
       --button-shadow-hover: 0 14px 28px rgba(15, 23, 42, 0.16);
       --focus-ring: rgba(121, 134, 255, 0.38);
@@ -50,9 +51,10 @@
         --label-text: #f5f7ff;
         --button-primary-background: linear-gradient(135deg, #7f8dff, #a7b5ff);
         --button-primary-text: #050914;
-        --button-secondary-background: rgba(155, 169, 255, 0.16);
+        --button-secondary-background: rgba(245, 247, 255, 0.12);
+        --button-secondary-hover: rgba(245, 247, 255, 0.18);
         --button-secondary-text: #f5f7ff;
-        --button-border: rgba(155, 169, 255, 0.5);
+        --button-border: rgba(245, 247, 255, 0.22);
         --button-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
         --button-shadow-hover: 0 18px 36px rgba(0, 0, 0, 0.38);
         --focus-ring: rgba(155, 169, 255, 0.52);
@@ -139,27 +141,11 @@
       border-bottom: none;
     }
 
-    .app-row__title {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin: 0;
-      font-size: clamp(1.05rem, 0.5vw + 1rem, 1.2rem);
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      color: var(--label-text);
-    }
-
-    .app-row__title span[aria-hidden="true"] {
-      font-size: 1.3rem;
-    }
-
     .app-row__actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-left: auto;
-      justify-content: flex-end;
+      justify-content: flex-start;
     }
 
     a.app-button {
@@ -206,7 +192,7 @@
 
     a.app-button--secondary:hover,
     a.app-button--secondary:focus-visible {
-      background: rgba(74, 99, 255, 0.2);
+      background: var(--button-secondary-hover);
     }
 
     .tool-list li {
@@ -246,12 +232,8 @@
     <section class="app-groups" aria-labelledby="deck-section">
       <h2 id="deck-section" class="section-title">Deck collections</h2>
       <ul class="app-groups__list">
-        <li class="app-row" data-group="jokes" role="group" aria-labelledby="group-jokes-title">
-          <h3 class="app-row__title" id="group-jokes-title">
-            <span aria-hidden="true">😂</span>
-            <span>Jokes</span>
-          </h3>
-          <div class="app-row__actions" aria-labelledby="group-jokes-title">
+        <li class="app-row" data-group="jokes" role="group" aria-label="Jokes">
+          <div class="app-row__actions">
             <a class="app-button app-button--primary" href="apps/jokes/">
               <span aria-hidden="true">😂</span>
               <span>Dad Jokes</span>
@@ -261,12 +243,8 @@
             </a>
           </div>
         </li>
-        <li class="app-row" data-group="quotes" role="group" aria-labelledby="group-quotes-title">
-          <h3 class="app-row__title" id="group-quotes-title">
-            <span aria-hidden="true">💬</span>
-            <span>Quotes</span>
-          </h3>
-          <div class="app-row__actions" aria-labelledby="group-quotes-title">
+        <li class="app-row" data-group="quotes" role="group" aria-label="Quotes">
+          <div class="app-row__actions">
             <a class="app-button app-button--primary" href="apps/quotes/">
               <span aria-hidden="true">💬</span>
               <span>Quotes</span>
@@ -276,15 +254,11 @@
             </a>
           </div>
         </li>
-        <li class="app-row" data-group="gen-alpha" role="group" aria-labelledby="group-gen-alpha-title">
-          <h3 class="app-row__title" id="group-gen-alpha-title">
-            <span aria-hidden="true">🧒</span>
-            <span>Gen Alpha</span>
-          </h3>
-          <div class="app-row__actions" aria-labelledby="group-gen-alpha-title">
+        <li class="app-row" data-group="gen-alpha" role="group" aria-label="Gen Alpha">
+          <div class="app-row__actions">
             <a class="app-button app-button--primary" href="apps/gen-alpha/">
               <span aria-hidden="true">🧒</span>
-              <span>Gen Alpha Slang</span>
+              <span>Gen α Slang</span>
             </a>
             <a class="app-button app-button--secondary" href="apps/gen-alpha/all-slang.html">
               <span>All Slang</span>
