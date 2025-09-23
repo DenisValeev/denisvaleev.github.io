@@ -6,6 +6,8 @@
   const revealButton = document.getElementById('reveal-button');
   const exampleWrapper = document.getElementById('slang-example-wrapper');
   const exampleText = document.getElementById('slang-example');
+  const hintWrapper = document.getElementById('slang-hint-wrapper');
+  const hintText = document.getElementById('slang-hint');
 
   if (!termEl || !meaningEl || !prevButton || !nextButton || !revealButton) {
     return;
@@ -21,10 +23,11 @@
           const term = typeof entry.term === 'string' ? entry.term.trim() : '';
           const definition = typeof entry.definition === 'string' ? entry.definition.trim() : '';
           const example = typeof entry.example === 'string' ? entry.example.trim() : '';
+          const hint = typeof entry.hint === 'string' ? entry.hint.trim() : '';
           if (!term) {
             return null;
           }
-          return { id, term, definition, example };
+          return { id, term, definition, example, hint };
         })
         .filter(Boolean)
     : [];
@@ -58,15 +61,18 @@
 
     if (exampleWrapper) {
       const hasExample = currentEntry && typeof currentEntry.example === 'string' && currentEntry.example.length > 0;
+      const hasHint = currentEntry && typeof currentEntry.hint === 'string' && currentEntry.hint.length > 0;
+      const hasUsage = hasExample || hasHint;
+      const shouldShowWrapper = visible && hasUsage;
 
-      if (hasExample) {
-        exampleWrapper.classList.toggle('is-visible', visible);
-        exampleWrapper.hidden = !visible;
-        exampleWrapper.setAttribute('aria-hidden', visible ? 'false' : 'true');
-      } else {
-        exampleWrapper.classList.remove('is-visible');
-        exampleWrapper.hidden = true;
-        exampleWrapper.setAttribute('aria-hidden', 'true');
+      exampleWrapper.classList.toggle('is-visible', shouldShowWrapper);
+      exampleWrapper.hidden = !shouldShowWrapper;
+      exampleWrapper.setAttribute('aria-hidden', shouldShowWrapper ? 'false' : 'true');
+
+      if (hintWrapper) {
+        const shouldShowHint = visible && hasHint;
+        hintWrapper.hidden = !shouldShowHint;
+        hintWrapper.setAttribute('aria-hidden', shouldShowHint ? 'false' : 'true');
       }
     }
   }
@@ -93,6 +99,11 @@
         exampleWrapper.setAttribute('aria-hidden', 'true');
         exampleText.textContent = '';
       }
+      if (hintWrapper && hintText) {
+        hintWrapper.hidden = true;
+        hintWrapper.setAttribute('aria-hidden', 'true');
+        hintText.textContent = '';
+      }
       return;
     }
 
@@ -102,6 +113,7 @@
     const hasDefinition = typeof current.definition === 'string' && current.definition.trim().length > 0;
     const definitionText = hasDefinition ? current.definition : 'Meaning coming soon.';
     const hasExample = typeof current.example === 'string' && current.example.length > 0;
+    const hasHint = typeof current.hint === 'string' && current.hint.length > 0;
 
     termEl.textContent = current.term;
     meaningEl.textContent = definitionText;
@@ -114,6 +126,10 @@
       } else {
         exampleText.textContent = '';
       }
+    }
+
+    if (hintWrapper && hintText) {
+      hintText.textContent = hasHint ? current.hint : '';
     }
 
     setMeaningVisible(false);
