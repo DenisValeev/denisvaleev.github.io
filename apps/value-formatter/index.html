@@ -14,6 +14,31 @@
 			display: flex;
 			flex-direction: column;
 		}
+
+		.home-nav {
+			padding: 12px;
+		}
+
+		.home-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			padding: 8px 14px;
+			border-radius: 8px;
+			background: #3056d3;
+			color: #ffffff;
+			text-decoration: none;
+			font-weight: 600;
+		}
+
+		.home-link:hover {
+			background: #2745a6;
+		}
+
+		.home-link:focus-visible {
+			outline: 2px solid rgba(48, 86, 211, 0.6);
+			outline-offset: 3px;
+		}
 		#outputText {
 			flex-grow: 1;
 			resize: none;
@@ -22,6 +47,11 @@
 	</style>
 </head>
 <body>
+	<nav class="home-nav" aria-label="Home navigation">
+		<a class="home-link" href="../../">
+			← Home
+		</a>
+	</nav>
 	<div id="inputContainer">
 		<select id="presets">
 			<option value="t.[_] = s.[_]">t.[_] = s.[_]</option>

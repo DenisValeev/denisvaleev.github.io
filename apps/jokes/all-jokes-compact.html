@@ -43,6 +43,16 @@
         border-color: rgba(148, 163, 209, 0.4);
         color: inherit;
       }
+
+      .home-link {
+        border-color: rgba(148, 163, 209, 0.45);
+        background: rgba(148, 163, 209, 0.18);
+      }
+
+      .home-link:hover {
+        background: rgba(148, 163, 209, 0.26);
+        box-shadow: 0 14px 28px rgba(2, 6, 23, 0.45);
+      }
     }
 
     body {
@@ -72,6 +82,41 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+    }
+
+    .home-nav {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(74, 99, 255, 0.35);
+      text-decoration: none;
+      color: inherit;
+      font-weight: 600;
+      background: rgba(74, 99, 255, 0.12);
+      transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .home-link span[aria-hidden="true"] {
+      font-size: 1.2rem;
+    }
+
+    .home-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.22);
+      background: rgba(74, 99, 255, 0.18);
+    }
+
+    .home-link:focus-visible {
+      outline: 2px solid rgba(112, 132, 255, 0.6);
+      outline-offset: 3px;
+      box-shadow: 0 0 0 3px rgba(112, 132, 255, 0.28);
     }
 
     header.page-header h1 {
@@ -217,6 +262,12 @@
 </head>
 <body data-compact="true">
   <main>
+    <nav class="home-nav" aria-label="Home navigation">
+      <a class="home-link" href="../../">
+        <span aria-hidden="true">←</span>
+        <span>Home</span>
+      </a>
+    </nav>
     <header class="page-header">
       <h1>All Jokes (Compact)</h1>
       <p>Condensed view with tighter spacing for quicker scanning. <span class="badge">Showing <span data-count>0</span> of <span data-total>0</span> jokes</span></p>

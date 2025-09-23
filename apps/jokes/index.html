@@ -75,6 +75,41 @@
       gap: 20px;
     }
 
+    .home-nav {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+      background: transparent;
+      transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .home-link span[aria-hidden="true"] {
+      font-size: 1.2rem;
+    }
+
+    .home-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(48, 86, 211, 0.28);
+      background: rgba(48, 86, 211, 0.1);
+    }
+
+    .home-link:focus-visible {
+      outline: 2px solid rgba(112, 132, 255, 0.65);
+      outline-offset: 3px;
+      box-shadow: 0 0 0 3px rgba(112, 132, 255, 0.25);
+    }
+
     #joke-setup {
       margin: 0;
       font-size: clamp(1.35rem, 2.4vw + 1rem, 2.2rem);
@@ -174,8 +209,14 @@
     }
   </style>
 </head>
-<body>
+  <body>
   <main aria-label="Random jokes">
+    <nav class="home-nav" aria-label="Home navigation">
+      <a class="home-link" href="../../">
+        <span aria-hidden="true">←</span>
+        <span>Home</span>
+      </a>
+    </nav>
     <article class="card" aria-live="polite">
       <div class="card__content">
         <p id="joke-setup">Loading joke…</p>

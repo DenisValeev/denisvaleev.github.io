@@ -73,6 +73,41 @@
       margin: 0;
     }
 
+    .home-nav {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(48, 86, 211, 0.4);
+      text-decoration: none;
+      color: inherit;
+      font-weight: 600;
+      background: rgba(48, 86, 211, 0.08);
+      transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .home-link span[aria-hidden="true"] {
+      font-size: 1.2rem;
+    }
+
+    .home-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(48, 86, 211, 0.18);
+      background: rgba(48, 86, 211, 0.14);
+    }
+
+    .home-link:focus-visible {
+      outline: 2px solid rgba(48, 86, 211, 0.6);
+      outline-offset: 3px;
+      box-shadow: 0 0 0 3px rgba(48, 86, 211, 0.25);
+    }
+
     .quote-meta {
       font-family: var(--quote-author-font);
       color: var(--quote-author-color);
@@ -178,8 +213,14 @@
     }
   </style>
 </head>
-<body>
+  <body>
   <main aria-label="Quotes">
+    <nav class="home-nav" aria-label="Home navigation">
+      <a class="home-link" href="../../">
+        <span aria-hidden="true">←</span>
+        <span>Home</span>
+      </a>
+    </nav>
     <div class="card" role="group" aria-live="polite">
       <blockquote>
         <p id="quote-text">Loading quote…</p>
