@@ -4,9 +4,7 @@
   const prevButton = document.getElementById('prev-button');
   const nextButton = document.getElementById('next-button');
   const revealButton = document.getElementById('reveal-button');
-  const shuffleButton = document.getElementById('shuffle-button');
-
-  if (!termEl || !meaningEl || !prevButton || !nextButton || !revealButton || !shuffleButton) {
+  if (!termEl || !meaningEl || !prevButton || !nextButton || !revealButton) {
     return;
   }
 
@@ -65,7 +63,6 @@
       revealButton.hidden = true;
       prevButton.disabled = true;
       nextButton.disabled = true;
-      shuffleButton.disabled = true;
       return;
     }
 
@@ -83,7 +80,6 @@
     const buttonsDisabled = deck.length <= 1;
     prevButton.disabled = buttonsDisabled;
     nextButton.disabled = buttonsDisabled;
-    shuffleButton.disabled = entries.length <= 1;
   }
 
   function showNext() {
@@ -105,19 +101,9 @@
     setMeaningVisible(!meaningVisible);
   }
 
-  function reshuffle() {
-    if (!entries.length) {
-      return;
-    }
-    deck = shuffle(entries);
-    index = 0;
-    render();
-  }
-
   prevButton.addEventListener('click', showPrev);
   nextButton.addEventListener('click', showNext);
   revealButton.addEventListener('click', toggleMeaning);
-  shuffleButton.addEventListener('click', reshuffle);
 
   document.addEventListener('keydown', (event) => {
     if (event.defaultPrevented) {
@@ -137,9 +123,6 @@
       }
       event.preventDefault();
       toggleMeaning();
-    } else if (event.key && event.key.toLowerCase() === 's') {
-      event.preventDefault();
-      reshuffle();
     }
   });
 

@@ -105,34 +105,68 @@
       gap: 12px;
     }
 
-    a.app-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      padding: 18px 22px;
-      border-radius: 999px;
+    a.app-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: clamp(22px, 2vw + 16px, 28px);
+      border-radius: 20px;
       background: var(--card-background);
       text-decoration: none;
       color: inherit;
+      border: 1px solid transparent;
       box-shadow: var(--card-shadow);
       transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
-      border: 1px solid transparent;
-      font-size: 1.1rem;
-      font-weight: 600;
     }
 
-    a.app-button:hover,
-    a.app-button:focus-visible {
+    a.app-card:hover,
+    a.app-card:focus-visible {
       transform: translateY(-6px);
       box-shadow: var(--card-hover-shadow);
       background: var(--card-hover-background);
-      outline: none;
       border-color: rgba(115, 135, 255, 0.45);
+      outline: none;
     }
 
-    a.app-button span[aria-hidden="true"] {
-      font-size: 1.5rem;
+    .app-card__icon {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+    }
+
+    .app-card__content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .app-card__content h2 {
+      margin: 0;
+      font-size: clamp(1.2rem, 1.2vw + 1.1rem, 1.6rem);
+      font-weight: 600;
+    }
+
+    .app-card__content p {
+      margin: 0;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .app-card__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .app-card__cta svg {
+      width: 1.15rem;
+      height: 1.15rem;
+      transition: transform 0.18s ease;
+    }
+
+    a.app-card:hover .app-card__cta svg,
+    a.app-card:focus-visible .app-card__cta svg {
+      transform: translateX(3px);
     }
 
     .app-links {
@@ -141,8 +175,7 @@
       gap: 12px;
     }
 
-    a.app-secondary,
-    a.dev-link {
+    a.app-secondary {
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -153,20 +186,43 @@
       text-decoration: none;
       font-weight: 500;
       transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
     }
 
     a.app-secondary:hover,
-    a.app-secondary:focus-visible,
+    a.app-secondary:focus-visible {
+      background: var(--dev-link-hover);
+      transform: translateY(-2px);
+      outline: none;
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.16);
+    }
+
+    a.app-secondary span[aria-hidden="true"] {
+      font-size: 1.1rem;
+    }
+
+    a.dev-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--dev-link-background);
+      color: inherit;
+      text-decoration: none;
+      font-weight: 500;
+      transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+    }
+
     a.dev-link:hover,
     a.dev-link:focus-visible {
       background: var(--dev-link-hover);
       transform: translateY(-2px);
       outline: none;
-      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.18);
+      box-shadow: 0 18px 36px rgba(15, 23, 42, 0.18);
     }
 
-    a.app-secondary span[aria-hidden="true"],
     a.dev-link span[aria-hidden="true"] {
       font-size: 1.2rem;
     }
@@ -179,9 +235,9 @@
       margin-top: clamp(18px, 3vw, 28px);
     }
 
-    a.dev-link:focus-visible,
-    a.app-button:focus-visible,
-    a.app-secondary:focus-visible {
+    a.app-card:focus-visible,
+    a.app-secondary:focus-visible,
+    a.dev-link:focus-visible {
       box-shadow: 0 0 0 3px rgba(121, 134, 255, 0.35), inset 0 0 0 1px rgba(121, 134, 255, 0.6);
     }
 
@@ -198,11 +254,24 @@
 </head>
 <body>
   <main aria-label="Apps">
+    <header class="site-header">
+      <h1>Toolbox</h1>
+      <p>Choose an app to explore curated decks, formatting helpers, and other quick experiments.</p>
+    </header>
     <ul class="apps">
       <li>
-        <a class="app-button" href="apps/jokes/">
-          <span aria-hidden="true">😂</span>
-          <span class="app-label">Dad Jokes</span>
+        <a class="app-card" href="apps/jokes/">
+          <span class="app-card__icon" aria-hidden="true">😂</span>
+          <div class="app-card__content">
+            <h2>Dad Jokes</h2>
+            <p>Cycle through curated dad jokes, revisit punchlines, and only reveal the payoff when you want.</p>
+          </div>
+          <span class="app-card__cta">
+            Open app
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+            </svg>
+          </span>
         </a>
         <div class="app-links" aria-label="Dad jokes extras">
           <a class="app-secondary" href="apps/jokes/all-jokes.html">
@@ -213,14 +282,38 @@
       </li>
       <li>
         <a class="app-card" href="apps/gen-alpha/">
-          <h2>Gen Alpha Slang</h2>
-          <p>Glide through Gen Alpha terms, reshuffle on demand, and reveal the meaning only when you want the context.</p>
+          <span class="app-card__icon" aria-hidden="true">🧒</span>
+          <div class="app-card__content">
+            <h2>Gen Alpha Slang</h2>
+            <p>Browse Gen Alpha slang cards, move back for a refresher, and reveal the meaning only when you’re ready.</p>
+          </div>
+          <span class="app-card__cta">
+            Open app
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+            </svg>
+          </span>
         </a>
+        <div class="app-links" aria-label="Gen Alpha slang extras">
+          <a class="app-secondary" href="apps/gen-alpha/all-slang.html">
+            <span aria-hidden="true">🗂️</span>
+            <span>All Slang</span>
+          </a>
+        </div>
       </li>
       <li>
         <a class="app-card" href="apps/quotes/">
-          <h2>Quotes</h2>
-          <p>Shuffle through themed quote decks, jump back, and switch categories without losing momentum.</p>
+          <span class="app-card__icon" aria-hidden="true">💬</span>
+          <div class="app-card__content">
+            <h2>Quotes</h2>
+            <p>Shuffle themed quote decks, jump back through the flow, and switch categories without losing context.</p>
+          </div>
+          <span class="app-card__cta">
+            Open app
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+            </svg>
+          </span>
         </a>
         <div class="app-links" aria-label="Quote extras">
           <a class="app-secondary" href="apps/quotes/all-quotes.html">
@@ -230,17 +323,38 @@
         </div>
       </li>
       <li>
-        <a class="app-button" href="apps/similarity-report/">
-          <span aria-hidden="true">🧪</span>
-          <span class="app-label">Cosine Similarity Lab</span>
+        <a class="app-card" href="apps/similarity-report/">
+          <span class="app-card__icon" aria-hidden="true">🧪</span>
+          <div class="app-card__content">
+            <h2>Cosine Similarity Lab</h2>
+            <p>Compare embeddings, inspect dataset metadata, and sanity-check similarity reports in the browser.</p>
+          </div>
+          <span class="app-card__cta">
+            Open app
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+            </svg>
+          </span>
         </a>
       </li>
     </ul>
     <section class="dev-tools" aria-label="Utility pages">
-      <a class="dev-link" href="apps/value-formatter/">Value Formatter — Quick mapping for long lists.</a>
-      <a class="dev-link" href="apps/jokes/all-jokes.html">All Jokes</a>
-      <a class="dev-link" href="apps/quotes/all-quotes.html">All Quotes</a>
-      <a class="dev-link" href="apps/gen-alpha/all-slang.html">All Gen Alpha Slang</a>
+      <a class="dev-link" href="apps/value-formatter/">
+        <span aria-hidden="true">🧰</span>
+        <span>Value Formatter — Quick mapping for long lists.</span>
+      </a>
+      <a class="dev-link" href="apps/jokes/all-jokes.html">
+        <span aria-hidden="true">😂</span>
+        <span>All Jokes</span>
+      </a>
+      <a class="dev-link" href="apps/quotes/all-quotes.html">
+        <span aria-hidden="true">💬</span>
+        <span>All Quotes</span>
+      </a>
+      <a class="dev-link" href="apps/gen-alpha/all-slang.html">
+        <span aria-hidden="true">🧾</span>
+        <span>All Gen Alpha Slang</span>
+      </a>
     </section>
   </main>
 </body>

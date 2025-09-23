@@ -154,22 +154,11 @@
       box-shadow: none;
     }
 
-    button.ghost {
-      background: var(--accent-soft);
-      color: var(--accent);
-      border: 1px solid rgba(109, 97, 255, 0.4);
-    }
-
     @media (prefers-color-scheme: dark) {
       button.secondary {
         color: #b5bbff;
         border-color: rgba(181, 187, 255, 0.55);
         background: rgba(158, 166, 255, 0.14);
-      }
-
-      button.ghost {
-        border-color: rgba(181, 187, 255, 0.38);
-        color: #b5bbff;
       }
     }
 
@@ -208,7 +197,7 @@
   <main aria-label="Gen Alpha slang navigator">
     <header class="app-header">
       <h1>Gen Alpha Slang</h1>
-      <p>Shuffle through the latest Gen Alpha terms, move back when you need a recap, and reveal meanings only when you’re ready.</p>
+      <p>Glide through the latest Gen Alpha terms, move back when you need a recap, and reveal meanings only when you’re ready.</p>
     </header>
     <article class="card" aria-live="polite">
       <div class="card__content">
@@ -219,7 +208,6 @@
     <div class="controls">
       <div class="controls__nav">
         <button id="prev-button" type="button" aria-label="Show previous slang term">⟵ Previous</button>
-        <button id="shuffle-button" class="ghost" type="button" aria-label="Shuffle the slang deck">Shuffle</button>
         <button id="next-button" type="button" aria-label="Show next slang term">Next ⟶</button>
       </div>
       <div class="controls__meaning">
