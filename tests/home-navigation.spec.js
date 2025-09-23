@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 const appPages = [
   { name: 'Dad Jokes', path: '/apps/jokes/' },
   { name: 'Quotes', path: '/apps/quotes/' },
-  { name: 'Gen α Slang', path: '/apps/gen-alpha/' },
+  { name: 'Slang', path: '/apps/slang/' },
   { name: 'Cosine Similarity Lab', path: '/apps/similarity-report/' },
   { name: 'Value Formatter', path: '/apps/value-formatter/' },
   { name: 'Asset Observatory', path: '/apps/asset-observatory/' },
