@@ -49,6 +49,7 @@ test.describe('Slang app', () => {
     await expect(exampleWrapper).not.toHaveClass(/is-visible/);
     await expect(exampleWrapper).toHaveAttribute('aria-hidden', 'true');
     await expect(hintWrapper).toHaveAttribute('aria-hidden', 'true');
+    await expect(hintWrapper).toBeHidden();
     await expect(revealButton).toHaveAttribute('aria-pressed', 'false');
     await expect(revealButton).toBeEnabled();
     await expect(nextButton).toBeEnabled();
@@ -71,6 +72,7 @@ test.describe('Slang app', () => {
     const exampleText = ((await example.textContent()) || '').trim();
     expect(exampleText.length).toBeGreaterThan(0);
     await expect(hintWrapper).toHaveAttribute('aria-hidden', 'false');
+    await expect(hintWrapper).toBeVisible();
     const hintText = ((await hint.textContent()) || '').trim();
     expect(hintText.length).toBeGreaterThan(0);
 
@@ -81,6 +83,7 @@ test.describe('Slang app', () => {
     await expect(revealButton).toHaveAttribute('aria-pressed', 'false');
     await expect(exampleWrapper).not.toHaveClass(/is-visible/);
     await expect(hintWrapper).toHaveAttribute('aria-hidden', 'true');
+    await expect(hintWrapper).toBeHidden();
 
     const secondTerm = ((await term.textContent()) || '').trim();
     expect(secondTerm.length).toBeGreaterThan(0);
@@ -112,5 +115,6 @@ test.describe('Slang app', () => {
     await expect(revealButton).toHaveAttribute('aria-pressed', 'true');
     await expect(meaning).toHaveClass(/is-visible/);
     await expect(exampleWrapper).toHaveClass(/is-visible/);
+    await expect(hintWrapper).toBeVisible();
   });
 });

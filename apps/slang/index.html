@@ -265,9 +265,13 @@
 
     .card__hint {
       margin: 0;
-      display: grid;
+      display: none;
       gap: 6px;
       color: var(--meaning-color);
+    }
+
+    .card__hint.is-visible {
+      display: grid;
     }
 
     .card__hint-label {
