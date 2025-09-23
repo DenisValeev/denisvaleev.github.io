@@ -56,7 +56,7 @@ test.describe('Landing page', () => {
 
     const toolSection = page.locator('section.app-groups').nth(1);
     const toolButtons = toolSection.locator('a.app-button');
-    await expect(toolButtons).toHaveCount(3);
+    await expect(toolButtons).toHaveCount(4);
 
     const toolInfo = await toolButtons.evaluateAll((nodes) =>
       nodes.map((node) => ({
@@ -67,6 +67,7 @@ test.describe('Landing page', () => {
 
     expect(toolInfo).toEqual([
       { text: '🧪 Cosine Similarity Lab', href: 'apps/similarity-report/' },
+      { text: '🧬 Embedding Explorer', href: 'apps/embedding-explorer/' },
       { text: '📊 Asset Observatory', href: 'apps/asset-observatory/' },
       { text: '🧰 Value Formatter', href: 'apps/value-formatter/' },
     ]);
@@ -77,6 +78,6 @@ test.describe('Landing page', () => {
     await expect(valueFormatterButton).not.toContainText('—');
 
     const allButtons = page.locator('a.app-button');
-    await expect(allButtons).toHaveCount(9);
+    await expect(allButtons).toHaveCount(10);
   });
 });
