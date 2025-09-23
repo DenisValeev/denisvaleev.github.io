@@ -199,6 +199,91 @@
       margin: 0;
     }
 
+    .offline-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: clamp(16px, 2vw + 10px, 22px);
+      border-radius: 18px;
+      background: var(--row-background);
+      border: 1px solid var(--row-border);
+      box-shadow: var(--row-shadow);
+    }
+
+    .offline-card h2 {
+      margin: 0;
+      font-size: clamp(1.1rem, 0.5vw + 1rem, 1.35rem);
+    }
+
+    .offline-card__status {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+    }
+
+    .offline-card__meta {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .offline-progress {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .offline-progress__bar {
+      position: relative;
+      width: 100%;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(74, 99, 255, 0.18);
+      overflow: hidden;
+    }
+
+    .offline-progress__fill {
+      position: absolute;
+      inset: 0;
+      background: var(--button-primary-background);
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+
+    .offline-progress__detail {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .offline-card__hint {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .offline-card__steps {
+      margin: 0;
+    }
+
+    .offline-card__steps summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .offline-card__steps ol {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .offline-card__steps strong {
+      font-weight: 600;
+    }
+
     a.app-button--wide {
       width: 100%;
       justify-content: flex-start;
@@ -229,6 +314,28 @@
     <header class="site-header">
       <h1>Toolbox</h1>
     </header>
+    <section class="offline-card" data-offline-card aria-labelledby="offline-title">
+      <h2 id="offline-title">Offline bundle</h2>
+      <p class="offline-card__status" data-offline-status aria-live="polite">Loading offline manifest…</p>
+      <p class="offline-card__meta" data-offline-meta hidden></p>
+      <div class="offline-progress" data-offline-progress hidden>
+        <div class="offline-progress__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-offline-progress-bar>
+          <span class="offline-progress__fill" data-offline-progress-fill></span>
+        </div>
+        <p class="offline-progress__detail" data-offline-progress-detail></p>
+      </div>
+      <p class="offline-card__hint">
+        On iPhone, open Safari’s Share menu and choose <strong>Add to Home Screen</strong> after the download completes to launch the toolbox like an app.
+      </p>
+      <details class="offline-card__steps">
+        <summary>Step-by-step install</summary>
+        <ol>
+          <li>Load this page with a connection so the offline bundle can download.</li>
+          <li>Tap the Share icon <span aria-hidden="true">⬆️</span> in Safari.</li>
+          <li>Select <strong>Add to Home Screen</strong>, then confirm the shortcut name.</li>
+        </ol>
+      </details>
+    </section>
     <section class="app-groups" aria-labelledby="deck-section">
       <h2 id="deck-section" class="section-title">Deck collections</h2>
       <ul class="app-groups__list">
@@ -291,5 +398,163 @@
       </ul>
     </section>
   </main>
+  <script>
+    (function () {
+      const offlineCard = document.querySelector('[data-offline-card]');
+      if (!offlineCard) {
+        return;
+      }
+
+      const statusEl = offlineCard.querySelector('[data-offline-status]');
+      const metaEl = offlineCard.querySelector('[data-offline-meta]');
+      const progressWrapper = offlineCard.querySelector('[data-offline-progress]');
+      const progressBar = offlineCard.querySelector('[data-offline-progress-bar]');
+      const progressFill = offlineCard.querySelector('[data-offline-progress-fill]');
+      const progressDetail = offlineCard.querySelector('[data-offline-progress-detail]');
+
+      if (!statusEl || !progressWrapper || !progressBar || !progressFill || !progressDetail) {
+        return;
+      }
+
+      const formatter = new Intl.NumberFormat('en-US', { maximumFractionDigits: 1 });
+      const state = {
+        manifest: null
+      };
+
+      function setStatus(message) {
+        statusEl.textContent = message;
+      }
+
+      function updateMeta(text) {
+        if (!metaEl) {
+          return;
+        }
+
+        if (text) {
+          metaEl.hidden = false;
+          metaEl.textContent = text;
+        } else {
+          metaEl.hidden = true;
+          metaEl.textContent = '';
+        }
+      }
+
+      function formatBytes(bytes) {
+        if (!Number.isFinite(bytes) || bytes <= 0) {
+          return '0 B';
+        }
+
+        const units = ['B', 'KB', 'MB', 'GB'];
+        let value = bytes;
+        let unitIndex = 0;
+
+        while (value >= 1024 && unitIndex < units.length - 1) {
+          value /= 1024;
+          unitIndex += 1;
+        }
+
+        const fractionDigits = value >= 10 || unitIndex === 0 ? 0 : 1;
+        return `${formatter.format(Number(value.toFixed(fractionDigits)))} ${units[unitIndex]}`;
+      }
+
+      function setProgress(value) {
+        const clamped = Math.min(100, Math.max(0, value));
+        progressBar.setAttribute('aria-valuenow', String(Math.round(clamped)));
+        progressFill.style.transform = `scaleX(${clamped / 100})`;
+      }
+
+      function handleMessage(event) {
+        const payload = event.data;
+        if (!payload || payload.type !== 'offline-cache') {
+          return;
+        }
+
+        const detail = payload.detail || {};
+        const totalAssets = typeof detail.totalAssets === 'number' ? detail.totalAssets : 0;
+        const totalBytes = typeof detail.totalBytes === 'number' ? detail.totalBytes : 0;
+        const bundleSummary = totalAssets > 0 ? `Bundle v${detail.version || (state.manifest && state.manifest.version) || ''} · ${formatBytes(totalBytes)} across ${totalAssets} files` : '';
+
+        if (payload.state === 'start') {
+          progressWrapper.hidden = false;
+          setProgress(0);
+          progressDetail.textContent = `Downloading ${formatBytes(totalBytes)} of data…`;
+          setStatus('Caching offline bundle…');
+        } else if (payload.state === 'progress') {
+          const completed = typeof detail.completed === 'number' ? detail.completed : 0;
+          const loadedBytes = typeof detail.loadedBytes === 'number' ? detail.loadedBytes : 0;
+          const assetPath = detail.asset && detail.asset.path ? detail.asset.path : '';
+          const percent = totalBytes > 0 ? (loadedBytes / Math.max(totalBytes, 1)) * 100 : (completed / Math.max(totalAssets, 1)) * 100;
+
+          progressWrapper.hidden = false;
+          setProgress(percent);
+          progressDetail.textContent = [
+            `Cached ${completed} of ${totalAssets} files`,
+            `${formatBytes(loadedBytes)} / ${formatBytes(totalBytes)}`,
+            assetPath ? assetPath : null
+          ].filter(Boolean).join(' • ');
+          setStatus('Caching offline bundle…');
+        } else if (payload.state === 'complete') {
+          progressWrapper.hidden = true;
+          setProgress(100);
+          const readyText = detail.alreadyCached ? 'Offline bundle is up to date.' : 'Offline bundle ready for offline use.';
+          setStatus(readyText);
+          updateMeta(bundleSummary);
+        } else if (payload.state === 'error') {
+          progressWrapper.hidden = true;
+          setStatus('Offline caching failed. Refresh when you have a connection.');
+        }
+      }
+
+      function requestCaching(registration) {
+        if (!state.manifest || !registration || !registration.active) {
+          return;
+        }
+
+        registration.active.postMessage({
+          type: 'apply-manifest',
+          manifest: state.manifest
+        });
+      }
+
+      async function setup() {
+        if (!('serviceWorker' in navigator) || !('caches' in window)) {
+          setStatus('Offline caching is not available in this browser.');
+          return;
+        }
+
+        try {
+          const response = await fetch('offline-manifest.json', { cache: 'no-store' });
+          if (!response.ok) {
+            throw new Error(`Manifest request failed with status ${response.status}`);
+          }
+
+          const manifest = await response.json();
+          state.manifest = manifest;
+          const assets = Array.isArray(manifest.assets) ? manifest.assets : [];
+          const totalBytes = Number.isFinite(manifest.totalBytes) ? manifest.totalBytes : assets.reduce((total, asset) => total + (Number(asset.bytes) || 0), 0);
+          const summary = assets.length ? `Bundle v${manifest.version} · ${formatBytes(totalBytes)} across ${assets.length} files` : '';
+          updateMeta(summary);
+          setStatus('Offline bundle ready to download.');
+        } catch (error) {
+          console.error('Failed to load offline manifest', error);
+          setStatus('Unable to load the offline manifest. Refresh when you are back online.');
+          return;
+        }
+
+        try {
+          const registration = await navigator.serviceWorker.register('service-worker.js');
+          navigator.serviceWorker.addEventListener('message', handleMessage);
+
+          const readyRegistration = await navigator.serviceWorker.ready;
+          requestCaching(readyRegistration);
+        } catch (error) {
+          console.error('Service worker registration failed', error);
+          setStatus('Unable to register the offline service worker.');
+        }
+      }
+
+      setup();
+    })();
+  </script>
 </body>
 </html>

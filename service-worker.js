@@ -1,0 +1,355 @@
+const CACHE_PREFIX = 'toolbox-offline-v';
+const METADATA_CACHE = 'toolbox-offline-metadata';
+const METADATA_REQUEST = new Request(new URL('__toolbox-offline-manifest__', self.location).toString());
+const SERVICE_WORKER_PATH = new URL('service-worker.js', self.location.origin).pathname;
+const OFFLINE_MANIFEST_PATH = new URL('offline-manifest.json', self.location.origin).pathname;
+
+let activeCacheName = null;
+let pendingUpdate = null;
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(self.skipWaiting());
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil((async () => {
+    const stored = await readStoredManifest();
+    if (stored && typeof stored.version === 'string' && stored.version) {
+      activeCacheName = getCacheName(stored.version);
+    }
+
+    await cleanupCaches(activeCacheName);
+    await self.clients.claim();
+  })());
+});
+
+self.addEventListener('message', (event) => {
+  const data = event.data;
+  if (!data || data.type !== 'apply-manifest' || !data.manifest) {
+    return;
+  }
+
+  const manifest = data.manifest;
+  event.waitUntil(queueManifestUpdate(manifest));
+});
+
+self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
+  const url = new URL(event.request.url);
+  if (url.origin !== self.location.origin) {
+    return;
+  }
+
+  if (url.pathname === SERVICE_WORKER_PATH) {
+    return;
+  }
+
+  if (url.pathname === OFFLINE_MANIFEST_PATH) {
+    event.respondWith(handleManifestRequest(event.request));
+    return;
+  }
+
+  if (event.request.mode === 'navigate') {
+    event.respondWith(handleNavigationRequest(event.request));
+    return;
+  }
+
+  event.respondWith(handleAssetRequest(event.request));
+});
+
+function getCacheName(version) {
+  return `${CACHE_PREFIX}${version}`;
+}
+
+async function queueManifestUpdate(manifest) {
+  if (!manifest || typeof manifest.version !== 'string' || !Array.isArray(manifest.assets)) {
+    return;
+  }
+
+  if (pendingUpdate) {
+    return pendingUpdate;
+  }
+
+  pendingUpdate = (async () => {
+    try {
+      await applyManifest(manifest);
+    } catch (error) {
+      console.error('Offline cache update failed', error);
+    } finally {
+      pendingUpdate = null;
+    }
+  })();
+
+  return pendingUpdate;
+}
+
+async function applyManifest(manifest) {
+  const version = manifest.version;
+  const assets = Array.isArray(manifest.assets) ? manifest.assets : [];
+  const totalAssets = assets.length;
+  const totalBytes = Number.isFinite(manifest.totalBytes)
+    ? manifest.totalBytes
+    : assets.reduce((sum, asset) => sum + (Number(asset.bytes) || 0), 0);
+  const cacheName = getCacheName(version);
+  const existingManifest = await readStoredManifest();
+  const cacheKeys = await caches.keys();
+  const cacheExists = cacheKeys.includes(cacheName);
+
+  if (existingManifest && existingManifest.version === version && cacheExists) {
+    activeCacheName = cacheName;
+    await broadcast({
+      type: 'offline-cache',
+      state: 'complete',
+      detail: {
+        version,
+        totalAssets,
+        totalBytes,
+        alreadyCached: true
+      }
+    });
+    return;
+  }
+
+  await broadcast({
+    type: 'offline-cache',
+    state: 'start',
+    detail: {
+      version,
+      totalAssets,
+      totalBytes
+    }
+  });
+
+  const cache = await caches.open(cacheName);
+  let loadedBytes = 0;
+  let completed = 0;
+
+  try {
+    for (const item of assets) {
+      const assetPath = item && typeof item.path === 'string' ? item.path : null;
+      if (!assetPath) {
+        continue;
+      }
+
+      const assetUrl = new URL(assetPath, self.location.origin).toString();
+      const request = new Request(assetUrl, { cache: 'reload' });
+      let response;
+
+      try {
+        response = await fetch(request);
+      } catch (error) {
+        await broadcast({
+          type: 'offline-cache',
+          state: 'error',
+          detail: {
+            version,
+            message: `Failed to fetch ${assetPath}`
+          }
+        });
+        throw error;
+      }
+
+      if (!response.ok) {
+        await broadcast({
+          type: 'offline-cache',
+          state: 'error',
+          detail: {
+            version,
+            message: `Unexpected response (${response.status}) for ${assetPath}`
+          }
+        });
+        throw new Error(`Failed to cache ${assetPath}`);
+      }
+
+      await cache.put(request, response.clone());
+
+      const assetBytes = Number(item.bytes) || 0;
+      loadedBytes += assetBytes;
+      completed += 1;
+
+      await broadcast({
+        type: 'offline-cache',
+        state: 'progress',
+        detail: {
+          version,
+          asset: {
+            path: assetPath,
+            bytes: assetBytes
+          },
+          completed,
+          totalAssets,
+          loadedBytes,
+          totalBytes
+        }
+      });
+    }
+  } catch (error) {
+    await caches.delete(cacheName).catch(() => {});
+    throw error;
+  }
+
+  const storedManifest = {
+    version,
+    generatedAt: manifest.generatedAt || new Date().toISOString(),
+    totalAssets,
+    totalBytes,
+    assets
+  };
+
+  await writeStoredManifest(storedManifest);
+  activeCacheName = cacheName;
+  await cleanupCaches(cacheName);
+
+  await broadcast({
+    type: 'offline-cache',
+    state: 'complete',
+    detail: {
+      version,
+      totalAssets,
+      totalBytes,
+      alreadyCached: false
+    }
+  });
+}
+
+async function handleManifestRequest(request) {
+  try {
+    const networkResponse = await fetch(request, { cache: 'no-store' });
+    if (networkResponse && networkResponse.ok) {
+      return networkResponse;
+    }
+  } catch (error) {
+    // Intentionally fall back to the stored manifest when offline.
+  }
+
+  const stored = await readStoredManifest();
+  if (stored) {
+    return new Response(JSON.stringify(stored), {
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-store'
+      }
+    });
+  }
+
+  return fetch(request);
+}
+
+async function handleNavigationRequest(request) {
+  if (!activeCacheName) {
+    return fetch(request);
+  }
+
+  const cache = await caches.open(activeCacheName);
+  const url = new URL(request.url);
+  const candidates = [];
+
+  candidates.push(url.href);
+  if (url.pathname.endsWith('/')) {
+    candidates.push(new URL(`${url.pathname}index.html`, url.origin).href);
+  } else {
+    candidates.push(new URL(`${url.pathname}/index.html`, url.origin).href);
+  }
+  candidates.push(new URL('/index.html', url.origin).href);
+
+  for (const candidate of candidates) {
+    const cached = await cache.match(candidate);
+    if (cached) {
+      return cached;
+    }
+  }
+
+  try {
+    return await fetch(request);
+  } catch (error) {
+    const fallback = await cache.match(new URL('/index.html', url.origin).href);
+    if (fallback) {
+      return fallback;
+    }
+    throw error;
+  }
+}
+
+async function handleAssetRequest(request) {
+  if (!activeCacheName) {
+    return fetch(request);
+  }
+
+  const cache = await caches.open(activeCacheName);
+  const cached = await cache.match(request);
+  if (cached) {
+    return cached;
+  }
+
+  try {
+    const response = await fetch(request);
+    if (response && response.ok) {
+      cache.put(request, response.clone()).catch(() => {});
+    }
+    return response;
+  } catch (error) {
+    const fallback = await cache.match(request);
+    if (fallback) {
+      return fallback;
+    }
+    throw error;
+  }
+}
+
+async function broadcast(message) {
+  const clients = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+  clients.forEach((client) => {
+    try {
+      client.postMessage(message);
+    } catch (error) {
+      console.warn('Failed to post message to client', error);
+    }
+  });
+}
+
+async function readStoredManifest() {
+  const cache = await caches.open(METADATA_CACHE);
+  const response = await cache.match(METADATA_REQUEST);
+  if (!response) {
+    return null;
+  }
+
+  try {
+    return await response.json();
+  } catch (error) {
+    console.warn('Failed to parse stored offline manifest', error);
+    return null;
+  }
+}
+
+async function writeStoredManifest(manifest) {
+  const cache = await caches.open(METADATA_CACHE);
+  const response = new Response(JSON.stringify(manifest), {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  await cache.put(METADATA_REQUEST, response);
+}
+
+async function cleanupCaches(currentName) {
+  const keys = await caches.keys();
+  await Promise.all(keys.map((key) => {
+    if (key === METADATA_CACHE) {
+      return Promise.resolve(false);
+    }
+
+    if (!key.startsWith(CACHE_PREFIX)) {
+      return Promise.resolve(false);
+    }
+
+    if (currentName && key === currentName) {
+      return Promise.resolve(false);
+    }
+
+    return caches.delete(key);
+  }));
+}

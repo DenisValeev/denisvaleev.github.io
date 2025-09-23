@@ -67,6 +67,20 @@ node tools/generate-asset-report.js
 
 The script inspects every deck’s dataset, manifest, embedding store, similarity report, and upstream source file. It then writes an updated `apps/asset-observatory/asset-data.js` snapshot that the dashboard consumes to render charts and tables. Commit the refreshed file alongside your changes.
 
+## Offline bundle
+
+Load the homepage once while you have a connection to download the entire toolbox. A new service worker caches every HTML, JavaScript, and JSON asset referenced by `offline-manifest.json`, and the landing page shows a progress indicator while the larger embedding stores stream in. On iPhone, tap the Share icon in Safari and pick **Add to Home Screen** after the download finishes to launch the toolbox like an installed app.
+
+### Updating the cache manifest
+
+Any change to files under `apps/` or `data/` (or to `index.html` itself) requires a manifest refresh so the service worker can invalidate old caches. Regenerate the manifest and bump the cache version automatically with:
+
+```bash
+npm run build:offline
+```
+
+The script walks every HTML, JSON, and JavaScript file we ship, computes their sizes and a combined SHA-256 digest, and writes an updated `offline-manifest.json`. Commit the refreshed manifest together with your changes so clients pick up the new bundle the next time they load the homepage.
+
 ## Data maintenance
 
 - Run `node tools/update-content-metadata.js` after refreshing the jokes, quotes, or slang datasets to assign
