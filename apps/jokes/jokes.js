@@ -3401,6 +3401,26 @@ window.jokes = [
             "id": "j-0915",
             "joke": "Why did the scientist bring a notebook to dinner?",
             "punchline": "In case there was a table of contents."
+        }, {
+            "id": "j-0916",
+            "joke": "Why did the librarian switch to stand-up comedy?",
+            "punchline": "They wanted to work on their shelf delivery."
+        }, {
+            "id": "j-0917",
+            "joke": "Why did the spreadsheet get invited to karaoke night?",
+            "punchline": "It knew how to keep every column in harmony."
+        }, {
+            "id": "j-0918",
+            "joke": "What do you call a detective who solves crimes with snacks?",
+            "punchline": "Sherlock Scones."
+        }, {
+            "id": "j-0919",
+            "joke": "Why did the museum hire a security guard who paints?",
+            "punchline": "They needed someone who could draw the line."
+        }, {
+            "id": "j-0920",
+            "joke": "Why did the gardener start a podcast?",
+            "punchline": "They had a lot of growing to talk about."
         }
     ];
 

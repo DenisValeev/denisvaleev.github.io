@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2025-09-23T23:01:13.905Z",
-    "total": 45,
+    "generatedAt": "2025-09-23T23:06:25.903Z",
+    "total": 49,
     "hashAlgorithm": "sha256",
     "tokenSignature": "unique-words-v1",
     "fields": [
@@ -19,26 +19,26 @@
         "definition": "35d1a7288e3cde1a3c55e248f12dccba969fd2a317e72dff737abf1a665db6b4",
         "example": "5f3c242556f31fbc33173b3459e747b6b6034667cd8cb1f746de1c1af3b53f8c",
         "hint": "408b9738d607203d25bc3f65df1591eac5fcf88c8765ec6e678e874afb923064",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "dcd4dcf40b569fd9f630e96700c9c32a8d5097bef0b74c489849aee286a8165d",
-        "tokenSignature": "alpha-charisma-charm-connecting-effortless-everyone-feel-flirting-gen-group-hype-into-it-jaden-make-makes-much-natural-or-over-people-rizz-room-scooted-so-someone-study-that-the-to-trying-use-walked-whose-wins-with-without"
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "d0885c9ab4bfcacac0b30ca002f8e382dd6c63c900366fbe1ec0a9536389ed6b",
+        "tokenSignature": "charisma-charm-compliments-connecting-effortless-everyone-feel-flirting-group-hype-into-it-jaden-make-makes-much-natural-or-over-people-rizz-room-scooted-so-someone-study-that-the-to-trying-use-walked-whose-wins-with-without"
       },
       "lengths": {
         "term": 4,
         "definition": 67,
         "example": 92,
         "hint": 67,
-        "category": 9
+        "category": 18
       },
       "source": {
         "sequence": 1,
-        "categoryId": "gen-alpha"
+        "categoryId": "hype"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "8e9e84e1919d0a38951335f35ce3e5b68ea0aaea1d7267480a813cc7ba1d4ad8",
-        "updatedAt": "2025-09-23T22:54:38.982Z"
+        "vectorSha256": "4dee34b308dccb6493af88756bffa38098bd71532b79a1fbe91c5a88b58b68e9",
+        "updatedAt": "2025-09-23T23:06:30.517Z"
       }
     },
     "sl-0002": {
@@ -47,26 +47,26 @@
         "definition": "9e428e81ba5334a6cf04d4342a1e3a77d46c9607c3633c295ed0ea93549d9429",
         "example": "b1eedd3246d3a999efeeac040ed8d2145aa30cf578a22f131967b5f4b4f61dd4",
         "hint": "57fdb1df370e8cf6174b31d39f21e545ad6d5766fe72064dacd91bc869396cc5",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "7c908ff1172c8e981292a7ded519f0c2238d10ad2aa72490c3bf5209f22cc6da",
-        "tokenSignature": "alpha-and-asked-assignment-call-client-completely-every-execute-flair-flawlessly-gen-intro-it-nails-present-slay-so-someone-something-style-team-the-time-to-undeniable-use-when-with-you"
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "c809597bc8853f59f8780b39fef0f4fbdbf68003f09cff4619ecf7743298083a",
+        "tokenSignature": "and-asked-assignment-call-client-completely-compliments-every-execute-flair-flawlessly-hype-intro-it-nails-present-slay-so-someone-something-style-team-the-time-to-undeniable-use-when-with-you"
       },
       "lengths": {
         "term": 4,
         "definition": 58,
         "example": 80,
         "hint": 63,
-        "category": 9
+        "category": 18
       },
       "source": {
         "sequence": 2,
-        "categoryId": "gen-alpha"
+        "categoryId": "hype"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "ff2179630aa33290f5c4985a42e55db821fac4a4ad5da2843ab1c21ff1a8db5f",
-        "updatedAt": "2025-09-23T22:54:38.983Z"
+        "vectorSha256": "b568d260e959e395e41adf7f81c433501005478fca1ffe3cc33f7b9b574dda16",
+        "updatedAt": "2025-09-23T23:06:30.518Z"
       }
     },
     "sl-0003": {
@@ -75,26 +75,26 @@
         "definition": "0c881ee87cffb571f7f8682897dc250de552317d49a9515e2fac737ebfecece5",
         "example": "ec64525a5ebea60ca4d82b4e0b4e1baa4b8ecac6e15ab20fcfe7d618aed9c93a",
         "hint": "466c33a3ec2aa1e9f5e784883e9f9408bc6ad3408913a114ef5d3561b9e114b3",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "9939779ade5b0618391606cd298492dfcf9d7cd28ad778eeaf6b2874b0416302",
-        "tokenSignature": "a-add-alpha-and-are-ate-choreography-delivered-effort-energy-gen-give-good-had-it-left-maya-no-notes-nothing-of-performance-rest-s-so-someone-still-strong-such-teach-that-the-there-to-us-use-was-when"
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "8b65600efdd5e63852b7c4e8e1b25f8ac0ecdec04c281a1bc48ae2c57950759e",
+        "tokenSignature": "a-add-and-are-ate-choreography-compliments-delivered-effort-energy-give-good-had-hype-it-left-maya-no-notes-nothing-of-performance-rest-s-so-someone-still-strong-such-teach-that-the-there-to-us-use-was-when"
       },
       "lengths": {
         "term": 3,
         "definition": 69,
         "example": 82,
         "hint": 68,
-        "category": 9
+        "category": 18
       },
       "source": {
         "sequence": 3,
-        "categoryId": "gen-alpha"
+        "categoryId": "hype"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "e300b80dbefe7d898d9735e09a229c78b034b42502556c2ecafb5906458dd306",
-        "updatedAt": "2025-09-23T22:54:38.983Z"
+        "vectorSha256": "86445320156cfaeb3680a372f0c898230af31d0413b0afe2cfb2b3f6b1fde4fa",
+        "updatedAt": "2025-09-23T23:06:30.518Z"
       }
     },
     "sl-0004": {
@@ -103,26 +103,26 @@
         "definition": "0a7ce80d8b773e6b1203321eb8701fcd3b2861ce34957e382b13de98103dffa2",
         "example": "863a1aaee6275221b54d258fe8006186e0b92da8c8be268da2256bbf05617353",
         "hint": "5e6da8594c0764aae1e18132ff75cb70cfb756435b6c5b0ce6d373c6e9287954",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "6a6b9d878a442c6846e707f2d1c0e953cfb5908008df49b01fa765033948a4e0",
-        "tokenSignature": "a-achievement-after-all-alpha-at-best-blocking-crown-do-every-for-gen-goalie-goated-greatest-in-is-it-locked-of-or-our-overtime-shot-skill-someone-status-the-they-time-to-undeniable-use-what"
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "8b2df7575e29c81552cabb1721afa796bd475640b0e605f02b251e341357c478",
+        "tokenSignature": "a-achievement-after-all-at-best-blocking-compliments-crown-do-every-for-goalie-goated-greatest-hype-in-is-it-locked-of-or-our-overtime-shot-skill-someone-status-the-they-time-to-undeniable-use-what"
       },
       "lengths": {
         "term": 6,
         "definition": 65,
         "example": 59,
         "hint": 60,
-        "category": 9
+        "category": 18
       },
       "source": {
         "sequence": 4,
-        "categoryId": "gen-alpha"
+        "categoryId": "hype"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "38c46875508f110c25297ef3ec9b3f1a505316684082084584937a20215fab95",
-        "updatedAt": "2025-09-23T22:54:38.983Z"
+        "vectorSha256": "390751f20e633850ed450741ee68559146f337c1139a00f431b32f6afe68d0a0",
+        "updatedAt": "2025-09-23T23:06:30.519Z"
       }
     },
     "sl-0005": {
@@ -131,26 +131,26 @@
         "definition": "62bb33c05da25d5a134c0104b88b2d87c2767b1ec24972ef4e3791f7442c46d7",
         "example": "41d6c8adb3b27517f81575c7bbb5c4fdab65be7dc319844c9083f91b120cc301",
         "hint": "f1bf871782389e35bdcae1a9a71c42cf547fb7710695e2c17b1ff25e69cec70f",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "bdfa5076937e8d12d66c462fb6bd7350be913639e3fc7ba69c67d9b5da8fd2ac",
-        "tokenSignature": "about-alpha-an-another-bowl-bussin-can-definitely-experience-feels-food-gen-good-help-i-is-it-late-loud-m-night-or-ordering-out-ramen-reacting-so-something-t-tastes-that-this-unbelievably-use-usually-when-you"
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "d425ce4b8ceb4e5dfa7873acbff60fb1979e4d98c04a388d67344cf84066bb1a",
+        "tokenSignature": "about-an-another-bowl-bussin-can-compliments-definitely-experience-feels-food-good-help-hype-i-is-it-late-loud-m-night-or-ordering-out-ramen-reacting-so-something-t-tastes-that-this-unbelievably-use-usually-when-you"
       },
       "lengths": {
         "term": 6,
         "definition": 83,
         "example": 73,
         "hint": 56,
-        "category": 9
+        "category": 18
       },
       "source": {
         "sequence": 5,
-        "categoryId": "gen-alpha"
+        "categoryId": "hype"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "2a2d82d522dd281d09fe099ca26db1aa606d66667dba218b9dd8c7061169f0fa",
-        "updatedAt": "2025-09-23T22:54:38.983Z"
+        "vectorSha256": "252dfc133e3637d93402368eda4e8b72fd06215f2541779d631c8de70840bf27",
+        "updatedAt": "2025-09-23T23:06:30.519Z"
       }
     },
     "sl-0006": {
@@ -159,26 +159,26 @@
         "definition": "00e72a335bb857dd122d2a229a9909be7dfe291d46d6df5db86212c4129f7a7e",
         "example": "2366ebd75695fec11d0d0fab2fb09cf10f39b85256b090366d1e41e484086939",
         "hint": "515c810c77d27fd8fd5b8acf3c35f52689f0633c52dc6f239c10354af5e9e68c",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "40a84ced246a537becd4508d88f1ae54c4d8856c1e75b179d558fddf72ee2698",
-        "tokenSignature": "alpha-amazingly-and-best-contagious-crowd-dance-dj-energy-erupts-filled-floor-gen-go-in-instantly-it-off-or-performing-pop-possible-someone-something-start-the-to-told-up-use-way-when-with"
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "45d87227fffad517ad6ef87765094b5171de809e307ebd5f79423321d572be16",
+        "tokenSignature": "amazingly-and-best-compliments-contagious-crowd-dance-dj-energy-erupts-filled-floor-go-hype-in-instantly-it-off-or-performing-pop-possible-someone-something-start-the-to-told-up-use-way-when-with"
       },
       "lengths": {
         "term": 7,
         "definition": 66,
         "example": 73,
         "hint": 65,
-        "category": 9
+        "category": 18
       },
       "source": {
         "sequence": 6,
-        "categoryId": "gen-alpha"
+        "categoryId": "hype"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "97af3887f0f71e9d648c16e8068e0852664ccb2e1b1afaf858c32b3c2312b86d",
-        "updatedAt": "2025-09-23T22:54:38.983Z"
+        "vectorSha256": "1760f541ff73580cc73fa79bb85a4e3b469ea22ee31eb93742c8971235a561c6",
+        "updatedAt": "2025-09-23T23:06:30.519Z"
       }
     },
     "sl-0007": {
@@ -187,26 +187,26 @@
         "definition": "cd1dad6e11a5e284dc50b5cab3ed20ee1db98ade3b05236673a9c9b028b41a46",
         "example": "28b7d78d6f85572ab623653e55bd50028f24ae1498164e4017cfc7f24e27d041",
         "hint": "c967e7b4893c3ece8dd104eb087c242372507e0d49a0de00a8c6cf891941d249",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "a1edb1a11503a1517666398d3bb80e7f1e857ebd7cd5f0e713f7d476c8dc36a5",
-        "tokenSignature": "absolutely-adding-alpha-an-cosigning-gen-genuinely-good-half-hesitation-i-idea-is-it-m-my-on-opinion-or-outfit-playlist-point-rotation-these-to-tracks-trustworthy-use-valid-when-without-worth-your"
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "5577f9884e5f3380065ee9cec891a61ae41fa171c40a9daae533d85de0eaf7cb",
+        "tokenSignature": "absolutely-adding-an-compliments-cosigning-genuinely-good-half-hesitation-hype-i-idea-is-it-m-my-on-opinion-or-outfit-playlist-point-rotation-these-to-tracks-trustworthy-use-valid-when-without-worth-your"
       },
       "lengths": {
         "term": 5,
         "definition": 67,
         "example": 68,
         "hint": 63,
-        "category": 9
+        "category": 18
       },
       "source": {
         "sequence": 7,
-        "categoryId": "gen-alpha"
+        "categoryId": "hype"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "624670fadf8da88a9d3116748a47d0b0168b376145e0f9f9719ddf8ccec57a08",
-        "updatedAt": "2025-09-23T22:54:38.983Z"
+        "vectorSha256": "0fca4165002fbbf79bee6d0ffbc3ac0f61edc38c3108dd031cf43e28777e4766",
+        "updatedAt": "2025-09-23T23:06:30.519Z"
       }
     },
     "sl-0008": {
@@ -215,26 +215,26 @@
         "definition": "6005d39355a28588697c548d98012817da10ebe7b1cf1ffeba7dee9e5dc44e2a",
         "example": "e99a10ed5bf16325338663959d40f2c513d38d2fe0941d2fac5c2c4f7b038115",
         "hint": "d21687b3c78e87417e0204c99282f73294388da9399a9439e57f8883613ae319",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "7adc7cb48369c725474a006459110f6050c67910468205e1441507c8a6dbdb19",
-        "tokenSignature": "a-believing-calling-cancel-check-daydream-delulu-fantasy-for-friend-gen-gentle-i-it-m-needs-optimism-or-out-playfully-professor-quiz-reality-s-someone-the-thinking-tomorrow-unrealistic-use-when-will-z"
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "e9a68636185b1a4812f77eeb7e6209d071020efca92a1863ec893c89b9f1c035",
+        "tokenSignature": "a-believing-calling-callouts-cancel-check-daydream-delulu-fantasy-for-friend-gentle-i-it-m-needs-optimism-or-out-playfully-professor-quiz-reactions-reality-s-someone-the-thinking-tomorrow-unrealistic-use-when-will"
       },
       "lengths": {
         "term": 6,
         "definition": 75,
         "example": 67,
         "hint": 61,
-        "category": 5
+        "category": 20
       },
       "source": {
         "sequence": 8,
-        "categoryId": "gen-z"
+        "categoryId": "callouts"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "2a670f2ef1bd230b1c1e5a8c39c0928205dd2f484f148f18a566869765fad602",
-        "updatedAt": "2025-09-23T22:54:38.983Z"
+        "vectorSha256": "5fb3e81a2b67776bd6ac7190032671a0cf627c03341b302d29c53646261091a7",
+        "updatedAt": "2025-09-23T23:06:30.519Z"
       }
     },
     "sl-0009": {
@@ -243,26 +243,26 @@
         "definition": "27e0dca023606c19f991b8e714ad39bd36d97e5f8efb44e2051acf8c1303b8e9",
         "example": "32b62d96fd923c4625dbbf224aa7500c128385fdd64baadbcaab888af3f10591",
         "hint": "636eea61ba8a7d04183757d5ae036daa31c41a91b78a56638db24c03e2921973",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "f17233859c40173d080ee08ac2505c87b3a62d639ec0e06998f2e9d651c6934e",
-        "tokenSignature": "a-being-cap-completely-exaggeration-facts-finale-gen-had-honest-is-it-me-no-promise-re-saying-straight-tearing-that-the-to-underline-up-use-what-with-you-z-zero"
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "4a61c99b00929644211fb381295b4af523b1a15792d0a3ded2db36f140d1bd3e",
+        "tokenSignature": "a-being-callouts-cap-completely-exaggeration-facts-finale-had-honest-is-it-me-no-promise-re-reactions-saying-straight-tearing-that-the-to-underline-up-use-what-with-you-zero"
       },
       "lengths": {
         "term": 6,
         "definition": 75,
         "example": 37,
         "hint": 56,
-        "category": 5
+        "category": 20
       },
       "source": {
         "sequence": 9,
-        "categoryId": "gen-z"
+        "categoryId": "callouts"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "6dc73cbcf5b406303bf02ee66b8da7c4ff29d5d86eec0b8e906be4b79eba91ef",
-        "updatedAt": "2025-09-23T22:54:38.984Z"
+        "vectorSha256": "c0b77b188ff09cdb8fd123cb1466dc992b02430266ad6376cb0610c7d6328149",
+        "updatedAt": "2025-09-23T23:06:30.523Z"
       }
     },
     "sl-0010": {
@@ -271,26 +271,26 @@
         "definition": "ecb580ee574086625c0e2de9d497de5ceaa60c46f51194db25b399d7766dc6d5",
         "example": "8f60102f205ef351429acebc341ab42c118bb4b631b61d6a90138b88ab87deb0",
         "hint": "dd7eb4b8002513e9f7ef4ce6586fd7e15b808db5ff20ff576646f4c7f98cc22c",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "2ba9ec64ee6dbfc789b9e0ec8475fa401d58b5a6a1fe63459bfa836428c7c243",
-        "tokenSignature": "after-aggressively-and-average-backlash-bounced-brunch-call-gen-highly-hype-it-mid-more-not-nothing-okay-one-or-plate-rated-so-something-spot-that-the-to-totally-use-was-we-worth-z"
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "f8ad6d8bab39a63b609f15ebbeb100f6477af067f2d8004618281f23acf750c5",
+        "tokenSignature": "after-aggressively-and-average-backlash-bounced-brunch-call-callouts-highly-hype-it-mid-more-not-nothing-okay-one-or-plate-rated-reactions-so-something-spot-that-the-to-totally-use-was-we-worth"
       },
       "lengths": {
         "term": 3,
         "definition": 55,
         "example": 69,
         "hint": 60,
-        "category": 5
+        "category": 20
       },
       "source": {
         "sequence": 10,
-        "categoryId": "gen-z"
+        "categoryId": "callouts"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "1aeb038553bbb76eb47ea540e3ccdb673eb34627603072f3dae99a6bae73d236",
-        "updatedAt": "2025-09-23T22:54:38.984Z"
+        "vectorSha256": "e5d10213de0081384beb5a09b9162b5238f3668355d76f4c88f2a68ee12ab514",
+        "updatedAt": "2025-09-23T23:06:30.523Z"
       }
     },
     "sl-0011": {
@@ -299,26 +299,26 @@
         "definition": "90a1dcdf08d47c1975fba39065ed7a3c60707df78c8e256282410f482538dada",
         "example": "dc09876f21fddbcace962046abb49928e49167a01aa23b2c3b421c76bbf73c59",
         "hint": "3b11eb5d2ecc9596b00111aa7190f43c3627eef2d8df6990561763a71b448024",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "42d9e87d32831cbeacdac6129551957867fb77aada2ed3c512382f5762adbb86",
-        "tokenSignature": "a-and-checked-details-double-energy-feels-for-gen-has-investigation-invite-it-last-minute-needs-off-short-signals-situation-so-something-sounded-sus-suspicious-that-the-use-we-weird-when-z"
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "1aeff976030309799884a19b2d64afc3d0ad9ebae76a443fdbad28625755d2d4",
+        "tokenSignature": "a-and-callouts-checked-details-double-energy-feels-for-has-investigation-invite-it-last-minute-needs-off-reactions-short-signals-situation-so-something-sounded-sus-suspicious-that-the-use-we-weird-when"
       },
       "lengths": {
         "term": 3,
         "definition": 55,
         "example": 70,
         "hint": 65,
-        "category": 5
+        "category": 20
       },
       "source": {
         "sequence": 11,
-        "categoryId": "gen-z"
+        "categoryId": "callouts"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "ffd574d8389c0830ba4d9e992743a39ca5bf5052d5c64b662d99fdab01843cc3",
-        "updatedAt": "2025-09-23T22:54:38.984Z"
+        "vectorSha256": "35305871fad84454b10e890d10fd8c3e4b9f69a602bf3802ba4ac64cdb9de109",
+        "updatedAt": "2025-09-23T23:06:30.523Z"
       }
     },
     "sl-0012": {
@@ -327,26 +327,26 @@
         "definition": "e8c522029cc08c83152e722ff3359f0c744dc90fd6807e509537f9d2d4d90399",
         "example": "fe56208c9e4c131c0046010bdb26eb4579f723ae65f6c9273dbc4b25a6d1088f",
         "hint": "9fde5b811c160c14fc62955dffd14ac467f51a316f7a2787b007f05d2a7e37ec",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "edd4a07dbdab3dc26d3cc53dee6225960e446d04ae753c7fff4b3a0881855515",
-        "tokenSignature": "a-and-clapback-completely-five-gen-her-in-it-likes-minutes-or-original-outnumber-outperforms-post-posts-quote-ratio-ratioed-replies-response-spotlight-steal-the-thread-use-when-z"
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "059ed9fdfb2efe2df23dc78741d173eda7191afe5318322a74e3a01519a23cfd",
+        "tokenSignature": "a-and-callouts-clapback-completely-five-her-in-it-likes-minutes-or-original-outnumber-outperforms-post-posts-quote-ratio-ratioed-reactions-replies-response-spotlight-steal-the-thread-use-when"
       },
       "lengths": {
         "term": 5,
         "definition": 81,
         "example": 62,
         "hint": 64,
-        "category": 5
+        "category": 20
       },
       "source": {
         "sequence": 12,
-        "categoryId": "gen-z"
+        "categoryId": "callouts"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "cb51e40ff45e47051039bf348f6ae47d52399f717ac45acdbdb493f5cf7ae104",
-        "updatedAt": "2025-09-23T22:54:38.985Z"
+        "vectorSha256": "efa2f52626b4ebb66ee8e8393714b0e5af0944ca95ce982fcdcc4838d447013f",
+        "updatedAt": "2025-09-23T23:06:30.524Z"
       }
     },
     "sl-0013": {
@@ -355,26 +355,26 @@
         "definition": "44b6503e7f4e9eccf0ba1ca5a95e865af38c366ece1071cc4bdf952cbc0bc43b",
         "example": "a40d9d85f5c0c372fbf53ca2d21790256344ea5e06e9077c14b3391f39e0601e",
         "hint": "9fb37671cf168820430edf0c4790d4c6fc65f14e7376003751c9bff0a1d04b0a",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "815d1836950e70e62d43b921373e882c4b304c458bb9d7bfe700a4d492b60064",
-        "tokenSignature": "bailed-before-believing-claiming-confirm-demand-drop-evidence-gen-going-he-if-irl-it-on-online-or-project-proof-re-receipts-say-screenshots-tea-that-the-to-use-what-when-you-z"
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "07aa9a908373d290d5cd007a04d96a8ab863c6ec6af48d824608566afc3c32a5",
+        "tokenSignature": "bailed-before-believing-callouts-claiming-confirm-demand-drop-evidence-going-he-if-irl-it-on-online-or-project-proof-re-reactions-receipts-say-screenshots-tea-that-the-to-use-what-when-you"
       },
       "lengths": {
         "term": 8,
         "definition": 69,
         "example": 66,
         "hint": 57,
-        "category": 5
+        "category": 20
       },
       "source": {
         "sequence": 13,
-        "categoryId": "gen-z"
+        "categoryId": "callouts"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "eafda8f925933314999554f88fef8cf22d04c68afeffc22a572321602a165012",
-        "updatedAt": "2025-09-23T22:54:38.986Z"
+        "vectorSha256": "64867073dc8004155add19d13d5a7d042dea470f3f916b25ea0c2a3968a65a19",
+        "updatedAt": "2025-09-23T23:06:30.524Z"
       }
     },
     "sl-0014": {
@@ -383,26 +383,26 @@
         "definition": "7474db25d33cf74fdb2de62bb91133b90df9ec004c3d24cc44d5dd41541e4f13",
         "example": "54c5525eb49a4fb4372c07515025d11dc8346e210dbb58b6587087539bf61fb5",
         "hint": "9702ced1be27017c7dcd80bb5ca662d3f48d037d288512ce95c45766840a476c",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "9779f9652e1bc5f2419500d95ddc81876f45f0679d4bdb26a6be519baa645328",
-        "tokenSignature": "a-about-bothered-can-gen-go-in-inconvenience-it-kart-last-let-losing-mario-minor-or-pressed-s-seriously-she-small-someone-something-still-stressed-t-use-weekend-when-z"
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "cc598cb135541ef9eca41351cc8f2501d30730377ea3669097b9996261df6ff2",
+        "tokenSignature": "a-about-bothered-callouts-can-go-in-inconvenience-it-kart-last-let-losing-mario-minor-or-pressed-reactions-s-seriously-she-small-someone-something-still-stressed-t-use-weekend-when"
       },
       "lengths": {
         "term": 7,
         "definition": 53,
         "example": 60,
         "hint": 55,
-        "category": 5
+        "category": 20
       },
       "source": {
         "sequence": 14,
-        "categoryId": "gen-z"
+        "categoryId": "callouts"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "1b57a30f522d40703e2f9b7dfe49ff0bf48efbb64fd9eea190bc89ccc4f617ed",
-        "updatedAt": "2025-09-23T22:54:38.986Z"
+        "vectorSha256": "6453caf11b0a7d2ed7e203f0369a5d63019b6ed70c800176d4cb70217125f822",
+        "updatedAt": "2025-09-23T23:06:30.524Z"
       }
     },
     "sl-0015": {
@@ -411,26 +411,26 @@
         "definition": "237c9aab7c93a946e61451a06754a1583b892c211724a2dcf0aa9ac65cb3d5f3",
         "example": "3772c519dfbcc478ac6199cbb25392499884297ceb69fe9b9158bbd234ef3f6c",
         "hint": "c7e8f54105e556b8c6da5c0a60ae25a33caf5d7362ee63a0a12d98bff108359c",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "cb37b3e13b85dec445e2e97b2e0bab29e095582b84e4c673f2c16d7e52331ff1",
-        "tokenSignature": "a-an-awkward-big-charts-cringe-dramatic-embarrassment-forgetting-gen-his-is-it-livestream-messy-moment-name-off-on-or-reaction-secondhand-situation-the-to-use-was-when-yikes-z"
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "bec39fa89418652abf6da2e0ce3c747baf4f4afcf4293d73e10bc509f84d78d1",
+        "tokenSignature": "a-an-awkward-big-callouts-charts-cringe-dramatic-embarrassment-forgetting-his-is-it-livestream-messy-moment-name-off-on-or-reaction-reactions-secondhand-situation-the-to-use-was-when-yikes"
       },
       "lengths": {
         "term": 9,
         "definition": 60,
         "example": 61,
         "hint": 55,
-        "category": 5
+        "category": 20
       },
       "source": {
         "sequence": 15,
-        "categoryId": "gen-z"
+        "categoryId": "callouts"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "f7276d3e134e108a8d217bf96ef64a3881e4b033dc19cbeb6c1b77dce3b75ec2",
-        "updatedAt": "2025-09-23T22:54:38.986Z"
+        "vectorSha256": "ab118b35ac8a6b16ca464bd3df0acc147321470a701de0a237b79e99b8eddd50",
+        "updatedAt": "2025-09-23T23:06:30.525Z"
       }
     },
     "sl-0016": {
@@ -439,26 +439,26 @@
         "definition": "40bab8099aba068dbf90b24acf8fa81a819f9e36f41bc3700b07c4728b1def33",
         "example": "559ea58526a511911793e2ce2b171153995c0f39b31c5e61f35436759c1482b6",
         "hint": "19d2af05f51882b3892b24a870f0881683c22d1faae30bd2a4019cc1e14a7bd5",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "38cb2c4013405b662feef7ead23f1b1e26828df16637d7626f16d1e75881831e",
-        "tokenSignature": "a-absurd-alpha-and-break-chaos-chaotic-dance-during-energy-feels-for-full-gen-had-homeroom-into-it-meme-moment-no-nonsense-pure-reason-skibidi-something-speechless-teacher-that-the-turns-use-used-when"
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "e79de20eeab9a9ba57d41659ee5a9300a44db635eade5c527fe851297748cf39",
+        "tokenSignature": "a-absurd-and-break-chaos-chaotic-culture-dance-during-energy-feels-for-full-had-homeroom-internet-into-it-meme-moment-no-nonsense-pure-reason-skibidi-something-speechless-teacher-that-the-turns-use-used-when"
       },
       "lengths": {
         "term": 7,
         "definition": 71,
         "example": 68,
         "hint": 62,
-        "category": 9
+        "category": 16
       },
       "source": {
         "sequence": 16,
-        "categoryId": "gen-alpha"
+        "categoryId": "internet"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "1572109754f6817c313d375037619cac114dfe975916ee225331866b60ff727d",
-        "updatedAt": "2025-09-23T22:54:38.987Z"
+        "vectorSha256": "9975060b959563a72f8ec885befed06c43bfa7f1a492b3f93c8ae47e0a35634d",
+        "updatedAt": "2025-09-23T23:06:30.525Z"
       }
     },
     "sl-0017": {
@@ -467,26 +467,26 @@
         "definition": "56d2cb4c053d3d00980ad42c849a3e2923c183bd44d56ff96cb22f8ef08c822c",
         "example": "675819d2dacc5a8639a9b2d5a8631f3d40de48e7dfac2a91520cfa5cccb9e122",
         "hint": "7cfb7b57bb203af06fdbed2264df04afb3c7eb4baf84b240179522c0036554ad",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "423ed4e8d90de7fe3123d932b6a04711a3c8bfe9d34257dd3280c974773e22d6",
-        "tokenSignature": "after-alpha-bad-can-died-doomscroll-doomscrolling-down-even-feed-gen-i-it-keep-long-my-news-out-phone-put-s-scrolling-should-someone-stayed-stop-stressing-t-the-them-though-through-to-until-up-updates-use-when-wildfire-you"
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "5c8fe3336a05474f9aefc833ff50ce6d6da29e11020c9f68ce00c7225ada72ac",
+        "tokenSignature": "after-bad-can-culture-died-doomscroll-doomscrolling-down-even-feed-i-internet-it-keep-long-my-news-out-phone-put-s-scrolling-should-someone-stayed-stop-stressing-t-the-them-though-through-to-until-up-updates-use-when-wildfire-you"
       },
       "lengths": {
         "term": 10,
         "definition": 62,
         "example": 63,
         "hint": 80,
-        "category": 9
+        "category": 16
       },
       "source": {
         "sequence": 17,
-        "categoryId": "gen-alpha"
+        "categoryId": "internet"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "6481bee077a0a475fec2d48cafa79ebbf74fddde07979119a3bd19c0c3cd8473",
-        "updatedAt": "2025-09-23T22:54:38.989Z"
+        "vectorSha256": "bec3b5415cb659d338c309d20de49262125bf6db5968944b27580fffa0d85049",
+        "updatedAt": "2025-09-23T23:06:30.525Z"
       }
     },
     "sl-0018": {
@@ -495,26 +495,26 @@
         "definition": "bb00d7214912ad61ced1c21a5f6ce4b5f851de8806b18e5d4e3e12482fd29516",
         "example": "0169fcfaa9c09e7e5ae15605698ddc249d1ac69ed935f0476309d42758a275a3",
         "hint": "a30f509e954b1dcc02444d26efef355fa7156f279e60de6dada744557c617c26",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "a1de2fe3812491ae21189a1169d01022685c7c08137f4f83286ba36899a6004a",
-        "tokenSignature": "a-alpha-and-been-being-bit-break-comments-extremely-fighting-for-from-gen-go-grass-hours-in-it-log-needs-off-online-reality-rejoin-reminder-someone-the-to-touch-use-ve-when-you"
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "941be7595276dd404c0d22b81d22fe4b7a931e2190724c8aafcc3cb67af01e47",
+        "tokenSignature": "a-and-been-being-bit-break-comments-culture-extremely-fighting-for-from-go-grass-hours-in-internet-it-log-needs-off-online-reality-rejoin-reminder-someone-the-to-touch-use-ve-when-you"
       },
       "lengths": {
         "term": 11,
         "definition": 51,
         "example": 62,
         "hint": 62,
-        "category": 9
+        "category": 16
       },
       "source": {
         "sequence": 18,
-        "categoryId": "gen-alpha"
+        "categoryId": "internet"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "9408d117b1d97e581acca1ace2fa1a5d423e2abc75a78f58e72ec02330a4392e",
-        "updatedAt": "2025-09-23T22:54:38.989Z"
+        "vectorSha256": "63d1ec4230f46150d8a3aa72e6bafaa46f5de0fc8c91473e61f81daddc454950",
+        "updatedAt": "2025-09-23T23:06:30.525Z"
       }
     },
     "sl-0019": {
@@ -523,26 +523,26 @@
         "definition": "a27d10bba6d95ee2eeb4c96007797ce18c15219980c9c86a39a4a9a2311fd705",
         "example": "f5ef994f725debf442aebcca04b8cc0acc8a46da9ad70105ff6f8ca6ab2e519d",
         "hint": "e1d24e3afd4d0717e06fb2cc2e5edbf76a38505854086af6e76ec1fe382f7769",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "9a5a1fe9dc6322db586ffa5b35882a68a38c92cea48a02c50a0d62dabdab112e",
-        "tokenSignature": "a-acting-alpha-at-autopilot-be-cashier-customer-every-felt-gen-it-like-line-moment-move-npc-of-on-or-out-person-real-repeating-robotic-same-scripted-seems-someone-the-to-total-touch-use-vibes-when-with-without"
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "f54be22e3a0f75d2ec0f7fee16343455e339677e73cea2ee7d97797efd59999e",
+        "tokenSignature": "a-acting-at-autopilot-be-cashier-culture-customer-every-felt-internet-it-like-line-moment-move-npc-of-on-or-out-person-real-repeating-robotic-same-scripted-seems-someone-the-to-total-touch-use-vibes-when-with-without"
       },
       "lengths": {
         "term": 3,
         "definition": 66,
         "example": 81,
         "hint": 65,
-        "category": 9
+        "category": 16
       },
       "source": {
         "sequence": 19,
-        "categoryId": "gen-alpha"
+        "categoryId": "internet"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "7cd8647c4c876c62101739ad759dc859f93e687206203be9733d1650399ac9ae",
-        "updatedAt": "2025-09-23T22:54:38.989Z"
+        "vectorSha256": "b404650d7f16c6dda0703ec32e0731c6bbaea28c383d016d20cba0aae1bc3274",
+        "updatedAt": "2025-09-23T23:06:30.525Z"
       }
     },
     "sl-0020": {
@@ -551,26 +551,26 @@
         "definition": "1b2f9579685311b2f16cf79c71eb2453e050881e5ebc0d2f85268879c03b6d36",
         "example": "c4fb2b5f1e3ee6623f0ac78ff86eb3132d20549b0fc6c31d90c0c7e8c14da282",
         "hint": "de27276f8ed600dc8775f3a6234699af7265b377e09524b47cf14f78cc9881e4",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "0f8618a4f8d65cdcc018c8994b7417843e73848b3c26ca39680da575ef5136fb",
-        "tokenSignature": "a-alpha-arc-because-becomes-canon-chaotic-event-future-gen-i-into-it-life-major-met-missing-moment-my-of-on-origin-part-personal-platform-roommate-shapes-story-that-the-train-turned-use-when-your"
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "5462fbf5ed86a14189656d1d5642c724fdf70e0d239bb043b2f89f8df2b7f077",
+        "tokenSignature": "a-arc-because-becomes-canon-chaotic-culture-event-future-i-internet-into-it-life-major-met-missing-moment-my-of-on-origin-part-personal-platform-roommate-shapes-story-that-the-train-turned-use-when-your"
       },
       "lengths": {
         "term": 11,
         "definition": 56,
         "example": 94,
         "hint": 63,
-        "category": 9
+        "category": 16
       },
       "source": {
         "sequence": 20,
-        "categoryId": "gen-alpha"
+        "categoryId": "internet"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "211267643d9c9302c5b235be1c679736ccf299613394926c841df6614c43f51b",
-        "updatedAt": "2025-09-23T22:54:38.989Z"
+        "vectorSha256": "3336514018b82bcf75036dd300e4ba8ddb220569a1e008c79987a8ec9a37527f",
+        "updatedAt": "2025-09-23T23:06:30.525Z"
       }
     },
     "sl-0021": {
@@ -579,26 +579,26 @@
         "definition": "8226ba240648ef01b13b9f4c85b86c4437e0400a9252cf40c8616cda016dec8d",
         "example": "e303cf6ed616049b0c4f35b6819c92170ee32fb414919c25180ecb9dbabf3d34",
         "hint": "ac453d765e576b589f6462496d473472187134f88f4edf8f80ec1d9955f366f9",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "a2d0932bbc581c4739b0f71de92af78589dfa3879f702508e2ff3d52350283f1",
-        "tokenSignature": "a-alpha-behavior-calling-chronically-clearly-context-culture-deep-era-every-forgotten-gen-gets-in-inconvenience-internet-is-it-left-life-never-online-peak-real-s-so-someone-takes-that-the-timeline-use-villain-when"
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "17ac51ab1846bf1176edef6e00e09f34e4321b789767f29098ecb82b46799988",
+        "tokenSignature": "a-behavior-calling-chronically-clearly-context-culture-deep-era-every-forgotten-gets-in-inconvenience-internet-is-it-left-life-never-online-peak-real-s-so-someone-takes-that-the-timeline-use-villain-when"
       },
       "lengths": {
         "term": 18,
         "definition": 66,
         "example": 78,
         "hint": 60,
-        "category": 9
+        "category": 16
       },
       "source": {
         "sequence": 21,
-        "categoryId": "gen-alpha"
+        "categoryId": "internet"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "7dcc2cf112a5b37cccbd1ea7553284e57c06090f491906283b91fe3dc8afeb1e",
-        "updatedAt": "2025-09-23T22:54:38.989Z"
+        "vectorSha256": "ff68282fb39f2380808e842a3a67c58de540bc703afce681cea8c9a8395e68e3",
+        "updatedAt": "2025-09-23T23:06:30.525Z"
       }
     },
     "sl-0022": {
@@ -607,26 +607,26 @@
         "definition": "14cec629e77851e246385e76f1155adaa70bf1898ed54332978e8740a560e6a7",
         "example": "9568249f958af6d11ad739db5f628da499a0f823d9b35af06eefee695cc3a400",
         "hint": "5fd21594cf02ae4468baaf6c6cb71a1eab50afcb4f98eb70071d96117addcbbc",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "bcd620cf51a989a510e6f3ed9ed7ccf7341b1da621886c1879e862c5398562c6",
-        "tokenSignature": "a-album-all-alpha-because-brainrot-consumes-conversation-every-gen-got-has-have-is-it-k-literally-meme-new-obsession-one-or-over-play-pop-show-song-taken-the-thoughts-use-ve-we-when-you-your"
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "4f8c0997479ba726911d9e1d4117428214fe3b9abfbd4d2ee96c7861c7abef78",
+        "tokenSignature": "a-album-all-because-brainrot-consumes-conversation-culture-every-got-has-have-internet-is-it-k-literally-meme-new-obsession-one-or-over-play-pop-show-song-taken-the-thoughts-use-ve-we-when-you-your"
       },
       "lengths": {
         "term": 8,
         "definition": 64,
         "example": 72,
         "hint": 55,
-        "category": 9
+        "category": 16
       },
       "source": {
         "sequence": 22,
-        "categoryId": "gen-alpha"
+        "categoryId": "internet"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "881b4db475b12c31a4987375bd9a9976ae2a3e20fc7ad4f785fb6de3e69af5d9",
-        "updatedAt": "2025-09-23T22:54:38.989Z"
+        "vectorSha256": "3ff2853e976eb5bcbcfe197604a837a4ddf5757c01d64ca1e1e7a5f4c860f870",
+        "updatedAt": "2025-09-23T23:06:30.525Z"
       }
     },
     "sl-0023": {
@@ -635,26 +635,26 @@
         "definition": "19ac16100ccca78f898f6d21265e476cb744a89fc75ff388a0b2514c26aa2954",
         "example": "305148be301538cb2a4c76ef3c1e8bc7b99707a40674577fae156ec0d40ade9b",
         "hint": "02d9b3a7855a80fab713780029575b1f1033a0fee53cc86d3cabc47fba63561b",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "f250e4706601e09093f00fca823b40f9f2f03bbafa56cc026c864032a7e97683",
-        "tokenSignature": "across-alpha-and-at-before-blowing-content-crashed-diy-enough-everyone-explodes-fast-gen-her-hours-it-light-lunch-online-ring-sees-shop-speed-that-timelines-tutorial-up-use-viral-went-when-within"
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "c9e98aa2895661d48beb349d55529f3e6a7da3c8fa7014f121da5cf9260c9686",
+        "tokenSignature": "across-and-at-before-blowing-content-crashed-culture-diy-enough-everyone-explodes-fast-her-hours-internet-it-light-lunch-online-ring-sees-shop-speed-that-timelines-tutorial-up-use-viral-went-when-within"
       },
       "lengths": {
         "term": 5,
         "definition": 65,
         "example": 67,
         "hint": 61,
-        "category": 9
+        "category": 16
       },
       "source": {
         "sequence": 23,
-        "categoryId": "gen-alpha"
+        "categoryId": "internet"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "0eb595d94d61a792b4af503c6737e4fa388b9886cda9ce3bf2cec363f4078a83",
-        "updatedAt": "2025-09-23T22:54:38.989Z"
+        "vectorSha256": "bb786b11573ad0922b84d1094f3b1e966c16f7fe0794f2a0b821f2596b7db2a1",
+        "updatedAt": "2025-09-23T23:06:30.526Z"
       }
     },
     "sl-0024": {
@@ -663,26 +663,26 @@
         "definition": "fd6bb3a7637d12fb3bb1ec77996758f824132620247238e16c8a25302a44e1b2",
         "example": "791225591effe585f12f7d0b4feeff9813bbc2f1d2f869fe08531afc5e81dfa0",
         "hint": "108f1f0c743c6f1219306baa2a4fd35ad14910a700c28b1858c9bf05c1fcd933",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "301d69a2bf0e025b073cde8f4336476620bfb5e0ed09b898359ea56cc54de25d",
-        "tokenSignature": "a-and-basket-because-before-bite-can-claiming-demand-fanum-food-friend-from-fry-gen-hand-i-it-jokingly-just-of-over-pay-raid-s-snacks-squad-tax-the-use-when-whole-you-your-z"
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "ee6255150250d7546ce617187278a5f147773c8462e77dc93d98273e2c2ce8f6",
+        "tokenSignature": "a-and-basket-because-before-bite-can-claiming-daily-demand-fanum-food-friend-from-fry-hand-i-it-jokingly-just-life-of-over-pay-raid-relationships-s-snacks-squad-tax-the-use-when-whole-you-your"
       },
       "lengths": {
         "term": 9,
         "definition": 59,
         "example": 69,
         "hint": 54,
-        "category": 5
+        "category": 26
       },
       "source": {
         "sequence": 24,
-        "categoryId": "gen-z"
+        "categoryId": "relationships"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "7c4b5cdaf51a1c5593b4d546e3921b1e96d67266f29c594ae3bfe0036b3b78dd",
-        "updatedAt": "2025-09-23T22:54:38.989Z"
+        "vectorSha256": "122afafa915158f6a3f4948fa72e32cbb194489b8b17c8a226009d03181df3e6",
+        "updatedAt": "2025-09-23T23:06:30.526Z"
       }
     },
     "sl-0025": {
@@ -691,26 +691,26 @@
         "definition": "542c4508ed4d7cab304996aa1bd3cbcb3b9316f65a4e6dc7d13f557dadfd47f3",
         "example": "7340bc165fdd614af74e4a12532e01a043823c9a6a559a5adb51ed1bde0c3a83",
         "hint": "b5eba26be8048a76bbec612fa789d77108b9ee554af0858cdfa7572d614df309",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "fac5df5a70f0f8311a914639cf6237e56dcfb1c615820f66844bbf65f4393a56",
-        "tokenSignature": "a-been-but-defined-feels-for-friends-fully-gen-hasn-in-it-labeled-labels-months-more-movie-nights-no-not-official-relationship-romantic-s-situationship-t-than-that-use-ve-vibe-we-when-z"
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "eb01b0a714d6a47b5eafa7564553555e75944c23c0ab237519cd33e59888e645",
+        "tokenSignature": "a-been-but-daily-defined-feels-for-friends-fully-hasn-in-it-labeled-labels-life-months-more-movie-nights-no-not-official-relationship-relationships-romantic-s-situationship-t-than-that-use-ve-vibe-we-when"
       },
       "lengths": {
         "term": 13,
         "definition": 63,
         "example": 65,
         "hint": 66,
-        "category": 5
+        "category": 26
       },
       "source": {
         "sequence": 25,
-        "categoryId": "gen-z"
+        "categoryId": "relationships"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "30779ad41a2b35dd9fa1177539d2fbb014740a9da509e42ba7254bc4e7a316d4",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "4ec49a6f9d41ca35bab1a0865013f64201af52536703e60788fbdad115e2d3a8",
+        "updatedAt": "2025-09-23T23:06:30.526Z"
       }
     },
     "sl-0026": {
@@ -719,26 +719,26 @@
         "definition": "6092c472b1eb8b11d089a7908b2d8e5066dc6e2aa188c481c2a46502c881eec8",
         "example": "3795dc92894dcb8fbfb0061e46ec50e55806180920fc45e3dfde46406c6c2642",
         "hint": "58b8de61be727bd362edba45ea45ff4fb13c27c0989d6324bf8a4d85f51e750b",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "3ce8d1087a871f03882af78857a07fe8c4da6c65289c4159e78b140e7ff10e1f",
-        "tokenSignature": "a-and-announcement-before-coffee-cups-feed-full-gen-her-hints-instead-is-it-launch-launched-new-no-of-or-partner-project-relationship-reveal-she-soft-someone-story-subtle-tags-teasing-the-two-up-use-warming-when-with-z"
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "35bcc3f136aad4db2b7d7b51c9828cde12dab95d824dac3ad2eae99a4cba055e",
+        "tokenSignature": "a-and-announcement-before-coffee-cups-daily-feed-full-her-hints-instead-is-it-launch-launched-life-new-no-of-or-partner-project-relationship-relationships-reveal-she-soft-someone-story-subtle-tags-teasing-the-two-up-use-warming-when-with"
       },
       "lengths": {
         "term": 11,
         "definition": 76,
         "example": 74,
         "hint": 70,
-        "category": 5
+        "category": 26
       },
       "source": {
         "sequence": 26,
-        "categoryId": "gen-z"
+        "categoryId": "relationships"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "35cc5c0e16e7ce1c2940cdfc69db28794d451758b6d137a1864d2c287b714ffa",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "2824182fe59d7df94a1b57b1b354bdc03593f21f0ed0e6c8bd67a60d4bbc03d7",
+        "updatedAt": "2025-09-23T23:06:30.526Z"
       }
     },
     "sl-0027": {
@@ -747,26 +747,26 @@
         "definition": "cfec34d270dba00fb4c350e03f1d8efb31cbc0e019c9eb00ee3983a1f7a4a2bf",
         "example": "4b736cad0db5cea37b09048998138fc0d4e640663bd0de7cd78fb73658ff4b99",
         "hint": "8fb8e8eb5805ba46c65eb32587ae6ab2231a98f4df797dcc0a7a94256ac4cccd",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "207dfe494a1211ef945d40a5c9fcbe5f217345e08485407783c547b5d5a59146",
-        "tokenSignature": "a-after-and-caption-carousel-ends-gen-hard-is-it-launch-leaves-months-mystery-no-of-official-photos-questions-reveal-tags-teasing-that-the-their-unmistakable-use-vacation-was-when-z"
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "69799eec8dcdcdf8221656481a600f0f9b2f0ed61bb0349aba1dc04f5b244a71",
+        "tokenSignature": "a-after-and-caption-carousel-daily-ends-hard-is-it-launch-leaves-life-months-mystery-no-of-official-photos-questions-relationships-reveal-tags-teasing-that-the-their-unmistakable-use-vacation-was-when"
       },
       "lengths": {
         "term": 11,
         "definition": 73,
         "example": 66,
         "hint": 60,
-        "category": 5
+        "category": 26
       },
       "source": {
         "sequence": 27,
-        "categoryId": "gen-z"
+        "categoryId": "relationships"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "e88c8aaebd5558934e1b3de4d77ebe96e7c778b025e82bb43dab9342f2ec883e",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "66881d241b6fb2a395d5dd448343b14c5173cb64f00a072c53fbe3cd90c6e2c2",
+        "updatedAt": "2025-09-23T23:06:30.526Z"
       }
     },
     "sl-0028": {
@@ -775,26 +775,26 @@
         "definition": "706bf828a6d1d08517508bd1ac643dcbd1835efe1cb088d25f9b537894a42ade",
         "example": "91daae1a24258d0237120b7772cd71e3e1ee3b038496a1980aedaa67c220e989",
         "hint": "5ff6b004265e2b7c37086ace8c172baf5a062f7aae8234b530bae62a9331bf7b",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "f510796468f8b59811884c9579cf7740b117f322ad9f0bfe31e77ae5d4c69099",
-        "tokenSignature": "a-adventure-becomes-but-day-detour-detours-edition-for-from-gen-grocery-highlight-hunt-it-limited-main-of-or-plan-quest-random-shopping-side-sneakers-spontaneous-task-that-the-to-took-use-we-were-when-z"
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "33e621ca083850d38fda2b0b72ee48eb3afd4c66e80babb07418a2013fdd23b8",
+        "tokenSignature": "a-adventure-becomes-but-daily-day-detour-detours-edition-for-from-grocery-highlight-hunt-it-life-limited-main-of-or-plan-quest-random-relationships-shopping-side-sneakers-spontaneous-task-that-the-to-took-use-we-were-when"
       },
       "lengths": {
         "term": 10,
         "definition": 59,
         "example": 84,
         "hint": 66,
-        "category": 5
+        "category": 26
       },
       "source": {
         "sequence": 28,
-        "categoryId": "gen-z"
+        "categoryId": "relationships"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "e57a3c482205eae5b6b87bb20fa524a6c6ed63694a38c9e529541a2c138f3f9b",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "27b6b4f338891c28c75f9983b77017261d6316dc86e70a6e3090987608c71185",
+        "updatedAt": "2025-09-23T23:06:30.526Z"
       }
     },
     "sl-0029": {
@@ -803,26 +803,26 @@
         "definition": "fa63b8120c92e2c5464e03a004f9d6f9c4af7771947f547a445beaa591807ea2",
         "example": "6403fa87f2c53e709f62955e705825c4c74237c55afdb35f2f2fca952fee483f",
         "hint": "6a87477963f9248fe4b3d9788b760ab2fa488a9b42a9bca7d9959a0c8b8e9fa9",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "3926387dfa38376fbc87cfe1364a16a224c144e392679e8f9a89af1667fa5c42",
-        "tokenSignature": "a-and-assembled-cheese-cobble-cooking-cozy-crackers-dinner-from-gen-girl-good-in-instead-is-it-kitchen-looks-meal-my-of-plate-snack-strawberries-style-the-three-together-tonight-types-use-whatever-when-you-z"
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "19f68eeacd2be29d736c8151a38560c751781cce3cbfdedfcd2526c8469d4bc2",
+        "tokenSignature": "a-and-assembled-cheese-cobble-cooking-cozy-crackers-daily-dinner-from-girl-good-in-instead-is-it-kitchen-life-looks-meal-my-of-plate-relationships-snack-strawberries-style-the-three-together-tonight-types-use-whatever-when-you"
       },
       "lengths": {
         "term": 11,
         "definition": 69,
         "example": 76,
         "hint": 70,
-        "category": 5
+        "category": 26
       },
       "source": {
         "sequence": 29,
-        "categoryId": "gen-z"
+        "categoryId": "relationships"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "d93e6286400546067368240ecf2c70483e3b611b885050895fad32eaf71d99d4",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "045c8016de90660598efe63fe2365f462188fcf1b4639afaa49de33a221773cb",
+        "updatedAt": "2025-09-23T23:06:30.526Z"
       }
     },
     "sl-0030": {
@@ -831,26 +831,26 @@
         "definition": "8e438d92bd54803352b40f6d674bac0df80df1ad62acdfa1addfdeced897ece8",
         "example": "3c198d4de6ffa08dd3d32e4f5de7362b30848f873500353cc4bc08a95fa61daf",
         "hint": "636bcaff2dc4b5e766f90cab7c5f82a8cfa665954a5201dac82fa24baed3f977",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "16a62f474688e38e5f85a65d7f7ff732746c287563f839617d5d049556e303a6",
-        "tokenSignature": "a-before-bestie-circle-closest-endearment-fave-for-friend-gen-go-hyping-in-inner-it-jacket-link-me-of-online-or-out-re-sells-send-someone-term-that-the-to-use-when-you-your-z"
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "851df143d49d330b6fcf63a73d6ae49da792d89fcbc121bfee9f58287814ef41",
+        "tokenSignature": "a-before-bestie-circle-closest-daily-endearment-fave-for-friend-go-hyping-in-inner-it-jacket-life-link-me-of-online-or-out-re-relationships-sells-send-someone-term-that-the-to-use-when-you-your"
       },
       "lengths": {
         "term": 6,
         "definition": 66,
         "example": 60,
         "hint": 55,
-        "category": 5
+        "category": 26
       },
       "source": {
         "sequence": 30,
-        "categoryId": "gen-z"
+        "categoryId": "relationships"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "2f0f38ecd992a3231c6eb286cc50ed20688ab5e30cb42f916c464cd0764c6f62",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "d495106455b12352eb8ebbf5bd548d5fb26f9531498511e4fcf46d3b22694889",
+        "updatedAt": "2025-09-23T23:06:30.526Z"
       }
     },
     "sl-0031": {
@@ -859,26 +859,26 @@
         "definition": "504a389f421157c246a37c1a6ba90a0f3bee5aae63f7f24352bc2f3ca72f7c2c",
         "example": "1164a2602369c414ec5d9f9f6dc6bd7271f472c985189fb1b31facd287277f60",
         "hint": "440aa18fd97b69c521aae1bbf2400a54e02ef4d71f7875d34df62a487046c9f2",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "c5d8569c001e8f0b39c3f5d3765f7b6357c7094eb25f65049c611b0dfc0989dc",
-        "tokenSignature": "a-adulting-all-and-catching-chores-d-emails-even-felt-folding-gen-grown-handling-human-it-laundry-like-not-on-or-paperwork-peak-rather-re-responsibilities-responsible-sunday-tackling-up-use-when-you-z"
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "73410a5757a739278dc37e781e4840b85a30d857c8d46474d83eedb866c796b5",
+        "tokenSignature": "a-adulting-all-and-catching-chores-d-daily-emails-even-felt-folding-grown-handling-human-it-laundry-life-like-not-on-or-paperwork-peak-rather-re-relationships-responsibilities-responsible-sunday-tackling-up-use-when-you"
       },
       "lengths": {
         "term": 8,
         "definition": 62,
         "example": 77,
         "hint": 73,
-        "category": 5
+        "category": 26
       },
       "source": {
         "sequence": 31,
-        "categoryId": "gen-z"
+        "categoryId": "relationships"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "3ea1dd4adfd7a1cb53593be7adba6d3b27e73f9c79b9180930bc61706ca7c115",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "81ffab07d21ae938aefc4346f4d94ae70f079d6648803b0c037fdc878248ca75",
+        "updatedAt": "2025-09-23T23:06:30.526Z"
       }
     },
     "sl-0032": {
@@ -887,26 +887,26 @@
         "definition": "352ca04b03319f3b86fbc193f993e0e10d7c31fe45c429cf0b8a05b5efb841b7",
         "example": "665a2f20cba7fea8072ae8c2d2690aaa7e0dc042d2680d99801e1b7486f4199d",
         "hint": "512afd51d8d22ce499e25514f013e7a4c7e5a9ee232b2e5f50fff99b0a3e99e8",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "28626f5da5509c60f4ae2523c8887989c0e8032f6c7bf5f6263f249aa6d7e802",
-        "tokenSignature": "a-accessory-alpha-chasing-drip-effortlessly-fashionable-festival-for-game-gen-had-him-his-is-it-look-or-outfit-photographers-s-seriously-shots-someone-street-style-stylish-use-when"
+        "category": "00190eb0145de0d0b5e6b986dab2becdead79c3a3935186a64528e87dde29bf1",
+        "combined": "1bae71d6e3988d352550e5bf72c3bf7f8694c98897d979d85f3a1bbae0ead1c0",
+        "tokenSignature": "a-accessory-aesthetic-chasing-drip-effortlessly-fashionable-festival-for-game-had-him-his-is-it-look-or-outfit-photographers-s-seriously-shots-someone-street-style-stylish-use-when"
       },
       "lengths": {
         "term": 4,
         "definition": 45,
         "example": 71,
         "hint": 55,
-        "category": 9
+        "category": 17
       },
       "source": {
         "sequence": 32,
-        "categoryId": "gen-alpha"
+        "categoryId": "style"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "1faa0dee4f3b1ed0c214eb722a09c5af01e516796d6c20636399804b65f59607",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "ac1850b1f7cdbfeec937f80da5fe9c9f3c3294807e0ab0d87e3e3acdffc9574e",
+        "updatedAt": "2025-09-23T23:06:30.526Z"
       }
     },
     "sl-0033": {
@@ -915,26 +915,26 @@
         "definition": "ab560d29dfabe41ccdfb9ecdf2a42b029263d5c495f26d3ebe6b5733ca05218e",
         "example": "fa0bbaf5f9751f6581458e553295358616462868262c5fb1058d36b5ea1eb0f0",
         "hint": "70a88606a45f7b6e4782f37ba7b9e648de8c4e315f5a725d95ba4f2c8dce456c",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "8e959f4548529ea2207374bd3ba320118e96e6e5828c0512e47c0bc11eab28ae",
-        "tokenSignature": "a-accident-alpha-before-by-chat-check-don-drop-fit-from-gen-group-head-in-it-leave-of-or-outfit-outfits-quick-rate-rating-s-show-showcase-so-someone-squad-t-the-their-to-toe-twin-use-want-we-when-you-your"
+        "category": "00190eb0145de0d0b5e6b986dab2becdead79c3a3935186a64528e87dde29bf1",
+        "combined": "6a5fc1e71f8c19a933a6e2f696a6c1096832c498316498c9674865f06b5f7fe3",
+        "tokenSignature": "a-accident-aesthetic-before-by-chat-check-don-drop-fit-from-group-head-in-it-leave-of-or-outfit-outfits-quick-rate-rating-s-show-showcase-so-someone-squad-style-t-the-their-to-toe-twin-use-want-we-when-you-your"
       },
       "lengths": {
         "term": 9,
         "definition": 64,
         "example": 83,
         "hint": 61,
-        "category": 9
+        "category": 17
       },
       "source": {
         "sequence": 33,
-        "categoryId": "gen-alpha"
+        "categoryId": "style"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "f5abb0d96981a35bb4c6cd1c41567db9cfb42a679c18fc2952adcc3e8436b332",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "d39f1d0cf992f7830f26e141153030a74feb4c5345ecc1b013309d302f579514",
+        "updatedAt": "2025-09-23T23:06:30.526Z"
       }
     },
     "sl-0034": {
@@ -943,26 +943,26 @@
         "definition": "b39f931207420a636104195441b507f856412c78f45ae4b9d6dddb437def314a",
         "example": "3b71d50c171c5b5b6a7a2f648e36368e6db4b051b3d977848287ac15d56bba05",
         "hint": "90353e6a7eb4018e65f16a9da4d19b5d67d376f15ddd184d484c4543ccb9fa91",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "6ce9b14d736f807580216eaf238eb03eb23ba574d6c7a81efd22e5a9fbc4d20a",
-        "tokenSignature": "a-aesthetic-alpha-and-bun-clean-dewy-fit-fresh-full-gen-girl-gold-hair-hoops-in-is-it-look-minimal-mode-monochrome-neutral-polished-pulled-put-s-she-simple-skin-slick-someone-together-tones-ultra-up-use-when-with"
+        "category": "00190eb0145de0d0b5e6b986dab2becdead79c3a3935186a64528e87dde29bf1",
+        "combined": "2c38aa2cc70d82fcb1789a544167fab57afc56fa8b20f05fd3df35d69d4119ac",
+        "tokenSignature": "a-aesthetic-and-bun-clean-dewy-fit-fresh-full-girl-gold-hair-hoops-in-is-it-look-minimal-mode-monochrome-neutral-polished-pulled-put-s-she-simple-skin-slick-someone-style-together-tones-ultra-up-use-when-with"
       },
       "lengths": {
         "term": 10,
         "definition": 76,
         "example": 82,
         "hint": 68,
-        "category": 9
+        "category": 17
       },
       "source": {
         "sequence": 34,
-        "categoryId": "gen-alpha"
+        "categoryId": "style"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "7ae6da4d582e3124573d1c1fc3b528146e3be803e1ea694a8821946f57028366",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "3141a185e81d487b342c7447d9f7f35b0a1d9f895ca35614aa63c27bad55b85f",
+        "updatedAt": "2025-09-23T23:06:30.526Z"
       }
     },
     "sl-0035": {
@@ -971,26 +971,26 @@
         "definition": "5f959e2c1bef32dba8f4aa4015290328560f3fa61776fc022eef6ae6174b252c",
         "example": "6d6cbef35437a6997f786ab36b437239da77fefc424c0960dbbd1f9d0470e85f",
         "hint": "51c16e47cd08da583b6354d63a290bbcff54ec8937fbef3bca8d28708458c53b",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "ce3d1004f7fc2431c5d8b3c7c34c16bbc54f307ab37ef94b19a5fc5e65592148",
-        "tokenSignature": "a-after-alpha-and-cinched-crazy-dress-gen-glam-had-her-is-it-look-looking-makeup-often-on-or-perfectly-photos-point-prep-prom-sculpted-sharply-snatched-styled-tailored-the-use-waist-went-when"
+        "category": "00190eb0145de0d0b5e6b986dab2becdead79c3a3935186a64528e87dde29bf1",
+        "combined": "5a0b92f4e234c856e85c93fbfd8573b9d2020b137d425237986afcbce976ee34",
+        "tokenSignature": "a-aesthetic-after-and-cinched-crazy-dress-glam-had-her-is-it-look-looking-makeup-often-on-or-perfectly-photos-point-prep-prom-sculpted-sharply-snatched-style-styled-tailored-the-use-waist-went-when"
       },
       "lengths": {
         "term": 8,
         "definition": 70,
         "example": 64,
         "hint": 61,
-        "category": 9
+        "category": 17
       },
       "source": {
         "sequence": 35,
-        "categoryId": "gen-alpha"
+        "categoryId": "style"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "bc3443b8715925396a1adbb9dc38b8d37ff73d2a82c4a7b41388c48bbdc8c30e",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "6afb81445966b29c66ab93d797ddd1edebc0000e934d59279483436dada62053",
+        "updatedAt": "2025-09-23T23:06:30.527Z"
       }
     },
     "sl-0036": {
@@ -999,26 +999,26 @@
         "definition": "dbf9ffb12117a890fde5dc571a68690d1d0a392d79f196c309854185f7247596",
         "example": "e7537b9dae590a4c3a87691be2c952bd322068a7581cc5933ff507623b6327ad",
         "hint": "1868dbf1eb0da7cb5cd90d0ec23a10f6db3c37fc3f5941aab038dde8bc1c2063",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "f24bfd5345c7e32bb43406fba3dfa5053b41bc9aafb8040ee7512adecfb37893",
-        "tokenSignature": "a-alpha-and-begged-everyone-finds-for-found-from-full-gems-gen-haul-he-it-name-of-off-posted-reveal-scored-secondhand-show-store-tees-the-thrift-thrifting-use-vintage-when-while-you"
+        "category": "00190eb0145de0d0b5e6b986dab2becdead79c3a3935186a64528e87dde29bf1",
+        "combined": "c7e875eabb3711363a3e17af9dc49bb0023b03afed41db2914c1b4ea355bdadd",
+        "tokenSignature": "a-aesthetic-and-begged-everyone-finds-for-found-from-full-gems-haul-he-it-name-of-off-posted-reveal-scored-secondhand-show-store-style-tees-the-thrift-thrifting-use-vintage-when-while-you"
       },
       "lengths": {
         "term": 11,
         "definition": 51,
         "example": 84,
         "hint": 60,
-        "category": 9
+        "category": 17
       },
       "source": {
         "sequence": 36,
-        "categoryId": "gen-alpha"
+        "categoryId": "style"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "fc0d75f2bd2035812466101a17bb21a5298a40e1085dd2c6a6074cf28b300dae",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "64fd734f157ad686dbeeed5a7adf6bf321d452641e7d90cb02d336cfc420af88",
+        "updatedAt": "2025-09-23T23:06:30.527Z"
       }
     },
     "sl-0037": {
@@ -1027,26 +1027,26 @@
         "definition": "e5ffaf392d75ba9eb42fe1196aafe23f4bb4f8ca91748602ebad3aa196883c62",
         "example": "79a6dabf995bd51a99b7271c9379ea69c7a271fbbe3a62bcea1c2a9d95ae2b2f",
         "hint": "e1e03306b561ce7e809d562df1d7e3d3b42bd9c6c4c216e416f341a00368548a",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "b676b81a144890323afd4388762b328ed793eb1a4084090d406b78cade600a34",
-        "tokenSignature": "a-alpha-and-confidence-deserves-gen-glow-hair-her-improvement-in-included-it-job-major-new-or-overall-s-someone-spotlight-style-this-transformation-unstoppable-up-use-vibe-when-year"
+        "category": "00190eb0145de0d0b5e6b986dab2becdead79c3a3935186a64528e87dde29bf1",
+        "combined": "9a6bcc020ecfcfbbe333aa906f8a4f3c383e23c97721199895e0ccb040cd87d6",
+        "tokenSignature": "a-aesthetic-and-confidence-deserves-glow-hair-her-improvement-in-included-it-job-major-new-or-overall-s-someone-spotlight-style-this-transformation-unstoppable-up-use-vibe-when-year"
       },
       "lengths": {
         "term": 7,
         "definition": 58,
         "example": 79,
         "hint": 58,
-        "category": 9
+        "category": 17
       },
       "source": {
         "sequence": 37,
-        "categoryId": "gen-alpha"
+        "categoryId": "style"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "834472781e8728e6610e50be48c8c578d96a56530346f552e99807947552b0b2",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "57ad263ace239f17ca55ba604f42436736b56d2d12a696dcb090fc509fa03602",
+        "updatedAt": "2025-09-23T23:06:30.527Z"
       }
     },
     "sl-0038": {
@@ -1055,26 +1055,26 @@
         "definition": "df6e55138cbcda70432d23e4984fc05837b8ada72d84cf0f0fb843e291c4172d",
         "example": "38da859d40d3b7916faa0e27edf94909d94b0d656cbcb7540f1f532d03f5fe2a",
         "hint": "1fbf37ac8307883c2a1ff7ed5f7e2a07085c7e512404955209e9a9dab9fe3a5e",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "330e17616a64bc3eafa77b37c6b1ca02545ffad98519495f4d18a01e12c67b01",
-        "tokenSignature": "a-afterparty-before-check-class-did-energy-gauging-gen-in-inviting-it-jumping-making-mood-move-on-quick-re-read-room-s-the-to-use-vibe-we-when-whole-you-z"
+        "category": "2964224f9c24740bc17a90cc7d5bc9dc2abd27b383b5eaee701d87408ec6e490",
+        "combined": "618be1cc69e36e120e535fa93a46a37a19249c96a77fa56df2ad31745950f7d5",
+        "tokenSignature": "a-afterparty-before-check-class-did-energy-feelings-gauging-in-inviting-it-jumping-making-mood-move-on-quick-re-read-room-s-the-to-use-vibe-vibes-we-when-whole-you"
       },
       "lengths": {
         "term": 10,
         "definition": 55,
         "example": 70,
         "hint": 54,
-        "category": 5
+        "category": 16
       },
       "source": {
         "sequence": 38,
-        "categoryId": "gen-z"
+        "categoryId": "vibes"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "28a7f149199c948cd8de438747cda0b434076a2a0b0bd72e794f855be3c3e1de",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "5f03e57e85102684676c6826feee848c1d904118d5d31f64491b16362ac51420",
+        "updatedAt": "2025-09-23T23:06:30.527Z"
       }
     },
     "sl-0039": {
@@ -1083,26 +1083,26 @@
         "definition": "ef9b3101258f7afdae2fdb8a9f5e85bc1af5e328fef5d8db9ed266da36e25bae",
         "example": "940dee7635e38f77a68be0a6885722fb584b5c174ff11e8b471594cfc3d904dd",
         "hint": "98308ae417510ff70ca7e40f34b840ce1e053f128b8b093a57c97a34ce15d54a",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "6603d9262f6ad5c9eb7750abfa3c61cfaeb97c38ff7180bd0751ba0c4d7216e4",
-        "tokenSignature": "a-aesthetic-bookstore-compare-cozy-decor-energy-game-gen-giving-idea-is-it-look-lounge-mixed-moment-nails-new-night-or-particular-s-someone-specific-the-to-use-vibe-way-when-with-z"
+        "category": "2964224f9c24740bc17a90cc7d5bc9dc2abd27b383b5eaee701d87408ec6e490",
+        "combined": "99e2724ba83f0006c56dadbae66e2646663ede9ff3ec5c35fe14b39bf4d23622",
+        "tokenSignature": "a-aesthetic-bookstore-compare-cozy-decor-energy-feelings-game-giving-idea-is-it-look-lounge-mixed-moment-nails-new-night-or-particular-s-someone-specific-the-to-use-vibe-vibes-way-when-with"
       },
       "lengths": {
         "term": 11,
         "definition": 64,
         "example": 68,
         "hint": 55,
-        "category": 5
+        "category": 16
       },
       "source": {
         "sequence": 39,
-        "categoryId": "gen-z"
+        "categoryId": "vibes"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "d63715bf4ec01002a33bb48341b3c07e1e18c4dd24aeb00b75b0ac7365391187",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "c47a44f528c6c5ba86a4075e96c3c2e80c60788f43d2766089849e326b23b698",
+        "updatedAt": "2025-09-23T23:06:30.527Z"
       }
     },
     "sl-0040": {
@@ -1111,26 +1111,26 @@
         "definition": "e2f4d521039038895949bf7c22c41f2f362593a8e73d2e22dd85f5b45e177a6f",
         "example": "f20dc565e9d001f2c4d3eb634c38caa8c2a4258a16b53f626549a107b7d65152",
         "hint": "4c1655cc1b8901ca00b2a985418682b10396ae0ddc70d01b344d114bfc845a38",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "a5d5c93398e45c3043f28fec73bb5211b98136eb2b941c2603ac2bb0bc72aacd",
-        "tokenSignature": "a-admit-big-cool-even-excited-for-gen-i-it-keep-key-low-m-or-playing-presentation-quiet-scene-secretly-softly-something-spotlight-subtle-the-though-to-true-use-want-wanting-when-without-you-z"
+        "category": "2964224f9c24740bc17a90cc7d5bc9dc2abd27b383b5eaee701d87408ec6e490",
+        "combined": "a5829c0cca519bb7f1a5ec555d4290703c2d77733ee674e31304f226749b1458",
+        "tokenSignature": "a-admit-big-cool-even-excited-feelings-for-i-it-keep-key-low-m-or-playing-presentation-quiet-scene-secretly-softly-something-spotlight-subtle-the-though-to-true-use-vibes-want-wanting-when-without-you"
       },
       "lengths": {
         "term": 7,
         "definition": 60,
         "example": 76,
         "hint": 69,
-        "category": 5
+        "category": 16
       },
       "source": {
         "sequence": 40,
-        "categoryId": "gen-z"
+        "categoryId": "vibes"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "de91dcef90069c5083d5999964ee5a061700fc40f55b756783847c0f198d40ee",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "adb3068350fcc30ee3d7b84a9319f392fb185eef9989919af7c9793e4fce92bd",
+        "updatedAt": "2025-09-23T23:06:30.527Z"
       }
     },
     "sl-0041": {
@@ -1139,26 +1139,26 @@
         "definition": "65f98d667dd85f282a7460360eafdcd56811a6b4de6e29901c8aa69791f5fdbe",
         "example": "719a3239e5d962d499945b43d612e73d3187c7745e25743a5a26d20288a4be10",
         "hint": "350799351cf74133e229af0594675ce1569c85588c7bdd4fd1f527481651ea7b",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "e5a582538025717e537de3b1a8ac07544e04a9f8f4f3b84cf9f3fed82416e456",
-        "tokenSignature": "about-afraid-and-be-blatant-book-drop-everything-feel-gen-hide-high-i-impossible-it-key-loud-not-obvious-or-re-that-to-trip-use-very-want-weekend-what-when-you-z"
+        "category": "2964224f9c24740bc17a90cc7d5bc9dc2abd27b383b5eaee701d87408ec6e490",
+        "combined": "e558306642219eb2bf34ec056dd406d4802b8fe8a4ccea69f479baac29250d9d",
+        "tokenSignature": "about-afraid-and-be-blatant-book-drop-everything-feel-feelings-hide-high-i-impossible-it-key-loud-not-obvious-or-re-that-to-trip-use-very-vibes-want-weekend-what-when-you"
       },
       "lengths": {
         "term": 8,
         "definition": 42,
         "example": 62,
         "hint": 64,
-        "category": 5
+        "category": 16
       },
       "source": {
         "sequence": 41,
-        "categoryId": "gen-z"
+        "categoryId": "vibes"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "55213baacca311a7b1659a092037e15aed8a478b85c3f1ddb9360cdc720c1418",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "f0b9873c67fca62f553ab1be9753ab1eb7828b8655d900170c0b2d2620d5e50e",
+        "updatedAt": "2025-09-23T23:06:30.527Z"
       }
     },
     "sl-0042": {
@@ -1167,26 +1167,26 @@
         "definition": "9206a06253e5e0502f80b5329872f1765ef808ef76c5b61a75d067d3c97c7e9d",
         "example": "f28b27c3d40475fc1b680ebf4f4928e9fba3af0a72cf0ac42c102f4b373ffd2a",
         "hint": "086cec1f2b7c0eac4641ac98929dfa6d3decc7bd291adf751b375cf60d11da5a",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "eb2c002ba885486c65e088ef68e690dd4c3caf628051b6876cc89bd378b9107b",
-        "tokenSignature": "acing-acting-after-all-and-are-campus-character-exam-eyes-gen-her-in-is-it-knows-life-like-main-motion-movie-on-owns-she-slow-someone-spotlight-the-their-them-through-use-walked-when-z"
+        "category": "2964224f9c24740bc17a90cc7d5bc9dc2abd27b383b5eaee701d87408ec6e490",
+        "combined": "c5e46b0757a38a183c2263bf3df9ec586ba21ea7b3017f696cc5de3615bcfa5a",
+        "tokenSignature": "acing-acting-after-all-and-are-campus-character-exam-eyes-feelings-her-in-is-it-knows-life-like-main-motion-movie-on-owns-she-slow-someone-spotlight-the-their-them-through-use-vibes-walked-when"
       },
       "lengths": {
         "term": 14,
         "definition": 65,
         "example": 86,
         "hint": 52,
-        "category": 5
+        "category": 16
       },
       "source": {
         "sequence": 42,
-        "categoryId": "gen-z"
+        "categoryId": "vibes"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "190fe079e2e20e1939cf5d7d2c440a52dfd91bc9d3333acb8d1abbb2a907c738",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "a14edf4668c31c75f326466db52b169828d6337b74903b40e05e377deaaaac19",
+        "updatedAt": "2025-09-23T23:06:30.527Z"
       }
     },
     "sl-0043": {
@@ -1195,26 +1195,26 @@
         "definition": "8633fa9c9026a15978c7913bddc46c2cb7dcb92f58f20ce36a3dba9d8eea1b58",
         "example": "ac2e54f09beb4a1b168e26141c28ae8c58b7f34c6c61e00770da4e5d0d01961d",
         "hint": "23c780c63b0881580ee0e0944d435392bd1543cb49e8d669afa9bcf708132fc9",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "dda30e9e413011764bbf5e9f11d2da04fb864a4f9db8fa21114deb26c0d8a3d2",
-        "tokenSignature": "a-after-back-bed-big-brunch-crawling-extremely-feel-feeling-feels-gen-how-into-is-it-matches-mood-now-or-perfectly-relatable-right-situation-something-that-use-when-you-z"
+        "category": "2964224f9c24740bc17a90cc7d5bc9dc2abd27b383b5eaee701d87408ec6e490",
+        "combined": "6272aaf226a5a79878fdc5ec1d351cce9a03388a5dce08bf0e91ca0b515f1efe",
+        "tokenSignature": "a-after-back-bed-big-brunch-crawling-extremely-feel-feeling-feelings-feels-how-into-is-it-matches-mood-now-or-perfectly-relatable-right-situation-something-that-use-vibes-when-you"
       },
       "lengths": {
         "term": 8,
         "definition": 54,
         "example": 60,
         "hint": 53,
-        "category": 5
+        "category": 16
       },
       "source": {
         "sequence": 43,
-        "categoryId": "gen-z"
+        "categoryId": "vibes"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "7593652d331521d22d7367b5f8ced1b6e4774965540cc31fc8d6c4951627fa6b",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "7e0ca12ae897df575d09b64dc78dbd4db94ad4c106561474151700550a6602bb",
+        "updatedAt": "2025-09-23T23:06:30.527Z"
       }
     },
     "sl-0044": {
@@ -1223,26 +1223,26 @@
         "definition": "04a3794a857eae60d10235bc619c8fe66ccb5dd1d4b36e6aa6b01ac527c16189",
         "example": "0a872308d2baba99980898acc84e7e7a261663105fb0b3fd4f85d3fb4134187d",
         "hint": "33708c22c74ea91821a50ffb9cb1aff58a3238417eba7376690aea2d0b745e48",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "4f8f7e3b9dbfd7a9cfb6197adafd9c942a03ea295ccc696a579a22eef056ead8",
-        "tokenSignature": "allowed-are-completely-concentration-distractions-finals-focused-for-full-game-gen-in-is-it-locked-mode-nights-on-pause-re-so-someone-use-we-week-when-with-z-zero"
+        "category": "2964224f9c24740bc17a90cc7d5bc9dc2abd27b383b5eaee701d87408ec6e490",
+        "combined": "be99a92632ed43280056454b298b2da2e3dd422c7c55f9654dbf5bf31772027c",
+        "tokenSignature": "allowed-are-completely-concentration-distractions-feelings-finals-focused-for-full-game-in-is-it-locked-mode-nights-on-pause-re-so-someone-use-vibes-we-week-when-with-zero"
       },
       "lengths": {
         "term": 9,
         "definition": 50,
         "example": 61,
         "hint": 50,
-        "category": 5
+        "category": 16
       },
       "source": {
         "sequence": 44,
-        "categoryId": "gen-z"
+        "categoryId": "vibes"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "cf171a125e188248eb8c86cda8bec8d4dd10da3c650af4e9f4bda6b28402a17b",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "6aafda42972088a697256b5aab720430f022fbcf02bd8a7a94f4f7e5ef58b674",
+        "updatedAt": "2025-09-23T23:06:30.527Z"
       }
     },
     "sl-0045": {
@@ -1251,26 +1251,26 @@
         "definition": "418d96c456ef698a3395d8024d4749052c1daf8f126e10fb667d7ad573eee782",
         "example": "8233067e6ae4e125cbbd6bce2b6cbbbffddb4677ed9522a3d31e9665ff85905e",
         "hint": "e2d4e0d84a873e82f6cea97df56ca2ee7fae22339513aa194a3a36c1b0385603",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "154323375ce7b5714df10c7924685d1619048fdd73cd30804453fcdfca2c7511",
-        "tokenSignature": "a-because-booked-doing-for-gen-great-interesting-it-just-keep-last-later-life-mainly-make-minute-plot-purely-risk-road-something-story-take-the-to-trip-use-we-when-will-you-z"
+        "category": "2964224f9c24740bc17a90cc7d5bc9dc2abd27b383b5eaee701d87408ec6e490",
+        "combined": "6c6b4b507756543565c9b3d4a3c97904cb5a4c4e6ab02aeadec55ad15a6334ad",
+        "tokenSignature": "a-because-booked-doing-feelings-for-great-interesting-it-just-keep-last-later-life-mainly-make-minute-plot-purely-risk-road-something-story-take-the-to-trip-use-vibes-we-when-will-you"
       },
       "lengths": {
         "term": 12,
         "definition": 64,
         "example": 56,
         "hint": 58,
-        "category": 5
+        "category": 16
       },
       "source": {
         "sequence": 45,
-        "categoryId": "gen-z"
+        "categoryId": "vibes"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "f423769e83c15673a9f16761c56c38e0e8fbf17c03eed8d305338af5d15bbd73",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "180914373faaf64c251f2166535388ec90d9dd74a98b8e126f0f803cfb3ce712",
+        "updatedAt": "2025-09-23T23:06:30.527Z"
       }
     },
     "sl-0046": {
@@ -1279,26 +1279,26 @@
         "definition": "959e3351a1edef7b340e94b91a27e5aac6d8963f4e2e81f3afa0d06866a6b103",
         "example": "99db382d9fa2c4d98440f4a3d44f90ef618e770da8172dd06929b51fe9f7e295",
         "hint": "349ee42c708690ddf9836b0ff93a1c8be6e911019cab2566f226383af5204f90",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "721b7d1dcb294967879e7a9ce8a5459b8390578bf46f46209c1a1c74e42d19e7",
-        "tokenSignature": "a-agree-alpha-because-bending-by-calling-concert-creative-decision-free-gen-girl-is-it-justifies-last-logic-math-month-numbers-or-playfully-purchase-pure-rationalizing-refund-s-someone-splurge-the-they-tickets-until-use-used-when-with-you"
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "daea2c63f2d91437697fd64d236139a01f786a798748e150b164876696db7703",
+        "tokenSignature": "a-agree-because-bending-by-calling-concert-creative-daily-decision-free-girl-is-it-justifies-last-life-logic-math-month-numbers-or-playfully-purchase-pure-rationalizing-refund-relationships-s-someone-splurge-the-they-tickets-until-use-used-when-with-you"
       },
       "lengths": {
         "term": 9,
         "definition": 67,
         "example": 88,
         "hint": 80,
-        "category": 9
+        "category": 26
       },
       "source": {
         "sequence": 46,
-        "categoryId": "gen-alpha"
+        "categoryId": "relationships"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "eaa18e5e80a0af7cd3cf6ce556f48d16f79e4a2ee92b3b9854792c12445be04d",
-        "updatedAt": "2025-09-23T22:54:38.990Z"
+        "vectorSha256": "3eacd2615d9f30b16c91328e91604faba7001fecac6a6efead4df7f3a86dca52",
+        "updatedAt": "2025-09-23T23:06:30.527Z"
       }
     },
     "sl-0047": {
@@ -1307,26 +1307,26 @@
         "definition": "68cae4a3e733af42952dc559ae4627e2b66f4fb6de3ab4ecb0fa3ea6af1a440d",
         "example": "fc06a53a3d5481f7e02c550832a42d4b0492cfffa163a7062c4a76c537cbcac8",
         "hint": "ab24d93b18a15364889c139469dd403ebf551bddabb6f5bbd62a4b82c21c72d1",
-        "category": "6c3b9eb90037aebba64f9aa14af6509442fc9b2e41f43bb47bb76b6b45c76a27",
-        "combined": "324f0905d21210adb7ba66262b400f2f928518634574bd62adb559ae02054436",
-        "tokenSignature": "a-alarming-amusing-are-beige-breaker-call-deal-directions-drive-every-flag-gen-gps-green-his-in-is-it-mildly-more-narrating-neither-nor-odd-out-pirate-quirks-s-than-that-the-time-to-trait-use-voice-we-z"
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "2046ef7d17174650cdfa28cb72840d5346f77d5107fbb29f7c1470e04cd934f7",
+        "tokenSignature": "a-alarming-amusing-are-beige-breaker-call-daily-deal-directions-drive-every-flag-gps-green-his-in-is-it-life-mildly-more-narrating-neither-nor-odd-out-pirate-quirks-relationships-s-than-that-the-time-to-trait-use-voice-we"
       },
       "lengths": {
         "term": 10,
         "definition": 66,
         "example": 85,
         "hint": 62,
-        "category": 5
+        "category": 26
       },
       "source": {
         "sequence": 47,
-        "categoryId": "gen-z"
+        "categoryId": "relationships"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "f01676a5491ac9f317c02a19688e3a806aea9fd0724af8c4db30ff96e3e33881",
-        "updatedAt": "2025-09-23T22:54:38.991Z"
+        "vectorSha256": "0e4d5e7dcd269f93ec19618f2edde92f5d8ac661f051ab9afacacf9c42b0867b",
+        "updatedAt": "2025-09-23T23:06:30.528Z"
       }
     },
     "sl-0048": {
@@ -1335,26 +1335,26 @@
         "definition": "da5c924e90d8c5446199acc553c6b2a51fcbb2e5a6b9515b3bb36cd74ec2d2e0",
         "example": "958c3cbdc39ed1e9aa0131f9c92dd6975755e3400a0d89e18ebb420753d38fce",
         "hint": "ca23026b84289fab2e317eabfb9ac5d56ac5b2bf990037a3794d511002ccda49",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "b653e4b7328f5373a6832d8a5e5a19a56865ecb86213f4464edc3def6996146f",
-        "tokenSignature": "a-about-all-alpha-at-backstory-d-detail-drama-dropping-dump-dumped-every-everyone-full-gen-get-group-her-it-job-lore-make-old-once-out-plot-projects-sense-she-so-someone-stress-the-to-understands-unloads-use-we-when-why"
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "43223fbe0e967fd7574cb494cf81536b18925bf816f510e112db5511bd8a57b0",
+        "tokenSignature": "a-about-all-at-backstory-culture-d-detail-drama-dropping-dump-dumped-every-everyone-full-get-group-her-internet-it-job-lore-make-old-once-out-plot-projects-sense-she-so-someone-stress-the-to-understands-unloads-use-we-when-why"
       },
       "lengths": {
         "term": 9,
         "definition": 72,
         "example": 80,
         "hint": 69,
-        "category": 9
+        "category": 16
       },
       "source": {
         "sequence": 48,
-        "categoryId": "gen-alpha"
+        "categoryId": "internet"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "45f5afb6d20227ab39a11ff5a5a55535e9b7d28a0fb242ec4abb5f4fa9ff3845",
-        "updatedAt": "2025-09-23T22:54:38.991Z"
+        "vectorSha256": "21fcc8e23853aa34fa7e0acdba45a271c6fa52cbecdc1cf482e43201e1a1cf43",
+        "updatedAt": "2025-09-23T23:06:30.528Z"
       }
     },
     "sl-0049": {
@@ -1363,26 +1363,26 @@
         "definition": "1d26276f81f0ea2b6fd842332f6f6ee05c545a261d1de9b92196c7822986668f",
         "example": "d332298ff1834f7592dd86a3b8e243476b5eba73eb559079d858819ea09e95a3",
         "hint": "a9607d6a94589008aeb8d040198ed991a859dedbf899768ae00f4212a9a93ed2",
-        "category": "51d1d02d6d86fed8b6b050bb731018a7a9e552944894995ad463c35fb9df163a",
-        "combined": "46f0719efcba5865b26aa639d79e86b038a4634de0ce92697775880902c4c67b",
-        "tokenSignature": "a-acting-alpha-back-be-being-delulu-demand-during-ex-for-gen-honesty-it-meeting-no-or-re-real-reality-ridiculous-s-seriousness-snap-so-someone-texting-the-there-they-to-use-way-when-you-your"
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "9ad5b08b2538abe4354105b4c685da347af94e9742f57b0f90185ce66e85f1f5",
+        "tokenSignature": "a-acting-back-be-being-callouts-delulu-demand-during-ex-for-honesty-it-meeting-no-or-re-reactions-real-reality-ridiculous-s-seriousness-snap-so-someone-texting-the-there-they-to-use-way-when-you-your"
       },
       "lengths": {
         "term": 14,
         "definition": 68,
         "example": 72,
         "hint": 66,
-        "category": 9
+        "category": 20
       },
       "source": {
         "sequence": 49,
-        "categoryId": "gen-alpha"
+        "categoryId": "callouts"
       },
       "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "6423e1c57f7d3dd351050c7ea89f73b707579df3434f990b400bb39480f271b6",
-        "updatedAt": "2025-09-23T22:54:38.991Z"
+        "vectorSha256": "3599e2b556d4c8ac5b2661ec45eefa578f860c8a77b9b813f09f9e1acfdeae22",
+        "updatedAt": "2025-09-23T23:06:30.529Z"
       }
     }
   }

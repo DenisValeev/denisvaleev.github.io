@@ -39,8 +39,12 @@ test.describe('Slang app', () => {
     );
     expect(categoryOptions).toEqual([
       { value: 'all', label: 'All categories' },
-      { value: 'gen-alpha', label: 'Gen Alpha' },
-      { value: 'gen-z', label: 'Gen Z' },
+      { value: 'callouts', label: 'Callouts & Reactions' },
+      { value: 'hype', label: 'Compliments & Hype' },
+      { value: 'relationships', label: 'Daily Life & Relationships' },
+      { value: 'internet', label: 'Internet Culture' },
+      { value: 'style', label: 'Style & Aesthetic' },
+      { value: 'vibes', label: 'Vibes & Feelings' },
     ]);
     await expect(category).not.toHaveText(/Loading/i);
     await expect(term).not.toHaveText(/Loading slang…?/i);
