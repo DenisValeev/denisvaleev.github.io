@@ -1,178 +1,10 @@
 {
   "dataset": "jokes",
   "threshold": 0.5,
-  "generatedAt": "2025-09-22T00:02:23.953Z",
+  "generatedAt": "2025-09-22T23:19:57.679Z",
   "provider": "cohere",
   "model": "embed-english-v3.0",
   "matches": [
-    {
-      "idA": "j-0462",
-      "idB": "j-0700",
-      "similarity": 0.987060170246,
-      "previewA": "Did you know the first French fries weren't actually cooked in France? • They were cooked in Greece.",
-      "previewB": "did you know the first French fries weren't cooked in France? • they were cooked in Greece"
-    },
-    {
-      "idA": "j-0537",
-      "idB": "j-0734",
-      "similarity": 0.981981235599,
-      "previewA": "I couldn't get a reservation at the library. • They were completely booked.",
-      "previewB": "I couldn't get a reservation at the library... • They were fully booked."
-    },
-    {
-      "idA": "j-0381",
-      "idB": "j-0782",
-      "similarity": 0.980104219995,
-      "previewA": "Mountains aren't just funny • they are hill areas",
-      "previewB": "You see, mountains aren't just funny. • They are hill areas."
-    },
-    {
-      "idA": "j-0241",
-      "idB": "j-0767",
-      "similarity": 0.977474563589,
-      "previewA": "Why don't eggs tell jokes? • They'd crack each other up",
-      "previewB": "Why don't eggs tell jokes? • Because they would crack each other up."
-    },
-    {
-      "idA": "j-0214",
-      "idB": "j-0706",
-      "similarity": 0.977106968918,
-      "previewA": "I’ve just been reading a book about anti-gravity • it’s impossible to put down!",
-      "previewB": "I'm reading a book about anti-gravity... • It's impossible to put down"
-    },
-    {
-      "idA": "j-0142",
-      "idB": "j-0428",
-      "similarity": 0.975522488898,
-      "previewA": "Why do bees hum? • Because they don't know the words.",
-      "previewB": "Ever wondered why bees hum? • It's because they don't know the words."
-    },
-    {
-      "idA": "j-0509",
-      "idB": "j-0729",
-      "similarity": 0.952541627376,
-      "previewA": "Did you hear about the cheese who saved the world? • It was Legend-dairy!",
-      "previewB": "Did you hear the story about the cheese that saved the world? • It was legend dairy."
-    },
-    {
-      "idA": "j-0032",
-      "idB": "j-0781",
-      "similarity": 0.941442982861,
-      "previewA": "I was fired from the keyboard factory yesterday. • I wasn't putting in enough shifts.",
-      "previewB": "I just got fired from my job at the keyboard factory. • They told me I wasn't putting in enough shifts."
-    },
-    {
-      "idA": "j-0484",
-      "idB": "j-0521",
-      "similarity": 0.931053034441,
-      "previewA": "A man is washing the car with his son. The son asks...... • \"Dad, can’t you just use a sponge?\"",
-      "previewB": "A dad washes his car with his son. • But after a while, the son says, \"why can't you just use a sponge?\""
-    },
-    {
-      "idA": "j-0274",
-      "idB": "j-0317",
-      "similarity": 0.923467095845,
-      "previewA": "What did the scarf say to the hat? • You go on ahead, I am going to hang around a bit longer.",
-      "previewB": "What did the hat say to the scarf? You can hang around. • I'll just go on ahead."
-    },
-    {
-      "idA": "j-0703",
-      "idB": "j-0837",
-      "similarity": 0.921816109288,
-      "previewA": "Why do Java programmers wear glasses? • Because they don't C#.",
-      "previewB": "Why do programmers wear glasses? • Because they need to C#."
-    },
-    {
-      "idA": "j-0418",
-      "idB": "j-0740",
-      "similarity": 0.916346573862,
-      "previewA": "Can I watch the TV? • Dad: Yes, but don’t turn it on.",
-      "previewB": "Can I watch the TV? • Yes, but don’t turn it on."
-    },
-    {
-      "idA": "j-0466",
-      "idB": "j-0688",
-      "similarity": 0.896128307121,
-      "previewA": "Two silk worms had a race. • They ended up in a tie.",
-      "previewB": "Did you hear about the two silk worms in a race? • It ended in a tie."
-    },
-    {
-      "idA": "j-0038",
-      "idB": "j-0771",
-      "similarity": 0.890651117478,
-      "previewA": "Why did the kid throw the clock out the window? • He wanted to see time fly!",
-      "previewB": "Why did the kid throw the watch out the window? • So time would fly."
-    },
-    {
-      "idA": "j-0144",
-      "idB": "j-0810",
-      "similarity": 0.877334523675,
-      "previewA": "Don't trust atoms. • They make up everything.",
-      "previewB": "Why don't scientists trust atoms? • Because they make up everything."
-    },
-    {
-      "idA": "j-0164",
-      "idB": "j-0860",
-      "similarity": 0.87363226715,
-      "previewA": "What do you call a pile of cats? • A Meowtain.",
-      "previewB": "What do you call a pile of kittens? • A meowntain."
-    },
-    {
-      "idA": "j-0342",
-      "idB": "j-0802",
-      "similarity": 0.867765864591,
-      "previewA": "Why can't a bicycle stand on its own? • It's two-tired.",
-      "previewB": "Why couldn't the bicycle stand up by itself? • It was two-tired."
-    },
-    {
-      "idA": "j-0322",
-      "idB": "j-0807",
-      "similarity": 0.857946199542,
-      "previewA": "What’s the advantage of living in Switzerland? • Well, the flag is a big plus.",
-      "previewB": "What's the best thing about Switzerland? • I don't know, but their flag is a big plus."
-    },
-    {
-      "idA": "j-0326",
-      "idB": "j-0768",
-      "similarity": 0.855836565165,
-      "previewA": "How do you make a 'one' disappear? • You add a 'g' and it's 'gone'",
-      "previewB": "How do you make the number one disappear? • Add the letter G and it’s “gone”!"
-    },
-    {
-      "idA": "j-0798",
-      "idB": "j-0816",
-      "similarity": 0.846762092719,
-      "previewA": "Why did the programmer go broke? • He used up all his cache",
-      "previewB": "Why did the developer go broke? • They kept spending all their cache."
-    },
-    {
-      "idA": "j-0324",
-      "idB": "j-0812",
-      "similarity": 0.842114018439,
-      "previewA": "Why did the cookie cry? • It was feeling crumby.",
-      "previewB": "Why did the cookie go to the doctor? • Because it was feeling crumbly."
-    },
-    {
-      "idA": "j-0110",
-      "idB": "j-0779",
-      "similarity": 0.823318091858,
-      "previewA": "Whenever the cashier at the grocery store asks my dad if he would like the milk in a bag he replies, ‘No • just leave it in the carton!’",
-      "previewB": "A grocery store cashier asked if I would like my milk in a bag. • I told her 'No, thanks. The carton works fine.'"
-    },
-    {
-      "idA": "j-0759",
-      "idB": "j-0837",
-      "similarity": 0.817837735459,
-      "previewA": "Why dot net developers don't wear glasses? • Because they see sharp.",
-      "previewB": "Why do programmers wear glasses? • Because they need to C#."
-    },
-    {
-      "idA": "j-0414",
-      "idB": "j-0718",
-      "similarity": 0.801247027751,
-      "previewA": "You know that cemetery up the road? • People are dying to get in there.",
-      "previewB": "When a dad drives past a graveyard: Did you know that's a popular cemetery? • Yep, people are just dying to get in there"
-    },
     {
       "idA": "j-0108",
       "idB": "j-0672",
@@ -468,13 +300,6 @@
       "previewB": "Why did the chicken cross the road, roll in the mud and cross the road again? • He was a dirty double-crosser!"
     },
     {
-      "idA": "j-0211",
-      "idB": "j-0767",
-      "similarity": 0.672065674035,
-      "previewA": "Why can't eggs have love? • They will break up too soon.",
-      "previewB": "Why don't eggs tell jokes? • Because they would crack each other up."
-    },
-    {
       "idA": "j-0447",
       "idB": "j-0570",
       "similarity": 0.671995671114,
@@ -531,13 +356,6 @@
       "previewB": "What do you get when you cross a chicken with a skunk? • A fowl smell!"
     },
     {
-      "idA": "j-0597",
-      "idB": "j-0812",
-      "similarity": 0.664461413797,
-      "previewA": "Why did the cookie cry? • Because his mother was a wafer so long",
-      "previewB": "Why did the cookie go to the doctor? • Because it was feeling crumbly."
-    },
-    {
       "idA": "j-0559",
       "idB": "j-0827",
       "similarity": 0.659508198832,
@@ -578,13 +396,6 @@
       "similarity": 0.652115638561,
       "previewA": "How many hipsters does it take to change a lightbulb? • Oh, it's a really obscure number. You've probably never heard of it.",
       "previewB": "How many programmers does it take to change a lightbulb? • None that's a hardware problem"
-    },
-    {
-      "idA": "j-0607",
-      "idB": "j-0718",
-      "similarity": 0.651270875133,
-      "previewA": "Why is there always a gate around cemeteries? • Because people are always dying to get in.",
-      "previewB": "When a dad drives past a graveyard: Did you know that's a popular cemetery? • Yep, people are just dying to get in there"
     },
     {
       "idA": "j-0346",
@@ -648,13 +459,6 @@
       "similarity": 0.635482602493,
       "previewA": "Knock knock. Who's there? Opportunity. • That is impossible. Opportunity doesn’t come knocking twice!",
       "previewB": "Knock-knock. • A race condition. Who is there?"
-    },
-    {
-      "idA": "j-0467",
-      "idB": "j-0781",
-      "similarity": 0.632784972792,
-      "previewA": "I got fired from the transmission factor • turns out I didn't put on enough shifts...",
-      "previewB": "I just got fired from my job at the keyboard factory. • They told me I wasn't putting in enough shifts."
     },
     {
       "idA": "j-0237",
@@ -797,13 +601,6 @@
       "previewB": "Why do you never see elephants hiding in trees? • Because they're so good at it."
     },
     {
-      "idA": "j-0794",
-      "idB": "j-0816",
-      "similarity": 0.599510843966,
-      "previewA": "Why did the developer go broke buying Bitcoin? • He kept calling it bytecoin and didn't get any.",
-      "previewB": "Why did the developer go broke? • They kept spending all their cache."
-    },
-    {
       "idA": "j-0171",
       "idB": "j-0885",
       "similarity": 0.599022296201,
@@ -823,13 +620,6 @@
       "similarity": 0.597954688809,
       "previewA": "A SQL query walks into a bar, walks up to two tables and asks... • 'Can I join you?'",
       "previewB": "3 SQL statements walk into a NoSQL bar. Soon, they walk out • They couldn't find a table."
-    },
-    {
-      "idA": "j-0826",
-      "idB": "j-0837",
-      "similarity": 0.597334422183,
-      "previewA": "Why did the programmer always carry a pencil? • They preferred to write in C#.",
-      "previewB": "Why do programmers wear glasses? • Because they need to C#."
     },
     {
       "idA": "j-0048",
@@ -1000,25 +790,11 @@
       "previewB": "\"Dad, I'm hungry.\" Hello, Hungry. • I'm Dad."
     },
     {
-      "idA": "j-0567",
-      "idB": "j-0812",
-      "similarity": 0.583327198318,
-      "previewA": "What did the doctor say to the gingerbread man who broke his leg? • Try icing it.",
-      "previewB": "Why did the cookie go to the doctor? • Because it was feeling crumbly."
-    },
-    {
       "idA": "j-0226",
       "idB": "j-0754",
       "similarity": 0.583031358705,
       "previewA": "I saw an ad in a shop window, \"Television for sale, $1, volume stuck on full\", I thought • \"I can't turn that down\".",
       "previewB": "I saw a nice stereo on Craigslist for $1. Seller says the volume is stuck on ‘high’ • I couldn’t turn it down."
-    },
-    {
-      "idA": "j-0816",
-      "idB": "j-0825",
-      "similarity": 0.582481100676,
-      "previewA": "Why did the developer go broke? • They kept spending all their cache.",
-      "previewB": "Why did the developer break up with their keyboard? • It just wasn't their type anymore."
     },
     {
       "idA": "j-0331",
@@ -1231,13 +1007,6 @@
       "previewB": "Why did the programmer always carry a pencil? • They preferred to write in C#."
     },
     {
-      "idA": "j-0816",
-      "idB": "j-0822",
-      "similarity": 0.563839377996,
-      "previewA": "Why did the developer go broke? • They kept spending all their cache.",
-      "previewB": "Why did the developer go to therapy? • They had too many unresolved issues."
-    },
-    {
       "idA": "j-0213",
       "idB": "j-0727",
       "similarity": 0.563730473483,
@@ -1299,13 +1068,6 @@
       "similarity": 0.561783718168,
       "previewA": "A ghost walks into a bar and asks for a glass of vodka but the bar tender says • “sorry we don’t serve spirits”",
       "previewB": "A ham sandwhich walks into a bar and orders a beer. The bartender says... • I'm sorry, we don't serve food here"
-    },
-    {
-      "idA": "j-0428",
-      "idB": "j-0755",
-      "similarity": 0.561307132163,
-      "previewA": "Ever wondered why bees hum? • It's because they don't know the words.",
-      "previewB": "What do you call a bee that can't make up its mind? • A maybe."
     },
     {
       "idA": "j-0021",
@@ -1448,39 +1210,11 @@
       "previewB": "How many optometrists does it take to change a light bulb? 1 or 2? • 1... or 2?"
     },
     {
-      "idA": "j-0176",
-      "idB": "j-0718",
-      "similarity": 0.555055312227,
-      "previewA": "Why are graveyards so noisy? • Because of all the coffin.",
-      "previewB": "When a dad drives past a graveyard: Did you know that's a popular cemetery? • Yep, people are just dying to get in there"
-    },
-    {
-      "idA": "j-0370",
-      "idB": "j-0860",
-      "similarity": 0.554617848068,
-      "previewA": "What do you call a group of disorganized cats? • A cat-tastrophe.",
-      "previewB": "What do you call a pile of kittens? • A meowntain."
-    },
-    {
       "idA": "j-0458",
       "idB": "j-0872",
       "similarity": 0.55328954372,
       "previewA": "Why is no one friends with Dracula? • Because he's a pain in the neck.",
       "previewB": "What's it like to be kissed by a vampire? • It's a pain in the neck."
-    },
-    {
-      "idA": "j-0737",
-      "idB": "j-0837",
-      "similarity": 0.552418197302,
-      "previewA": "Why do C# and Java developers keep breaking their keyboards? • Because they use a strongly typed language.",
-      "previewB": "Why do programmers wear glasses? • Because they need to C#."
-    },
-    {
-      "idA": "j-0355",
-      "idB": "j-0729",
-      "similarity": 0.552385289383,
-      "previewA": "Did you hear about the cheese factory that exploded in France? • There was nothing left but de Brie.",
-      "previewB": "Did you hear the story about the cheese that saved the world? • It was legend dairy."
     },
     {
       "idA": "j-0042",
@@ -1623,13 +1357,6 @@
       "previewB": "Why did the programmer always carry a pencil? • They preferred to write in C#."
     },
     {
-      "idA": "j-0428",
-      "idB": "j-0644",
-      "similarity": 0.54482088812,
-      "previewA": "Ever wondered why bees hum? • It's because they don't know the words.",
-      "previewB": "Why do bees have sticky hair? • Because they use honey combs!"
-    },
-    {
       "idA": "j-0213",
       "idB": "j-0357",
       "similarity": 0.544470471915,
@@ -1728,20 +1455,6 @@
       "previewB": "Why did the house go to the doctor? • It was having window panes."
     },
     {
-      "idA": "j-0816",
-      "idB": "j-0824",
-      "similarity": 0.538145380842,
-      "previewA": "Why did the developer go broke? • They kept spending all their cache.",
-      "previewB": "Why did the programmer bring a broom to work? • To clean up all the bugs."
-    },
-    {
-      "idA": "j-0748",
-      "idB": "j-0837",
-      "similarity": 0.537789967376,
-      "previewA": "A programmer puts two glasses on his bedside table before going to sleep. • A full one, in case he gets thirsty, and an empty one, in case he doesn’t.",
-      "previewB": "Why do programmers wear glasses? • Because they need to C#."
-    },
-    {
       "idA": "j-0583",
       "idB": "j-0824",
       "similarity": 0.537681270385,
@@ -1831,13 +1544,6 @@
       "similarity": 0.533658039026,
       "previewA": "Why would a guitarist become a good programmer? • He's adept at riffing in C#.",
       "previewB": "Why did the programmer quit his job? • Because he didn't get arrays."
-    },
-    {
-      "idA": "j-0816",
-      "idB": "j-0834",
-      "similarity": 0.533145067118,
-      "previewA": "Why did the developer go broke? • They kept spending all their cache.",
-      "previewB": "Why did the JavaScript heap close shop? • It ran out of memory."
     },
     {
       "idA": "j-0309",
@@ -2064,13 +1770,6 @@
       "previewB": "A man walked in to a bar with some asphalt on his arm. • He said “Two beers please, one for me and one for the road.”"
     },
     {
-      "idA": "j-0068",
-      "idB": "j-0812",
-      "similarity": 0.522817598708,
-      "previewA": "Why did the banana go to the doctor? • He was not \"peeling\" well.",
-      "previewB": "Why did the cookie go to the doctor? • Because it was feeling crumbly."
-    },
-    {
       "idA": "j-0040",
       "idB": "j-0358",
       "similarity": 0.522721171543,
@@ -2293,13 +1992,6 @@
       "similarity": 0.514872607375,
       "previewA": "What time did the man go to the dentist? • Tooth hurt-y.",
       "previewB": "What kind of award did the dentist receive? • A little plaque."
-    },
-    {
-      "idA": "j-0213",
-      "idB": "j-0771",
-      "similarity": 0.514832530427,
-      "previewA": "They're making a movie about clocks. • It's about time",
-      "previewB": "Why did the kid throw the watch out the window? • So time would fly."
     },
     {
       "idA": "j-0237",

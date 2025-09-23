@@ -1,7 +1,7 @@
 {
   "dataset": "cross-deck",
   "threshold": 0.5,
-  "generatedAt": "2025-09-21T23:10:32.460Z",
+  "generatedAt": "2025-09-22T23:19:57.715Z",
   "provider": "openai",
   "model": "text-embedding-3-large",
   "matches": [
@@ -151,13 +151,6 @@
       "similarity": 0.645827771463,
       "previewA": "The road leading to a goal does not separate you from the destination; it is essentially a part of it. — Charles DeLint",
       "previewB": "Why did the programmer's wife leave him? • He didn't know how to commit."
-    },
-    {
-      "idA": "family-04",
-      "idB": "j-0718",
-      "similarity": 0.645342413654,
-      "previewA": "We may have our differences, but nothing’s more important than family. — Coco",
-      "previewB": "When a dad drives past a graveyard: Did you know that's a popular cemetery? • Yep, people are just dying to get in there"
     },
     {
       "idA": "time-30",

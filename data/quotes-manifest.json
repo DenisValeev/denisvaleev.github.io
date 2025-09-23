@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2025-09-22T01:31:19.636Z",
-    "total": 657,
+    "generatedAt": "2025-09-22T23:16:21.888Z",
+    "total": 653,
     "categories": 22,
     "hashAlgorithm": "sha256",
     "tokenSignature": "unique-words-v1",
@@ -5481,28 +5481,6 @@
       "source": {
         "categoryId": "travel",
         "sequence": 2
-      },
-      "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
-      }
-    },
-    "travel-05": {
-      "hashes": {
-        "text": "f7d8dc1c82cf3e0ec1b159e4e99de1e8ad9a3266a1cd068f8cb983f9304e5b10",
-        "author": "118d3a27ea9af6f75da5dbde1dc9213cc68273dcbde57fdf45c92c9b5c3fb14f",
-        "combined": "cc9a55b77fba263ea4e23669d1674fb3fdcc19f0fcd6d27663db2decc9044ab6",
-        "tokenSignature": "but-dies-every-lives-man-not-really-wallace-william"
-      },
-      "lengths": {
-        "text": 47,
-        "author": 15
-      },
-      "source": {
-        "categoryId": "travel",
-        "sequence": 3
       },
       "embedding": {
         "status": "pending",
@@ -11979,28 +11957,6 @@
         "updatedAt": null
       }
     },
-    "resilience-02": {
-      "hashes": {
-        "text": "a23f611cf949c8d44f6783949759be06cbc0c6cdb3ef017c200b65e23806588c",
-        "author": "ff8aac824046b8c4a4237be9238b83fd8a06c533c5ed687094071cfef9f080ea",
-        "combined": "d240c061a1d02b83940f941002da96b9911ff931932db478388cb404c51ba80f",
-        "tokenSignature": "anais-courage-expands-in-life-nin-one-or-proportion-s-shrinks-to"
-      },
-      "lengths": {
-        "text": 55,
-        "author": 9
-      },
-      "source": {
-        "categoryId": "resilience",
-        "sequence": 2
-      },
-      "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
-      }
-    },
     "resilience-03": {
       "hashes": {
         "text": "792c9ca9ccd6abe0feb80dcf96cce729fe5e4e9bd13df53542dca6fd789d8437",
@@ -12969,28 +12925,6 @@
         "updatedAt": null
       }
     },
-    "growth-09": {
-      "hashes": {
-        "text": "f9729a9dc25d084005419cdc6af02291f427951353f90ee1c0fea986e98e7c04",
-        "author": "ce03832e27cf16a81e36a57811560af5da63441d4c3a7549266f0483f55120dc",
-        "combined": "85471fa2d96f63c26d7d1c0441bfa04bdb20c5abfb7f01f7970e9cc07ffffd5c",
-        "tokenSignature": "actually-andy-but-change-changes-have-say-that-them-they-things-time-to-warhol-you-yourself"
-      },
-      "lengths": {
-        "text": 81,
-        "author": 11
-      },
-      "source": {
-        "categoryId": "growth",
-        "sequence": 9
-      },
-      "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
-      }
-    },
     "growth-10": {
       "hashes": {
         "text": "f058873ba680b6854642aa2a481200ea318f44e3d7f76ddea6a39ae69e54bc92",
@@ -13115,28 +13049,6 @@
       "source": {
         "categoryId": "joy",
         "sequence": 3
-      },
-      "embedding": {
-        "status": "pending",
-        "model": null,
-        "vectorSha256": null,
-        "updatedAt": null
-      }
-    },
-    "joy-04": {
-      "hashes": {
-        "text": "0a0e7250cf5915bd27fece9bd0cfce1fd2a1a23f923cc496c3f5fa8a08e1794e",
-        "author": "49bde1fc12cf5024d1ac249ec66e86a4f98cb1c27c2d6854bc6ba89de5e0022c",
-        "combined": "2269767fda223bdc383bd3ca522cbd7b18451a0ec3074ab235c2d00b88f8783f",
-        "tokenSignature": "enjoy-john-lennon-not-time-was-wasted-wasting-you"
-      },
-      "lengths": {
-        "text": 39,
-        "author": 11
-      },
-      "source": {
-        "categoryId": "joy",
-        "sequence": 4
       },
       "embedding": {
         "status": "pending",
