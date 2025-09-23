@@ -1,8 +1,8 @@
 {
-  "version": "20250923-3a6ea8d9e669",
-  "generatedAt": "2025-09-23T23:13:33.557Z",
-  "totalAssets": 52,
-  "totalBytes": 5505782,
+  "version": "20250923-0aef3e87efed",
+  "generatedAt": "2025-09-23T23:33:25.182Z",
+  "totalAssets": 55,
+  "totalBytes": 5772295,
   "assets": [
     {
       "path": "apps/asset-observatory/app.js",
@@ -15,6 +15,18 @@
     {
       "path": "apps/asset-observatory/index.html",
       "bytes": 14530
+    },
+    {
+      "path": "apps/embedding-explorer/app.js",
+      "bytes": 15714
+    },
+    {
+      "path": "apps/embedding-explorer/index.html",
+      "bytes": 18011
+    },
+    {
+      "path": "apps/embedding-explorer/sample-embeddings.js",
+      "bytes": 1997
     },
     {
       "path": "apps/jokes/all-jokes-compact.html",
@@ -34,7 +46,7 @@
     },
     {
       "path": "apps/jokes/jokes.js",
-      "bytes": 141344
+      "bytes": 142246
     },
     {
       "path": "apps/jokes/render-all.js",
@@ -54,7 +66,7 @@
     },
     {
       "path": "apps/quotes/quotes-data.js",
-      "bytes": 121995
+      "bytes": 123746
     },
     {
       "path": "apps/quotes/render-all.js",
@@ -66,23 +78,23 @@
     },
     {
       "path": "apps/slang/all-slang.html",
-      "bytes": 8592
+      "bytes": 8586
     },
     {
       "path": "apps/slang/app.js",
-      "bytes": 7649
+      "bytes": 7396
     },
     {
       "path": "apps/slang/index.html",
-      "bytes": 11360
+      "bytes": 11390
     },
     {
       "path": "apps/slang/render-all.js",
-      "bytes": 7325
+      "bytes": 7091
     },
     {
       "path": "apps/slang/slang.js",
-      "bytes": 19170
+      "bytes": 21613
     },
     {
       "path": "apps/value-formatter/index.html",
@@ -90,7 +102,7 @@
     },
     {
       "path": "data/curated-quotes.json",
-      "bytes": 22094
+      "bytes": 23552
     },
     {
       "path": "data/icanhazdadjokes-split.json",
@@ -106,7 +118,7 @@
     },
     {
       "path": "data/jokes-embeddings.json",
-      "bytes": 590939
+      "bytes": 594414
     },
     {
       "path": "data/jokes-manifest.json",
@@ -130,7 +142,7 @@
     },
     {
       "path": "data/quotes-manifest.json",
-      "bytes": 478829
+      "bytes": 485291
     },
     {
       "path": "data/similarity-overrides.json",
@@ -182,23 +194,23 @@
     },
     {
       "path": "data/similarity-report-slang.json",
-      "bytes": 162
+      "bytes": 161
     },
     {
       "path": "data/slang-embeddings-hfspace.json",
-      "bytes": 110258
+      "bytes": 230063
     },
     {
       "path": "data/slang-embeddings-synthetic128.json",
-      "bytes": 46900
+      "bytes": 97762
     },
     {
       "path": "data/slang-embeddings.json",
-      "bytes": 31508
+      "bytes": 65612
     },
     {
       "path": "data/slang-manifest.json",
-      "bytes": 51910
+      "bytes": 61664
     },
     {
       "path": "data/test-runs/latest.json",
@@ -206,7 +218,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 18681
+      "bytes": 18920
     },
     {
       "path": "service-worker.js",
