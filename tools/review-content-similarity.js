@@ -23,6 +23,7 @@ function parseArgs(argv) {
     threshold: {
       jokes: 0.88,
       quotes: 0.92,
+      genalpha: 0.88,
     },
     write: false,
     updateManifest: false,
@@ -31,6 +32,7 @@ function parseArgs(argv) {
     force: false,
     limit: null,
     fullScan: false,
+    storeSuffix: '',
   };
 
   argv.forEach((arg) => {
@@ -38,9 +40,14 @@ function parseArgs(argv) {
       const value = arg.slice('--dataset='.length).split(',');
       value.forEach((name) => {
         const trimmed = name.trim().toLowerCase();
-        if (trimmed) {
-          options.datasets.add(trimmed);
+        if (!trimmed) {
+          return;
         }
+        if (!supportedDatasets.has(trimmed)) {
+          console.warn(`Skipping unsupported dataset: ${trimmed}`);
+          return;
+        }
+        options.datasets.add(trimmed);
       });
       return;
     }
@@ -66,7 +73,7 @@ function parseArgs(argv) {
           if (!dataset || !filePath) {
             return;
           }
-          if (dataset !== 'jokes' && dataset !== 'quotes') {
+          if (!supportedDatasets.has(dataset)) {
             console.warn(`Ignoring unsupported dataset for --candidates: ${dataset}`);
             return;
           }
@@ -107,8 +114,19 @@ function parseArgs(argv) {
       }
       return;
     }
+    if (arg.startsWith('--threshold-genalpha=')) {
+      const parsed = parseFloat(arg.slice('--threshold-genalpha='.length));
+      if (!Number.isNaN(parsed)) {
+        options.threshold.genalpha = parsed;
+      }
+      return;
+    }
     if (arg.startsWith('--report=')) {
       options.reportPath = arg.slice('--report='.length).trim();
+      return;
+    }
+    if (arg.startsWith('--store-suffix=')) {
+      options.storeSuffix = arg.slice('--store-suffix='.length).trim();
       return;
     }
     if (arg.startsWith('--limit=')) {
@@ -176,6 +194,18 @@ function sha256(text) {
   return crypto.createHash('sha256').update(text).digest('hex');
 }
 
+const supportedDatasets = new Set(['jokes', 'quotes', 'genalpha']);
+
+function normalizeStoreSuffix(value) {
+  if (!value) {
+    return '';
+  }
+  if (value.startsWith('-') || value.startsWith('_')) {
+    return value;
+  }
+  return `-${value}`;
+}
+
 function loadDataset(name) {
   if (name === 'jokes') {
     const datasetPath = path.join(rootDir, 'apps', 'jokes', 'jokes.js');
@@ -225,6 +255,27 @@ function loadDataset(name) {
     return { datasetPath, entries };
   }
 
+  if (name === 'genalpha') {
+    const datasetPath = path.join(rootDir, 'apps', 'gen-alpha', 'slang.js');
+    const raw = loadWindowData(datasetPath, 'genAlphaSlang');
+    const entries = raw
+      .filter((entry) => entry && typeof entry.id === 'string')
+      .map((entry) => {
+        const term = entry.term || '';
+        const definition = entry.definition || '';
+        const combined = [term, definition].filter(Boolean).join(' \u2022 ');
+        return {
+          id: entry.id,
+          term,
+          definition,
+          textHash: sha256(combined),
+          normalized: normalizeText(`${term} ${definition}`),
+          embeddingInput: combined,
+        };
+      });
+    return { datasetPath, entries };
+  }
+
   throw new Error(`Unsupported dataset: ${name}`);
 }
 
@@ -256,6 +307,32 @@ function prepareJokeCandidate(entry, index) {
     punchline,
     embeddingInput,
     normalized: normalizeText(`${setup} ${punchline}`),
+    textHash: sha256(embeddingInput),
+    source: entry,
+  };
+}
+
+function prepareGenAlphaCandidate(entry, index) {
+  if (!entry || typeof entry !== 'object') {
+    return null;
+  }
+  const idBase = typeof entry.id === 'string' ? entry.id.trim() : '';
+  const id = idBase || `candidate-${String(index + 1).padStart(3, '0')}`;
+  const labelBase = typeof entry.label === 'string' ? entry.label.trim() : '';
+  const label = labelBase || id;
+  const term = toStringOrEmpty(entry.term).trim();
+  const definition = toStringOrEmpty(entry.definition).trim();
+  if (!term) {
+    return null;
+  }
+  const embeddingInput = [term, definition].filter(Boolean).join(' \u2022 ');
+  return {
+    id,
+    label,
+    term,
+    definition,
+    embeddingInput,
+    normalized: normalizeText(`${term} ${definition}`),
     textHash: sha256(embeddingInput),
     source: entry,
   };
@@ -308,6 +385,8 @@ function loadCandidateFile(datasetName, filePath) {
       candidate = prepareJokeCandidate(entry, index);
     } else if (datasetName === 'quotes') {
       candidate = prepareQuoteCandidate(entry, index);
+    } else if (datasetName === 'genalpha') {
+      candidate = prepareGenAlphaCandidate(entry, index);
     }
     if (candidate) {
       prepared.push(candidate);
@@ -329,8 +408,8 @@ function loadManifest(name) {
   return { manifestPath, manifest };
 }
 
-function loadEmbeddingsStore(name) {
-  const filePath = path.join(rootDir, 'data', `${name}-embeddings.json`);
+function loadEmbeddingsStore(name, suffix) {
+  const filePath = path.join(rootDir, 'data', `${name}-embeddings${suffix || ''}.json`);
   if (!fs.existsSync(filePath)) {
     return { filePath, store: { meta: null, records: {} } };
   }
@@ -1085,17 +1164,19 @@ function writeReport(reportPath, datasetName, matches, threshold, storeMeta, can
 
 async function main() {
   const options = parseArgs(process.argv.slice(2));
-  const datasets = options.datasets.size ? Array.from(options.datasets) : ['jokes', 'quotes'];
+  const datasets = options.datasets.size ? Array.from(options.datasets) : Array.from(supportedDatasets);
+
+  const suffix = normalizeStoreSuffix(options.storeSuffix);
 
   for (const datasetName of datasets) {
-    if (datasetName !== 'jokes' && datasetName !== 'quotes') {
+    if (!supportedDatasets.has(datasetName)) {
       console.warn(`Skipping unsupported dataset: ${datasetName}`);
       continue;
     }
 
     const { entries } = loadDataset(datasetName);
     const { manifestPath, manifest } = loadManifest(datasetName);
-    const { filePath, store } = loadEmbeddingsStore(datasetName);
+    const { filePath, store } = loadEmbeddingsStore(datasetName, suffix);
 
     const result = await ensureEmbeddingsForDataset(datasetName, entries, manifest, store, options);
 
@@ -1111,7 +1192,12 @@ async function main() {
       console.log(`[${datasetName}] Updated manifest ${path.relative(rootDir, manifestPath)}.`);
     }
 
-    const threshold = datasetName === 'jokes' ? options.threshold.jokes : options.threshold.quotes;
+    let threshold = options.threshold.jokes;
+    if (datasetName === 'quotes') {
+      threshold = options.threshold.quotes;
+    } else if (datasetName === 'genalpha') {
+      threshold = options.threshold.genalpha;
+    }
     const matches = findSimilarPairs(datasetName, entries, manifest, store, threshold, options);
 
     if (!matches.length) {
