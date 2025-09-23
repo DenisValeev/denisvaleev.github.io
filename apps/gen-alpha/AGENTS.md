@@ -4,12 +4,13 @@ Keep the slang dataset valid JavaScript assigned to `window.genAlphaSlang`.
 Stick to double quotes and the generated indentation so diffs stay focused on
 the records.
 
-After editing the entries, run:
+After editing the entries or tweaking the navigator UI, run:
 
 ```bash
 node --check apps/gen-alpha/slang.js
 node -e "global.window = {}; require('./apps/gen-alpha/slang.js'); console.log(Array.isArray(window.genAlphaSlang), window.genAlphaSlang.length);"
 node tools/update-content-metadata.js --dataset=genalpha
+npx playwright test tests/gen-alpha-app.spec.js
 ```
 
 Regenerate the embeddings stores we use for duplicate protection with:
