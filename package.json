@@ -4,6 +4,7 @@
   "description": "A collection of lightweight browser apps served from a single landing page. Each mini-app focuses on quick interactions, from shuffling curated decks to formatting lists for development workflows.",
   "main": "index.js",
   "scripts": {
+    "build:offline": "node tools/generate-offline-manifest.js",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "test:record": "node tools/record-playwright-log.js"

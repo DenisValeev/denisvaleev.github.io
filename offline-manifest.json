@@ -1,0 +1,216 @@
+{
+  "version": "20250923-3a6ea8d9e669",
+  "generatedAt": "2025-09-23T23:13:33.557Z",
+  "totalAssets": 52,
+  "totalBytes": 5505782,
+  "assets": [
+    {
+      "path": "apps/asset-observatory/app.js",
+      "bytes": 21252
+    },
+    {
+      "path": "apps/asset-observatory/asset-data.js",
+      "bytes": 9553
+    },
+    {
+      "path": "apps/asset-observatory/index.html",
+      "bytes": 14530
+    },
+    {
+      "path": "apps/jokes/all-jokes-compact.html",
+      "bytes": 7825
+    },
+    {
+      "path": "apps/jokes/all-jokes.html",
+      "bytes": 4707
+    },
+    {
+      "path": "apps/jokes/app.js",
+      "bytes": 3228
+    },
+    {
+      "path": "apps/jokes/index.html",
+      "bytes": 6342
+    },
+    {
+      "path": "apps/jokes/jokes.js",
+      "bytes": 141344
+    },
+    {
+      "path": "apps/jokes/render-all.js",
+      "bytes": 4533
+    },
+    {
+      "path": "apps/quotes/all-quotes.html",
+      "bytes": 6908
+    },
+    {
+      "path": "apps/quotes/app.js",
+      "bytes": 4233
+    },
+    {
+      "path": "apps/quotes/index.html",
+      "bytes": 6093
+    },
+    {
+      "path": "apps/quotes/quotes-data.js",
+      "bytes": 121995
+    },
+    {
+      "path": "apps/quotes/render-all.js",
+      "bytes": 6081
+    },
+    {
+      "path": "apps/similarity-report/index.html",
+      "bytes": 118039
+    },
+    {
+      "path": "apps/slang/all-slang.html",
+      "bytes": 8592
+    },
+    {
+      "path": "apps/slang/app.js",
+      "bytes": 7649
+    },
+    {
+      "path": "apps/slang/index.html",
+      "bytes": 11360
+    },
+    {
+      "path": "apps/slang/render-all.js",
+      "bytes": 7325
+    },
+    {
+      "path": "apps/slang/slang.js",
+      "bytes": 19170
+    },
+    {
+      "path": "apps/value-formatter/index.html",
+      "bytes": 2832
+    },
+    {
+      "path": "data/curated-quotes.json",
+      "bytes": 22094
+    },
+    {
+      "path": "data/icanhazdadjokes-split.json",
+      "bytes": 123300
+    },
+    {
+      "path": "data/jokes-embeddings-cohere.json",
+      "bytes": 590002
+    },
+    {
+      "path": "data/jokes-embeddings-openai.json",
+      "bytes": 607564
+    },
+    {
+      "path": "data/jokes-embeddings.json",
+      "bytes": 590939
+    },
+    {
+      "path": "data/jokes-manifest.json",
+      "bytes": 567558
+    },
+    {
+      "path": "data/official-jokes-index.json",
+      "bytes": 61751
+    },
+    {
+      "path": "data/quotes-embeddings-cohere.json",
+      "bytes": 42311
+    },
+    {
+      "path": "data/quotes-embeddings-openai.json",
+      "bytes": 471956
+    },
+    {
+      "path": "data/quotes-embeddings.json",
+      "bytes": 456583
+    },
+    {
+      "path": "data/quotes-manifest.json",
+      "bytes": 478829
+    },
+    {
+      "path": "data/similarity-overrides.json",
+      "bytes": 1305
+    },
+    {
+      "path": "data/similarity-report-cross-deck-cohere.json",
+      "bytes": 5053
+    },
+    {
+      "path": "data/similarity-report-cross-deck-openai.json",
+      "bytes": 12391
+    },
+    {
+      "path": "data/similarity-report-cross-deck.json",
+      "bytes": 3322
+    },
+    {
+      "path": "data/similarity-report-jokes-cohere.json",
+      "bytes": 103093
+    },
+    {
+      "path": "data/similarity-report-jokes-openai.json",
+      "bytes": 41841
+    },
+    {
+      "path": "data/similarity-report-jokes.json",
+      "bytes": 30044
+    },
+    {
+      "path": "data/similarity-report-quotes-cohere.json",
+      "bytes": 466479
+    },
+    {
+      "path": "data/similarity-report-quotes-openai.json",
+      "bytes": 13485
+    },
+    {
+      "path": "data/similarity-report-quotes.json",
+      "bytes": 3233
+    },
+    {
+      "path": "data/similarity-report-slang-hfspace.json",
+      "bytes": 206
+    },
+    {
+      "path": "data/similarity-report-slang-s128.json",
+      "bytes": 163
+    },
+    {
+      "path": "data/similarity-report-slang.json",
+      "bytes": 162
+    },
+    {
+      "path": "data/slang-embeddings-hfspace.json",
+      "bytes": 110258
+    },
+    {
+      "path": "data/slang-embeddings-synthetic128.json",
+      "bytes": 46900
+    },
+    {
+      "path": "data/slang-embeddings.json",
+      "bytes": 31508
+    },
+    {
+      "path": "data/slang-manifest.json",
+      "bytes": 51910
+    },
+    {
+      "path": "data/test-runs/latest.json",
+      "bytes": 10622
+    },
+    {
+      "path": "index.html",
+      "bytes": 18681
+    },
+    {
+      "path": "service-worker.js",
+      "bytes": 8648
+    }
+  ]
+}
