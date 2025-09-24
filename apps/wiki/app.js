@@ -11,6 +11,10 @@
     return;
   }
 
+  let articles = [];
+  let activeSlug = null;
+  let loadErrorMessage = '';
+
   function escapeHtml(value) {
     return String(value)
       .replace(/&/g, '&amp;')
@@ -215,58 +219,203 @@
     return `${minutes} min read`;
   }
 
-  const articles = Array.isArray(window.wikiArticles)
-    ? window.wikiArticles
-        .map((entry) => {
-          const slug = entry && typeof entry.slug === 'string' ? entry.slug.trim() : '';
-          const title = entry && typeof entry.title === 'string' ? entry.title.trim() : '';
-          const summary = entry && typeof entry.summary === 'string' ? entry.summary.trim() : '';
-          const accentEmoji = entry && typeof entry.accentEmoji === 'string' ? entry.accentEmoji.trim() : '';
-          const published = entry && typeof entry.published === 'string' ? entry.published.trim() : '';
-          const content = entry && typeof entry.content === 'string' ? entry.content : '';
-          const tags = Array.isArray(entry && entry.tags)
-            ? entry.tags
-                .map((tag) => (typeof tag === 'string' ? tag.trim() : ''))
-                .filter(Boolean)
-            : [];
+  function normalizeArticles(entries) {
+    if (!Array.isArray(entries)) {
+      return [];
+    }
 
-          if (!slug || !title || !content) {
-            return null;
-          }
+    return entries
+      .map((entry) => {
+        const slug = entry && typeof entry.slug === 'string' ? entry.slug.trim() : '';
+        const title = entry && typeof entry.title === 'string' ? entry.title.trim() : '';
+        const summary = entry && typeof entry.summary === 'string' ? entry.summary.trim() : '';
+        const accentEmoji = entry && typeof entry.accentEmoji === 'string' ? entry.accentEmoji.trim() : '';
+        const published = entry && typeof entry.published === 'string' ? entry.published.trim() : '';
+        const content = entry && typeof entry.content === 'string' ? entry.content : '';
+        const tags = Array.isArray(entry && entry.tags)
+          ? entry.tags
+              .map((tag) => (typeof tag === 'string' ? tag.trim() : ''))
+              .filter(Boolean)
+          : [];
 
-          const readingTime = estimateReadingTime(content);
-          return {
-            slug,
-            title,
-            summary,
-            accentEmoji,
-            published,
-            content,
-            tags,
-            readingTime
+        if (!slug || !title || !content) {
+          return null;
+        }
+
+        const readingTime = estimateReadingTime(content);
+        return {
+          slug,
+          title,
+          summary,
+          accentEmoji,
+          published,
+          content,
+          tags,
+          readingTime
+        };
+      })
+      .filter(Boolean);
+  }
+
+  function sortArticles(list) {
+    return list.slice().sort((a, b) => {
+      const timeA = parseDate(a.published);
+      const timeB = parseDate(b.published);
+
+      if (timeA && timeB) {
+        return timeB - timeA;
+      }
+
+      if (timeA && !timeB) {
+        return -1;
+      }
+
+      if (!timeA && timeB) {
+        return 1;
+      }
+
+      return a.title.localeCompare(b.title);
+    });
+  }
+
+  function parseYamlIndex(text) {
+    if (typeof text !== 'string') {
+      return [];
+    }
+
+    const names = [];
+    const lines = text.replace(/\r\n/g, '\n').split('\n');
+
+    lines.forEach((rawLine) => {
+      const trimmed = rawLine.trim();
+      if (!trimmed || trimmed.startsWith('#')) {
+        return;
+      }
+
+      const match = trimmed.match(/^-\s*(.+)$/);
+      if (!match) {
+        return;
+      }
+
+      let value = match[1].trim();
+      if (!value) {
+        return;
+      }
+
+      let buffer = '';
+      let inSingleQuote = false;
+      let inDoubleQuote = false;
+
+      for (let index = 0; index < value.length; index += 1) {
+        const char = value[index];
+        if (char === "'" && !inDoubleQuote) {
+          inSingleQuote = !inSingleQuote;
+          buffer += char;
+          continue;
+        }
+
+        if (char === '"' && !inSingleQuote) {
+          inDoubleQuote = !inDoubleQuote;
+          buffer += char;
+          continue;
+        }
+
+        if (char === '#' && !inSingleQuote && !inDoubleQuote) {
+          break;
+        }
+
+        buffer += char;
+      }
+
+      value = buffer.trim();
+      if (!value) {
+        return;
+      }
+
+      if (
+        (value.startsWith('"') && value.endsWith('"')) ||
+        (value.startsWith("'") && value.endsWith("'"))
+      ) {
+        value = value.slice(1, -1);
+      }
+
+      if (value) {
+        names.push(value);
+      }
+    });
+
+    return names;
+  }
+
+  async function fetchText(url) {
+    const response = await fetch(url, { credentials: 'same-origin' });
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ${url}: ${response.status}`);
+    }
+
+    return response.text();
+  }
+
+  async function fetchJson(url) {
+    const response = await fetch(url, { credentials: 'same-origin' });
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ${url}: ${response.status}`);
+    }
+
+    return response.json();
+  }
+
+  async function loadArticlesFromFiles() {
+    let yamlText = '';
+
+    try {
+      yamlText = await fetchText('articles/index.yaml');
+    } catch (error) {
+      console.error('Unable to load wiki index file.', error);
+      return { entries: [], hadErrors: true };
+    }
+
+    const baseNames = parseYamlIndex(yamlText);
+    if (!baseNames.length) {
+      return { entries: [], hadErrors: false };
+    }
+
+    const results = await Promise.all(
+      baseNames.map(async (baseName) => {
+        const safeName = typeof baseName === 'string' ? baseName.trim() : '';
+        if (!safeName || safeName.includes('..') || safeName.includes('/') || safeName.includes('\\')) {
+          console.warn(`Skipping invalid wiki article reference: "${baseName}".`);
+          return { entry: null, error: true };
+        }
+
+        const encodedName = encodeURIComponent(safeName);
+        const metaUrl = `articles/${encodedName}.json`;
+        const bodyUrl = `articles/${encodedName}.md`;
+
+        try {
+          const [meta, body] = await Promise.all([fetchJson(metaUrl), fetchText(bodyUrl)]);
+          const entry = {
+            slug: meta && typeof meta.slug === 'string' ? meta.slug : safeName,
+            title: meta ? meta.title : '',
+            summary: meta ? meta.summary : '',
+            accentEmoji: meta ? meta.accentEmoji : '',
+            published: meta ? meta.published : '',
+            tags: meta ? meta.tags : [],
+            content: body
           };
-        })
-        .filter(Boolean)
-    : [];
 
-  articles.sort((a, b) => {
-    const timeA = parseDate(a.published);
-    const timeB = parseDate(b.published);
+          return { entry, error: false };
+        } catch (error) {
+          console.error(`Failed to load wiki article "${safeName}".`, error);
+          return { entry: null, error: true };
+        }
+      })
+    );
 
-    if (timeA && timeB) {
-      return timeB - timeA;
-    }
-
-    if (timeA && !timeB) {
-      return -1;
-    }
-
-    if (!timeA && timeB) {
-      return 1;
-    }
-
-    return a.title.localeCompare(b.title);
-  });
+    const entries = results.map((result) => result.entry).filter(Boolean);
+    const hadErrors = results.some((result) => result.error);
+    return { entries, hadErrors };
+  }
 
   function updateCountBadge() {
     if (!countEl) {
@@ -288,7 +437,7 @@
       listEl.innerHTML = '';
       const emptyItem = document.createElement('li');
       emptyItem.className = 'article-empty';
-      emptyItem.textContent = 'No chronicles yet—check back soon!';
+      emptyItem.textContent = loadErrorMessage || 'No chronicles yet—check back soon!';
       listEl.appendChild(emptyItem);
       return;
     }
@@ -404,8 +553,6 @@
     document.title = `${article.title} · Project Wiki`;
   }
 
-  let activeSlug = null;
-
   function selectArticle(slug, options = {}) {
     if (!slug) {
       return;
@@ -494,8 +641,45 @@
     window.addEventListener('popstate', handlePopState);
   }
 
-  updateCountBadge();
-  buildList();
-  bindEvents();
-  applyInitialSelection();
+  async function initializeWiki() {
+    bindEvents();
+
+    let loadResult;
+    try {
+      loadResult = await loadArticlesFromFiles();
+    } catch (error) {
+      console.error('Failed to load wiki articles.', error);
+      loadResult = { entries: [], hadErrors: true };
+    }
+
+    const normalized = normalizeArticles(loadResult.entries);
+    articles = sortArticles(normalized);
+    activeSlug = null;
+
+    if (loadResult.hadErrors && !articles.length) {
+      loadErrorMessage = 'Unable to load wiki entries right now.';
+    } else {
+      loadErrorMessage = '';
+    }
+
+    updateCountBadge();
+    buildList();
+
+    if (!articles.length) {
+      if (loadErrorMessage) {
+        articleTitleEl.textContent = 'Unable to load entries';
+        articleMetaEl.hidden = true;
+        articleMetaEl.textContent = '';
+        articleTagsEl.hidden = true;
+        articleTagsEl.innerHTML = '';
+        articleBodyEl.innerHTML = `<p class="article-empty">${loadErrorMessage}</p>`;
+        document.title = 'Project Wiki';
+      }
+      return;
+    }
+
+    applyInitialSelection();
+  }
+
+  initializeWiki();
 })();

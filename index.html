@@ -148,7 +148,8 @@
       justify-content: flex-start;
     }
 
-    a.app-button {
+    a.app-button,
+    .docs-button {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -164,16 +165,19 @@
       transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
     }
 
-    a.app-button span[aria-hidden="true"] {
+    a.app-button span[aria-hidden="true"],
+    .docs-button span[aria-hidden="true"] {
       font-size: 1.1rem;
     }
 
-    a.app-button:hover {
+    a.app-button:hover,
+    .docs-button:hover {
       transform: translateY(-1px);
       box-shadow: var(--button-shadow-hover);
     }
 
-    a.app-button:focus-visible {
+    a.app-button:focus-visible,
+    .docs-button:focus-visible {
       outline: none;
       transform: translateY(-1px);
       box-shadow: 0 0 0 3px var(--focus-ring), var(--button-shadow-hover);
@@ -379,7 +383,8 @@
       font-weight: 600;
     }
 
-    a.app-button--wide {
+    a.app-button--wide,
+    .docs-button.app-button--wide {
       width: 100%;
       justify-content: flex-start;
       font-size: clamp(1rem, 0.35vw + 0.95rem, 1.12rem);
@@ -500,7 +505,7 @@
           </a>
         </li>
         <li>
-          <a class="app-button app-button--secondary app-button--wide" href="ai_docs/">
+          <a class="docs-button app-button--secondary app-button--wide" href="ai_docs/">
             <span aria-hidden="true">📚</span>
             <span>AI Docs</span>
           </a>

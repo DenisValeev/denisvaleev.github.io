@@ -1,0 +1,6 @@
+# Wiki articles are listed here by their shared filename stem.
+# Each entry corresponds to both a .json metadata file and a .md body file.
+articles:
+  - kickoff-chaos
+  - markdown-machinations
+  - navigation-nerdery
