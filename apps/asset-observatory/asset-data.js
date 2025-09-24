@@ -1,12 +1,12 @@
 window.assetObservatoryData = {
-  "generatedAt": "2025-09-24T01:25:29.567Z",
+  "generatedAt": "2025-09-24T02:37:03.891Z",
   "datasets": [
     {
       "id": "jokes",
       "label": "Dad Jokes",
       "dataset": {
         "path": "apps/jokes/jokes.js",
-        "bytes": 142246
+        "bytes": 151018
       },
       "manifest": {
         "path": "data/jokes-manifest.json",
@@ -20,9 +20,9 @@ window.assetObservatoryData = {
           "provider": "synthetic",
           "model": "synthetic-64",
           "dimensions": 64,
-          "records": 855,
-          "bytes": 594414,
-          "generatedAt": "2025-09-23T22:53:34.429Z"
+          "records": 905,
+          "bytes": 629164,
+          "generatedAt": "2025-09-24T01:06:46.473Z"
         },
         {
           "path": "data/jokes-embeddings-openai.json",
@@ -49,9 +49,9 @@ window.assetObservatoryData = {
           "provider": "hfspace",
           "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
           "threshold": 0.5,
-          "pairs": 106,
-          "bytes": 30044,
-          "generatedAt": "2025-09-23T22:54:39.022Z"
+          "pairs": 118,
+          "bytes": 33875,
+          "generatedAt": "2025-09-24T01:07:55.875Z"
         },
         {
           "path": "data/similarity-report-jokes-openai.json",
@@ -85,10 +85,10 @@ window.assetObservatoryData = {
         }
       ],
       "totals": {
-        "embeddingBytes": 1791980,
-        "embeddingVectors": 2545,
-        "similarityBytes": 174978,
-        "similarityPairs": 610
+        "embeddingBytes": 1826730,
+        "embeddingVectors": 2595,
+        "similarityBytes": 178809,
+        "similarityPairs": 622
       }
     },
     {
@@ -172,41 +172,41 @@ window.assetObservatoryData = {
       "label": "Slang",
       "dataset": {
         "path": "apps/slang/slang.js",
-        "bytes": 21613
+        "bytes": 43586
       },
       "manifest": {
         "path": "data/slang-manifest.json",
-        "bytes": 61664,
-        "generatedAt": "2025-09-23T23:06:25.903Z"
+        "bytes": 119913,
+        "generatedAt": "2025-09-24T01:07:13.597Z"
       },
-      "entries": 49,
+      "entries": 99,
       "embeddings": [
         {
           "path": "data/slang-embeddings.json",
           "provider": "synthetic",
           "model": "synthetic-64",
           "dimensions": 64,
-          "records": 94,
-          "bytes": 65612,
-          "generatedAt": "2025-09-23T23:06:30.529Z"
+          "records": 144,
+          "bytes": 100413,
+          "generatedAt": "2025-09-24T01:08:32.740Z"
         },
         {
           "path": "data/slang-embeddings-hfspace.json",
           "provider": "hfspace",
           "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
           "dimensions": 384,
-          "records": 94,
-          "bytes": 230063,
-          "generatedAt": "2025-09-23T23:06:37.531Z"
+          "records": 144,
+          "bytes": 352314,
+          "generatedAt": "2025-09-24T01:08:45.204Z"
         },
         {
           "path": "data/slang-embeddings-synthetic128.json",
           "provider": "synthetic",
           "model": "synthetic-128",
           "dimensions": 128,
-          "records": 94,
-          "bytes": 97762,
-          "generatedAt": "2025-09-23T23:06:42.600Z"
+          "records": 144,
+          "bytes": 149663,
+          "generatedAt": "2025-09-24T01:08:49.616Z"
         }
       ],
       "similarityReports": [
@@ -225,8 +225,8 @@ window.assetObservatoryData = {
           "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
           "threshold": 0.8,
           "pairs": 0,
-          "bytes": 206,
-          "generatedAt": "2025-09-23T23:06:37.564Z"
+          "bytes": 205,
+          "generatedAt": "2025-09-24T01:08:45.240Z"
         },
         {
           "path": "data/similarity-report-slang-s128.json",
@@ -234,15 +234,15 @@ window.assetObservatoryData = {
           "model": "synthetic-128",
           "threshold": 0.8,
           "pairs": 0,
-          "bytes": 163,
-          "generatedAt": "2025-09-23T23:06:42.610Z"
+          "bytes": 162,
+          "generatedAt": "2025-09-24T01:08:49.636Z"
         }
       ],
       "sources": [],
       "totals": {
-        "embeddingBytes": 393437,
-        "embeddingVectors": 282,
-        "similarityBytes": 530,
+        "embeddingBytes": 602390,
+        "embeddingVectors": 432,
+        "similarityBytes": 528,
         "similarityPairs": 0
       }
     }
@@ -251,8 +251,8 @@ window.assetObservatoryData = {
     {
       "id": "synthetic",
       "stores": 4,
-      "bytes": 1214371,
-      "vectorCount": 1696,
+      "bytes": 1335823,
+      "vectorCount": 1846,
       "dimensions": [
         64,
         128
@@ -279,8 +279,8 @@ window.assetObservatoryData = {
     {
       "id": "hfspace",
       "stores": 1,
-      "bytes": 230063,
-      "vectorCount": 94,
+      "bytes": 352314,
+      "vectorCount": 144,
       "dimensions": [
         384
       ]
@@ -340,17 +340,17 @@ window.assetObservatoryData = {
   ],
   "totals": {
     "datasets": 3,
-    "entries": 1631,
-    "datasetBytes": 296542,
-    "manifestBytes": 1149943,
-    "embeddingVectors": 4133,
-    "embeddingBytes": 3113956,
+    "entries": 1681,
+    "datasetBytes": 327287,
+    "manifestBytes": 1208192,
+    "embeddingVectors": 4333,
+    "embeddingBytes": 3357659,
     "embeddingStores": 8,
-    "similarityPairs": 2082,
-    "similarityBytes": 679471,
+    "similarityPairs": 2094,
+    "similarityBytes": 683300,
     "similarityReports": 12,
     "totalFiles": 29,
-    "totalBytes": 5456152,
+    "totalBytes": 5792678,
     "providerCount": 4
   }
 };
