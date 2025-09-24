@@ -1,5 +1,5 @@
 window.assetObservatoryData = {
-  "generatedAt": "2025-09-24T03:29:06.676Z",
+  "generatedAt": "2025-09-24T13:08:57.156Z",
   "datasets": [
     {
       "id": "jokes",
