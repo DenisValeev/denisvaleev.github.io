@@ -25,6 +25,7 @@ This project is a static toolbox site. The landing page (`index.html`) lists sma
 
 ## Validation
 - Automated checks are welcome, even though the apps are static. Run the Playwright smoke tests (`npm test`) when you touch the similarity lab, and feel free to add focused scripts for other apps as they evolve. In fresh environments, install the required browser bundle first with `npx playwright install --with-deps chromium` so the tests can launch successfully.
+- Do not get complacent about missing browsers—if Playwright is absent, you must at least try installing it. When you succeed, document the exact steps here instead of assuming future agents "can't" do it. No lazy punts.
 - If you skip scripted coverage, at least open the affected HTML files in a browser (or start `python -m http.server`) to confirm layout, theme switching, and keyboard interactions still work.
 - If you adjust the asset observatory, regenerate its dataset snapshot with `node tools/generate-asset-report.js` so `apps/asset-observatory/asset-data.js` stays in sync.
 - A new regression spec enforces Home buttons across apps—after tweaking navigation chrome, run `npx playwright test tests/home-navigation.spec.js`.
