@@ -3421,6 +3421,206 @@ window.jokes = [
             "id": "j-0920",
             "joke": "Why did the gardener start a podcast?",
             "punchline": "They had a lot of growing to talk about."
+        }, {
+            "id": "j-0921",
+            "joke": "Why did the astronaut bring a broom to space?",
+            "punchline": "To sweep through the Milky Way."
+        }, {
+            "id": "j-0922",
+            "joke": "Why did the keyboard need therapy?",
+            "punchline": "It had too many issues to Ctrl."
+        }, {
+            "id": "j-0923",
+            "joke": "Why did the gardener open a bakery?",
+            "punchline": "They kneaded a new outlet for their thyme."
+        }, {
+            "id": "j-0924",
+            "joke": "Why did the smartphone join the choir?",
+            "punchline": "It already had perfect pitch."
+        }, {
+            "id": "j-0925",
+            "joke": "Why do clouds love social media?",
+            "punchline": "They like to make everything go viral."
+        }, {
+            "id": "j-0926",
+            "joke": "Why did the archaeologist stay calm during delays?",
+            "punchline": "They were used to things being buried in paperwork."
+        }, {
+            "id": "j-0927",
+            "joke": "Why did the painter carry a ladder to the art show?",
+            "punchline": "They wanted to reach new heights in their work."
+        }, {
+            "id": "j-0928",
+            "joke": "Why did the sushi chef start writing poetry?",
+            "punchline": "They wanted to express their raw emotions."
+        }, {
+            "id": "j-0929",
+            "joke": "Why did the volcano join improv class?",
+            "punchline": "It wanted to practice spontaneous eruptions."
+        }, {
+            "id": "j-0930",
+            "joke": "Why did the librarian bring a flashlight to work?",
+            "punchline": "They liked to shed light on every story."
+        }, {
+            "id": "j-0931",
+            "joke": "Why did the detective carry a notebook to the beach?",
+            "punchline": "They were on the lookout for shady characters."
+        }, {
+            "id": "j-0932",
+            "joke": "Why did the meteorologist start a book club?",
+            "punchline": "They wanted to discuss current events."
+        }, {
+            "id": "j-0933",
+            "joke": "Why did the puzzle designer get promoted?",
+            "punchline": "They always put the pieces together."
+        }, {
+            "id": "j-0934",
+            "joke": "Why did the musician bring snacks to rehearsal?",
+            "punchline": "They wanted to beat hunger before the downbeat."
+        }, {
+            "id": "j-0935",
+            "joke": "Why did the mountain climber become a motivational speaker?",
+            "punchline": "They were great at summiting up."
+        }, {
+            "id": "j-0936",
+            "joke": "Why did the beekeeper ace the spelling test?",
+            "punchline": "They were used to buzzing through letters."
+        }, {
+            "id": "j-0937",
+            "joke": "Why did the software tester bring a pillow to work?",
+            "punchline": "They wanted to catch more sleep modes."
+        }, {
+            "id": "j-0938",
+            "joke": "Why did the coffee roaster become a travel agent?",
+            "punchline": "They knew all the best grounds."
+        }, {
+            "id": "j-0939",
+            "joke": "Why did the chef refuse to argue?",
+            "punchline": "They didn't want to stir up trouble."
+        }, {
+            "id": "j-0940",
+            "joke": "Why did the mathematician carry a dustpan to the lecture?",
+            "punchline": "They were expecting sweeping statements."
+        }, {
+            "id": "j-0941",
+            "joke": "Why did the photographer start meditating?",
+            "punchline": "They wanted to stay focused."
+        }, {
+            "id": "j-0942",
+            "joke": "Why did the commuter carry a harmonica?",
+            "punchline": "They wanted to blow off steam on the train."
+        }, {
+            "id": "j-0943",
+            "joke": "Why did the calendar join the debate team?",
+            "punchline": "It had a lot of dates to argue."
+        }, {
+            "id": "j-0944",
+            "joke": "Why did the astronaut apply for a job at the bakery?",
+            "punchline": "They wanted some extra space in the dough."
+        }, {
+            "id": "j-0945",
+            "joke": "Why did the novelist bring a ladder to the bookstore?",
+            "punchline": "They were ready for the next chapter."
+        }, {
+            "id": "j-0946",
+            "joke": "Why did the oceanographer become a DJ?",
+            "punchline": "They had a talent for dropping deep tracks."
+        }, {
+            "id": "j-0947",
+            "joke": "Why did the candle sign up for yoga?",
+            "punchline": "It wanted to find its inner light."
+        }, {
+            "id": "j-0948",
+            "joke": "Why did the electrician start a band?",
+            "punchline": "They had the best current leads."
+        }, {
+            "id": "j-0949",
+            "joke": "Why did the astronomer host a dinner party?",
+            "punchline": "They wanted to serve satellite dishes."
+        }, {
+            "id": "j-0950",
+            "joke": "Why did the tailor bring a map to work?",
+            "punchline": "They were charting a new course in fashion."
+        }, {
+            "id": "j-0951",
+            "joke": "Why did the paleontologist join social media?",
+            "punchline": "They loved sharing throwback discoveries."
+        }, {
+            "id": "j-0952",
+            "joke": "Why did the opera singer open a cafe?",
+            "punchline": "They wanted to serve high notes and lattes."
+        }, {
+            "id": "j-0953",
+            "joke": "Why did the robot subscribe to a gardening magazine?",
+            "punchline": "It wanted to improve its flower algorithms."
+        }, {
+            "id": "j-0954",
+            "joke": "Why did the accountant carry an umbrella on sunny days?",
+            "punchline": "They heard the forecast called for liquid assets."
+        }, {
+            "id": "j-0955",
+            "joke": "Why did the marathon runner start a bakery?",
+            "punchline": "They were great at going the extra mile for rolls."
+        }, {
+            "id": "j-0956",
+            "joke": "Why did the cartographer play the piano?",
+            "punchline": "They knew all the key landmarks."
+        }, {
+            "id": "j-0957",
+            "joke": "Why did the dentist open a dance studio?",
+            "punchline": "They wanted to teach the floss properly."
+        }, {
+            "id": "j-0958",
+            "joke": "Why did the programmer adopt a cactus?",
+            "punchline": "It handled bugs without complaint."
+        }, {
+            "id": "j-0959",
+            "joke": "Why did the historian always win trivia night?",
+            "punchline": "They already had every era covered."
+        }, {
+            "id": "j-0960",
+            "joke": "Why did the snowboarder bring a notebook?",
+            "punchline": "They liked to record their slope ideas."
+        }, {
+            "id": "j-0961",
+            "joke": "Why did the gardener build a library?",
+            "punchline": "They wanted to plant more stories."
+        }, {
+            "id": "j-0962",
+            "joke": "Why did the astronomer practice mindfulness?",
+            "punchline": "They wanted to stay grounded about space."
+        }, {
+            "id": "j-0963",
+            "joke": "Why did the baker become a life coach?",
+            "punchline": "They knew how to help people rise."
+        }, {
+            "id": "j-0964",
+            "joke": "Why did the gamer carry a notebook to tournaments?",
+            "punchline": "They liked to take down boss notes."
+        }, {
+            "id": "j-0965",
+            "joke": "Why did the biologist carry a highlighter?",
+            "punchline": "They liked to mark important cells."
+        }, {
+            "id": "j-0966",
+            "joke": "Why did the flight attendant start a blog?",
+            "punchline": "They wanted to share their high points."
+        }, {
+            "id": "j-0967",
+            "joke": "Why did the meteor shower host apologize?",
+            "punchline": "It didn't mean to crash the night."
+        }, {
+            "id": "j-0968",
+            "joke": "Why did the art curator carry extra batteries?",
+            "punchline": "They liked to keep the highlights illuminated."
+        }, {
+            "id": "j-0969",
+            "joke": "Why did the meteorologist carry a paintbrush?",
+            "punchline": "They were always touching up the forecast."
+        }, {
+            "id": "j-0970",
+            "joke": "Why did the candle maker attend business school?",
+            "punchline": "They wanted to wax poetic about profits."
         }
     ];
 

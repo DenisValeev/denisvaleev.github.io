@@ -1,7 +1,7 @@
 {
   "dataset": "jokes",
   "threshold": 0.5,
-  "generatedAt": "2025-09-23T22:54:39.022Z",
+  "generatedAt": "2025-09-24T01:07:55.875Z",
   "provider": "hfspace",
   "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
   "matches": [
@@ -195,11 +195,25 @@
       "previewB": "You can't trust a ladder. • It will always let you down"
     },
     {
+      "idA": "j-0944",
+      "idB": "j-0955",
+      "similarity": 0.6462699901485085,
+      "previewA": "Why did the astronaut apply for a job at the bakery? • They wanted some extra space in the dough.",
+      "previewB": "Why did the marathon runner start a bakery? • They were great at going the extra mile for rolls."
+    },
+    {
       "idA": "j-0120",
       "idB": "j-0171",
       "similarity": 0.6456497206522479,
       "previewA": "Why don't skeletons ride roller coasters? • They don't have the stomach for it.",
       "previewB": "Why don’t skeletons ever go trick or treating? • Because they have nobody to go with."
+    },
+    {
+      "idA": "j-0920",
+      "idB": "j-0961",
+      "similarity": 0.6437044135996978,
+      "previewA": "Why did the gardener start a podcast? • They had a lot of growing to talk about.",
+      "previewB": "Why did the gardener build a library? • They wanted to plant more stories."
     },
     {
       "idA": "j-0043",
@@ -258,6 +272,13 @@
       "previewB": "What time did the man go to the dentist? • Tooth hurt-y."
     },
     {
+      "idA": "j-0913",
+      "idB": "j-0963",
+      "similarity": 0.6060471624081807,
+      "previewA": "Why did the baker get invited to every party? • They knew how to roll with it.",
+      "previewB": "Why did the baker become a life coach? • They knew how to help people rise."
+    },
+    {
       "idA": "j-0150",
       "idB": "j-0543",
       "similarity": 0.6059935565147245,
@@ -291,6 +312,13 @@
       "similarity": 0.5925766200548158,
       "previewA": "Why do bees hum? • Because they don't know the words.",
       "previewB": "Why do bees have sticky hair? • Because they use honey combs!"
+    },
+    {
+      "idA": "j-0916",
+      "idB": "j-0930",
+      "similarity": 0.5906911281812603,
+      "previewA": "Why did the librarian switch to stand-up comedy? • They wanted to work on their shelf delivery.",
+      "previewB": "Why did the librarian bring a flashlight to work? • They liked to shed light on every story."
     },
     {
       "idA": "j-0433",
@@ -335,11 +363,32 @@
       "previewB": "I saw a nice stereo on Craigslist for $1. Seller says the volume is stuck on ‘high’ • I couldn’t turn it down."
     },
     {
+      "idA": "j-0916",
+      "idB": "j-0945",
+      "similarity": 0.5811310146302082,
+      "previewA": "Why did the librarian switch to stand-up comedy? • They wanted to work on their shelf delivery.",
+      "previewB": "Why did the novelist bring a ladder to the bookstore? • They were ready for the next chapter."
+    },
+    {
       "idA": "j-0881",
       "idB": "j-0887",
       "similarity": 0.5790204395026527,
       "previewA": "What's Santa's favourite type of music? • Wrap!",
       "previewB": "What says Oh Oh Oh? • Santa walking backwards!"
+    },
+    {
+      "idA": "j-0930",
+      "idB": "j-0968",
+      "similarity": 0.5786701875702722,
+      "previewA": "Why did the librarian bring a flashlight to work? • They liked to shed light on every story.",
+      "previewB": "Why did the art curator carry extra batteries? • They liked to keep the highlights illuminated."
+    },
+    {
+      "idA": "j-0913",
+      "idB": "j-0923",
+      "similarity": 0.5744476806759528,
+      "previewA": "Why did the baker get invited to every party? • They knew how to roll with it.",
+      "previewB": "Why did the gardener open a bakery? • They kneaded a new outlet for their thyme."
     },
     {
       "idA": "j-0332",
@@ -361,6 +410,13 @@
       "similarity": 0.5671673159028517,
       "previewA": "Why does Santa have three gardens? • So he can 'ho ho ho'!",
       "previewB": "Why does Santa go down the chimney? • Because it soots him!"
+    },
+    {
+      "idA": "j-0923",
+      "idB": "j-0961",
+      "similarity": 0.5664822870032404,
+      "previewA": "Why did the gardener open a bakery? • They kneaded a new outlet for their thyme.",
+      "previewB": "Why did the gardener build a library? • They wanted to plant more stories."
     },
     {
       "idA": "j-0820",
@@ -510,6 +566,13 @@
       "previewB": "Where do bees go to the bathroom? • The BP station."
     },
     {
+      "idA": "j-0915",
+      "idB": "j-0964",
+      "similarity": 0.5371073199513727,
+      "previewA": "Why did the scientist bring a notebook to dinner? • In case there was a table of contents.",
+      "previewB": "Why did the gamer carry a notebook to tournaments? • They liked to take down boss notes."
+    },
+    {
       "idA": "j-0687",
       "idB": "j-0824",
       "similarity": 0.5356864832194758,
@@ -529,6 +592,13 @@
       "similarity": 0.5310112682451281,
       "previewA": "Why did the kid throw the clock out the window? • He wanted to see time fly!",
       "previewB": "What did the digital clock say to the grandfather clock? • Look, no hands!"
+    },
+    {
+      "idA": "j-0930",
+      "idB": "j-0945",
+      "similarity": 0.5286658386430728,
+      "previewA": "Why did the librarian bring a flashlight to work? • They liked to shed light on every story.",
+      "previewB": "Why did the novelist bring a ladder to the bookstore? • They were ready for the next chapter."
     },
     {
       "idA": "j-0657",
@@ -587,6 +657,13 @@
       "previewB": "What do you call a pig with three eyes? • Piiig"
     },
     {
+      "idA": "j-0920",
+      "idB": "j-0923",
+      "similarity": 0.5171599283778407,
+      "previewA": "Why did the gardener start a podcast? • They had a lot of growing to talk about.",
+      "previewB": "Why did the gardener open a bakery? • They kneaded a new outlet for their thyme."
+    },
+    {
       "idA": "j-0121",
       "idB": "j-0560",
       "similarity": 0.5166242856623683,
@@ -620,6 +697,13 @@
       "similarity": 0.5135406040674234,
       "previewA": "What did the ocean say to the beach? • Thanks for all the sediment.",
       "previewB": "Why is the ocean always blue? • Because the shore never waves back."
+    },
+    {
+      "idA": "j-0915",
+      "idB": "j-0930",
+      "similarity": 0.5122265050050204,
+      "previewA": "Why did the scientist bring a notebook to dinner? • In case there was a table of contents.",
+      "previewB": "Why did the librarian bring a flashlight to work? • They liked to shed light on every story."
     },
     {
       "idA": "j-0832",
