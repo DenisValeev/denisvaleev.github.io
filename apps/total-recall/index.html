@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Total Recall</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --background-base: #f4f6ff;
+      --background-gradient: radial-gradient(circle at top, rgba(118, 134, 255, 0.18), transparent 65%);
+      --surface: rgba(255, 255, 255, 0.92);
+      --surface-border: rgba(15, 23, 42, 0.08);
+      --surface-shadow: 0 32px 64px -30px rgba(15, 23, 42, 0.36);
+      --text-primary: #0f172a;
+      --text-secondary: rgba(15, 23, 42, 0.66);
+      --accent: #4a63ff;
+      --accent-contrast: #ffffff;
+      --accent-soft: rgba(74, 99, 255, 0.14);
+      --control-border: rgba(74, 99, 255, 0.24);
+      --editor-background: rgba(255, 255, 255, 0.88);
+      --editor-border: rgba(74, 99, 255, 0.18);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background-base: #0a1124;
+        --background-gradient: radial-gradient(circle at top, rgba(118, 134, 255, 0.28), rgba(7, 13, 27, 0.94) 60%);
+        --surface: rgba(12, 19, 38, 0.92);
+        --surface-border: rgba(148, 163, 209, 0.14);
+        --surface-shadow: 0 36px 66px -30px rgba(0, 0, 0, 0.6);
+        --text-primary: #e2e8ff;
+        --text-secondary: rgba(226, 232, 255, 0.7);
+        --accent: #90a0ff;
+        --accent-contrast: #0b1020;
+        --accent-soft: rgba(144, 160, 255, 0.22);
+        --control-border: rgba(144, 160, 255, 0.42);
+        --editor-background: rgba(16, 23, 45, 0.92);
+        --editor-border: rgba(144, 160, 255, 0.3);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(20px, 6vw, 40px);
+      background: var(--background-gradient);
+      background-color: var(--background-base);
+      color: var(--text-primary);
+    }
+
+    main {
+      width: min(760px, 100%);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(22px, 4vw, 40px);
+    }
+
+    .home-nav {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+      background: transparent;
+      transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .home-link span[aria-hidden="true"] {
+      font-size: 1.1rem;
+    }
+
+    .home-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(74, 99, 255, 0.22);
+      background: var(--accent-soft);
+    }
+
+    .home-link:focus-visible {
+      outline: 2px solid rgba(74, 99, 255, 0.35);
+      outline-offset: 3px;
+      box-shadow: 0 0 0 3px rgba(74, 99, 255, 0.18);
+    }
+
+    .app-header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .app-header h1 {
+      margin: 0;
+      font-size: clamp(1.9rem, 2.4vw + 1.2rem, 2.6rem);
+      font-weight: 700;
+    }
+
+    .app-header p {
+      margin: 0;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: 24px;
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--surface-shadow);
+      backdrop-filter: blur(16px);
+      padding: clamp(28px, 6vw, 44px);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      min-height: 260px;
+    }
+
+    .card__meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-secondary);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    .card__body {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 180px;
+    }
+
+    .card__placeholder {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: clamp(1rem, 1.4vw + 0.85rem, 1.2rem);
+      line-height: 1.6;
+    }
+
+    .card__text {
+      margin: 0;
+      font-size: clamp(1.25rem, 2.2vw + 1rem, 2.05rem);
+      line-height: 1.55;
+      white-space: pre-line;
+      display: none;
+    }
+
+    .card__text.is-visible {
+      display: block;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .control-button {
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      touch-action: manipulation;
+    }
+
+    .control-button--primary {
+      background: var(--accent);
+      color: var(--accent-contrast);
+      box-shadow: 0 12px 28px rgba(74, 99, 255, 0.25);
+    }
+
+    .control-button--primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 36px rgba(74, 99, 255, 0.3);
+    }
+
+    .control-button--secondary {
+      background: transparent;
+      color: var(--accent);
+      border-color: var(--control-border);
+    }
+
+    .control-button--secondary:hover {
+      background: var(--accent-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(74, 99, 255, 0.16);
+    }
+
+    .control-button:focus-visible {
+      outline: 2px solid rgba(74, 99, 255, 0.4);
+      outline-offset: 3px;
+      box-shadow: 0 0 0 3px rgba(74, 99, 255, 0.2);
+    }
+
+    .control-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+      background: rgba(148, 163, 209, 0.18);
+      color: rgba(15, 23, 42, 0.45);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .control-button:disabled {
+        background: rgba(148, 163, 209, 0.18);
+        color: rgba(226, 232, 255, 0.5);
+      }
+    }
+
+    details.editor {
+      border-radius: 22px;
+      border: 1px solid var(--editor-border);
+      background: var(--editor-background);
+      box-shadow: 0 20px 48px rgba(15, 23, 42, 0.14);
+      padding: 0;
+      overflow: hidden;
+    }
+
+    details.editor[open] {
+      box-shadow: 0 24px 54px rgba(15, 23, 42, 0.18);
+    }
+
+    .editor__summary {
+      list-style: none;
+      cursor: pointer;
+      margin: 0;
+      padding: 18px 24px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .editor__summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .editor__summary::after {
+      content: "▾";
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+    }
+
+    details[open] .editor__summary::after {
+      content: "▴";
+    }
+
+    .editor__summary:focus-visible {
+      outline: 2px solid rgba(74, 99, 255, 0.4);
+      outline-offset: 4px;
+    }
+
+    .editor__content {
+      padding: 0 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .editor__content p {
+      margin: 0;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .editor__textarea {
+      width: 100%;
+      min-height: 200px;
+      border-radius: 14px;
+      border: 1px solid var(--control-border);
+      padding: 16px;
+      font-size: 1rem;
+      font-family: inherit;
+      line-height: 1.6;
+      resize: vertical;
+      background: rgba(255, 255, 255, 0.94);
+      color: inherit;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .editor__textarea {
+        background: rgba(12, 19, 38, 0.92);
+      }
+    }
+
+    .editor__textarea:focus-visible {
+      outline: 2px solid rgba(74, 99, 255, 0.45);
+      outline-offset: 3px;
+    }
+
+    .editor__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .editor__status {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      min-height: 1.2em;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        gap: 28px;
+      }
+
+      .card {
+        padding: clamp(24px, 8vw, 36px);
+      }
+
+      .controls {
+        justify-content: stretch;
+      }
+
+      .controls .control-button {
+        flex: 1 1 calc(50% - 10px);
+        text-align: center;
+      }
+
+      .editor__actions {
+        flex-direction: column;
+      }
+
+      .editor__actions .control-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="home-nav" aria-label="Home navigation">
+      <a class="home-link" href="../../">
+        <span aria-hidden="true">←</span>
+        <span>Home</span>
+      </a>
+    </nav>
+    <header class="app-header">
+      <h1>Total Recall</h1>
+      <p>Drop your raw notes here, split by blank lines, and train yourself with randomized memory cards.</p>
+    </header>
+    <article class="card" aria-live="polite">
+      <div class="card__meta">
+        <span>Memory card</span>
+        <span id="card-counter" data-counter>0 of 0</span>
+      </div>
+      <div class="card__body">
+        <p id="entry-placeholder" class="card__placeholder" data-placeholder>Add notes below to get started.</p>
+        <p id="entry-text" class="card__text" data-entry-text aria-hidden="true"></p>
+      </div>
+    </article>
+    <div class="controls" role="group" aria-label="Deck controls">
+      <button class="control-button control-button--secondary" type="button" data-prev>
+        Previous
+      </button>
+      <button class="control-button control-button--primary" type="button" data-reveal aria-pressed="false">
+        Reveal note
+      </button>
+      <button class="control-button control-button--secondary" type="button" data-next>
+        Next
+      </button>
+      <button class="control-button control-button--secondary" type="button" data-shuffle>
+        Reshuffle
+      </button>
+    </div>
+    <details class="editor">
+      <summary class="editor__summary">Manage raw notes</summary>
+      <div class="editor__content">
+        <p id="notes-description">Separate every entry with an empty line. Your notes stay in this browser.</p>
+        <label for="notes-input" class="visually-hidden">Raw notes input</label>
+        <textarea id="notes-input" class="editor__textarea" data-notes-input aria-describedby="notes-description" spellcheck="false"></textarea>
+        <div class="editor__actions">
+          <button class="control-button control-button--primary" type="button" data-save>
+            Save notes
+          </button>
+          <button class="control-button control-button--secondary" type="button" data-reset>
+            Restore defaults
+          </button>
+        </div>
+        <p class="editor__status" aria-live="polite" data-status></p>
+      </div>
+    </details>
+  </main>
+  <script src="app.js" defer></script>
+</body>
+</html>
