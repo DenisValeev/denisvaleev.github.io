@@ -6,6 +6,8 @@ const OFFLINE_MANIFEST_PATH = new URL('offline-manifest.json', self.location.ori
 
 let activeCacheName = null;
 let pendingUpdate = null;
+let cachedManifest = null;
+let activeCacheLookupPromise = null;
 
 self.addEventListener('install', (event) => {
   event.waitUntil(self.skipWaiting());
@@ -51,20 +53,69 @@ self.addEventListener('fetch', (event) => {
   }
 
   if (url.pathname === OFFLINE_MANIFEST_PATH) {
-    event.respondWith(handleManifestRequest(event.request));
+    event.respondWith((async () => {
+      await ensureActiveCacheName();
+      return handleManifestRequest(event.request);
+    })());
     return;
   }
 
   if (event.request.mode === 'navigate') {
-    event.respondWith(handleNavigationRequest(event.request));
+    event.respondWith((async () => {
+      await ensureActiveCacheName();
+      return handleNavigationRequest(event.request);
+    })());
     return;
   }
 
-  event.respondWith(handleAssetRequest(event.request));
+  event.respondWith((async () => {
+    await ensureActiveCacheName();
+    return handleAssetRequest(event.request);
+  })());
 });
 
 function getCacheName(version) {
   return `${CACHE_PREFIX}${version}`;
+}
+
+async function ensureActiveCacheName() {
+  if (activeCacheName) {
+    return activeCacheName;
+  }
+
+  if (!activeCacheLookupPromise) {
+    activeCacheLookupPromise = (async () => {
+      let stored = null;
+      try {
+        stored = await readStoredManifest();
+      } catch (error) {
+        console.warn('Failed to read stored manifest while determining active cache', error);
+      }
+
+      if (stored && typeof stored.version === 'string' && stored.version) {
+        activeCacheName = getCacheName(stored.version);
+        return activeCacheName;
+      }
+
+      try {
+        const keys = await caches.keys();
+        const fallback = keys.find((key) => key.startsWith(CACHE_PREFIX));
+        if (fallback) {
+          activeCacheName = fallback;
+        }
+      } catch (error) {
+        console.warn('Failed to inspect caches for active cache name', error);
+      }
+
+      return activeCacheName;
+    })();
+  }
+
+  try {
+    return await activeCacheLookupPromise;
+  } finally {
+    activeCacheLookupPromise = null;
+  }
 }
 
 async function queueManifestUpdate(manifest, options = {}) {
@@ -100,6 +151,7 @@ async function applyManifest(manifest, options = {}) {
     ? manifest.totalBytes
     : assets.reduce((sum, asset) => sum + (Number(asset.bytes) || 0), 0);
   const cacheName = getCacheName(version);
+  await ensureActiveCacheName();
   const existingManifest = await readStoredManifest();
   const cacheKeys = await caches.keys();
   const cacheExists = cacheKeys.includes(cacheName);
@@ -385,16 +437,29 @@ async function broadcast(message) {
 }
 
 async function readStoredManifest() {
-  const cache = await caches.open(METADATA_CACHE);
+  if (cachedManifest) {
+    return cachedManifest;
+  }
+
+  let cache;
+  try {
+    cache = await caches.open(METADATA_CACHE);
+  } catch (error) {
+    console.warn('Failed to open offline metadata cache', error);
+    return null;
+  }
+
   const response = await cache.match(METADATA_REQUEST);
   if (!response) {
     return null;
   }
 
   try {
-    return await response.json();
+    cachedManifest = await response.json();
+    return cachedManifest;
   } catch (error) {
     console.warn('Failed to parse stored offline manifest', error);
+    cachedManifest = null;
     return null;
   }
 }
@@ -407,6 +472,7 @@ async function writeStoredManifest(manifest) {
     }
   });
   await cache.put(METADATA_REQUEST, response);
+  cachedManifest = manifest;
 }
 
 async function cleanupCaches(currentName) {
@@ -437,6 +503,7 @@ async function clearOfflineCaches() {
 
     return Promise.resolve(false);
   }));
+  cachedManifest = null;
 }
 
 function getCommitInfo(rawCommit) {
