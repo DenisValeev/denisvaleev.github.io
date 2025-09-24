@@ -1,8 +1,8 @@
 {
-  "version": "20250924-f9b48cc09f30-a1085e1b5483",
-  "generatedAt": "2025-09-24T13:08:56.925Z",
-  "totalAssets": 69,
-  "totalBytes": 6295696,
+  "version": "20250924-340df40d5cd5-c7953604c736",
+  "generatedAt": "2025-09-24T23:31:25.555Z",
+  "totalAssets": 71,
+  "totalBytes": 6313816,
   "assets": [
     {
       "path": "apps/asset-observatory/AGENTS.md",
@@ -107,6 +107,14 @@
     {
       "path": "apps/slang/slang.js",
       "bytes": 43586
+    },
+    {
+      "path": "apps/total-recall/app.js",
+      "bytes": 6548
+    },
+    {
+      "path": "apps/total-recall/index.html",
+      "bytes": 11215
     },
     {
       "path": "apps/value-formatter/index.html",
@@ -274,7 +282,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 30600
+      "bytes": 30957
     },
     {
       "path": "service-worker.js",
@@ -282,8 +290,8 @@
     }
   ],
   "commit": {
-    "hash": "a1085e1b548358485adebf6dca34deca9cad1cfe",
-    "short": "a1085e1b5483",
+    "hash": "c7953604c736460c562a8eeed801d7e8a849f191",
+    "short": "c7953604c736",
     "dirty": false
   }
 }
