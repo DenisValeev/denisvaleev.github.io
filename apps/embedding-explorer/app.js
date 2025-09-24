@@ -386,6 +386,15 @@
     caption: secondaryCaption,
   };
   const MAX_NEIGHBOR_DISPLAY = 10;
+  const overridesUrl = '../../data/similarity-overrides.json';
+  let overridesPromise = null;
+  let overrideIndex = new Map();
+  const summaryValues = summaryGrid ? Array.from(summaryGrid.querySelectorAll('dd')) : [];
+  const POSITIVE_PLACEHOLDER = 'Positive values appear here.';
+  const NEGATIVE_PLACEHOLDER = 'Negative values appear here.';
+  const SAMPLE_PLACEHOLDER = 'Choose a sample to populate its description.';
+  let activeSampleId = '';
+  let currentVectorValues = [];
 
   function safeText(value) {
     return typeof value === 'string' ? value.trim() : '';
@@ -413,6 +422,513 @@
       return '—';
     }
     return value.toFixed(3);
+  }
+
+  function createOverrideKey(idA, idB) {
+    const first = safeText(idA);
+    const second = safeText(idB);
+    if (!first || !second) {
+      return '';
+    }
+
+    return [first, second]
+      .sort((left, right) => left.localeCompare(right, undefined, { numeric: true, sensitivity: 'base' }))
+      .join('::');
+  }
+
+  function parseOverrides(payload) {
+    const index = new Map();
+    if (!payload || typeof payload !== 'object') {
+      return index;
+    }
+
+    const datasets = payload.datasets && typeof payload.datasets === 'object' ? payload.datasets : {};
+    Object.entries(datasets).forEach(([datasetName, datasetPayload]) => {
+      if (!datasetName || !datasetPayload || typeof datasetPayload !== 'object') {
+        return;
+      }
+
+      const pairs = Array.isArray(datasetPayload.protectedPairs) ? datasetPayload.protectedPairs : [];
+      if (!pairs.length) {
+        return;
+      }
+
+      const datasetMap = new Map();
+      pairs.forEach((entry) => {
+        if (!entry || typeof entry !== 'object' || !Array.isArray(entry.ids) || entry.ids.length < 2) {
+          return;
+        }
+
+        const [idA, idB] = entry.ids;
+        const key = createOverrideKey(idA, idB);
+        if (!key) {
+          return;
+        }
+
+        const label = safeText(entry.label) || 'Protected pair';
+        const reason = safeText(entry.reason);
+        datasetMap.set(key, { label, reason });
+      });
+
+      if (datasetMap.size) {
+        index.set(datasetName, datasetMap);
+      }
+    });
+
+    return index;
+  }
+
+  function loadOverrides() {
+    if (overridesPromise) {
+      return overridesPromise;
+    }
+
+    overridesPromise = fetch(overridesUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to load ${overridesUrl}`);
+        }
+        return response.json();
+      })
+      .then((json) => {
+        overrideIndex = parseOverrides(json);
+        return overrideIndex;
+      })
+      .catch((error) => {
+        console.warn(error);
+        overrideIndex = new Map();
+        return overrideIndex;
+      });
+
+    return overridesPromise;
+  }
+
+  function addNeighborEntry(neighborMap, sourceId, targetId, similarity) {
+    if (!(neighborMap instanceof Map)) {
+      return;
+    }
+
+    const sourceKey = safeText(sourceId);
+    const targetKey = safeText(targetId);
+    if (!sourceKey || !targetKey || !Number.isFinite(similarity)) {
+      return;
+    }
+
+    if (!neighborMap.has(sourceKey)) {
+      neighborMap.set(sourceKey, []);
+    }
+
+    const list = neighborMap.get(sourceKey);
+    const existing = list.find((entry) => entry.id === targetKey);
+    if (existing) {
+      if (existing.similarity < similarity) {
+        existing.similarity = similarity;
+      }
+      return;
+    }
+
+    list.push({ id: targetKey, similarity });
+  }
+
+  function buildNeighborMapFromReport(report) {
+    const neighborMap = new Map();
+    if (!report || typeof report !== 'object') {
+      return neighborMap;
+    }
+
+    const matches = Array.isArray(report.matches) ? report.matches : [];
+    matches.forEach((match) => {
+      if (!match || typeof match !== 'object') {
+        return;
+      }
+
+      const idA = safeText(match.idA);
+      const idB = safeText(match.idB);
+      const similarity = Number(match.similarity);
+      if (!idA || !idB || !Number.isFinite(similarity)) {
+        return;
+      }
+
+      addNeighborEntry(neighborMap, idA, idB, similarity);
+      addNeighborEntry(neighborMap, idB, idA, similarity);
+    });
+
+    neighborMap.forEach((list) => {
+      list.sort((a, b) => b.similarity - a.similarity);
+    });
+
+    return neighborMap;
+  }
+
+  function getOverrideForPair(datasetData, idA, idB) {
+    const overrideMap = datasetData && datasetData.overrideMap instanceof Map ? datasetData.overrideMap : null;
+    if (!overrideMap) {
+      return null;
+    }
+
+    const key = createOverrideKey(idA, idB);
+    if (!key || !overrideMap.has(key)) {
+      return null;
+    }
+
+    return overrideMap.get(key);
+  }
+
+  function formatNumber(value, digits = 3) {
+    if (!Number.isFinite(value)) {
+      return (0).toFixed(digits);
+    }
+    return value.toFixed(digits);
+  }
+
+  function parseVectorInput(input) {
+    if (typeof input !== 'string') {
+      return [];
+    }
+
+    return input
+      .split(/[\s,]+/)
+      .map((token) => Number(token))
+      .filter((value) => Number.isFinite(value));
+  }
+
+  function computeVectorStats(values) {
+    let sourceValues = [];
+
+    if (Array.isArray(values)) {
+      sourceValues = values;
+    } else if (values && typeof values === 'object') {
+      if (ArrayBuffer.isView(values)) {
+        sourceValues = Array.from(values);
+      } else if (typeof values[Symbol.iterator] === 'function') {
+        sourceValues = Array.from(values);
+      }
+    }
+
+    const numericValues = sourceValues
+      .map((value) => Number(value))
+      .filter((value) => Number.isFinite(value));
+    const length = numericValues.length;
+
+    if (!length) {
+      return {
+        values: [],
+        length: 0,
+        magnitude: 0,
+        mean: 0,
+        variance: 0,
+        min: Number.NaN,
+        max: Number.NaN,
+        zeroCount: 0,
+      };
+    }
+
+    let sum = 0;
+    let sumSquares = 0;
+    let min = numericValues[0];
+    let max = numericValues[0];
+    let zeroCount = 0;
+
+    numericValues.forEach((value) => {
+      sum += value;
+      sumSquares += value * value;
+      if (value < min) {
+        min = value;
+      }
+      if (value > max) {
+        max = value;
+      }
+      if (value === 0) {
+        zeroCount += 1;
+      }
+    });
+
+    const mean = sum / length;
+    const variance = numericValues.reduce((accumulator, value) => accumulator + (value - mean) * (value - mean), 0) / length;
+    const magnitude = Math.sqrt(sumSquares);
+
+    return {
+      values: numericValues,
+      length,
+      magnitude,
+      mean,
+      variance,
+      min,
+      max,
+      zeroCount,
+    };
+  }
+
+  function renderSummary(stats) {
+    if (!summaryValues.length) {
+      return;
+    }
+
+    const [dimensionsEl, magnitudeEl, meanEl, stdevEl, rangeEl, zeroShareEl] = summaryValues;
+    dimensionsEl.textContent = stats.length.toLocaleString();
+    magnitudeEl.textContent = formatNumber(stats.magnitude);
+    meanEl.textContent = formatNumber(stats.mean);
+    stdevEl.textContent = formatNumber(Math.sqrt(stats.variance));
+
+    if (stats.length) {
+      rangeEl.textContent = `${formatNumber(stats.min)} / ${formatNumber(stats.max)}`;
+      const zeroShare = Math.round((stats.zeroCount / stats.length) * 100);
+      zeroShareEl.textContent = `${zeroShare}%`;
+    } else {
+      rangeEl.textContent = '— / —';
+      zeroShareEl.textContent = '0%';
+    }
+  }
+
+  function renderExtremaList(listElement, entries, placeholder) {
+    if (!listElement) {
+      return;
+    }
+
+    listElement.innerHTML = '';
+
+    if (!entries.length) {
+      const item = document.createElement('li');
+      const message = document.createElement('span');
+      message.className = 'placeholder';
+      message.textContent = placeholder;
+      item.appendChild(message);
+      listElement.appendChild(item);
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+    entries.forEach((entry) => {
+      const item = document.createElement('li');
+      item.textContent = `#${entry.index}${formatNumber(entry.value)}`;
+      fragment.appendChild(item);
+    });
+    listElement.appendChild(fragment);
+  }
+
+  function renderValueTable(values) {
+    if (!valueTable) {
+      return;
+    }
+
+    valueTable.innerHTML = '';
+
+    if (!values.length) {
+      const row = document.createElement('tr');
+      const indexCell = document.createElement('td');
+      indexCell.textContent = '#1';
+      const valueCell = document.createElement('td');
+      const valueSpan = document.createElement('span');
+      valueSpan.textContent = '0.000';
+      valueCell.appendChild(valueSpan);
+      const normalizedCell = document.createElement('td');
+      const normalizedSpan = document.createElement('span');
+      normalizedSpan.textContent = '0.000';
+      normalizedCell.appendChild(normalizedSpan);
+      row.append(indexCell, valueCell, normalizedCell);
+      valueTable.appendChild(row);
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+    const maxMagnitude = values.reduce((highest, value) => Math.max(highest, Math.abs(value)), 0);
+    const safeDivisor = Number.isFinite(maxMagnitude) && maxMagnitude > 0 ? maxMagnitude : 1;
+
+    values.forEach((value, index) => {
+      const row = document.createElement('tr');
+
+      const indexCell = document.createElement('td');
+      indexCell.textContent = `#${index + 1}`;
+
+      const valueCell = document.createElement('td');
+      const valueSpan = document.createElement('span');
+      valueSpan.textContent = formatNumber(value);
+      valueCell.appendChild(valueSpan);
+
+      const normalizedCell = document.createElement('td');
+      const normalizedSpan = document.createElement('span');
+      normalizedSpan.textContent = formatNumber(Math.abs(value) / safeDivisor);
+      normalizedCell.appendChild(normalizedSpan);
+
+      row.append(indexCell, valueCell, normalizedCell);
+      fragment.appendChild(row);
+    });
+
+    valueTable.appendChild(fragment);
+  }
+
+  function formatVectorForInput(values) {
+    if (!Array.isArray(values)) {
+      return '';
+    }
+
+    return values
+      .map((value) => {
+        if (!Number.isFinite(value)) {
+          return '0';
+        }
+        if (Object.is(value, -0)) {
+          return '0';
+        }
+        return value.toString();
+      })
+      .join(', ');
+  }
+
+  function updateSummaryForVector(values) {
+    const stats = computeVectorStats(values);
+    currentVectorValues = stats.values;
+    renderSummary(stats);
+
+    const entries = stats.values.map((value, index) => ({ index: index + 1, value }));
+    const positiveEntries = entries
+      .filter((entry) => entry.value > 0)
+      .sort((a, b) => b.value - a.value)
+      .slice(0, 5);
+    const negativeEntries = entries
+      .filter((entry) => entry.value < 0)
+      .sort((a, b) => a.value - b.value)
+      .slice(0, 5);
+
+    renderExtremaList(positiveList, positiveEntries, POSITIVE_PLACEHOLDER);
+    renderExtremaList(negativeList, negativeEntries, NEGATIVE_PLACEHOLDER);
+    renderValueTable(stats.values);
+    return stats;
+  }
+
+  function updateSampleMeta(sample, options = {}) {
+    if (!sampleMeta) {
+      return;
+    }
+
+    sampleMeta.innerHTML = '';
+
+    if (!sample) {
+      const placeholder = document.createElement('p');
+      placeholder.className = 'placeholder';
+      placeholder.textContent = options.placeholder || SAMPLE_PLACEHOLDER;
+      sampleMeta.appendChild(placeholder);
+      return;
+    }
+
+    const title = document.createElement('p');
+    title.className = 'sample-meta__title';
+    title.textContent = safeText(sample.label) || 'Sample';
+
+    const description = document.createElement('p');
+    description.textContent = safeText(sample.description) || '';
+
+    sampleMeta.append(title, description);
+  }
+
+  function updateActiveSampleButtons() {
+    if (!sampleList) {
+      return;
+    }
+    const buttons = sampleList.querySelectorAll('.sample-button');
+    buttons.forEach((button) => {
+      const isActive = button.dataset.sampleId === activeSampleId;
+      button.dataset.active = isActive ? 'true' : 'false';
+      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+  }
+
+  function setActiveSample(sampleId) {
+    if (!sampleId) {
+      activeSampleId = '';
+      updateActiveSampleButtons();
+      updateSampleMeta(null);
+      updateSummaryForVector([]);
+      if (embeddingInput) {
+        embeddingInput.value = '';
+      }
+      return;
+    }
+
+    const sample = samples.find((entry) => entry && entry.id === sampleId);
+    if (!sample) {
+      activeSampleId = '';
+      updateActiveSampleButtons();
+      updateSampleMeta(null);
+      updateSummaryForVector([]);
+      if (embeddingInput) {
+        embeddingInput.value = '';
+      }
+      return;
+    }
+
+    activeSampleId = sample.id;
+    updateActiveSampleButtons();
+    updateSampleMeta(sample);
+    const stats = updateSummaryForVector(sample.vector);
+    if (embeddingInput) {
+      embeddingInput.value = formatVectorForInput(stats.values);
+    }
+  }
+
+  function clearActiveSampleSelection() {
+    activeSampleId = '';
+    updateActiveSampleButtons();
+  }
+
+  function buildSampleToolbar() {
+    if (!sampleList) {
+      return;
+    }
+
+    sampleList.innerHTML = '';
+
+    if (!Array.isArray(samples) || !samples.length) {
+      updateSampleMeta(null);
+      updateSummaryForVector([]);
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+    samples.forEach((sample) => {
+      if (!sample || typeof sample.id !== 'string') {
+        return;
+      }
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'sample-button';
+      button.dataset.sampleId = sample.id;
+      button.dataset.active = 'false';
+      button.setAttribute('aria-pressed', 'false');
+      button.textContent = safeText(sample.label) || sample.id;
+      fragment.appendChild(button);
+    });
+
+    sampleList.appendChild(fragment);
+    setActiveSample(samples[0]?.id || '');
+  }
+
+  function handleCustomVectorUpdate() {
+    if (!embeddingInput) {
+      return;
+    }
+
+    const values = parseVectorInput(embeddingInput.value || '');
+    const stats = updateSummaryForVector(values);
+    clearActiveSampleSelection();
+
+    if (!stats.length) {
+      updateSampleMeta(null, {
+        placeholder: 'Provide at least one numeric value to compute metrics.',
+      });
+      return;
+    }
+
+    if (stats.values.length) {
+      embeddingInput.value = formatVectorForInput(stats.values);
+    }
+
+    const valueLabel = stats.length === 1 ? 'value' : 'values';
+    updateSampleMeta({
+      label: 'Custom embedding',
+      description: `Metrics generated from ${stats.length.toLocaleString()} manual ${valueLabel}.`,
+    });
   }
 
   function decodeVectorBytes(base64) {
@@ -833,11 +1349,6 @@
   function updateActiveNeighborButton() {
     const buttons = neighborList.querySelectorAll('.neighbor-button');
     buttons.forEach((button) => {
-      if (button.dataset.self === 'true') {
-        button.dataset.active = 'true';
-        button.setAttribute('aria-pressed', 'true');
-        return;
-      }
       const isActive = button.dataset.neighborId === activeNeighborId;
       button.dataset.active = isActive ? 'true' : 'false';
       button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
@@ -853,27 +1364,21 @@
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'neighbor-button';
+    button.dataset.neighborId = record.id;
+    const isActiveNeighbor = record.id === activeNeighborId;
+    button.dataset.active = isActiveNeighbor ? 'true' : 'false';
+    button.setAttribute('aria-pressed', isActiveNeighbor ? 'true' : 'false');
 
-    const isSelf = options.isSelf === true;
-    const similarity = Number.isFinite(options.similarity) ? options.similarity : 0;
-
-    if (isSelf) {
-      button.disabled = true;
-      button.dataset.self = 'true';
-      button.dataset.active = 'true';
-      button.setAttribute('aria-disabled', 'true');
-      button.setAttribute('aria-pressed', 'true');
-    } else {
-      button.dataset.neighborId = record.id;
-      const isActiveNeighbor = record.id === activeNeighborId;
-      button.dataset.active = isActiveNeighbor ? 'true' : 'false';
-      button.setAttribute('aria-pressed', isActiveNeighbor ? 'true' : 'false');
-      if (activeRecordId) {
-        button.setAttribute(
-          'aria-label',
-          `Compare ${record.id} with ${activeRecordId} (similarity ${formatSimilarity(similarity)})`
-        );
+    const similarity = Number.isFinite(options.similarity) ? options.similarity : Number.NaN;
+    if (activeRecordId) {
+      const parts = [`Compare ${record.id} with ${activeRecordId}`];
+      if (Number.isFinite(similarity)) {
+        parts.push(`similarity ${formatSimilarity(similarity)}`);
       }
+      if (options.override && options.override.label) {
+        parts.push(options.override.label);
+      }
+      button.setAttribute('aria-label', parts.join(' – '));
     }
 
     const header = document.createElement('div');
@@ -885,15 +1390,18 @@
 
     const scoreSpan = document.createElement('span');
     scoreSpan.className = 'neighbor-button__score';
-    scoreSpan.textContent = formatSimilarity(isSelf ? 1 : similarity);
+    scoreSpan.textContent = formatSimilarity(similarity);
 
     header.append(idSpan, scoreSpan);
     button.appendChild(header);
 
-    if (isSelf) {
+    if (options.override) {
       const badge = document.createElement('span');
-      badge.className = 'neighbor-button__self';
-      badge.textContent = typeof options.label === 'string' && options.label ? options.label : 'Selected vector';
+      badge.className = 'neighbor-button__badge';
+      badge.textContent = options.override.label || 'Protected pair';
+      if (options.override.reason) {
+        badge.setAttribute('title', options.override.reason);
+      }
       button.appendChild(badge);
     }
 
@@ -934,21 +1442,12 @@
     }
 
     const fragment = document.createDocumentFragment();
-    const primaryRecord = datasetData.recordMap.get(activeRecordId) || null;
-    neighborStatus.textContent = `Selected vector and top ${neighborRecords.length} matches for ${activeRecordId}.`;
-
-    const selfItem = createNeighborListItem(primaryRecord, datasetData, {
-      isSelf: true,
-      similarity: 1,
-      label: 'Selected vector',
-    });
-    if (selfItem) {
-      fragment.appendChild(selfItem);
-    }
+    neighborStatus.textContent = `Top ${neighborRecords.length} matches for ${activeRecordId}.`;
 
     neighborRecords.forEach((entry) => {
       const item = createNeighborListItem(entry.record, datasetData, {
         similarity: entry.similarity,
+        override: entry.override || null,
       });
       if (item) {
         fragment.appendChild(item);
@@ -957,7 +1456,7 @@
 
     neighborList.appendChild(fragment);
   }
-  function computeNeighbors(record, datasetData) {
+  function computeCosineNeighbors(record, datasetData) {
     if (!record || !datasetData) {
       return [];
     }
@@ -1004,6 +1503,52 @@
 
     neighbors.sort((a, b) => b.similarity - a.similarity);
     return neighbors.slice(0, MAX_NEIGHBOR_DISPLAY);
+  }
+
+  function computeNeighbors(record, datasetData) {
+    if (!record || !datasetData) {
+      return [];
+    }
+
+    const precomputed = datasetData.neighborMap instanceof Map ? datasetData.neighborMap.get(record.id) || [] : [];
+    const results = [];
+    const seen = new Set();
+
+    precomputed.forEach((entry) => {
+      if (!entry || typeof entry !== 'object') {
+        return;
+      }
+
+      const candidate = datasetData.recordMap.get(entry.id);
+      if (!candidate || candidate.id === record.id || seen.has(candidate.id)) {
+        return;
+      }
+
+      const similarity = Number(entry.similarity);
+      if (!Number.isFinite(similarity)) {
+        return;
+      }
+
+      const override = getOverrideForPair(datasetData, record.id, candidate.id);
+      results.push({ id: candidate.id, record: candidate, similarity, override });
+      seen.add(candidate.id);
+    });
+
+    if (results.length < MAX_NEIGHBOR_DISPLAY) {
+      const fallback = computeCosineNeighbors(record, datasetData);
+      fallback.forEach((entry) => {
+        if (!entry || seen.has(entry.id)) {
+          return;
+        }
+
+        const override = getOverrideForPair(datasetData, record.id, entry.id);
+        results.push({ id: entry.id, record: entry.record, similarity: entry.similarity, override });
+        seen.add(entry.id);
+      });
+    }
+
+    results.sort((a, b) => b.similarity - a.similarity);
+    return results.slice(0, MAX_NEIGHBOR_DISPLAY);
   }
 
   function renderPane(pane, record, datasetMeta, source, options = {}) {
@@ -1158,6 +1703,14 @@
     const extraMeta = [];
     if (neighborEntry && Number.isFinite(neighborEntry.similarity)) {
       extraMeta.push({ label: 'Cosine similarity', value: formatSimilarity(neighborEntry.similarity) });
+    }
+
+    if (neighborEntry && neighborEntry.override) {
+      const overrideLabel = neighborEntry.override.label || 'Protected pair';
+      const overrideReason = neighborEntry.override.reason
+        ? neighborEntry.override.reason
+        : 'Manually protected from dedupe sweeps.';
+      extraMeta.push({ label: overrideLabel, value: overrideReason, title: neighborEntry.override.reason || '' });
     }
 
     renderPane(secondaryPane, record, datasetData?.meta, datasetData?.source, {
@@ -1340,14 +1893,29 @@
       return;
     }
 
-    fetch(source.url)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Failed to load ${source.url}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
+    const datasetRequest = fetch(source.url).then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to load ${source.url}`);
+      }
+      return response.json();
+    });
+
+    const reportRequest = typeof source.report === 'string' && source.report
+      ? fetch(source.report)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`Failed to load ${source.report}`);
+            }
+            return response.json();
+          })
+          .catch((error) => {
+            console.warn('Failed to load neighbor report', error);
+            return null;
+          })
+      : Promise.resolve(null);
+
+    Promise.all([datasetRequest, reportRequest, loadOverrides()])
+      .then(([data, reportData, overrides]) => {
         const meta = data?.meta || {};
         const recordsObject = data?.records || {};
         const records = Object.keys(recordsObject).map((id) => {
@@ -1372,12 +1940,21 @@
           recordMap.set(record.id, record);
         });
 
+        const contentKey = collectionContentKeys.get(source.collection) || '';
+        const overrideMap =
+          contentKey && overrides instanceof Map && overrides.has(contentKey)
+            ? overrides.get(contentKey)
+            : new Map();
+        const neighborMap = buildNeighborMapFromReport(reportData);
+
         const datasetData = {
           source,
           meta,
           records,
           recordMap,
-          contentKey: collectionContentKeys.get(source.collection) || '',
+          contentKey,
+          neighborMap,
+          overrideMap,
         };
 
         datasetCache.set(datasetId, datasetData);
@@ -1410,6 +1987,39 @@
         renderPrimaryPane(null, null);
         renderSecondaryPane(null, null, null);
       });
+  }
+
+  buildSampleToolbar();
+
+  if (sampleList) {
+    sampleList.addEventListener('click', (event) => {
+      const button = event.target.closest('.sample-button');
+      if (!button) {
+        return;
+      }
+
+      const sampleId = button.dataset.sampleId;
+      if (!sampleId) {
+        return;
+      }
+
+      setActiveSample(sampleId);
+    });
+  }
+
+  if (updateButton) {
+    updateButton.addEventListener('click', () => {
+      handleCustomVectorUpdate();
+    });
+  }
+
+  if (embeddingInput) {
+    embeddingInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault();
+        handleCustomVectorUpdate();
+      }
+    });
   }
 
   datasetSelect.addEventListener('change', () => {

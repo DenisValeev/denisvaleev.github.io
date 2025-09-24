@@ -72,9 +72,15 @@ test.describe('Embedding Explorer app', () => {
       await recordButton.click();
 
       const neighborButtons = page.locator('[data-neighbor-list] .neighbor-button');
-      await expect(neighborButtons).toHaveCount(11);
-      await expect(neighborButtons.first()).toContainText('Selected vector');
-      await expect(page.locator('[data-neighbor-status]')).toContainText('Selected vector and top 10 matches for j-0907.');
+      await expect(neighborButtons).toHaveCount(10);
+      await expect(neighborButtons.filter({ hasText: 'Selected vector' })).toHaveCount(0);
+      await expect(page.locator('[data-neighbor-status]')).toContainText('Top 10 matches for j-0907.');
+
+      if (option.value === 'jokes-synthetic') {
+        const protectedPair = neighborButtons.filter({ hasText: 'j-0502' });
+        await expect(protectedPair).toHaveCount(1);
+        await expect(protectedPair.first()).toContainText('Keep both');
+      }
 
       await recordFilter.fill('');
     }
