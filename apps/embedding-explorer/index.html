@@ -277,7 +277,8 @@
       word-break: break-word;
     }
 
-    .record-status {
+    .record-status,
+    .neighbor-status {
       margin: 0;
       font-size: 0.85rem;
       color: var(--text-secondary);
@@ -309,7 +310,8 @@
       padding: 0;
     }
 
-    .record-button {
+    .record-button,
+    .neighbor-button {
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -325,25 +327,29 @@
       transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
     }
 
-    .record-button:hover {
+    .record-button:hover,
+    .neighbor-button:hover {
       transform: translateY(-1px);
       border-color: var(--accent);
     }
 
-    .record-button:focus-visible {
+    .record-button:focus-visible,
+    .neighbor-button:focus-visible {
       outline: none;
       border-color: var(--accent);
       box-shadow: 0 0 0 3px var(--input-focus);
     }
 
-    .record-button[data-active="true"] {
+    .record-button[data-active="true"],
+    .neighbor-button[data-active="true"] {
       background: var(--accent);
       color: var(--accent-contrast);
       border-color: var(--accent);
       box-shadow: 0 14px 24px color-mix(in srgb, var(--accent) 35%, transparent);
     }
 
-    .record-button[data-active="true"] .record-button__meta {
+    .record-button[data-active="true"] .record-button__meta,
+    .neighbor-button[data-active="true"] .neighbor-button__snippet {
       color: color-mix(in srgb, var(--accent-contrast) 75%, transparent);
     }
 
@@ -357,18 +363,117 @@
       color: var(--text-secondary);
     }
 
+    .neighbor-button__header {
+      width: 100%;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .neighbor-button__id {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .neighbor-button__score {
+      font-variant-numeric: tabular-nums;
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    .neighbor-button__snippet {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .neighbor-button[data-active="true"] .neighbor-button__score {
+      color: color-mix(in srgb, var(--accent-contrast) 75%, transparent);
+    }
+
     .embedding-canvas {
       border-radius: 18px;
       border: 1px solid var(--surface-border);
       background: rgba(15, 23, 42, 0.45);
       image-rendering: pixelated;
       align-self: center;
+      max-width: 100%;
     }
 
     .caption {
       margin: 0;
       font-size: 0.85rem;
       color: var(--text-secondary);
+    }
+
+    .comparison {
+      display: grid;
+      gap: clamp(16px, 3vw, 28px);
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .comparison__column {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(12px, 2vw, 18px);
+    }
+
+    .comparison__title {
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .comparison__title span[aria-hidden="true"] {
+      font-size: 1.4rem;
+    }
+
+    .comparison__canvas {
+      align-self: flex-start;
+      max-width: 260px;
+    }
+
+    .text-record {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .text-record__heading {
+      margin: 0;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .text-record__list {
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .text-record__list dt {
+      margin: 0;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .text-record__list dd {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-primary);
+      word-break: break-word;
     }
 
     .placeholder {
@@ -435,19 +540,59 @@
           </ul>
         </div>
       </article>
-      <article class="panel panel--wide" aria-labelledby="preview-heading">
-        <h2 id="preview-heading">Binary preview</h2>
-        <p class="panel-sub">Each pixel consumes three bytes from the underlying vector. Extra space pads with zeros so the grid
-          stays rectangular.</p>
-        <canvas class="embedding-canvas" data-preview-canvas aria-describedby="preview-caption"></canvas>
-        <p id="preview-caption" class="caption">Switch between vectors to compare their byte-level fingerprints.</p>
-        <div class="info-block" data-preview-meta>
-          <p class="placeholder">Select a vector to inspect its details.</p>
+      <article class="panel" aria-labelledby="neighbors-heading">
+        <h2 id="neighbors-heading">Closest matches</h2>
+        <p class="panel-sub">Cosine similarity ranks the nearest vectors within the selected dataset.</p>
+        <p class="neighbor-status" data-neighbor-status>Select a vector to compute its nearest neighbors.</p>
+        <div class="record-list-wrapper neighbor-list-wrapper">
+          <ul class="record-list neighbor-list" data-neighbor-list>
+            <li>
+              <p class="placeholder">Neighbors appear here once you choose a vector.</p>
+            </li>
+          </ul>
+        </div>
+      </article>
+      <article class="panel panel--wide" aria-labelledby="comparison-heading">
+        <h2 id="comparison-heading">Vector comparison</h2>
+        <p class="panel-sub">Inspect the active vector alongside any of its closest matches, including their binary fingerprints and
+          source text.</p>
+        <div class="comparison" data-comparison-root>
+          <section class="comparison__column" aria-labelledby="primary-column-heading">
+            <h3 id="primary-column-heading" class="comparison__title">
+              <span aria-hidden="true">🧭</span>
+              <span>Selected vector</span>
+            </h3>
+            <canvas class="embedding-canvas comparison__canvas" data-primary-canvas aria-describedby="primary-caption"></canvas>
+            <p id="primary-caption" class="caption" data-primary-caption>Pick a vector to render its fingerprint.</p>
+            <div class="info-block" data-primary-meta>
+              <p class="placeholder">Select a vector to inspect its details.</p>
+            </div>
+            <div class="info-block" data-primary-text>
+              <p class="placeholder">Choose a vector to load its source text.</p>
+            </div>
+          </section>
+          <section class="comparison__column" aria-labelledby="secondary-column-heading">
+            <h3 id="secondary-column-heading" class="comparison__title">
+              <span aria-hidden="true">🤝</span>
+              <span>Neighbor vector</span>
+            </h3>
+            <canvas class="embedding-canvas comparison__canvas" data-secondary-canvas aria-describedby="secondary-caption"></canvas>
+            <p id="secondary-caption" class="caption" data-secondary-caption>Select a neighbor to view its fingerprint.</p>
+            <div class="info-block" data-secondary-meta>
+              <p class="placeholder">Pick a neighbor to inspect its details.</p>
+            </div>
+            <div class="info-block" data-secondary-text>
+              <p class="placeholder">Choose a neighbor to view its source text.</p>
+            </div>
+          </section>
         </div>
       </article>
     </section>
   </main>
-  <script src="sample-embeddings.js"></script>
-  <script src="app.js"></script>
+  <script defer src="../jokes/jokes.js"></script>
+  <script defer src="../quotes/quotes-data.js"></script>
+  <script defer src="../slang/slang.js"></script>
+  <script defer src="sample-embeddings.js"></script>
+  <script defer src="app.js"></script>
 </body>
 </html>
