@@ -27,9 +27,9 @@ test.describe('Landing page', () => {
         hrefs: ['apps/slang/', 'apps/slang/all-slang.html'],
       },
       {
-        group: 'wiki',
-        label: 'Project Wiki',
-        texts: ['📚 Project Wiki'],
+        group: 'blog',
+        label: 'Project Blog',
+        texts: ['📚 Project Blog'],
         hrefs: ['apps/wiki/'],
       },
     ];
@@ -62,7 +62,7 @@ test.describe('Landing page', () => {
 
     const toolSection = page.locator('section.app-groups').nth(1);
     const toolButtons = toolSection.locator('a.app-button');
-    await expect(toolButtons).toHaveCount(4);
+    await expect(toolButtons).toHaveCount(5);
 
     const toolInfo = await toolButtons.evaluateAll((nodes) =>
       nodes.map((node) => ({
@@ -76,6 +76,7 @@ test.describe('Landing page', () => {
       { text: '🧬 Embedding Explorer', href: 'apps/embedding-explorer/' },
       { text: '📊 Asset Observatory', href: 'apps/asset-observatory/' },
       { text: '🧰 Value Formatter', href: 'apps/value-formatter/' },
+      { text: '📚 AI Docs', href: 'ai_docs/' },
     ]);
 
     const valueFormatterButton = toolButtons.filter({ hasText: 'Value Formatter' });
@@ -84,6 +85,6 @@ test.describe('Landing page', () => {
     await expect(valueFormatterButton).not.toContainText('—');
 
     const allButtons = page.locator('a.app-button');
-    await expect(allButtons).toHaveCount(11);
+    await expect(allButtons).toHaveCount(12);
   });
 });

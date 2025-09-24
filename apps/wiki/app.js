@@ -288,7 +288,7 @@
       listEl.innerHTML = '';
       const emptyItem = document.createElement('li');
       emptyItem.className = 'article-empty';
-      emptyItem.textContent = 'No chronicles yet—check back soon!';
+      emptyItem.textContent = 'No dispatches yet—check back soon!';
       listEl.appendChild(emptyItem);
       return;
     }
@@ -401,7 +401,7 @@
     }
 
     highlightActive(article.slug);
-    document.title = `${article.title} · Project Wiki`;
+    document.title = `${article.title} · Project Blog`;
   }
 
   let activeSlug = null;

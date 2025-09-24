@@ -14,7 +14,7 @@ test.describe('Landing page', () => {
     const groupLabels = await deckRows.evaluateAll((nodes) =>
       nodes.map((node) => node.getAttribute('aria-label')),
     );
-    expect(groupLabels).toEqual(['Jokes', 'Quotes', 'Slang', 'Project Wiki']);
+    expect(groupLabels).toEqual(['Jokes', 'Quotes', 'Slang', 'Project Blog']);
 
     const deckLinkSets = await deckRows.evaluateAll((nodes) =>
       nodes.map((node) =>
@@ -39,7 +39,7 @@ test.describe('Landing page', () => {
         { href: 'apps/slang/all-slang.html', text: 'All Slang' },
       ],
       [
-        { href: 'apps/wiki/', text: '📚 Project Wiki' },
+        { href: 'apps/wiki/', text: '📚 Project Blog' },
       ],
     ]);
 
