@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generatedAt": "2025-09-23T22:58:55.578Z",
-    "total": 682,
-    "categories": 22,
+    "generatedAt": "2025-09-24T01:25:03.739Z",
+    "total": 732,
+    "categories": 23,
     "hashAlgorithm": "sha256",
     "tokenSignature": "unique-words-v1",
     "fields": [
@@ -15007,6 +15007,1106 @@
       "source": {
         "categoryId": "purpose",
         "sequence": 18
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-01": {
+      "hashes": {
+        "text": "e4ded46acfc3236e2fe8d8707bb4721a4c150511f052220732d434a116c952b7",
+        "author": "c32e664c8565ae26c40eb6601bc9f3fbc051a02ce093babd81646df1c60154a9",
+        "combined": "2ae56f3f5fff909af91dd28b5b9fbddaf4ae3314bab486fdb6a7cbf2cdbe744a",
+        "tokenSignature": "are-change-direction-do-end-heading-if-lao-may-not-tzu-up-where-you"
+      },
+      "lengths": {
+        "text": 69,
+        "author": 7
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 1
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-02": {
+      "hashes": {
+        "text": "c29279ae6c3afd62d032de6722eca176d3ae932adbe1ea7c9ea86139b132f997",
+        "author": "d9243e2d0ea076c4bbf3e2192cb514c87bdf17390fcb6e24329bec17d6a19513",
+        "combined": "c3f41fa568d1c08acb1daf799aff9b0537d772e6bfc6a13c04cc7a095ce83c4b",
+        "tokenSignature": "about-becomes-brian-concentration-dwell-grows-it-law-more-of-part-reality-something-states-that-the-think-tracy-upon-whatever-you-your"
+      },
+      "lengths": {
+        "text": 145,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 2
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-03": {
+      "hashes": {
+        "text": "127752297c5b083725ca6fbba2d597ac6c10dca8e588baa7edb052c40005c179",
+        "author": "f5c7a84a84dc4043c3e5086261dcebf3b363631ed32756c03837039abda83723",
+        "combined": "2038ac8fe8d4bdd0a4d052dc43d0a0f2142ab3d8c326d016b0227faeb430b888",
+        "tokenSignature": "and-be-best-denis-expect-for-plan-prepare-surprised-the-to-waitley-worst"
+      },
+      "lengths": {
+        "text": 65,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 3
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-04": {
+      "hashes": {
+        "text": "15f4083300fb67a55258a81fcc6cf4df22fbc30273187faba4ebfa4d14479ad8",
+        "author": "413bd5d8724527d15e8a90f477085e171f43542abf6993f692ed62f2dbbcb455",
+        "combined": "654e9d3f28497dc6db2a680ad346a9ad4f65b81e0c068778b696f4bb19563337",
+        "tokenSignature": "carmack-focused-hard-is-john-key-real-success-the-to-work"
+      },
+      "lengths": {
+        "text": 46,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 4
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-05": {
+      "hashes": {
+        "text": "75a5f298502ce5c3195ae3d91a965b61de460d4620c9aaf1b97846c48c8361a6",
+        "author": "45993a12c75f80b9c842b9592474077e5122c41e084003ed7d80f84935b8ca60",
+        "combined": "d2c7220c823c417aa9f0fd192afdff6ad9cdbbf529c4fbd53e90d0b1df324ccd",
+        "tokenSignature": "and-are-attentive-filled-hanh-happiness-if-is-it-joy-moment-nhat-present-see-the-thich-will-with-you"
+      },
+      "lengths": {
+        "text": 91,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 5
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-06": {
+      "hashes": {
+        "text": "b9287d41dd730f51d03896a08503fe554c651d344c711a191257a778c481bcb2",
+        "author": "9d4fb19b6088fbef6d205c9f6633a8f031c19ada8757ca6d9915c12fc5d7d030",
+        "combined": "0672c4b44d8a7adb3426e17c5c30dbb9fd0ad8cad33d76b2191a2c9104bf4e56",
+        "tokenSignature": "accomplishments-at-come-daskal-far-focus-have-how-in-life-lolly-looking-of-on-others-rather-than-the-you"
+      },
+      "lengths": {
+        "text": 92,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 6
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-07": {
+      "hashes": {
+        "text": "6a41cd01a9a5db33d0f204ce6bf4c11bf9053d6055deb3500bca860e8f205358",
+        "author": "9d4fb19b6088fbef6d205c9f6633a8f031c19ada8757ca6d9915c12fc5d7d030",
+        "combined": "95b2a4dda9c0e06d1571739b85c9c43e4106dae629d8ead1459f93dfbf6b253f",
+        "tokenSignature": "at-daskal-failures-focusing-lolly-looking-many-more-on-people-spend-successes-than-their-time"
+      },
+      "lengths": {
+        "text": 87,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 7
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-08": {
+      "hashes": {
+        "text": "b73b8b389c32f2e1adf2f1402c1a28d30fc2bc39ad544fdb257b5ae670d27567",
+        "author": "4572481966d966b0de187e18894ff620d43fd5cd4648c880660188271ed800c1",
+        "combined": "c8c4fa19cf2ca30ee7bd8287ffb5ccd75a92f8d2327c43758395d29bb1e63ec6",
+        "tokenSignature": "a-and-between-difference-direction-directions-giving-is-simon-sinek-there"
+      },
+      "lengths": {
+        "text": 69,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 8
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-09": {
+      "hashes": {
+        "text": "bf1d2520cd691c9fb3b518263bb847729a43bc9bfa00ac64e212a54ab08174d2",
+        "author": "d9243e2d0ea076c4bbf3e2192cb514c87bdf17390fcb6e24329bec17d6a19513",
+        "combined": "5e38927fb66196abbedbf0393a9010d232bfdf977d1ae79b9f518ecf1e6a8fce",
+        "tokenSignature": "achieving-become-brian-determined-for-goal-have-more-reasons-the-tracy-will-you-your"
+      },
+      "lengths": {
+        "text": 87,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 9
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-10": {
+      "hashes": {
+        "text": "7cfc72a27cfd7de89190f1facba069523cf1bcc806f42d7ca7dac085cd7939eb",
+        "author": "2b3ed889bf04bb6a0d86d68e0140c8c17827df4a20a8cc6f5fc92fe28830c83c",
+        "combined": "68181d00f4bf7ab13dcc3bef9407013ea3b4c4965ed81e4577cc67a008c74b90",
+        "tokenSignature": "because-earl-goals-going-have-it-know-nightingale-people-re-s-simple-succeed-that-they-where-who"
+      },
+      "lengths": {
+        "text": 86,
+        "author": 16
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 10
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-11": {
+      "hashes": {
+        "text": "eda92ce0f9bdbc25bf474f241307b6b409f6c19dc2e1cf47c6844ad2277f0f0f",
+        "author": "7ae00404c48f0294a1d2180cb677409987da7b8e51ab2e5e17c415643c22b173",
+        "combined": "58b810d04595f98c62717511c9242ef57aca018518c9c9421afab44de4b32b50",
+        "tokenSignature": "for-have-machiavelli-make-niccolo-no-plans-power-small-soul-stir-the-they-to"
+      },
+      "lengths": {
+        "text": 60,
+        "author": 19
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 11
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-12": {
+      "hashes": {
+        "text": "611e9732c5edb67e375dd3e23ca8e3b2226143a76a6db7d834d640f7464844e1",
+        "author": "c004688cef2d90812bae2aec330a2f9ffc84f9070669e6bcc2919d05324fc8d3",
+        "combined": "b82ff5cb602106c81996247ab57c3e2b237135fe24f9d03828cf224afcc35f9f",
+        "tokenSignature": "are-but-goal-great-how-is-lagace-maxime-not-others-show-the-to-vulnerable-you-yourself"
+      },
+      "lengths": {
+        "text": 92,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 12
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-13": {
+      "hashes": {
+        "text": "700a30c58c4926f366a872565590148388ee2ba7a61df1535be4ccda312b87fc",
+        "author": "b04d4ba81cec9069ebf8e8d7ce504500e77a1965d033c689fa417f61b307dae2",
+        "combined": "4e8372f4d1962c8caf1f5c835c6401aeec76c8d4d957cc39e979dcc1507c7955",
+        "tokenSignature": "a-arnold-be-born-but-expect-must-plan-prepare-schwarzenegger-to-were-win-winner-you"
+      },
+      "lengths": {
+        "text": 94,
+        "author": 21
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 13
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-14": {
+      "hashes": {
+        "text": "ee8cd81a4da4811de8443fcce3788fc04a7b43071afcf067a80efb4f4b805860",
+        "author": "e143ef29ac6bb9f267d165cffd870b73f157210d3ac615103b6ebe50dc412bbf",
+        "combined": "a3f6002b53f8dc03ff3b59874623a38909464d6c1d76f6afa6fe27b3251d8668",
+        "tokenSignature": "big-can-get-goal-if-in-is-life-no-oprah-re-secret-that-the-there-to-whatever-willing-winfrey-work-you-your"
+      },
+      "lengths": {
+        "text": 119,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 14
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-15": {
+      "hashes": {
+        "text": "b96288223f7cb5c36ac478ed5a2761d587429f73b1748a88ca444e1ba8e688c1",
+        "author": "00003f6e07827f2742664bae9e4cd8829e4aaa2e353bbb9df2d4a42eee20ef4b",
+        "combined": "3b119ca6c72bc4304b4534a6f43d8f9b60b2aba7044b8e5c90438342317ee2be",
+        "tokenSignature": "a-above-and-cameron-elses-everyone-fail-failure-goals-high-if-its-james-ridiculously-set-success-will-you-your"
+      },
+      "lengths": {
+        "text": 102,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 15
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-16": {
+      "hashes": {
+        "text": "bc212c1f67aff87e54568cd3ede316744ba6fe69e4240517acc3313f5b79af26",
+        "author": "4d963a89b1d8a62d895bdab0e9525510c9743758e4fdd26092b631676f5e1caa",
+        "combined": "7d1f38df9b1a250e1a845f87174810142645adf5d23587a9936452fe295e95c3",
+        "tokenSignature": "any-brains-can-choose-direction-dr-feet-have-head-in-seuss-shoes-steer-you-your-yourself"
+      },
+      "lengths": {
+        "text": 107,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 16
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-17": {
+      "hashes": {
+        "text": "73d8b5b12edae4f46691b31dd20f97204f7c07c615fcb21f2e41c168d130591f",
+        "author": "0112c62badb6e5b8a5b40a0b72198c4d5cd02ad15e349021dd7f39709b878712",
+        "combined": "e1e9bbd99bd9bd049c1d3dc6835d8c6a2be33def52cd259d686bd6f414a87834",
+        "tokenSignature": "is-life-of-purpose-robin-sharma-the"
+      },
+      "lengths": {
+        "text": 43,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 17
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-18": {
+      "hashes": {
+        "text": "b36a6497c332ecb9f8c14442fa3e5713ed628febe5b7d7f4b5969dfb0b8cd373",
+        "author": "e0f3ab9fd4130c9f9a7fd1320d842bfcf83b7a0bf962fdeba9e4497f8b54d52a",
+        "combined": "4cb9a7267e3a03dfd332875781312dc46d51a85afe60221287206bc81fc267c1",
+        "tokenSignature": "and-empty-give-gives-hawking-is-it-life-meaning-never-purpose-stephen-up-without-work-you"
+      },
+      "lengths": {
+        "text": 84,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 18
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-19": {
+      "hashes": {
+        "text": "196aa35f74de4c55287acee3d8dad0c987cae4f1996399bfed8b0a47c706310d",
+        "author": "9d4fb19b6088fbef6d205c9f6633a8f031c19ada8757ca6d9915c12fc5d7d030",
+        "combined": "8b7289d44f5f8d26b19936e962d7cf7e7b9febe559243e2c678ee3e193be9573",
+        "tokenSignature": "be-clear-daskal-heart-listen-lolly-only-purpose-to-when-will-you-your"
+      },
+      "lengths": {
+        "text": 62,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 19
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-20": {
+      "hashes": {
+        "text": "d734a24cc0f37062668f1005826544294e038cdd0d7af8f5f7173db4d9532f21",
+        "author": "9280c8db01b05444ff6a26c52efbe639b4879a1c49bfe0e2afdc686e93d01bcb",
+        "combined": "a4254fa7174018f643055cb6f02336bc636f7989a8d8848fce7038f7a1801e6a",
+        "tokenSignature": "aim-and-aristotle-end-existence-happiness-human-is-life-meaning-of-purpose-the-whole"
+      },
+      "lengths": {
+        "text": 91,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 20
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-21": {
+      "hashes": {
+        "text": "717e0ad7cba203b68de272ed754a3a67340ac4de30aeba49b50ee12231da9bef",
+        "author": "81623cc8e4e3af35ac0cd5613a93739579351adbe15b23088a621df56de6d147",
+        "combined": "1925c5880dea9368c367af29dcef7bd51acad6ca313d939a6c8a418b7715dc29",
+        "tokenSignature": "direction-euripides-follow-men-own-the-their-wisest"
+      },
+      "lengths": {
+        "text": 42,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 21
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-22": {
+      "hashes": {
+        "text": "efd3844d8138f326e34e4cbdd44619a114cb60286767bbfdd0d2ec1ed4672537",
+        "author": "27a6a9f3ce4d4087a68c540a79081ed297ae2ffcaa48c716577888e22c3be414",
+        "combined": "07abf949996eb1f995ae05c5d158e239fe894333eb445949482b4b3d88126fb8",
+        "tokenSignature": "at-but-can-do-effectively-focus-gary-keller-on-once-t-things-two-you"
+      },
+      "lengths": {
+        "text": 85,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 22
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-23": {
+      "hashes": {
+        "text": "9a9fafc84f02f7ad06625acc1e801a309e997af44c7134c1d85799e97a70e98d",
+        "author": "e8b116a22e5689bb1435be1e52168d527f51091bae7b5402fe70c55721e38008",
+        "combined": "d80fee18fed888a392b5f7b4e8d28b43a06e80444c19738bb8da1e7a056ed9d4",
+        "tokenSignature": "andrew-anyone-anything-disciplined-ever-has-hendrixson-importance-made-of-was-who"
+      },
+      "lengths": {
+        "text": 64,
+        "author": 17
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 23
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-24": {
+      "hashes": {
+        "text": "0cdb1a9fc042cdad6875d724d47a9bbec2748c1a061c69fcf3d9f4ad18a1cab1",
+        "author": "931e0b621d8aac2af4b6f71e5dde052045e46f9be45df1a00ad02a5895da36e3",
+        "combined": "b785a30b343e0c0b4f60e0f21e935ce2977d56d51f0d05fcdd505a94f18adf8d",
+        "tokenSignature": "all-deeply-eckhart-focus-have-is-life-make-moment-now-of-present-primary-realize-that-the-tolle-you-your"
+      },
+      "lengths": {
+        "text": 100,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 24
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-25": {
+      "hashes": {
+        "text": "23e64d6aff44ae15cdb16b0806d3e0e33a6d339835ef0ebd8f27f27711960aa9",
+        "author": "931e0b621d8aac2af4b6f71e5dde052045e46f9be45df1a00ad02a5895da36e3",
+        "combined": "516db916592f06e11abd5f58e76da46c12a54a2b9e1fe26cfdd541456cb4f3c6",
+        "tokenSignature": "and-are-eckhart-focused-future-is-miss-more-most-now-on-past-precious-the-there-thing-time-tolle-you"
+      },
+      "lengths": {
+        "text": 113,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 25
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-26": {
+      "hashes": {
+        "text": "a80b58a0e06d91be8d816430b0bc9653769fead714584c7a457c3bb1f5739996",
+        "author": "3153e69ca4f6a1a8563fc63d650b39364b088f9d35c83553e122ddfce50346ff",
+        "combined": "1f5e9a1515cbfbc6a06222787ca117522dd5ebb7fc780eaf10a19a9093d78bc1",
+        "tokenSignature": "be-but-chopra-deepak-excellence-focus-guaranteed-have-if-ll-on-pursue-stress-success-will-you"
+      },
+      "lengths": {
+        "text": 102,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 26
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-27": {
+      "hashes": {
+        "text": "a323cafd784f69bda35064bb48befd728750814f4ab5f072bd6ac8668580e63c",
+        "author": "e7a2bb3006ae5a496bac90c553e1ea750a4fa15882a452bd6b1b6a3661be0e05",
+        "combined": "c8bc5a1293c2da3c825bdd7a1fe4c871f5af9354de53d100ea0865fae1453dbe",
+        "tokenSignature": "a-and-applied-field-focus-function-genius-greene-intense-is-it-knowledge-mastery-not-of-or-particular-robert-talent-time-to"
+      },
+      "lengths": {
+        "text": 133,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 27
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-28": {
+      "hashes": {
+        "text": "01e20e4abc21e8f6d39a5a51260fbeb527d058eeb19f7fa0bcceaf1cdc3af98f",
+        "author": "a8e10fe13a65fed6b88e4749706d073e5c315347a8d20a1ba4a438847e287bcf",
+        "combined": "15870136b60d29f68bcaccd0d7659ae7e763927bc3b1d90144cc21d4d758dfbb",
+        "tokenSignature": "energy-flows-focus-goes-robbins-tony-where"
+      },
+      "lengths": {
+        "text": 31,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 28
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-29": {
+      "hashes": {
+        "text": "7cf5a65523f7cf9a545495d9a4b47d007390d6182355a9854a108527203ff01d",
+        "author": "d9243e2d0ea076c4bbf3e2192cb514c87bdf17390fcb6e24329bec17d6a19513",
+        "combined": "87cd7a7eca15c95148cea6312e6f3eb1bc65c1923ef003993636fbc89def0f1f",
+        "tokenSignature": "activities-all-and-around-brian-decide-definite-in-it-life-major-organize-purpose-then-tracy-upon-your"
+      },
+      "lengths": {
+        "text": 96,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 29
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-30": {
+      "hashes": {
+        "text": "9500b26bc22ed151ea7b09608c5ed9e20aa4b47a2d04be642eddefa2ab242f01",
+        "author": "228f7ac3990c25a3ebc924644400b3ce9ac938abd389e8f9436d0cc30a5a698c",
+        "combined": "e3f05cd88b53f74b9f055376af2934c5782eb38539fab6393ba5d1d6d6c10eea",
+        "tokenSignature": "achieving-as-become-by-david-get-goals-henry-important-is-not-thoreau-what-you-your"
+      },
+      "lengths": {
+        "text": 100,
+        "author": 19
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 30
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-31": {
+      "hashes": {
+        "text": "7d30dafd6361903ded64f2f8b17edb00b7394f19272cef85501d16a046f05022",
+        "author": "27a6a9f3ce4d4087a68c540a79081ed297ae2ffcaa48c716577888e22c3be414",
+        "combined": "8c32cc528c7c4740c894d06865e2d530ce1a39862c91bb8f1362bd621feb1fb8",
+        "tokenSignature": "a-advance-at-but-concentrate-gary-in-is-it-keller-on-one-thing-this-those-time-who-world"
+      },
+      "lengths": {
+        "text": 81,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 31
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-32": {
+      "hashes": {
+        "text": "385f705d62f6125d5333b30efbd1360d084ad26a4ba0785a99bfd603b778c093",
+        "author": "863905527029c2685d2079a1fc2f7529aad7fc338f566a3986a83970674bd83c",
+        "combined": "0d0c56c0f2a776a652d4114045ca22ba27ecca6cac32f422594f75447f49cab4",
+        "tokenSignature": "any-be-hill-idea-in-may-mind-napoleon-of-or-placed-plan-purpose-repetition-the-thought-through"
+      },
+      "lengths": {
+        "text": 83,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 32
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-33": {
+      "hashes": {
+        "text": "ee3bf9c4e7530f8e6295708e1363b6a96773a9110af828a16d694020ef2a023d",
+        "author": "99dd60c167a3087b8cb0ad621c5063e6093520840552c2558274700f4fefa93c",
+        "combined": "598c9647e3a3eb63c7c6431cf0767bb492b9abf54cdcd5f98678b1d6848a318b",
+        "tokenSignature": "attention-by-create-give-johnson-own-present-spencer-to-today-what-you-your"
+      },
+      "lengths": {
+        "text": 69,
+        "author": 15
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 33
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-34": {
+      "hashes": {
+        "text": "f2b5e7cdb1c24099c3c045e0b2cf2c160835a5e21b211dadd9fb949c6c7cba38",
+        "author": "03484a6ae7507999923c034e6e42587ae5fc21985a23fcb4a568f4ab02c5d907",
+        "combined": "d9583d83127c64c2b8a714793d31a34039764fc658779882c4f188a387d9cf9d",
+        "tokenSignature": "achievement-all-clement-definiteness-is-of-point-purpose-starting-stone-the-w"
+      },
+      "lengths": {
+        "text": 65,
+        "author": 16
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 34
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-35": {
+      "hashes": {
+        "text": "1aec8fe0669265524fdf52065fe3de20b6cc0cf0d38aaf8e9e5533b9cac37bf4",
+        "author": "9681ea02f9e5cb3fad23c5a9b76d3aae89b3bf7df1754a7781371342f02b58e4",
+        "combined": "bf3cd8f9a6eb3907adffaa66b8d090bbc558d2ad3330a8af77ea1b76424b2115",
+        "tokenSignature": "absolute-an-common-have-in-mission-of-one-outstanding-people-sense-thing-zig-ziglar"
+      },
+      "lengths": {
+        "text": 74,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 35
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-36": {
+      "hashes": {
+        "text": "c2d925f39b5e6adf3ac25bec6d1caa7ab14653ebdc86cc1ef855a6778f69cdd2",
+        "author": "3db3c89d20e528da311e405d549e88c8a21e7d2320f15b8ec31d4ac467eca42f",
+        "combined": "46ba49b03b1fc8b7eb8df6cfcbf22693525cd3cf063ddd3a6a9b38bba9ae15c5",
+        "tokenSignature": "about-allen-god-him-if-laugh-make-plans-tell-to-want-woody-you-your"
+      },
+      "lengths": {
+        "text": 57,
+        "author": 11
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 36
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-37": {
+      "hashes": {
+        "text": "8a38cb3522ed455d47b39f318f51504bc286b23b1a701d9e00ddcb748d090bac",
+        "author": "b23a6a8439c0dde5515893e7c90c1e3233b8616e634470f20dc4928bcf3609bc",
+        "combined": "1c48deaf2bf090dffa186262eba9527656f2b6d753be7b531652734ea3dd8d1e",
+        "tokenSignature": "but-change-doesn-goal-if-never-plan-t-the-unknown-work"
+      },
+      "lengths": {
+        "text": 62,
+        "author": 7
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 37
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-38": {
+      "hashes": {
+        "text": "3cdba756e94610a26e091549ea5a49aaf6f8572b25a2b5352540112029ca57d1",
+        "author": "9169a52e6806386eddf6d3e8e50579803d218a0e3d142690e495aa68d9ebac63",
+        "combined": "cf0d0190fb0a0d454f3e8d63c9095068c171c69b6f5bffd409b73404e9c898ca",
+        "tokenSignature": "and-are-brown-for-goals-guide-is-les-life-maps-possible-road-show-that-the-what-you-your"
+      },
+      "lengths": {
+        "text": 88,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 38
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-39": {
+      "hashes": {
+        "text": "4e54793c9ab230c55cc8dd75651fb372bb6aa2c064b458208080646378fe9ca1",
+        "author": "e97f9e287aace310c6c5401053b057e8bcebee2d3cd09e105fc16e05da73d519",
+        "combined": "0abbabdffa842fe35cbc4005b16ca35e3e8311b43f570f1819939b1412666a59",
+        "tokenSignature": "better-contribute-f-in-is-kennedy-life-making-of-purpose-robert-some-the-things-to-way"
+      },
+      "lengths": {
+        "text": 73,
+        "author": 17
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 39
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-40": {
+      "hashes": {
+        "text": "7e43648d3ceae2963f06730b6a773768185b92939cded6d1887bf85609352577",
+        "author": "7501ab27118378c367bcc0e033d19c53dd5ada1f060915f015f5fae9fbc9a3b4",
+        "combined": "33d5682492bb9eb7a286e74953bc912d1b79f1008082b13c034bd2c757650fc8",
+        "tokenSignature": "are-eyes-ford-frightful-goal-henry-obstacles-off-see-take-things-those-when-you-your"
+      },
+      "lengths": {
+        "text": 83,
+        "author": 10
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 40
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-41": {
+      "hashes": {
+        "text": "e3e8b5bd728b2c62fc2421e8fdcf11597e9a7ef7b9b29d6aadbc43ce037604e1",
+        "author": "a8e10fe13a65fed6b88e4749706d073e5c315347a8d20a1ba4a438847e287bcf",
+        "combined": "bccd95057a1c4cca34dd743c7562cac51ff8f8212a38698015e93de557443eaa",
+        "tokenSignature": "achieve-concentrate-direct-few-focus-is-never-of-one-our-power-reason-robbins-so-that-tony-truly-us-want-we-what"
+      },
+      "lengths": {
+        "text": 117,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 41
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-42": {
+      "hashes": {
+        "text": "333ed4202b0052933adf80e6ad70994a50a54f7aeaf6155505f40151fe959736",
+        "author": "8d0bdf0372b6f515bcb75ecb99d7ae97db509439239682d5a9bbe02c9af055f6",
+        "combined": "3156b553a8e00741c03bcd5de01110fbba0f846cc8d2fbf37f656496c2f575c2",
+        "tokenSignature": "benjamin-doesn-goal-goals-having-in-lie-lies-life-mays-no-not-of-reach-reaching-t-the-to-tragedy-your"
+      },
+      "lengths": {
+        "text": 104,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 42
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-43": {
+      "hashes": {
+        "text": "fb7f15ff6758deaf75e81c5d04fb359437b6464032cfc9e9ab1e3afa3accfa33",
+        "author": "7695d2f2e1c6043580cbe7b080e011f0c45ba993d685a16141000f94686d7eaa",
+        "combined": "89c86f8410fc90de3fc66123cd1489b0b6ef71b4b328c339788b192e73997ec4",
+        "tokenSignature": "always-attention-bad-but-have-paying-robin-stuff-t-the-they-times-to-up-wake-weren-will-williams-you"
+      },
+      "lengths": {
+        "text": 103,
+        "author": 14
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 43
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-44": {
+      "hashes": {
+        "text": "72000d2691307c058661ab67505b4ea24ad14587fb617839e947bbd50c4a206a",
+        "author": "9169a52e6806386eddf6d3e8e50579803d218a0e3d142690e495aa68d9ebac63",
+        "combined": "39dbb9582a495913046519f3f304b28bda3e8bdd59aa80e617be7b26ade8c553",
+        "tokenSignature": "aim-and-because-brown-but-fail-high-hit-in-les-life-low-miss-most-not-people-they-too"
+      },
+      "lengths": {
+        "text": 102,
+        "author": 9
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 44
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-45": {
+      "hashes": {
+        "text": "23e62c3785261a46f3bde5a5b2a5f53ca9240eda315e53c1dc4f8c77f29b5f85",
+        "author": "9d4fb19b6088fbef6d205c9f6633a8f031c19ada8757ca6d9915c12fc5d7d030",
+        "combined": "be038b00971259e63eaf5c7ec6db6e5b657d6c939a573a1cd479d21f70e1933b",
+        "tokenSignature": "and-comparing-daskal-focus-improvement-lolly-on-others-own-stop-to-your-yourself"
+      },
+      "lengths": {
+        "text": 68,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 45
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-46": {
+      "hashes": {
+        "text": "b263239d01060b983ef6985826f5ed65a8039fb18dcc9ed540051893134030c6",
+        "author": "90319488016e0a8e3813dfa00291d5e4985f00f5836a1773fa7648d8b401ab8c",
+        "combined": "dcc64a60b8b198792a2567b2d546e61ee5e5a442d8eb1b34a8d23b756001d51d",
+        "tokenSignature": "attention-caught-fish-huang-is-more-no-pay-po-the-to-trap-we-when"
+      },
+      "lengths": {
+        "text": 61,
+        "author": 8
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 46
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-47": {
+      "hashes": {
+        "text": "4ff3cf6d1afefe6b61edcc4d693a2c9e8b9258d9cb2b1f1191dc958e56d44864",
+        "author": "9d4fb19b6088fbef6d205c9f6633a8f031c19ada8757ca6d9915c12fc5d7d030",
+        "combined": "5d3b60f631f84b0956c7e46a2ef441630f54550de0788f9bd6f8fcc93b0547d8",
+        "tokenSignature": "by-daskal-don-goals-important-lolly-make-other-own-people-set-t-what-your"
+      },
+      "lengths": {
+        "text": 61,
+        "author": 12
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 47
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-48": {
+      "hashes": {
+        "text": "35a3d7190643c051dbb2690987945ff4b71816cd410b4ca6a54a2be131aa6d78",
+        "author": "f0871a33bde850e92d06f4d06f35bb77b89f19bc53dc8eca4b194a5bf00139fd",
+        "combined": "688f871f7a74be3f5d96a3176ee46aaed19a9b0c396c220e439c9ac8be2c3cc2",
+        "tokenSignature": "and-comes-from-greatness-living-marston-passion-purpose-ralph-with"
+      },
+      "lengths": {
+        "text": 53,
+        "author": 13
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 48
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-49": {
+      "hashes": {
+        "text": "c9a6f00d47655713104468c9b4ac333a0a839b09797c4f835469106cc6278b0f",
+        "author": "b23a6a8439c0dde5515893e7c90c1e3233b8616e634470f20dc4928bcf3609bc",
+        "combined": "2fb8ce6b7ee9a9fb44fe177a9d44a3cd90545abac4f6b682435b0023903ada09",
+        "tokenSignature": "a-an-intermission-life-make-mission-not-unknown-your"
+      },
+      "lengths": {
+        "text": 47,
+        "author": 7
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 49
+      },
+      "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "focus-50": {
+      "hashes": {
+        "text": "7c09bc5c14f7dbc481c06f174bf8831ba4e2d0d38f8452440b541324d2420921",
+        "author": "dd018fefc380d2bbdea2a02d0a19a77b9d7399d5900f3f4b6f3e9bd14969194e",
+        "combined": "f46631284138a713d433caf5ef242b90f3f95ccafccb74649604fa08841cb4bd",
+        "tokenSignature": "demands-lombardi-of-purpose-singleness-success-vince"
+      },
+      "lengths": {
+        "text": 38,
+        "author": 14
+      },
+      "source": {
+        "categoryId": "focus",
+        "sequence": 50
       },
       "embedding": {
         "status": "pending",

@@ -3540,6 +3540,262 @@ window.quotesData = [
         "author": "Zig Ziglar"
       }
     ]
+  },
+  {
+    "id": "focus",
+    "label": "Focus",
+    "quotes": [
+      {
+        "id": "focus-01",
+        "text": "If you do not change direction, you may end up where you are heading.",
+        "author": "Lao Tzu"
+      },
+      {
+        "id": "focus-02",
+        "text": "The Law of Concentration states that whatever you dwell upon grows. The more you think about something, the more it becomes part of your reality.",
+        "author": "Brian Tracy"
+      },
+      {
+        "id": "focus-03",
+        "text": "Expect the best, plan for the worst, and prepare to be surprised.",
+        "author": "Denis Waitley"
+      },
+      {
+        "id": "focus-04",
+        "text": "Focused, hard work is the real key to success.",
+        "author": "John Carmack"
+      },
+      {
+        "id": "focus-05",
+        "text": "The present moment is filled with joy and happiness. If you are attentive, you will see it.",
+        "author": "Thich Nhat Hanh"
+      },
+      {
+        "id": "focus-06",
+        "text": "Focus on how far you have come in life rather than looking at the accomplishments of others.",
+        "author": "Lolly Daskal"
+      },
+      {
+        "id": "focus-07",
+        "text": "Many people spend more time looking at their failures than focusing on their successes.",
+        "author": "Lolly Daskal"
+      },
+      {
+        "id": "focus-08",
+        "text": "There is a difference between giving directions and giving direction.",
+        "author": "Simon Sinek"
+      },
+      {
+        "id": "focus-09",
+        "text": "The more reasons you have for achieving your goal, the more determined you will become.",
+        "author": "Brian Tracy"
+      },
+      {
+        "id": "focus-10",
+        "text": "People who have goals succeed because they know where they're going. It's that simple.",
+        "author": "Earl Nightingale"
+      },
+      {
+        "id": "focus-11",
+        "text": "Make no small plans for they have no power to stir the soul.",
+        "author": "Niccolo Machiavelli"
+      },
+      {
+        "id": "focus-12",
+        "text": "The goal is not to show how great you are to others, but how vulnerable you are to yourself.",
+        "author": "Maxime Lagace"
+      },
+      {
+        "id": "focus-13",
+        "text": "You were born to win, but to be a winner, you must plan to win, prepare to win, expect to win.",
+        "author": "Arnold Schwarzenegger"
+      },
+      {
+        "id": "focus-14",
+        "text": "The big secret in life is that there is no big secret. Whatever your goal, you can get there if you're willing to work.",
+        "author": "Oprah Winfrey"
+      },
+      {
+        "id": "focus-15",
+        "text": "If you set your goals ridiculously high and its a failure, you will fail above everyone elses success.",
+        "author": "James Cameron"
+      },
+      {
+        "id": "focus-16",
+        "text": "You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose.",
+        "author": "Dr. Seuss"
+      },
+      {
+        "id": "focus-17",
+        "text": "The purpose of life is the life of purpose.",
+        "author": "Robin Sharma"
+      },
+      {
+        "id": "focus-18",
+        "text": "Never give up work. Work gives you meaning and purpose and life is empty without it.",
+        "author": "Stephen Hawking"
+      },
+      {
+        "id": "focus-19",
+        "text": "Your purpose will be clear only when you listen to your heart.",
+        "author": "Lolly Daskal"
+      },
+      {
+        "id": "focus-20",
+        "text": "Happiness is the meaning and the purpose of life, the whole aim and end of human existence.",
+        "author": "Aristotle"
+      },
+      {
+        "id": "focus-21",
+        "text": "The wisest men follow their own direction.",
+        "author": "Euripides"
+      },
+      {
+        "id": "focus-22",
+        "text": "You can do two things at once, but you can't focus effectively on two things at once.",
+        "author": "Gary Keller"
+      },
+      {
+        "id": "focus-23",
+        "text": "Anyone who has ever made anything of importance was disciplined.",
+        "author": "Andrew Hendrixson"
+      },
+      {
+        "id": "focus-24",
+        "text": "Realize deeply that the present moment is all you have. Make the NOW the primary focus of your life.",
+        "author": "Eckhart Tolle"
+      },
+      {
+        "id": "focus-25",
+        "text": "The more you are focused on time - past and future - the more you miss the Now, the most precious thing there is.",
+        "author": "Eckhart Tolle"
+      },
+      {
+        "id": "focus-26",
+        "text": "If you focus on success, you'll have stress. But if you pursue excellence, success will be guaranteed.",
+        "author": "Deepak Chopra"
+      },
+      {
+        "id": "focus-27",
+        "text": "Mastery is not a function of genius or talent, it is a function of time and intense focus applied to a particular field of knowledge.",
+        "author": "Robert Greene"
+      },
+      {
+        "id": "focus-28",
+        "text": "Where focus goes, energy flows.",
+        "author": "Tony Robbins"
+      },
+      {
+        "id": "focus-29",
+        "text": "Decide upon your major definite purpose in life and then organize all your activities around it.",
+        "author": "Brian Tracy"
+      },
+      {
+        "id": "focus-30",
+        "text": "What you get by achieving your goals is not as important as what you become by achieving your goals.",
+        "author": "Henry David Thoreau"
+      },
+      {
+        "id": "focus-31",
+        "text": "It is those who concentrate on but one thing at a time who advance in this world.",
+        "author": "Gary Keller"
+      },
+      {
+        "id": "focus-32",
+        "text": "Any idea, plan, or purpose may be placed in the mind through repetition of thought.",
+        "author": "Napoleon Hill"
+      },
+      {
+        "id": "focus-33",
+        "text": "You Create Your Own Present By What You Give Your Attention To Today.",
+        "author": "Spencer Johnson"
+      },
+      {
+        "id": "focus-34",
+        "text": "Definiteness of purpose is the starting point of all achievement.",
+        "author": "W. Clement Stone"
+      },
+      {
+        "id": "focus-35",
+        "text": "Outstanding people have one thing in common: an absolute sense of mission.",
+        "author": "Zig Ziglar"
+      },
+      {
+        "id": "focus-36",
+        "text": "If you want to make God laugh, tell him about your plans.",
+        "author": "Woody Allen"
+      },
+      {
+        "id": "focus-37",
+        "text": "If the plan doesn't work, change the plan, but never the goal.",
+        "author": "Unknown"
+      },
+      {
+        "id": "focus-38",
+        "text": "Your goals are the road maps that guide you and show you what is possible for your life.",
+        "author": "Les Brown"
+      },
+      {
+        "id": "focus-39",
+        "text": "The purpose of life is to contribute in some way to making things better.",
+        "author": "Robert F. Kennedy"
+      },
+      {
+        "id": "focus-40",
+        "text": "Obstacles are those frightful things you see when you take your eyes off your goal.",
+        "author": "Henry Ford"
+      },
+      {
+        "id": "focus-41",
+        "text": "One reason so few of us achieve what we truly want is that we never direct our focus; we never concentrate our power.",
+        "author": "Tony Robbins"
+      },
+      {
+        "id": "focus-42",
+        "text": "The tragedy of life doesn't lie in not reaching your goal. The tragedy lies in having no goals to reach.",
+        "author": "Benjamin Mays"
+      },
+      {
+        "id": "focus-43",
+        "text": "You will have bad times, but they will always wake you up to the stuff you weren't paying attention to.",
+        "author": "Robin Williams"
+      },
+      {
+        "id": "focus-44",
+        "text": "Most people fail in life not because they aim too high and miss, but because they aim too low and hit.",
+        "author": "Les Brown"
+      },
+      {
+        "id": "focus-45",
+        "text": "Stop comparing yourself to others and focus on your own improvement.",
+        "author": "Lolly Daskal"
+      },
+      {
+        "id": "focus-46",
+        "text": "When the fish is caught we pay no more attention to the trap.",
+        "author": "Huang Po"
+      },
+      {
+        "id": "focus-47",
+        "text": "Don't set your own goals by what other people make important.",
+        "author": "Lolly Daskal"
+      },
+      {
+        "id": "focus-48",
+        "text": "Greatness comes from living with purpose and passion.",
+        "author": "Ralph Marston"
+      },
+      {
+        "id": "focus-49",
+        "text": "Make your life a mission - not an intermission.",
+        "author": "Unknown"
+      },
+      {
+        "id": "focus-50",
+        "text": "Success demands singleness of purpose.",
+        "author": "Vince Lombardi"
+      }
+    ]
   }
 ];
 
