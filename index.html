@@ -556,6 +556,10 @@
         ? resetButton.dataset.busyLabel
         : 'Refreshing offline bundle…';
       const METADATA_CACHE_NAME = 'toolbox-offline-metadata';
+      const OFFLINE_CACHE_PREFIX = 'toolbox-offline-v';
+      const MANIFEST_CHECK_INTERVAL = 5 * 60 * 1000;
+      const MANIFEST_CHECK_RETRY_DELAY = 60 * 1000;
+      const MANIFEST_INITIAL_DELAY = 60 * 1000;
 
       if (!statusEl || !progressWrapper || !progressBar || !progressFill || !progressDetail) {
         return;
@@ -572,8 +576,12 @@
         manifest: null,
         registration: null,
         isCaching: false,
-        resetRequested: false
+        resetRequested: false,
+        pendingReloadVersion: null,
+        pendingManifest: null
       };
+      let manifestCheckTimer = null;
+      let manifestCheckPromise = null;
 
       function setStatus(message) {
         statusEl.textContent = message;
@@ -622,11 +630,50 @@
           }
 
           const manifest = await response.json();
-          return manifest && typeof manifest === 'object' ? manifest : null;
+          return normalizeManifest(manifest);
         } catch (error) {
           console.warn('Failed to read cached offline manifest', error);
           return null;
         }
+      }
+
+      function normalizeManifest(manifest) {
+        if (!manifest || typeof manifest !== 'object') {
+          return null;
+        }
+
+        const normalized = { ...manifest };
+        const version = typeof normalized.version === 'string' ? normalized.version.trim() : '';
+        normalized.version = version;
+
+        const assets = Array.isArray(normalized.assets)
+          ? normalized.assets.filter((asset) => asset && typeof asset.path === 'string')
+          : [];
+        normalized.assets = assets;
+
+        const totalBytes = assets.reduce((total, asset) => total + (Number(asset.bytes) || 0), 0);
+        const providedBytes = Number(normalized.totalBytes);
+        normalized.totalBytes = Number.isFinite(providedBytes) ? providedBytes : totalBytes;
+        normalized.totalAssets = typeof normalized.totalAssets === 'number'
+          ? normalized.totalAssets
+          : assets.length;
+
+        return normalized.version ? normalized : null;
+      }
+
+      async function fetchManifestFromNetwork() {
+        const response = await fetch('offline-manifest.json', { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error(`Manifest request failed with status ${response.status}`);
+        }
+
+        const manifest = await response.json();
+        const normalized = normalizeManifest(manifest);
+        if (!normalized) {
+          throw new Error('Received invalid offline manifest.');
+        }
+
+        return normalized;
       }
 
       function getCommitLabel(commit) {
@@ -665,6 +712,145 @@
         parts.push(`${formatBytes(info.totalBytes)} across ${info.totalAssets} files`);
 
         return parts.filter(Boolean).join(' · ');
+      }
+
+      function clearManifestCheckTimer() {
+        if (manifestCheckTimer) {
+          clearTimeout(manifestCheckTimer);
+          manifestCheckTimer = null;
+        }
+      }
+
+      function scheduleManifestCheck(delay) {
+        clearManifestCheckTimer();
+        const timeout = Math.max(0, Number(delay) || 0);
+        manifestCheckTimer = self.setTimeout(() => {
+          manifestCheckTimer = null;
+          runManifestCheck().catch((error) => {
+            console.warn('Manifest monitor check failed', error);
+          });
+        }, timeout);
+      }
+
+      function startManifestMonitor(options = {}) {
+        if (!state.manifest || state.pendingReloadVersion) {
+          return;
+        }
+
+        if (manifestCheckTimer || manifestCheckPromise) {
+          return;
+        }
+
+        const initialDelay = typeof options.initialDelay === 'number'
+          ? options.initialDelay
+          : MANIFEST_INITIAL_DELAY;
+        scheduleManifestCheck(initialDelay);
+      }
+
+      async function runManifestCheck() {
+        if (manifestCheckPromise) {
+          return manifestCheckPromise;
+        }
+
+        if (!state.manifest || state.pendingReloadVersion || state.isCaching) {
+          scheduleManifestCheck(MANIFEST_CHECK_INTERVAL);
+          return null;
+        }
+
+        let nextDelay = MANIFEST_CHECK_INTERVAL;
+
+        manifestCheckPromise = (async () => {
+          try {
+            const latestManifest = await fetchManifestFromNetwork();
+            if (!latestManifest || !latestManifest.version) {
+              nextDelay = MANIFEST_CHECK_RETRY_DELAY;
+              return;
+            }
+
+            const currentVersion = state.manifest && state.manifest.version ? state.manifest.version : '';
+            if (!currentVersion || latestManifest.version === currentVersion) {
+              return;
+            }
+
+            await handleManifestChange(latestManifest, currentVersion);
+          } catch (error) {
+            nextDelay = MANIFEST_CHECK_RETRY_DELAY;
+            console.warn('Failed to check offline manifest for updates', error);
+          } finally {
+            manifestCheckPromise = null;
+            if (!state.pendingReloadVersion) {
+              scheduleManifestCheck(nextDelay);
+            }
+          }
+        })();
+
+        return manifestCheckPromise;
+      }
+
+      async function handleManifestChange(nextManifest, currentVersion) {
+        const nextVersion = typeof nextManifest.version === 'string' ? nextManifest.version : '';
+        if (!nextVersion || nextVersion === currentVersion) {
+          return;
+        }
+
+        console.info(`Detected offline manifest change (${currentVersion || 'unknown'} → ${nextVersion}).`);
+
+        setResetBusy(true);
+        progressWrapper.hidden = false;
+        setProgress(0);
+        updateProgressDetail('Refreshing offline bundle…');
+        setStatus('Refreshing offline bundle…');
+
+        let resetTriggered = false;
+
+        if (state.registration && state.registration.active) {
+          try {
+            state.registration.active.postMessage({
+              type: 'reset-offline-cache',
+              manifest: nextManifest
+            });
+            resetTriggered = true;
+          } catch (error) {
+            console.error('Failed to request offline cache refresh after detecting new manifest', error);
+          }
+        }
+
+        if (!resetTriggered) {
+          state.resetRequested = false;
+          setResetBusy(false);
+          updateProgressDetail('');
+          progressWrapper.hidden = true;
+
+          try {
+            await clearClientCaches();
+          } catch (error) {
+            console.warn('Failed to clear caches before reload', error);
+          }
+
+          window.setTimeout(() => {
+            window.location.reload();
+          }, 100);
+          return;
+        }
+
+        state.resetRequested = true;
+        state.pendingReloadVersion = nextVersion;
+        state.pendingManifest = nextManifest;
+      }
+
+      async function clearClientCaches() {
+        if (!('caches' in window)) {
+          return;
+        }
+
+        const keys = await caches.keys();
+        await Promise.all(keys.map((key) => {
+          if (key === METADATA_CACHE_NAME || key.startsWith(OFFLINE_CACHE_PREFIX)) {
+            return caches.delete(key);
+          }
+
+          return Promise.resolve(false);
+        }));
       }
 
       function canUseReset() {
@@ -745,11 +931,12 @@
         }
 
         if (payload.state === 'start') {
+          const isAutoRefresh = Boolean(state.pendingReloadVersion);
           setResetBusy(true);
           progressWrapper.hidden = false;
           setProgress(0);
-          updateProgressDetail(`Downloading ${formatBytes(totalBytes)} of data…`);
-          setStatus('Caching offline bundle…');
+          updateProgressDetail(isAutoRefresh ? 'Refreshing offline bundle…' : `Downloading ${formatBytes(totalBytes)} of data…`);
+          setStatus(isAutoRefresh ? 'Refreshing offline bundle…' : 'Caching offline bundle…');
           return;
         }
 
@@ -760,6 +947,7 @@
           const percent = totalBytes > 0
             ? (loadedBytes / Math.max(totalBytes, 1)) * 100
             : (completed / Math.max(totalAssets, 1)) * 100;
+          const isAutoRefresh = Boolean(state.pendingReloadVersion);
 
           setResetBusy(true);
           progressWrapper.hidden = false;
@@ -769,23 +957,33 @@
             `${formatBytes(loadedBytes)} / ${formatBytes(totalBytes)}`,
             assetPath ? assetPath : null
           ].filter(Boolean).join(' • '));
-          setStatus('Caching offline bundle…');
+          setStatus(isAutoRefresh ? 'Refreshing offline bundle…' : 'Caching offline bundle…');
           return;
         }
 
         if (payload.state === 'complete') {
           progressWrapper.hidden = true;
           setProgress(100);
+          const targetVersion = state.pendingManifest && state.pendingManifest.version
+            ? state.pendingManifest.version
+            : state.pendingReloadVersion;
+          const isAutoRefresh = Boolean(targetVersion && detail.version === targetVersion);
           const readyText = detail.alreadyCached
             ? 'Offline bundle is up to date.'
             : state.resetRequested
-              ? 'Offline bundle refreshed for offline use.'
+              ? isAutoRefresh
+                ? 'Offline bundle updated. Reloading to apply changes…'
+                : 'Offline bundle refreshed for offline use.'
               : 'Offline bundle ready for offline use.';
           state.resetRequested = false;
           setResetBusy(false);
           updateMeta(bundleSummary);
           updateProgressDetail('');
           setStatus(readyText);
+
+          if (state.pendingManifest && (!detail.version || detail.version === state.pendingManifest.version)) {
+            state.manifest = state.pendingManifest;
+          }
 
           if (state.manifest) {
             if (detail.version) {
@@ -802,6 +1000,19 @@
             }
           }
 
+          if (isAutoRefresh) {
+            const reloadDelay = 500;
+            state.pendingManifest = null;
+            state.pendingReloadVersion = null;
+            clearManifestCheckTimer();
+            window.setTimeout(() => {
+              window.location.reload();
+            }, reloadDelay);
+            return;
+          }
+
+          state.pendingManifest = null;
+          state.pendingReloadVersion = null;
           return;
         }
 
@@ -810,7 +1021,14 @@
           state.resetRequested = false;
           setResetBusy(false);
           updateProgressDetail('');
-          setStatus('Offline caching failed. Refresh when you have a connection.');
+          if (state.pendingReloadVersion) {
+            state.pendingManifest = null;
+            state.pendingReloadVersion = null;
+            setStatus('Automatic offline refresh failed. Will retry when you are back online.');
+            scheduleManifestCheck(MANIFEST_CHECK_RETRY_DELAY);
+          } else {
+            setStatus('Offline caching failed. Refresh when you have a connection.');
+          }
           return;
         }
 
@@ -820,24 +1038,36 @@
           setResetBusy(false);
           const message = typeof detail.message === 'string' ? detail.message : '';
           updateProgressDetail(message);
-          setStatus('Unable to reset the offline bundle. Refresh when you have a connection.');
+          if (state.pendingReloadVersion) {
+            state.pendingManifest = null;
+            state.pendingReloadVersion = null;
+            setStatus('Unable to refresh the offline bundle automatically. Will retry when you have a connection.');
+            scheduleManifestCheck(MANIFEST_CHECK_RETRY_DELAY);
+          } else {
+            setStatus('Unable to reset the offline bundle. Refresh when you have a connection.');
+          }
         }
       }
 
       function requestCaching(registration) {
-        if (!state.manifest || !registration || !registration.active) {
+        if (!registration || !registration.active) {
+          return;
+        }
+
+        const manifestPayload = state.pendingManifest || state.manifest;
+        if (!manifestPayload) {
           return;
         }
 
         registration.active.postMessage({
           type: 'apply-manifest',
-          manifest: state.manifest
+          manifest: manifestPayload
         });
       }
 
       if (resetButton) {
         resetButton.addEventListener('click', () => {
-          if (!canUseReset() || !state.registration || !state.registration.active || !state.manifest) {
+          if (!canUseReset() || !state.registration || !state.registration.active || (!state.manifest && !state.pendingManifest)) {
             return;
           }
 
@@ -849,9 +1079,10 @@
           setStatus('Clearing offline cache…');
 
           try {
+            const manifestPayload = state.pendingManifest || state.manifest;
             state.registration.active.postMessage({
               type: 'reset-offline-cache',
-              manifest: state.manifest
+              manifest: manifestPayload
             });
           } catch (error) {
             console.error('Failed to request offline cache reset', error);
@@ -869,45 +1100,37 @@
           return;
         }
 
-        let manifest;
+        let manifest = null;
         let manifestSource = 'network';
+        let networkError = null;
 
         try {
-          const response = await fetch('offline-manifest.json', { cache: 'no-store' });
-          if (!response.ok) {
-            throw new Error(`Manifest request failed with status ${response.status}`);
-          }
-
-          manifest = await response.json();
+          manifest = await fetchManifestFromNetwork();
         } catch (error) {
+          networkError = error;
           console.warn('Failed to load offline manifest from network, attempting cached copy.', error);
+        }
+
+        if (!manifest) {
           manifest = await readCachedManifest();
           if (!manifest) {
-            console.error('Unable to load offline manifest from network or cache', error);
+            if (networkError) {
+              console.error('Unable to load offline manifest from network or cache', networkError);
+            } else {
+              console.error('Unable to load offline manifest from network or cache');
+            }
             setStatus('Unable to load the offline manifest. Refresh when you are back online.');
             return;
           }
           manifestSource = 'cache';
         }
 
-        const assets = Array.isArray(manifest.assets) ? manifest.assets : [];
-        const totalBytes = Number.isFinite(manifest.totalBytes)
-          ? manifest.totalBytes
-          : assets.reduce((total, asset) => total + (Number(asset.bytes) || 0), 0);
-
-        if (!Number.isFinite(manifest.totalBytes)) {
-          manifest.totalBytes = totalBytes;
-        }
-        if (typeof manifest.totalAssets !== 'number') {
-          manifest.totalAssets = assets.length;
-        }
-
         state.manifest = manifest;
 
         const summary = buildBundleSummary({
           version: manifest.version,
-          totalAssets: assets.length,
-          totalBytes,
+          totalAssets: manifest.totalAssets,
+          totalBytes: manifest.totalBytes,
           commit: manifest.commit || null
         });
 
@@ -916,6 +1139,7 @@
         updateResetAvailability();
 
         const shouldRequestCaching = manifestSource === 'network';
+        const monitorDelay = manifestSource === 'cache' ? MANIFEST_CHECK_RETRY_DELAY : MANIFEST_INITIAL_DELAY;
 
         try {
           const registration = await navigator.serviceWorker.register('service-worker.js');
@@ -924,6 +1148,7 @@
             navigator.serviceWorker.ready.then((readyRegistration) => {
               state.registration = readyRegistration;
               updateResetAvailability();
+              startManifestMonitor({ initialDelay: MANIFEST_CHECK_RETRY_DELAY });
             }).catch(() => {});
           });
 
@@ -933,6 +1158,7 @@
           if (shouldRequestCaching) {
             requestCaching(readyRegistration);
           }
+          startManifestMonitor({ initialDelay: monitorDelay });
         } catch (error) {
           console.error('Service worker registration failed', error);
           setStatus('Unable to register the offline service worker.');
