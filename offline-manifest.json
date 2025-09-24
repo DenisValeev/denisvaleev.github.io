@@ -1,8 +1,8 @@
 {
-  "version": "20250924-2eb10aaa26de-2b2369ba9186",
-  "generatedAt": "2025-09-24T03:14:57.692Z",
+  "version": "20250924-2842db2de012-0dc63db1d4cf",
+  "generatedAt": "2025-09-24T03:18:37.026Z",
   "totalAssets": 55,
-  "totalBytes": 6201116,
+  "totalBytes": 6201328,
   "assets": [
     {
       "path": "apps/asset-observatory/app.js",
@@ -218,7 +218,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 29894
+      "bytes": 30106
     },
     {
       "path": "service-worker.js",
@@ -226,8 +226,8 @@
     }
   ],
   "commit": {
-    "hash": "2b2369ba91867691ad396be118f2e4950575bc58",
-    "short": "2b2369ba9186",
+    "hash": "0dc63db1d4cfe6cafc9af4f6e1871f5232ef0fcd",
+    "short": "0dc63db1d4cf",
     "dirty": false
   }
 }
