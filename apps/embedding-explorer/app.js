@@ -1,5 +1,18 @@
 (function () {
+  const samples = Array.isArray(window.embeddingExplorerSamples)
+    ? window.embeddingExplorerSamples
+    : [];
   const sources = Array.isArray(window.embeddingSources) ? window.embeddingSources : [];
+
+  const sampleList = document.querySelector('[data-sample-list]');
+  const sampleMeta = document.querySelector('[data-sample-meta]');
+  const summaryGrid = document.querySelector('[data-summary-grid]');
+  const embeddingInput = document.querySelector('[data-embedding-input]');
+  const updateButton = document.querySelector('[data-update-button]');
+  const positiveList = document.querySelector('[data-positive-list]');
+  const negativeList = document.querySelector('[data-negative-list]');
+  const valueTable = document.querySelector('[data-value-table]');
+
   const datasetSelect = document.querySelector('[data-dataset-select]');
   const datasetInfo = document.querySelector('[data-dataset-info]');
   const recordList = document.querySelector('[data-record-list]');
@@ -8,15 +21,334 @@
   const previewCanvas = document.querySelector('[data-preview-canvas]');
   const previewMeta = document.querySelector('[data-preview-meta]');
 
-  if (
-    !datasetSelect ||
-    !datasetInfo ||
-    !recordList ||
-    !recordStatus ||
-    !filterInput ||
-    !previewCanvas ||
-    !previewMeta
-  ) {
+  const hasSampleElements =
+    sampleList &&
+    sampleMeta &&
+    summaryGrid &&
+    embeddingInput &&
+    updateButton &&
+    positiveList &&
+    negativeList &&
+    valueTable;
+
+  const hasDatasetElements =
+    datasetSelect &&
+    datasetInfo &&
+    recordList &&
+    recordStatus &&
+    filterInput &&
+    previewCanvas &&
+    previewMeta;
+
+  if (!hasSampleElements && !hasDatasetElements) {
+    return;
+  }
+
+  if (hasSampleElements) {
+    let activeSampleId = '';
+
+    function formatNumber(value, decimals) {
+      if (!Number.isFinite(value)) {
+        return (0).toFixed(decimals);
+      }
+      return value.toFixed(decimals);
+    }
+
+    function parseVector(raw) {
+      if (!raw) {
+        return [];
+      }
+
+      return raw
+        .split(/[\s,]+/)
+        .map((token) => Number.parseFloat(token))
+        .filter((value) => Number.isFinite(value));
+    }
+
+    function computeSummary(vector) {
+      const count = vector.length;
+      if (!count) {
+        return {
+          count: 0,
+          magnitude: 0,
+          mean: 0,
+          stdDev: 0,
+          min: 0,
+          max: 0,
+          zeroShare: 0,
+        };
+      }
+
+      const sum = vector.reduce((total, value) => total + value, 0);
+      const sumSquares = vector.reduce((total, value) => total + value * value, 0);
+      const mean = sum / count;
+      const magnitude = Math.sqrt(sumSquares);
+      const variance =
+        vector.reduce((total, value) => {
+          const diff = value - mean;
+          return total + diff * diff;
+        }, 0) / count;
+      const stdDev = Math.sqrt(variance);
+      const min = Math.min(...vector);
+      const max = Math.max(...vector);
+      const zeroShare = (vector.filter((value) => value === 0).length / count) * 100;
+
+      return { count, magnitude, mean, stdDev, min, max, zeroShare };
+    }
+
+    function updateSummary(vector) {
+      const summaryValues = summaryGrid.querySelectorAll('dd');
+      if (summaryValues.length < 6) {
+        return;
+      }
+
+      const stats = computeSummary(vector);
+      summaryValues[0].textContent = stats.count.toLocaleString();
+      summaryValues[1].textContent = formatNumber(stats.magnitude, 3);
+      summaryValues[2].textContent = formatNumber(stats.mean, 3);
+      summaryValues[3].textContent = formatNumber(stats.stdDev, 3);
+      if (vector.length) {
+        summaryValues[4].textContent = `${formatNumber(stats.min, 3)} / ${formatNumber(stats.max, 3)}`;
+        summaryValues[5].textContent = `${Math.round(stats.zeroShare)}%`;
+      } else {
+        summaryValues[4].textContent = '— / —';
+        summaryValues[5].textContent = '0%';
+      }
+    }
+
+    function renderExtremaList(target, items, emptyMessage) {
+      target.innerHTML = '';
+      if (!items.length) {
+        const item = document.createElement('li');
+        const span = document.createElement('span');
+        span.className = 'placeholder';
+        span.textContent = emptyMessage;
+        item.appendChild(span);
+        target.appendChild(item);
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+      items.forEach((entry) => {
+        const li = document.createElement('li');
+        li.textContent = `#${entry.index}${formatNumber(entry.value, 3)}`;
+        fragment.appendChild(li);
+      });
+      target.appendChild(fragment);
+    }
+
+    function updateExtrema(vector) {
+      const entries = vector.map((value, index) => ({
+        value,
+        index: index + 1,
+      }));
+
+      const positives = entries
+        .filter((entry) => entry.value > 0)
+        .sort((a, b) => b.value - a.value)
+        .slice(0, 5);
+
+      const negatives = entries
+        .filter((entry) => entry.value < 0)
+        .sort((a, b) => a.value - b.value)
+        .slice(0, 5);
+
+      renderExtremaList(positiveList, positives, 'No positive values found.');
+      renderExtremaList(negativeList, negatives, 'No negative values found.');
+    }
+
+    function updateValueTable(vector) {
+      const body = valueTable;
+      if (!body) {
+        return;
+      }
+
+      body.innerHTML = '';
+
+      if (!vector.length) {
+        const emptyRow = document.createElement('tr');
+        const idCell = document.createElement('td');
+        idCell.textContent = '#1';
+        const valueCell = document.createElement('td');
+        const valueSpan = document.createElement('span');
+        valueSpan.textContent = '0.000';
+        valueCell.appendChild(valueSpan);
+        const normCell = document.createElement('td');
+        const normSpan = document.createElement('span');
+        normSpan.textContent = '0.000';
+        normCell.appendChild(normSpan);
+        emptyRow.append(idCell, valueCell, normCell);
+        body.appendChild(emptyRow);
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+      const maxAbs = vector.reduce((largest, value) => Math.max(largest, Math.abs(value)), 0);
+
+      vector.forEach((value, index) => {
+        const row = document.createElement('tr');
+
+        const idCell = document.createElement('td');
+        idCell.textContent = `#${index + 1}`;
+
+        const valueCell = document.createElement('td');
+        const valueSpan = document.createElement('span');
+        valueSpan.textContent = formatNumber(value, 3);
+        valueCell.appendChild(valueSpan);
+
+        const normCell = document.createElement('td');
+        const normSpan = document.createElement('span');
+        const normalized = maxAbs ? value / maxAbs : 0;
+        normSpan.textContent = formatNumber(normalized, 3);
+        normCell.appendChild(normSpan);
+
+        row.append(idCell, valueCell, normCell);
+        fragment.appendChild(row);
+      });
+
+      body.appendChild(fragment);
+    }
+
+    function applyVector(vector) {
+      const cleanVector = vector.filter((value) => Number.isFinite(value));
+      updateSummary(cleanVector);
+      updateExtrema(cleanVector);
+      updateValueTable(cleanVector);
+    }
+
+    function formatVectorForInput(vector) {
+      return vector.map((value) => (Number.isFinite(value) ? value.toFixed(4) : '0.0000')).join(', ');
+    }
+
+    function setSampleMeta(sample, stats) {
+      sampleMeta.innerHTML = '';
+      const description = document.createElement('p');
+      description.textContent = sample?.description || 'No description provided for this sample.';
+      sampleMeta.appendChild(description);
+
+      if (stats) {
+        const detail = document.createElement('p');
+        detail.className = 'panel-sub';
+        detail.textContent = `${stats.count.toLocaleString()} dimensions · magnitude ${formatNumber(stats.magnitude, 3)}`;
+        sampleMeta.appendChild(detail);
+      }
+    }
+
+    function clearSampleButtons() {
+      const buttons = sampleList.querySelectorAll('.sample-button');
+      buttons.forEach((button) => {
+        button.dataset.active = 'false';
+        button.setAttribute('aria-pressed', 'false');
+      });
+    }
+
+    function setActiveSample(sampleId) {
+      const sample = samples.find((entry) => entry.id === sampleId);
+      if (!sample) {
+        return;
+      }
+
+      const vector = Array.isArray(sample.vector) ? sample.vector.map((value) => Number(value)) : [];
+      const stats = computeSummary(vector);
+      activeSampleId = sampleId;
+
+      applyVector(vector);
+      setSampleMeta(sample, stats);
+
+      const buttons = sampleList.querySelectorAll('.sample-button');
+      buttons.forEach((button) => {
+        const isActive = button.dataset.sampleId === sampleId;
+        button.dataset.active = isActive ? 'true' : 'false';
+        button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+
+      if (embeddingInput) {
+        embeddingInput.value = formatVectorForInput(vector);
+      }
+    }
+
+    function renderSampleButtons() {
+      sampleList.innerHTML = '';
+
+      if (!samples.length) {
+        const placeholder = document.createElement('p');
+        placeholder.className = 'placeholder';
+        placeholder.textContent = 'No sample embeddings are configured.';
+        sampleList.appendChild(placeholder);
+        sampleMeta.innerHTML = '<p class="placeholder">Add sample embeddings to explore them here.</p>';
+        applyVector([]);
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+      samples.forEach((sample) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'sample-button';
+        button.dataset.sampleId = sample.id;
+        button.dataset.active = 'false';
+        button.setAttribute('aria-pressed', 'false');
+        button.textContent = sample.label;
+        fragment.appendChild(button);
+      });
+
+      sampleList.appendChild(fragment);
+      setActiveSample(samples[0].id);
+    }
+
+    function updateFromInput() {
+      const vector = parseVector(embeddingInput.value);
+      if (!vector.length) {
+        activeSampleId = '';
+        clearSampleButtons();
+        sampleMeta.innerHTML = '<p class="placeholder">Enter at least one number to generate insights.</p>';
+        applyVector([]);
+        return;
+      }
+
+      activeSampleId = '';
+      clearSampleButtons();
+      const stats = computeSummary(vector);
+      applyVector(vector);
+
+      sampleMeta.innerHTML = '';
+      const message = document.createElement('p');
+      message.textContent = 'Custom vector entered manually.';
+      const detail = document.createElement('p');
+      detail.className = 'panel-sub';
+      detail.textContent = `${stats.count.toLocaleString()} dimensions · magnitude ${formatNumber(stats.magnitude, 3)}`;
+      sampleMeta.append(message, detail);
+    }
+
+    sampleList.addEventListener('click', (event) => {
+      const button = event.target.closest('.sample-button');
+      if (!button) {
+        return;
+      }
+
+      const sampleId = button.dataset.sampleId;
+      if (!sampleId || sampleId === activeSampleId) {
+        return;
+      }
+
+      setActiveSample(sampleId);
+    });
+
+    updateButton.addEventListener('click', () => {
+      updateFromInput();
+    });
+
+    embeddingInput.addEventListener('keydown', (event) => {
+      if ((event.metaKey || event.ctrlKey) && event.key === 'Enter') {
+        event.preventDefault();
+        updateFromInput();
+      }
+    });
+
+    renderSampleButtons();
+  }
+
+  if (!hasDatasetElements) {
     return;
   }
 
