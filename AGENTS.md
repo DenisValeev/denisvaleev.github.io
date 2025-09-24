@@ -32,5 +32,5 @@ This project is a static toolbox site. The landing page (`index.html`) lists sma
 
 ## Documentation
 - The `ai_docs/` directory hosts the Markdown knowledge base. Update the relevant guides whenever you change workflows, scripts, or datasets so the docs remain authoritative.
-- When you add, remove, or rename a guide, update the `guides` array in `ai_docs/index.html` so the navigation stays in sync.
-- After editing documentation, open `ai_docs/index.html` in a browser (or via `npx serve .`) to confirm the Markdown renders through Marked and the hash navigation works.
+- Guides are rendered by Jekyll now—add or rename a page by editing the Markdown in `ai_docs/docs/`, keeping the YAML front matter (`layout`, `title`, `summary`, `nav_order`, `permalink`, and `last_updated`) up to date.
+- After editing documentation, run `bundle exec jekyll build` (or `bundle exec jekyll serve`) to confirm the site compiles and the navigation reflects your changes before committing.

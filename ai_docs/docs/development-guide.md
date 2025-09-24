@@ -1,3 +1,12 @@
+---
+layout: ai_docs
+title: Development guide
+summary: Coding conventions and contributor tasks
+nav_order: 6
+permalink: /ai_docs/development-guide/
+last_updated: 2024-05-07
+---
+
 # Development guide
 
 This guide distils the practices captured across the repository’s `AGENTS.md` files and README so contributors can keep the toolbox consistent.
@@ -36,5 +45,5 @@ This guide distils the practices captured across the repository’s `AGENTS.md` 
 
 ## Documentation upkeep
 
-- The `ai_docs/` folder hosts this documentation hub. Whenever you add a new guide, update `ai_docs/index.html` to register it in the navigation.
+- The `ai_docs/` folder hosts this documentation hub. Add new guides under `ai_docs/docs/` with the correct Jekyll front matter so the navigation updates automatically, then rebuild with `bundle exec jekyll build` before committing.
 - Keep the docs in sync with behavioural changes (new scripts, updated datasets, revised tests). Treat documentation updates as part of each pull request that changes workflows.

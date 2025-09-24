@@ -1,3 +1,12 @@
+---
+layout: ai_docs
+title: Site architecture
+summary: How the landing page, manifest, and worker interact
+nav_order: 2
+permalink: /ai_docs/architecture/
+last_updated: 2024-05-07
+---
+
 # Site architecture
 
 The toolbox intentionally avoids a build pipeline. Each page is authored as standalone HTML with inline CSS and a small script bundle. The repository’s shared behaviours live in the landing page, the offline bootstrap flow, and the service worker. This section documents how those pieces interact.

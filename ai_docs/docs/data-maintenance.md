@@ -1,3 +1,12 @@
+---
+layout: ai_docs
+title: Data maintenance
+summary: Datasets, manifests, and embeddings
+nav_order: 4
+permalink: /ai_docs/data-maintenance/
+last_updated: 2024-05-07
+---
+
 # Data maintenance
 
 Content-heavy apps rely on shared datasets stored under `data/` plus machine-generated snapshots that live alongside each app. This guide documents the files that need to stay in sync and the scripts that regenerate them.
