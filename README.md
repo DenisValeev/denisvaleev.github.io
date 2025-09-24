@@ -70,6 +70,14 @@ node tools/generate-asset-report.js
 
 The script inspects every deck’s dataset, manifest, embedding store, similarity report, and upstream source file. It then writes an updated `apps/asset-observatory/asset-data.js` snapshot that the dashboard consumes to render charts and tables. Commit the refreshed file alongside your changes.
 
+## Automated maintenance
+
+GitHub Actions keep the toolbox refreshed after each merge so the static bundle never drifts from the source files:
+
+- **Playwright smoke tests** run on every push, pull request, and a weekly schedule to ensure the landing page and mini-apps stay healthy.
+- **Refresh offline manifest** re-generates `offline-manifest.json` whenever a pull request merges so the service worker cache tracks new assets.
+- **Refresh asset observatory data** inspects merged pull requests for dataset changes and re-runs `tools/generate-asset-report.js`, committing an updated `apps/asset-observatory/asset-data.js` snapshot when needed.
+
 ## Offline bundle
 
 Load the homepage once while you have a connection to download the entire toolbox. A new service worker caches every HTML, JavaScript, and JSON asset referenced by `offline-manifest.json`, and the landing page shows a progress indicator while the larger embedding stores stream in. On iPhone, tap the Share icon in Safari and pick **Add to Home Screen** after the download finishes to launch the toolbox like an installed app.

@@ -1,0 +1,66 @@
+name: Refresh asset observatory data
+
+on:
+  pull_request:
+    types:
+      - closed
+
+permissions:
+  contents: write
+
+jobs:
+  update-asset-data:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          fetch-depth: 0
+
+      - name: Detect dataset changes
+        id: changes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          files=$(gh pr view ${{ github.event.pull_request.number }} --json files --jq '.files[].path')
+          printf '%s\n' "$files" > changed-files.txt
+          echo "Files changed in #${{ github.event.pull_request.number }}:"  
+          if [ -n "$files" ]; then
+            printf '%s\n' "$files"
+          else
+            echo "(none reported)"
+          fi
+          if printf '%s\n' "$files" | grep -Eq '^(apps/|data/|tools/generate-asset-report\.js)'; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Skip refresh when no relevant files changed
+        if: steps.changes.outputs.should_run != 'true'
+        run: echo "No dataset or tooling changes detected; skipping asset observatory refresh."
+
+      - name: Set up Node.js
+        if: steps.changes.outputs.should_run == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate asset observatory snapshot
+        if: steps.changes.outputs.should_run == 'true'
+        run: node tools/generate-asset-report.js
+
+      - name: Commit asset data update
+        if: steps.changes.outputs.should_run == 'true'
+        run: |
+          if git diff --quiet -- apps/asset-observatory/asset-data.js; then
+            echo "Asset data already up to date; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/asset-observatory/asset-data.js
+          git commit -m "chore: refresh asset observatory data for #${{ github.event.pull_request.number }}"
+          git push origin HEAD:${{ github.event.pull_request.base.ref }}
