@@ -393,7 +393,6 @@
   const POSITIVE_PLACEHOLDER = 'Positive values appear here.';
   const NEGATIVE_PLACEHOLDER = 'Negative values appear here.';
   const SAMPLE_PLACEHOLDER = 'Choose a sample to populate its description.';
-  let activeSampleId = '';
   let currentVectorValues = [];
 
   function safeText(value) {

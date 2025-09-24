@@ -1,9 +1,13 @@
 {
-  "version": "20250924-328c9a1a93e0-cf6f09977bc4-dirty",
-  "generatedAt": "2025-09-24T03:16:41.980Z",
-  "totalAssets": 58,
-  "totalBytes": 6237324,
+  "version": "20250924-268a1fde1ef2-3bd2e676677a-dirty",
+  "generatedAt": "2025-09-24T12:24:14.424Z",
+  "totalAssets": 67,
+  "totalBytes": 6268665,
   "assets": [
+    {
+      "path": "apps/asset-observatory/AGENTS.md",
+      "bytes": 471
+    },
     {
       "path": "apps/asset-observatory/app.js",
       "bytes": 21252
@@ -18,15 +22,19 @@
     },
     {
       "path": "apps/embedding-explorer/app.js",
-      "bytes": 45900
+      "bytes": 63297
     },
     {
       "path": "apps/embedding-explorer/index.html",
-      "bytes": 20672
+      "bytes": 20673
     },
     {
       "path": "apps/embedding-explorer/sample-embeddings.js",
-      "bytes": 3035
+      "bytes": 3592
+    },
+    {
+      "path": "apps/jokes/AGENTS.md",
+      "bytes": 1563
     },
     {
       "path": "apps/jokes/all-jokes-compact.html",
@@ -77,6 +85,10 @@
       "bytes": 117454
     },
     {
+      "path": "apps/slang/AGENTS.md",
+      "bytes": 1463
+    },
+    {
       "path": "apps/slang/all-slang.html",
       "bytes": 8586
     },
@@ -102,15 +114,39 @@
     },
     {
       "path": "apps/wiki/app.js",
-      "bytes": 13803
+      "bytes": 20428
     },
     {
-      "path": "apps/wiki/articles-data.js",
-      "bytes": 4490
+      "path": "apps/wiki/articles/index.yaml",
+      "bytes": 302
+    },
+    {
+      "path": "apps/wiki/articles/kickoff-chaos.json",
+      "bytes": 301
+    },
+    {
+      "path": "apps/wiki/articles/kickoff-chaos.md",
+      "bytes": 1202
+    },
+    {
+      "path": "apps/wiki/articles/markdown-machinations.json",
+      "bytes": 298
+    },
+    {
+      "path": "apps/wiki/articles/markdown-machinations.md",
+      "bytes": 1084
+    },
+    {
+      "path": "apps/wiki/articles/navigation-nerdery.json",
+      "bytes": 298
+    },
+    {
+      "path": "apps/wiki/articles/navigation-nerdery.md",
+      "bytes": 1161
     },
     {
       "path": "apps/wiki/index.html",
-      "bytes": 12065
+      "bytes": 12022
     },
     {
       "path": "data/curated-quotes.json",
@@ -230,7 +266,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 29093
+      "bytes": 30600
     },
     {
       "path": "service-worker.js",
@@ -238,8 +274,8 @@
     }
   ],
   "commit": {
-    "hash": "cf6f09977bc459538c2b730bec5d0f0896f95f63",
-    "short": "cf6f09977bc4",
+    "hash": "3bd2e676677a7b7e0a68c40079a7f1802eb579ff",
+    "short": "3bd2e676677a",
     "dirty": true
   }
 }
