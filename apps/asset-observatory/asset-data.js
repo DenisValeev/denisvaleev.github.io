@@ -1,12 +1,12 @@
 window.assetObservatoryData = {
-  "generatedAt": "2025-09-23T22:58:58.892Z",
+  "generatedAt": "2025-09-24T01:47:16.845Z",
   "datasets": [
     {
       "id": "jokes",
       "label": "Dad Jokes",
       "dataset": {
         "path": "apps/jokes/jokes.js",
-        "bytes": 141344
+        "bytes": 151018
       },
       "manifest": {
         "path": "data/jokes-manifest.json",
@@ -20,9 +20,9 @@ window.assetObservatoryData = {
           "provider": "synthetic",
           "model": "synthetic-64",
           "dimensions": 64,
-          "records": 850,
-          "bytes": 590939,
-          "generatedAt": "2025-09-23T04:04:56.265Z"
+          "records": 905,
+          "bytes": 629164,
+          "generatedAt": "2025-09-24T01:06:46.473Z"
         },
         {
           "path": "data/jokes-embeddings-openai.json",
@@ -49,9 +49,9 @@ window.assetObservatoryData = {
           "provider": "hfspace",
           "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
           "threshold": 0.5,
-          "pairs": 106,
-          "bytes": 30044,
-          "generatedAt": "2025-09-23T04:03:02.199Z"
+          "pairs": 118,
+          "bytes": 33875,
+          "generatedAt": "2025-09-24T01:07:55.875Z"
         },
         {
           "path": "data/similarity-report-jokes-openai.json",
@@ -85,10 +85,10 @@ window.assetObservatoryData = {
         }
       ],
       "totals": {
-        "embeddingBytes": 1788505,
-        "embeddingVectors": 2540,
-        "similarityBytes": 174978,
-        "similarityPairs": 610
+        "embeddingBytes": 1826730,
+        "embeddingVectors": 2595,
+        "similarityBytes": 178809,
+        "similarityPairs": 622
       }
     },
     {
@@ -172,41 +172,41 @@ window.assetObservatoryData = {
       "label": "Slang",
       "dataset": {
         "path": "apps/slang/slang.js",
-        "bytes": 19170
+        "bytes": 43586
       },
       "manifest": {
         "path": "data/slang-manifest.json",
-        "bytes": 51910,
-        "generatedAt": "2025-09-23T17:59:48.748Z"
+        "bytes": 119913,
+        "generatedAt": "2025-09-24T01:07:13.597Z"
       },
-      "entries": 45,
+      "entries": 99,
       "embeddings": [
         {
           "path": "data/slang-embeddings.json",
           "provider": "synthetic",
           "model": "synthetic-64",
           "dimensions": 64,
-          "records": 45,
-          "bytes": 31508,
-          "generatedAt": "2025-09-23T01:22:46.845Z"
+          "records": 144,
+          "bytes": 100413,
+          "generatedAt": "2025-09-24T01:08:32.740Z"
         },
         {
           "path": "data/slang-embeddings-hfspace.json",
           "provider": "hfspace",
           "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
           "dimensions": 384,
-          "records": 45,
-          "bytes": 110258,
-          "generatedAt": "2025-09-23T01:44:54.613Z"
+          "records": 144,
+          "bytes": 352314,
+          "generatedAt": "2025-09-24T01:08:45.204Z"
         },
         {
           "path": "data/slang-embeddings-synthetic128.json",
           "provider": "synthetic",
           "model": "synthetic-128",
           "dimensions": 128,
-          "records": 45,
-          "bytes": 46900,
-          "generatedAt": "2025-09-23T01:22:57.576Z"
+          "records": 144,
+          "bytes": 149663,
+          "generatedAt": "2025-09-24T01:08:49.616Z"
         }
       ],
       "similarityReports": [
@@ -214,35 +214,35 @@ window.assetObservatoryData = {
           "path": "data/similarity-report-slang.json",
           "provider": "synthetic",
           "model": "synthetic-64",
-          "threshold": 0.88,
+          "threshold": 0.8,
           "pairs": 0,
-          "bytes": 162,
-          "generatedAt": "2025-09-23T01:23:08.354Z"
+          "bytes": 161,
+          "generatedAt": "2025-09-23T22:56:02.858Z"
         },
         {
           "path": "data/similarity-report-slang-hfspace.json",
           "provider": "hfspace",
           "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
-          "threshold": 0.88,
+          "threshold": 0.8,
           "pairs": 0,
-          "bytes": 206,
-          "generatedAt": "2025-09-23T01:44:54.640Z"
+          "bytes": 205,
+          "generatedAt": "2025-09-24T01:08:45.240Z"
         },
         {
           "path": "data/similarity-report-slang-s128.json",
           "provider": "synthetic",
           "model": "synthetic-128",
-          "threshold": 0.88,
+          "threshold": 0.8,
           "pairs": 0,
-          "bytes": 163,
-          "generatedAt": "2025-09-23T01:44:58.612Z"
+          "bytes": 162,
+          "generatedAt": "2025-09-24T01:08:49.636Z"
         }
       ],
       "sources": [],
       "totals": {
-        "embeddingBytes": 188666,
-        "embeddingVectors": 135,
-        "similarityBytes": 531,
+        "embeddingBytes": 602390,
+        "embeddingVectors": 432,
+        "similarityBytes": 528,
         "similarityPairs": 0
       }
     }
@@ -251,8 +251,8 @@ window.assetObservatoryData = {
     {
       "id": "synthetic",
       "stores": 4,
-      "bytes": 1125930,
-      "vectorCount": 1593,
+      "bytes": 1335823,
+      "vectorCount": 1846,
       "dimensions": [
         64,
         128
@@ -279,8 +279,8 @@ window.assetObservatoryData = {
     {
       "id": "hfspace",
       "stores": 1,
-      "bytes": 110258,
-      "vectorCount": 45,
+      "bytes": 352314,
+      "vectorCount": 144,
       "dimensions": [
         384
       ]
@@ -340,17 +340,17 @@ window.assetObservatoryData = {
   ],
   "totals": {
     "datasets": 3,
-    "entries": 1577,
-    "datasetBytes": 284260,
-    "manifestBytes": 1104759,
-    "embeddingVectors": 3981,
-    "embeddingBytes": 2905710,
+    "entries": 1631,
+    "datasetBytes": 318350,
+    "manifestBytes": 1172762,
+    "embeddingVectors": 4333,
+    "embeddingBytes": 3357659,
     "embeddingStores": 8,
-    "similarityPairs": 2082,
-    "similarityBytes": 679472,
+    "similarityPairs": 2094,
+    "similarityBytes": 683300,
     "similarityReports": 12,
     "totalFiles": 29,
-    "totalBytes": 5182804,
+    "totalBytes": 5740674,
     "providerCount": 4
   }
 };
