@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2025-09-23T23:06:25.903Z",
-    "total": 49,
+    "generatedAt": "2025-09-24T01:07:13.597Z",
+    "total": 99,
     "hashAlgorithm": "sha256",
     "tokenSignature": "unique-words-v1",
     "fields": [
@@ -35,10 +35,10 @@
         "categoryId": "hype"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "4dee34b308dccb6493af88756bffa38098bd71532b79a1fbe91c5a88b58b68e9",
-        "updatedAt": "2025-09-23T23:06:30.517Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0002": {
@@ -63,10 +63,10 @@
         "categoryId": "hype"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "b568d260e959e395e41adf7f81c433501005478fca1ffe3cc33f7b9b574dda16",
-        "updatedAt": "2025-09-23T23:06:30.518Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0003": {
@@ -91,10 +91,10 @@
         "categoryId": "hype"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "86445320156cfaeb3680a372f0c898230af31d0413b0afe2cfb2b3f6b1fde4fa",
-        "updatedAt": "2025-09-23T23:06:30.518Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0004": {
@@ -119,10 +119,10 @@
         "categoryId": "hype"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "390751f20e633850ed450741ee68559146f337c1139a00f431b32f6afe68d0a0",
-        "updatedAt": "2025-09-23T23:06:30.519Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0005": {
@@ -147,10 +147,10 @@
         "categoryId": "hype"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "252dfc133e3637d93402368eda4e8b72fd06215f2541779d631c8de70840bf27",
-        "updatedAt": "2025-09-23T23:06:30.519Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0006": {
@@ -175,10 +175,10 @@
         "categoryId": "hype"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "1760f541ff73580cc73fa79bb85a4e3b469ea22ee31eb93742c8971235a561c6",
-        "updatedAt": "2025-09-23T23:06:30.519Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0007": {
@@ -203,10 +203,10 @@
         "categoryId": "hype"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "0fca4165002fbbf79bee6d0ffbc3ac0f61edc38c3108dd031cf43e28777e4766",
-        "updatedAt": "2025-09-23T23:06:30.519Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0008": {
@@ -231,10 +231,10 @@
         "categoryId": "callouts"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "5fb3e81a2b67776bd6ac7190032671a0cf627c03341b302d29c53646261091a7",
-        "updatedAt": "2025-09-23T23:06:30.519Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0009": {
@@ -259,10 +259,10 @@
         "categoryId": "callouts"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "c0b77b188ff09cdb8fd123cb1466dc992b02430266ad6376cb0610c7d6328149",
-        "updatedAt": "2025-09-23T23:06:30.523Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0010": {
@@ -287,10 +287,10 @@
         "categoryId": "callouts"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "e5d10213de0081384beb5a09b9162b5238f3668355d76f4c88f2a68ee12ab514",
-        "updatedAt": "2025-09-23T23:06:30.523Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0011": {
@@ -315,10 +315,10 @@
         "categoryId": "callouts"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "35305871fad84454b10e890d10fd8c3e4b9f69a602bf3802ba4ac64cdb9de109",
-        "updatedAt": "2025-09-23T23:06:30.523Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0012": {
@@ -343,10 +343,10 @@
         "categoryId": "callouts"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "efa2f52626b4ebb66ee8e8393714b0e5af0944ca95ce982fcdcc4838d447013f",
-        "updatedAt": "2025-09-23T23:06:30.524Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0013": {
@@ -371,10 +371,10 @@
         "categoryId": "callouts"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "64867073dc8004155add19d13d5a7d042dea470f3f916b25ea0c2a3968a65a19",
-        "updatedAt": "2025-09-23T23:06:30.524Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0014": {
@@ -399,10 +399,10 @@
         "categoryId": "callouts"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "6453caf11b0a7d2ed7e203f0369a5d63019b6ed70c800176d4cb70217125f822",
-        "updatedAt": "2025-09-23T23:06:30.524Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0015": {
@@ -427,10 +427,10 @@
         "categoryId": "callouts"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "ab118b35ac8a6b16ca464bd3df0acc147321470a701de0a237b79e99b8eddd50",
-        "updatedAt": "2025-09-23T23:06:30.525Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0016": {
@@ -455,10 +455,10 @@
         "categoryId": "internet"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "9975060b959563a72f8ec885befed06c43bfa7f1a492b3f93c8ae47e0a35634d",
-        "updatedAt": "2025-09-23T23:06:30.525Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0017": {
@@ -483,10 +483,10 @@
         "categoryId": "internet"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "bec3b5415cb659d338c309d20de49262125bf6db5968944b27580fffa0d85049",
-        "updatedAt": "2025-09-23T23:06:30.525Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0018": {
@@ -511,10 +511,10 @@
         "categoryId": "internet"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "63d1ec4230f46150d8a3aa72e6bafaa46f5de0fc8c91473e61f81daddc454950",
-        "updatedAt": "2025-09-23T23:06:30.525Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0019": {
@@ -539,10 +539,10 @@
         "categoryId": "internet"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "b404650d7f16c6dda0703ec32e0731c6bbaea28c383d016d20cba0aae1bc3274",
-        "updatedAt": "2025-09-23T23:06:30.525Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0020": {
@@ -567,10 +567,10 @@
         "categoryId": "internet"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "3336514018b82bcf75036dd300e4ba8ddb220569a1e008c79987a8ec9a37527f",
-        "updatedAt": "2025-09-23T23:06:30.525Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0021": {
@@ -595,10 +595,10 @@
         "categoryId": "internet"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "ff68282fb39f2380808e842a3a67c58de540bc703afce681cea8c9a8395e68e3",
-        "updatedAt": "2025-09-23T23:06:30.525Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0022": {
@@ -623,10 +623,10 @@
         "categoryId": "internet"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "3ff2853e976eb5bcbcfe197604a837a4ddf5757c01d64ca1e1e7a5f4c860f870",
-        "updatedAt": "2025-09-23T23:06:30.525Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0023": {
@@ -651,10 +651,10 @@
         "categoryId": "internet"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "bb786b11573ad0922b84d1094f3b1e966c16f7fe0794f2a0b821f2596b7db2a1",
-        "updatedAt": "2025-09-23T23:06:30.526Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0024": {
@@ -679,10 +679,10 @@
         "categoryId": "relationships"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "122afafa915158f6a3f4948fa72e32cbb194489b8b17c8a226009d03181df3e6",
-        "updatedAt": "2025-09-23T23:06:30.526Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0025": {
@@ -707,10 +707,10 @@
         "categoryId": "relationships"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "4ec49a6f9d41ca35bab1a0865013f64201af52536703e60788fbdad115e2d3a8",
-        "updatedAt": "2025-09-23T23:06:30.526Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0026": {
@@ -735,10 +735,10 @@
         "categoryId": "relationships"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "2824182fe59d7df94a1b57b1b354bdc03593f21f0ed0e6c8bd67a60d4bbc03d7",
-        "updatedAt": "2025-09-23T23:06:30.526Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0027": {
@@ -763,10 +763,10 @@
         "categoryId": "relationships"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "66881d241b6fb2a395d5dd448343b14c5173cb64f00a072c53fbe3cd90c6e2c2",
-        "updatedAt": "2025-09-23T23:06:30.526Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0028": {
@@ -791,10 +791,10 @@
         "categoryId": "relationships"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "27b6b4f338891c28c75f9983b77017261d6316dc86e70a6e3090987608c71185",
-        "updatedAt": "2025-09-23T23:06:30.526Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0029": {
@@ -819,10 +819,10 @@
         "categoryId": "relationships"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "045c8016de90660598efe63fe2365f462188fcf1b4639afaa49de33a221773cb",
-        "updatedAt": "2025-09-23T23:06:30.526Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0030": {
@@ -847,10 +847,10 @@
         "categoryId": "relationships"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "d495106455b12352eb8ebbf5bd548d5fb26f9531498511e4fcf46d3b22694889",
-        "updatedAt": "2025-09-23T23:06:30.526Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0031": {
@@ -875,10 +875,10 @@
         "categoryId": "relationships"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "81ffab07d21ae938aefc4346f4d94ae70f079d6648803b0c037fdc878248ca75",
-        "updatedAt": "2025-09-23T23:06:30.526Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0032": {
@@ -903,10 +903,10 @@
         "categoryId": "style"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "ac1850b1f7cdbfeec937f80da5fe9c9f3c3294807e0ab0d87e3e3acdffc9574e",
-        "updatedAt": "2025-09-23T23:06:30.526Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0033": {
@@ -931,10 +931,10 @@
         "categoryId": "style"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "d39f1d0cf992f7830f26e141153030a74feb4c5345ecc1b013309d302f579514",
-        "updatedAt": "2025-09-23T23:06:30.526Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0034": {
@@ -959,10 +959,10 @@
         "categoryId": "style"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "3141a185e81d487b342c7447d9f7f35b0a1d9f895ca35614aa63c27bad55b85f",
-        "updatedAt": "2025-09-23T23:06:30.526Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0035": {
@@ -987,10 +987,10 @@
         "categoryId": "style"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "6afb81445966b29c66ab93d797ddd1edebc0000e934d59279483436dada62053",
-        "updatedAt": "2025-09-23T23:06:30.527Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0036": {
@@ -1015,10 +1015,10 @@
         "categoryId": "style"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "64fd734f157ad686dbeeed5a7adf6bf321d452641e7d90cb02d336cfc420af88",
-        "updatedAt": "2025-09-23T23:06:30.527Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0037": {
@@ -1043,10 +1043,10 @@
         "categoryId": "style"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "57ad263ace239f17ca55ba604f42436736b56d2d12a696dcb090fc509fa03602",
-        "updatedAt": "2025-09-23T23:06:30.527Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0038": {
@@ -1071,10 +1071,10 @@
         "categoryId": "vibes"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "5f03e57e85102684676c6826feee848c1d904118d5d31f64491b16362ac51420",
-        "updatedAt": "2025-09-23T23:06:30.527Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0039": {
@@ -1099,10 +1099,10 @@
         "categoryId": "vibes"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "c47a44f528c6c5ba86a4075e96c3c2e80c60788f43d2766089849e326b23b698",
-        "updatedAt": "2025-09-23T23:06:30.527Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0040": {
@@ -1127,10 +1127,10 @@
         "categoryId": "vibes"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "adb3068350fcc30ee3d7b84a9319f392fb185eef9989919af7c9793e4fce92bd",
-        "updatedAt": "2025-09-23T23:06:30.527Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0041": {
@@ -1155,10 +1155,10 @@
         "categoryId": "vibes"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "f0b9873c67fca62f553ab1be9753ab1eb7828b8655d900170c0b2d2620d5e50e",
-        "updatedAt": "2025-09-23T23:06:30.527Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0042": {
@@ -1183,10 +1183,10 @@
         "categoryId": "vibes"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "a14edf4668c31c75f326466db52b169828d6337b74903b40e05e377deaaaac19",
-        "updatedAt": "2025-09-23T23:06:30.527Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0043": {
@@ -1211,10 +1211,10 @@
         "categoryId": "vibes"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "7e0ca12ae897df575d09b64dc78dbd4db94ad4c106561474151700550a6602bb",
-        "updatedAt": "2025-09-23T23:06:30.527Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0044": {
@@ -1239,10 +1239,10 @@
         "categoryId": "vibes"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "6aafda42972088a697256b5aab720430f022fbcf02bd8a7a94f4f7e5ef58b674",
-        "updatedAt": "2025-09-23T23:06:30.527Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0045": {
@@ -1267,10 +1267,10 @@
         "categoryId": "vibes"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "180914373faaf64c251f2166535388ec90d9dd74a98b8e126f0f803cfb3ce712",
-        "updatedAt": "2025-09-23T23:06:30.527Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0046": {
@@ -1295,10 +1295,10 @@
         "categoryId": "relationships"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "3eacd2615d9f30b16c91328e91604faba7001fecac6a6efead4df7f3a86dca52",
-        "updatedAt": "2025-09-23T23:06:30.527Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0047": {
@@ -1323,10 +1323,10 @@
         "categoryId": "relationships"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "0e4d5e7dcd269f93ec19618f2edde92f5d8ac661f051ab9afacacf9c42b0867b",
-        "updatedAt": "2025-09-23T23:06:30.528Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0048": {
@@ -1351,10 +1351,10 @@
         "categoryId": "internet"
       },
       "embedding": {
-        "status": "ready",
-        "model": "synthetic-64",
-        "vectorSha256": "21fcc8e23853aa34fa7e0acdba45a271c6fa52cbecdc1cf482e43201e1a1cf43",
-        "updatedAt": "2025-09-23T23:06:30.528Z"
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
       }
     },
     "sl-0049": {
@@ -1379,10 +1379,1410 @@
         "categoryId": "callouts"
       },
       "embedding": {
+        "status": "pending",
+        "model": null,
+        "vectorSha256": null,
+        "updatedAt": null
+      }
+    },
+    "sl-0050": {
+      "hashes": {
+        "term": "89039260abb715705ba6f7d98b77ac6e08f826544bca6bd35239794e83adab2d",
+        "definition": "aaf0584d9ed1e63d5c6676d1de23666cdbf99e72740826a28cfa828c7006fdb2",
+        "example": "e043c4f65c3a3afdccd9257fa50d804f516254de0f1bb4f38d9a59a9da0a3654",
+        "hint": "23bb59e8d09be5743bdaabf8dd988f2aebcaeecde62c5f97c0e566dcf20fe754",
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "e1980ecaa80a1a77ab79205067dd55c9b80b3fadca7bdc57eddefd4522b63e7a",
+        "tokenSignature": "a-and-before-clapping-compliments-critique-crumbs-delivered-deserves-executes-finished-flawlessly-grant-hype-it-left-loud-no-nothing-panel-performance-pitch-polished-praise-s-so-someone-that-the-there-to-use-was-when-you-your"
+      },
+      "lengths": {
+        "term": 14,
+        "definition": 74,
+        "example": 75,
+        "hint": 65,
+        "category": 18
+      },
+      "source": {
+        "sequence": 50,
+        "categoryId": "hype"
+      },
+      "embedding": {
         "status": "ready",
         "model": "synthetic-64",
-        "vectorSha256": "3599e2b556d4c8ac5b2661ec45eefa578f860c8a77b9b813f09f9e1acfdeae22",
-        "updatedAt": "2025-09-23T23:06:30.529Z"
+        "vectorSha256": "8083332c7b45c3d9c07f503ee2c3a29cf5e828854b9ac56490cd5d3b262c6d60",
+        "updatedAt": "2025-09-24T01:08:32.728Z"
+      }
+    },
+    "sl-0051": {
+      "hashes": {
+        "term": "b274eb8f8084bd9f6b8df861e6afab42c1fd67da7a91ed375970a74f8e37a610",
+        "definition": "ca75a2470e3caa999cdde5dd483123f136a5dc0ccc58251f697755d2cf97917f",
+        "example": "6b447f1b0e10c8cc328b96dede58b924e45faaebc4258b75f561f96cd9f0eb41",
+        "hint": "cdad4d90ae1f1f512f6169b4c7d96a2b95400195c16748f8cc028d3af82e3a82",
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "d7d2bc63fb53967b1eb4f63363cf6a7d58d6aed2cedd834c36132822b4039a2d",
+        "tokenSignature": "a-abilities-aced-all-and-apart-built-compared-compliments-different-else-everyone-exam-feel-friend-from-hype-it-level-next-nighters-or-possessing-pulled-rare-resilience-rest-s-sets-she-someone-still-talent-that-the-three-to-use-when"
+      },
+      "lengths": {
+        "term": 15,
+        "definition": 75,
+        "example": 76,
+        "hint": 75,
+        "category": 18
+      },
+      "source": {
+        "sequence": 51,
+        "categoryId": "hype"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "047d6a5bcd088f9f06b3c2a9a1843d76b077d36da342a4f61170ad88787ec9e1",
+        "updatedAt": "2025-09-24T01:08:32.729Z"
+      }
+    },
+    "sl-0052": {
+      "hashes": {
+        "term": "03fb94180aa0ff2c583d97bbb1fc6d84a6ba7df5bde3c267459bb9a9b8c9841b",
+        "definition": "86db046cd64352c6677b351a34b1719d3ce9f22e5c9d48faf5def618a457b4e2",
+        "example": "432484386ae0117ccdc510113e758d26b9e20a55e70d02b1046c0e0c7841c913",
+        "hint": "716866b89acf71a481b7ad0ae0c3450a626e7b84c8c33004332ae6be23229e93",
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "1efb74eb16d1307eb979d94ed3c59ee1a06f0a6666699ff21040cc0798ace498",
+        "tokenSignature": "an-and-are-campaign-compliments-cook-create-creativity-designer-especially-give-hour-hype-in-incredible-it-on-or-pressure-real-s-shining-skills-someone-something-spot-the-them-time-to-under-up-use-watch-when-whole"
+      },
+      "lengths": {
+        "term": 4,
+        "definition": 74,
+        "example": 68,
+        "hint": 67,
+        "category": 18
+      },
+      "source": {
+        "sequence": 52,
+        "categoryId": "hype"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "32230546c49506cbc951bd3f2fabdc91118be68dff9a8e22a0bb97399392e695",
+        "updatedAt": "2025-09-24T01:08:32.729Z"
+      }
+    },
+    "sl-0053": {
+      "hashes": {
+        "term": "cf0622ef2a661cd2f11b0b644e40e4e00eb962918424a8c8ba53842fdf290235",
+        "definition": "4df6240cd3863857fc6a559f82db09e143b9a426ec92a28628106bd6a096bf16",
+        "example": "86f8c90c9f85ecd7ae7afea1f3c288d393f5714a44c1bfda7c3831cdd7b040e3",
+        "hint": "aeb338531b675b772d6075fee67a89f0cbbdffe02d8b50b3cd2f6129e21527e4",
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "4f5f8140009b927c329f7c13de939e4e52c434ecf5fb4d5940639415c3446255",
+        "tokenSignature": "a-cast-charisma-compliment-compliments-crew-crown-fell-fierce-for-force-guiding-hype-in-it-keeping-leadership-line-mother-or-person-ran-rehearsal-serving-someone-that-the-to-together-unmatched-use-way-whole-you"
+      },
+      "lengths": {
+        "term": 6,
+        "definition": 76,
+        "example": 68,
+        "hint": 68,
+        "category": 18
+      },
+      "source": {
+        "sequence": 53,
+        "categoryId": "hype"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "35e119030b2cd5081545641c538ea622f85c5e02215788e17a633d689b762724",
+        "updatedAt": "2025-09-24T01:08:32.729Z"
+      }
+    },
+    "sl-0054": {
+      "hashes": {
+        "term": "24c458cfb46d9a456d314c7897601e51578e43c1f9dc007adf1a745bbc15e0f5",
+        "definition": "21b48267d972554d7d4274952109bb916903ca33fd9c82c34c6580f40161598e",
+        "example": "6f59e5682e2592c5dd6bc5826fd2d1fb0a75829bbdd62a33d1acec1f0ad2ade7",
+        "hint": "d098a712e29a35bcd12a187f4c4f4617e4e5be23dc6af260b02e1be4f51546f5",
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "0d54531d9e8d9b818c8203d2155c01f040e2e36701d8e6edbd294d120608e0e4",
+        "tokenSignature": "a-and-bring-clip-compliments-delivers-energy-everybody-execution-hype-it-like-moment-nature-or-replayed-s-second-serve-served-shows-someone-style-that-the-to-transition-twice-undeniable-up-use-when-with-you"
+      },
+      "lengths": {
+        "term": 5,
+        "definition": 60,
+        "example": 66,
+        "hint": 66,
+        "category": 18
+      },
+      "source": {
+        "sequence": 54,
+        "categoryId": "hype"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "c4c4f35c18656f0a59b541b099db3da28976c569fc0564c58a0ca7f2e8bb0c8f",
+        "updatedAt": "2025-09-24T01:08:32.729Z"
+      }
+    },
+    "sl-0055": {
+      "hashes": {
+        "term": "e13dda0e12557d5fa2a8bc1175988030172414a66b2a11cb963b6c2f7deb643e",
+        "definition": "9d616fa4c12436ac65b0f6564023e541453bc5ce86868776f53cc64434e40036",
+        "example": "858eee8696c008a7b646ac1ee714ddcb3657a1aa67bf302c2d35e9addf09239a",
+        "hint": "99cc4b362fd5f18c812986cf98a7dcd897c867cb652aca8713b8214d84035806",
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "4f44889f402ebb2e5c6b5839ba92d95dd27a5b7ec928b618c066ea9144ff7e3c",
+        "tokenSignature": "40-a-after-called-commentators-compliments-dominant-dropping-for-guy-himothy-hype-is-it-legendary-live-main-on-person-playful-points-proving-re-s-so-someone-the-they-title-tv-undisputed-use-when"
+      },
+      "lengths": {
+        "term": 7,
+        "definition": 71,
+        "example": 69,
+        "hint": 50,
+        "category": 18
+      },
+      "source": {
+        "sequence": 55,
+        "categoryId": "hype"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "7905c11514b006a9667d4caea811c12145314f28bc0581565ba23e4d17721262",
+        "updatedAt": "2025-09-24T01:08:32.729Z"
+      }
+    },
+    "sl-0056": {
+      "hashes": {
+        "term": "3ed2bf48886dde3b1eff2b6da7f5ffa19c0ba85c1ba110d2350d66428a4b8d98",
+        "definition": "218349bc6e4042fba31bf3cdf22d0414dfee354a248444902b68736fe4711adc",
+        "example": "49a1f0e45592ae8dd9c9abbbcd1db2234b91ceff4a662882924edaaf8c0e9b07",
+        "hint": "08b5f7f2cbd5d5538f7f055406109c93ec3cfab279673b7e167b8cbd3240d6c1",
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "39686e8f424f4127788421c6cadc3292240bb4ef13cb72e01f66d171dba7b5bf",
+        "tokenSignature": "a-all-certified-clears-commute-competition-compliments-deserves-elite-every-fame-for-hall-hype-i-in-is-it-m-of-permanent-playlist-quality-saving-something-spot-that-tier-top-use-when-your"
+      },
+      "lengths": {
+        "term": 8,
+        "definition": 52,
+        "example": 58,
+        "hint": 69,
+        "category": 18
+      },
+      "source": {
+        "sequence": 56,
+        "categoryId": "hype"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "43af3452012b08a6ba2fa844a86c34755ae76c46e19f85cef358d784b352c6df",
+        "updatedAt": "2025-09-24T01:08:32.730Z"
+      }
+    },
+    "sl-0057": {
+      "hashes": {
+        "term": "6ef49cacb4c39f8fe29c3573df5bf9b82e8bc61270396824a830717c038583ec",
+        "definition": "aa9e9f6ee06372bb8bffa3b17c3a6993afffa003b0435e9b6dfa20c4f6e4bc86",
+        "example": "adff171b6a8817612ed40eec20f75eaa8bcf10e9c32550d13b1fa035bd3564d1",
+        "hint": "4763fcdc163added2fbbadaf3bf6efaac298d6c064517668419dcdb7044a1c84",
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "d7214b437906d0db5108d4e2a4b189c2bd219c510d8cb0f038116b76e1cf8a6f",
+        "tokenSignature": "alive-and-carried-carry-compliments-easy-effort-entire-hype-it-keeps-lead-look-lost-make-mid-mission-one-or-person-project-s-set-shoulder-show-still-team-the-their-to-understudy-use-voice-when-whole"
+      },
+      "lengths": {
+        "term": 5,
+        "definition": 66,
+        "example": 71,
+        "hint": 63,
+        "category": 18
+      },
+      "source": {
+        "sequence": 57,
+        "categoryId": "hype"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "9f57c3364ee9a7c15c70044f88d699d2d1c9cc93b9a0ae34d227385301d09eb1",
+        "updatedAt": "2025-09-24T01:08:32.730Z"
+      }
+    },
+    "sl-0058": {
+      "hashes": {
+        "term": "c55663c086222f508fccb95d1bd0c577619c2ef1751b10ef8d15858b6a56ae42",
+        "definition": "456c0f2e6d1aa61c274ee0282a4a8040a7b04cecfbb6692b25170a007ff7642b",
+        "example": "9baac2be5420fa7aa432f51383dfebf5cd88163e21a469782d6e1148cfffc7af",
+        "hint": "f72fd20bbc0f3e8c75f27dbe86ea867a44e952c007e93d3842835c2bb5d63fc4",
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "86a714520e9507f600dce9b422f194b4d19f28c8d3466e3ba70e3214f6717e8e",
+        "tokenSignature": "after-becomes-blueprint-clearly-competitor-compliments-copying-else-every-everyone-her-hype-is-it-launch-match-move-or-pioneers-pivoted-product-someone-standard-template-that-the-to-trying-use-watching-when"
+      },
+      "lengths": {
+        "term": 13,
+        "definition": 65,
+        "example": 79,
+        "hint": 64,
+        "category": 18
+      },
+      "source": {
+        "sequence": 58,
+        "categoryId": "hype"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "a42babfab2ab807a57c0fa9cb424598522a3fcaf4d7be705224800c6f30a7853",
+        "updatedAt": "2025-09-24T01:08:32.730Z"
+      }
+    },
+    "sl-0059": {
+      "hashes": {
+        "term": "620846ef90c9bff4047dc53e820661ea4ce2f1782e94cfbc56a9eaa879a211bc",
+        "definition": "6680694bded2d199628ac7fc2cef0be50e3caa1e35e0b78e02bae7784c18c7f4",
+        "example": "cbc2d44347dfdb76958db546cea73e845a47375136168006cc993ae2f31034b5",
+        "hint": "3d7071c95d6d369bcb15fce7b6295689525c124902b44b253730dc6015d2d206",
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "24e7bd1abc3e4bd7c263b1b78c1435b48c96c388852aa9499c4b88db1199c853",
+        "tokenSignature": "a-an-coffee-collecting-compliments-favors-free-he-him-hype-is-it-just-keeps-lucky-matter-no-on-person-s-situation-someone-streak-surprise-the-universe-unstoppable-upgrades-use-w-walking-when-who-wins"
+      },
+      "lengths": {
+        "term": 9,
+        "definition": 59,
+        "example": 78,
+        "hint": 54,
+        "category": 18
+      },
+      "source": {
+        "sequence": 59,
+        "categoryId": "hype"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "62d637b909c6a6c4a2c56a04a27e1f681403a897aa2ef43b43071815c9a2f9e9",
+        "updatedAt": "2025-09-24T01:08:32.730Z"
+      }
+    },
+    "sl-0060": {
+      "hashes": {
+        "term": "47a49356720831b66f38bbe12c06e6cf71a67277b1f5e6a28593e73afde6f226",
+        "definition": "511d4c358761298b3dbfb2038f0e43986a2dd535ad397ebde9d23c0adbca0ee9",
+        "example": "323136705ff51d46377006757865431b840cfc6f50ab67e9d27e5c4b1e247b28",
+        "hint": "a21354cd29f0d1183420cbc7a67db13ca5d4a85a0452d1c3a47120b426cdeb79",
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "a8a91825fa0d830873483d1e45c9fc42c667e5d552a7274f9022effac5d4c617",
+        "tokenSignature": "a-and-anyone-become-challenge-competing-compliments-double-enough-field-for-guard-hype-intimidates-is-isn-it-keep-level-officially-person-problem-rookie-s-skill-so-someone-still-t-talented-teaming-teams-that-the-they-use-when"
+      },
+      "lengths": {
+        "term": 7,
+        "definition": 70,
+        "example": 82,
+        "hint": 68,
+        "category": 18
+      },
+      "source": {
+        "sequence": 60,
+        "categoryId": "hype"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "e9775494d08ecd6a945a2586d6d7136a8e4404b80d56ae89790420f31f330db4",
+        "updatedAt": "2025-09-24T01:08:32.730Z"
+      }
+    },
+    "sl-0061": {
+      "hashes": {
+        "term": "07a8dfc62c8fe37ca32e8831f79898ecec2b88a240bc1f123bec21969a375ddb",
+        "definition": "4385de35921e764a1ff20f1fa9adbedf8128120d37317452f24b3ce49235a8d5",
+        "example": "414f9e51d201d2c62652ae1093dbe443b8ee66ecbfbda77ab60a36f200fb8250",
+        "hint": "ade424e3be2c49d1fd24b3a574426dac8d45b0b8fd9f81c10b592f00b660b664",
+        "category": "df520f8e79613e49e7934858773ef11a70cec548c7e9654753dbd694bd998c33",
+        "combined": "10f7f57193167ea29361f69ac2d60de98b91863a618147d11d214e0e6f11760a",
+        "tokenSignature": "accountable-action-and-backs-business-by-compliments-confidence-following-friday-grown-happen-hype-it-level-make-merch-moves-on-promises-s-said-she-ship-someone-standing-the-their-through-to-use-when-with-words-would"
+      },
+      "lengths": {
+        "term": 20,
+        "definition": 69,
+        "example": 89,
+        "hint": 61,
+        "category": 18
+      },
+      "source": {
+        "sequence": 61,
+        "categoryId": "hype"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "df3e13053d9e23674d0a42bb5d20a9bdd629c661b0d423f16899587211b68135",
+        "updatedAt": "2025-09-24T01:08:32.731Z"
+      }
+    },
+    "sl-0062": {
+      "hashes": {
+        "term": "b4a848d589724baa576d0874e41d249e71e4ae283befed9dfe735ed9f99db60d",
+        "definition": "3cc8769e0cd199c299f24883cbbf5a4320f856f53432137f3b2707c6ee78b489",
+        "example": "8deb7c7f4c0b931561807c63a030e5ac8f794e443a5798604b4762d6a843b33d",
+        "hint": "1433ff7a066cc51b1e51cd1ed8d80f53f2af500c75fb9cd78cdc66f7e80e69a8",
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "583086329e81c5e7e3d59b0032dc59efb3f7a7db6813d0019e3099beadde8307",
+        "tokenSignature": "a-belongs-callouts-calls-every-eye-gave-he-it-judging-look-on-or-out-pineapple-pizza-questionable-re-reaction-reactions-said-saying-side-silently-something-statement-table-that-the-use-when-whole-wild-without-word-you"
+      },
+      "lengths": {
+        "term": 8,
+        "definition": 79,
+        "example": 77,
+        "hint": 53,
+        "category": 20
+      },
+      "source": {
+        "sequence": 62,
+        "categoryId": "callouts"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "1b13afbe1020033c64bf59a5ff5c14b10b8e4643a4bc2695e0eb9a5b72504319",
+        "updatedAt": "2025-09-24T01:08:32.731Z"
+      }
+    },
+    "sl-0063": {
+      "hashes": {
+        "term": "dfd6824324fa248886b700da03101529e5ef0dd604ae57a9a2b087c4959d1675",
+        "definition": "f5085b191f59240c205b667db7c179a48ee8623624e3f9282b22241cb8cd8eb7",
+        "example": "a3fafef05e73c296b0241505f386c04503b9210b2db9f9bbbde7b6bf493d8a6c",
+        "hint": "ad54e553c8b2814a413a785a8dcf2ae62c64aeddb2a5ce8a07e750b687b1f671",
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "9cc190afa7bd8ebca23303ee2d8046baf654f85b7f48c22f9216f90cd93298a7",
+        "tokenSignature": "a-behaviour-bold-callouts-crossed-dinner-group-in-inappropriate-it-line-move-of-or-out-pocket-reactions-s-showing-someone-surprising-that-the-to-unexpectedly-uninvited-up-use-was-way-when-wildly"
+      },
+      "lengths": {
+        "term": 13,
+        "definition": 59,
+        "example": 59,
+        "hint": 64,
+        "category": 20
+      },
+      "source": {
+        "sequence": 63,
+        "categoryId": "callouts"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "db7a80b59b8c58a754a0a03d8a583a8efd6107d9a167b80015efb1ac114a2594",
+        "updatedAt": "2025-09-24T01:08:32.731Z"
+      }
+    },
+    "sl-0064": {
+      "hashes": {
+        "term": "5f8df3b71500b601c09c8546f5e18469409ce4e09584c07f8e6868fb22ed05d2",
+        "definition": "089a39c352d1989f3ebce1fd3ac44c1c4f48c79727cff0152c6e36ce5feea88b",
+        "example": "50e2b75642d9a633838cebdb3603a9096c588378055a6260b506c865dc1e4d4e",
+        "hint": "f84b54e75bd36e98eece815e9cc51d82033825bf7fa62e811100225a3bbd89d4",
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "b171b79c4896cbb0de9ca0e5c3df4f4a34c884c64aa4c1c8e4ead1df71dc7af9",
+        "tokenSignature": "an-bad-callouts-caught-common-crush-deeply-down-embarrassing-every-for-he-in-infatuated-is-it-moment-or-over-posts-reacting-reactions-s-seconds-sense-she-slipping-someone-story-taking-their-thirst-to-use-when-within"
+      },
+      "lengths": {
+        "term": 8,
+        "definition": 70,
+        "example": 67,
+        "hint": 62,
+        "category": 20
+      },
+      "source": {
+        "sequence": 64,
+        "categoryId": "callouts"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "5cba04a5b0a3bd1ab6b8c5e162fe8b33093edd442a659e4357928083b38eb29a",
+        "updatedAt": "2025-09-24T01:08:32.732Z"
+      }
+    },
+    "sl-0065": {
+      "hashes": {
+        "term": "05b09fedaea2920ee9bcc17918a16ea83b2bb902acdf5411f62abc1fffccc9dc",
+        "definition": "269308d425d9b15f88de79c67b42eb77ee0d13d470b3c2b16ea6f1ffccfedc84",
+        "example": "b06c7ef96fd90eee69b24661e08502fea29d10ede7445550c02a12b10dafab3d",
+        "hint": "15bb053461992a842c21228a20b786ccbd3ec3d6c0216cee099dafbfac3aef52",
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "b78d24863837419d7670aa62bff7b88465d4a532a834af80590eec5f6e06f69a",
+        "tokenSignature": "a-board-brought-callouts-chill-doing-effort-energy-excessive-extra-her-in-into-it-mood-most-overkill-picnic-projector-putting-reactions-response-s-she-show-the-theatrical-to-turns-use-ve-when-where-worked-would"
+      },
+      "lengths": {
+        "term": 14,
+        "definition": 67,
+        "example": 82,
+        "hint": 56,
+        "category": 20
+      },
+      "source": {
+        "sequence": 65,
+        "categoryId": "callouts"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "e749ef8204a9af1d51b3c58586b03cb07b7a28bdbc736c6a688338f3bb24fdcb",
+        "updatedAt": "2025-09-24T01:08:32.732Z"
+      }
+    },
+    "sl-0066": {
+      "hashes": {
+        "term": "2508d55f3702595f711b76a5e823eccd387fe3010b8c857b2e285c6fcab38bf4",
+        "definition": "9a007387038b67c6cee35689cde88648eb46fe419deee827087ad907ef3fb520",
+        "example": "e78a5e0bc97889ce370d7cc151944cf1f94474f9d02085be6b36972c563c0fdc",
+        "hint": "f9b8c6cc0d428eb547e628c17c6eb77b1388eb0fbd76a9dbaae0f5b30447831c",
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "b8a6ecbf08e3986640355d9ab70d91c0c234eddc24b62a7ae8d593c030eeb246",
+        "tokenSignature": "a-appealing-attraction-callouts-clapped-cringe-flips-gave-he-ick-instantly-it-landed-less-makes-me-of-off-plane-quirk-reactions-someone-sudden-switch-that-the-tiny-use-wave-way-when-your"
+      },
+      "lengths": {
+        "term": 3,
+        "definition": 68,
+        "example": 57,
+        "hint": 58,
+        "category": 20
+      },
+      "source": {
+        "sequence": 66,
+        "categoryId": "callouts"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "e28e8a9eec7e6865b93129ec1f4ebb6f4830159558ad94d17e4f89680bd1f47a",
+        "updatedAt": "2025-09-24T01:08:32.733Z"
+      }
+    },
+    "sl-0067": {
+      "hashes": {
+        "term": "1bd0fcd7610dcb408b3e0252bff72b6fd2262688a08ed7494bdc39410b9bda43",
+        "definition": "6cc3440c97b02d5d7cdca9fafc627e16165a7894f8b19093d63fb59248333745",
+        "example": "4b8c5e9905cfa88496747627479fdeccf275e4b4608ca58ce9b2fded053a7383",
+        "hint": "bef74e9134b407cd87606eed0f1eb4eddc7ad07d6945a4d36d4948d840c5ca73",
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "a2f196198c90491edd6b91b1166c98d64e420bf39a27f975a572366d2262fc88",
+        "tokenSignature": "a-an-and-automatic-bad-calling-callouts-deserves-entertaining-flops-hot-impact-is-it-l-loss-naps-not-on-opinion-re-reactions-so-take-unproductive-use-we-when"
+      },
+      "lengths": {
+        "term": 6,
+        "definition": 48,
+        "example": 69,
+        "hint": 39,
+        "category": 20
+      },
+      "source": {
+        "sequence": 67,
+        "categoryId": "callouts"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "303fa8c8fc57c92943120c34b8550dc47ebb2ede262093bd41731a944021437f",
+        "updatedAt": "2025-09-24T01:08:32.733Z"
+      }
+    },
+    "sl-0068": {
+      "hashes": {
+        "term": "cc545b97480971e5262f2f9a01fbce804c068d363e75b6122def4df79446a9de",
+        "definition": "4e8a6a991033020fb79a5d4b1d2403bd7525573ce08052368fb73366c9c79b8f",
+        "example": "dc6847f182b9743f95f11f3c58efc28cf8021e65fd5cb3da2ea883e519cf9336",
+        "hint": "e126ea339b8e5318b6a64fb52278bb1468c9c96046eacdc9efbed7f3034eeb27",
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "7738dfff8c8ef79cb0d1c74122870c30a4c9efa8fc8a459d4dbfd8191b090598",
+        "tokenSignature": "a-ain-at-blunt-callouts-charging-disappointing-down-fast-for-happening-idea-is-it-need-now-of-pop-reactions-rejection-right-shut-t-the-this-to-up-use-water-whatever-when-you"
+      },
+      "lengths": {
+        "term": 13,
+        "definition": 53,
+        "example": 48,
+        "hint": 60,
+        "category": 20
+      },
+      "source": {
+        "sequence": 68,
+        "categoryId": "callouts"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "909975be959c62be5ff971a6b15c004166ee9bffc0a4b2f82cbbab8c9f3a619d",
+        "updatedAt": "2025-09-24T01:08:32.733Z"
+      }
+    },
+    "sl-0069": {
+      "hashes": {
+        "term": "d719d1ca846ea71725d038d0f7ea8051dc8954c486aeedb1563c31d20c525d2e",
+        "definition": "0137fd3525b678ce34e138f271d8f0248e0fb4162e478b10b7133917b119e3fd",
+        "example": "4cd491fac4db44f22f5d01597c2752c6c1990cd4d51e186d63002d0b00d6597d",
+        "hint": "530cdfb4392560b93373306a11f88e9e5f692cb059bfbec605d87db496d826f4",
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "69469da0b14060d5bf9e8545218833ab9278169934b2eef2b798c14916ce3511",
+        "tokenSignature": "acting-antics-attention-behavior-callouts-chat-clown-embarrassing-entertaining-foolishly-for-he-in-instead-it-kept-laughs-of-payoff-people-pure-reactions-roasting-the-turn-use-when-with-zero"
+      },
+      "lengths": {
+        "term": 14,
+        "definition": 48,
+        "example": 67,
+        "hint": 61,
+        "category": 20
+      },
+      "source": {
+        "sequence": 69,
+        "categoryId": "callouts"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "e37ee7c273dd1e54d99089a72e25517569dc0eae9710cf99713aabe39f7453ab",
+        "updatedAt": "2025-09-24T01:08:32.733Z"
+      }
+    },
+    "sl-0070": {
+      "hashes": {
+        "term": "2c96201f0c1a4e3484a5d0c37c874ea9c50e3ebbaf1f2f598a1ade986c1d52ca",
+        "definition": "77a250e248736af086142a191f2d07437fec78091133f40a64b94ebfb9d6fcf1",
+        "example": "72da7cc1ded9bf0a6184a2b7070633b124936a27ba891139b191690f01ed03be",
+        "hint": "6ae1669a914c08d2052ac899515ed11dd8f0b105ca53f299798e8be28063e00e",
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "92d42102f85befc7fc969373d47e10d2d537a43690b9e8151b4a6068b44d2bce",
+        "tokenSignature": "a-and-app-callouts-clearly-code-cook-crashed-experiment-he-him-it-keeps-let-making-needs-person-question-reactions-rewrote-s-sarcastic-situation-someone-stop-the-to-use-when-who-worse"
+      },
+      "lengths": {
+        "term": 16,
+        "definition": 65,
+        "example": 57,
+        "hint": 56,
+        "category": 20
+      },
+      "source": {
+        "sequence": 70,
+        "categoryId": "callouts"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "b2771bf1e4501105819d1c0d14e22921f040185035bc6d82c502c70834e6a6f8",
+        "updatedAt": "2025-09-24T01:08:32.733Z"
+      }
+    },
+    "sl-0071": {
+      "hashes": {
+        "term": "89626767e301bd7656af86ab1f0c4ea4fbf24c2f6c38877ecae9c15753214bd8",
+        "definition": "ac864109923071da29d7dfb9b5a6e0578c3b95009ea0ac413ff4a7f97532c906",
+        "example": "aa3e859e10a5128ec188ac376b175cf9d5722798418afa27fb601a305e07e1a2",
+        "hint": "55dad3516d794022e9838d682a092afca3ece65bf8971476724ec948b4547d4c",
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "01d3af8299c5f326d546140ef61ad7d9584e6d587332850cc98299ea137c1298",
+        "tokenSignature": "a-and-asap-backup-booked-call-callouts-chaos-chat-double-dramatic-emergency-events-for-girl-group-help-is-it-itinerary-logistics-need-overwhelmed-re-reactions-spiraling-squad-summoning-the-three-use-we-when-you"
+      },
+      "lengths": {
+        "term": 9,
+        "definition": 51,
+        "example": 75,
+        "hint": 76,
+        "category": 20
+      },
+      "source": {
+        "sequence": 71,
+        "categoryId": "callouts"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "9f59fa44350849266d3e3316709294492139980334da30de14a9000325a84fca",
+        "updatedAt": "2025-09-24T01:08:32.733Z"
+      }
+    },
+    "sl-0072": {
+      "hashes": {
+        "term": "b0ed663aa287d131f1f64b4fd41e9a54928c62a3bf4d3a8d50c0cf73addf10ce",
+        "definition": "aea607b5a5bd0426c5bc4560fc032b44edae9ef6cd62cb5e85c78970bb2df57a",
+        "example": "4d4fee08d6f6586b279024dab9097889f6514b215aa870351b3cc7d300508d8c",
+        "hint": "f3c501c952f892a136b7fc82b1250782506ab4579265a8e19751fcda211f579c",
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "d56af52d39adcfaff565713beb99dfe882dcf30753747415271b44de029a9faa",
+        "tokenSignature": "a-admitted-and-at-blocked-callouts-chaos-confesses-cringe-daylight-eject-fish-from-immediately-it-joking-microwaving-never-reactions-reported-see-should-someone-something-that-threat-timeline-to-use-when-work-you-your"
+      },
+      "lengths": {
+        "term": 20,
+        "definition": 73,
+        "example": 63,
+        "hint": 67,
+        "category": 20
+      },
+      "source": {
+        "sequence": 72,
+        "categoryId": "callouts"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "d1051a96f900dff114d0df5c0aaa5cf9ce564a0b476e6d21039919499224185b",
+        "updatedAt": "2025-09-24T01:08:32.733Z"
+      }
+    },
+    "sl-0073": {
+      "hashes": {
+        "term": "dafe36fc537a210eff97cb2e57a372173627048384dd30eb7979579e275b6c62",
+        "definition": "a9fb7f7112ffc84bc32f9d9b4ea2481481c9ee6f169eccec8e0a6af5b50ac1b3",
+        "example": "fcfaca615b86efead20bce9fae78b27d24da4299dc249a3e1e931812170063ae",
+        "hint": "14917b7482bb55a1a3ecd56105b3e052e2b10f44d9d099c04035b433f1955454",
+        "category": "d738f50a29548006ede144fd55572c65ace4b50c4688682e8b96b1941ee07a2f",
+        "combined": "75a277c18b804405df33335dfd4f62fb96954e1c2924a66a8f374960e783faa2",
+        "tokenSignature": "a-about-around-be-boldly-callouts-can-challenge-chest-direct-fix-if-instead-is-it-messy-mumbling-needs-of-opinion-plan-reactions-say-so-someone-speak-the-their-think-to-truth-use-we-when-with-you-your"
+      },
+      "lengths": {
+        "term": 22,
+        "definition": 65,
+        "example": 72,
+        "hint": 59,
+        "category": 20
+      },
+      "source": {
+        "sequence": 73,
+        "categoryId": "callouts"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "f82f568f4170f095c00ad752e6662f3f1bd67c644ac32fef3d738047be10e849",
+        "updatedAt": "2025-09-24T01:08:32.733Z"
+      }
+    },
+    "sl-0074": {
+      "hashes": {
+        "term": "9e440fb4f4e06cf7dc008bf8ce59234e0ca824c93ee13ea01a251720fe70d204",
+        "definition": "93f39a132fae865ce07e784bd1b18fe86d3d89e079ec7a546ddd2b1de1986087",
+        "example": "001d0fb49d07d2028663baaad147e02e08cc62c6b011efc8360daf0d8c5cf582",
+        "hint": "41be1d123bbe937a0b0b17c083b82ac9d19a9485c391e0582268a2214fa47411",
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "9329db96f8e7a09beab8c701595b1fcb912902d08c072b9f72f5c522b741d3df",
+        "tokenSignature": "a-blurry-brace-carousel-casual-coming-concert-culture-curation-dump-for-highlights-hot-in-internet-it-night-of-over-perfect-photo-pics-polish-posting-re-skips-sunday-that-use-vibes-when-you"
+      },
+      "lengths": {
+        "term": 10,
+        "definition": 60,
+        "example": 68,
+        "hint": 45,
+        "category": 16
+      },
+      "source": {
+        "sequence": 74,
+        "categoryId": "internet"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "bd1e1ca6faecc8e2daa8c0abe70816d76fa0135e26690b62f3f3415ac6cf8ccd",
+        "updatedAt": "2025-09-24T01:08:32.733Z"
+      }
+    },
+    "sl-0075": {
+      "hashes": {
+        "term": "91c1ef8bd6421958c748014edc270d0741dd41f651836939582ce015b16e9e17",
+        "definition": "c6e12bf53f6d07d02aba907cab6aca07ea4b2c887ed0a9606326a3e9092bd350",
+        "example": "c3b1d7e50893708ef63e367a6c3cb21ba11ab466a02eecd47beaf80eb3a809e2",
+        "hint": "4a0659b697a065b0ba042413ab7e24a41e29636a72bd3615b442be8a2305c9bd",
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "dda8517650424ed5c94ddb9bc52e94dd8ba2d238144a5684b1b594b268c0aeeb",
+        "tokenSignature": "boss-circle-close-content-culture-doesn-drop-for-friends-get-inner-internet-is-it-list-on-only-outfit-people-posts-previews-private-reserved-see-so-story-t-the-unfiltered-use-when-who"
+      },
+      "lengths": {
+        "term": 13,
+        "definition": 72,
+        "example": 66,
+        "hint": 53,
+        "category": 16
+      },
+      "source": {
+        "sequence": 75,
+        "categoryId": "internet"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "7021a8a5cad7d0519644a9404cd807abfa6b795ea661417c7c8082c01d56650f",
+        "updatedAt": "2025-09-24T01:08:32.733Z"
+      }
+    },
+    "sl-0076": {
+      "hashes": {
+        "term": "c6a307ed9c87977cdbff50fbf7367fbd82a9aec4ed4865324d25572b194e64e5",
+        "definition": "1c89a39436b52d98efad0f197216355cc7c89c0552c547580fb4dafb8083b390",
+        "example": "df6c57d761de83db20b4f5758e8ba0f738aeca3499145994ab2a8556441224c7",
+        "hint": "cc9ac34ba7be0d81c9769f78a7deb97f3cde0464859734d1e845a9f8eb91612a",
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "7dbb77decf2e90d3aebd0494d2f94d8970c22bfaca3ed766905175a0de28b23a",
+        "tokenSignature": "a-access-before-block-blocked-blocking-chill-culture-ex-feed-fight-finally-her-internet-it-make-out-refollow-reset-she-so-soft-someone-starting-temporarily-the-them-to-unfollow-use-want-when-without-would-you"
+      },
+      "lengths": {
+        "term": 10,
+        "definition": 71,
+        "example": 60,
+        "hint": 62,
+        "category": 16
+      },
+      "source": {
+        "sequence": 76,
+        "categoryId": "internet"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "466e0ccedb10f4985b377e20f927b2a6ccd6608a9265c2eedb582f4846154fea",
+        "updatedAt": "2025-09-24T01:08:32.733Z"
+      }
+    },
+    "sl-0077": {
+      "hashes": {
+        "term": "65ef04d016d235a8d0bde85000fa5b6ee5871671944c405e685dd98de3fc99f9",
+        "definition": "ac542b888a837c66e0463bbf5389214df7651630bbd2bd353e51f459058fba6a",
+        "example": "0896b370b10aa8bbaec38d1b48d8dccab1daf75b652ee50daf44f2ba567bd2f6",
+        "hint": "93250bc37edda45b4870ecb3b0f3d7b69f60e6b81283dce823a79864d7b50ed8",
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "39b68c7382d378c09994ee249ea4ee70554e690dc2e7530e5c480ecf062cbc31",
+        "tokenSignature": "80-buying-content-creators-culture-de-from-hauls-her-influencing-internet-it-mascara-me-mid-of-on-out-over-overhyped-product-push-realistic-reel-saved-shiny-spending-takes-talks-that-the-use-when-you"
+      },
+      "lengths": {
+        "term": 14,
+        "definition": 59,
+        "example": 66,
+        "hint": 59,
+        "category": 16
+      },
+      "source": {
+        "sequence": 77,
+        "categoryId": "internet"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "becb188447e6b241f60ea4e370c1fdcd08933de5982cecf7d3bae734f524b2e9",
+        "updatedAt": "2025-09-24T01:08:32.734Z"
+      }
+    },
+    "sl-0078": {
+      "hashes": {
+        "term": "5d16172e616c4a04ad92964a5dc2de3a5d403b96fddf0ec9ea9cc5d938863abd",
+        "definition": "693d8aeaca14592e38fab0f93da3e3518877813b6d509f0a58069252f72d620f",
+        "example": "10c7ac71aa323c057a6eef5b739f8229f4982200ec61547ab1eb7b1400d9564d",
+        "hint": "f9f47ce68207a92a998609b9b7df9ed2c1660948e14bf4432bbc45edcd3a68b6",
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "36fa2a904e2804bf649cfdaed408cbfa0607c4bac355b5f242dd0d366c4e6acd",
+        "tokenSignature": "account-banned-convinced-culture-disappears-even-from-got-hides-internet-it-overnight-platform-posting-posts-quietly-re-reach-shadow-so-still-tanked-the-though-timelines-use-views-we-when-you-your"
+      },
+      "lengths": {
+        "term": 13,
+        "definition": 58,
+        "example": 77,
+        "hint": 62,
+        "category": 16
+      },
+      "source": {
+        "sequence": 78,
+        "categoryId": "internet"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "ab63721fde0f99001c85438502424f986ac7bc3734ee6a0d7b916957f57f08cf",
+        "updatedAt": "2025-09-24T01:08:32.734Z"
+      }
+    },
+    "sl-0079": {
+      "hashes": {
+        "term": "0766383c997e4dea10f04aa2854a891ebbd85d3f1ea9956f634c6386ad91e8f2",
+        "definition": "6c47054f8c8a82092145477e837baf4fea40bbe21627cec964b222d1917743bd",
+        "example": "a4d567ed1ab579b5a7935209733de6ef380ebe7a52b6611daf3727ce83e222c6",
+        "hint": "3211061ef985db76ee581ea3c256e0eb0d9fc58a31e15594fe137f472583e637",
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "ef4c5e7e728e1d0df5d602e62a211b618006d6b91067ed7097e1bfc56e5718c4",
+        "tokenSignature": "algorithm-and-appears-culture-decided-endless-feed-for-fyp-honestly-hyper-i-internet-into-it-m-my-not-now-page-personalized-pottery-s-serves-short-something-specific-taste-thanks-that-the-tiktok-to-use-videos-when-wrong-you"
+      },
+      "lengths": {
+        "term": 3,
+        "definition": 79,
+        "example": 64,
+        "hint": 77,
+        "category": 16
+      },
+      "source": {
+        "sequence": 79,
+        "categoryId": "internet"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "3a6101b91ea178cc3d1c2f4ab0e6d3fda9dc697ae30c9108e7663e19c50aa6c1",
+        "updatedAt": "2025-09-24T01:08:32.734Z"
+      }
+    },
+    "sl-0080": {
+      "hashes": {
+        "term": "348e5e2f504e4ce352ed227ab3c233d91f1e246a416999821c120030465d7e9e",
+        "definition": "95deaed5b8a614a8fa3a492c825875f9e031aa3e1de7854ff5fc8488ddeeb592",
+        "example": "4a1fcfab58d77bc4e596c48fa60004c3e522add5231b5b1735b04e8fcd36fd78",
+        "hint": "c64b440ef676b6c55892e40da29150e69cedfb42f1b30775f8a23393119ca41a",
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "e70ecf71dd00c3239f7ca1cd76f53f191b9af118b5e30b2e3941ecc5b699939b",
+        "tokenSignature": "a-at-before-bio-culture-details-drop-followers-hit-important-in-info-internet-it-link-lives-noon-official-profile-re-reminder-sending-that-the-they-tickets-to-use-vanish-when-you"
+      },
+      "lengths": {
+        "term": 11,
+        "definition": 61,
+        "example": 60,
+        "hint": 61,
+        "category": 16
+      },
+      "source": {
+        "sequence": 80,
+        "categoryId": "internet"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "ff7b6296f0fa3bc9faed4a6265a2bbb8db12677972b36bfa292281d9c804bd1e",
+        "updatedAt": "2025-09-24T01:08:32.734Z"
+      }
+    },
+    "sl-0081": {
+      "hashes": {
+        "term": "4d48fba6cf5f7d6abfb35e695f453297870a7a56568ceae968f06d04701b0047",
+        "definition": "ce0bf15106298642899ef75d64b3655fdec66dd5a782455e2c6a755e98ce6630",
+        "example": "95194b89f54a6af6c6c5c78ff24fa8d25117b03721b7a0401e72fcdd671cc089",
+        "hint": "1aa16378924d2f8b83bdaa4294c4b5eefbe2cf43bf90cf1f5180ff7cfdeba0bd",
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "be3b3d2413ae739940a90f1ca3277c80b35950c20708ca9d082f295b0ba253d4",
+        "tokenSignature": "a-account-alt-culture-curated-drafts-feed-for-grid-her-internet-it-keeps-key-low-main-maintains-messy-on-ones-posts-pressure-profile-real-secondary-she-so-someone-stays-the-use-when-where-without"
+      },
+      "lengths": {
+        "term": 3,
+        "definition": 71,
+        "example": 69,
+        "hint": 66,
+        "category": 16
+      },
+      "source": {
+        "sequence": 81,
+        "categoryId": "internet"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "c622359b4c6aa7605c1f51c580b1c7b54b6b528b218b7287dfb0f875af869808",
+        "updatedAt": "2025-09-24T01:08:32.734Z"
+      }
+    },
+    "sl-0082": {
+      "hashes": {
+        "term": "b44bdbf6061a1b1fd3903fa29fa21a08b209b39a7fbf1a4cbc9b12668fcd5be3",
+        "definition": "b2ccea6f509974a575d40ec7c4a1135aa58a927b981a85c48caa4ebb2eba7d89",
+        "example": "f3901c77fe2c8cca98f0ed9dd55757b47b8eb85f3b8f4a766c05010584f8bdd7",
+        "hint": "0ba15b66bed012c596b750dea7cde84ad30c7ef099b59a8ea22f53e6cf5e1a40",
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "63c4f6a187f1ab3f6ff8fa4c74126d66b0683337d473f4bce2ec3c3cc9854fed",
+        "tokenSignature": "a-admirers-and-at-attention-calculated-clearly-content-culture-designed-dms-dropped-fishing-flooded-for-golden-grab-he-hour-instantly-internet-is-it-post-romantic-s-someone-the-thirst-to-trap-use-when"
+      },
+      "lengths": {
+        "term": 11,
+        "definition": 54,
+        "example": 70,
+        "hint": 62,
+        "category": 16
+      },
+      "source": {
+        "sequence": 82,
+        "categoryId": "internet"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "dd85990fc42b1d194d31e36069f608b8ad731f5369b507b66ceb2224436bf2e1",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0083": {
+      "hashes": {
+        "term": "5a5bdf713e04f5bcd2bcc5c6b4918bcd85a13efe633c88ff4adee5d5445e9305",
+        "definition": "436d5385be04ce25fe536a48b892c6f45a339a02476e0c163d2b519d075d5943",
+        "example": "0af7720a0f431fbbdee797f2bfd534566d801be868dba064b64b7061c93a7a44",
+        "hint": "7a2c48d0200acd7ca172a239e2ec452cb70dab9f30a92167d2d3c3e0481711b2",
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "b12c9f80f088ee695674f21326b184325708bda20068b0f2b6d1803fb8dc787e",
+        "tokenSignature": "a-an-and-as-became-begging-captions-culture-destined-for-format-image-infinite-internet-is-it-leaked-meme-movie-of-punchlines-remixes-reusable-soon-still-template-the-use-week-when"
+      },
+      "lengths": {
+        "term": 13,
+        "definition": 51,
+        "example": 75,
+        "hint": 57,
+        "category": 16
+      },
+      "source": {
+        "sequence": 83,
+        "categoryId": "internet"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "d6fac521453d6bffd25bae1e242eafd67f5f6afcb6c5f1503d4b2016ca1a1777",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0084": {
+      "hashes": {
+        "term": "def51e88b7ac8ebb8009cd927c5f14e0dac62d0b7d7902563447bccd308b15ea",
+        "definition": "fbac45d24d4596652a5f067d69d61a11fc59677f43a9c36966ecae73cec2c018",
+        "example": "6587fc57c0bc2df0ee4894c47712c74166d544ee239dd10bd26716a873a5e658",
+        "hint": "7dd43248789142d24990daff15bbfdf71e1f035503795550a79b05ddb2651638",
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "83d13a6b0f8c8c8e3ac97c94b652708e4e4aebd9c21e2121f51a0c5849d21ec7",
+        "tokenSignature": "3-a-algorithm-before-culture-endless-feed-fell-fully-has-hole-hours-hypnotized-i-internet-into-it-m-notice-restoration-scroll-spiral-that-the-until-use-vanish-videos-watching-when-where-you"
+      },
+      "lengths": {
+        "term": 11,
+        "definition": 62,
+        "example": 66,
+        "hint": 51,
+        "category": 16
+      },
+      "source": {
+        "sequence": 84,
+        "categoryId": "internet"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "0acd9c46da5a5006f7b49f784a2a4cf548bc7c2d42b2f7a324e65145afb170f7",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0085": {
+      "hashes": {
+        "term": "957bc2e979cdc7a750357445bade8bdd808f759d3779220772e2ca703133a83b",
+        "definition": "66e56ec348fbefb839b85315261b034e2117ef9217bba7fce15bcab31cbf1ea0",
+        "example": "a0002455dd532daddf7a0913f12c846e392638c631ac897dcb7c631c4f9db6cc",
+        "hint": "a1651e4d8a436120938e10cdf9e48d1a72050b1ee4a716b124a8180aa676e7dd",
+        "category": "65a9c93bbc405f7148ab8e9311a7c8dd6b58b311ffb85a4e5e2fe90cd431877b",
+        "combined": "b5ba9b5ebd05b10bdd608bf8179491ffa9a38fe9e9d5068f2c51e168b9dfb0dd",
+        "tokenSignature": "a-adding-and-boosting-caption-climate-comment-content-culture-did-donations-for-fundraiser-internet-it-itself-message-of-own-re-repost-sharing-she-silent-so-something-speaks-spiked-the-use-when-without-you-your"
+      },
+      "lengths": {
+        "term": 13,
+        "definition": 67,
+        "example": 75,
+        "hint": 68,
+        "category": 16
+      },
+      "source": {
+        "sequence": 85,
+        "categoryId": "internet"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "62bf2903251fefff96521189ac5bfa1ccb6836fdfeb5e0bed69755240c05efde",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0086": {
+      "hashes": {
+        "term": "1dc3f2807258580d5f85b88f1810ffb20bc662ae1df9f5dab5a5c568a35b57e4",
+        "definition": "469e1231fb957ab9c304ae80456b5459b3a2c3a54d7ebf193c0395bffaaba5e5",
+        "example": "4ca59a1ab09e99bb7f89ff32c93e93c1c09e42a9081f0942aa6711b8e4eb6742",
+        "hint": "ea276c6e38bc5cfb4c06c27c5f40fa3b455ba0ec66b1e2ce361783bd8ef8e5f5",
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "537d5d30d1f47a7a48ada776425c0485430c5998d45256eb0aadf7101e289658",
+        "tokenSignature": "a-and-as-before-boosting-confidence-daily-doubles-energy-focused-girl-goals-good-gratitude-hot-it-life-manifest-movement-music-on-pep-promotion-relationships-scheduled-stroll-talk-the-to-use-walk-we-when-work"
+      },
+      "lengths": {
+        "term": 13,
+        "definition": 73,
+        "example": 74,
+        "hint": 43,
+        "category": 26
+      },
+      "source": {
+        "sequence": 86,
+        "categoryId": "relationships"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "ac0bb75401029c1d7fb2895c5faaa2ed2e6b44816d078c15079d924293b9401f",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0087": {
+      "hashes": {
+        "term": "3c6b149b1b9cca42316242af464f08bb0ea5f8cbf491cc20c210a0f22f8b3fda",
+        "definition": "e379dc12f130d4779ec35c6920be3b0c8b1bf9885fbdb6abaac432b616a9adb0",
+        "example": "f620f784dfb1be29dbed300bedc0b277861a67f9b3fa1567651d87c3e7fb3a34",
+        "hint": "f8294d36b56e0f9e24bb198450b77f19e5eb392b95c278ea71ba3343709a5bdb",
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "0d5f7e3aca4b1a4427837cfc231839ce3c692c0ec31f77c7e670cf40d704af32",
+        "tokenSignature": "a-and-bag-chasing-classes-daily-distractions-focus-gig-grinding-her-hustle-in-into-is-it-juggling-life-locked-mode-my-quarter-relationships-results-s-she-side-someone-success-this-thriving-use-when-with-zero"
+      },
+      "lengths": {
+        "term": 9,
+        "definition": 67,
+        "example": 72,
+        "hint": 55,
+        "category": 26
+      },
+      "source": {
+        "sequence": 87,
+        "categoryId": "relationships"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "34a2d61170bd9ce6ac0636ae06c9378828d34460fdb116eb08411e5a9dfb38f7",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0088": {
+      "hashes": {
+        "term": "c6bb12149a557cb3a53f7c1d45bdec2aba570dd0524c6e407549ca25cd2b8bdb",
+        "definition": "2d3a0d063100351ae569e548541ac2fb324113b413b89f4c2358bf0eb047afe0",
+        "example": "6437419d2e5f189401c0c5570dce29021f4baff1a8b4c53047e98ef3ba048aa1",
+        "hint": "e201b688ffdd9181471eca80331bd9e869ad02f23b2b35a35a4a366e27677130",
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "7d95539223365d6aae77de77b3cdb9f4f6fda375b7855d62073e5d7c8a22e1e9",
+        "tokenSignature": "a-celebrate-daily-day-earned-for-indulgence-it-just-latte-life-little-means-relationships-report-run-s-small-something-submitting-surviving-sweet-the-time-tiny-treat-use-when-wins-with-you"
+      },
+      "lengths": {
+        "term": 12,
+        "definition": 53,
+        "example": 67,
+        "hint": 57,
+        "category": 26
+      },
+      "source": {
+        "sequence": 88,
+        "categoryId": "relationships"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "afe2e301e7ccd837fff3fade163c38f707c1dcfdff61d19e5ea3649be8814c77",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0089": {
+      "hashes": {
+        "term": "ea14a47c2efebd781350f4022079dd8836361c39585c523351078d0be47e50ef",
+        "definition": "0ba136951dde708eb45e57c38960c57861ccae71f8198960d74a696f150d0287",
+        "example": "81e91c175d266b085aa74984afd82994d9a2f5c06dd875ca8aa85af3ece067a1",
+        "hint": "a709b805cd81042fe2f1d3f02480cdfae8d6f04bfbbb2db2eb06429710119f3d",
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "c25e44fbfa0163564322fcf5cd96c630b061fe1a8cb053d6d6c0ddeb9be30640",
+        "tokenSignature": "accountable-alongside-and-away-body-both-call-daily-doubling-else-finish-focused-for-hop-it-keeps-life-on-our-presence-procrastination-relationships-shared-slides-so-someone-stay-the-time-to-use-we-when-working"
+      },
+      "lengths": {
+        "term": 13,
+        "definition": 63,
+        "example": 71,
+        "hint": 55,
+        "category": 26
+      },
+      "source": {
+        "sequence": 89,
+        "categoryId": "relationships"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "d0141ded355b7972210864d0b91b727466cfda1832c06fb21502e20341646a4e",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0090": {
+      "hashes": {
+        "term": "f6331ae19902b7fd3018db3a4811926d7e6f477cd519ab7fa21a042aa873de8f",
+        "definition": "bc76035c50fdc45b99e818b761c28197dc18e5263fbb35711b00db8c63fb0e2e",
+        "example": "6098dc304cd21ea3436c4b93d52bc5d22eabe4d6b48fc945b92805e47c20a7bb",
+        "hint": "fa663bf0849b0b6a731c7ccb07e39cb0b44cb973b5c27bc912d6b8936ab86cb1",
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "e1c265e09573b51ee6488dd4fe79ed7846b46297cea9947d247df6e2323aa319",
+        "tokenSignature": "a-afternoon-all-and-between-break-daily-funemployed-guilt-is-it-job-jobs-life-like-matinees-mini-month-morning-no-pause-relationships-s-she-someone-stress-taking-this-treating-use-vacation-vibes-when-yoga-zero"
+      },
+      "lengths": {
+        "term": 11,
+        "definition": 65,
+        "example": 74,
+        "hint": 59,
+        "category": 26
+      },
+      "source": {
+        "sequence": 90,
+        "categoryId": "relationships"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "9cef91a2ac1a2c1fe44aaa2e6609ba35b502619e1493b1353b2dc00df6d722cf",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0091": {
+      "hashes": {
+        "term": "63742319b18e5fe7260956a79f26520d5909e5c1925552171aafce08da6cfabf",
+        "definition": "a9156fc59045bfa5ebf95dd95ce254e0615d3e5095d110f2a28cb53947a05311",
+        "example": "9c3f02852c82a3d18b727f81b91e72c06da64ce4f0387eb61230cff576b601fb",
+        "hint": "34e62a7c6e0cc36a7b85fdfd761a755892e8ff3ca7c44dd1d75af0cb9acd0d8a",
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "7aa7eacccde2bba7f942c2dbaad7b54cb3ed6588f7747932a96d91eeb0f0a22c",
+        "tokenSignature": "affection-and-appreciation-best-care-comes-daily-discussing-every-gift-gives-giving-his-how-is-it-language-life-love-milestone-or-people-receives-relationships-show-so-someone-surprises-the-they-use-way-when-with"
+      },
+      "lengths": {
+        "term": 13,
+        "definition": 66,
+        "example": 74,
+        "hint": 49,
+        "category": 26
+      },
+      "source": {
+        "sequence": 91,
+        "categoryId": "relationships"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "3ebbdd01b7f3509ac8fa28d730c851e09a56b4974d8be9720cb41d23685cd909",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0092": {
+      "hashes": {
+        "term": "bdd13aad41c4cabee650227886ddfcf014d3ec1bc7400f415776a1e364f3ce3b",
+        "definition": "217e842cbdd249d8b1f660e2a1cbb79ec17abcd7a69f98234b8f1dab9329cead",
+        "example": "16ee12de3dce1a4c43dd28f0f01a1e8d68cce3d72d43da0fc3f5b64b9287f104",
+        "hint": "c9588f84ea236897cd31d46ffdf41c09430ce58332b9fa1d95c39289bccd5abf",
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "f6ff6d533ac828f5cb120f0a6cda747d116c5f90fe75d4934696815f8b5641ad",
+        "tokenSignature": "and-boundaries-choosing-comfort-culture-daily-days-ease-email-era-grind-her-hustle-in-intentional-it-life-mornings-on-over-peace-prioritizes-relationships-rest-s-she-slow-soft-someone-spa-use-when"
+      },
+      "lengths": {
+        "term": 9,
+        "definition": 65,
+        "example": 72,
+        "hint": 49,
+        "category": 26
+      },
+      "source": {
+        "sequence": 92,
+        "categoryId": "relationships"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "0f73dca13479950e7ea9f6981083a1a0f291713676373c0cea1af4e80336c7ae",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0093": {
+      "hashes": {
+        "term": "b5e0e178fba883dcd10e6fa78c89f5f38ce6c859374a7f345246176597f49ff7",
+        "definition": "a5e95c8a57398c689944fc2ee9ccfd2c6831ec99d64c4c2804a0a5a5c78d654b",
+        "example": "036d54fbd2e5135e866bae988b1e2d192d4908e7c6849589df015dbcc88f54d8",
+        "hint": "fac4daea44acb709334803f764e8680bd47398905769d0ebf722c4e3f050cf5a",
+        "category": "fc31d6a2796e8e103ddb394c31b1d72415f776d882faaf2b0fe77a6c3645a76e",
+        "combined": "c20a339526825bf0f804bc4b4241062c1a678f8f747b9824f737f3f299c5e314",
+        "tokenSignature": "a-and-apps-are-boo-colder-cozy-cuffing-daily-dating-doing-everyone-flips-for-hunt-it-life-looking-months-numbers-people-relationship-relationships-s-season-so-starts-suddenly-the-use-weather-when"
+      },
+      "lengths": {
+        "term": 14,
+        "definition": 59,
+        "example": 67,
+        "hint": 68,
+        "category": 26
+      },
+      "source": {
+        "sequence": 93,
+        "categoryId": "relationships"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "58b2f282d9be394b3775ad32d741c44b76263a63e2505d93a959ac4b25d175a5",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0094": {
+      "hashes": {
+        "term": "fd9cc89a32a95892a6bb47a6a6d33ecac404ae6fb9fd8e06a5fb9d04cac97162",
+        "definition": "26711137dd9712778a2b991b19dedfa30d7b633eca8c497f65405514b0fba65e",
+        "example": "2a9aa1cdcece82c2443ebaf7f5511543d3a75ae332cb17b6538b1011139f1539",
+        "hint": "7f4edd5e45db690d12313e936fbbb733d0e3c314c5f021e261a927024f40b559",
+        "category": "00190eb0145de0d0b5e6b986dab2becdead79c3a3935186a64528e87dde29bf1",
+        "combined": "0b4b73b688cc139474603c517ea1ef355125d2b6def2a6a9da8217ec8f5ba7b3",
+        "tokenSignature": "a-aesthetic-an-and-animal-bold-care-coat-confidence-don-energy-era-full-fur-glam-in-into-it-leans-luxury-maximalist-mob-packed-print-rings-she-someone-statement-strut-style-t-unapologetic-use-walked-when-wife-with"
+      },
+      "lengths": {
+        "term": 12,
+        "definition": 78,
+        "example": 82,
+        "hint": 56,
+        "category": 17
+      },
+      "source": {
+        "sequence": 94,
+        "categoryId": "style"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "62ff3b445d39fe42e91dff6767f27abf37cab6ea3c32336ce7393367421cee9c",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0095": {
+      "hashes": {
+        "term": "ec363bc9ccc612cc473a0ddbe39c539eda523d7386f66a2942e9501cc6ccdd25",
+        "definition": "071204fa0bcad2d2781ca6668dcba37bd630e3d7da28ab8e3eb97c727afb87b8",
+        "example": "08fde8d5b0913abeaf83e4894eadd2bb5d30ee69ed140d84ef9831ff7c5f1c68",
+        "hint": "c86efd6328d421c7ed2654942cb9c14002fd2d6e684d5e114aeb2e1787863ae5",
+        "category": "00190eb0145de0d0b5e6b986dab2becdead79c3a3935186a64528e87dde29bf1",
+        "combined": "efcaf4aab82d798483d18a187ead24d4068463aae81ba40ac55c0915b5f4df82",
+        "tokenSignature": "a-accents-aesthetic-an-and-by-coastal-european-fantasy-farmer-girl-her-herb-hues-inspired-is-it-kitchen-makeover-market-mediterranean-or-outfit-overflowing-pots-produce-pure-radiates-ripe-s-soaked-space-style-summers-sun-terracotta-tomato-use-vibe-when"
+      },
+      "lengths": {
+        "term": 11,
+        "definition": 83,
+        "example": 86,
+        "hint": 73,
+        "category": 17
+      },
+      "source": {
+        "sequence": 95,
+        "categoryId": "style"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "bd7435833820c226ee741197e39672415d1a570ac09d9c76b7b2e334bb3a5851",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0096": {
+      "hashes": {
+        "term": "5b00639b710a7bfd70f7791716fb11fdc0d701d9c341af245a4ab85d9cb53ef6",
+        "definition": "d6f15165864f16b4765bb3729177e0dae74159e036b8f1784ad4637ce7062e3a",
+        "example": "120e6944fc3a098bafc2c841106d6aa48e701d811d23b3f589c19fe79ff746f1",
+        "hint": "faa7ae11ec1c5b7498146a6c5556f0ad9cde23315f7a29519d1c5d6669919ba7",
+        "category": "00190eb0145de0d0b5e6b986dab2becdead79c3a3935186a64528e87dde29bf1",
+        "combined": "a2155f91a86ff4a93060d6db674a6c8bfe2956755d3d39f2db6ad3992cbe720a",
+        "tokenSignature": "a-aesthetic-and-athletic-blends-blokette-details-fashion-femme-football-full-he-in-it-jersey-jerseys-layered-mesh-mini-mix-mode-of-over-playful-pleated-pulled-scarves-skirt-skirts-someone-sporty-streetwear-style-up-use-vintage-when-with"
+      },
+      "lengths": {
+        "term": 8,
+        "definition": 77,
+        "example": 76,
+        "hint": 72,
+        "category": 17
+      },
+      "source": {
+        "sequence": 96,
+        "categoryId": "style"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "e218689f1b1141bcd1ea6ab0dd1b750c7f9984a9378b8470c9f0d17019a37c4a",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0097": {
+      "hashes": {
+        "term": "c88c21747d3b26e81978961b60549a6496721a27788a550bd326b8d296a5f9e8",
+        "definition": "d883820d7f53b78e872e0205f9035bdce12396446ac9928665aa03dc8a675391",
+        "example": "a4c53f6c471964e2b78f96f422dfd9fb2871d6b43cdce4a01295564b179c7434",
+        "hint": "7682a9bd89403131a2cc96de59a75ec0aecb7f042ab9ba2c95e57e0794a8f251",
+        "category": "2964224f9c24740bc17a90cc7d5bc9dc2abd27b383b5eaee701d87408ec6e490",
+        "combined": "33c7143708d848b68c5c8b8a141e2f384191c61422ac0a5c6ecb26485d16347a",
+        "tokenSignature": "a-after-and-blanket-emotions-feelings-finale-give-heartbreak-i-in-it-joy-loud-m-me-mood-my-needs-or-playlist-process-s-sitting-someone-space-that-their-to-turned-up-use-vibes-when-whether-with"
+      },
+      "lengths": {
+        "term": 14,
+        "definition": 69,
+        "example": 70,
+        "hint": 54,
+        "category": 16
+      },
+      "source": {
+        "sequence": 97,
+        "categoryId": "vibes"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "cfd67d552e1950e043ea93dc4a7658cf05102323d39f381e340caba0d8d8c662",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0098": {
+      "hashes": {
+        "term": "d2c91ce5c347ba9c1d701bcab51af168de78734b946257ff3997db907992e198",
+        "definition": "07377668a57651507fbee7c407771682e284df159be2a1a34f509c98eb7b9126",
+        "example": "e2bf630d296fb32e4427957e9c0455f4097661572315c91f698c00f806f0b612",
+        "hint": "7a2753f4433c23a74dbfa99ae509b629cbdb38377aeaa9bac086f0ab8f8d7c70",
+        "category": "2964224f9c24740bc17a90cc7d5bc9dc2abd27b383b5eaee701d87408ec6e490",
+        "combined": "d9ef2540c7f2b86c8072162b6f4fc8f2c981b620da3a81c3277737ca8c73543b",
+        "tokenSignature": "after-battery-catch-completely-conference-drained-empty-feelings-from-hits-i-interaction-it-m-me-much-out-peopled-recharging-s-social-solo-someone-the-tonight-too-use-vibes-when"
+      },
+      "lengths": {
+        "term": 11,
+        "definition": 52,
+        "example": 70,
+        "hint": 48,
+        "category": 16
+      },
+      "source": {
+        "sequence": 98,
+        "categoryId": "vibes"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "617aec342aaae4b42982eb88aa49d6f35d546a5662d8bcadfc6cacf9c86806e1",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
+      }
+    },
+    "sl-0099": {
+      "hashes": {
+        "term": "db013e753c12a7482c53d0abc72171a25d6d2b79bf7ac75cddcccb5fe4caee32",
+        "definition": "e10d707ac78f1983db8c7ddd7cf4f6b1c6dee0059b72cce939bb15706a6b756e",
+        "example": "b5fac054aaad87c4c222f7ffb012cc162d82af7c1491a47cb67acd6611446aa3",
+        "hint": "620925338002e0d8a177064e1e0385926e7890d451c80c0ccd27a09ec04b3969",
+        "category": "2964224f9c24740bc17a90cc7d5bc9dc2abd27b383b5eaee701d87408ec6e490",
+        "combined": "101f31334c13db164a216cd495a17ad8a7e8719b331eac01633b797073f58041",
+        "tokenSignature": "a-act-announcement-burst-chaos-chat-composure-everyone-excitement-feelings-feral-group-had-in-it-joy-lose-makes-minute-of-or-surprise-that-the-their-tour-under-unfiltered-use-vibes-when-wild-you"
+      },
+      "lengths": {
+        "term": 5,
+        "definition": 57,
+        "example": 74,
+        "hint": 61,
+        "category": 16
+      },
+      "source": {
+        "sequence": 99,
+        "categoryId": "vibes"
+      },
+      "embedding": {
+        "status": "ready",
+        "model": "synthetic-64",
+        "vectorSha256": "67858c11312cb51ff95cad21a73344b757afd4f3698c0481c3a5f635fdec6126",
+        "updatedAt": "2025-09-24T01:08:32.740Z"
       }
     }
   }
