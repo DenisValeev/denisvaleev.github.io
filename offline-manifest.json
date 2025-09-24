@@ -1,9 +1,37 @@
 {
-  "version": "20250924-328c9a1a93e0-cf6f09977bc4-dirty",
-  "generatedAt": "2025-09-24T03:16:41.980Z",
-  "totalAssets": 58,
-  "totalBytes": 6237324,
+  "version": "20250924-53bfea517b5a-d2a5aa91e1b3-dirty",
+  "generatedAt": "2025-09-24T03:35:57.931Z",
+  "totalAssets": 65,
+  "totalBytes": 6299678,
   "assets": [
+    {
+      "path": "ai_docs/docs/apps.md",
+      "bytes": 7338
+    },
+    {
+      "path": "ai_docs/docs/architecture.md",
+      "bytes": 4464
+    },
+    {
+      "path": "ai_docs/docs/data-maintenance.md",
+      "bytes": 5139
+    },
+    {
+      "path": "ai_docs/docs/development-guide.md",
+      "bytes": 3577
+    },
+    {
+      "path": "ai_docs/docs/overview.md",
+      "bytes": 3231
+    },
+    {
+      "path": "ai_docs/docs/testing-and-automation.md",
+      "bytes": 3683
+    },
+    {
+      "path": "ai_docs/index.html",
+      "bytes": 13942
+    },
     {
       "path": "apps/asset-observatory/app.js",
       "bytes": 21252
@@ -18,15 +46,15 @@
     },
     {
       "path": "apps/embedding-explorer/app.js",
-      "bytes": 45900
+      "bytes": 63324
     },
     {
       "path": "apps/embedding-explorer/index.html",
-      "bytes": 20672
+      "bytes": 20673
     },
     {
       "path": "apps/embedding-explorer/sample-embeddings.js",
-      "bytes": 3035
+      "bytes": 3592
     },
     {
       "path": "apps/jokes/all-jokes-compact.html",
@@ -230,7 +258,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 29093
+      "bytes": 30447
     },
     {
       "path": "service-worker.js",
@@ -238,8 +266,8 @@
     }
   ],
   "commit": {
-    "hash": "cf6f09977bc459538c2b730bec5d0f0896f95f63",
-    "short": "cf6f09977bc4",
+    "hash": "d2a5aa91e1b3ac507a160e43457e4a1af6043419",
+    "short": "d2a5aa91e1b3",
     "dirty": true
   }
 }

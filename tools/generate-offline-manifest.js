@@ -6,8 +6,8 @@ const { promisify } = require('util');
 
 const ROOT = process.cwd();
 const OUTPUT_PATH = path.join(ROOT, 'offline-manifest.json');
-const INCLUDE_DIRECTORIES = ['apps', 'data'];
-const INCLUDE_FILES = ['index.html', 'service-worker.js'];
+const INCLUDE_DIRECTORIES = ['apps', 'data', path.join('ai_docs', 'docs')];
+const INCLUDE_FILES = ['index.html', 'service-worker.js', path.join('ai_docs', 'index.html')];
 const ALLOWED_EXTENSIONS = new Set(['.html', '.js', '.json']);
 const execFileAsync = promisify(execFile);
 
@@ -76,7 +76,9 @@ async function walk(directory, assets, digest) {
       await walk(entryPath, assets, digest);
     } else if (entry.isFile()) {
       const extension = path.extname(entry.name).toLowerCase();
-      if (!ALLOWED_EXTENSIONS.has(extension)) {
+      const normalizedEntryPath = toPosixPath(entryPath);
+      const isDocMarkdown = normalizedEntryPath.startsWith('ai_docs/docs/') && extension === '.md';
+      if (!ALLOWED_EXTENSIONS.has(extension) && !isDocMarkdown) {
         continue;
       }
 
