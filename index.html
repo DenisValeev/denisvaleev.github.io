@@ -541,6 +541,7 @@
       const resetBusyLabel = resetButton && resetButton.dataset && resetButton.dataset.busyLabel
         ? resetButton.dataset.busyLabel
         : 'Refreshing offline bundle…';
+      const METADATA_CACHE_NAME = 'toolbox-offline-metadata';
 
       if (!statusEl || !progressWrapper || !progressBar || !progressFill || !progressDetail) {
         return;
@@ -595,6 +596,23 @@
 
         const fractionDigits = value >= 10 || unitIndex === 0 ? 0 : 1;
         return `${formatter.format(Number(value.toFixed(fractionDigits)))} ${units[unitIndex]}`;
+      }
+
+      async function readCachedManifest() {
+        try {
+          const cache = await caches.open(METADATA_CACHE_NAME);
+          const requestUrl = new URL('__toolbox-offline-manifest__', self.location.href).toString();
+          const response = await cache.match(requestUrl);
+          if (!response) {
+            return null;
+          }
+
+          const manifest = await response.json();
+          return manifest && typeof manifest === 'object' ? manifest : null;
+        } catch (error) {
+          console.warn('Failed to read cached offline manifest', error);
+          return null;
+        }
       }
 
       function getCommitLabel(commit) {
@@ -837,41 +855,53 @@
           return;
         }
 
+        let manifest;
+        let manifestSource = 'network';
+
         try {
           const response = await fetch('offline-manifest.json', { cache: 'no-store' });
           if (!response.ok) {
             throw new Error(`Manifest request failed with status ${response.status}`);
           }
 
-          const manifest = await response.json();
-          state.manifest = manifest;
-          const assets = Array.isArray(manifest.assets) ? manifest.assets : [];
-          const totalBytes = Number.isFinite(manifest.totalBytes)
-            ? manifest.totalBytes
-            : assets.reduce((total, asset) => total + (Number(asset.bytes) || 0), 0);
-
-          if (!Number.isFinite(manifest.totalBytes)) {
-            manifest.totalBytes = totalBytes;
-          }
-          if (typeof manifest.totalAssets !== 'number') {
-            manifest.totalAssets = assets.length;
-          }
-
-          const summary = buildBundleSummary({
-            version: manifest.version,
-            totalAssets: assets.length,
-            totalBytes,
-            commit: manifest.commit || null
-          });
-
-          updateMeta(summary);
-          setStatus('Offline bundle ready to download.');
-          updateResetAvailability();
+          manifest = await response.json();
         } catch (error) {
-          console.error('Failed to load offline manifest', error);
-          setStatus('Unable to load the offline manifest. Refresh when you are back online.');
-          return;
+          console.warn('Failed to load offline manifest from network, attempting cached copy.', error);
+          manifest = await readCachedManifest();
+          if (!manifest) {
+            console.error('Unable to load offline manifest from network or cache', error);
+            setStatus('Unable to load the offline manifest. Refresh when you are back online.');
+            return;
+          }
+          manifestSource = 'cache';
         }
+
+        const assets = Array.isArray(manifest.assets) ? manifest.assets : [];
+        const totalBytes = Number.isFinite(manifest.totalBytes)
+          ? manifest.totalBytes
+          : assets.reduce((total, asset) => total + (Number(asset.bytes) || 0), 0);
+
+        if (!Number.isFinite(manifest.totalBytes)) {
+          manifest.totalBytes = totalBytes;
+        }
+        if (typeof manifest.totalAssets !== 'number') {
+          manifest.totalAssets = assets.length;
+        }
+
+        state.manifest = manifest;
+
+        const summary = buildBundleSummary({
+          version: manifest.version,
+          totalAssets: assets.length,
+          totalBytes,
+          commit: manifest.commit || null
+        });
+
+        updateMeta(summary);
+        setStatus(manifestSource === 'cache' ? 'Offline bundle ready for offline use.' : 'Offline bundle ready to download.');
+        updateResetAvailability();
+
+        const shouldRequestCaching = manifestSource === 'network';
 
         try {
           const registration = await navigator.serviceWorker.register('service-worker.js');
@@ -886,7 +916,9 @@
           const readyRegistration = await navigator.serviceWorker.ready;
           state.registration = readyRegistration;
           updateResetAvailability();
-          requestCaching(readyRegistration);
+          if (shouldRequestCaching) {
+            requestCaching(readyRegistration);
+          }
         } catch (error) {
           console.error('Service worker registration failed', error);
           setStatus('Unable to register the offline service worker.');
