@@ -160,23 +160,16 @@
       min-height: 180px;
     }
 
-    .card__placeholder {
-      margin: 0;
-      color: var(--text-secondary);
-      font-size: clamp(1rem, 1.4vw + 0.85rem, 1.2rem);
-      line-height: 1.6;
-    }
-
     .card__text {
       margin: 0;
       font-size: clamp(1.25rem, 2.2vw + 1rem, 2.05rem);
       line-height: 1.55;
       white-space: pre-line;
-      display: none;
     }
 
-    .card__text.is-visible {
-      display: block;
+    .card__text.is-empty {
+      color: var(--text-secondary);
+      font-size: clamp(1rem, 1.4vw + 0.85rem, 1.2rem);
     }
 
     .controls {
@@ -382,16 +375,12 @@
         <span id="card-counter" data-counter>0 of 0</span>
       </div>
       <div class="card__body">
-        <p id="entry-placeholder" class="card__placeholder" data-placeholder>Add notes below to get started.</p>
-        <p id="entry-text" class="card__text" data-entry-text aria-hidden="true"></p>
+        <p id="entry-text" class="card__text is-empty" data-entry-text>Add notes below to get started.</p>
       </div>
     </article>
     <div class="controls" role="group" aria-label="Deck controls">
       <button class="control-button control-button--secondary" type="button" data-prev>
         Previous
-      </button>
-      <button class="control-button control-button--primary" type="button" data-reveal aria-pressed="false">
-        Reveal note
       </button>
       <button class="control-button control-button--secondary" type="button" data-next>
         Next

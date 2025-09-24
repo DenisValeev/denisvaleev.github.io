@@ -1,11 +1,9 @@
 (function () {
   const notesInput = document.querySelector('[data-notes-input]');
   const entryEl = document.querySelector('[data-entry-text]');
-  const placeholderEl = document.querySelector('[data-placeholder]');
   const counterEl = document.querySelector('[data-counter]');
   const prevButton = document.querySelector('[data-prev]');
   const nextButton = document.querySelector('[data-next]');
-  const revealButton = document.querySelector('[data-reveal]');
   const shuffleButton = document.querySelector('[data-shuffle]');
   const saveButton = document.querySelector('[data-save]');
   const resetButton = document.querySelector('[data-reset]');
@@ -14,11 +12,9 @@
   if (
     !notesInput ||
     !entryEl ||
-    !placeholderEl ||
     !counterEl ||
     !prevButton ||
     !nextButton ||
-    !revealButton ||
     !shuffleButton ||
     !saveButton ||
     !resetButton ||
@@ -37,7 +33,6 @@
   let entries = [];
   let deck = [];
   let index = 0;
-  let isVisible = false;
 
   function setStatus(message) {
     statusEl.textContent = message;
@@ -89,26 +84,10 @@
     }
   }
 
-  function setEntryVisible(visible) {
-    isVisible = visible;
-    entryEl.classList.toggle('is-visible', visible);
-    entryEl.setAttribute('aria-hidden', visible ? 'false' : 'true');
-    placeholderEl.hidden = visible;
-    revealButton.setAttribute('aria-pressed', visible ? 'true' : 'false');
-    revealButton.textContent = visible ? 'Hide note' : 'Reveal note';
-  }
-
   function renderEmptyState() {
     counterEl.textContent = '0 of 0';
-    isVisible = false;
-    entryEl.textContent = '';
-    entryEl.classList.remove('is-visible');
-    entryEl.setAttribute('aria-hidden', 'true');
-    placeholderEl.hidden = false;
-    placeholderEl.textContent = 'No notes yet. Add entries below to start reviewing.';
-    revealButton.disabled = true;
-    revealButton.setAttribute('aria-pressed', 'false');
-    revealButton.textContent = 'Reveal note';
+    entryEl.textContent = 'No notes yet. Add entries below to start reviewing.';
+    entryEl.classList.add('is-empty');
     prevButton.disabled = true;
     nextButton.disabled = true;
     shuffleButton.disabled = true;
@@ -124,16 +103,12 @@
     const current = deck[index];
 
     entryEl.textContent = current;
+    entryEl.classList.remove('is-empty');
     counterEl.textContent = `${index + 1} of ${deck.length}`;
-    placeholderEl.textContent = 'Ready when you are. Press “Reveal note” or tap space to check your recall.';
-
-    revealButton.disabled = false;
     const disableNav = deck.length <= 1;
     prevButton.disabled = disableNav;
     nextButton.disabled = disableNav;
     shuffleButton.disabled = deck.length <= 1;
-
-    setEntryVisible(false);
   }
 
   function showNext() {
@@ -152,13 +127,6 @@
     ensureDeck();
     index = (index - 1 + deck.length) % deck.length;
     render();
-  }
-
-  function toggleEntry() {
-    if (!entries.length) {
-      return;
-    }
-    setEntryVisible(!isVisible);
   }
 
   function reshuffleDeck() {
@@ -203,7 +171,6 @@
 
   prevButton.addEventListener('click', showPrev);
   nextButton.addEventListener('click', showNext);
-  revealButton.addEventListener('click', toggleEntry);
   shuffleButton.addEventListener('click', reshuffleDeck);
   saveButton.addEventListener('click', handleSave);
   resetButton.addEventListener('click', handleReset);
@@ -219,21 +186,6 @@
     } else if (event.key === 'ArrowLeft') {
       event.preventDefault();
       showPrev();
-    } else if (event.key === ' ' || event.key === 'Spacebar') {
-      const active = document.activeElement;
-      if (
-        active &&
-        (active.tagName === 'BUTTON' ||
-          active.tagName === 'TEXTAREA' ||
-          active.tagName === 'INPUT' ||
-          active.tagName === 'A' ||
-          active.tagName === 'SUMMARY' ||
-          active.tagName === 'SELECT')
-      ) {
-        return;
-      }
-      event.preventDefault();
-      toggleEntry();
     }
   });
 
