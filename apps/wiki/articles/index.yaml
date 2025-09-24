@@ -1,7 +1,12 @@
 # Wiki articles are listed here by their shared filename stem.
-# Each entry corresponds to both a .json metadata file and a .md body file.
+# Each entry corresponds to a single Markdown file with Jekyll-style front matter.
 # Keep the list in publication order (newest first) so the UI loads the
 # latest dispatch by default.
-- navigation-nerdery
-- markdown-machinations
-- kickoff-chaos
+- 2025-09-24
+- 2025-09-23
+- 2025-09-22
+- 2025-09-21
+- 2025-09-20
+- 2025-09-19
+- 2024-09-25
+- 2024-09-24
