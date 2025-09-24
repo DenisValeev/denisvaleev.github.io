@@ -6,7 +6,7 @@
   const nextButton = document.querySelector('[data-next]');
   const shuffleButton = document.querySelector('[data-shuffle]');
   const saveButton = document.querySelector('[data-save]');
-  const resetButton = document.querySelector('[data-reset]');
+  const clearButton = document.querySelector('[data-clear]');
   const statusEl = document.querySelector('[data-status]');
 
   if (
@@ -17,7 +17,7 @@
     !nextButton ||
     !shuffleButton ||
     !saveButton ||
-    !resetButton ||
+    !clearButton ||
     !statusEl
   ) {
     return;
@@ -163,17 +163,22 @@
     }
   }
 
-  function handleReset() {
-    notesInput.value = DEFAULT_NOTES;
-    handleSave();
-    setStatus('Restored the default joke deck.');
+  function handleClear() {
+    notesInput.value = '';
+    try {
+      localStorage.setItem(STORAGE_KEY, '');
+    } catch (error) {
+      console.error('Failed to clear notes in localStorage', error); // eslint-disable-line no-console
+    }
+    updateEntriesFrom('');
+    setStatus('Cleared notes. Add new entries to continue.');
   }
 
   prevButton.addEventListener('click', showPrev);
   nextButton.addEventListener('click', showNext);
   shuffleButton.addEventListener('click', reshuffleDeck);
   saveButton.addEventListener('click', handleSave);
-  resetButton.addEventListener('click', handleReset);
+  clearButton.addEventListener('click', handleClear);
 
   document.addEventListener('keydown', (event) => {
     if (event.defaultPrevented) {
