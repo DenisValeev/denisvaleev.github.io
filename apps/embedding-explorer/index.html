@@ -531,17 +531,10 @@
       <p class="lead">Browse the stored embedding exports, pick any record, and project its raw binary signal into an RGB pixel
         grid.</p>
     </header>
-    <section class="workspace workspace--samples" aria-label="Sample embeddings">
-      <article class="panel panel--wide" aria-labelledby="sample-heading">
-        <div class="pill" id="sample-heading">Curated samples</div>
-        <p>Pick a saved embedding snapshot to inspect its metrics instantly.</p>
-        <div class="sample-toolbar" data-sample-list></div>
-        <div class="info-block" data-sample-meta>
-          <p class="placeholder">Choose a sample to populate its description.</p>
-        </div>
-      </article>
+    <section class="workspace" aria-label="Vector metrics">
       <article class="panel" aria-labelledby="insights-heading">
         <h2 id="insights-heading">Vector insights</h2>
+        <p class="panel-sub">Metrics update when you select a stored vector below.</p>
         <dl class="meta-grid summary-grid" data-summary-grid>
           <div>
             <dt>Dimensions</dt>
@@ -582,14 +575,6 @@
             </ul>
           </section>
         </div>
-        <div class="manual-input">
-          <label for="embedding-input">
-            Custom embedding
-            <textarea id="embedding-input" rows="4" spellcheck="false" data-embedding-input
-              placeholder="Paste numbers separated by commas or spaces"></textarea>
-          </label>
-          <button class="update-button" type="button" data-update-button>Update visualizations</button>
-        </div>
       </article>
       <article class="panel panel--wide" aria-labelledby="table-heading">
         <h2 id="table-heading">Value breakdown</h2>
@@ -605,9 +590,9 @@
             </thead>
             <tbody data-value-table>
               <tr>
-                <td>#1</td>
-                <td><span>0.000</span></td>
-                <td><span>0.000</span></td>
+                <td colspan="3">
+                  <p class="placeholder">Select a vector to populate this table.</p>
+                </td>
               </tr>
             </tbody>
           </table>

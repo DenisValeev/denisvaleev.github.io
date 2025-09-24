@@ -58,9 +58,9 @@ Each mini app lives under `apps/<name>/` with inline styles, a focused script, a
 - **Purpose.** Inspect embedding vectors, compare dataset records, and visualise high-impact dimensions.
 - **Key files.**
   - `index.html` – Dashboard layout with dataset selector, record filter, neighbor list, and dual canvas plots.
-  - `app.js` – Parses sample embeddings, decodes base64 vectors, computes statistics, renders histograms, and highlights the strongest positive/negative dimensions.
-  - `sample-embeddings.js` – Bundled dataset and metadata sources exposed as `window.embeddingExplorerSamples` and `window.embeddingSources`.
-- **Data maintenance.** Update `sample-embeddings.js` when adding new demo vectors. The explorer reads live datasets by decoding the base64 payloads from the embeddings stores in `data/` when available.
+  - `app.js` – Loads dataset metadata, decodes base64 vectors, computes statistics, renders histograms, and highlights the strongest positive/negative dimensions.
+  - `sample-embeddings.js` – Bundled dataset definitions exposed as `window.embeddingSources`.
+- **Data maintenance.** Update `sample-embeddings.js` when adding or renaming embedding datasets. The explorer reads live datasets by decoding the base64 payloads from the embedding stores in `data/` when available.
 - **Regression coverage.** `tests/embedding-explorer.spec.js` verifies dataset switching, record filtering, neighbor insights, and chart rendering.
 
 ## Value Formatter (`apps/value-formatter`)

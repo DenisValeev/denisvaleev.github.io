@@ -10,7 +10,7 @@ A collection of lightweight browser apps served from a single landing page. Each
 - **Cosine Similarity Lab** – Explore the 0.50+ cosine matches across jokes, quotes, and cross-deck blends, tweak the minimum score, and compare entries side by side with vector stats.
 - **Value Formatter** – Turn newline-separated entries into formatted key-value pairs for quick copy/paste in code reviews or data preparation.
 - **Asset Observatory** – Summarise dataset payloads, embedding stores, and similarity sweeps across the toolbox with nerdy charts and a full ledger view.
-- **Embedding Explorer** – Paste vectors or browse curated samples to visualise metrics, heatmaps, and notable dimensions of embedding payloads.
+- **Embedding Explorer** – Browse stored embedding datasets to visualise metrics, heatmaps, and notable dimensions of each vector.
 
 ## Usage
 
@@ -51,7 +51,7 @@ The tests spin up a temporary `python -m http.server` instance and exercise ever
 - `tests/similarity-report.spec.js` exercises dataset toggles, thresholds, and similarity overlays.
 - `tests/asset-observatory.spec.js` keeps the asset dashboard honest so charts, summaries, and the ledger stay in sync.
 - `tests/home-navigation.spec.js` ensures every app exposes the Home shortcut.
-- `tests/embedding-explorer.spec.js` checks that the Embedding Explorer loads samples, recomputes statistics, and surfaces the strongest dimensions.
+- `tests/embedding-explorer.spec.js` checks that the Embedding Explorer loads stored embeddings, recomputes statistics, and surfaces the strongest dimensions.
 - `tests/offline-manifest.spec.js` guards the offline cache manifest so every shipped HTML, JSON, and JavaScript asset remains downloadable.
 
 Use `npm run test:ui` if you want to watch the checks in the Playwright inspector while iterating locally. To focus on a single spec, pass its filename to Playwright, for example:

@@ -1,14 +1,7 @@
 (function () {
-  const samples = Array.isArray(window.embeddingExplorerSamples)
-    ? window.embeddingExplorerSamples
-    : [];
   const sources = Array.isArray(window.embeddingSources) ? window.embeddingSources : [];
 
-  const sampleList = document.querySelector('[data-sample-list]');
-  const sampleMeta = document.querySelector('[data-sample-meta]');
   const summaryGrid = document.querySelector('[data-summary-grid]');
-  const embeddingInput = document.querySelector('[data-embedding-input]');
-  const updateButton = document.querySelector('[data-update-button]');
   const positiveList = document.querySelector('[data-positive-list]');
   const negativeList = document.querySelector('[data-negative-list]');
   const valueTable = document.querySelector('[data-value-table]');
@@ -49,314 +42,6 @@
     return;
   }
 
-  const summaryCells = summaryGrid ? Array.from(summaryGrid.querySelectorAll('dd')) : [];
-  const valueTableBody = valueTable;
-  let activeSampleId = '';
-
-  function formatDecimal(value) {
-    if (!Number.isFinite(value)) {
-      return '0.000';
-    }
-    const rounded = Math.round(value * 1000) / 1000;
-    return rounded.toFixed(3);
-  }
-
-  function formatRange(min, max) {
-    if (!Number.isFinite(min) || !Number.isFinite(max)) {
-      return '— / —';
-    }
-    return `${formatDecimal(min)} / ${formatDecimal(max)}`;
-  }
-
-  function calculateStats(vector) {
-    const values = Array.isArray(vector) ? vector.map((entry) => Number(entry)).filter((entry) => Number.isFinite(entry)) : [];
-    const length = values.length;
-
-    if (!length) {
-      return {
-        values: [],
-        dimensions: 0,
-        magnitude: 0,
-        mean: 0,
-        deviation: 0,
-        min: null,
-        max: null,
-        zeroShare: 0,
-      };
-    }
-
-    let sum = 0;
-    let sumSquares = 0;
-    let min = values[0];
-    let max = values[0];
-    let zeroCount = 0;
-
-    values.forEach((value) => {
-      sum += value;
-      sumSquares += value * value;
-      if (value < min) {
-        min = value;
-      }
-      if (value > max) {
-        max = value;
-      }
-      if (Math.abs(value) < 1e-9) {
-        zeroCount += 1;
-      }
-    });
-
-    const mean = sum / length;
-    let variance = 0;
-    values.forEach((value) => {
-      const delta = value - mean;
-      variance += delta * delta;
-    });
-    variance /= length;
-
-    return {
-      values,
-      dimensions: length,
-      magnitude: Math.sqrt(sumSquares),
-      mean,
-      deviation: Math.sqrt(variance),
-      min,
-      max,
-      zeroShare: length ? zeroCount / length : 0,
-    };
-  }
-
-  function updateSummary(stats) {
-    if (!summaryCells.length) {
-      return;
-    }
-
-    const entries = [
-      stats.dimensions.toLocaleString(),
-      formatDecimal(stats.magnitude),
-      formatDecimal(stats.mean),
-      formatDecimal(stats.deviation),
-      formatRange(stats.min, stats.max),
-      `${Math.round(stats.zeroShare * 100)}%`,
-    ];
-
-    entries.forEach((value, index) => {
-      if (summaryCells[index]) {
-        summaryCells[index].textContent = value;
-      }
-    });
-  }
-
-  function renderExtrema(listElement, entries, placeholder) {
-    if (!listElement) {
-      return;
-    }
-
-    listElement.innerHTML = '';
-
-    if (!entries.length) {
-      const item = document.createElement('li');
-      const text = document.createElement('span');
-      text.className = 'placeholder';
-      text.textContent = placeholder;
-      item.appendChild(text);
-      listElement.appendChild(item);
-      return;
-    }
-
-    entries.forEach((entry) => {
-      const item = document.createElement('li');
-      item.textContent = `#${entry.index}${formatDecimal(entry.value)}`;
-      listElement.appendChild(item);
-    });
-  }
-
-  function renderValueRows(values) {
-    if (!valueTableBody) {
-      return;
-    }
-
-    valueTableBody.innerHTML = '';
-
-    if (!values.length) {
-      const row = document.createElement('tr');
-      const cell = document.createElement('td');
-      cell.colSpan = 3;
-      cell.innerHTML = '<p class="placeholder">Enter an embedding vector to populate this table.</p>';
-      row.appendChild(cell);
-      valueTableBody.appendChild(row);
-      return;
-    }
-
-    const maxAbs = values.reduce((max, value) => {
-      const magnitude = Math.abs(value);
-      return magnitude > max ? magnitude : max;
-    }, 0);
-
-    values.forEach((value, index) => {
-      const row = document.createElement('tr');
-      const indexCell = document.createElement('td');
-      indexCell.textContent = `#${index + 1}`;
-
-      const valueCell = document.createElement('td');
-      const valueSpan = document.createElement('span');
-      valueSpan.textContent = formatDecimal(value);
-      valueCell.appendChild(valueSpan);
-
-      const normalizedCell = document.createElement('td');
-      const normalizedSpan = document.createElement('span');
-      const normalized = maxAbs > 0 ? Math.abs(value) / maxAbs : 0;
-      normalizedSpan.textContent = formatDecimal(normalized);
-      normalizedCell.appendChild(normalizedSpan);
-
-      row.append(indexCell, valueCell, normalizedCell);
-      valueTableBody.appendChild(row);
-    });
-  }
-
-  function updateInsights(vector) {
-    const stats = calculateStats(vector);
-    updateSummary(stats);
-
-    const entries = stats.values.map((value, index) => ({ index: index + 1, value }));
-    const positive = entries
-      .filter((entry) => entry.value > 0)
-      .sort((a, b) => b.value - a.value)
-      .slice(0, 3);
-    const negative = entries
-      .filter((entry) => entry.value < 0)
-      .sort((a, b) => a.value - b.value)
-      .slice(0, 3);
-
-    renderExtrema(positiveList, positive, 'Positive values appear here.');
-    renderExtrema(negativeList, negative, 'Negative values appear here.');
-    renderValueRows(stats.values);
-  }
-
-  function formatVectorForInput(values) {
-    return values.map((value) => formatDecimal(value)).join(', ');
-  }
-
-  function setSampleMeta(description) {
-    if (!sampleMeta) {
-      return;
-    }
-
-    sampleMeta.innerHTML = '';
-    const paragraph = document.createElement('p');
-    paragraph.textContent = description || 'Choose a sample to populate its description.';
-    sampleMeta.appendChild(paragraph);
-  }
-
-  function highlightSampleButtons() {
-    if (!sampleList) {
-      return;
-    }
-
-    const buttons = sampleList.querySelectorAll('.sample-button');
-    buttons.forEach((button) => {
-      const isActive = button.dataset.sampleId === activeSampleId;
-      button.classList.toggle('is-active', isActive);
-      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-    });
-  }
-
-  function parseVectorInput(input) {
-    if (typeof input !== 'string') {
-      return [];
-    }
-
-    return input
-      .split(/[,\s]+/)
-      .map((chunk) => Number.parseFloat(chunk))
-      .filter((value) => Number.isFinite(value));
-  }
-
-  function selectSample(sample) {
-    if (!sample) {
-      activeSampleId = '';
-      highlightSampleButtons();
-      updateInsights([]);
-      setSampleMeta('Choose a sample to populate its description.');
-      return;
-    }
-
-    activeSampleId = sample.id;
-    highlightSampleButtons();
-    const vector = Array.isArray(sample.vector) ? sample.vector : [];
-    updateInsights(vector);
-    setSampleMeta(sample.description || '');
-
-    if (embeddingInput) {
-      embeddingInput.value = formatVectorForInput(vector);
-    }
-  }
-
-  function renderSampleToolbar() {
-    if (!sampleList) {
-      return;
-    }
-
-    sampleList.innerHTML = '';
-
-    if (!samples.length) {
-      const placeholder = document.createElement('p');
-      placeholder.className = 'placeholder';
-      placeholder.textContent = 'No curated samples available.';
-      sampleList.appendChild(placeholder);
-      return;
-    }
-
-    const fragment = document.createDocumentFragment();
-    samples.slice(0, 3).forEach((sample, index) => {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'sample-button';
-      button.dataset.sampleId = sample.id;
-      button.textContent = sample.label || `Sample ${index + 1}`;
-      button.addEventListener('click', () => {
-        selectSample(sample);
-      });
-      fragment.appendChild(button);
-    });
-
-    sampleList.appendChild(fragment);
-  }
-
-  function setupSamples() {
-    if (!sampleList || !sampleMeta || !summaryGrid || !valueTableBody) {
-      return;
-    }
-
-    renderSampleToolbar();
-    if (samples.length) {
-      selectSample(samples[0]);
-    } else {
-      updateInsights([]);
-    }
-  }
-
-  function setupManualInput() {
-    if (!updateButton || !embeddingInput) {
-      return;
-    }
-
-    updateButton.addEventListener('click', () => {
-      const values = parseVectorInput(embeddingInput.value);
-      if (!values.length) {
-        activeSampleId = '';
-        highlightSampleButtons();
-        updateInsights([]);
-        setSampleMeta('Enter numbers separated by commas or spaces to update the insights.');
-        return;
-      }
-
-      activeSampleId = '';
-      highlightSampleButtons();
-      updateInsights(values);
-      setSampleMeta('Custom embedding applied.');
-    });
-  }
-
   const datasetCache = new Map();
   let activeDatasetId = '';
   let activeRecordId = '';
@@ -392,8 +77,6 @@
   const summaryValues = summaryGrid ? Array.from(summaryGrid.querySelectorAll('dd')) : [];
   const POSITIVE_PLACEHOLDER = 'Positive values appear here.';
   const NEGATIVE_PLACEHOLDER = 'Negative values appear here.';
-  const SAMPLE_PLACEHOLDER = 'Choose a sample to populate its description.';
-  let currentVectorValues = [];
 
   function safeText(value) {
     return typeof value === 'string' ? value.trim() : '';
@@ -580,17 +263,6 @@
     return value.toFixed(digits);
   }
 
-  function parseVectorInput(input) {
-    if (typeof input !== 'string') {
-      return [];
-    }
-
-    return input
-      .split(/[\s,]+/)
-      .map((token) => Number(token))
-      .filter((value) => Number.isFinite(value));
-  }
-
   function computeVectorStats(values) {
     let sourceValues = [];
 
@@ -714,17 +386,13 @@
 
     if (!values.length) {
       const row = document.createElement('tr');
-      const indexCell = document.createElement('td');
-      indexCell.textContent = '#1';
-      const valueCell = document.createElement('td');
-      const valueSpan = document.createElement('span');
-      valueSpan.textContent = '0.000';
-      valueCell.appendChild(valueSpan);
-      const normalizedCell = document.createElement('td');
-      const normalizedSpan = document.createElement('span');
-      normalizedSpan.textContent = '0.000';
-      normalizedCell.appendChild(normalizedSpan);
-      row.append(indexCell, valueCell, normalizedCell);
+      const cell = document.createElement('td');
+      cell.colSpan = 3;
+      const message = document.createElement('p');
+      message.className = 'placeholder';
+      message.textContent = 'Select a vector to populate this table.';
+      cell.appendChild(message);
+      row.appendChild(cell);
       valueTable.appendChild(row);
       return;
     }
@@ -756,27 +424,8 @@
     valueTable.appendChild(fragment);
   }
 
-  function formatVectorForInput(values) {
-    if (!Array.isArray(values)) {
-      return '';
-    }
-
-    return values
-      .map((value) => {
-        if (!Number.isFinite(value)) {
-          return '0';
-        }
-        if (Object.is(value, -0)) {
-          return '0';
-        }
-        return value.toString();
-      })
-      .join(', ');
-  }
-
   function updateSummaryForVector(values) {
     const stats = computeVectorStats(values);
-    currentVectorValues = stats.values;
     renderSummary(stats);
 
     const entries = stats.values.map((value, index) => ({ index: index + 1, value }));
@@ -793,141 +442,6 @@
     renderExtremaList(negativeList, negativeEntries, NEGATIVE_PLACEHOLDER);
     renderValueTable(stats.values);
     return stats;
-  }
-
-  function updateSampleMeta(sample, options = {}) {
-    if (!sampleMeta) {
-      return;
-    }
-
-    sampleMeta.innerHTML = '';
-
-    if (!sample) {
-      const placeholder = document.createElement('p');
-      placeholder.className = 'placeholder';
-      placeholder.textContent = options.placeholder || SAMPLE_PLACEHOLDER;
-      sampleMeta.appendChild(placeholder);
-      return;
-    }
-
-    const title = document.createElement('p');
-    title.className = 'sample-meta__title';
-    title.textContent = safeText(sample.label) || 'Sample';
-
-    const description = document.createElement('p');
-    description.textContent = safeText(sample.description) || '';
-
-    sampleMeta.append(title, description);
-  }
-
-  function updateActiveSampleButtons() {
-    if (!sampleList) {
-      return;
-    }
-    const buttons = sampleList.querySelectorAll('.sample-button');
-    buttons.forEach((button) => {
-      const isActive = button.dataset.sampleId === activeSampleId;
-      button.dataset.active = isActive ? 'true' : 'false';
-      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-    });
-  }
-
-  function setActiveSample(sampleId) {
-    if (!sampleId) {
-      activeSampleId = '';
-      updateActiveSampleButtons();
-      updateSampleMeta(null);
-      updateSummaryForVector([]);
-      if (embeddingInput) {
-        embeddingInput.value = '';
-      }
-      return;
-    }
-
-    const sample = samples.find((entry) => entry && entry.id === sampleId);
-    if (!sample) {
-      activeSampleId = '';
-      updateActiveSampleButtons();
-      updateSampleMeta(null);
-      updateSummaryForVector([]);
-      if (embeddingInput) {
-        embeddingInput.value = '';
-      }
-      return;
-    }
-
-    activeSampleId = sample.id;
-    updateActiveSampleButtons();
-    updateSampleMeta(sample);
-    const stats = updateSummaryForVector(sample.vector);
-    if (embeddingInput) {
-      embeddingInput.value = formatVectorForInput(stats.values);
-    }
-  }
-
-  function clearActiveSampleSelection() {
-    activeSampleId = '';
-    updateActiveSampleButtons();
-  }
-
-  function buildSampleToolbar() {
-    if (!sampleList) {
-      return;
-    }
-
-    sampleList.innerHTML = '';
-
-    if (!Array.isArray(samples) || !samples.length) {
-      updateSampleMeta(null);
-      updateSummaryForVector([]);
-      return;
-    }
-
-    const fragment = document.createDocumentFragment();
-    samples.forEach((sample) => {
-      if (!sample || typeof sample.id !== 'string') {
-        return;
-      }
-
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'sample-button';
-      button.dataset.sampleId = sample.id;
-      button.dataset.active = 'false';
-      button.setAttribute('aria-pressed', 'false');
-      button.textContent = safeText(sample.label) || sample.id;
-      fragment.appendChild(button);
-    });
-
-    sampleList.appendChild(fragment);
-    setActiveSample(samples[0]?.id || '');
-  }
-
-  function handleCustomVectorUpdate() {
-    if (!embeddingInput) {
-      return;
-    }
-
-    const values = parseVectorInput(embeddingInput.value || '');
-    const stats = updateSummaryForVector(values);
-    clearActiveSampleSelection();
-
-    if (!stats.length) {
-      updateSampleMeta(null, {
-        placeholder: 'Provide at least one numeric value to compute metrics.',
-      });
-      return;
-    }
-
-    if (stats.values.length) {
-      embeddingInput.value = formatVectorForInput(stats.values);
-    }
-
-    const valueLabel = stats.length === 1 ? 'value' : 'values';
-    updateSampleMeta({
-      label: 'Custom embedding',
-      description: `Metrics generated from ${stats.length.toLocaleString()} manual ${valueLabel}.`,
-    });
   }
 
   function decodeVectorBytes(base64) {
@@ -1223,6 +737,7 @@
       neighborList.appendChild(createPlaceholderItem('No datasets available.'));
       neighborStatus.textContent = 'No neighbors to display.';
       filterInput.disabled = true;
+      updateSummaryForVector([]);
       return;
     }
 
@@ -1763,6 +1278,7 @@
       neighborRecords = [];
       activeNeighborId = '';
       updateActiveRecordButton();
+      updateSummaryForVector([]);
       renderPrimaryPane(null, datasetData);
       renderNeighborList(datasetData);
       renderSecondaryPane(null, null, datasetData);
@@ -1777,6 +1293,8 @@
 
     activeRecordId = recordId;
     updateActiveRecordButton();
+    ensureVectorData(record);
+    updateSummaryForVector(record.floatVector);
     renderPrimaryPane(record, datasetData);
     neighborRecords = computeNeighbors(record, datasetData);
     if (!neighborRecords.length) {
@@ -1843,6 +1361,7 @@
     filterInput.value = '';
     filterInput.disabled = true;
 
+    updateSummaryForVector([]);
     renderPrimaryPane(null, null);
     renderSecondaryPane(null, null, null);
 
@@ -1981,43 +1500,11 @@
         recordStatus.textContent = 'Failed to load dataset.';
         filterInput.disabled = true;
         neighborList.innerHTML = '';
-        neighborList.appendChild(createPlaceholderItem('Neighbors cannot load without the vector data.'));
-        neighborStatus.textContent = 'Unable to compute neighbors.';
-        renderPrimaryPane(null, null);
-        renderSecondaryPane(null, null, null);
-      });
-  }
-
-  buildSampleToolbar();
-
-  if (sampleList) {
-    sampleList.addEventListener('click', (event) => {
-      const button = event.target.closest('.sample-button');
-      if (!button) {
-        return;
-      }
-
-      const sampleId = button.dataset.sampleId;
-      if (!sampleId) {
-        return;
-      }
-
-      setActiveSample(sampleId);
-    });
-  }
-
-  if (updateButton) {
-    updateButton.addEventListener('click', () => {
-      handleCustomVectorUpdate();
-    });
-  }
-
-  if (embeddingInput) {
-    embeddingInput.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' && (event.metaKey || event.ctrlKey)) {
-        event.preventDefault();
-        handleCustomVectorUpdate();
-      }
+      neighborList.appendChild(createPlaceholderItem('Neighbors cannot load without the vector data.'));
+      neighborStatus.textContent = 'Unable to compute neighbors.';
+      renderPrimaryPane(null, null);
+      renderSecondaryPane(null, null, null);
+      updateSummaryForVector([]);
     });
   }
 
@@ -2053,8 +1540,6 @@
     applyFilter();
   });
 
-  setupSamples();
-  setupManualInput();
   populateDatasetSelect();
 
   if (datasetSelect.value) {
