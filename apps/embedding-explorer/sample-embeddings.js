@@ -1,23 +1,56 @@
-window.sampleEmbeddings = [
+window.embeddingSources = [
   {
-    "id": "radiant-morning",
-    "label": "Radiant morning scene",
-    "prompt": "A sunny stroll through a park lined with trees and warm light.",
-    "notes": "Smoothly varying positive signal with a gentle dip into negative values.",
-    "vector": [0.2,0.298,0.391,0.477,0.552,0.614,0.662,0.694,0.709,0.707,0.686,0.648,0.593,0.522,0.437,0.34,0.233,0.119,0.001,-0.118,-0.236,-0.349,-0.454,-0.549,-0.632,-0.7,-0.751,-0.785,-0.799,-0.795,-0.772,-0.73,-0.671,-0.596,-0.508,-0.408,-0.298,-0.183,-0.064,0.055,0.172,0.282,0.385,0.477,0.556,0.62,0.667,0.697,0.71,0.705,0.682,0.642,0.588,0.519,0.439,0.35,0.254,0.155,0.054,-0.046,-0.141,-0.229,-0.309,-0.377]
+    "id": "jokes-synthetic",
+    "label": "Dad jokes — synthetic 64d",
+    "collection": "Dad jokes",
+    "url": "../../data/jokes-embeddings.json"
   },
   {
-    "id": "neon-crosswalk",
-    "label": "Neon-lit crosswalk",
-    "prompt": "Busy urban crossing at night with bright signage and a fast tempo.",
-    "notes": "Oscillates around zero with a strong negative mid-section and rising finale.",
-    "vector": [0.55,0.465,0.363,0.249,0.131,0.012,-0.1,-0.202,-0.289,-0.358,-0.408,-0.438,-0.448,-0.439,-0.413,-0.373,-0.322,-0.263,-0.2,-0.135,-0.072,-0.012,0.043,0.091,0.132,0.166,0.193,0.214,0.229,0.24,0.247,0.25,0.249,0.246,0.239,0.227,0.211,0.189,0.161,0.126,0.083,0.034,-0.022,-0.082,-0.146,-0.211,-0.274,-0.331,-0.381,-0.418,-0.442,-0.448,-0.435,-0.401,-0.348,-0.275,-0.186,-0.082,0.032,0.151,0.269,0.381,0.48,0.562]
+    "id": "jokes-openai",
+    "label": "Dad jokes — OpenAI text-embedding-3-large",
+    "collection": "Dad jokes",
+    "url": "../../data/jokes-embeddings-openai.json"
   },
   {
-    "id": "ocean-dusk",
-    "label": "Ocean at dusk",
-    "prompt": "Gentle ocean waves at sunset with a calm breeze and pastel sky.",
-    "notes": "Alternates between calm rises and deeper valleys with a soft cadence.",
-    "vector": [0,0.171,0.329,0.461,0.557,0.61,0.621,0.59,0.524,0.433,0.329,0.225,0.131,0.059,0.014,0.001,0.017,0.059,0.118,0.183,0.243,0.286,0.303,0.286,0.233,0.144,0.024,-0.118,-0.271,-0.421,-0.555,-0.66,-0.727,-0.75,-0.726,-0.658,-0.551,-0.417,-0.267,-0.114,0.027,0.147,0.235,0.287,0.303,0.286,0.242,0.182,0.116,0.058,0.017,0.001,0.015,0.06,0.133,0.227,0.332,0.436,0.526,0.591,0.621,0.61,0.554,0.458]
+    "id": "jokes-cohere",
+    "label": "Dad jokes — Cohere embed-english-v3.0",
+    "collection": "Dad jokes",
+    "url": "../../data/jokes-embeddings-cohere.json"
+  },
+  {
+    "id": "quotes-synthetic",
+    "label": "Curated quotes — synthetic 64d",
+    "collection": "Curated quotes",
+    "url": "../../data/quotes-embeddings.json"
+  },
+  {
+    "id": "quotes-openai",
+    "label": "Curated quotes — OpenAI text-embedding-3-large",
+    "collection": "Curated quotes",
+    "url": "../../data/quotes-embeddings-openai.json"
+  },
+  {
+    "id": "quotes-cohere",
+    "label": "Curated quotes — Cohere embed-english-v3.0",
+    "collection": "Curated quotes",
+    "url": "../../data/quotes-embeddings-cohere.json"
+  },
+  {
+    "id": "slang-synthetic",
+    "label": "Internet slang — synthetic 64d",
+    "collection": "Internet slang",
+    "url": "../../data/slang-embeddings.json"
+  },
+  {
+    "id": "slang-s128",
+    "label": "Internet slang — synthetic 128d",
+    "collection": "Internet slang",
+    "url": "../../data/slang-embeddings-synthetic128.json"
+  },
+  {
+    "id": "slang-hfspace",
+    "label": "Internet slang — MiniLM (hf.space)",
+    "collection": "Internet slang",
+    "url": "../../data/slang-embeddings-hfspace.json"
   }
 ];

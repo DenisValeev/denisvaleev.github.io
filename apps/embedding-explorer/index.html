@@ -27,9 +27,6 @@
       --input-background: rgba(15, 23, 42, 0.78);
       --input-border: rgba(148, 163, 209, 0.36);
       --input-focus: rgba(96, 165, 250, 0.6);
-      --chip-background: rgba(96, 165, 250, 0.14);
-      --chip-text: var(--text-primary);
-      --table-header: rgba(15, 23, 42, 0.72);
     }
 
     @media (prefers-color-scheme: light) {
@@ -53,9 +50,6 @@
         --input-background: rgba(241, 245, 249, 0.92);
         --input-border: rgba(148, 163, 184, 0.4);
         --input-focus: rgba(59, 130, 246, 0.6);
-        --chip-background: rgba(59, 130, 246, 0.12);
-        --chip-text: #1e3a8a;
-        --table-header: rgba(226, 232, 240, 0.86);
       }
     }
 
@@ -163,7 +157,7 @@
       font-size: 1.05rem;
       line-height: 1.6;
       color: var(--text-secondary);
-      max-width: 60ch;
+      max-width: 65ch;
     }
 
     .workspace {
@@ -197,297 +191,10 @@
       grid-column: 1 / -1;
     }
 
-    .sample-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .sample-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--accent);
-      background: var(--chip-background);
-      color: var(--chip-text);
-      font-weight: 600;
-      font-size: 0.92rem;
-      letter-spacing: 0.01em;
-      cursor: pointer;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-    }
-
-    .sample-button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 24px color-mix(in srgb, var(--accent) 35%, transparent);
-    }
-
-    .sample-button:focus-visible {
-      outline: none;
-      box-shadow: 0 0 0 3px var(--input-focus);
-    }
-
-    .sample-button[data-active="true"] {
-      background: var(--accent);
-      color: var(--accent-contrast);
-    }
-
-    .sample-meta {
-      background: rgba(59, 130, 246, 0.12);
-      border: 1px solid var(--surface-border);
-      border-radius: 18px;
-      padding: 12px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .sample-meta p {
-      margin: 0;
-      color: var(--text-secondary);
-      line-height: 1.4;
-    }
-
-    .sample-meta strong {
-      color: var(--text-primary);
-    }
-
-    textarea {
-      width: 100%;
-      min-height: 140px;
-      border-radius: 16px;
-      padding: 16px;
-      border: 1px solid var(--input-border);
-      background: var(--input-background);
-      color: var(--text-primary);
-      font-family: "JetBrains Mono", "Fira Code", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      resize: vertical;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    textarea:focus-visible {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px var(--input-focus);
-    }
-
-    .control-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .control-row label {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-    }
-
-    .control-row input[type="range"] {
-      width: min(260px, 100%);
-      accent-color: var(--accent-strong);
-    }
-
-    .control-row output {
-      font-variant-numeric: tabular-nums;
-      font-weight: 600;
-    }
-
-    .primary-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 12px 20px;
-      border-radius: 999px;
-      border: none;
-      background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 70%, #ffffff));
-      color: var(--accent-contrast);
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 16px 28px color-mix(in srgb, var(--accent) 35%, transparent);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
-    }
-
-    .primary-button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 20px 36px color-mix(in srgb, var(--accent) 45%, transparent);
-    }
-
-    .primary-button:focus-visible {
-      outline: none;
-      box-shadow: 0 0 0 3px var(--input-focus), 0 20px 36px color-mix(in srgb, var(--accent) 45%, transparent);
-    }
-
-    .summary-grid {
-      display: grid;
-      gap: 12px;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    }
-
-    .summary-card {
-      background: var(--muted-background);
-      border: 1px solid var(--muted-border);
-      border-radius: 18px;
-      padding: 12px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .summary-card dt {
-      margin: 0;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-    }
-
-    .summary-card dd {
-      margin: 0;
-      font-size: 1.3rem;
-      font-weight: 700;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .visual-group {
-      display: grid;
-      gap: 18px;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-
-    .visual-panel {
-      background: var(--surface-strong);
-      border-radius: 22px;
-      border: 1px solid var(--surface-border);
-      padding: clamp(14px, 2vw, 20px);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .visual-panel h3 {
-      margin: 0;
-      font-size: 1.05rem;
-    }
-
-    .visual-panel p {
+    .panel-sub {
       margin: 0;
       color: var(--text-secondary);
       font-size: 0.92rem;
-    }
-
-    canvas {
-      width: 100%;
-      border-radius: 18px;
-      border: 1px solid var(--surface-border);
-      background: rgba(15, 23, 42, 0.45);
-    }
-
-    canvas.heatmap {
-      image-rendering: pixelated;
-      aspect-ratio: 1 / 1;
-    }
-
-    .extremes {
-      display: grid;
-      gap: 16px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    }
-
-    .extreme-card {
-      background: var(--surface-strong);
-      border-radius: 20px;
-      border: 1px solid var(--surface-border);
-      padding: 14px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .extreme-card h3 {
-      margin: 0;
-      font-size: 1.05rem;
-    }
-
-    .extreme-card ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .extreme-card li {
-      display: flex;
-      justify-content: space-between;
-      font-variant-numeric: tabular-nums;
-      padding: 8px 12px;
-      border-radius: 14px;
-      background: rgba(59, 130, 246, 0.12);
-    }
-
-    .extreme-card li span:first-child {
-      font-weight: 600;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--surface-strong);
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid var(--surface-border);
-    }
-
-    .table-wrapper {
-      width: 100%;
-      overflow: auto;
-      border-radius: 20px;
-    }
-
-    thead {
-      background: var(--table-header);
-    }
-
-    th {
-      padding: 12px 14px;
-      text-align: left;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-    }
-
-    td {
-      padding: 12px 14px;
-      border-top: 1px solid var(--surface-border);
-      font-size: 0.95rem;
-      font-variant-numeric: tabular-nums;
-    }
-
-    tbody tr:hover td {
-      background: rgba(96, 165, 250, 0.12);
-    }
-
-    .value-positive {
-      color: #f97316;
-      font-weight: 600;
-    }
-
-    .value-negative {
-      color: #60a5fa;
-      font-weight: 600;
     }
 
     .pill {
@@ -504,6 +211,166 @@
       text-transform: uppercase;
     }
 
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    select,
+    input[type="search"] {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--input-border);
+      background: var(--input-background);
+      color: var(--text-primary);
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    select:focus-visible,
+    input[type="search"]:focus-visible {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--input-focus);
+    }
+
+    .info-block {
+      border-radius: 18px;
+      border: 1px solid var(--surface-border);
+      background: rgba(15, 23, 42, 0.45);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .meta-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+
+    .meta-grid > div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .meta-grid dt {
+      margin: 0;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .meta-grid dd {
+      margin: 0;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      word-break: break-word;
+    }
+
+    .record-status {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .record-list-wrapper {
+      border-radius: 18px;
+      border: 1px solid var(--surface-border);
+      background: rgba(15, 23, 42, 0.35);
+      padding: 8px;
+      max-height: clamp(220px, 40vh, 360px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .record-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .record-list li {
+      margin: 0;
+      padding: 0;
+    }
+
+    .record-button {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      background: rgba(96, 165, 250, 0.08);
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .record-button:hover {
+      transform: translateY(-1px);
+      border-color: var(--accent);
+    }
+
+    .record-button:focus-visible {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--input-focus);
+    }
+
+    .record-button[data-active="true"] {
+      background: var(--accent);
+      color: var(--accent-contrast);
+      border-color: var(--accent);
+      box-shadow: 0 14px 24px color-mix(in srgb, var(--accent) 35%, transparent);
+    }
+
+    .record-button[data-active="true"] .record-button__meta {
+      color: color-mix(in srgb, var(--accent-contrast) 75%, transparent);
+    }
+
+    .record-button__id {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .record-button__meta {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .embedding-canvas {
+      border-radius: 18px;
+      border: 1px solid var(--surface-border);
+      background: rgba(15, 23, 42, 0.45);
+      image-rendering: pixelated;
+      align-self: center;
+    }
+
+    .caption {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
     .placeholder {
       margin: 0;
       padding: 12px 14px;
@@ -518,13 +385,9 @@
         padding: clamp(18px, 5vw, 28px);
       }
 
-      .control-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .control-row input[type="range"] {
-        width: 100%;
+      .embedding-canvas {
+        width: 100% !important;
+        height: auto !important;
       }
     }
   </style>
@@ -538,95 +401,48 @@
       </a>
     </nav>
     <header class="page-header">
-      <p class="eyebrow">Vector playground</p>
+      <p class="eyebrow">Vector archive</p>
       <h1>Embedding Explorer</h1>
-      <p class="lead">Paste an embedding vector or pick one of the sample encodings to inspect its shape, highlight its strongest
-        features, and project the high-dimensional signal into an interactive image.</p>
+      <p class="lead">Browse the stored embedding exports, pick any record, and project its raw binary signal into an RGB pixel
+        grid.</p>
     </header>
     <section class="workspace" aria-label="Embedding workspace">
-      <article class="panel panel--wide" aria-labelledby="load-heading">
-        <div class="pill" id="load-heading">Load an embedding</div>
-        <p>Select one of the curated examples or paste your own comma, space, or newline separated list of numbers. The
-          explorer normalizes the values automatically and skips invalid tokens so that every visualization stays in
-          sync.</p>
-        <div class="sample-buttons" data-sample-list>
-          <p class="placeholder">Sample embeddings load here once the page is ready.</p>
-        </div>
-        <div class="sample-meta" data-sample-meta>
-          <p class="placeholder">Select a sample to preview its prompt and notes.</p>
-        </div>
-        <label class="sr-only" for="embedding-input">Embedding values</label>
-        <textarea id="embedding-input" data-embedding-input placeholder="0.12, -0.34, 0.56, ..."></textarea>
-        <div class="control-row">
-          <button class="primary-button" type="button" data-parse-button>
-            <span aria-hidden="true">✨</span>
-            <span>Update visualizations</span>
-          </button>
-          <label>
-            Columns for heatmap
-            <input type="range" min="1" max="32" value="8" data-column-slider>
-            <output data-column-display>8</output>
-          </label>
+      <article class="panel" aria-labelledby="dataset-heading">
+        <div class="pill" id="dataset-heading">Choose a dataset</div>
+        <p>Select one of the existing embedding dumps bundled with the site. Metadata loads automatically so you can compare
+          providers and models.</p>
+        <label for="dataset-select">
+          Embedding collection
+          <select id="dataset-select" data-dataset-select></select>
+        </label>
+        <div class="info-block" data-dataset-info>
+          <p class="placeholder">Pick a dataset to inspect its metadata.</p>
         </div>
       </article>
-      <article class="panel" aria-labelledby="summary-heading">
-        <h2 id="summary-heading">Vector summary</h2>
-        <div class="summary-grid" data-summary-grid>
-          <p class="placeholder">Paste an embedding to view its metrics.</p>
+      <article class="panel" aria-labelledby="record-heading">
+        <h2 id="record-heading">Vectors</h2>
+        <p class="panel-sub">Load any record from the selected dataset to render its RGB projection.</p>
+        <label for="record-filter">
+          Filter by id or hash
+          <input id="record-filter" type="search" placeholder="Start typing to narrow the list" data-record-filter disabled>
+        </label>
+        <p class="record-status" data-record-status>Choose a dataset to load its vectors.</p>
+        <div class="record-list-wrapper">
+          <ul class="record-list" data-record-list>
+            <li>
+              <p class="placeholder">Vectors appear here once a dataset finishes loading.</p>
+            </li>
+          </ul>
         </div>
       </article>
-      <article class="panel" aria-labelledby="distribution-heading">
-        <h2 id="distribution-heading">Distribution</h2>
-        <div class="visual-group">
-          <div class="visual-panel" aria-labelledby="heatmap-heading">
-            <h3 id="heatmap-heading">Embedding heatmap</h3>
-            <canvas class="heatmap" data-heatmap aria-describedby="heatmap-caption"></canvas>
-            <p id="heatmap-caption">Negative activations map to cool blues, zero stays neutral, and positive features glow in
-              coral.
-            </p>
-          </div>
-          <div class="visual-panel" aria-labelledby="line-heading">
-            <h3 id="line-heading">Value profile</h3>
-            <canvas class="line-plot" data-line-chart aria-describedby="line-caption"></canvas>
-            <p id="line-caption">A smoothed line plot reveals transitions between nearby dimensions.</p>
-          </div>
-        </div>
-      </article>
-      <article class="panel panel--wide" aria-labelledby="extremes-heading">
-        <h2 id="extremes-heading">Notable dimensions</h2>
-        <div class="extremes">
-          <div class="extreme-card" aria-labelledby="positive-heading">
-            <h3 id="positive-heading">Top positive</h3>
-            <ul data-positive-list>
-              <li><span>–</span><span>0.000</span></li>
-            </ul>
-          </div>
-          <div class="extreme-card" aria-labelledby="negative-heading">
-            <h3 id="negative-heading">Top negative</h3>
-            <ul data-negative-list>
-              <li><span>–</span><span>0.000</span></li>
-            </ul>
-          </div>
-        </div>
-      </article>
-      <article class="panel panel--wide" aria-labelledby="table-heading">
-        <h2 id="table-heading">All dimensions</h2>
-        <div class="table-wrapper">
-          <table aria-describedby="table-caption">
-            <caption id="table-caption" class="sr-only">Embedding dimensions with index and normalized value.</caption>
-            <thead>
-              <tr>
-                <th scope="col">Index</th>
-                <th scope="col">Value</th>
-                <th scope="col">Normalized</th>
-              </tr>
-            </thead>
-            <tbody data-value-table>
-              <tr>
-                <td colspan="3">Paste an embedding to populate the table.</td>
-              </tr>
-            </tbody>
-          </table>
+      <article class="panel panel--wide" aria-labelledby="preview-heading">
+        <h2 id="preview-heading">Binary preview</h2>
+        <p class="panel-sub">Each pixel consumes three bytes from the underlying vector. Extra space pads with zeros so the grid
+          stays rectangular.</p>
+        <canvas class="embedding-canvas" data-preview-canvas aria-describedby="preview-caption"></canvas>
+        <p id="preview-caption" class="caption">Switch between vectors to compare their byte-level fingerprints.</p>
+        <div class="info-block" data-preview-meta>
+          <p class="placeholder">Select a vector to inspect its details.</p>
         </div>
       </article>
     </section>
