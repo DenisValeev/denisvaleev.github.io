@@ -77,6 +77,7 @@
     text: secondaryText,
     caption: secondaryCaption,
   };
+  const MAX_NEIGHBOR_DISPLAY = 10;
 
   function safeText(value) {
     return typeof value === 'string' ? value.trim() : '';
@@ -524,10 +525,83 @@
   function updateActiveNeighborButton() {
     const buttons = neighborList.querySelectorAll('.neighbor-button');
     buttons.forEach((button) => {
+      if (button.dataset.self === 'true') {
+        button.dataset.active = 'true';
+        button.setAttribute('aria-pressed', 'true');
+        return;
+      }
       const isActive = button.dataset.neighborId === activeNeighborId;
       button.dataset.active = isActive ? 'true' : 'false';
       button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
+  }
+
+  function createNeighborListItem(record, datasetData, options = {}) {
+    if (!record || !datasetData) {
+      return null;
+    }
+
+    const item = document.createElement('li');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'neighbor-button';
+
+    const isSelf = options.isSelf === true;
+    const similarity = Number.isFinite(options.similarity) ? options.similarity : 0;
+
+    if (isSelf) {
+      button.disabled = true;
+      button.dataset.self = 'true';
+      button.dataset.active = 'true';
+      button.setAttribute('aria-disabled', 'true');
+      button.setAttribute('aria-pressed', 'true');
+    } else {
+      button.dataset.neighborId = record.id;
+      const isActiveNeighbor = record.id === activeNeighborId;
+      button.dataset.active = isActiveNeighbor ? 'true' : 'false';
+      button.setAttribute('aria-pressed', isActiveNeighbor ? 'true' : 'false');
+      if (activeRecordId) {
+        button.setAttribute(
+          'aria-label',
+          `Compare ${record.id} with ${activeRecordId} (similarity ${formatSimilarity(similarity)})`
+        );
+      }
+    }
+
+    const header = document.createElement('div');
+    header.className = 'neighbor-button__header';
+
+    const idSpan = document.createElement('span');
+    idSpan.className = 'neighbor-button__id';
+    idSpan.textContent = record.id;
+
+    const scoreSpan = document.createElement('span');
+    scoreSpan.className = 'neighbor-button__score';
+    scoreSpan.textContent = formatSimilarity(isSelf ? 1 : similarity);
+
+    header.append(idSpan, scoreSpan);
+    button.appendChild(header);
+
+    if (isSelf) {
+      const badge = document.createElement('span');
+      badge.className = 'neighbor-button__self';
+      badge.textContent = typeof options.label === 'string' && options.label ? options.label : 'Selected vector';
+      button.appendChild(badge);
+    }
+
+    const snippetSpan = document.createElement('span');
+    snippetSpan.className = 'neighbor-button__snippet';
+    const contentEntry = getContentEntry(datasetData.contentKey, record.id);
+    const fullPreview = getContentPreview(datasetData.contentKey, contentEntry);
+    const preview = truncateText(fullPreview, 120);
+    snippetSpan.textContent = preview || 'No source text available.';
+    if (fullPreview && preview !== fullPreview) {
+      snippetSpan.setAttribute('title', fullPreview);
+    }
+
+    button.appendChild(snippetSpan);
+    item.appendChild(button);
+    return item;
   }
 
   function renderNeighborList(datasetData) {
@@ -551,49 +625,26 @@
       return;
     }
 
-    neighborStatus.textContent = `Top ${neighborRecords.length} matches for ${activeRecordId}.`;
-
     const fragment = document.createDocumentFragment();
+    const primaryRecord = datasetData.recordMap.get(activeRecordId) || null;
+    neighborStatus.textContent = `Selected vector and top ${neighborRecords.length} matches for ${activeRecordId}.`;
+
+    const selfItem = createNeighborListItem(primaryRecord, datasetData, {
+      isSelf: true,
+      similarity: 1,
+      label: 'Selected vector',
+    });
+    if (selfItem) {
+      fragment.appendChild(selfItem);
+    }
 
     neighborRecords.forEach((entry) => {
-      const item = document.createElement('li');
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'neighbor-button';
-      button.dataset.neighborId = entry.id;
-      const isActive = entry.id === activeNeighborId;
-      button.dataset.active = isActive ? 'true' : 'false';
-      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-      if (activeRecordId) {
-        button.setAttribute('aria-label', `Compare ${entry.record.id} with ${activeRecordId} (similarity ${formatSimilarity(entry.similarity)})`);
+      const item = createNeighborListItem(entry.record, datasetData, {
+        similarity: entry.similarity,
+      });
+      if (item) {
+        fragment.appendChild(item);
       }
-
-      const header = document.createElement('div');
-      header.className = 'neighbor-button__header';
-
-      const idSpan = document.createElement('span');
-      idSpan.className = 'neighbor-button__id';
-      idSpan.textContent = entry.record.id;
-
-      const scoreSpan = document.createElement('span');
-      scoreSpan.className = 'neighbor-button__score';
-      scoreSpan.textContent = formatSimilarity(entry.similarity);
-
-      header.append(idSpan, scoreSpan);
-
-      const snippetSpan = document.createElement('span');
-      snippetSpan.className = 'neighbor-button__snippet';
-      const contentEntry = getContentEntry(datasetData.contentKey, entry.record.id);
-      const fullPreview = getContentPreview(datasetData.contentKey, contentEntry);
-      const preview = truncateText(fullPreview, 120);
-      snippetSpan.textContent = preview || 'No source text available.';
-      if (fullPreview && preview !== fullPreview) {
-        snippetSpan.setAttribute('title', fullPreview);
-      }
-
-      button.append(header, snippetSpan);
-      item.appendChild(button);
-      fragment.appendChild(item);
     });
 
     neighborList.appendChild(fragment);
@@ -644,7 +695,7 @@
     });
 
     neighbors.sort((a, b) => b.similarity - a.similarity);
-    return neighbors.slice(0, 10);
+    return neighbors.slice(0, MAX_NEIGHBOR_DISPLAY);
   }
 
   function renderPane(pane, record, datasetMeta, source, options = {}) {
