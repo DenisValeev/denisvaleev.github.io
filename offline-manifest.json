@@ -1,8 +1,8 @@
 {
-  "version": "20250924-ff7835424126-e871db42b82c",
-  "generatedAt": "2025-09-24T01:47:15.284Z",
+  "version": "20250924-3500d14118ce-a16abbc41ece-dirty",
+  "generatedAt": "2025-09-24T01:25:26.419Z",
   "totalAssets": 55,
-  "totalBytes": 6134572,
+  "totalBytes": 5830601,
   "assets": [
     {
       "path": "apps/asset-observatory/app.js",
@@ -66,7 +66,7 @@
     },
     {
       "path": "apps/quotes/quotes-data.js",
-      "bytes": 123746
+      "bytes": 132683
     },
     {
       "path": "apps/quotes/render-all.js",
@@ -102,7 +102,7 @@
     },
     {
       "path": "data/curated-quotes.json",
-      "bytes": 23552
+      "bytes": 31189
     },
     {
       "path": "data/icanhazdadjokes-split.json",
@@ -142,7 +142,7 @@
     },
     {
       "path": "data/quotes-manifest.json",
-      "bytes": 485291
+      "bytes": 520721
     },
     {
       "path": "data/similarity-overrides.json",
@@ -226,8 +226,8 @@
     }
   ],
   "commit": {
-    "hash": "e871db42b82c0cd0c77e6c41680ea6dabf5520bb",
-    "short": "e871db42b82c",
-    "dirty": false
+    "hash": "a16abbc41ece88e9bb771022b1d48fc88e7e7466",
+    "short": "a16abbc41ece",
+    "dirty": true
   }
 }
