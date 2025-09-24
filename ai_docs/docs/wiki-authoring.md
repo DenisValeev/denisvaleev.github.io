@@ -1,70 +1,83 @@
 # Wiki authoring workflow
 
-The wiki pulls each entry from a trio of files inside `apps/wiki/articles/`:
+The wiki now relies on a single Markdown file per entry with Jekyll-style front matter. Everything lives under `apps/wiki/articles/`:
 
 ```
 apps/wiki/articles/
-├── index.yaml            # ordered list of article slugs (filename stems)
-├── kickoff-chaos.json    # metadata for a single article
-├── kickoff-chaos.md      # markdown body for the same article
+├── index.yaml        # ordered list of article slugs (filename stems)
+├── 2025-09-24.md     # Markdown body with YAML front matter
 └── …
 ```
 
-The JavaScript client loads `index.yaml`, then fetches the corresponding JSON and Markdown files for every slug that appears in the list. This keeps article copy editable without touching application code while still supporting preloading in the service worker.
+The client loads `index.yaml`, then fetches each Markdown file, parsing its front matter for metadata. This keeps copy, commit summaries, and display details in one place while still letting the service worker prefetch every story.
 
-## Metadata JSON
+## Front matter schema
 
-Each `<slug>.json` file should include:
+Each article starts with a `---` block that mirrors what Jekyll expects:
 
-- `slug`: usually identical to the filename stem (used in URLs)
-- `title`: human readable headline; falls back to the slug if omitted
-- `summary`: short blurb shown in the list
-- `accentEmoji`: optional emoji for the list card
-- `published`: ISO date string (`YYYY-MM-DD`)
-- `tags`: array of topic strings
+```yaml
+---
+title: "Cache sweeps and wiki polish"
+date: 2025-09-24
+summary: "Forced the offline bundle to refresh across every merge while teaching the wiki to read front matter."
+emoji: "🧭"          # optional; falls back to 📝 when omitted
+tags:
+  - offline
+  - wiki
+---
+```
 
-Leave `summary`, `accentEmoji`, `published`, and `tags` blank if they are not relevant yet—the renderer handles empty metadata gracefully. When the title is omitted the UI derives one from the slug (for example `new-journey` becomes “New Journey”).
+Supported keys:
 
-## Markdown body
+- `title`: human readable headline shown in the list and reader pane.
+- `date`: ISO date string (`YYYY-MM-DD`) used for the published label.
+- `summary`: short blurb for the sidebar.
+- `emoji` (or `accentEmoji`): emoji badge for the card.
+- `tags`: array of topic strings rendered below the title.
+- `slug`: optional override for the filename stem (rarely needed).
 
-The `<slug>.md` file stores the actual article copy. The in-browser parser supports:
+Any missing field falls back to sensible defaults—the slug is derived from the filename, the emoji defaults to 📝, and tags simply disappear.
+
+## Body markup
+
+After the closing `---`, the Markdown body can use the usual features supported by the custom renderer:
 
 - Headings `#`, `##`, and `###`
 - Paragraphs and unordered lists
 - Blockquotes, inline code, and fenced code blocks
 - Markdown links (`[label](https://example.com)`)
+- `<details>` blocks for long commit ledgers
 
-Keep Markdown minimal—no front matter is needed because metadata lives alongside the body in the JSON file.
+Whitespace before or after the body is trimmed, so keep spacing intentional.
 
 ## Updating the index
 
-`index.yaml` is a simple ordered list of filename stems. Newer articles should appear at the top so the UI opens the latest entry by default.
+`index.yaml` is still an ordered list of filename stems (no extension). Keep it in reverse-chronological order so the latest day loads first:
 
 ```yaml
 # newest first
-- release-party
-- kickoff-chaos
+- 2025-09-24
+- 2025-09-23
 ```
 
-Avoid directory traversal (`..`) or slashes in the slug. The loader treats invalid entries as warnings and skips them.
+Avoid directory traversal (`..`) or slashes in the slug—the loader skips anything suspicious and logs a warning.
 
 ## Publishing a new entry
 
 1. Add the slug to `apps/wiki/articles/index.yaml` in publication order.
-2. Create `<slug>.json` with the metadata fields described above.
-3. Create `<slug>.md` with the article content.
-4. Run `node tools/generate-offline-manifest.js` to keep the offline cache list current.
+2. Create `<slug>.md` with the front matter and Markdown body. Summaries should describe the real git history for that day.
+3. Run `node tools/generate-offline-manifest.js` so the service worker knows about the new article.
 
-The page automatically refreshes its list once those files exist on disk. When working locally, serve the site via `npx serve .` (or any static server) so the `fetch()` calls succeed; browsers block relative `file://` requests.
+Serve the site locally with `npx serve .` (or any static server) while editing so the fetch calls succeed; browsers block `file://` requests.
 
 ## Inline fallback for prototypes
 
-For quick experiments you can still define `window.wikiArticles` (or embed a `<script type="application/json" data-wiki-articles>` payload) before `app.js` runs. The app falls back to this inline array if the file-backed fetches fail or are unavailable, which is handy for one-off demos without touching the article directory.
+If you need a quick prototype without touching disk, you can still define `window.wikiArticles` (or drop a `<script type="application/json" data-wiki-articles>` blob) before `app.js` runs. The loader falls back to that inline payload if fetching the Markdown files fails.
 
 ## Checklist
 
 - [ ] Slug added to `index.yaml`
-- [ ] Matching `.json` and `.md` files created
-- [ ] Optional metadata fields double-checked
+- [ ] Markdown file created with front matter and body
+- [ ] Tags and summary double-checked for accuracy
 - [ ] Offline manifest regenerated
 - [ ] Page tested in a served environment

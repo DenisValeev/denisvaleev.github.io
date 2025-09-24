@@ -397,13 +397,156 @@
     return response.text();
   }
 
-  async function fetchJson(url) {
-    const response = await fetch(url, { credentials: 'same-origin' });
-    if (!response.ok) {
-      throw new Error(`Failed to fetch ${url}: ${response.status}`);
+  function parseFrontMatter(markdown) {
+    if (typeof markdown !== 'string') {
+      return { data: {}, body: '' };
     }
 
-    return response.json();
+    const normalized = markdown.replace(/\r\n/g, '\n');
+    if (!normalized.startsWith('---\n')) {
+      return { data: {}, body: normalized.trim() };
+    }
+
+    const closingIndex = normalized.indexOf('\n---', 4);
+    if (closingIndex === -1) {
+      return { data: {}, body: normalized.trim() };
+    }
+
+    const frontMatterText = normalized.slice(4, closingIndex);
+    let body = normalized.slice(closingIndex + 4);
+    if (body.startsWith('\n')) {
+      body = body.slice(1);
+    }
+
+    return {
+      data: parseFrontMatterBlock(frontMatterText),
+      body: body.trim()
+    };
+  }
+
+  function parseFrontMatterBlock(text) {
+    const lines = text.split('\n');
+    const data = {};
+    let currentKey = null;
+    let expectingArray = false;
+
+    lines.forEach((line) => {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) {
+        return;
+      }
+
+      if (trimmed.startsWith('- ')) {
+        if (expectingArray && currentKey) {
+          const value = parseFrontMatterValue(trimmed.slice(2).trim());
+          if (value !== null && value !== undefined && value !== '') {
+            data[currentKey].push(value);
+          }
+        }
+        return;
+      }
+
+      const match = trimmed.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
+      if (!match) {
+        currentKey = null;
+        expectingArray = false;
+        return;
+      }
+
+      const key = match[1];
+      const remainder = match[2];
+
+      if (!remainder) {
+        data[key] = [];
+        currentKey = key;
+        expectingArray = true;
+        return;
+      }
+
+      const parsed = parseFrontMatterValue(remainder);
+      if (Array.isArray(parsed)) {
+        data[key] = parsed.filter((item) => typeof item === 'string' && item.trim());
+        currentKey = key;
+        expectingArray = true;
+        return;
+      }
+
+      data[key] = parsed;
+      currentKey = key;
+      expectingArray = false;
+    });
+
+    return data;
+  }
+
+  function parseFrontMatterValue(rawValue) {
+    const trimmed = typeof rawValue === 'string' ? rawValue.trim() : '';
+    if (!trimmed) {
+      return '';
+    }
+
+    if (trimmed === '[]') {
+      return [];
+    }
+
+    if (trimmed.startsWith('[') && trimmed.endsWith(']')) {
+      const inner = trimmed.slice(1, -1).trim();
+      if (!inner) {
+        return [];
+      }
+
+      return inner
+        .split(',')
+        .map((part) => parseFrontMatterScalar(part.trim()))
+        .filter((value) => typeof value === 'string' && value);
+    }
+
+    return parseFrontMatterScalar(trimmed);
+  }
+
+  function parseFrontMatterScalar(value) {
+    if (!value) {
+      return '';
+    }
+
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+      const unquoted = value.slice(1, -1);
+      return unquoted.replace(/\\"/g, '"').replace(/\\'/g, "'");
+    }
+
+    if (/^(true|false)$/i.test(value)) {
+      return value.toLowerCase() === 'true';
+    }
+
+    if (/^-?\d+(?:\.\d+)?$/.test(value)) {
+      return Number(value);
+    }
+
+    return value;
+  }
+
+  function slugToTitle(slug) {
+    if (typeof slug !== 'string') {
+      return '';
+    }
+
+    return slug
+      .replace(/[-_]+/g, ' ')
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+  }
+
+  function toStringArray(value) {
+    if (Array.isArray(value)) {
+      return value
+        .map((item) => (typeof item === 'string' ? item.trim() : ''))
+        .filter((item) => item);
+    }
+
+    if (typeof value === 'string' && value.trim()) {
+      return [value.trim()];
+    }
+
+    return [];
   }
 
   async function loadArticlesFromFiles() {
@@ -430,18 +573,33 @@
         }
 
         const encodedName = encodeURIComponent(safeName);
-        const metaUrl = `articles/${encodedName}.json`;
         const bodyUrl = `articles/${encodedName}.md`;
 
         try {
-          const [meta, body] = await Promise.all([fetchJson(metaUrl), fetchText(bodyUrl)]);
+          const markdown = await fetchText(bodyUrl);
+          const { data: frontMatter, body } = parseFrontMatter(markdown);
+          const fm = frontMatter && typeof frontMatter === 'object' ? frontMatter : {};
+
+          const derivedSlug = typeof fm.slug === 'string' && fm.slug.trim() ? fm.slug.trim() : safeName;
+          const title = typeof fm.title === 'string' && fm.title.trim()
+            ? fm.title.trim()
+            : slugToTitle(derivedSlug);
+          const summary = typeof fm.summary === 'string' ? fm.summary.trim() : '';
+          const accentEmoji = typeof fm.emoji === 'string' && fm.emoji.trim()
+            ? fm.emoji.trim()
+            : (typeof fm.accentEmoji === 'string' && fm.accentEmoji.trim() ? fm.accentEmoji.trim() : '');
+          const published = typeof fm.date === 'string' && fm.date.trim()
+            ? fm.date.trim()
+            : (typeof fm.published === 'string' && fm.published.trim() ? fm.published.trim() : '');
+          const tags = toStringArray(fm.tags);
+
           const entry = {
-            slug: meta && typeof meta.slug === 'string' ? meta.slug : safeName,
-            title: meta ? meta.title : '',
-            summary: meta ? meta.summary : '',
-            accentEmoji: meta ? meta.accentEmoji : '',
-            published: meta ? meta.published : '',
-            tags: meta ? meta.tags : [],
+            slug: derivedSlug,
+            title,
+            summary,
+            accentEmoji,
+            published,
+            tags,
             content: body
           };
 
