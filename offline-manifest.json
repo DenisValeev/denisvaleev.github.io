@@ -1,8 +1,8 @@
 {
-  "version": "20250923-0aef3e87efed",
-  "generatedAt": "2025-09-23T23:33:25.182Z",
+  "version": "20250924-37e3b7097054-6a46f6e722c7-dirty",
+  "generatedAt": "2025-09-24T00:50:25.848Z",
   "totalAssets": 55,
-  "totalBytes": 5772295,
+  "totalBytes": 5778597,
   "assets": [
     {
       "path": "apps/asset-observatory/app.js",
@@ -18,15 +18,15 @@
     },
     {
       "path": "apps/embedding-explorer/app.js",
-      "bytes": 15714
+      "bytes": 15263
     },
     {
       "path": "apps/embedding-explorer/index.html",
-      "bytes": 18011
+      "bytes": 12647
     },
     {
       "path": "apps/embedding-explorer/sample-embeddings.js",
-      "bytes": 1997
+      "bytes": 1618
     },
     {
       "path": "apps/jokes/all-jokes-compact.html",
@@ -218,11 +218,16 @@
     },
     {
       "path": "index.html",
-      "bytes": 18920
+      "bytes": 28752
     },
     {
       "path": "service-worker.js",
-      "bytes": 8648
+      "bytes": 11312
     }
-  ]
+  ],
+  "commit": {
+    "hash": "6a46f6e722c7cad4f074d58f37a05be8100139aa",
+    "short": "6a46f6e722c7",
+    "dirty": true
+  }
 }

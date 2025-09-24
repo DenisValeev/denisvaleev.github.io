@@ -259,6 +259,55 @@
       font-size: 0.9rem;
     }
 
+    .offline-card__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 4px 0 0;
+    }
+
+    .offline-card__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--button-border);
+      background: var(--button-secondary-background);
+      color: var(--button-secondary-text);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      box-shadow: var(--button-shadow);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .offline-card__button:hover {
+      background: var(--button-secondary-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--button-shadow-hover);
+    }
+
+    .offline-card__button:focus-visible {
+      outline: none;
+      transform: translateY(-1px);
+      box-shadow: 0 0 0 3px var(--focus-ring), var(--button-shadow-hover);
+    }
+
+    .offline-card__button[disabled] {
+      cursor: not-allowed;
+      opacity: 0.7;
+      transform: none;
+      box-shadow: var(--button-shadow);
+    }
+
+    .offline-card__button[disabled]:hover {
+      background: var(--button-secondary-background);
+      transform: none;
+    }
+
     .offline-progress {
       position: fixed;
       top: 0;
@@ -453,6 +502,11 @@
         <div class="offline-card__content">
           <p class="offline-card__meta" data-offline-meta hidden></p>
           <p class="offline-card__progress-note" data-offline-progress-note hidden></p>
+          <div class="offline-card__actions">
+            <button type="button" class="offline-card__button" data-offline-reset disabled aria-busy="false">
+              Refresh offline bundle
+            </button>
+          </div>
           <p class="offline-card__hint">
             On iPhone, open Safari’s Share menu and choose <strong>Add to Home Screen</strong> after the download completes to launch the toolbox like an app.
           </p>
@@ -482,14 +536,28 @@
       const progressFill = progressWrapper ? progressWrapper.querySelector('[data-offline-progress-fill]') : null;
       const progressDetail = progressWrapper ? progressWrapper.querySelector('[data-offline-progress-detail]') : null;
       const progressNote = offlineCard.querySelector('[data-offline-progress-note]');
+      const resetButton = offlineCard.querySelector('[data-offline-reset]');
+      const defaultResetLabel = resetButton ? ((resetButton.textContent || '').trim() || 'Refresh offline bundle') : 'Refresh offline bundle';
+      const resetBusyLabel = resetButton && resetButton.dataset && resetButton.dataset.busyLabel
+        ? resetButton.dataset.busyLabel
+        : 'Refreshing offline bundle…';
 
       if (!statusEl || !progressWrapper || !progressBar || !progressFill || !progressDetail) {
         return;
       }
 
+      if (resetButton) {
+        resetButton.disabled = true;
+        resetButton.setAttribute('aria-busy', 'false');
+        resetButton.textContent = defaultResetLabel;
+      }
+
       const formatter = new Intl.NumberFormat('en-US', { maximumFractionDigits: 1 });
       const state = {
-        manifest: null
+        manifest: null,
+        registration: null,
+        isCaching: false,
+        resetRequested: false
       };
 
       function setStatus(message) {
@@ -529,6 +597,74 @@
         return `${formatter.format(Number(value.toFixed(fractionDigits)))} ${units[unitIndex]}`;
       }
 
+      function getCommitLabel(commit) {
+        if (!commit || typeof commit !== 'object') {
+          return '';
+        }
+
+        const shortHash = typeof commit.short === 'string' && commit.short ? commit.short : '';
+        const fallback = typeof commit.hash === 'string' && commit.hash ? commit.hash.slice(0, 12) : '';
+        const label = shortHash || fallback;
+
+        if (!label) {
+          return '';
+        }
+
+        return commit.dirty ? `${label}-dirty` : label;
+      }
+
+      function buildBundleSummary(info) {
+        if (!info || !info.totalAssets) {
+          return '';
+        }
+
+        const versionLabel = info.version || '';
+        const commitLabel = getCommitLabel(info.commit);
+        const parts = [];
+
+        if (versionLabel) {
+          parts.push(`Bundle v${versionLabel}`);
+        }
+
+        if (commitLabel && (!versionLabel || !versionLabel.includes(commitLabel))) {
+          parts.push(`commit ${commitLabel}`);
+        }
+
+        parts.push(`${formatBytes(info.totalBytes)} across ${info.totalAssets} files`);
+
+        return parts.filter(Boolean).join(' · ');
+      }
+
+      function canUseReset() {
+        return Boolean(resetButton && state.manifest && state.registration && state.registration.active && !state.isCaching);
+      }
+
+      function updateResetAvailability() {
+        if (!resetButton || state.isCaching) {
+          return;
+        }
+
+        resetButton.disabled = !canUseReset();
+      }
+
+      function setResetBusy(isBusy) {
+        state.isCaching = Boolean(isBusy);
+
+        if (!resetButton) {
+          return;
+        }
+
+        if (state.isCaching) {
+          resetButton.disabled = true;
+          resetButton.setAttribute('aria-busy', 'true');
+          resetButton.textContent = resetBusyLabel;
+        } else {
+          resetButton.setAttribute('aria-busy', 'false');
+          resetButton.textContent = defaultResetLabel;
+          updateResetAvailability();
+        }
+      }
+
       function setProgress(value) {
         const clamped = Math.min(100, Math.max(0, value));
         progressBar.setAttribute('aria-valuenow', String(Math.round(clamped)));
@@ -559,19 +695,41 @@
         const detail = payload.detail || {};
         const totalAssets = typeof detail.totalAssets === 'number' ? detail.totalAssets : 0;
         const totalBytes = typeof detail.totalBytes === 'number' ? detail.totalBytes : 0;
-        const bundleSummary = totalAssets > 0 ? `Bundle v${detail.version || (state.manifest && state.manifest.version) || ''} · ${formatBytes(totalBytes)} across ${totalAssets} files` : '';
+        const bundleSummary = buildBundleSummary({
+          version: detail.version || (state.manifest && state.manifest.version) || '',
+          totalAssets,
+          totalBytes,
+          commit: detail.commit || (state.manifest && state.manifest.commit) || null
+        });
+
+        if (payload.state === 'resetting') {
+          state.resetRequested = true;
+          setResetBusy(true);
+          progressWrapper.hidden = false;
+          setProgress(0);
+          updateProgressDetail('Clearing offline cache…');
+          setStatus('Clearing offline cache…');
+          return;
+        }
 
         if (payload.state === 'start') {
+          setResetBusy(true);
           progressWrapper.hidden = false;
           setProgress(0);
           updateProgressDetail(`Downloading ${formatBytes(totalBytes)} of data…`);
           setStatus('Caching offline bundle…');
-        } else if (payload.state === 'progress') {
+          return;
+        }
+
+        if (payload.state === 'progress') {
           const completed = typeof detail.completed === 'number' ? detail.completed : 0;
           const loadedBytes = typeof detail.loadedBytes === 'number' ? detail.loadedBytes : 0;
           const assetPath = detail.asset && detail.asset.path ? detail.asset.path : '';
-          const percent = totalBytes > 0 ? (loadedBytes / Math.max(totalBytes, 1)) * 100 : (completed / Math.max(totalAssets, 1)) * 100;
+          const percent = totalBytes > 0
+            ? (loadedBytes / Math.max(totalBytes, 1)) * 100
+            : (completed / Math.max(totalAssets, 1)) * 100;
 
+          setResetBusy(true);
           progressWrapper.hidden = false;
           setProgress(percent);
           updateProgressDetail([
@@ -580,17 +738,57 @@
             assetPath ? assetPath : null
           ].filter(Boolean).join(' • '));
           setStatus('Caching offline bundle…');
-        } else if (payload.state === 'complete') {
+          return;
+        }
+
+        if (payload.state === 'complete') {
           progressWrapper.hidden = true;
           setProgress(100);
-          const readyText = detail.alreadyCached ? 'Offline bundle is up to date.' : 'Offline bundle ready for offline use.';
-          setStatus(readyText);
+          const readyText = detail.alreadyCached
+            ? 'Offline bundle is up to date.'
+            : state.resetRequested
+              ? 'Offline bundle refreshed for offline use.'
+              : 'Offline bundle ready for offline use.';
+          state.resetRequested = false;
+          setResetBusy(false);
           updateMeta(bundleSummary);
           updateProgressDetail('');
-        } else if (payload.state === 'error') {
+          setStatus(readyText);
+
+          if (state.manifest) {
+            if (detail.version) {
+              state.manifest.version = detail.version;
+            }
+            if (detail.commit) {
+              state.manifest.commit = detail.commit;
+            }
+            if (Number.isFinite(totalBytes)) {
+              state.manifest.totalBytes = totalBytes;
+            }
+            if (typeof totalAssets === 'number') {
+              state.manifest.totalAssets = totalAssets;
+            }
+          }
+
+          return;
+        }
+
+        if (payload.state === 'error') {
           progressWrapper.hidden = true;
+          state.resetRequested = false;
+          setResetBusy(false);
           updateProgressDetail('');
           setStatus('Offline caching failed. Refresh when you have a connection.');
+          return;
+        }
+
+        if (payload.state === 'reset-error') {
+          progressWrapper.hidden = true;
+          state.resetRequested = false;
+          setResetBusy(false);
+          const message = typeof detail.message === 'string' ? detail.message : '';
+          updateProgressDetail(message);
+          setStatus('Unable to reset the offline bundle. Refresh when you have a connection.');
         }
       }
 
@@ -602,6 +800,34 @@
         registration.active.postMessage({
           type: 'apply-manifest',
           manifest: state.manifest
+        });
+      }
+
+      if (resetButton) {
+        resetButton.addEventListener('click', () => {
+          if (!canUseReset() || !state.registration || !state.registration.active || !state.manifest) {
+            return;
+          }
+
+          state.resetRequested = true;
+          setResetBusy(true);
+          progressWrapper.hidden = false;
+          setProgress(0);
+          updateProgressDetail('Clearing offline cache…');
+          setStatus('Clearing offline cache…');
+
+          try {
+            state.registration.active.postMessage({
+              type: 'reset-offline-cache',
+              manifest: state.manifest
+            });
+          } catch (error) {
+            console.error('Failed to request offline cache reset', error);
+            state.resetRequested = false;
+            setResetBusy(false);
+            updateProgressDetail('');
+            setStatus('Unable to reset the offline bundle. Refresh when you have a connection.');
+          }
         });
       }
 
@@ -620,10 +846,27 @@
           const manifest = await response.json();
           state.manifest = manifest;
           const assets = Array.isArray(manifest.assets) ? manifest.assets : [];
-          const totalBytes = Number.isFinite(manifest.totalBytes) ? manifest.totalBytes : assets.reduce((total, asset) => total + (Number(asset.bytes) || 0), 0);
-          const summary = assets.length ? `Bundle v${manifest.version} · ${formatBytes(totalBytes)} across ${assets.length} files` : '';
+          const totalBytes = Number.isFinite(manifest.totalBytes)
+            ? manifest.totalBytes
+            : assets.reduce((total, asset) => total + (Number(asset.bytes) || 0), 0);
+
+          if (!Number.isFinite(manifest.totalBytes)) {
+            manifest.totalBytes = totalBytes;
+          }
+          if (typeof manifest.totalAssets !== 'number') {
+            manifest.totalAssets = assets.length;
+          }
+
+          const summary = buildBundleSummary({
+            version: manifest.version,
+            totalAssets: assets.length,
+            totalBytes,
+            commit: manifest.commit || null
+          });
+
           updateMeta(summary);
           setStatus('Offline bundle ready to download.');
+          updateResetAvailability();
         } catch (error) {
           console.error('Failed to load offline manifest', error);
           setStatus('Unable to load the offline manifest. Refresh when you are back online.');
@@ -633,8 +876,16 @@
         try {
           const registration = await navigator.serviceWorker.register('service-worker.js');
           navigator.serviceWorker.addEventListener('message', handleMessage);
+          navigator.serviceWorker.addEventListener('controllerchange', () => {
+            navigator.serviceWorker.ready.then((readyRegistration) => {
+              state.registration = readyRegistration;
+              updateResetAvailability();
+            }).catch(() => {});
+          });
 
           const readyRegistration = await navigator.serviceWorker.ready;
+          state.registration = readyRegistration;
+          updateResetAvailability();
           requestCaching(readyRegistration);
         } catch (error) {
           console.error('Service worker registration failed', error);

@@ -25,12 +25,15 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('message', (event) => {
   const data = event.data;
-  if (!data || data.type !== 'apply-manifest' || !data.manifest) {
+  if (!data || typeof data.type !== 'string') {
     return;
   }
 
-  const manifest = data.manifest;
-  event.waitUntil(queueManifestUpdate(manifest));
+  if (data.type === 'apply-manifest' && data.manifest) {
+    event.waitUntil(queueManifestUpdate(data.manifest));
+  } else if (data.type === 'reset-offline-cache') {
+    event.waitUntil(resetOfflineCache(data.manifest || null));
+  }
 });
 
 self.addEventListener('fetch', (event) => {
@@ -64,10 +67,12 @@ function getCacheName(version) {
   return `${CACHE_PREFIX}${version}`;
 }
 
-async function queueManifestUpdate(manifest) {
+async function queueManifestUpdate(manifest, options = {}) {
   if (!manifest || typeof manifest.version !== 'string' || !Array.isArray(manifest.assets)) {
     return;
   }
+
+  const force = options.force === true;
 
   if (pendingUpdate) {
     return pendingUpdate;
@@ -75,7 +80,7 @@ async function queueManifestUpdate(manifest) {
 
   pendingUpdate = (async () => {
     try {
-      await applyManifest(manifest);
+      await applyManifest(manifest, { force });
     } catch (error) {
       console.error('Offline cache update failed', error);
     } finally {
@@ -86,7 +91,8 @@ async function queueManifestUpdate(manifest) {
   return pendingUpdate;
 }
 
-async function applyManifest(manifest) {
+async function applyManifest(manifest, options = {}) {
+  const force = options.force === true;
   const version = manifest.version;
   const assets = Array.isArray(manifest.assets) ? manifest.assets : [];
   const totalAssets = assets.length;
@@ -97,8 +103,9 @@ async function applyManifest(manifest) {
   const existingManifest = await readStoredManifest();
   const cacheKeys = await caches.keys();
   const cacheExists = cacheKeys.includes(cacheName);
+  const commitInfo = getCommitInfo(manifest.commit);
 
-  if (existingManifest && existingManifest.version === version && cacheExists) {
+  if (!force && existingManifest && existingManifest.version === version && cacheExists) {
     activeCacheName = cacheName;
     await broadcast({
       type: 'offline-cache',
@@ -107,7 +114,8 @@ async function applyManifest(manifest) {
         version,
         totalAssets,
         totalBytes,
-        alreadyCached: true
+        alreadyCached: true,
+        commit: commitInfo
       }
     });
     return;
@@ -119,7 +127,8 @@ async function applyManifest(manifest) {
     detail: {
       version,
       totalAssets,
-      totalBytes
+      totalBytes,
+      commit: commitInfo
     }
   });
 
@@ -141,28 +150,30 @@ async function applyManifest(manifest) {
       try {
         response = await fetch(request);
       } catch (error) {
-        await broadcast({
-          type: 'offline-cache',
-          state: 'error',
-          detail: {
-            version,
-            message: `Failed to fetch ${assetPath}`
-          }
-        });
-        throw error;
-      }
+      await broadcast({
+        type: 'offline-cache',
+        state: 'error',
+        detail: {
+          version,
+          message: `Failed to fetch ${assetPath}`,
+          commit: commitInfo
+        }
+      });
+      throw error;
+    }
 
-      if (!response.ok) {
-        await broadcast({
-          type: 'offline-cache',
-          state: 'error',
-          detail: {
-            version,
-            message: `Unexpected response (${response.status}) for ${assetPath}`
-          }
-        });
-        throw new Error(`Failed to cache ${assetPath}`);
-      }
+    if (!response.ok) {
+      await broadcast({
+        type: 'offline-cache',
+        state: 'error',
+        detail: {
+          version,
+          message: `Unexpected response (${response.status}) for ${assetPath}`,
+          commit: commitInfo
+        }
+      });
+      throw new Error(`Failed to cache ${assetPath}`);
+    }
 
       await cache.put(request, response.clone());
 
@@ -182,7 +193,8 @@ async function applyManifest(manifest) {
           completed,
           totalAssets,
           loadedBytes,
-          totalBytes
+          totalBytes,
+          commit: commitInfo
         }
       });
     }
@@ -199,6 +211,10 @@ async function applyManifest(manifest) {
     assets
   };
 
+  if (commitInfo) {
+    storedManifest.commit = commitInfo;
+  }
+
   await writeStoredManifest(storedManifest);
   activeCacheName = cacheName;
   await cleanupCaches(cacheName);
@@ -210,9 +226,67 @@ async function applyManifest(manifest) {
       version,
       totalAssets,
       totalBytes,
-      alreadyCached: false
+      alreadyCached: false,
+      commit: commitInfo
     }
   });
+}
+
+async function resetOfflineCache(manifest) {
+  if (!manifest || typeof manifest.version !== 'string' || !Array.isArray(manifest.assets)) {
+    await broadcast({
+      type: 'offline-cache',
+      state: 'reset-error',
+      detail: {
+        message: 'Missing offline manifest data.'
+      }
+    });
+    return;
+  }
+
+  const currentUpdate = pendingUpdate;
+  if (currentUpdate) {
+    try {
+      await currentUpdate;
+    } catch (error) {
+      // Ignore errors from prior updates while resetting.
+    }
+  }
+
+  const totalAssets = manifest.assets.length;
+  const totalBytes = Number.isFinite(manifest.totalBytes)
+    ? manifest.totalBytes
+    : manifest.assets.reduce((sum, asset) => sum + (Number(asset.bytes) || 0), 0);
+  const commitInfo = getCommitInfo(manifest.commit);
+
+  await broadcast({
+    type: 'offline-cache',
+    state: 'resetting',
+    detail: {
+      version: manifest.version,
+      totalAssets,
+      totalBytes,
+      commit: commitInfo
+    }
+  });
+
+  try {
+    await clearOfflineCaches();
+    activeCacheName = null;
+    await queueManifestUpdate(manifest, { force: true });
+  } catch (error) {
+    console.error('Offline cache reset failed', error);
+    await broadcast({
+      type: 'offline-cache',
+      state: 'reset-error',
+      detail: {
+        version: manifest.version,
+        message: error && error.message ? error.message : 'Failed to reset offline cache.',
+        commit: commitInfo
+      }
+    });
+    throw error;
+  }
 }
 
 async function handleManifestRequest(request) {
@@ -352,4 +426,34 @@ async function cleanupCaches(currentName) {
 
     return caches.delete(key);
   }));
+}
+
+async function clearOfflineCaches() {
+  const keys = await caches.keys();
+  await Promise.all(keys.map((key) => {
+    if (key === METADATA_CACHE || key.startsWith(CACHE_PREFIX)) {
+      return caches.delete(key);
+    }
+
+    return Promise.resolve(false);
+  }));
+}
+
+function getCommitInfo(rawCommit) {
+  if (!rawCommit || typeof rawCommit !== 'object') {
+    return null;
+  }
+
+  const info = {};
+  if (typeof rawCommit.hash === 'string') {
+    info.hash = rawCommit.hash;
+  }
+  if (typeof rawCommit.short === 'string') {
+    info.short = rawCommit.short;
+  }
+  if (typeof rawCommit.dirty === 'boolean') {
+    info.dirty = rawCommit.dirty;
+  }
+
+  return Object.keys(info).length > 0 ? info : null;
 }
