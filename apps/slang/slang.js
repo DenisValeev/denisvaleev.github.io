@@ -393,6 +393,406 @@ window.slangEntries = [
             "hint": "Use it to snap someone back to reality when they’re acting delulu.",
             "category": "Callouts & Reactions",
             "categoryId": "callouts"
+        }, {
+            "id": "sl-0050",
+            "term": "left no crumbs",
+            "definition": "Delivered a performance so polished that there’s nothing left to critique.",
+            "example": "Your grant pitch left no crumbs—the panel was clapping before you finished.",
+            "hint": "Use it when someone executes flawlessly and deserves loud praise.",
+            "category": "Compliments & Hype",
+            "categoryId": "hype"
+        }, {
+            "id": "sl-0051",
+            "term": "built different",
+            "definition": "Possessing rare talent or resilience that sets someone apart from the rest.",
+            "example": "She pulled three all-nighters and still aced the exam—she’s built different.",
+            "hint": "Use it when a friend’s abilities feel next-level compared to everyone else.",
+            "category": "Compliments & Hype",
+            "categoryId": "hype"
+        }, {
+            "id": "sl-0052",
+            "term": "cook",
+            "definition": "To create something incredible, especially under pressure or in real time.",
+            "example": "Give the designer an hour and watch them cook up the whole campaign.",
+            "hint": "Use it when someone’s creativity or skills are shining on the spot.",
+            "category": "Compliments & Hype",
+            "categoryId": "hype"
+        }, {
+            "id": "sl-0053",
+            "term": "mother",
+            "definition": "A fierce compliment for the person serving unmatched leadership or charisma.",
+            "example": "The way you ran that rehearsal? Mother. The whole cast fell in line.",
+            "hint": "Use it to crown someone the guiding force keeping the crew together.",
+            "category": "Compliments & Hype",
+            "categoryId": "hype"
+        }, {
+            "id": "sl-0054",
+            "term": "serve",
+            "definition": "To bring undeniable style, energy, or execution to a moment.",
+            "example": "You served with that transition—everybody replayed the clip twice.",
+            "hint": "Use it when someone shows up and delivers like it’s second nature.",
+            "category": "Compliments & Hype",
+            "categoryId": "hype"
+        }, {
+            "id": "sl-0055",
+            "term": "himothy",
+            "definition": "A playful title for the person proving they’re the undisputed main guy.",
+            "example": "After dropping 40 points, the commentators called himothy on live TV.",
+            "hint": "Use it when someone is so dominant it’s legendary.",
+            "category": "Compliments & Hype",
+            "categoryId": "hype"
+        }, {
+            "id": "sl-0056",
+            "term": "top tier",
+            "definition": "Certified elite quality that clears all competition.",
+            "example": "Your playlist is top tier—I’m saving it for every commute.",
+            "hint": "Use it when something deserves a spot in your permanent hall of fame.",
+            "category": "Compliments & Hype",
+            "categoryId": "hype"
+        }, {
+            "id": "sl-0057",
+            "term": "carry",
+            "definition": "To shoulder the whole project or team and still make it look easy.",
+            "example": "The understudy carried the show when the lead lost their voice mid-set.",
+            "hint": "Use it when one person’s effort keeps the entire mission alive.",
+            "category": "Compliments & Hype",
+            "categoryId": "hype"
+        }, {
+            "id": "sl-0058",
+            "term": "the blueprint",
+            "definition": "The standard everyone else is clearly copying or trying to match.",
+            "example": "Her product launch is the blueprint—every competitor pivoted after watching it.",
+            "hint": "Use it when someone pioneers the move that becomes the template.",
+            "category": "Compliments & Hype",
+            "categoryId": "hype"
+        }, {
+            "id": "sl-0059",
+            "term": "walking W",
+            "definition": "A person who keeps collecting wins no matter the situation.",
+            "example": "He’s a walking W—free coffee, surprise upgrades, the universe just favors him.",
+            "hint": "Use it when someone is on an unstoppable lucky streak.",
+            "category": "Compliments & Hype",
+            "categoryId": "hype"
+        }, {
+            "id": "sl-0060",
+            "term": "problem",
+            "definition": "Someone so talented that they become a challenge for anyone competing.",
+            "example": "The rookie guard is a problem—teams keep double-teaming and it still isn’t enough.",
+            "hint": "Use it when a person’s skill level officially intimidates the field.",
+            "category": "Compliments & Hype",
+            "categoryId": "hype"
+        }, {
+            "id": "sl-0061",
+            "term": "standing on business",
+            "definition": "Following through on promises with grown-level confidence and action.",
+            "example": "She said the merch would ship by Friday and she’s standing on business to make it happen.",
+            "hint": "Use it when someone backs their words with accountable moves.",
+            "category": "Compliments & Hype",
+            "categoryId": "hype"
+        }, {
+            "id": "sl-0062",
+            "term": "side-eye",
+            "definition": "A look or reaction that calls out something questionable without saying a word.",
+            "example": "When he said pineapple belongs on every pizza, the whole table gave side-eye.",
+            "hint": "Use it when you’re silently judging a wild statement.",
+            "category": "Callouts & Reactions",
+            "categoryId": "callouts"
+        }, {
+            "id": "sl-0063",
+            "term": "out of pocket",
+            "definition": "Behaviour that’s wildly inappropriate or unexpectedly bold.",
+            "example": "Showing up uninvited to the group dinner was out of pocket.",
+            "hint": "Use it when someone’s move crossed the line in a surprising way.",
+            "category": "Callouts & Reactions",
+            "categoryId": "callouts"
+        }, {
+            "id": "sl-0064",
+            "term": "down bad",
+            "definition": "Deeply infatuated or caught slipping in an embarrassing thirst moment.",
+            "example": "He’s down bad for reacting to every story she posts within seconds.",
+            "hint": "Use it when someone’s crush is taking over their common sense.",
+            "category": "Callouts & Reactions",
+            "categoryId": "callouts"
+        }, {
+            "id": "sl-0065",
+            "term": "doing the most",
+            "definition": "Putting in excessive energy where a chill response would’ve worked.",
+            "example": "She brought a projector to the picnic to show her mood board—she’s doing the most.",
+            "hint": "Use it when extra effort turns into theatrical overkill.",
+            "category": "Callouts & Reactions",
+            "categoryId": "callouts"
+        }, {
+            "id": "sl-0066",
+            "term": "ick",
+            "definition": "A sudden wave of cringe that makes someone instantly less appealing.",
+            "example": "The way he clapped when the plane landed gave me the ick.",
+            "hint": "Use it when a tiny quirk flips your attraction switch off.",
+            "category": "Callouts & Reactions",
+            "categoryId": "callouts"
+        }, {
+            "id": "sl-0067",
+            "term": "L take",
+            "definition": "An opinion so bad it deserves an automatic loss.",
+            "example": "Calling naps unproductive is an L take and we’re not entertaining it.",
+            "hint": "Use it when a hot take flops on impact.",
+            "category": "Callouts & Reactions",
+            "categoryId": "callouts"
+        }, {
+            "id": "sl-0068",
+            "term": "this ain’t it",
+            "definition": "A blunt rejection of whatever is happening right now.",
+            "example": "Charging for water at the pop-up? This ain’t it.",
+            "hint": "Use it when you need to shut down a disappointing idea fast.",
+            "category": "Callouts & Reactions",
+            "categoryId": "callouts"
+        }, {
+            "id": "sl-0069",
+            "term": "clown behavior",
+            "definition": "Acting foolishly for attention with zero payoff.",
+            "example": "He kept roasting people in the chat for laughs—pure clown behavior.",
+            "hint": "Use it when antics turn embarrassing instead of entertaining.",
+            "category": "Callouts & Reactions",
+            "categoryId": "callouts"
+        }, {
+            "id": "sl-0070",
+            "term": "who let him cook",
+            "definition": "A sarcastic question when someone keeps making a situation worse.",
+            "example": "He rewrote the code and crashed the app—who let him cook?",
+            "hint": "Use it when a person’s experiment clearly needs to stop.",
+            "category": "Callouts & Reactions",
+            "categoryId": "callouts"
+        }, {
+            "id": "sl-0071",
+            "term": "girl help",
+            "definition": "A dramatic call for backup when chaos is spiraling.",
+            "example": "The itinerary double-booked three events—girl help, we need logistics ASAP.",
+            "hint": "Use it when you’re overwhelmed and summoning the group chat emergency squad.",
+            "category": "Callouts & Reactions",
+            "categoryId": "callouts"
+        }, {
+            "id": "sl-0072",
+            "term": "blocked and reported",
+            "definition": "A joking threat to eject something cringe from your timeline immediately.",
+            "example": "You admitted to microwaving fish at work? Blocked and reported.",
+            "hint": "Use it when someone confesses chaos that should never see daylight.",
+            "category": "Callouts & Reactions",
+            "categoryId": "callouts"
+        }, {
+            "id": "sl-0073",
+            "term": "say it with your chest",
+            "definition": "A challenge to speak boldly instead of mumbling around the truth.",
+            "example": "If you think the plan is messy, say it with your chest so we can fix it.",
+            "hint": "Use it when someone needs to be direct about their opinion.",
+            "category": "Callouts & Reactions",
+            "categoryId": "callouts"
+        }, {
+            "id": "sl-0074",
+            "term": "photo dump",
+            "definition": "A casual carousel of highlights that skips perfect curation.",
+            "example": "Sunday night photo dump coming in hot—brace for blurry concert pics.",
+            "hint": "Use it when you’re posting vibes over polish.",
+            "category": "Internet Culture",
+            "categoryId": "internet"
+        }, {
+            "id": "sl-0075",
+            "term": "close friends",
+            "definition": "The private story list reserved for people who get the unfiltered posts.",
+            "example": "Drop the outfit previews on close friends so the boss doesn’t see.",
+            "hint": "Use it when the content is for the inner circle only.",
+            "category": "Internet Culture",
+            "categoryId": "internet"
+        }, {
+            "id": "sl-0076",
+            "term": "soft block",
+            "definition": "Temporarily blocking someone to make them unfollow before you refollow.",
+            "example": "She soft blocked her ex so the feed would finally chill out.",
+            "hint": "Use it when you want to reset access without starting a fight.",
+            "category": "Internet Culture",
+            "categoryId": "internet"
+        }, {
+            "id": "sl-0077",
+            "term": "de-influencing",
+            "definition": "Content that talks you out of buying the overhyped product.",
+            "example": "Her de-influencing reel saved me from spending $80 on mid mascara.",
+            "hint": "Use it when creators push realistic takes over shiny hauls.",
+            "category": "Internet Culture",
+            "categoryId": "internet"
+        }, {
+            "id": "sl-0078",
+            "term": "shadow banned",
+            "definition": "When the platform quietly hides your posts from timelines.",
+            "example": "The views tanked overnight, so we’re convinced the account got shadow banned.",
+            "hint": "Use it when reach disappears even though you’re still posting.",
+            "category": "Internet Culture",
+            "categoryId": "internet"
+        }, {
+            "id": "sl-0079",
+            "term": "FYP",
+            "definition": "Short for For You Page—the personalized TikTok feed that serves endless videos.",
+            "example": "My FYP decided I’m into pottery now and honestly it’s not wrong.",
+            "hint": "Use it when something appears thanks to the algorithm’s hyper-specific taste.",
+            "category": "Internet Culture",
+            "categoryId": "internet"
+        }, {
+            "id": "sl-0080",
+            "term": "link in bio",
+            "definition": "A reminder that the important info lives in the profile link.",
+            "example": "Tickets drop at noon—hit the link in bio before they vanish.",
+            "hint": "Use it when you’re sending followers to the official details.",
+            "category": "Internet Culture",
+            "categoryId": "internet"
+        }, {
+            "id": "sl-0081",
+            "term": "alt",
+            "definition": "A secondary account where someone posts without the main-feed pressure.",
+            "example": "She keeps the messy drafts on her alt so the main grid stays curated.",
+            "hint": "Use it when someone maintains a low-key profile for the real ones.",
+            "category": "Internet Culture",
+            "categoryId": "internet"
+        }, {
+            "id": "sl-0082",
+            "term": "thirst trap",
+            "definition": "A calculated post designed to grab romantic attention.",
+            "example": "He dropped a thirst trap at golden hour and the DMs flooded instantly.",
+            "hint": "Use it when someone’s content is clearly fishing for admirers.",
+            "category": "Internet Culture",
+            "categoryId": "internet"
+        }, {
+            "id": "sl-0083",
+            "term": "meme template",
+            "definition": "A reusable format begging for captions and remixes.",
+            "example": "As soon as the movie still leaked, it became the meme template of the week.",
+            "hint": "Use it when an image is destined for infinite punchlines.",
+            "category": "Internet Culture",
+            "categoryId": "internet"
+        }, {
+            "id": "sl-0084",
+            "term": "scroll hole",
+            "definition": "That endless feed spiral where hours vanish before you notice.",
+            "example": "I fell into a scroll hole watching restoration videos until 3 a.m.",
+            "hint": "Use it when the algorithm has you fully hypnotized.",
+            "category": "Internet Culture",
+            "categoryId": "internet"
+        }, {
+            "id": "sl-0085",
+            "term": "silent repost",
+            "definition": "Sharing something without comment so the message speaks for itself.",
+            "example": "She did a silent repost of the climate fundraiser and the donations spiked.",
+            "hint": "Use it when you’re boosting content without adding your own caption.",
+            "category": "Internet Culture",
+            "categoryId": "internet"
+        }, {
+            "id": "sl-0086",
+            "term": "hot girl walk",
+            "definition": "A confidence-boosting stroll focused on gratitude, goals, and good music.",
+            "example": "We scheduled a hot girl walk before work to manifest the promotion energy.",
+            "hint": "Use it when movement doubles as a pep talk.",
+            "category": "Daily Life & Relationships",
+            "categoryId": "relationships"
+        }, {
+            "id": "sl-0087",
+            "term": "in my bag",
+            "definition": "Locked into hustle mode and chasing success with zero distractions.",
+            "example": "She’s in her bag this quarter, juggling classes and a thriving side gig.",
+            "hint": "Use it when someone is grinding with focus and results.",
+            "category": "Daily Life & Relationships",
+            "categoryId": "relationships"
+        }, {
+            "id": "sl-0088",
+            "term": "little treat",
+            "definition": "A small indulgence earned just for surviving the day.",
+            "example": "Submitting the report means it’s time for a little treat latte run.",
+            "hint": "Use it when you celebrate tiny wins with something sweet.",
+            "category": "Daily Life & Relationships",
+            "categoryId": "relationships"
+        }, {
+            "id": "sl-0089",
+            "term": "body doubling",
+            "definition": "Working alongside someone else to stay focused and accountable.",
+            "example": "Hop on the call for body doubling so we both finish our slides on time.",
+            "hint": "Use it when shared presence keeps procrastination away.",
+            "category": "Daily Life & Relationships",
+            "categoryId": "relationships"
+        }, {
+            "id": "sl-0090",
+            "term": "funemployed",
+            "definition": "Taking a break between jobs and treating it like a mini vacation.",
+            "example": "She’s funemployed this month—morning yoga, afternoon matinees, zero guilt.",
+            "hint": "Use it when someone’s job pause is all vibes and no stress.",
+            "category": "Daily Life & Relationships",
+            "categoryId": "relationships"
+        }, {
+            "id": "sl-0091",
+            "term": "love language",
+            "definition": "The way someone best gives or receives affection and appreciation.",
+            "example": "Gift-giving is his love language, so every milestone comes with surprises.",
+            "hint": "Use it when discussing how people show they care.",
+            "category": "Daily Life & Relationships",
+            "categoryId": "relationships"
+        }, {
+            "id": "sl-0092",
+            "term": "soft life",
+            "definition": "Choosing ease, comfort, and intentional rest over hustle culture.",
+            "example": "She’s in her soft life era—spa days, slow mornings, boundaries on email.",
+            "hint": "Use it when someone prioritizes peace over grind.",
+            "category": "Daily Life & Relationships",
+            "categoryId": "relationships"
+        }, {
+            "id": "sl-0093",
+            "term": "cuffing season",
+            "definition": "The colder months when people hunt for a cozy relationship.",
+            "example": "It’s cuffing season, so the dating apps are suddenly doing numbers.",
+            "hint": "Use it when the weather flips and everyone starts looking for a boo.",
+            "category": "Daily Life & Relationships",
+            "categoryId": "relationships"
+        }, {
+            "id": "sl-0094",
+            "term": "mob wife era",
+            "definition": "An aesthetic packed with bold glam, animal print, and unapologetic confidence.",
+            "example": "She walked in full mob wife era—fur coat, statement rings, and a don’t-care strut.",
+            "hint": "Use it when someone leans into maximalist luxury energy.",
+            "category": "Style & Aesthetic",
+            "categoryId": "style"
+        }, {
+            "id": "sl-0095",
+            "term": "tomato girl",
+            "definition": "A coastal, sun-soaked vibe inspired by Mediterranean summers and ripe produce hues.",
+            "example": "Her kitchen makeover is pure tomato girl—terracotta accents and overflowing herb pots.",
+            "hint": "Use it when an outfit or space radiates European farmer’s market fantasy.",
+            "category": "Style & Aesthetic",
+            "categoryId": "style"
+        }, {
+            "id": "sl-0096",
+            "term": "blokette",
+            "definition": "A fashion mix of athletic jerseys, mini skirts, and vintage football scarves.",
+            "example": "He pulled up in full blokette mode—mesh jersey layered over a pleated skirt.",
+            "hint": "Use it when someone blends sporty streetwear with playful femme details.",
+            "category": "Style & Aesthetic",
+            "categoryId": "style"
+        }, {
+            "id": "sl-0097",
+            "term": "in my feelings",
+            "definition": "Sitting with emotions turned up loud, whether it’s joy or heartbreak.",
+            "example": "I’m in my feelings after that finale—give me a playlist and a blanket.",
+            "hint": "Use it when someone needs space to process their mood.",
+            "category": "Vibes & Feelings",
+            "categoryId": "vibes"
+        }, {
+            "id": "sl-0098",
+            "term": "peopled out",
+            "definition": "Completely drained from too much social interaction.",
+            "example": "After the conference I’m peopled out—catch me recharging solo tonight.",
+            "hint": "Use it when someone’s social battery hits empty.",
+            "category": "Vibes & Feelings",
+            "categoryId": "vibes"
+        }, {
+            "id": "sl-0099",
+            "term": "feral",
+            "definition": "A wild burst of excitement that makes you act unfiltered.",
+            "example": "The surprise tour announcement had the group chat feral in under a minute.",
+            "hint": "Use it when joy or chaos makes everyone lose their composure.",
+            "category": "Vibes & Feelings",
+            "categoryId": "vibes"
         }
     ];
 
