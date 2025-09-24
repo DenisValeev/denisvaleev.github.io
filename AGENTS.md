@@ -29,3 +29,8 @@ This project is a static toolbox site. The landing page (`index.html`) lists sma
 - If you skip scripted coverage, at least open the affected HTML files in a browser (or start `python -m http.server`) to confirm layout, theme switching, and keyboard interactions still work.
 - If you adjust the asset observatory, regenerate its dataset snapshot with `node tools/generate-asset-report.js` so `apps/asset-observatory/asset-data.js` stays in sync.
 - A new regression spec enforces Home buttons across apps—after tweaking navigation chrome, run `npx playwright test tests/home-navigation.spec.js`.
+
+## Documentation
+- The `ai_docs/` directory hosts the Markdown knowledge base. Update the relevant guides whenever you change workflows, scripts, or datasets so the docs remain authoritative.
+- When you add, remove, or rename a guide, update the `guides` array in `ai_docs/index.html` so the navigation stays in sync.
+- After editing documentation, open `ai_docs/index.html` in a browser (or via `npx serve .`) to confirm the Markdown renders through Marked and the hash navigation works.
