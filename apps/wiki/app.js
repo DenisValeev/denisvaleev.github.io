@@ -1,0 +1,501 @@
+(function () {
+  const listEl = document.querySelector('[data-article-list]');
+  const countEl = document.querySelector('[data-count]');
+  const articleTitleEl = document.querySelector('[data-article-title]');
+  const articleMetaEl = document.querySelector('[data-article-meta]');
+  const articleBodyEl = document.querySelector('[data-article-body]');
+  const articleTagsEl = document.querySelector('[data-article-tags]');
+  const emptyMessageEl = document.querySelector('[data-empty-message]');
+
+  if (!listEl || !countEl || !articleTitleEl || !articleMetaEl || !articleBodyEl || !articleTagsEl) {
+    return;
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+  function escapeAttribute(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function formatInline(text, allowLinks = true) {
+    if (typeof text !== 'string') {
+      return '';
+    }
+
+    let safe = escapeHtml(text);
+
+    if (allowLinks) {
+      safe = safe.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, rawLabel, rawHref) => {
+        const labelHtml = formatInline(rawLabel, false);
+        const decodedHref = rawHref.replace(/&amp;/g, '&').trim();
+        const forbidden = decodedHref.toLowerCase().startsWith('javascript:');
+        const hrefValue = forbidden || !decodedHref ? '#' : decodedHref;
+        const escapedHref = escapeAttribute(hrefValue);
+        return `<a href="${escapedHref}" target="_blank" rel="noreferrer noopener">${labelHtml}</a>`;
+      });
+    }
+
+    safe = safe.replace(/`([^`]+)`/g, (match, code) => `<code>${code}</code>`);
+    safe = safe.replace(/\*\*([^*]+)\*\*/g, (match, bold) => `<strong>${bold}</strong>`);
+    safe = safe.replace(/(^|[\s>])\*([^*]+)\*(?=[\s<.,!?:;)]|$)/g, (match, prefix, italic) => `${prefix}<em>${italic}</em>`);
+    safe = safe.replace(/(^|[\s>])_([^_]+)_(?=[\s<.,!?:;)]|$)/g, (match, prefix, italic) => `${prefix}<em>${italic}</em>`);
+
+    return safe;
+  }
+
+  function renderMarkdown(markdown) {
+    if (typeof markdown !== 'string') {
+      return '<p>No story yet.</p>';
+    }
+
+    const lines = markdown.replace(/\r\n/g, '\n').split('\n');
+    const html = [];
+    let paragraphLines = [];
+    let inList = false;
+    let listItems = [];
+    let inCodeBlock = false;
+    let codeLines = [];
+    let codeLanguage = '';
+
+    function flushParagraph() {
+      if (!paragraphLines.length) {
+        return;
+      }
+
+      const paragraphText = paragraphLines.join(' ').trim();
+      if (paragraphText) {
+        html.push(`<p>${formatInline(paragraphText)}</p>`);
+      }
+      paragraphLines = [];
+    }
+
+    function flushList() {
+      if (!inList) {
+        return;
+      }
+
+      html.push(`<ul>${listItems.join('')}</ul>`);
+      inList = false;
+      listItems = [];
+    }
+
+    function flushCode() {
+      const codeText = codeLines.join('\n');
+      const escaped = escapeHtml(codeText);
+      const languageAttr = codeLanguage ? ` data-language="${escapeAttribute(codeLanguage)}"` : '';
+      html.push(`<pre><code${languageAttr}>${escaped}</code></pre>`);
+      codeLines = [];
+      codeLanguage = '';
+    }
+
+    lines.forEach((rawLine) => {
+      const line = rawLine.replace(/\s+$/g, '');
+      const trimmed = line.trim();
+
+      if (!inCodeBlock && trimmed.startsWith('```')) {
+        flushParagraph();
+        flushList();
+        inCodeBlock = true;
+        codeLanguage = trimmed.slice(3).trim();
+        codeLines = [];
+        return;
+      }
+
+      if (inCodeBlock) {
+        if (trimmed.startsWith('```')) {
+          flushCode();
+          inCodeBlock = false;
+          return;
+        }
+
+        codeLines.push(line);
+        return;
+      }
+
+      if (trimmed === '') {
+        flushParagraph();
+        flushList();
+        return;
+      }
+
+      if (/^[-*]\s+/.test(trimmed)) {
+        flushParagraph();
+        const listText = trimmed.replace(/^[-*]\s+/, '');
+        listItems.push(`<li>${formatInline(listText)}</li>`);
+        inList = true;
+        return;
+      }
+
+      const headingMatch = trimmed.match(/^(#{1,3})\s+(.*)$/);
+      if (headingMatch) {
+        flushParagraph();
+        flushList();
+        const level = headingMatch[1].length;
+        const headingText = formatInline(headingMatch[2]);
+        html.push(`<h${level}>${headingText}</h${level}>`);
+        return;
+      }
+
+      if (/^>\s?/.test(trimmed)) {
+        flushParagraph();
+        flushList();
+        const quoteText = formatInline(trimmed.replace(/^>\s?/, ''));
+        html.push(`<blockquote>${quoteText}</blockquote>`);
+        return;
+      }
+
+      if (/^[-]{3,}$/.test(trimmed)) {
+        flushParagraph();
+        flushList();
+        html.push('<hr>');
+        return;
+      }
+
+      paragraphLines.push(line);
+    });
+
+    if (inCodeBlock) {
+      flushCode();
+    }
+
+    flushParagraph();
+    flushList();
+
+    return html.join('');
+  }
+
+  function parseDate(value) {
+    if (typeof value !== 'string' || !value.trim()) {
+      return null;
+    }
+
+    const timestamp = Date.parse(value);
+    return Number.isFinite(timestamp) ? timestamp : null;
+  }
+
+  function formatDate(value) {
+    const timestamp = parseDate(value);
+    if (!timestamp) {
+      return null;
+    }
+
+    try {
+      return new Intl.DateTimeFormat('en', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+      }).format(new Date(timestamp));
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function estimateReadingTime(content) {
+    if (typeof content !== 'string') {
+      return null;
+    }
+
+    const words = content
+      .replace(/[`*_#>\-]/g, ' ')
+      .split(/\s+/)
+      .filter(Boolean);
+    if (!words.length) {
+      return null;
+    }
+
+    const minutes = Math.max(1, Math.round(words.length / 170));
+    return `${minutes} min read`;
+  }
+
+  const articles = Array.isArray(window.wikiArticles)
+    ? window.wikiArticles
+        .map((entry) => {
+          const slug = entry && typeof entry.slug === 'string' ? entry.slug.trim() : '';
+          const title = entry && typeof entry.title === 'string' ? entry.title.trim() : '';
+          const summary = entry && typeof entry.summary === 'string' ? entry.summary.trim() : '';
+          const accentEmoji = entry && typeof entry.accentEmoji === 'string' ? entry.accentEmoji.trim() : '';
+          const published = entry && typeof entry.published === 'string' ? entry.published.trim() : '';
+          const content = entry && typeof entry.content === 'string' ? entry.content : '';
+          const tags = Array.isArray(entry && entry.tags)
+            ? entry.tags
+                .map((tag) => (typeof tag === 'string' ? tag.trim() : ''))
+                .filter(Boolean)
+            : [];
+
+          if (!slug || !title || !content) {
+            return null;
+          }
+
+          const readingTime = estimateReadingTime(content);
+          return {
+            slug,
+            title,
+            summary,
+            accentEmoji,
+            published,
+            content,
+            tags,
+            readingTime
+          };
+        })
+        .filter(Boolean)
+    : [];
+
+  articles.sort((a, b) => {
+    const timeA = parseDate(a.published);
+    const timeB = parseDate(b.published);
+
+    if (timeA && timeB) {
+      return timeB - timeA;
+    }
+
+    if (timeA && !timeB) {
+      return -1;
+    }
+
+    if (!timeA && timeB) {
+      return 1;
+    }
+
+    return a.title.localeCompare(b.title);
+  });
+
+  function updateCountBadge() {
+    if (!countEl) {
+      return;
+    }
+
+    const count = articles.length;
+    if (!count) {
+      countEl.textContent = '0 entries';
+      return;
+    }
+
+    const label = count === 1 ? 'entry' : 'entries';
+    countEl.textContent = `${count.toLocaleString()} ${label}`;
+  }
+
+  function buildList() {
+    if (!articles.length) {
+      listEl.innerHTML = '';
+      const emptyItem = document.createElement('li');
+      emptyItem.className = 'article-empty';
+      emptyItem.textContent = 'No chronicles yet—check back soon!';
+      listEl.appendChild(emptyItem);
+      return;
+    }
+
+    if (emptyMessageEl) {
+      emptyMessageEl.remove();
+    }
+
+    const fragment = document.createDocumentFragment();
+
+    articles.forEach((article) => {
+      const item = document.createElement('li');
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'article-card';
+      button.dataset.articleSlug = article.slug;
+      button.setAttribute('aria-pressed', 'false');
+
+      const emojiSpan = document.createElement('span');
+      emojiSpan.className = 'article-card__emoji';
+      emojiSpan.textContent = article.accentEmoji || '📝';
+      button.appendChild(emojiSpan);
+
+      const contentWrapper = document.createElement('span');
+      contentWrapper.className = 'article-card__content';
+
+      const titleSpan = document.createElement('span');
+      titleSpan.className = 'article-card__title';
+      titleSpan.textContent = article.title;
+      contentWrapper.appendChild(titleSpan);
+
+      const summarySpan = document.createElement('span');
+      summarySpan.className = 'article-card__summary';
+      summarySpan.textContent = article.summary || 'Tap to read the full saga.';
+      contentWrapper.appendChild(summarySpan);
+
+      const metaSpan = document.createElement('span');
+      metaSpan.className = 'article-card__meta';
+      const dateLabel = formatDate(article.published);
+      const metaParts = [];
+      if (dateLabel) {
+        metaParts.push(dateLabel);
+      }
+      if (article.readingTime) {
+        metaParts.push(article.readingTime);
+      }
+      metaSpan.textContent = metaParts.join(' • ');
+      contentWrapper.appendChild(metaSpan);
+
+      button.appendChild(contentWrapper);
+      item.appendChild(button);
+      fragment.appendChild(item);
+    });
+
+    listEl.innerHTML = '';
+    listEl.appendChild(fragment);
+  }
+
+  function highlightActive(slug) {
+    const buttons = listEl.querySelectorAll('.article-card');
+    buttons.forEach((button) => {
+      const matches = button.dataset.articleSlug === slug;
+      button.classList.toggle('is-active', matches);
+      button.setAttribute('aria-pressed', matches ? 'true' : 'false');
+    });
+  }
+
+  function renderTags(tags) {
+    articleTagsEl.innerHTML = '';
+    if (!tags || !tags.length) {
+      articleTagsEl.hidden = true;
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+    tags.forEach((tag) => {
+      const item = document.createElement('li');
+      item.textContent = tag;
+      fragment.appendChild(item);
+    });
+    articleTagsEl.appendChild(fragment);
+    articleTagsEl.hidden = false;
+  }
+
+  function renderArticle(article, options) {
+    const metaParts = [];
+    const dateLabel = formatDate(article.published);
+    if (dateLabel) {
+      metaParts.push(dateLabel);
+    }
+    if (article.readingTime) {
+      metaParts.push(article.readingTime);
+    }
+
+    if (metaParts.length) {
+      articleMetaEl.hidden = false;
+      articleMetaEl.textContent = metaParts.join(' • ');
+    } else {
+      articleMetaEl.hidden = true;
+      articleMetaEl.textContent = '';
+    }
+
+    articleTitleEl.textContent = article.title;
+    const html = renderMarkdown(article.content);
+    articleBodyEl.innerHTML = html || '<p class="article-empty">No story yet.</p>';
+    renderTags(article.tags);
+
+    if (options && options.focus && articleTitleEl.focus) {
+      articleTitleEl.focus();
+    }
+
+    highlightActive(article.slug);
+    document.title = `${article.title} · Project Wiki`;
+  }
+
+  let activeSlug = null;
+
+  function selectArticle(slug, options = {}) {
+    if (!slug) {
+      return;
+    }
+
+    const match = articles.find((article) => article.slug === slug);
+    if (!match) {
+      return;
+    }
+
+    activeSlug = match.slug;
+    renderArticle(match, options);
+
+    if (options.updateHistory !== false) {
+      try {
+        const url = new URL(window.location.href);
+        url.searchParams.set('article', match.slug);
+        window.history.replaceState({ article: match.slug }, '', url);
+      } catch (error) {
+        // ignore URL update errors
+      }
+    }
+  }
+
+  function applyInitialSelection() {
+    if (!articles.length) {
+      return;
+    }
+
+    let slug = null;
+    try {
+      const url = new URL(window.location.href);
+      slug = url.searchParams.get('article');
+    } catch (error) {
+      slug = null;
+    }
+
+    if (slug && articles.some((article) => article.slug === slug)) {
+      selectArticle(slug, { updateHistory: false });
+      return;
+    }
+
+    selectArticle(articles[0].slug, { updateHistory: false });
+  }
+
+  function handlePopState() {
+    if (!articles.length) {
+      return;
+    }
+
+    let slug = null;
+    try {
+      const url = new URL(window.location.href);
+      slug = url.searchParams.get('article');
+    } catch (error) {
+      slug = null;
+    }
+
+    if (slug && articles.some((article) => article.slug === slug)) {
+      selectArticle(slug, { updateHistory: false, focus: true });
+      return;
+    }
+
+    if (activeSlug && articles.some((article) => article.slug === activeSlug)) {
+      selectArticle(activeSlug, { updateHistory: false, focus: true });
+    } else {
+      selectArticle(articles[0].slug, { updateHistory: false, focus: true });
+    }
+  }
+
+  function bindEvents() {
+    listEl.addEventListener('click', (event) => {
+      const button = event.target.closest('.article-card');
+      if (!button) {
+        return;
+      }
+
+      const slug = button.dataset.articleSlug;
+      if (!slug) {
+        return;
+      }
+
+      selectArticle(slug, { focus: true });
+    });
+
+    window.addEventListener('popstate', handlePopState);
+  }
+
+  updateCountBadge();
+  buildList();
+  bindEvents();
+  applyInitialSelection();
+})();

@@ -49,6 +49,314 @@
     return;
   }
 
+  const summaryCells = summaryGrid ? Array.from(summaryGrid.querySelectorAll('dd')) : [];
+  const valueTableBody = valueTable;
+  let activeSampleId = '';
+
+  function formatDecimal(value) {
+    if (!Number.isFinite(value)) {
+      return '0.000';
+    }
+    const rounded = Math.round(value * 1000) / 1000;
+    return rounded.toFixed(3);
+  }
+
+  function formatRange(min, max) {
+    if (!Number.isFinite(min) || !Number.isFinite(max)) {
+      return '— / —';
+    }
+    return `${formatDecimal(min)} / ${formatDecimal(max)}`;
+  }
+
+  function calculateStats(vector) {
+    const values = Array.isArray(vector) ? vector.map((entry) => Number(entry)).filter((entry) => Number.isFinite(entry)) : [];
+    const length = values.length;
+
+    if (!length) {
+      return {
+        values: [],
+        dimensions: 0,
+        magnitude: 0,
+        mean: 0,
+        deviation: 0,
+        min: null,
+        max: null,
+        zeroShare: 0,
+      };
+    }
+
+    let sum = 0;
+    let sumSquares = 0;
+    let min = values[0];
+    let max = values[0];
+    let zeroCount = 0;
+
+    values.forEach((value) => {
+      sum += value;
+      sumSquares += value * value;
+      if (value < min) {
+        min = value;
+      }
+      if (value > max) {
+        max = value;
+      }
+      if (Math.abs(value) < 1e-9) {
+        zeroCount += 1;
+      }
+    });
+
+    const mean = sum / length;
+    let variance = 0;
+    values.forEach((value) => {
+      const delta = value - mean;
+      variance += delta * delta;
+    });
+    variance /= length;
+
+    return {
+      values,
+      dimensions: length,
+      magnitude: Math.sqrt(sumSquares),
+      mean,
+      deviation: Math.sqrt(variance),
+      min,
+      max,
+      zeroShare: length ? zeroCount / length : 0,
+    };
+  }
+
+  function updateSummary(stats) {
+    if (!summaryCells.length) {
+      return;
+    }
+
+    const entries = [
+      stats.dimensions.toLocaleString(),
+      formatDecimal(stats.magnitude),
+      formatDecimal(stats.mean),
+      formatDecimal(stats.deviation),
+      formatRange(stats.min, stats.max),
+      `${Math.round(stats.zeroShare * 100)}%`,
+    ];
+
+    entries.forEach((value, index) => {
+      if (summaryCells[index]) {
+        summaryCells[index].textContent = value;
+      }
+    });
+  }
+
+  function renderExtrema(listElement, entries, placeholder) {
+    if (!listElement) {
+      return;
+    }
+
+    listElement.innerHTML = '';
+
+    if (!entries.length) {
+      const item = document.createElement('li');
+      const text = document.createElement('span');
+      text.className = 'placeholder';
+      text.textContent = placeholder;
+      item.appendChild(text);
+      listElement.appendChild(item);
+      return;
+    }
+
+    entries.forEach((entry) => {
+      const item = document.createElement('li');
+      item.textContent = `#${entry.index}${formatDecimal(entry.value)}`;
+      listElement.appendChild(item);
+    });
+  }
+
+  function renderValueRows(values) {
+    if (!valueTableBody) {
+      return;
+    }
+
+    valueTableBody.innerHTML = '';
+
+    if (!values.length) {
+      const row = document.createElement('tr');
+      const cell = document.createElement('td');
+      cell.colSpan = 3;
+      cell.innerHTML = '<p class="placeholder">Enter an embedding vector to populate this table.</p>';
+      row.appendChild(cell);
+      valueTableBody.appendChild(row);
+      return;
+    }
+
+    const maxAbs = values.reduce((max, value) => {
+      const magnitude = Math.abs(value);
+      return magnitude > max ? magnitude : max;
+    }, 0);
+
+    values.forEach((value, index) => {
+      const row = document.createElement('tr');
+      const indexCell = document.createElement('td');
+      indexCell.textContent = `#${index + 1}`;
+
+      const valueCell = document.createElement('td');
+      const valueSpan = document.createElement('span');
+      valueSpan.textContent = formatDecimal(value);
+      valueCell.appendChild(valueSpan);
+
+      const normalizedCell = document.createElement('td');
+      const normalizedSpan = document.createElement('span');
+      const normalized = maxAbs > 0 ? Math.abs(value) / maxAbs : 0;
+      normalizedSpan.textContent = formatDecimal(normalized);
+      normalizedCell.appendChild(normalizedSpan);
+
+      row.append(indexCell, valueCell, normalizedCell);
+      valueTableBody.appendChild(row);
+    });
+  }
+
+  function updateInsights(vector) {
+    const stats = calculateStats(vector);
+    updateSummary(stats);
+
+    const entries = stats.values.map((value, index) => ({ index: index + 1, value }));
+    const positive = entries
+      .filter((entry) => entry.value > 0)
+      .sort((a, b) => b.value - a.value)
+      .slice(0, 3);
+    const negative = entries
+      .filter((entry) => entry.value < 0)
+      .sort((a, b) => a.value - b.value)
+      .slice(0, 3);
+
+    renderExtrema(positiveList, positive, 'Positive values appear here.');
+    renderExtrema(negativeList, negative, 'Negative values appear here.');
+    renderValueRows(stats.values);
+  }
+
+  function formatVectorForInput(values) {
+    return values.map((value) => formatDecimal(value)).join(', ');
+  }
+
+  function setSampleMeta(description) {
+    if (!sampleMeta) {
+      return;
+    }
+
+    sampleMeta.innerHTML = '';
+    const paragraph = document.createElement('p');
+    paragraph.textContent = description || 'Choose a sample to populate its description.';
+    sampleMeta.appendChild(paragraph);
+  }
+
+  function highlightSampleButtons() {
+    if (!sampleList) {
+      return;
+    }
+
+    const buttons = sampleList.querySelectorAll('.sample-button');
+    buttons.forEach((button) => {
+      const isActive = button.dataset.sampleId === activeSampleId;
+      button.classList.toggle('is-active', isActive);
+      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+  }
+
+  function parseVectorInput(input) {
+    if (typeof input !== 'string') {
+      return [];
+    }
+
+    return input
+      .split(/[,\s]+/)
+      .map((chunk) => Number.parseFloat(chunk))
+      .filter((value) => Number.isFinite(value));
+  }
+
+  function selectSample(sample) {
+    if (!sample) {
+      activeSampleId = '';
+      highlightSampleButtons();
+      updateInsights([]);
+      setSampleMeta('Choose a sample to populate its description.');
+      return;
+    }
+
+    activeSampleId = sample.id;
+    highlightSampleButtons();
+    const vector = Array.isArray(sample.vector) ? sample.vector : [];
+    updateInsights(vector);
+    setSampleMeta(sample.description || '');
+
+    if (embeddingInput) {
+      embeddingInput.value = formatVectorForInput(vector);
+    }
+  }
+
+  function renderSampleToolbar() {
+    if (!sampleList) {
+      return;
+    }
+
+    sampleList.innerHTML = '';
+
+    if (!samples.length) {
+      const placeholder = document.createElement('p');
+      placeholder.className = 'placeholder';
+      placeholder.textContent = 'No curated samples available.';
+      sampleList.appendChild(placeholder);
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+    samples.slice(0, 3).forEach((sample, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'sample-button';
+      button.dataset.sampleId = sample.id;
+      button.textContent = sample.label || `Sample ${index + 1}`;
+      button.addEventListener('click', () => {
+        selectSample(sample);
+      });
+      fragment.appendChild(button);
+    });
+
+    sampleList.appendChild(fragment);
+  }
+
+  function setupSamples() {
+    if (!sampleList || !sampleMeta || !summaryGrid || !valueTableBody) {
+      return;
+    }
+
+    renderSampleToolbar();
+    if (samples.length) {
+      selectSample(samples[0]);
+    } else {
+      updateInsights([]);
+    }
+  }
+
+  function setupManualInput() {
+    if (!updateButton || !embeddingInput) {
+      return;
+    }
+
+    updateButton.addEventListener('click', () => {
+      const values = parseVectorInput(embeddingInput.value);
+      if (!values.length) {
+        activeSampleId = '';
+        highlightSampleButtons();
+        updateInsights([]);
+        setSampleMeta('Enter numbers separated by commas or spaces to update the insights.');
+        return;
+      }
+
+      activeSampleId = '';
+      highlightSampleButtons();
+      updateInsights(values);
+      setSampleMeta('Custom embedding applied.');
+    });
+  }
+
   const datasetCache = new Map();
   let activeDatasetId = '';
   let activeRecordId = '';
@@ -1136,6 +1444,8 @@
     applyFilter();
   });
 
+  setupSamples();
+  setupManualInput();
   populateDatasetSelect();
 
   if (datasetSelect.value) {

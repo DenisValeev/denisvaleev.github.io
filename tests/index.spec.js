@@ -5,7 +5,7 @@ test.describe('Landing page', () => {
     await page.goto('/');
 
     const groupedRows = page.locator('.app-row[data-group]');
-    await expect(groupedRows).toHaveCount(3);
+    await expect(groupedRows).toHaveCount(4);
 
     const expectedRows = [
       {
@@ -25,6 +25,12 @@ test.describe('Landing page', () => {
         label: 'Slang',
         texts: ['🗣️ Slang', 'All Slang'],
         hrefs: ['apps/slang/', 'apps/slang/all-slang.html'],
+      },
+      {
+        group: 'wiki',
+        label: 'Project Wiki',
+        texts: ['📚 Project Wiki'],
+        hrefs: ['apps/wiki/'],
       },
     ];
 
@@ -78,6 +84,6 @@ test.describe('Landing page', () => {
     await expect(valueFormatterButton).not.toContainText('—');
 
     const allButtons = page.locator('a.app-button');
-    await expect(allButtons).toHaveCount(10);
+    await expect(allButtons).toHaveCount(11);
   });
 });
