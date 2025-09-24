@@ -1,3 +1,12 @@
+---
+layout: ai_docs
+title: App catalog
+summary: Mini-app responsibilities and regressions
+nav_order: 3
+permalink: /ai_docs/apps/
+last_updated: 2024-05-07
+---
+
 # App catalog
 
 Each mini app lives under `apps/<name>/` with inline styles, a focused script, and any supporting datasets it needs. The landing page links directly to every `index.html`, and many collections ship an additional `all-*.html` archive that renders the full dataset in a searchable table. This catalog summarises the responsibilities, data dependencies, and regression coverage for each tool.

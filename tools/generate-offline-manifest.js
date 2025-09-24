@@ -5,13 +5,17 @@ const { execFile } = require('child_process');
 const { promisify } = require('util');
 
 const ROOT = process.cwd();
+const BUILD_DIR = '_site';
 const OUTPUT_PATH = path.join(ROOT, 'offline-manifest.json');
-const INCLUDE_DIRECTORIES = ['apps', 'data', path.join('ai_docs', 'docs')];
-const INCLUDE_FILES = ['index.html', 'service-worker.js', path.join('ai_docs', 'index.html')];
+const SITE_ROOT = path.join(ROOT, BUILD_DIR);
+const INCLUDE_DIRECTORIES = ['apps', 'data', 'ai_docs'];
+const INCLUDE_FILES = ['index.html', 'service-worker.js'];
 const ALLOWED_EXTENSIONS = new Set(['.html', '.js', '.json']);
 const execFileAsync = promisify(execFile);
 
 async function main() {
+  await buildSite();
+
   const assets = [];
   const digest = crypto.createHash('sha256');
 
@@ -57,7 +61,7 @@ async function main() {
 }
 
 async function walk(directory, assets, digest) {
-  const absoluteDir = path.join(ROOT, directory);
+  const absoluteDir = path.join(SITE_ROOT, directory);
   let entries;
 
   try {
@@ -76,9 +80,7 @@ async function walk(directory, assets, digest) {
       await walk(entryPath, assets, digest);
     } else if (entry.isFile()) {
       const extension = path.extname(entry.name).toLowerCase();
-      const normalizedEntryPath = toPosixPath(entryPath);
-      const isDocMarkdown = normalizedEntryPath.startsWith('ai_docs/docs/') && extension === '.md';
-      if (!ALLOWED_EXTENSIONS.has(extension) && !isDocMarkdown) {
+      if (!ALLOWED_EXTENSIONS.has(extension)) {
         continue;
       }
 
@@ -88,7 +90,7 @@ async function walk(directory, assets, digest) {
 }
 
 async function addAsset(relativePath, assets, digest) {
-  const absolutePath = path.join(ROOT, relativePath);
+  const absolutePath = path.join(SITE_ROOT, relativePath);
   let stats;
 
   try {
@@ -152,6 +154,23 @@ async function readCommitInfo() {
 
 function toPosixPath(filePath) {
   return filePath.split(path.sep).join('/');
+}
+
+async function buildSite() {
+  const bundleCommand = process.platform === 'win32' ? 'bundle.cmd' : 'bundle';
+  const args = ['exec', 'jekyll', 'build', '--destination', BUILD_DIR];
+
+  try {
+    const { stdout, stderr } = await execFileAsync(bundleCommand, args, { cwd: ROOT });
+    if (stdout) {
+      process.stdout.write(stdout);
+    }
+    if (stderr) {
+      process.stderr.write(stderr);
+    }
+  } catch (error) {
+    throw new Error('Failed to build the Jekyll site. Install Ruby dependencies with "bundle install" and retry.');
+  }
 }
 
 function formatBytes(bytes) {

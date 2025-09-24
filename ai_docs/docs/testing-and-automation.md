@@ -1,3 +1,12 @@
+---
+layout: ai_docs
+title: Testing & automation
+summary: Playwright suite and CI workflows
+nav_order: 5
+permalink: /ai_docs/testing-and-automation/
+last_updated: 2024-05-07
+---
+
 # Testing and automation
 
 Playwright drives the regression coverage for the toolbox, and a handful of Node scripts make it easy to run the suite, capture diagnostics, and keep the offline bundle up to date. This guide summarises the workflows.

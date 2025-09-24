@@ -1,0 +1,31 @@
+# Jekyll configuration for the toolbox site
+
+# Site metadata
+name: "denisvaleev.github.io"
+title: "denisvaleev.github.io"
+description: "Static toolbox of browser-based utilities and documentation."
+baseurl: ""
+url: ""
+
+# Markdown processing
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Output options
+permalink: pretty
+
+# Directories that should be ignored when building the site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package-lock.json
+  - package.json
+  - playwright-report
+  - test-results
+  - tools
+  - tests
+
+# Keep everything else so existing static assets ship unchanged

@@ -1,3 +1,12 @@
+---
+layout: ai_docs
+title: Overview
+summary: Start here
+nav_order: 1
+permalink: /ai_docs/
+last_updated: 2024-05-07
+---
+
 # Toolbox documentation hub
 
 The Toolbox repository hosts a static collection of mini web applications that run entirely in the browser. The landing page (`index.html`) exposes curated cards for every tool, while each app ships as a standalone HTML document with inline styles and a lightweight script bundle. Datasets, embeddings, and similarity reports live under `data/`, and a service worker keeps the full bundle available offline.

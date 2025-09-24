@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toolbox Documentation</title>
+  <title>{% if page.title %}{{ page.title | escape }} • {% endif %}Toolbox Documentation</title>
   <style>
     :root {
       color-scheme: light dark;
@@ -125,6 +125,11 @@
       gap: 6px;
     }
 
+    nav.doc-nav li {
+      margin: 0;
+      padding: 0;
+    }
+
     nav.doc-nav a {
       display: flex;
       align-items: center;
@@ -177,7 +182,7 @@
     section.doc-content header.content-meta {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 6px;
     }
 
     section.doc-content header.content-meta h2 {
@@ -189,6 +194,10 @@
       margin: 0;
       color: var(--text-muted);
       font-size: 0.95rem;
+    }
+
+    section.doc-content header.content-meta p.doc-updated {
+      font-size: 0.85rem;
     }
 
     article.markdown-body {
@@ -265,12 +274,6 @@
       background: transparent;
     }
 
-    .doc-status {
-      min-height: 1.4em;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
     @media (max-width: 960px) {
       main.doc-shell {
         grid-template-columns: 1fr;
@@ -296,179 +299,35 @@
     <div class="doc-layout">
       <nav class="doc-nav" aria-label="Documentation navigation">
         <h2>Guides</h2>
-        <ul data-doc-nav></ul>
+        <ul>
+          {% assign guides = site.pages | where_exp: "doc", "doc.path contains 'ai_docs/docs/'" | sort: "nav_order" %}
+          {% for guide in guides %}
+            <li>
+              <a href="{{ guide.url | relative_url }}"{% if guide.url == page.url %} class="is-active" aria-current="page"{% endif %}>
+                {{ guide.title }}
+                {% if guide.summary %}
+                  <span class="badge">{{ guide.summary }}</span>
+                {% endif %}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
       </nav>
       <section class="doc-content" aria-live="polite">
         <header class="content-meta">
-          <h2 data-doc-title>Loading…</h2>
-          <p data-doc-updated hidden></p>
+          <h2>{{ page.title }}</h2>
+          {% if page.summary %}
+            <p class="doc-summary">{{ page.summary }}</p>
+          {% endif %}
+          {% if page.last_updated %}
+            <p class="doc-updated">Last updated {{ page.last_updated | date: "%B %-d, %Y" }}</p>
+          {% endif %}
         </header>
-        <p class="doc-status" data-doc-status></p>
-        <article class="markdown-body" data-doc-content>
-          <p>Select a guide from the navigation to load documentation.</p>
+        <article class="markdown-body">
+          {{ content }}
         </article>
       </section>
     </div>
   </main>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (function () {
-      const docListEl = document.querySelector('[data-doc-nav]');
-      const contentEl = document.querySelector('[data-doc-content]');
-      const titleEl = document.querySelector('[data-doc-title]');
-      const updatedEl = document.querySelector('[data-doc-updated]');
-      const statusEl = document.querySelector('[data-doc-status]');
-
-      if (!docListEl || !contentEl || !titleEl || !updatedEl || !statusEl) {
-        return;
-      }
-
-      const guides = [
-        { id: 'overview', title: 'Overview', file: 'docs/overview.md', summary: 'Start here' },
-        { id: 'architecture', title: 'Site architecture', file: 'docs/architecture.md', summary: 'How the landing page, manifest, and worker interact' },
-        { id: 'apps', title: 'App catalog', file: 'docs/apps.md', summary: 'Mini-app responsibilities and regressions' },
-        { id: 'data-maintenance', title: 'Data maintenance', file: 'docs/data-maintenance.md', summary: 'Datasets, manifests, and embeddings' },
-        { id: 'testing-automation', title: 'Testing & automation', file: 'docs/testing-and-automation.md', summary: 'Playwright suite and CI workflows' },
-        { id: 'development-guide', title: 'Development guide', file: 'docs/development-guide.md', summary: 'Coding conventions and contributor tasks' }
-      ];
-
-      const guideMap = new Map(guides.map((guide) => [guide.id, guide]));
-
-      function renderNav() {
-        docListEl.innerHTML = '';
-        guides.forEach((guide) => {
-          const item = document.createElement('li');
-          const link = document.createElement('a');
-          link.href = `#${guide.id}`;
-          link.dataset.docId = guide.id;
-          link.textContent = guide.title;
-
-          if (guide.summary) {
-            const badge = document.createElement('span');
-            badge.className = 'badge';
-            badge.textContent = guide.summary;
-            link.appendChild(badge);
-          }
-
-          link.addEventListener('click', (event) => {
-            event.preventDefault();
-            loadGuide(guide.id, { pushState: true });
-          });
-
-          item.appendChild(link);
-          docListEl.appendChild(item);
-        });
-      }
-
-      function setActive(id) {
-        const links = docListEl.querySelectorAll('a[data-doc-id]');
-        links.forEach((link) => {
-          const isActive = link.dataset.docId === id;
-          link.classList.toggle('is-active', isActive);
-          if (isActive) {
-            link.setAttribute('aria-current', 'page');
-          } else {
-            link.removeAttribute('aria-current');
-          }
-        });
-      }
-
-      function formatUpdated(text) {
-        if (!text) {
-          return '';
-        }
-        try {
-          const date = new Date(text);
-          if (!Number.isNaN(date.getTime())) {
-            return `Last updated ${date.toLocaleString()}`;
-          }
-        } catch (error) {
-          return '';
-        }
-        return '';
-      }
-
-      async function loadGuide(id, options = {}) {
-        const guide = guideMap.get(id) || guides[0];
-        if (!guide) {
-          return;
-        }
-
-        if (options.pushState) {
-          window.history.pushState({ docId: guide.id }, '', `#${guide.id}`);
-        } else if (window.location.hash.replace('#', '') !== guide.id) {
-          window.history.replaceState({ docId: guide.id }, '', `#${guide.id}`);
-        }
-
-        statusEl.textContent = 'Loading…';
-        updatedEl.hidden = true;
-        updatedEl.textContent = '';
-
-        try {
-          const response = await fetch(guide.file, { cache: 'no-cache' });
-          if (!response.ok) {
-            throw new Error(`Failed to load ${guide.file}`);
-          }
-
-          const text = await response.text();
-          const parsed = typeof marked !== 'undefined' && marked && typeof marked.parse === 'function'
-            ? marked.parse(text)
-            : text;
-
-          contentEl.innerHTML = parsed;
-          titleEl.textContent = guide.title;
-          setActive(guide.id);
-          statusEl.textContent = '';
-
-          const lastModified = response.headers.get('last-modified');
-          const fallback = formatUpdated(lastModified);
-          if (fallback) {
-            updatedEl.textContent = fallback;
-            updatedEl.hidden = false;
-          } else {
-            const nowLabel = `Loaded ${new Date().toLocaleString()}`;
-            updatedEl.textContent = nowLabel;
-            updatedEl.hidden = false;
-          }
-        } catch (error) {
-          console.error(error);
-          contentEl.innerHTML = '<p>Failed to load the requested guide. Please try again.</p>';
-          titleEl.textContent = guide.title;
-          statusEl.textContent = 'An error occurred while loading the guide.';
-          setActive(guide.id);
-        }
-      }
-
-      function getInitialGuideId() {
-        const hash = window.location.hash.replace('#', '').trim();
-        if (hash && guideMap.has(hash)) {
-          return hash;
-        }
-        const state = window.history.state;
-        if (state && typeof state.docId === 'string' && guideMap.has(state.docId)) {
-          return state.docId;
-        }
-        return guides[0] ? guides[0].id : '';
-      }
-
-      window.addEventListener('popstate', (event) => {
-        const state = event.state;
-        if (state && state.docId && guideMap.has(state.docId)) {
-          loadGuide(state.docId, { pushState: false });
-        } else {
-          const fallbackId = getInitialGuideId();
-          if (fallbackId) {
-            loadGuide(fallbackId, { pushState: false });
-          }
-        }
-      });
-
-      renderNav();
-      const initialId = getInitialGuideId();
-      if (initialId) {
-        loadGuide(initialId, { pushState: false });
-      }
-    })();
-  </script>
 </body>
 </html>
