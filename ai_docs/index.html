@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toolbox Documentation</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --background: #0b1020;
+      --background-gradient: radial-gradient(circle at top, rgba(74, 99, 255, 0.28), rgba(8, 11, 26, 0.94) 60%);
+      --surface: rgba(15, 23, 42, 0.92);
+      --surface-border: rgba(148, 163, 209, 0.2);
+      --surface-shadow: 0 32px 70px rgba(8, 11, 26, 0.5);
+      --sidebar-surface: rgba(15, 23, 42, 0.82);
+      --text-primary: #e2e8f0;
+      --text-muted: rgba(203, 213, 225, 0.72);
+      --divider: rgba(148, 163, 209, 0.16);
+      --accent: #4a63ff;
+      --accent-soft: rgba(74, 99, 255, 0.16);
+      --badge-bg: rgba(74, 99, 255, 0.16);
+      --badge-text: #e2e8f0;
+      --code-bg: rgba(30, 41, 59, 0.7);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --background: #f4f7ff;
+        --background-gradient: radial-gradient(circle at top, rgba(74, 99, 255, 0.18), rgba(196, 204, 255, 0.42) 70%);
+        --surface: rgba(255, 255, 255, 0.92);
+        --surface-border: rgba(74, 99, 255, 0.16);
+        --surface-shadow: 0 26px 56px rgba(15, 23, 42, 0.16);
+        --sidebar-surface: rgba(255, 255, 255, 0.86);
+        --text-primary: #0f172a;
+        --text-muted: rgba(51, 65, 85, 0.7);
+        --divider: rgba(74, 99, 255, 0.14);
+        --accent: #3b59ff;
+        --accent-soft: rgba(74, 99, 255, 0.14);
+        --badge-bg: rgba(74, 99, 255, 0.12);
+        --badge-text: #1f2937;
+        --code-bg: rgba(15, 23, 42, 0.08);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(18px, 4vw, 42px);
+      background: var(--background-gradient);
+      background-color: var(--background);
+      color: var(--text-primary);
+    }
+
+    main.doc-shell {
+      width: min(1180px, 100%);
+      display: grid;
+      grid-template-columns: minmax(220px, 280px) 1fr;
+      gap: clamp(18px, 3vw, 32px);
+      background: var(--surface);
+      border-radius: 28px;
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--surface-shadow);
+      backdrop-filter: blur(16px);
+      padding: clamp(18px, 3vw, 32px);
+    }
+
+    header.doc-header {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-bottom: 1px solid var(--divider);
+      padding-bottom: clamp(12px, 2vw, 20px);
+    }
+
+    header.doc-header h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 2vw + 1.6rem, 2.6rem);
+    }
+
+    header.doc-header p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: clamp(1rem, 0.35vw + 0.9rem, 1.1rem);
+    }
+
+    .doc-layout {
+      display: contents;
+    }
+
+    nav.doc-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: var(--sidebar-surface);
+      border-radius: 20px;
+      border: 1px solid var(--surface-border);
+      padding: clamp(14px, 2vw, 18px);
+      height: fit-content;
+      align-self: start;
+    }
+
+    nav.doc-nav h2 {
+      margin: 0;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    nav.doc-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    nav.doc-nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+      background: transparent;
+      font-weight: 600;
+      transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+    }
+
+    nav.doc-nav a span.badge {
+      margin-left: auto;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    nav.doc-nav a:hover {
+      background: var(--accent-soft);
+      transform: translateX(2px);
+    }
+
+    nav.doc-nav a:focus-visible {
+      outline: none;
+      background: var(--accent-soft);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    nav.doc-nav a.is-active {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    section.doc-content {
+      background: rgba(15, 23, 42, 0.45);
+      border-radius: 22px;
+      border: 1px solid var(--surface-border);
+      padding: clamp(18px, 3vw, 28px);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    section.doc-content header.content-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    section.doc-content header.content-meta h2 {
+      margin: 0;
+      font-size: clamp(1.4rem, 1vw + 1.2rem, 1.8rem);
+    }
+
+    section.doc-content header.content-meta p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    article.markdown-body {
+      display: block;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+    }
+
+    article.markdown-body h1,
+    article.markdown-body h2,
+    article.markdown-body h3,
+    article.markdown-body h4 {
+      color: var(--text-primary);
+      margin-top: 2em;
+      margin-bottom: 0.6em;
+      line-height: 1.3;
+    }
+
+    article.markdown-body h1:first-child {
+      margin-top: 0;
+    }
+
+    article.markdown-body p {
+      margin: 0 0 1em;
+    }
+
+    article.markdown-body ul,
+    article.markdown-body ol {
+      padding-left: 1.4rem;
+      margin: 0 0 1em;
+    }
+
+    article.markdown-body li + li {
+      margin-top: 0.4em;
+    }
+
+    article.markdown-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5em 0;
+      font-size: 0.95rem;
+    }
+
+    article.markdown-body th,
+    article.markdown-body td {
+      border: 1px solid var(--divider);
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    article.markdown-body th {
+      background: rgba(74, 99, 255, 0.12);
+    }
+
+    article.markdown-body pre {
+      background: var(--code-bg);
+      border-radius: 12px;
+      padding: 14px;
+      overflow-x: auto;
+      margin: 1.4em 0;
+      font-size: 0.95rem;
+    }
+
+    article.markdown-body code {
+      font-family: "JetBrains Mono", "Fira Code", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: var(--code-bg);
+      padding: 2px 4px;
+      border-radius: 6px;
+    }
+
+    article.markdown-body pre code {
+      padding: 0;
+      background: transparent;
+    }
+
+    .doc-status {
+      min-height: 1.4em;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 960px) {
+      main.doc-shell {
+        grid-template-columns: 1fr;
+      }
+
+      nav.doc-nav {
+        position: relative;
+        width: 100%;
+      }
+
+      section.doc-content {
+        background: rgba(15, 23, 42, 0.55);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="doc-shell">
+    <header class="doc-header">
+      <h1>Toolbox knowledge base</h1>
+      <p>Authoritative documentation for the denisvaleev.github.io toolbox. Select a guide to learn how the apps, datasets, and tooling fit together.</p>
+    </header>
+    <div class="doc-layout">
+      <nav class="doc-nav" aria-label="Documentation navigation">
+        <h2>Guides</h2>
+        <ul data-doc-nav></ul>
+      </nav>
+      <section class="doc-content" aria-live="polite">
+        <header class="content-meta">
+          <h2 data-doc-title>Loading…</h2>
+          <p data-doc-updated hidden></p>
+        </header>
+        <p class="doc-status" data-doc-status></p>
+        <article class="markdown-body" data-doc-content>
+          <p>Select a guide from the navigation to load documentation.</p>
+        </article>
+      </section>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    (function () {
+      const docListEl = document.querySelector('[data-doc-nav]');
+      const contentEl = document.querySelector('[data-doc-content]');
+      const titleEl = document.querySelector('[data-doc-title]');
+      const updatedEl = document.querySelector('[data-doc-updated]');
+      const statusEl = document.querySelector('[data-doc-status]');
+
+      if (!docListEl || !contentEl || !titleEl || !updatedEl || !statusEl) {
+        return;
+      }
+
+      const guides = [
+        { id: 'overview', title: 'Overview', file: 'docs/overview.md', summary: 'Start here' },
+        { id: 'architecture', title: 'Site architecture', file: 'docs/architecture.md', summary: 'How the landing page, manifest, and worker interact' },
+        { id: 'apps', title: 'App catalog', file: 'docs/apps.md', summary: 'Mini-app responsibilities and regressions' },
+        { id: 'data-maintenance', title: 'Data maintenance', file: 'docs/data-maintenance.md', summary: 'Datasets, manifests, and embeddings' },
+        { id: 'testing-automation', title: 'Testing & automation', file: 'docs/testing-and-automation.md', summary: 'Playwright suite and CI workflows' },
+        { id: 'development-guide', title: 'Development guide', file: 'docs/development-guide.md', summary: 'Coding conventions and contributor tasks' }
+      ];
+
+      const guideMap = new Map(guides.map((guide) => [guide.id, guide]));
+
+      function renderNav() {
+        docListEl.innerHTML = '';
+        guides.forEach((guide) => {
+          const item = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = `#${guide.id}`;
+          link.dataset.docId = guide.id;
+          link.textContent = guide.title;
+
+          if (guide.summary) {
+            const badge = document.createElement('span');
+            badge.className = 'badge';
+            badge.textContent = guide.summary;
+            link.appendChild(badge);
+          }
+
+          link.addEventListener('click', (event) => {
+            event.preventDefault();
+            loadGuide(guide.id, { pushState: true });
+          });
+
+          item.appendChild(link);
+          docListEl.appendChild(item);
+        });
+      }
+
+      function setActive(id) {
+        const links = docListEl.querySelectorAll('a[data-doc-id]');
+        links.forEach((link) => {
+          const isActive = link.dataset.docId === id;
+          link.classList.toggle('is-active', isActive);
+          if (isActive) {
+            link.setAttribute('aria-current', 'page');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      }
+
+      function formatUpdated(text) {
+        if (!text) {
+          return '';
+        }
+        try {
+          const date = new Date(text);
+          if (!Number.isNaN(date.getTime())) {
+            return `Last updated ${date.toLocaleString()}`;
+          }
+        } catch (error) {
+          return '';
+        }
+        return '';
+      }
+
+      async function loadGuide(id, options = {}) {
+        const guide = guideMap.get(id) || guides[0];
+        if (!guide) {
+          return;
+        }
+
+        if (options.pushState) {
+          window.history.pushState({ docId: guide.id }, '', `#${guide.id}`);
+        } else if (window.location.hash.replace('#', '') !== guide.id) {
+          window.history.replaceState({ docId: guide.id }, '', `#${guide.id}`);
+        }
+
+        statusEl.textContent = 'Loading…';
+        updatedEl.hidden = true;
+        updatedEl.textContent = '';
+
+        try {
+          const response = await fetch(guide.file, { cache: 'no-cache' });
+          if (!response.ok) {
+            throw new Error(`Failed to load ${guide.file}`);
+          }
+
+          const text = await response.text();
+          const parsed = typeof marked !== 'undefined' && marked && typeof marked.parse === 'function'
+            ? marked.parse(text)
+            : text;
+
+          contentEl.innerHTML = parsed;
+          titleEl.textContent = guide.title;
+          setActive(guide.id);
+          statusEl.textContent = '';
+
+          const lastModified = response.headers.get('last-modified');
+          const fallback = formatUpdated(lastModified);
+          if (fallback) {
+            updatedEl.textContent = fallback;
+            updatedEl.hidden = false;
+          } else {
+            const nowLabel = `Loaded ${new Date().toLocaleString()}`;
+            updatedEl.textContent = nowLabel;
+            updatedEl.hidden = false;
+          }
+        } catch (error) {
+          console.error(error);
+          contentEl.innerHTML = '<p>Failed to load the requested guide. Please try again.</p>';
+          titleEl.textContent = guide.title;
+          statusEl.textContent = 'An error occurred while loading the guide.';
+          setActive(guide.id);
+        }
+      }
+
+      function getInitialGuideId() {
+        const hash = window.location.hash.replace('#', '').trim();
+        if (hash && guideMap.has(hash)) {
+          return hash;
+        }
+        const state = window.history.state;
+        if (state && typeof state.docId === 'string' && guideMap.has(state.docId)) {
+          return state.docId;
+        }
+        return guides[0] ? guides[0].id : '';
+      }
+
+      window.addEventListener('popstate', (event) => {
+        const state = event.state;
+        if (state && state.docId && guideMap.has(state.docId)) {
+          loadGuide(state.docId, { pushState: false });
+        } else {
+          const fallbackId = getInitialGuideId();
+          if (fallbackId) {
+            loadGuide(fallbackId, { pushState: false });
+          }
+        }
+      });
+
+      renderNav();
+      const initialId = getInitialGuideId();
+      if (initialId) {
+        loadGuide(initialId, { pushState: false });
+      }
+    })();
+  </script>
+</body>
+</html>
