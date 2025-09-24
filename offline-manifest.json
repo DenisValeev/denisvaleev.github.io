@@ -1,8 +1,8 @@
 {
-  "version": "20250924-94607b8904c8-9cd823bc3f60",
-  "generatedAt": "2025-09-24T01:11:26.143Z",
+  "version": "20250924-e662046b0a35-e50aee8035fb",
+  "generatedAt": "2025-09-24T01:12:14.660Z",
   "totalAssets": 55,
-  "totalBytes": 5825950,
+  "totalBytes": 6115123,
   "assets": [
     {
       "path": "apps/asset-observatory/app.js",
@@ -94,7 +94,7 @@
     },
     {
       "path": "apps/slang/slang.js",
-      "bytes": 21613
+      "bytes": 43586
     },
     {
       "path": "apps/value-formatter/index.html",
@@ -186,11 +186,11 @@
     },
     {
       "path": "data/similarity-report-slang-hfspace.json",
-      "bytes": 206
+      "bytes": 205
     },
     {
       "path": "data/similarity-report-slang-s128.json",
-      "bytes": 163
+      "bytes": 162
     },
     {
       "path": "data/similarity-report-slang.json",
@@ -198,19 +198,19 @@
     },
     {
       "path": "data/slang-embeddings-hfspace.json",
-      "bytes": 230063
+      "bytes": 352314
     },
     {
       "path": "data/slang-embeddings-synthetic128.json",
-      "bytes": 97762
+      "bytes": 149663
     },
     {
       "path": "data/slang-embeddings.json",
-      "bytes": 65612
+      "bytes": 100413
     },
     {
       "path": "data/slang-manifest.json",
-      "bytes": 61664
+      "bytes": 119913
     },
     {
       "path": "data/test-runs/latest.json",
@@ -226,8 +226,8 @@
     }
   ],
   "commit": {
-    "hash": "9cd823bc3f602ad04a5448753568ff090b920ea3",
-    "short": "9cd823bc3f60",
+    "hash": "e50aee8035fbaea1eef7f2caf0b653ab5fca25bd",
+    "short": "e50aee8035fb",
     "dirty": false
   }
 }
