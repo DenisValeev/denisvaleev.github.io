@@ -1,9 +1,37 @@
 {
-  "version": "20250924-ca56c4120de6-717affbc58af",
-  "generatedAt": "2025-09-24T03:37:40.493Z",
-  "totalAssets": 58,
-  "totalBytes": 6266481,
+  "version": "20250924-53bfea517b5a-d2a5aa91e1b3-dirty",
+  "generatedAt": "2025-09-24T03:35:57.931Z",
+  "totalAssets": 65,
+  "totalBytes": 6299678,
   "assets": [
+    {
+      "path": "ai_docs/docs/apps.md",
+      "bytes": 7338
+    },
+    {
+      "path": "ai_docs/docs/architecture.md",
+      "bytes": 4464
+    },
+    {
+      "path": "ai_docs/docs/data-maintenance.md",
+      "bytes": 5139
+    },
+    {
+      "path": "ai_docs/docs/development-guide.md",
+      "bytes": 3577
+    },
+    {
+      "path": "ai_docs/docs/overview.md",
+      "bytes": 3231
+    },
+    {
+      "path": "ai_docs/docs/testing-and-automation.md",
+      "bytes": 3683
+    },
+    {
+      "path": "ai_docs/index.html",
+      "bytes": 13942
+    },
     {
       "path": "apps/asset-observatory/app.js",
       "bytes": 21252
@@ -230,7 +258,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 38624
+      "bytes": 30447
     },
     {
       "path": "service-worker.js",
@@ -238,8 +266,8 @@
     }
   ],
   "commit": {
-    "hash": "717affbc58afb6c05b9c6c5e3f9c82c10511f1c8",
-    "short": "717affbc58af",
-    "dirty": false
+    "hash": "d2a5aa91e1b3ac507a160e43457e4a1af6043419",
+    "short": "d2a5aa91e1b3",
+    "dirty": true
   }
 }
