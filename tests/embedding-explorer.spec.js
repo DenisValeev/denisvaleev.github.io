@@ -47,4 +47,36 @@ test.describe('Embedding Explorer app', () => {
     await expect(firstRow.locator('td').nth(1).locator('span')).toHaveText('1.000');
     await expect(firstRow.locator('td').nth(2).locator('span')).toHaveText('0.333');
   });
+
+  test('lists the top ten neighbors for a dataset vector', async ({ page }) => {
+    await page.goto('/apps/embedding-explorer/');
+
+    const datasetSelect = page.getByLabel('Embedding collection');
+    const recordFilter = page.getByLabel('Filter by id or hash');
+    await expect(recordFilter).toBeEnabled();
+
+    const jokesOptions = await datasetSelect.locator('option').evaluateAll((options) =>
+      options.map((option) => ({ value: option.value, label: option.label }))
+    );
+
+    for (const option of jokesOptions.filter((entry) => entry.value.startsWith('jokes-'))) {
+      await datasetSelect.selectOption(option.value);
+      await expect(recordFilter).toBeEnabled();
+
+      await recordFilter.fill('j-0907');
+      const recordButton = page
+        .locator('[data-record-list] .record-button')
+        .filter({ hasText: /^j-0907/ })
+        .first();
+      await expect(recordButton).toBeVisible();
+      await recordButton.click();
+
+      const neighborButtons = page.locator('[data-neighbor-list] .neighbor-button');
+      await expect(neighborButtons).toHaveCount(11);
+      await expect(neighborButtons.first()).toContainText('Selected vector');
+      await expect(page.locator('[data-neighbor-status]')).toContainText('Selected vector and top 10 matches for j-0907.');
+
+      await recordFilter.fill('');
+    }
+  });
 });

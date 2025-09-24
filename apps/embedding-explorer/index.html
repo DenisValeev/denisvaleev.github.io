@@ -334,6 +334,11 @@
       transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
     }
 
+    .neighbor-button[disabled] {
+      cursor: default;
+      opacity: 1;
+    }
+
     .record-button:hover,
     .neighbor-button:hover {
       transform: translateY(-1px);
@@ -353,6 +358,14 @@
       color: var(--accent-contrast);
       border-color: var(--accent);
       box-shadow: 0 14px 24px color-mix(in srgb, var(--accent) 35%, transparent);
+    }
+
+    .neighbor-button__self {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--accent-contrast) 75%, transparent);
     }
 
     .record-button[data-active="true"] .record-button__meta,
