@@ -1,19 +1,19 @@
 window.assetObservatoryData = {
-  "generatedAt": "2025-09-25T04:07:10.465Z",
+  "generatedAt": "2025-09-25T12:21:16.625Z",
   "datasets": [
     {
       "id": "jokes",
       "label": "Dad Jokes",
       "dataset": {
         "path": "apps/jokes/jokes.js",
-        "bytes": 151888
+        "bytes": 132022
       },
       "manifest": {
         "path": "data/jokes-manifest.json",
-        "bytes": 567558,
-        "generatedAt": "2025-09-23T04:05:28.246Z"
+        "bytes": 530077,
+        "generatedAt": "2025-09-25T03:51:46.642Z"
       },
-      "entries": 850,
+      "entries": 794,
       "embeddings": [
         {
           "path": "data/jokes-embeddings.json",
@@ -49,9 +49,9 @@ window.assetObservatoryData = {
           "provider": "hfspace",
           "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
           "threshold": 0.5,
-          "pairs": 120,
-          "bytes": 34468,
-          "generatedAt": "2025-09-25T02:55:49.612Z"
+          "pairs": 96,
+          "bytes": 27279,
+          "generatedAt": "2025-09-25T04:12:14.839Z"
         },
         {
           "path": "data/similarity-report-jokes-openai.json",
@@ -87,8 +87,8 @@ window.assetObservatoryData = {
       "totals": {
         "embeddingBytes": 1830205,
         "embeddingVectors": 2600,
-        "similarityBytes": 179402,
-        "similarityPairs": 624
+        "similarityBytes": 172213,
+        "similarityPairs": 600
       }
     },
     {
@@ -349,17 +349,17 @@ window.assetObservatoryData = {
   ],
   "totals": {
     "datasets": 3,
-    "entries": 1681,
-    "datasetBytes": 328157,
-    "manifestBytes": 1208192,
+    "entries": 1625,
+    "datasetBytes": 308291,
+    "manifestBytes": 1170711,
     "embeddingVectors": 4467,
     "embeddingBytes": 3677166,
     "embeddingStores": 9,
-    "similarityPairs": 818,
-    "similarityBytes": 244250,
+    "similarityPairs": 794,
+    "similarityBytes": 237061,
     "similarityReports": 12,
     "totalFiles": 30,
-    "totalBytes": 5674005,
+    "totalBytes": 5609469,
     "providerCount": 4
   }
 };
