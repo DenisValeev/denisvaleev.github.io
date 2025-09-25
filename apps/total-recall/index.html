@@ -99,24 +99,6 @@
       box-shadow: 0 0 0 3px rgba(74, 99, 255, 0.18);
     }
 
-    .app-header {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .app-header h1 {
-      margin: 0;
-      font-size: clamp(1.9rem, 2.4vw + 1.2rem, 2.6rem);
-      font-weight: 700;
-    }
-
-    .app-header p {
-      margin: 0;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
     .visually-hidden {
       position: absolute;
       width: 1px;
@@ -365,12 +347,8 @@
         <span>Home</span>
       </a>
     </nav>
-    <header class="app-header">
-      <h1>Total Recall</h1>
-    </header>
     <article class="card" aria-live="polite">
       <div class="card__meta">
-        <span>Memory card</span>
         <span id="card-counter" data-counter>0 of 0</span>
       </div>
       <div class="card__body">

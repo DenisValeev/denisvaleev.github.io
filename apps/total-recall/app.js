@@ -24,6 +24,7 @@
   }
 
   const STORAGE_KEY = 'total-recall-notes';
+  const STATE_KEY = 'total-recall-state';
   const DEFAULT_NOTES = [
     "Why don't scientists trust atoms? Because they make up everything.",
     "I told my computer I needed a break, and it said 'No problem — I'll go to sleep.'",
@@ -31,7 +32,7 @@
   ].join('\n\n');
 
   let entries = [];
-  let deck = [];
+  let deckOrder = [];
   let index = 0;
 
   function setStatus(message) {
@@ -44,6 +45,22 @@
     } catch (error) {
       console.error('Failed to access localStorage', error); // eslint-disable-line no-console
       return null;
+    }
+  }
+
+  function safeSetItem(key, value) {
+    try {
+      localStorage.setItem(key, value);
+    } catch (error) {
+      console.error('Failed to write to localStorage', error); // eslint-disable-line no-console
+    }
+  }
+
+  function safeRemoveItem(key) {
+    try {
+      localStorage.removeItem(key);
+    } catch (error) {
+      console.error('Failed to remove item from localStorage', error); // eslint-disable-line no-console
     }
   }
 
@@ -67,20 +84,94 @@
     return copy;
   }
 
-  function resetDeck() {
+  function createSequentialDeck() {
+    return entries.map((_, entryIndex) => entryIndex);
+  }
+
+  function clampIndex(value, length) {
+    if (length <= 0) {
+      return 0;
+    }
+
+    const number = Number(value);
+    if (!Number.isFinite(number)) {
+      return 0;
+    }
+
+    const integer = Math.trunc(number);
+    if (integer < 0) {
+      return 0;
+    }
+
+    if (integer >= length) {
+      return length - 1;
+    }
+
+    return integer;
+  }
+
+  function sanitizeStoredDeck(order) {
+    if (!Array.isArray(order) || order.length !== entries.length) {
+      return null;
+    }
+
+    const seen = new Set();
+    const sanitized = [];
+
+    for (let i = 0; i < order.length; i += 1) {
+      const value = Number(order[i]);
+      if (!Number.isInteger(value) || value < 0 || value >= entries.length || seen.has(value)) {
+        return null;
+      }
+      seen.add(value);
+      sanitized.push(value);
+    }
+
+    return sanitized;
+  }
+
+  function loadState() {
+    const raw = safeGetItem(STATE_KEY);
+    if (typeof raw !== 'string' || raw.length === 0) {
+      return null;
+    }
+
+    try {
+      return JSON.parse(raw);
+    } catch (error) {
+      console.error('Failed to parse saved deck state', error); // eslint-disable-line no-console
+      return null;
+    }
+  }
+
+  function saveState() {
+    if (!entries.length || deckOrder.length !== entries.length) {
+      safeRemoveItem(STATE_KEY);
+      return;
+    }
+
+    const payload = JSON.stringify({ deck: deckOrder, index });
+    safeSetItem(STATE_KEY, payload);
+  }
+
+  function ensureDeck() {
     if (!entries.length) {
-      deck = [];
+      deckOrder = [];
       index = 0;
       return;
     }
 
-    deck = shuffle(entries);
-    index = 0;
-  }
+    const expectedLength = entries.length;
+    if (deckOrder.length !== expectedLength) {
+      deckOrder = createSequentialDeck();
+      index = 0;
+      saveState();
+      return;
+    }
 
-  function ensureDeck() {
-    if (!deck.length) {
-      resetDeck();
+    if (index < 0 || index >= deckOrder.length) {
+      index = clampIndex(index, deckOrder.length);
+      saveState();
     }
   }
 
@@ -100,15 +191,22 @@
     }
 
     ensureDeck();
-    const current = deck[index];
+
+    if (!deckOrder.length) {
+      renderEmptyState();
+      return;
+    }
+
+    const currentEntryIndex = deckOrder[index];
+    const current = entries[currentEntryIndex];
 
     entryEl.textContent = current;
     entryEl.classList.remove('is-empty');
-    counterEl.textContent = `${index + 1} of ${deck.length}`;
-    const disableNav = deck.length <= 1;
+    counterEl.textContent = `${index + 1} of ${deckOrder.length}`;
+    const disableNav = deckOrder.length <= 1;
     prevButton.disabled = disableNav;
     nextButton.disabled = disableNav;
-    shuffleButton.disabled = deck.length <= 1;
+    shuffleButton.disabled = deckOrder.length <= 1;
   }
 
   function showNext() {
@@ -116,7 +214,11 @@
       return;
     }
     ensureDeck();
-    index = (index + 1) % deck.length;
+    if (!deckOrder.length) {
+      return;
+    }
+    index = (index + 1) % deckOrder.length;
+    saveState();
     render();
   }
 
@@ -125,7 +227,11 @@
       return;
     }
     ensureDeck();
-    index = (index - 1 + deck.length) % deck.length;
+    if (!deckOrder.length) {
+      return;
+    }
+    index = (index - 1 + deckOrder.length) % deckOrder.length;
+    saveState();
     render();
   }
 
@@ -133,25 +239,44 @@
     if (entries.length <= 1) {
       return;
     }
-    deck = shuffle(entries);
+    deckOrder = shuffle(createSequentialDeck());
     index = 0;
+    saveState();
     render();
     setStatus('Deck reshuffled.');
   }
 
-  function updateEntriesFrom(raw) {
+  function updateEntriesFrom(raw, storedState = null) {
     entries = parseNotes(raw);
-    resetDeck();
+
+    if (!entries.length) {
+      deckOrder = [];
+      index = 0;
+      render();
+      safeRemoveItem(STATE_KEY);
+      return;
+    }
+
+    let nextDeck = createSequentialDeck();
+    let nextIndex = 0;
+
+    if (storedState && typeof storedState === 'object') {
+      const sanitizedDeck = sanitizeStoredDeck(storedState.deck);
+      if (sanitizedDeck) {
+        nextDeck = sanitizedDeck;
+        nextIndex = clampIndex(storedState.index, nextDeck.length);
+      }
+    }
+
+    deckOrder = nextDeck;
+    index = nextIndex;
     render();
+    saveState();
   }
 
   function handleSave() {
     const raw = notesInput.value;
-    try {
-      localStorage.setItem(STORAGE_KEY, raw);
-    } catch (error) {
-      console.error('Failed to save notes to localStorage', error); // eslint-disable-line no-console
-    }
+    safeSetItem(STORAGE_KEY, raw);
     updateEntriesFrom(raw);
     const count = entries.length;
     if (count === 0) {
@@ -165,11 +290,7 @@
 
   function handleClear() {
     notesInput.value = '';
-    try {
-      localStorage.setItem(STORAGE_KEY, '');
-    } catch (error) {
-      console.error('Failed to clear notes in localStorage', error); // eslint-disable-line no-console
-    }
+    safeSetItem(STORAGE_KEY, '');
     updateEntriesFrom('');
     setStatus('Cleared notes. Add new entries to continue.');
   }
@@ -198,5 +319,6 @@
   const initialNotes = storedNotes !== null ? storedNotes : DEFAULT_NOTES;
   notesInput.value = initialNotes;
   setStatus('');
-  updateEntriesFrom(initialNotes);
+  const storedDeckState = loadState();
+  updateEntriesFrom(initialNotes, storedDeckState);
 })();
