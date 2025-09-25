@@ -75,6 +75,34 @@
       gap: 20px;
     }
 
+    .category-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .category-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: rgba(48, 86, 211, 0.12);
+      color: var(--accent);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .category-pill {
+        background: rgba(112, 132, 255, 0.18);
+        color: #b8c1ff;
+      }
+    }
+
     .home-nav {
       display: flex;
       justify-content: flex-start;
@@ -219,6 +247,7 @@
     </nav>
     <article class="card" aria-live="polite">
       <div class="card__content">
+        <ul id="joke-categories" class="category-list" aria-label="Joke categories" hidden></ul>
         <p id="joke-setup">Loading joke…</p>
         <p id="joke-punchline" aria-hidden="true"></p>
       </div>
@@ -234,6 +263,7 @@
     </div>
   </main>
   <script src="jokes.js" defer></script>
+  <script src="joke-categories.js" defer></script>
   <script src="app.js" defer></script>
 </body>
 </html>

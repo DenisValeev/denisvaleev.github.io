@@ -5,6 +5,14 @@
   const filterForm = document.querySelector('[data-filter-form]');
   const filterInput = document.querySelector('[data-filter-input]');
   const isCompact = document.body && document.body.dataset.compact === 'true';
+  const categorize =
+    window.jokeCategoryHelper && typeof window.jokeCategoryHelper.categorize === 'function'
+      ? window.jokeCategoryHelper.categorize
+      : null;
+  const fallbackCategory =
+    window.jokeCategoryHelper && typeof window.jokeCategoryHelper.fallback === 'string'
+      ? window.jokeCategoryHelper.fallback
+      : 'Classic Dad';
 
   if (!tbody) {
     return;
@@ -40,7 +48,10 @@
           if (!setup) {
             return null;
           }
-          return { setup, rawPunchline };
+          const categories = categorize
+            ? categorize(setup, rawPunchline)
+            : [fallbackCategory];
+          return { setup, rawPunchline, categories };
         })
         .filter(Boolean)
     : [];
@@ -48,11 +59,15 @@
   const deck = shuffle(
     rawJokes.map((entry) => {
       const punchline = formatPunchline(entry.rawPunchline);
-      const searchText = `${entry.setup} ${entry.rawPunchline}`.toLowerCase();
+      const categoryList = Array.isArray(entry.categories) && entry.categories.length
+        ? entry.categories
+        : [fallbackCategory];
+      const searchText = `${entry.setup} ${entry.rawPunchline} ${categoryList.join(' ')}`.toLowerCase();
       return {
         setup: entry.setup,
         punchline,
         searchText,
+        categories: categoryList,
       };
     })
   );
@@ -68,6 +83,19 @@
     }
   }
 
+  function buildCategoryList(categories) {
+    const list = document.createElement('ul');
+    list.className = 'category-list';
+    const items = Array.isArray(categories) && categories.length ? categories : [fallbackCategory];
+    items.forEach((label) => {
+      const pill = document.createElement('li');
+      pill.className = 'category-pill';
+      pill.textContent = label;
+      list.appendChild(pill);
+    });
+    return list;
+  }
+
   function renderRows(list, term) {
     tbody.textContent = '';
 
@@ -75,7 +103,7 @@
       const emptyRow = document.createElement('tr');
       const emptyCell = document.createElement('td');
       if (isCompact) {
-        emptyCell.colSpan = 3;
+        emptyCell.colSpan = 4;
       }
       emptyCell.textContent = term ? `No jokes match “${term}”.` : 'No jokes available.';
       emptyRow.appendChild(emptyCell);
@@ -104,6 +132,11 @@
         compactPunchlineCell.textContent = entry.punchline;
         row.appendChild(compactPunchlineCell);
 
+        const categoriesCell = document.createElement('td');
+        categoriesCell.className = 'category-cell';
+        categoriesCell.appendChild(buildCategoryList(entry.categories));
+        row.appendChild(categoriesCell);
+
         fragment.appendChild(row);
         return;
       }
@@ -112,7 +145,12 @@
 
       const setupCell = document.createElement('td');
       setupCell.className = 'setup-cell';
-      setupCell.textContent = entry.setup;
+      const setupText = document.createElement('div');
+      setupText.textContent = entry.setup;
+      setupCell.appendChild(setupText);
+      const setupCategories = buildCategoryList(entry.categories);
+      setupCategories.setAttribute('aria-label', 'Joke categories');
+      setupCell.appendChild(setupCategories);
 
       setupRow.appendChild(setupCell);
 

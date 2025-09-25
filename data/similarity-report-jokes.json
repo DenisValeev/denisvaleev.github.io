@@ -1,7 +1,7 @@
 {
   "dataset": "jokes",
   "threshold": 0.5,
-  "generatedAt": "2025-09-24T01:07:55.875Z",
+  "generatedAt": "2025-09-25T02:55:49.612Z",
   "provider": "hfspace",
   "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
   "matches": [
@@ -468,6 +468,13 @@
       "previewB": "Why did the programmer always carry a pencil? • They preferred to write in C#."
     },
     {
+      "idA": "j-0920",
+      "idB": "j-0975",
+      "similarity": 0.5572646988797786,
+      "previewA": "Why did the gardener start a podcast? • They had a lot of growing to talk about.",
+      "previewB": "Why did the grill-master dad launch a podcast? • He wanted to share his rare takes."
+    },
+    {
       "idA": "j-0146",
       "idB": "j-0644",
       "similarity": 0.5559689173304857,
@@ -529,6 +536,13 @@
       "similarity": 0.5459684506833805,
       "previewA": "What do you call cheese by itself? • Provolone.",
       "previewB": "What cheese can never be yours? • Nacho cheese."
+    },
+    {
+      "idA": "j-0331",
+      "idB": "j-0971",
+      "similarity": 0.5449912983379034,
+      "previewA": "What do you get when you cross a snowman with a vampire? • Frostbite.",
+      "previewB": "What's the difference between a snowman and a snowwoman? • Snowballs."
     },
     {
       "idA": "j-0213",
