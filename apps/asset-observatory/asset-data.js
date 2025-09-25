@@ -1,12 +1,12 @@
 window.assetObservatoryData = {
-  "generatedAt": "2025-09-25T02:54:22.666Z",
+  "generatedAt": "2025-09-25T03:00:22.659Z",
   "datasets": [
     {
       "id": "jokes",
       "label": "Dad Jokes",
       "dataset": {
         "path": "apps/jokes/jokes.js",
-        "bytes": 151018
+        "bytes": 151888
       },
       "manifest": {
         "path": "data/jokes-manifest.json",
@@ -20,9 +20,9 @@ window.assetObservatoryData = {
           "provider": "synthetic",
           "model": "synthetic-64",
           "dimensions": 64,
-          "records": 905,
-          "bytes": 629164,
-          "generatedAt": "2025-09-24T01:06:46.473Z"
+          "records": 910,
+          "bytes": 632639,
+          "generatedAt": "2025-09-25T02:54:18.632Z"
         },
         {
           "path": "data/jokes-embeddings-openai.json",
@@ -49,9 +49,9 @@ window.assetObservatoryData = {
           "provider": "hfspace",
           "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
           "threshold": 0.5,
-          "pairs": 118,
-          "bytes": 33875,
-          "generatedAt": "2025-09-24T01:07:55.875Z"
+          "pairs": 120,
+          "bytes": 34468,
+          "generatedAt": "2025-09-25T02:55:49.612Z"
         },
         {
           "path": "data/similarity-report-jokes-openai.json",
@@ -85,10 +85,10 @@ window.assetObservatoryData = {
         }
       ],
       "totals": {
-        "embeddingBytes": 1826730,
-        "embeddingVectors": 2595,
-        "similarityBytes": 178809,
-        "similarityPairs": 622
+        "embeddingBytes": 1830205,
+        "embeddingVectors": 2600,
+        "similarityBytes": 179402,
+        "similarityPairs": 624
       }
     },
     {
@@ -251,8 +251,8 @@ window.assetObservatoryData = {
     {
       "id": "synthetic",
       "stores": 4,
-      "bytes": 1335823,
-      "vectorCount": 1846,
+      "bytes": 1339298,
+      "vectorCount": 1851,
       "dimensions": [
         64,
         128
@@ -341,16 +341,16 @@ window.assetObservatoryData = {
   "totals": {
     "datasets": 3,
     "entries": 1681,
-    "datasetBytes": 327287,
+    "datasetBytes": 328157,
     "manifestBytes": 1208192,
-    "embeddingVectors": 4333,
-    "embeddingBytes": 3357659,
+    "embeddingVectors": 4338,
+    "embeddingBytes": 3361134,
     "embeddingStores": 8,
-    "similarityPairs": 2094,
-    "similarityBytes": 683300,
+    "similarityPairs": 2096,
+    "similarityBytes": 683893,
     "similarityReports": 12,
     "totalFiles": 29,
-    "totalBytes": 5792678,
+    "totalBytes": 5797616,
     "providerCount": 4
   }
 };
