@@ -89,6 +89,7 @@
       filterInput: leftFilterInput,
       activeDatasetId: '',
       activeRecordId: '',
+      activePreviewText: '',
       currentRecords: [],
       filteredRecords: [],
     },
@@ -101,6 +102,7 @@
       filterInput: rightFilterInput,
       activeDatasetId: '',
       activeRecordId: '',
+      activePreviewText: '',
       currentRecords: [],
       filteredRecords: [],
     },
@@ -321,14 +323,47 @@
     }
   }
 
-  function renderContentText(container, contentKey, entry, placeholder) {
+  function renderPreviewTextRecord(container, contentKey, preview) {
+    if (!container || !preview) {
+      return;
+    }
+
+    const wrapper = document.createElement('article');
+    wrapper.className = 'text-record';
+
+    const heading = document.createElement('h3');
+    heading.className = 'text-record__heading';
+    const baseTitle = getContentTitle(contentKey);
+    heading.textContent = baseTitle ? `${baseTitle} preview` : 'Source preview';
+    wrapper.appendChild(heading);
+
+    const list = document.createElement('dl');
+    list.className = 'text-record__list';
+
+    const dt = document.createElement('dt');
+    dt.textContent = 'Preview';
+    const dd = document.createElement('dd');
+    dd.textContent = preview;
+    list.append(dt, dd);
+
+    wrapper.appendChild(list);
+    container.appendChild(wrapper);
+  }
+
+  function renderContentText(container, contentKey, entry, placeholder, previewFallback) {
     if (!container) {
       return;
     }
 
     container.innerHTML = '';
 
+    const preview = typeof previewFallback === 'string' ? previewFallback.trim() : '';
+
     if (!entry) {
+      if (preview) {
+        renderPreviewTextRecord(container, contentKey, preview);
+        return;
+      }
       const message = document.createElement('p');
       message.className = 'placeholder';
       message.textContent = placeholder || 'Source text not available for this vector.';
@@ -339,6 +374,10 @@
     const fields = getContentFields(contentKey, entry);
 
     if (!fields.length) {
+      if (preview) {
+        renderPreviewTextRecord(container, contentKey, preview);
+        return;
+      }
       const message = document.createElement('p');
       message.className = 'placeholder';
       message.textContent = placeholder || 'Source text not available for this vector.';
@@ -541,7 +580,14 @@
     }
 
     if (pane.text) {
-      renderContentText(pane.text, options.contentKey || '', options.contentEntry || null, textPlaceholder);
+      const previewFallback = typeof options.previewFallback === 'string' ? options.previewFallback : '';
+      renderContentText(
+        pane.text,
+        options.contentKey || '',
+        options.contentEntry || null,
+        textPlaceholder,
+        previewFallback
+      );
     }
   }
 
@@ -582,6 +628,7 @@
     const contentEntry = record ? getContentEntry(contentKey, record.id) : null;
     const captionIdle = 'Pick a vector to render its fingerprint.';
     const captionActive = record ? `Binary fingerprint for ${record.id}.` : captionIdle;
+    const previewFallback = sides.left.activePreviewText || '';
 
     renderPane(primaryPane, record, datasetData?.meta, datasetData?.source, {
       metaPlaceholder: 'Select a vector to inspect its details.',
@@ -590,12 +637,14 @@
       captionActive,
       contentKey,
       contentEntry,
+      previewFallback,
     });
   }
 
   function renderSecondaryPane(leftRecord, rightRecord, datasetData) {
     const contentKey = datasetData?.contentKey || '';
     const contentEntry = rightRecord ? getContentEntry(contentKey, rightRecord.id) : null;
+    const previewFallback = sides.right.activePreviewText || '';
     const hasLeftSelection = Boolean(leftRecord);
     const captionIdle = hasLeftSelection
       ? 'Select a right-side vector to view its fingerprint.'
@@ -629,6 +678,7 @@
       contentKey,
       contentEntry,
       extraMeta,
+      previewFallback,
     });
   }
 
@@ -714,7 +764,7 @@
     side.recordList.appendChild(fragment);
   }
 
-  function setActiveRecord(sideKey, recordId) {
+  function setActiveRecord(sideKey, recordId, options = {}) {
     const side = sides[sideKey];
     if (!side) {
       return;
@@ -723,6 +773,7 @@
     const datasetId = side.activeDatasetId;
     if (!datasetId) {
       side.activeRecordId = '';
+      side.activePreviewText = '';
       renderComparison();
       return;
     }
@@ -734,13 +785,16 @@
 
     if (!recordId || !datasetData.recordMap.has(recordId)) {
       side.activeRecordId = '';
+      side.activePreviewText = '';
       renderRecordList(side);
       updateRecordStatus(side);
       renderComparison();
       return;
     }
 
+    const previewText = typeof options.preview === 'string' ? options.preview.trim() : '';
     side.activeRecordId = recordId;
+    side.activePreviewText = previewText;
     renderRecordList(side);
     updateRecordStatus(side);
     renderComparison();
@@ -808,6 +862,7 @@
 
     side.activeDatasetId = '';
     side.activeRecordId = '';
+    side.activePreviewText = '';
     side.currentRecords = [];
     side.filteredRecords = [];
     side.filterInput.value = '';
@@ -894,7 +949,7 @@
       return Promise.resolve();
     }
 
-    const { recordId = '' } = options;
+    const { recordId = '', preview = '' } = options;
 
     if (!datasetId) {
       resetSide(side);
@@ -926,7 +981,8 @@
       const candidateId = recordId && datasetData.recordMap.has(recordId)
         ? recordId
         : datasetData.records[0]?.id || '';
-      setActiveRecord(sideKey, candidateId);
+      const candidatePreview = candidateId === recordId ? preview : '';
+      setActiveRecord(sideKey, candidateId, { preview: candidatePreview });
     };
 
     const cached = datasetCache.get(datasetId);
@@ -945,6 +1001,7 @@
     }
     side.activeDatasetId = datasetId;
     side.activeRecordId = '';
+    side.activePreviewText = '';
 
     return loadDatasetData(datasetId)
       .then((datasetData) => {
@@ -1129,8 +1186,14 @@
     pairStatus.textContent = 'Loading selected pair…';
 
     Promise.all([
-      setDatasetForSide('left', pair.datasetIdLeft, { recordId: pair.idLeft }),
-      setDatasetForSide('right', pair.datasetIdRight, { recordId: pair.idRight }),
+      setDatasetForSide('left', pair.datasetIdLeft, {
+        recordId: pair.idLeft,
+        preview: pair.previewLeft || '',
+      }),
+      setDatasetForSide('right', pair.datasetIdRight, {
+        recordId: pair.idRight,
+        preview: pair.previewRight || '',
+      }),
     ])
       .then(() => {
         updatePairStatus(pair);
