@@ -1,8 +1,6 @@
 (function () {
   const notesInput = document.querySelector('[data-notes-input]');
   const currentEntryEl = document.querySelector('[data-current-text]');
-  const previewEntryEl = document.querySelector('[data-preview-text]');
-  const previewCard = document.querySelector('[data-preview-card]');
   const counterEl = document.querySelector('[data-counter]');
   const prevButton = document.querySelector('[data-prev]');
   const nextButton = document.querySelector('[data-next]');
@@ -14,8 +12,6 @@
   if (
     !notesInput ||
     !currentEntryEl ||
-    !previewEntryEl ||
-    !previewCard ||
     !counterEl ||
     !prevButton ||
     !nextButton ||
@@ -34,7 +30,6 @@
     "I told my computer I needed a break, and it said 'No problem — I'll go to sleep.'",
     'Why did the scarecrow get a promotion? He was outstanding in his field.'
   ].join('\n\n');
-  const PREVIEW_PLACEHOLDER = 'Add another note to preview the upcoming card.';
 
   let entries = [];
   let deckOrder = [];
@@ -184,9 +179,6 @@
     counterEl.textContent = '0 of 0';
     currentEntryEl.textContent = 'No notes yet. Add entries below to start reviewing.';
     currentEntryEl.classList.add('is-empty');
-    previewEntryEl.textContent = PREVIEW_PLACEHOLDER;
-    previewEntryEl.classList.add('is-empty');
-    previewCard.setAttribute('aria-hidden', 'true');
     prevButton.disabled = true;
     nextButton.disabled = true;
     shuffleButton.disabled = true;
@@ -216,17 +208,6 @@
     nextButton.disabled = disableNav;
     shuffleButton.disabled = deckOrder.length <= 1;
 
-    if (deckOrder.length > 1) {
-      const previewEntryIndex = deckOrder[(index + 1) % deckOrder.length];
-      const preview = entries[previewEntryIndex];
-      previewEntryEl.textContent = preview;
-      previewEntryEl.classList.remove('is-empty');
-      previewCard.removeAttribute('aria-hidden');
-    } else {
-      previewEntryEl.textContent = PREVIEW_PLACEHOLDER;
-      previewEntryEl.classList.add('is-empty');
-      previewCard.setAttribute('aria-hidden', 'true');
-    }
   }
 
   function showNext() {

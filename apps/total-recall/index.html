@@ -133,13 +133,12 @@
 
     .card__meta {
       display: flex;
-      justify-content: space-between;
       align-items: center;
       color: var(--text-secondary);
       font-weight: 600;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
 
     .card__body {
@@ -151,7 +150,7 @@
 
     .card__text {
       margin: 0;
-      font-size: clamp(1.1rem, 1.8vw + 0.95rem, 1.7rem);
+      font-size: clamp(1rem, 1.4vw + 0.85rem, 1.4rem);
       line-height: 1.5;
       white-space: pre-line;
     }
@@ -159,14 +158,6 @@
     .card__text.is-empty {
       color: var(--text-secondary);
       font-size: clamp(0.95rem, 1.2vw + 0.85rem, 1.1rem);
-    }
-
-    .card--preview {
-      opacity: 0.92;
-    }
-
-    .card--preview[aria-hidden="true"] {
-      opacity: 0.6;
     }
 
     .controls {
@@ -370,18 +361,9 @@
       <article class="card card--current">
         <div class="card__meta">
           <span id="card-counter" data-counter>0 of 0</span>
-          <span>Now playing</span>
         </div>
         <div class="card__body">
           <p id="entry-text" class="card__text is-empty" data-current-text>Add notes below to get started.</p>
-        </div>
-      </article>
-      <article class="card card--preview" data-preview-card aria-label="Next card">
-        <div class="card__meta">
-          <span>Next up</span>
-        </div>
-        <div class="card__body">
-          <p class="card__text is-empty" data-preview-text>Add another note to preview the upcoming card.</p>
         </div>
       </article>
     </section>
