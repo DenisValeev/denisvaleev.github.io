@@ -50,5 +50,6 @@ GitHub Actions keep the site fresh after each merge:
 - **Playwright smoke tests** run on pushes, pull requests, and a weekly cron schedule. They execute the same suite as `npm test`.
 - **Refresh offline manifest** regenerates `offline-manifest.json` after merges so the cache manifest reflects the new asset graph.
 - **Refresh asset observatory data** re-runs `tools/generate-asset-report.js` when dataset changes are detected, committing a refreshed `apps/asset-observatory/asset-data.js` snapshot.
+- **Deploy static site** publishes the repository to GitHub Pages, touching `.nojekyll` during the artifact build so the platform skips its default Jekyll pipeline.
 
 Each workflow commits outputs back to the main branch when necessary, ensuring that published assets and cached bundles stay aligned with the source tree.

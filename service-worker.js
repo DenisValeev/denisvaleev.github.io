@@ -371,32 +371,42 @@ async function handleNavigationRequest(request) {
 
   const cache = await caches.open(activeCacheName);
   const url = new URL(request.url);
-  const candidates = [];
+  const directCandidates = [];
 
-  candidates.push(url.href);
+  directCandidates.push(url.href);
   if (url.pathname.endsWith('/')) {
-    candidates.push(new URL(`${url.pathname}index.html`, url.origin).href);
+    directCandidates.push(new URL(`${url.pathname}index.html`, url.origin).href);
   } else {
-    candidates.push(new URL(`${url.pathname}/index.html`, url.origin).href);
+    directCandidates.push(new URL(`${url.pathname}/index.html`, url.origin).href);
   }
-  candidates.push(new URL('/index.html', url.origin).href);
 
-  for (const candidate of candidates) {
+  for (const candidate of directCandidates) {
     const cached = await cache.match(candidate);
     if (cached) {
       return cached;
     }
   }
 
+  let networkError = null;
   try {
-    return await fetch(request);
-  } catch (error) {
-    const fallback = await cache.match(new URL('/index.html', url.origin).href);
-    if (fallback) {
-      return fallback;
+    const response = await fetch(request);
+    if (response) {
+      return response;
     }
-    throw error;
+  } catch (error) {
+    networkError = error;
   }
+
+  const fallback = await cache.match(new URL('/index.html', url.origin).href);
+  if (fallback) {
+    return fallback;
+  }
+
+  if (networkError) {
+    throw networkError;
+  }
+
+  return Response.error();
 }
 
 async function handleAssetRequest(request) {
