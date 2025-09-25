@@ -1,43 +1,46 @@
 const { test, expect } = require('@playwright/test');
 
-const SUMMARY_VALUES_SELECTOR = '[data-summary-grid] dd';
-
-function summaryValue(locator, index) {
-  return locator.nth(index);
-}
-
 test.describe('Embedding Explorer app', () => {
-  test('computes insights for stored embeddings', async ({ page }) => {
+test('renders dataset metadata and comparison panes for stored embeddings', async ({ page }) => {
+  await page.goto('/apps/embedding-explorer/');
+
+  const leftDatasetSelect = page.locator('[data-left-dataset-select]');
+  await leftDatasetSelect.locator('option').first().waitFor({ state: 'attached' });
+  await leftDatasetSelect.selectOption('jokes-synthetic');
+
+  const leftRecordStatus = page.locator('[data-left-record-status]');
+  await expect(leftRecordStatus).toContainText('Showing');
+
+  const leftDatasetInfo = page.locator('[data-left-dataset-info]');
+  await expect(leftDatasetInfo).toContainText('Records');
+
+  const recordButton = page
+    .locator('[data-left-record-list] .record-button')
+    .locator(':visible')
+    .first();
+  await recordButton.waitFor({ state: 'visible' });
+  await recordButton.click();
+
+  await expect(page.locator('[data-left-record-status]')).toContainText('Showing');
+  await expect(page.locator('[data-primary-meta]')).not.toContainText('Select a vector to inspect its details.');
+  await expect(page.locator('[data-primary-text]')).not.toContainText('Choose a vector to load its source text.');
+
+  const primaryVectorId = (await page.locator('[data-primary-meta] dd').first().textContent())?.trim() || '';
+
+  if (primaryVectorId) {
+    await expect(page.locator('[data-primary-caption]')).toContainText(primaryVectorId);
+  }
+
+  await expect(page.locator('[data-secondary-caption]')).toContainText('Comparing');
+});
+
+  test('filters dataset vectors and populates comparison panes', async ({ page }) => {
     await page.goto('/apps/embedding-explorer/');
 
-    const summaryValues = page.locator(SUMMARY_VALUES_SELECTOR);
-    const recordButton = page.locator('[data-record-list] .record-button').first();
-    await recordButton.waitFor({ state: 'visible' });
-    await recordButton.click();
-
-    await expect(summaryValue(summaryValues, 0)).toHaveText('64');
-    await expect(summaryValue(summaryValues, 4)).not.toHaveText('— / —');
-
-    const positiveList = page.locator('[data-positive-list] li');
-    await expect(positiveList.first()).not.toContainText('appear here');
-
-    const negativeList = page.locator('[data-negative-list] li');
-    await expect(negativeList.first()).not.toContainText('appear here');
-
-    const tablePlaceholders = page.locator('[data-value-table] .placeholder');
-    await expect(tablePlaceholders).toHaveCount(0);
-
-    const tableFirstRow = page.locator('[data-value-table] tr').first();
-    await expect(tableFirstRow.locator('td').first()).toHaveText('#1');
-    await expect(page.locator('[data-record-status]')).toContainText('Showing');
-    await expect(page.locator('[data-neighbor-status]')).toContainText('Top 10 matches');
-  });
-
-  test('lists the top ten neighbors for a dataset vector', async ({ page }) => {
-    await page.goto('/apps/embedding-explorer/');
-
-    const datasetSelect = page.getByLabel('Embedding collection');
-    const recordFilter = page.getByLabel('Filter by id or hash');
+    const datasetSelect = page.locator('[data-left-dataset-select]');
+    const recordFilter = page.locator('[data-left-record-filter]');
+    const primaryVectorId = page.locator('[data-primary-meta] dd').first();
+    const primaryCaption = page.locator('[data-primary-caption]');
     await expect(recordFilter).toBeEnabled();
 
     const jokesOptions = await datasetSelect.locator('option').evaluateAll((options) =>
@@ -50,21 +53,18 @@ test.describe('Embedding Explorer app', () => {
 
       await recordFilter.fill('j-0907');
       const recordButton = page
-        .locator('[data-record-list] .record-button')
+        .locator('[data-left-record-list] .record-button')
         .filter({ hasText: /^j-0907/ })
         .first();
       await expect(recordButton).toBeVisible();
       await recordButton.click();
 
-      const neighborButtons = page.locator('[data-neighbor-list] .neighbor-button');
-      await expect(neighborButtons).toHaveCount(10);
-      await expect(neighborButtons.filter({ hasText: 'Selected vector' })).toHaveCount(0);
-      await expect(page.locator('[data-neighbor-status]')).toContainText('Top 10 matches for j-0907.');
+      await expect(page.locator('[data-left-record-status]')).toContainText('Showing 1');
+      await expect(primaryVectorId).toHaveText('j-0907');
+      await expect(primaryCaption).toContainText('j-0907');
 
       if (option.value === 'jokes-synthetic') {
-        const protectedPair = neighborButtons.filter({ hasText: 'j-0502' });
-        await expect(protectedPair).toHaveCount(1);
-        await expect(protectedPair.first()).toContainText('Keep both');
+        await expect(primaryCaption).toContainText('Binary fingerprint');
       }
 
       await recordFilter.fill('');
