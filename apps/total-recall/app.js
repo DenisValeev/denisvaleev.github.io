@@ -1,6 +1,8 @@
 (function () {
   const notesInput = document.querySelector('[data-notes-input]');
-  const entryEl = document.querySelector('[data-entry-text]');
+  const currentEntryEl = document.querySelector('[data-current-text]');
+  const previewEntryEl = document.querySelector('[data-preview-text]');
+  const previewCard = document.querySelector('[data-preview-card]');
   const counterEl = document.querySelector('[data-counter]');
   const prevButton = document.querySelector('[data-prev]');
   const nextButton = document.querySelector('[data-next]');
@@ -11,7 +13,9 @@
 
   if (
     !notesInput ||
-    !entryEl ||
+    !currentEntryEl ||
+    !previewEntryEl ||
+    !previewCard ||
     !counterEl ||
     !prevButton ||
     !nextButton ||
@@ -30,6 +34,7 @@
     "I told my computer I needed a break, and it said 'No problem — I'll go to sleep.'",
     'Why did the scarecrow get a promotion? He was outstanding in his field.'
   ].join('\n\n');
+  const PREVIEW_PLACEHOLDER = 'Add another note to preview the upcoming card.';
 
   let entries = [];
   let deckOrder = [];
@@ -177,8 +182,11 @@
 
   function renderEmptyState() {
     counterEl.textContent = '0 of 0';
-    entryEl.textContent = 'No notes yet. Add entries below to start reviewing.';
-    entryEl.classList.add('is-empty');
+    currentEntryEl.textContent = 'No notes yet. Add entries below to start reviewing.';
+    currentEntryEl.classList.add('is-empty');
+    previewEntryEl.textContent = PREVIEW_PLACEHOLDER;
+    previewEntryEl.classList.add('is-empty');
+    previewCard.setAttribute('aria-hidden', 'true');
     prevButton.disabled = true;
     nextButton.disabled = true;
     shuffleButton.disabled = true;
@@ -200,13 +208,25 @@
     const currentEntryIndex = deckOrder[index];
     const current = entries[currentEntryIndex];
 
-    entryEl.textContent = current;
-    entryEl.classList.remove('is-empty');
+    currentEntryEl.textContent = current;
+    currentEntryEl.classList.remove('is-empty');
     counterEl.textContent = `${index + 1} of ${deckOrder.length}`;
     const disableNav = deckOrder.length <= 1;
     prevButton.disabled = disableNav;
     nextButton.disabled = disableNav;
     shuffleButton.disabled = deckOrder.length <= 1;
+
+    if (deckOrder.length > 1) {
+      const previewEntryIndex = deckOrder[(index + 1) % deckOrder.length];
+      const preview = entries[previewEntryIndex];
+      previewEntryEl.textContent = preview;
+      previewEntryEl.classList.remove('is-empty');
+      previewCard.removeAttribute('aria-hidden');
+    } else {
+      previewEntryEl.textContent = PREVIEW_PLACEHOLDER;
+      previewEntryEl.classList.add('is-empty');
+      previewCard.setAttribute('aria-hidden', 'true');
+    }
   }
 
   function showNext() {
