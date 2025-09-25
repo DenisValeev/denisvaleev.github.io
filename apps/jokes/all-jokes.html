@@ -53,6 +53,12 @@
         color: inherit;
       }
 
+      .filter select {
+        background: rgba(18, 18, 18, 0.9);
+        border-color: rgba(241, 245, 255, 0.35);
+        color: inherit;
+      }
+
       .category-pill {
         background: rgba(148, 163, 209, 0.24);
         color: rgba(241, 245, 255, 0.9);
@@ -164,6 +170,25 @@
       box-shadow: 0 0 0 3px rgba(48, 86, 211, 0.18);
     }
 
+    .filter select {
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.95);
+      color: inherit;
+      padding: 10px 14px;
+      font: inherit;
+      cursor: pointer;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .filter select:focus-visible {
+      outline: 2px solid rgba(48, 86, 211, 0.55);
+      outline-offset: 2px;
+      box-shadow: 0 0 0 3px rgba(48, 86, 211, 0.18);
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -210,6 +235,10 @@
     <form class="filter" data-filter-form>
       <label for="joke-filter">Filter jokes</label>
       <input id="joke-filter" type="search" name="joke-filter" placeholder="Type to filter…" autocomplete="off" data-filter-input>
+      <label for="joke-category-select">Filter by category</label>
+      <select id="joke-category-select" name="joke-category-select" data-category-select aria-label="Joke category" disabled>
+        <option>Loading categories…</option>
+      </select>
     </form>
     <table>
       <caption>Setup followed by punchline</caption>
