@@ -1,3 +1,31 @@
+# Deploy log — 25 Sep 2025
+
+## Log excerpt
+
+```
+2025-09-25T02:26:41Z  warn   Service worker returned /index.html for navigation request /ai_docs/
+2025-09-25T02:26:42Z  info   Retrying navigation without cache fallback
+2025-09-25T02:26:42Z  info   Navigation succeeded after bypassing cached landing page
+```
+
+## What went wrong
+
+The service worker treated every navigation as eligible for the cached landing page before attempting a network fetch. When the
+homepage already lived in the cache, the `ai_docs/` navigation surfaced the landing markup instead of the documentation shell.
+
+## Mitigation
+
+- Updated `handleNavigationRequest` to check direct cache hits first, then fall back to the network, reserving the landing page
+  as a last resort for true offline scenarios.
+- Added a GitHub Pages deployment workflow that rebuilds the static artifact on pushes to `main` and touches `.nojekyll` during
+  the publish step so GitHub skips its default Jekyll pipeline.
+
+## Follow-up
+
+1. Monitor the production service worker console after merges to confirm navigation requests hit the network when new pages are
+   introduced.
+2. Extend Playwright coverage with a regression that exercises the docs link once the CI budget allows for another smoke check.
+
 # Deploy log — 24 Sep 2025
 
 ## Log excerpt
