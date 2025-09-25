@@ -1,8 +1,8 @@
 {
-  "version": "20250925-dd46e15633a2-48a50ccb5aa0-dirty",
-  "generatedAt": "2025-09-25T04:10:37.959Z",
+  "version": "20250925-bfd993a3859e-feffef493a4a",
+  "generatedAt": "2025-09-25T12:21:12.541Z",
   "totalAssets": 73,
-  "totalBytes": 6228549,
+  "totalBytes": 6062990,
   "assets": [
     {
       "path": "apps/asset-observatory/AGENTS.md",
@@ -14,7 +14,7 @@
     },
     {
       "path": "apps/asset-observatory/asset-data.js",
-      "bytes": 9557
+      "bytes": 9918
     },
     {
       "path": "apps/asset-observatory/index.html",
@@ -30,7 +30,7 @@
     },
     {
       "path": "apps/embedding-explorer/sample-embeddings.js",
-      "bytes": 2175
+      "bytes": 2167
     },
     {
       "path": "apps/jokes/AGENTS.md",
@@ -86,7 +86,7 @@
     },
     {
       "path": "apps/similarity-report/index.html",
-      "bytes": 117454
+      "bytes": 117463
     },
     {
       "path": "apps/slang/AGENTS.md",
@@ -242,7 +242,7 @@
     },
     {
       "path": "data/similarity-report-jokes.json",
-      "bytes": 27278
+      "bytes": 27279
     },
     {
       "path": "data/similarity-report-quotes-cohere.json",
@@ -298,8 +298,8 @@
     }
   ],
   "commit": {
-    "hash": "48a50ccb5aa0d51fe0d11051b890501d290371ea",
-    "short": "48a50ccb5aa0",
-    "dirty": true
+    "hash": "feffef493a4a987d02e57df770950cb5a8124b89",
+    "short": "feffef493a4a",
+    "dirty": false
   }
 }
