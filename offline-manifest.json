@@ -1,8 +1,8 @@
 {
-  "version": "20250925-7717ca7d4f57-b4a43c10f9d1",
-  "generatedAt": "2025-09-25T03:21:07.283Z",
+  "version": "20250925-cb670c1984a0-de5bcd363662",
+  "generatedAt": "2025-09-25T03:25:39.465Z",
   "totalAssets": 72,
-  "totalBytes": 6285386,
+  "totalBytes": 6292572,
   "assets": [
     {
       "path": "apps/asset-observatory/AGENTS.md",
@@ -38,19 +38,19 @@
     },
     {
       "path": "apps/jokes/all-jokes-compact.html",
-      "bytes": 8551
+      "bytes": 9505
     },
     {
       "path": "apps/jokes/all-jokes.html",
-      "bytes": 5355
+      "bytes": 6282
     },
     {
       "path": "apps/jokes/app.js",
-      "bytes": 4353
+      "bytes": 6913
     },
     {
       "path": "apps/jokes/index.html",
-      "bytes": 7061
+      "bytes": 8543
     },
     {
       "path": "apps/jokes/joke-categories.js",
@@ -62,7 +62,7 @@
     },
     {
       "path": "apps/jokes/render-all.js",
-      "bytes": 6166
+      "bytes": 7559
     },
     {
       "path": "apps/quotes/all-quotes.html",
@@ -286,7 +286,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 30827
+      "bytes": 30697
     },
     {
       "path": "service-worker.js",
@@ -294,8 +294,8 @@
     }
   ],
   "commit": {
-    "hash": "b4a43c10f9d18c85a630a3e96518791c386493f8",
-    "short": "b4a43c10f9d1",
+    "hash": "de5bcd3636622efe651358a122c07101ae5674c3",
+    "short": "de5bcd363662",
     "dirty": false
   }
 }
