@@ -386,6 +386,19 @@
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }
 
+    .comparison__controls {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: clamp(12px, 2vw, 18px);
+    }
+
+    .comparison__control-help {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
     .comparison__column {
       display: flex;
       flex-direction: column;
@@ -553,7 +566,17 @@
       </article>
       <article class="panel panel--wide" aria-labelledby="comparison-heading">
         <h2 id="comparison-heading">Vector comparison</h2>
-        <p class="panel-sub">Inspect the active vectors side by side, including their binary fingerprints and source text.</p>
+        <p class="panel-sub">Inspect the active vectors side by side, and switch between visualization styles for their embeddings alongside the source text.</p>
+        <div class="comparison__controls">
+          <label for="visualization-select">
+            Visualization style
+            <select id="visualization-select" data-visualization-select>
+              <option value="diverging" selected>Positive/negative heatmap (green → yellow → red)</option>
+              <option value="binary">Raw binary RGB fingerprint</option>
+            </select>
+          </label>
+          <p class="comparison__control-help">Use the heatmap to emphasize negative versus positive values, or fall back to the raw byte grid.</p>
+        </div>
         <div class="comparison" data-comparison-root>
           <section class="comparison__column" aria-labelledby="primary-column-heading">
             <h3 id="primary-column-heading" class="comparison__title">
@@ -561,7 +584,7 @@
               <span>Selected vector</span>
             </h3>
             <canvas class="embedding-canvas comparison__canvas" data-primary-canvas aria-describedby="primary-caption"></canvas>
-            <p id="primary-caption" class="caption" data-primary-caption>Pick a vector to render its fingerprint.</p>
+            <p id="primary-caption" class="caption" data-primary-caption>Pick a vector to render its heatmap.</p>
             <div class="info-block" data-primary-meta>
               <p class="placeholder">Select a vector to inspect its details.</p>
             </div>
@@ -575,7 +598,7 @@
               <span>Comparison vector</span>
             </h3>
             <canvas class="embedding-canvas comparison__canvas" data-secondary-canvas aria-describedby="secondary-caption"></canvas>
-            <p id="secondary-caption" class="caption" data-secondary-caption>Select a right-side vector to view its fingerprint.</p>
+            <p id="secondary-caption" class="caption" data-secondary-caption>Select a right-side vector to view its heatmap.</p>
             <div class="info-block" data-secondary-meta>
               <p class="placeholder">Pick a right-side vector to inspect its details.</p>
             </div>
