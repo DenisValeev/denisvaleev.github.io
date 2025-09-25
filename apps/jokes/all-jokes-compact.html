@@ -19,6 +19,8 @@
       --table-stripe: rgba(15, 23, 42, 0.03);
       --table-border: rgba(15, 23, 42, 0.1);
       --badge-bg: rgba(74, 99, 255, 0.14);
+      --category-pill-bg: rgba(74, 99, 255, 0.14);
+      --category-pill-text: rgba(31, 50, 143, 0.92);
       background-color: var(--bg-color);
       color: var(--text-primary);
     }
@@ -36,6 +38,8 @@
         --table-stripe: rgba(255, 255, 255, 0.04);
         --table-border: rgba(148, 163, 209, 0.12);
         --badge-bg: rgba(105, 128, 255, 0.16);
+        --category-pill-bg: rgba(105, 128, 255, 0.18);
+        --category-pill-text: rgba(225, 232, 255, 0.92);
       }
 
       .filter input[type="search"] {
@@ -141,6 +145,26 @@
       font-size: 0.9rem;
       font-weight: 600;
       color: inherit;
+    }
+
+    .category-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .category-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: var(--category-pill-bg);
+      color: var(--category-pill-text);
     }
 
     .filter {
@@ -284,17 +308,19 @@
             <th scope="col">#</th>
             <th scope="col">Joke</th>
             <th scope="col">Punchline</th>
+            <th scope="col">Categories</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td colspan="3">Loading jokes…</td>
+            <td colspan="4">Loading jokes…</td>
           </tr>
         </tbody>
       </table>
     </div>
   </main>
   <script src="jokes.js" defer></script>
+  <script src="joke-categories.js" defer></script>
   <script src="render-all.js" defer></script>
 </body>
 </html>

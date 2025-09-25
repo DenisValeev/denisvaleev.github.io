@@ -3621,6 +3621,26 @@ window.jokes = [
             "id": "j-0970",
             "joke": "Why did the candle maker attend business school?",
             "punchline": "They wanted to wax poetic about profits."
+        }, {
+            "id": "j-0971",
+            "joke": "What's the difference between a snowman and a snowwoman?",
+            "punchline": "Snowballs."
+        }, {
+            "id": "j-0972",
+            "joke": "Why did the dad bring a ladder to the bar?",
+            "punchline": "He heard the drinks were on the house."
+        }, {
+            "id": "j-0973",
+            "joke": "Why did the electrician start telling jokes at family dinner?",
+            "punchline": "He wanted to keep the current conversation lively."
+        }, {
+            "id": "j-0974",
+            "joke": "How does a handyman dad propose to his partner?",
+            "punchline": "With a hardware ring."
+        }, {
+            "id": "j-0975",
+            "joke": "Why did the grill-master dad launch a podcast?",
+            "punchline": "He wanted to share his rare takes."
         }
     ];
 
