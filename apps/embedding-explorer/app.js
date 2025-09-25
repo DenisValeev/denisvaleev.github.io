@@ -1,18 +1,21 @@
 (function () {
   const sources = Array.isArray(window.embeddingSources) ? window.embeddingSources : [];
 
-  const summaryGrid = document.querySelector('[data-summary-grid]');
-  const positiveList = document.querySelector('[data-positive-list]');
-  const negativeList = document.querySelector('[data-negative-list]');
-  const valueTable = document.querySelector('[data-value-table]');
+  const pairSelect = document.querySelector('[data-pair-select]');
+  const pairStatus = document.querySelector('[data-pair-status]');
 
-  const datasetSelect = document.querySelector('[data-dataset-select]');
-  const datasetInfo = document.querySelector('[data-dataset-info]');
-  const recordList = document.querySelector('[data-record-list]');
-  const recordStatus = document.querySelector('[data-record-status]');
-  const filterInput = document.querySelector('[data-record-filter]');
-  const neighborList = document.querySelector('[data-neighbor-list]');
-  const neighborStatus = document.querySelector('[data-neighbor-status]');
+  const leftDatasetSelect = document.querySelector('[data-left-dataset-select]');
+  const leftDatasetInfo = document.querySelector('[data-left-dataset-info]');
+  const leftRecordList = document.querySelector('[data-left-record-list]');
+  const leftRecordStatus = document.querySelector('[data-left-record-status]');
+  const leftFilterInput = document.querySelector('[data-left-record-filter]');
+
+  const rightDatasetSelect = document.querySelector('[data-right-dataset-select]');
+  const rightDatasetInfo = document.querySelector('[data-right-dataset-info]');
+  const rightRecordList = document.querySelector('[data-right-record-list]');
+  const rightRecordStatus = document.querySelector('[data-right-record-status]');
+  const rightFilterInput = document.querySelector('[data-right-record-filter]');
+
   const primaryCanvas = document.querySelector('[data-primary-canvas]');
   const primaryMeta = document.querySelector('[data-primary-meta]');
   const primaryText = document.querySelector('[data-primary-text]');
@@ -23,13 +26,18 @@
   const secondaryCaption = document.querySelector('[data-secondary-caption]');
 
   if (
-    !datasetSelect ||
-    !datasetInfo ||
-    !recordList ||
-    !recordStatus ||
-    !filterInput ||
-    !neighborList ||
-    !neighborStatus ||
+    !pairSelect ||
+    !pairStatus ||
+    !leftDatasetSelect ||
+    !leftDatasetInfo ||
+    !leftRecordList ||
+    !leftRecordStatus ||
+    !leftFilterInput ||
+    !rightDatasetSelect ||
+    !rightDatasetInfo ||
+    !rightRecordList ||
+    !rightRecordStatus ||
+    !rightFilterInput ||
     !primaryCanvas ||
     !primaryMeta ||
     !primaryText ||
@@ -43,12 +51,12 @@
   }
 
   const datasetCache = new Map();
-  let activeDatasetId = '';
-  let activeRecordId = '';
-  let activeNeighborId = '';
-  let currentRecords = [];
-  let filteredRecords = [];
-  let neighborRecords = [];
+  const sourceMap = new Map();
+  sources.forEach((source) => {
+    if (source && source.id) {
+      sourceMap.set(source.id, source);
+    }
+  });
 
   const contentMaps = buildContentMaps();
   const collectionContentKeys = new Map([
@@ -70,13 +78,36 @@
     text: secondaryText,
     caption: secondaryCaption,
   };
-  const MAX_NEIGHBOR_DISPLAY = 10;
-  const overridesUrl = '../../data/similarity-overrides.json';
-  let overridesPromise = null;
-  let overrideIndex = new Map();
-  const summaryValues = summaryGrid ? Array.from(summaryGrid.querySelectorAll('dd')) : [];
-  const POSITIVE_PLACEHOLDER = 'Positive values appear here.';
-  const NEGATIVE_PLACEHOLDER = 'Negative values appear here.';
+
+  const sides = {
+    left: {
+      key: 'left',
+      datasetSelect: leftDatasetSelect,
+      datasetInfo: leftDatasetInfo,
+      recordList: leftRecordList,
+      recordStatus: leftRecordStatus,
+      filterInput: leftFilterInput,
+      activeDatasetId: '',
+      activeRecordId: '',
+      currentRecords: [],
+      filteredRecords: [],
+    },
+    right: {
+      key: 'right',
+      datasetSelect: rightDatasetSelect,
+      datasetInfo: rightDatasetInfo,
+      recordList: rightRecordList,
+      recordStatus: rightRecordStatus,
+      filterInput: rightFilterInput,
+      activeDatasetId: '',
+      activeRecordId: '',
+      currentRecords: [],
+      filteredRecords: [],
+    },
+  };
+
+  let topPairs = [];
+  const TOP_PAIR_LIMIT = 50;
 
   function safeText(value) {
     return typeof value === 'string' ? value.trim() : '';
@@ -104,344 +135,6 @@
       return '—';
     }
     return value.toFixed(3);
-  }
-
-  function createOverrideKey(idA, idB) {
-    const first = safeText(idA);
-    const second = safeText(idB);
-    if (!first || !second) {
-      return '';
-    }
-
-    return [first, second]
-      .sort((left, right) => left.localeCompare(right, undefined, { numeric: true, sensitivity: 'base' }))
-      .join('::');
-  }
-
-  function parseOverrides(payload) {
-    const index = new Map();
-    if (!payload || typeof payload !== 'object') {
-      return index;
-    }
-
-    const datasets = payload.datasets && typeof payload.datasets === 'object' ? payload.datasets : {};
-    Object.entries(datasets).forEach(([datasetName, datasetPayload]) => {
-      if (!datasetName || !datasetPayload || typeof datasetPayload !== 'object') {
-        return;
-      }
-
-      const pairs = Array.isArray(datasetPayload.protectedPairs) ? datasetPayload.protectedPairs : [];
-      if (!pairs.length) {
-        return;
-      }
-
-      const datasetMap = new Map();
-      pairs.forEach((entry) => {
-        if (!entry || typeof entry !== 'object' || !Array.isArray(entry.ids) || entry.ids.length < 2) {
-          return;
-        }
-
-        const [idA, idB] = entry.ids;
-        const key = createOverrideKey(idA, idB);
-        if (!key) {
-          return;
-        }
-
-        const label = safeText(entry.label) || 'Protected pair';
-        const reason = safeText(entry.reason);
-        datasetMap.set(key, { label, reason });
-      });
-
-      if (datasetMap.size) {
-        index.set(datasetName, datasetMap);
-      }
-    });
-
-    return index;
-  }
-
-  function loadOverrides() {
-    if (overridesPromise) {
-      return overridesPromise;
-    }
-
-    overridesPromise = fetch(overridesUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Failed to load ${overridesUrl}`);
-        }
-        return response.json();
-      })
-      .then((json) => {
-        overrideIndex = parseOverrides(json);
-        return overrideIndex;
-      })
-      .catch((error) => {
-        console.warn(error);
-        overrideIndex = new Map();
-        return overrideIndex;
-      });
-
-    return overridesPromise;
-  }
-
-  function addNeighborEntry(neighborMap, sourceId, targetId, similarity) {
-    if (!(neighborMap instanceof Map)) {
-      return;
-    }
-
-    const sourceKey = safeText(sourceId);
-    const targetKey = safeText(targetId);
-    if (!sourceKey || !targetKey || !Number.isFinite(similarity)) {
-      return;
-    }
-
-    if (!neighborMap.has(sourceKey)) {
-      neighborMap.set(sourceKey, []);
-    }
-
-    const list = neighborMap.get(sourceKey);
-    const existing = list.find((entry) => entry.id === targetKey);
-    if (existing) {
-      if (existing.similarity < similarity) {
-        existing.similarity = similarity;
-      }
-      return;
-    }
-
-    list.push({ id: targetKey, similarity });
-  }
-
-  function buildNeighborMapFromReport(report) {
-    const neighborMap = new Map();
-    if (!report || typeof report !== 'object') {
-      return neighborMap;
-    }
-
-    const matches = Array.isArray(report.matches) ? report.matches : [];
-    matches.forEach((match) => {
-      if (!match || typeof match !== 'object') {
-        return;
-      }
-
-      const idA = safeText(match.idA);
-      const idB = safeText(match.idB);
-      const similarity = Number(match.similarity);
-      if (!idA || !idB || !Number.isFinite(similarity)) {
-        return;
-      }
-
-      addNeighborEntry(neighborMap, idA, idB, similarity);
-      addNeighborEntry(neighborMap, idB, idA, similarity);
-    });
-
-    neighborMap.forEach((list) => {
-      list.sort((a, b) => b.similarity - a.similarity);
-    });
-
-    return neighborMap;
-  }
-
-  function getOverrideForPair(datasetData, idA, idB) {
-    const overrideMap = datasetData && datasetData.overrideMap instanceof Map ? datasetData.overrideMap : null;
-    if (!overrideMap) {
-      return null;
-    }
-
-    const key = createOverrideKey(idA, idB);
-    if (!key || !overrideMap.has(key)) {
-      return null;
-    }
-
-    return overrideMap.get(key);
-  }
-
-  function formatNumber(value, digits = 3) {
-    if (!Number.isFinite(value)) {
-      return (0).toFixed(digits);
-    }
-    return value.toFixed(digits);
-  }
-
-  function computeVectorStats(values) {
-    let sourceValues = [];
-
-    if (Array.isArray(values)) {
-      sourceValues = values;
-    } else if (values && typeof values === 'object') {
-      if (ArrayBuffer.isView(values)) {
-        sourceValues = Array.from(values);
-      } else if (typeof values[Symbol.iterator] === 'function') {
-        sourceValues = Array.from(values);
-      }
-    }
-
-    const numericValues = sourceValues
-      .map((value) => Number(value))
-      .filter((value) => Number.isFinite(value));
-    const length = numericValues.length;
-
-    if (!length) {
-      return {
-        values: [],
-        length: 0,
-        magnitude: 0,
-        mean: 0,
-        variance: 0,
-        min: Number.NaN,
-        max: Number.NaN,
-        zeroCount: 0,
-      };
-    }
-
-    let sum = 0;
-    let sumSquares = 0;
-    let min = numericValues[0];
-    let max = numericValues[0];
-    let zeroCount = 0;
-
-    numericValues.forEach((value) => {
-      sum += value;
-      sumSquares += value * value;
-      if (value < min) {
-        min = value;
-      }
-      if (value > max) {
-        max = value;
-      }
-      if (value === 0) {
-        zeroCount += 1;
-      }
-    });
-
-    const mean = sum / length;
-    const variance = numericValues.reduce((accumulator, value) => accumulator + (value - mean) * (value - mean), 0) / length;
-    const magnitude = Math.sqrt(sumSquares);
-
-    return {
-      values: numericValues,
-      length,
-      magnitude,
-      mean,
-      variance,
-      min,
-      max,
-      zeroCount,
-    };
-  }
-
-  function renderSummary(stats) {
-    if (!summaryValues.length) {
-      return;
-    }
-
-    const [dimensionsEl, magnitudeEl, meanEl, stdevEl, rangeEl, zeroShareEl] = summaryValues;
-    dimensionsEl.textContent = stats.length.toLocaleString();
-    magnitudeEl.textContent = formatNumber(stats.magnitude);
-    meanEl.textContent = formatNumber(stats.mean);
-    stdevEl.textContent = formatNumber(Math.sqrt(stats.variance));
-
-    if (stats.length) {
-      rangeEl.textContent = `${formatNumber(stats.min)} / ${formatNumber(stats.max)}`;
-      const zeroShare = Math.round((stats.zeroCount / stats.length) * 100);
-      zeroShareEl.textContent = `${zeroShare}%`;
-    } else {
-      rangeEl.textContent = '— / —';
-      zeroShareEl.textContent = '0%';
-    }
-  }
-
-  function renderExtremaList(listElement, entries, placeholder) {
-    if (!listElement) {
-      return;
-    }
-
-    listElement.innerHTML = '';
-
-    if (!entries.length) {
-      const item = document.createElement('li');
-      const message = document.createElement('span');
-      message.className = 'placeholder';
-      message.textContent = placeholder;
-      item.appendChild(message);
-      listElement.appendChild(item);
-      return;
-    }
-
-    const fragment = document.createDocumentFragment();
-    entries.forEach((entry) => {
-      const item = document.createElement('li');
-      item.textContent = `#${entry.index}${formatNumber(entry.value)}`;
-      fragment.appendChild(item);
-    });
-    listElement.appendChild(fragment);
-  }
-
-  function renderValueTable(values) {
-    if (!valueTable) {
-      return;
-    }
-
-    valueTable.innerHTML = '';
-
-    if (!values.length) {
-      const row = document.createElement('tr');
-      const cell = document.createElement('td');
-      cell.colSpan = 3;
-      const message = document.createElement('p');
-      message.className = 'placeholder';
-      message.textContent = 'Select a vector to populate this table.';
-      cell.appendChild(message);
-      row.appendChild(cell);
-      valueTable.appendChild(row);
-      return;
-    }
-
-    const fragment = document.createDocumentFragment();
-    const maxMagnitude = values.reduce((highest, value) => Math.max(highest, Math.abs(value)), 0);
-    const safeDivisor = Number.isFinite(maxMagnitude) && maxMagnitude > 0 ? maxMagnitude : 1;
-
-    values.forEach((value, index) => {
-      const row = document.createElement('tr');
-
-      const indexCell = document.createElement('td');
-      indexCell.textContent = `#${index + 1}`;
-
-      const valueCell = document.createElement('td');
-      const valueSpan = document.createElement('span');
-      valueSpan.textContent = formatNumber(value);
-      valueCell.appendChild(valueSpan);
-
-      const normalizedCell = document.createElement('td');
-      const normalizedSpan = document.createElement('span');
-      normalizedSpan.textContent = formatNumber(Math.abs(value) / safeDivisor);
-      normalizedCell.appendChild(normalizedSpan);
-
-      row.append(indexCell, valueCell, normalizedCell);
-      fragment.appendChild(row);
-    });
-
-    valueTable.appendChild(fragment);
-  }
-
-  function updateSummaryForVector(values) {
-    const stats = computeVectorStats(values);
-    renderSummary(stats);
-
-    const entries = stats.values.map((value, index) => ({ index: index + 1, value }));
-    const positiveEntries = entries
-      .filter((entry) => entry.value > 0)
-      .sort((a, b) => b.value - a.value)
-      .slice(0, 5);
-    const negativeEntries = entries
-      .filter((entry) => entry.value < 0)
-      .sort((a, b) => a.value - b.value)
-      .slice(0, 5);
-
-    renderExtremaList(positiveList, positiveEntries, POSITIVE_PLACEHOLDER);
-    renderExtremaList(negativeList, negativeEntries, NEGATIVE_PLACEHOLDER);
-    renderValueTable(stats.values);
-    return stats;
   }
 
   function decodeVectorBytes(base64) {
@@ -567,6 +260,7 @@
 
     return { jokes: jokesMap, quotes: quotesMap, slang: slangMap };
   }
+
   function getContentEntry(contentKey, recordId) {
     if (!recordId) {
       return null;
@@ -675,43 +369,6 @@
     container.appendChild(wrapper);
   }
 
-  function getContentPreview(contentKey, entry) {
-    if (!entry) {
-      return '';
-    }
-
-    switch (contentKey) {
-      case 'jokes': {
-        const parts = [entry.setup, entry.punchline].filter(Boolean);
-        return parts.join(' • ');
-      }
-      case 'quotes': {
-        if (entry.text && entry.author) {
-          return `${entry.text} — ${entry.author}`;
-        }
-        return entry.text || entry.author || '';
-      }
-      case 'slang': {
-        if (entry.term && entry.definition) {
-          return `${entry.term}: ${entry.definition}`;
-        }
-        return entry.definition || entry.term || '';
-      }
-      default:
-        return '';
-    }
-  }
-
-  function truncateText(value, maxLength) {
-    if (typeof value !== 'string' || !value.length) {
-      return '';
-    }
-    if (value.length <= maxLength) {
-      return value;
-    }
-    return `${value.slice(0, Math.max(0, maxLength - 1))}…`;
-  }
-
   function createPlaceholderItem(message) {
     const item = document.createElement('li');
     const paragraph = document.createElement('p');
@@ -721,41 +378,17 @@
     return item;
   }
 
-  function populateDatasetSelect() {
-    datasetSelect.innerHTML = '';
-
-    if (!sources.length) {
-      datasetSelect.disabled = true;
-      const option = document.createElement('option');
-      option.value = '';
-      option.textContent = 'No datasets available';
-      datasetSelect.append(option);
-      datasetInfo.innerHTML = '<p class="placeholder">No embedding datasets are configured.</p>';
-      recordList.innerHTML = '<li><p class="placeholder">No datasets available.</p></li>';
-      recordStatus.textContent = 'No vectors to display.';
-      neighborList.innerHTML = '';
-      neighborList.appendChild(createPlaceholderItem('No datasets available.'));
-      neighborStatus.textContent = 'No neighbors to display.';
-      filterInput.disabled = true;
-      updateSummaryForVector([]);
+  function updateDatasetInfoElement(target, meta, source) {
+    if (!target) {
       return;
     }
 
-    sources.forEach((source, index) => {
-      const option = document.createElement('option');
-      option.value = source.id;
-      option.textContent = source.label;
-      datasetSelect.append(option);
-      if (index === 0) {
-        datasetSelect.value = source.id;
-      }
-    });
+    target.innerHTML = '';
 
-    datasetSelect.disabled = false;
-  }
-
-  function updateDatasetInfo(meta, source) {
-    datasetInfo.innerHTML = '';
+    if (!meta || typeof meta !== 'object') {
+      target.innerHTML = '<p class="placeholder">No metadata available.</p>';
+      return;
+    }
 
     const list = document.createElement('dl');
     list.className = 'meta-grid';
@@ -788,281 +421,7 @@
       list.appendChild(wrapper);
     });
 
-    datasetInfo.appendChild(list);
-  }
-
-  function updateRecordStatus() {
-    if (!currentRecords.length) {
-      recordStatus.textContent = 'No vectors available for this dataset.';
-      return;
-    }
-
-    if (!filteredRecords.length) {
-      const searchTerm = filterInput.value.trim();
-      recordStatus.textContent = searchTerm
-        ? `No matches for “${searchTerm}”.`
-        : 'No vectors match the current filter.';
-      return;
-    }
-
-    recordStatus.textContent = `Showing ${filteredRecords.length.toLocaleString()} of ${currentRecords.length.toLocaleString()} vectors.`;
-  }
-
-  function renderRecordList() {
-    recordList.innerHTML = '';
-
-    if (!filteredRecords.length) {
-      const item = document.createElement('li');
-      const placeholder = document.createElement('p');
-      placeholder.className = 'placeholder';
-      placeholder.textContent = currentRecords.length
-        ? 'No vectors match this filter.'
-        : 'No vectors available for this dataset.';
-      item.appendChild(placeholder);
-      recordList.appendChild(item);
-      return;
-    }
-
-    const fragment = document.createDocumentFragment();
-
-    filteredRecords.forEach((record) => {
-      const item = document.createElement('li');
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'record-button';
-      button.dataset.recordId = record.id;
-      const isActive = record.id === activeRecordId;
-      button.dataset.active = isActive ? 'true' : 'false';
-      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-
-      const idSpan = document.createElement('span');
-      idSpan.className = 'record-button__id';
-      idSpan.textContent = record.id;
-
-      const metaSpan = document.createElement('span');
-      metaSpan.className = 'record-button__meta';
-      metaSpan.textContent = record.updatedAt ? `Updated ${formatDate(record.updatedAt)}` : 'No timestamp available';
-
-      button.append(idSpan, metaSpan);
-      item.appendChild(button);
-      fragment.appendChild(item);
-    });
-
-    recordList.appendChild(fragment);
-  }
-
-  function updateActiveRecordButton() {
-    const buttons = recordList.querySelectorAll('.record-button');
-    buttons.forEach((button) => {
-      const isActive = button.dataset.recordId === activeRecordId;
-      button.dataset.active = isActive ? 'true' : 'false';
-      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-    });
-  }
-
-  function updateActiveNeighborButton() {
-    const buttons = neighborList.querySelectorAll('.neighbor-button');
-    buttons.forEach((button) => {
-      const isActive = button.dataset.neighborId === activeNeighborId;
-      button.dataset.active = isActive ? 'true' : 'false';
-      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-    });
-  }
-
-  function createNeighborListItem(record, datasetData, options = {}) {
-    if (!record || !datasetData) {
-      return null;
-    }
-
-    const item = document.createElement('li');
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'neighbor-button';
-    button.dataset.neighborId = record.id;
-    const isActiveNeighbor = record.id === activeNeighborId;
-    button.dataset.active = isActiveNeighbor ? 'true' : 'false';
-    button.setAttribute('aria-pressed', isActiveNeighbor ? 'true' : 'false');
-
-    const similarity = Number.isFinite(options.similarity) ? options.similarity : Number.NaN;
-    if (activeRecordId) {
-      const parts = [`Compare ${record.id} with ${activeRecordId}`];
-      if (Number.isFinite(similarity)) {
-        parts.push(`similarity ${formatSimilarity(similarity)}`);
-      }
-      if (options.override && options.override.label) {
-        parts.push(options.override.label);
-      }
-      button.setAttribute('aria-label', parts.join(' – '));
-    }
-
-    const header = document.createElement('div');
-    header.className = 'neighbor-button__header';
-
-    const idSpan = document.createElement('span');
-    idSpan.className = 'neighbor-button__id';
-    idSpan.textContent = record.id;
-
-    const scoreSpan = document.createElement('span');
-    scoreSpan.className = 'neighbor-button__score';
-    scoreSpan.textContent = formatSimilarity(similarity);
-
-    header.append(idSpan, scoreSpan);
-    button.appendChild(header);
-
-    if (options.override) {
-      const badge = document.createElement('span');
-      badge.className = 'neighbor-button__badge';
-      badge.textContent = options.override.label || 'Protected pair';
-      if (options.override.reason) {
-        badge.setAttribute('title', options.override.reason);
-      }
-      button.appendChild(badge);
-    }
-
-    const snippetSpan = document.createElement('span');
-    snippetSpan.className = 'neighbor-button__snippet';
-    const contentEntry = getContentEntry(datasetData.contentKey, record.id);
-    const fullPreview = getContentPreview(datasetData.contentKey, contentEntry);
-    const preview = truncateText(fullPreview, 120);
-    snippetSpan.textContent = preview || 'No source text available.';
-    if (fullPreview && preview !== fullPreview) {
-      snippetSpan.setAttribute('title', fullPreview);
-    }
-
-    button.appendChild(snippetSpan);
-    item.appendChild(button);
-    return item;
-  }
-
-  function renderNeighborList(datasetData) {
-    neighborList.innerHTML = '';
-
-    if (!activeDatasetId || !datasetData) {
-      neighborStatus.textContent = 'Select a dataset to compute neighbors.';
-      neighborList.appendChild(createPlaceholderItem('Choose a dataset to load vectors before exploring neighbors.'));
-      return;
-    }
-
-    if (!activeRecordId) {
-      neighborStatus.textContent = 'Select a vector to compute its nearest neighbors.';
-      neighborList.appendChild(createPlaceholderItem('Neighbors appear here once you choose a vector.'));
-      return;
-    }
-
-    if (!neighborRecords.length) {
-      neighborStatus.textContent = 'No comparable vectors found for this selection.';
-      neighborList.appendChild(createPlaceholderItem('No similar vectors were detected for the selected entry.'));
-      return;
-    }
-
-    const fragment = document.createDocumentFragment();
-    neighborStatus.textContent = `Top ${neighborRecords.length} matches for ${activeRecordId}.`;
-
-    neighborRecords.forEach((entry) => {
-      const item = createNeighborListItem(entry.record, datasetData, {
-        similarity: entry.similarity,
-        override: entry.override || null,
-      });
-      if (item) {
-        fragment.appendChild(item);
-      }
-    });
-
-    neighborList.appendChild(fragment);
-  }
-  function computeCosineNeighbors(record, datasetData) {
-    if (!record || !datasetData) {
-      return [];
-    }
-
-    ensureVectorData(record);
-    const baseVector = record.floatVector;
-    const baseMagnitude = record.vectorMagnitude;
-
-    if (!(baseVector instanceof Float32Array) || !baseVector.length || !Number.isFinite(baseMagnitude) || baseMagnitude === 0) {
-      return [];
-    }
-
-    const neighbors = [];
-
-    datasetData.records.forEach((candidate) => {
-      if (!candidate || candidate.id === record.id) {
-        return;
-      }
-
-      ensureVectorData(candidate);
-      const compareVector = candidate.floatVector;
-      const compareMagnitude = candidate.vectorMagnitude;
-
-      if (!(compareVector instanceof Float32Array) || compareVector.length !== baseVector.length) {
-        return;
-      }
-
-      if (!Number.isFinite(compareMagnitude) || compareMagnitude === 0) {
-        return;
-      }
-
-      let dot = 0;
-      for (let index = 0; index < baseVector.length; index += 1) {
-        dot += baseVector[index] * compareVector[index];
-      }
-
-      const similarity = dot / (baseMagnitude * compareMagnitude);
-      if (!Number.isFinite(similarity)) {
-        return;
-      }
-
-      neighbors.push({ id: candidate.id, record: candidate, similarity });
-    });
-
-    neighbors.sort((a, b) => b.similarity - a.similarity);
-    return neighbors.slice(0, MAX_NEIGHBOR_DISPLAY);
-  }
-
-  function computeNeighbors(record, datasetData) {
-    if (!record || !datasetData) {
-      return [];
-    }
-
-    const precomputed = datasetData.neighborMap instanceof Map ? datasetData.neighborMap.get(record.id) || [] : [];
-    const results = [];
-    const seen = new Set();
-
-    precomputed.forEach((entry) => {
-      if (!entry || typeof entry !== 'object') {
-        return;
-      }
-
-      const candidate = datasetData.recordMap.get(entry.id);
-      if (!candidate || candidate.id === record.id || seen.has(candidate.id)) {
-        return;
-      }
-
-      const similarity = Number(entry.similarity);
-      if (!Number.isFinite(similarity)) {
-        return;
-      }
-
-      const override = getOverrideForPair(datasetData, record.id, candidate.id);
-      results.push({ id: candidate.id, record: candidate, similarity, override });
-      seen.add(candidate.id);
-    });
-
-    if (results.length < MAX_NEIGHBOR_DISPLAY) {
-      const fallback = computeCosineNeighbors(record, datasetData);
-      fallback.forEach((entry) => {
-        if (!entry || seen.has(entry.id)) {
-          return;
-        }
-
-        const override = getOverrideForPair(datasetData, record.id, entry.id);
-        results.push({ id: entry.id, record: entry.record, similarity: entry.similarity, override });
-        seen.add(entry.id);
-      });
-    }
-
-    results.sort((a, b) => b.similarity - a.similarity);
-    return results.slice(0, MAX_NEIGHBOR_DISPLAY);
+    target.appendChild(list);
   }
 
   function renderPane(pane, record, datasetMeta, source, options = {}) {
@@ -1185,6 +544,39 @@
       renderContentText(pane.text, options.contentKey || '', options.contentEntry || null, textPlaceholder);
     }
   }
+
+  function computePairSimilarity(leftRecord, rightRecord) {
+    if (!leftRecord || !rightRecord) {
+      return Number.NaN;
+    }
+
+    ensureVectorData(leftRecord);
+    ensureVectorData(rightRecord);
+
+    const leftVector = leftRecord.floatVector;
+    const rightVector = rightRecord.floatVector;
+    if (!(leftVector instanceof Float32Array) || !(rightVector instanceof Float32Array)) {
+      return Number.NaN;
+    }
+    if (leftVector.length !== rightVector.length) {
+      return Number.NaN;
+    }
+
+    const leftMagnitude = leftRecord.vectorMagnitude;
+    const rightMagnitude = rightRecord.vectorMagnitude;
+    if (!Number.isFinite(leftMagnitude) || !Number.isFinite(rightMagnitude) || leftMagnitude === 0 || rightMagnitude === 0) {
+      return Number.NaN;
+    }
+
+    let dot = 0;
+    for (let index = 0; index < leftVector.length; index += 1) {
+      dot += leftVector[index] * rightVector[index];
+    }
+
+    const similarity = dot / (leftMagnitude * rightMagnitude);
+    return Number.isFinite(similarity) ? similarity : Number.NaN;
+  }
+
   function renderPrimaryPane(record, datasetData) {
     const contentKey = datasetData?.contentKey || '';
     const contentEntry = record ? getContentEntry(contentKey, record.id) : null;
@@ -1201,39 +593,37 @@
     });
   }
 
-  function renderSecondaryPane(primaryRecord, neighborEntry, datasetData) {
+  function renderSecondaryPane(leftRecord, rightRecord, datasetData) {
     const contentKey = datasetData?.contentKey || '';
-    const record = neighborEntry ? neighborEntry.record : null;
-    const contentEntry = record ? getContentEntry(contentKey, record.id) : null;
-    const captionIdle = primaryRecord
-      ? 'Select a neighbor to view its fingerprint.'
-      : 'Choose a vector to compute neighbors.';
+    const contentEntry = rightRecord ? getContentEntry(contentKey, rightRecord.id) : null;
+    const hasLeftSelection = Boolean(leftRecord);
+    const captionIdle = hasLeftSelection
+      ? 'Select a right-side vector to view its fingerprint.'
+      : 'Choose a left vector first, then pick a comparison vector.';
     let captionActive = captionIdle;
 
-    if (primaryRecord && record) {
-      captionActive = `Comparing ${record.id} with ${primaryRecord.id}.`;
-    }
-
     const extraMeta = [];
-    if (neighborEntry && Number.isFinite(neighborEntry.similarity)) {
-      extraMeta.push({ label: 'Cosine similarity', value: formatSimilarity(neighborEntry.similarity) });
+
+    if (rightRecord) {
+      captionActive = leftRecord
+        ? `Comparing ${rightRecord.id} with ${leftRecord.id}.`
+        : `Binary fingerprint for ${rightRecord.id}.`;
+
+      if (leftRecord) {
+        const similarity = computePairSimilarity(leftRecord, rightRecord);
+        if (Number.isFinite(similarity)) {
+          extraMeta.push({ label: 'Cosine similarity', value: formatSimilarity(similarity) });
+        }
+      }
     }
 
-    if (neighborEntry && neighborEntry.override) {
-      const overrideLabel = neighborEntry.override.label || 'Protected pair';
-      const overrideReason = neighborEntry.override.reason
-        ? neighborEntry.override.reason
-        : 'Manually protected from dedupe sweeps.';
-      extraMeta.push({ label: overrideLabel, value: overrideReason, title: neighborEntry.override.reason || '' });
-    }
-
-    renderPane(secondaryPane, record, datasetData?.meta, datasetData?.source, {
-      metaPlaceholder: primaryRecord
-        ? 'Pick a neighbor to inspect its details.'
-        : 'Select a vector to compute its nearest neighbors.',
-      textPlaceholder: primaryRecord
-        ? 'Choose a neighbor to view its source text.'
-        : 'Select a vector first to reveal similar entries.',
+    renderPane(secondaryPane, rightRecord, datasetData?.meta, datasetData?.source, {
+      metaPlaceholder: hasLeftSelection
+        ? 'Pick a right-side vector to inspect its details.'
+        : 'Select a left vector to start the comparison.',
+      textPlaceholder: hasLeftSelection
+        ? 'Choose a right-side vector to view its source text.'
+        : 'Select a left vector first to enable text comparison.',
       captionIdle,
       captionActive,
       contentKey,
@@ -1242,84 +632,145 @@
     });
   }
 
-  function setActiveNeighbor(neighborId) {
-    const datasetData = datasetCache.get(activeDatasetId);
-    if (!datasetData || !activeRecordId) {
-      return;
-    }
+  function renderComparison() {
+    const leftDatasetId = sides.left.activeDatasetId;
+    const rightDatasetId = sides.right.activeDatasetId;
+    const leftData = leftDatasetId ? datasetCache.get(leftDatasetId) : null;
+    const rightData = rightDatasetId ? datasetCache.get(rightDatasetId) : null;
 
-    if (!neighborId) {
-      activeNeighborId = '';
-      updateActiveNeighborButton();
-      const primaryRecord = datasetData.recordMap.get(activeRecordId) || null;
-      renderSecondaryPane(primaryRecord, null, datasetData);
-      return;
-    }
+    const leftRecord = leftData?.recordMap.get(sides.left.activeRecordId) || null;
+    const rightRecord = rightData?.recordMap.get(sides.right.activeRecordId) || null;
 
-    const neighbor = neighborRecords.find((entry) => entry.id === neighborId);
-    if (!neighbor) {
-      return;
-    }
-
-    activeNeighborId = neighborId;
-    updateActiveNeighborButton();
-    const primaryRecord = datasetData.recordMap.get(activeRecordId) || null;
-    renderSecondaryPane(primaryRecord, neighbor, datasetData);
+    renderPrimaryPane(leftRecord, leftData || null);
+    renderSecondaryPane(leftRecord, rightRecord, rightData || null);
   }
 
-  function setActiveRecord(recordId) {
-    const datasetData = datasetCache.get(activeDatasetId);
+  function updateRecordStatus(side) {
+    if (!side || !side.recordStatus) {
+      return;
+    }
+
+    if (!side.activeDatasetId) {
+      side.recordStatus.textContent = 'Choose a dataset to load its vectors.';
+      return;
+    }
+
+    if (!side.currentRecords.length) {
+      side.recordStatus.textContent = 'No vectors available for this dataset.';
+      return;
+    }
+
+    if (!side.filteredRecords.length) {
+      const searchTerm = side.filterInput.value.trim();
+      side.recordStatus.textContent = searchTerm
+        ? `No matches for “${searchTerm}”.`
+        : 'No vectors match the current filter.';
+      return;
+    }
+
+    side.recordStatus.textContent = `Showing ${side.filteredRecords.length.toLocaleString()} of ${side.currentRecords.length.toLocaleString()} vectors.`;
+  }
+
+  function renderRecordList(side) {
+    if (!side || !side.recordList) {
+      return;
+    }
+
+    side.recordList.innerHTML = '';
+
+    if (!side.filteredRecords.length) {
+      const message = side.currentRecords.length
+        ? 'No vectors match this filter.'
+        : 'No vectors available for this dataset.';
+      side.recordList.appendChild(createPlaceholderItem(message));
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+
+    side.filteredRecords.forEach((record) => {
+      const item = document.createElement('li');
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'record-button';
+      button.dataset.recordId = record.id;
+      const isActive = record.id === side.activeRecordId;
+      button.dataset.active = isActive ? 'true' : 'false';
+      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+
+      const idSpan = document.createElement('span');
+      idSpan.className = 'record-button__id';
+      idSpan.textContent = record.id;
+
+      const metaSpan = document.createElement('span');
+      metaSpan.className = 'record-button__meta';
+      metaSpan.textContent = record.updatedAt ? `Updated ${formatDate(record.updatedAt)}` : 'No timestamp available';
+
+      button.append(idSpan, metaSpan);
+      item.appendChild(button);
+      fragment.appendChild(item);
+    });
+
+    side.recordList.appendChild(fragment);
+  }
+
+  function setActiveRecord(sideKey, recordId) {
+    const side = sides[sideKey];
+    if (!side) {
+      return;
+    }
+
+    const datasetId = side.activeDatasetId;
+    if (!datasetId) {
+      side.activeRecordId = '';
+      renderComparison();
+      return;
+    }
+
+    const datasetData = datasetCache.get(datasetId);
     if (!datasetData) {
       return;
     }
 
-    if (!recordId) {
-      activeRecordId = '';
-      neighborRecords = [];
-      activeNeighborId = '';
-      updateActiveRecordButton();
-      updateSummaryForVector([]);
-      renderPrimaryPane(null, datasetData);
-      renderNeighborList(datasetData);
-      renderSecondaryPane(null, null, datasetData);
-      updateActiveNeighborButton();
+    if (!recordId || !datasetData.recordMap.has(recordId)) {
+      side.activeRecordId = '';
+      renderRecordList(side);
+      updateRecordStatus(side);
+      renderComparison();
       return;
     }
 
-    const record = datasetData.recordMap.get(recordId);
-    if (!record) {
-      return;
-    }
-
-    activeRecordId = recordId;
-    updateActiveRecordButton();
-    ensureVectorData(record);
-    updateSummaryForVector(record.floatVector);
-    renderPrimaryPane(record, datasetData);
-    neighborRecords = computeNeighbors(record, datasetData);
-    if (!neighborRecords.length) {
-      activeNeighborId = '';
-    } else if (!neighborRecords.some((entry) => entry.id === activeNeighborId)) {
-      activeNeighborId = neighborRecords[0].id;
-    }
-    renderNeighborList(datasetData);
-    updateActiveNeighborButton();
-    const neighborEntry = neighborRecords.find((entry) => entry.id === activeNeighborId) || null;
-    renderSecondaryPane(record, neighborEntry, datasetData);
+    side.activeRecordId = recordId;
+    renderRecordList(side);
+    updateRecordStatus(side);
+    renderComparison();
   }
 
-  function applyFilter() {
-    const datasetData = datasetCache.get(activeDatasetId);
+  function applyFilter(sideKey) {
+    const side = sides[sideKey];
+    if (!side) {
+      return;
+    }
+
+    const datasetId = side.activeDatasetId;
+    if (!datasetId) {
+      side.filteredRecords = [];
+      renderRecordList(side);
+      updateRecordStatus(side);
+      return;
+    }
+
+    const datasetData = datasetCache.get(datasetId);
     if (!datasetData) {
       return;
     }
 
-    const term = filterInput.value.trim().toLowerCase();
+    const term = side.filterInput.value.trim().toLowerCase();
 
     if (!term) {
-      filteredRecords = currentRecords;
+      side.filteredRecords = side.currentRecords;
     } else {
-      filteredRecords = currentRecords.filter((record) => {
+      side.filteredRecords = side.currentRecords.filter((record) => {
         if (record.id.toLowerCase().includes(term)) {
           return true;
         }
@@ -1333,107 +784,71 @@
       });
     }
 
-    renderRecordList();
-    updateRecordStatus();
+    renderRecordList(side);
+    updateRecordStatus(side);
 
-    if (!filteredRecords.length) {
-      setActiveRecord('');
+    if (!side.filteredRecords.length) {
+      side.activeRecordId = '';
+      renderComparison();
       return;
     }
 
-    const current = filteredRecords.find((record) => record.id === activeRecordId);
-    if (current) {
-      setActiveRecord(current.id);
+    if (side.filteredRecords.some((record) => record.id === side.activeRecordId)) {
       return;
     }
 
-    setActiveRecord(filteredRecords[0].id);
+    const nextRecordId = side.filteredRecords[0]?.id || '';
+    setActiveRecord(sideKey, nextRecordId);
   }
-  function handleDatasetChange() {
-    const datasetId = datasetSelect.value;
-    activeDatasetId = datasetId;
-    activeRecordId = '';
-    activeNeighborId = '';
-    currentRecords = [];
-    filteredRecords = [];
-    neighborRecords = [];
 
-    filterInput.value = '';
-    filterInput.disabled = true;
-
-    updateSummaryForVector([]);
-    renderPrimaryPane(null, null);
-    renderSecondaryPane(null, null, null);
-
-    if (!datasetId) {
-      datasetInfo.innerHTML = '<p class="placeholder">Choose a dataset to inspect its metadata.</p>';
-      recordList.innerHTML = '<li><p class="placeholder">Select a dataset to load its vectors.</p></li>';
-      recordStatus.textContent = 'No dataset selected.';
-      neighborList.innerHTML = '';
-      neighborList.appendChild(createPlaceholderItem('Select a dataset to explore similar vectors.'));
-      neighborStatus.textContent = 'Select a dataset to compute neighbors.';
+  function resetSide(side) {
+    if (!side) {
       return;
     }
 
-    const source = sources.find((entry) => entry.id === datasetId);
-    if (!source) {
-      datasetInfo.innerHTML = '<p class="placeholder">The selected dataset is not configured.</p>';
-      recordList.innerHTML = '<li><p class="placeholder">Unable to load this dataset.</p></li>';
-      recordStatus.textContent = 'Dataset configuration error.';
-      neighborList.innerHTML = '';
-      neighborList.appendChild(createPlaceholderItem('Fix the dataset configuration to continue.'));
-      neighborStatus.textContent = 'Unable to compute neighbors for this dataset.';
-      return;
+    side.activeDatasetId = '';
+    side.activeRecordId = '';
+    side.currentRecords = [];
+    side.filteredRecords = [];
+    side.filterInput.value = '';
+    side.filterInput.disabled = true;
+
+    if (side.datasetInfo) {
+      side.datasetInfo.innerHTML = '<p class="placeholder">Pick a dataset to inspect its metadata.</p>';
     }
 
-    recordList.innerHTML = '<li><p class="placeholder">Loading vectors…</p></li>';
-    recordStatus.textContent = 'Loading vectors…';
-    neighborList.innerHTML = '';
-    neighborList.appendChild(createPlaceholderItem('Neighbors appear after the vector list loads.'));
-    neighborStatus.textContent = 'Select a vector to compute its nearest neighbors.';
+    if (side.recordList) {
+      side.recordList.innerHTML = '';
+      side.recordList.appendChild(createPlaceholderItem('Select a dataset to load its vectors.'));
+    }
+
+    if (side.recordStatus) {
+      side.recordStatus.textContent = 'Choose a dataset to load its vectors.';
+    }
+  }
+
+  function loadDatasetData(datasetId) {
+    if (!datasetId || !sourceMap.has(datasetId)) {
+      return Promise.reject(new Error('Dataset is not configured.'));
+    }
 
     if (datasetCache.has(datasetId)) {
-      const cached = datasetCache.get(datasetId);
-      currentRecords = cached.records;
-      filteredRecords = cached.records;
-      updateDatasetInfo(cached.meta, cached.source);
-      filterInput.disabled = !currentRecords.length;
-      renderRecordList();
-      updateRecordStatus();
-      if (filteredRecords.length) {
-        setActiveRecord(filteredRecords[0].id);
-      } else {
-        setActiveRecord('');
-        neighborList.innerHTML = '';
-        neighborList.appendChild(createPlaceholderItem('No neighbors available without any vectors.'));
-        neighborStatus.textContent = 'This dataset does not include any vectors.';
-      }
-      return;
+      return Promise.resolve(datasetCache.get(datasetId));
     }
 
-    const datasetRequest = fetch(source.url).then((response) => {
-      if (!response.ok) {
-        throw new Error(`Failed to load ${source.url}`);
-      }
-      return response.json();
-    });
+    const source = sourceMap.get(datasetId);
+    if (!source || !source.url) {
+      return Promise.reject(new Error('Dataset source is missing.'));
+    }
 
-    const reportRequest = typeof source.report === 'string' && source.report
-      ? fetch(source.report)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(`Failed to load ${source.report}`);
-            }
-            return response.json();
-          })
-          .catch((error) => {
-            console.warn('Failed to load neighbor report', error);
-            return null;
-          })
-      : Promise.resolve(null);
-
-    Promise.all([datasetRequest, reportRequest, loadOverrides()])
-      .then(([data, reportData, overrides]) => {
+    return fetch(source.url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to load ${source.url}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
         const meta = data?.meta || {};
         const recordsObject = data?.records || {};
         const records = Object.keys(recordsObject).map((id) => {
@@ -1459,11 +874,6 @@
         });
 
         const contentKey = collectionContentKeys.get(source.collection) || '';
-        const overrideMap =
-          contentKey && overrides instanceof Map && overrides.has(contentKey)
-            ? overrides.get(contentKey)
-            : new Map();
-        const neighborMap = buildNeighborMapFromReport(reportData);
 
         const datasetData = {
           source,
@@ -1471,82 +881,343 @@
           records,
           recordMap,
           contentKey,
-          neighborMap,
-          overrideMap,
         };
 
         datasetCache.set(datasetId, datasetData);
+        return datasetData;
+      });
+  }
 
-        currentRecords = records;
-        filteredRecords = records;
-        updateDatasetInfo(meta, source);
-        filterInput.disabled = !records.length;
-        renderRecordList();
-        updateRecordStatus();
+  function setDatasetForSide(sideKey, datasetId, options = {}) {
+    const side = sides[sideKey];
+    if (!side) {
+      return Promise.resolve();
+    }
 
-        if (records.length) {
-          setActiveRecord(records[0].id);
-        } else {
-          setActiveRecord('');
-          neighborList.innerHTML = '';
-          neighborList.appendChild(createPlaceholderItem('No neighbors available without any vectors.'));
-          neighborStatus.textContent = 'This dataset does not include any vectors.';
-        }
+    const { recordId = '' } = options;
+
+    if (!datasetId) {
+      resetSide(side);
+      renderComparison();
+      return Promise.resolve();
+    }
+
+    const source = sourceMap.get(datasetId);
+    if (!source) {
+      resetSide(side);
+      if (side.recordStatus) {
+        side.recordStatus.textContent = 'Dataset configuration error.';
+      }
+      renderComparison();
+      return Promise.reject(new Error('Dataset configuration error.'));
+    }
+
+    side.datasetSelect.value = datasetId;
+
+    const assignRecords = (datasetData) => {
+      side.activeDatasetId = datasetId;
+      side.currentRecords = datasetData.records;
+      side.filteredRecords = datasetData.records;
+      side.filterInput.value = '';
+      side.filterInput.disabled = !datasetData.records.length;
+      updateDatasetInfoElement(side.datasetInfo, datasetData.meta, datasetData.source);
+      renderRecordList(side);
+      updateRecordStatus(side);
+      const candidateId = recordId && datasetData.recordMap.has(recordId)
+        ? recordId
+        : datasetData.records[0]?.id || '';
+      setActiveRecord(sideKey, candidateId);
+    };
+
+    const cached = datasetCache.get(datasetId);
+    if (cached && side.activeDatasetId === datasetId) {
+      assignRecords(cached);
+      return Promise.resolve();
+    }
+
+    side.recordList.innerHTML = '';
+    side.recordList.appendChild(createPlaceholderItem('Loading vectors…'));
+    side.recordStatus.textContent = 'Loading vectors…';
+    side.filterInput.value = '';
+    side.filterInput.disabled = true;
+    if (side.datasetInfo) {
+      side.datasetInfo.innerHTML = '<p class="placeholder">Loading metadata…</p>';
+    }
+    side.activeDatasetId = datasetId;
+    side.activeRecordId = '';
+
+    return loadDatasetData(datasetId)
+      .then((datasetData) => {
+        assignRecords(datasetData);
       })
       .catch((error) => {
         console.error('Failed to load dataset', error);
-        datasetInfo.innerHTML = '<p class="placeholder">Failed to load dataset metadata.</p>';
-        recordList.innerHTML = '<li><p class="placeholder">Could not load vectors. Please try again.</p></li>';
-        recordStatus.textContent = 'Failed to load dataset.';
-        filterInput.disabled = true;
-        neighborList.innerHTML = '';
-      neighborList.appendChild(createPlaceholderItem('Neighbors cannot load without the vector data.'));
-      neighborStatus.textContent = 'Unable to compute neighbors.';
-      renderPrimaryPane(null, null);
-      renderSecondaryPane(null, null, null);
-      updateSummaryForVector([]);
+        if (side.datasetInfo) {
+          side.datasetInfo.innerHTML = '<p class="placeholder">Failed to load dataset metadata.</p>';
+        }
+        side.recordList.innerHTML = '';
+        side.recordList.appendChild(createPlaceholderItem('Could not load vectors. Please try again.'));
+        side.recordStatus.textContent = 'Failed to load dataset.';
+        side.filterInput.disabled = true;
+        side.currentRecords = [];
+        side.filteredRecords = [];
+        side.activeDatasetId = '';
+        side.activeRecordId = '';
+        renderComparison();
+        throw error;
+      });
+  }
+
+  function populateDatasetSelects() {
+    const selects = [sides.left.datasetSelect, sides.right.datasetSelect];
+
+    selects.forEach((select) => {
+      if (!select) {
+        return;
+      }
+
+      select.innerHTML = '';
+
+      if (!sources.length) {
+        select.disabled = true;
+        const option = document.createElement('option');
+        option.value = '';
+        option.textContent = 'No datasets available';
+        select.append(option);
+        return;
+      }
+
+      sources.forEach((source, index) => {
+        const option = document.createElement('option');
+        option.value = source.id;
+        option.textContent = source.label;
+        if (index === 0) {
+          option.selected = true;
+        }
+        select.append(option);
+      });
+
+      select.disabled = false;
     });
   }
 
-  datasetSelect.addEventListener('change', () => {
-    handleDatasetChange();
+  function describePair(pair) {
+    const similarityText = Number.isFinite(pair.similarity) ? formatSimilarity(pair.similarity) : '—';
+    const datasetLabel = pair.datasetLabel || 'Dataset';
+    return `${similarityText} · ${datasetLabel} — ${pair.idLeft} ↔ ${pair.idRight}`;
+  }
+
+  function updatePairStatus(pair) {
+    if (!pair) {
+      pairStatus.textContent = 'Select a pair to load both vectors.';
+      return;
+    }
+
+    const similarityText = Number.isFinite(pair.similarity) ? formatSimilarity(pair.similarity) : '—';
+    const datasetLabel = pair.datasetLabel || 'dataset';
+    const previewA = pair.previewLeft ? `“${pair.previewLeft}”` : '';
+    const previewB = pair.previewRight ? `“${pair.previewRight}”` : '';
+    const previews = [previewA, previewB].filter(Boolean).join(' ⟷ ');
+
+    const details = [`Comparing ${pair.idLeft} and ${pair.idRight}`];
+    details.push(`from ${datasetLabel}`);
+    if (Number.isFinite(pair.similarity)) {
+      details.push(`cosine ${similarityText}`);
+    }
+    if (previews) {
+      details.push(previews);
+    }
+    pairStatus.textContent = details.join(' — ');
+  }
+
+  function populatePairSelect() {
+    pairSelect.innerHTML = '';
+
+    const placeholder = document.createElement('option');
+    placeholder.value = '';
+    placeholder.textContent = topPairs.length ? 'Choose a pair' : 'No pairs available';
+    placeholder.disabled = true;
+    placeholder.selected = true;
+    pairSelect.append(placeholder);
+
+    topPairs.forEach((pair, index) => {
+      const option = document.createElement('option');
+      option.value = String(index);
+      option.textContent = describePair(pair);
+      const preview = [pair.previewLeft, pair.previewRight].filter(Boolean).join(' ⟷ ');
+      if (preview) {
+        option.title = preview;
+      }
+      pairSelect.append(option);
+    });
+
+    pairSelect.disabled = !topPairs.length;
+  }
+
+  function loadTopPairs(limit = TOP_PAIR_LIMIT) {
+    pairSelect.disabled = true;
+    pairSelect.innerHTML = '';
+    const loadingOption = document.createElement('option');
+    loadingOption.value = '';
+    loadingOption.textContent = 'Loading pairs…';
+    loadingOption.disabled = true;
+    loadingOption.selected = true;
+    pairSelect.append(loadingOption);
+    pairStatus.textContent = 'Loading pair overview…';
+
+    if (!sources.length) {
+      topPairs = [];
+      populatePairSelect();
+      pairStatus.textContent = 'No datasets configured for pair selection.';
+      return;
+    }
+
+    const requests = sources.map((source) => {
+      if (!source.report) {
+        return Promise.resolve([]);
+      }
+
+      return fetch(source.report)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Failed to load ${source.report}`);
+          }
+          return response.json();
+        })
+        .then((report) => {
+          const matches = Array.isArray(report?.matches) ? report.matches : [];
+          const sliceSize = Math.max(limit, 50);
+          return matches.slice(0, sliceSize).map((entry) => ({
+            datasetIdLeft: source.id,
+            datasetIdRight: source.id,
+            datasetLabel: source.label,
+            similarity: Number.isFinite(entry.similarity) ? entry.similarity : Number(entry.similarity),
+            idLeft: entry.idA,
+            idRight: entry.idB,
+            previewLeft: safeText(entry.previewA),
+            previewRight: safeText(entry.previewB),
+          }));
+        })
+        .catch((error) => {
+          console.warn('Failed to load pair report', error);
+          return [];
+        });
+    });
+
+    Promise.all(requests)
+      .then((results) => {
+        const combined = results.flat();
+        combined.sort((a, b) => (Number.isFinite(b.similarity) ? b.similarity : -Infinity) - (Number.isFinite(a.similarity) ? a.similarity : -Infinity));
+        topPairs = combined.slice(0, limit);
+        populatePairSelect();
+        updatePairStatus(null);
+      })
+      .catch((error) => {
+        console.error('Failed to load cosine pairs', error);
+        topPairs = [];
+        populatePairSelect();
+        pairStatus.textContent = 'Failed to load cosine pairs.';
+      });
+  }
+
+  function handlePairSelection(index) {
+    const pair = topPairs[index];
+    if (!pair) {
+      return;
+    }
+
+    pairStatus.textContent = 'Loading selected pair…';
+
+    Promise.all([
+      setDatasetForSide('left', pair.datasetIdLeft, { recordId: pair.idLeft }),
+      setDatasetForSide('right', pair.datasetIdRight, { recordId: pair.idRight }),
+    ])
+      .then(() => {
+        updatePairStatus(pair);
+      })
+      .catch((error) => {
+        console.error('Failed to apply pair selection', error);
+        pairStatus.textContent = 'Failed to load the selected pair.';
+      });
+  }
+
+  function resetPairSelection() {
+    if (!pairSelect.options.length) {
+      return;
+    }
+    pairSelect.selectedIndex = 0;
+    updatePairStatus(null);
+  }
+
+  function initialize() {
+    populateDatasetSelects();
+
+    if (sources.length) {
+      const firstDatasetId = sources[0].id;
+      setDatasetForSide('left', firstDatasetId).catch(() => {});
+      setDatasetForSide('right', firstDatasetId).catch(() => {});
+    } else {
+      resetSide(sides.left);
+      resetSide(sides.right);
+      renderComparison();
+    }
+
+    loadTopPairs();
+  }
+
+  pairSelect.addEventListener('change', () => {
+    const value = pairSelect.value;
+    const index = Number.parseInt(value, 10);
+    if (!Number.isNaN(index)) {
+      handlePairSelection(index);
+    }
   });
 
-  recordList.addEventListener('click', (event) => {
+  leftDatasetSelect.addEventListener('change', (event) => {
+    if (event.isTrusted) {
+      resetPairSelection();
+    }
+    setDatasetForSide('left', leftDatasetSelect.value).catch(() => {});
+  });
+
+  rightDatasetSelect.addEventListener('change', (event) => {
+    if (event.isTrusted) {
+      resetPairSelection();
+    }
+    setDatasetForSide('right', rightDatasetSelect.value).catch(() => {});
+  });
+
+  leftRecordList.addEventListener('click', (event) => {
     const button = event.target.closest('.record-button');
     if (!button) {
       return;
     }
     const recordId = button.dataset.recordId;
-    if (!recordId || recordId === activeRecordId) {
+    if (!recordId || recordId === sides.left.activeRecordId) {
       return;
     }
-    setActiveRecord(recordId);
+    setActiveRecord('left', recordId);
   });
 
-  neighborList.addEventListener('click', (event) => {
-    const button = event.target.closest('.neighbor-button');
+  rightRecordList.addEventListener('click', (event) => {
+    const button = event.target.closest('.record-button');
     if (!button) {
       return;
     }
-    const neighborId = button.dataset.neighborId;
-    if (!neighborId || neighborId === activeNeighborId) {
+    const recordId = button.dataset.recordId;
+    if (!recordId || recordId === sides.right.activeRecordId) {
       return;
     }
-    setActiveNeighbor(neighborId);
+    setActiveRecord('right', recordId);
   });
 
-  filterInput.addEventListener('input', () => {
-    applyFilter();
+  leftFilterInput.addEventListener('input', () => {
+    applyFilter('left');
   });
 
-  populateDatasetSelect();
+  rightFilterInput.addEventListener('input', () => {
+    applyFilter('right');
+  });
 
-  if (datasetSelect.value) {
-    handleDatasetChange();
-  } else {
-    neighborList.innerHTML = '';
-    neighborList.appendChild(createPlaceholderItem('Select a dataset to explore similar vectors.'));
-    neighborStatus.textContent = 'Select a dataset to compute neighbors.';
-  }
+  initialize();
 })();
