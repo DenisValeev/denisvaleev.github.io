@@ -4,6 +4,7 @@
   const totalTarget = document.querySelector('[data-total]');
   const filterForm = document.querySelector('[data-filter-form]');
   const filterInput = document.querySelector('[data-filter-input]');
+  const categorySelect = document.querySelector('[data-category-select]');
   const isCompact = document.body && document.body.dataset.compact === 'true';
   const categorize =
     window.jokeCategoryHelper && typeof window.jokeCategoryHelper.categorize === 'function'
@@ -76,6 +77,40 @@
   if (totalTarget) {
     totalTarget.textContent = totalCount.toLocaleString();
   }
+
+  const categorySet = new Set();
+  deck.forEach((entry) => {
+    entry.categories.forEach((label) => {
+      categorySet.add(label);
+    });
+  });
+
+  const sortedCategories = Array.from(categorySet).sort((a, b) => a.localeCompare(b));
+
+  if (categorySelect) {
+    const optionFragment = document.createDocumentFragment();
+    const allOption = document.createElement('option');
+    allOption.value = 'any';
+    allOption.textContent = 'All categories';
+    optionFragment.appendChild(allOption);
+
+    sortedCategories.forEach((label) => {
+      const option = document.createElement('option');
+      option.value = label;
+      option.textContent = label;
+      optionFragment.appendChild(option);
+    });
+
+    categorySelect.textContent = '';
+    categorySelect.appendChild(optionFragment);
+    categorySelect.value = 'any';
+    if (sortedCategories.length) {
+      categorySelect.disabled = false;
+    }
+  }
+
+  let activeCategory = 'any';
+  let activeTerm = filterInput ? filterInput.value : '';
 
   function updateCount(value) {
     if (countTarget) {
@@ -170,23 +205,34 @@
     tbody.appendChild(fragment);
   }
 
-  function applyFilter(term) {
-    const trimmed = typeof term === 'string' ? term.trim() : '';
+  function applyFilter() {
+    const trimmed = typeof activeTerm === 'string' ? activeTerm.trim() : '';
     const normalized = trimmed.toLowerCase();
     const keywords = normalized ? normalized.split(/\s+/).filter(Boolean) : [];
+    const categoryFiltered = activeCategory === 'any'
+      ? deck
+      : deck.filter((entry) => entry.categories.includes(activeCategory));
     const filtered = keywords.length
-      ? deck.filter((entry) => keywords.every((keyword) => entry.searchText.includes(keyword)))
-      : deck;
+      ? categoryFiltered.filter((entry) => keywords.every((keyword) => entry.searchText.includes(keyword)))
+      : categoryFiltered;
 
     updateCount(filtered.length);
     renderRows(filtered, trimmed);
   }
 
-  applyFilter(filterInput ? filterInput.value : '');
+  applyFilter();
 
   if (filterInput) {
     filterInput.addEventListener('input', () => {
-      applyFilter(filterInput.value);
+      activeTerm = filterInput.value;
+      applyFilter();
+    });
+  }
+
+  if (categorySelect) {
+    categorySelect.addEventListener('change', (event) => {
+      activeCategory = event.target.value;
+      applyFilter();
     });
   }
 })();

@@ -4,19 +4,30 @@
   const prevButton = document.getElementById('prev-button');
   const nextButton = document.getElementById('next-button');
   const revealButton = document.getElementById('reveal-button');
+  const categorySelect = document.getElementById('category-select');
   const categoryList = document.getElementById('joke-categories');
 
-  if (!setupEl || !punchlineEl || !prevButton || !nextButton || !revealButton) {
+  if (!setupEl || !punchlineEl || !prevButton || !nextButton || !revealButton || !categorySelect) {
     return;
   }
 
   const jokes = Array.isArray(window.jokes)
-    ? window.jokes.filter((entry) => entry && entry.joke)
+    ? window.jokes
+        .map((entry) => {
+          if (!entry || typeof entry.joke !== 'string') {
+            return null;
+          }
+          const joke = entry.joke;
+          const punchline = typeof entry.punchline === 'string' ? entry.punchline : '';
+          return { joke, punchline };
+        })
+        .filter(Boolean)
     : [];
 
   let deck = [];
   let index = 0;
   let punchlineVisible = false;
+  let activeCategory = 'any';
 
   const categorize =
     window.jokeCategoryHelper && typeof window.jokeCategoryHelper.categorize === 'function'
@@ -27,6 +38,57 @@
     window.jokeCategoryHelper && typeof window.jokeCategoryHelper.fallback === 'string'
       ? window.jokeCategoryHelper.fallback
       : 'Classic Dad';
+
+  const normalizedJokes = jokes.map((entry) => {
+    const categories = categorize
+      ? categorize(entry.joke, entry.punchline)
+      : null;
+    const list = Array.isArray(categories)
+      ? categories
+          .map((label) => (typeof label === 'string' ? label.trim() : ''))
+          .filter((label, idx, array) => label && array.indexOf(label) === idx)
+      : [];
+    return {
+      joke: entry.joke,
+      punchline: entry.punchline,
+      categories: list.length ? list : [fallbackCategory],
+    };
+  });
+
+  const categorySet = new Set();
+  normalizedJokes.forEach((entry) => {
+    entry.categories.forEach((label) => {
+      categorySet.add(label);
+    });
+  });
+
+  const categoryOptions = Array.from(categorySet).sort((a, b) => a.localeCompare(b));
+
+  const optionFragment = document.createDocumentFragment();
+  const allOption = document.createElement('option');
+  allOption.value = 'any';
+  allOption.textContent = 'All jokes';
+  optionFragment.appendChild(allOption);
+
+  categoryOptions.forEach((label) => {
+    const option = document.createElement('option');
+    option.value = label;
+    option.textContent = label;
+    optionFragment.appendChild(option);
+  });
+
+  categorySelect.appendChild(optionFragment);
+  categorySelect.value = 'any';
+  if (categoryOptions.length) {
+    categorySelect.disabled = false;
+  }
+
+  function getActiveCollection() {
+    if (activeCategory === 'any') {
+      return normalizedJokes;
+    }
+    return normalizedJokes.filter((entry) => entry.categories.includes(activeCategory));
+  }
 
   function renderCategories(values) {
     if (!categoryList) {
@@ -58,7 +120,8 @@
 
   function ensureDeck() {
     if (deck.length === 0) {
-      deck = shuffle(jokes);
+      const available = getActiveCollection();
+      deck = shuffle(available);
       index = 0;
     }
   }
@@ -71,7 +134,9 @@
   }
 
   function render() {
-    if (!jokes.length) {
+    const available = getActiveCollection();
+
+    if (!available.length) {
       setupEl.textContent = 'No jokes available.';
       punchlineEl.textContent = '';
       punchlineEl.classList.remove('is-visible');
@@ -90,10 +155,13 @@
 
     ensureDeck();
     const current = deck[index];
+    if (!current) {
+      return;
+    }
     const hasPunchline = typeof current.punchline === 'string' && current.punchline.trim().length > 0;
     const punchlineText = hasPunchline ? current.punchline : '💩';
-    const categories = categorize
-      ? categorize(current.joke, current.punchline)
+    const categories = Array.isArray(current.categories) && current.categories.length
+      ? current.categories
       : [fallbackCategory];
 
     setupEl.textContent = current.joke;
@@ -110,12 +178,18 @@
 
   function showNext() {
     ensureDeck();
+    if (!deck.length) {
+      return;
+    }
     index = (index + 1) % deck.length;
     render();
   }
 
   function showPrev() {
     ensureDeck();
+    if (!deck.length) {
+      return;
+    }
     index = (index - 1 + deck.length) % deck.length;
     render();
   }
@@ -127,12 +201,29 @@
     setPunchlineVisible(!punchlineVisible);
   }
 
+  function resetDeck() {
+    deck = [];
+    ensureDeck();
+  }
+
+  categorySelect.addEventListener('change', (event) => {
+    activeCategory = event.target.value;
+    resetDeck();
+    render();
+  });
+
   prevButton.addEventListener('click', showPrev);
   nextButton.addEventListener('click', showNext);
   revealButton.addEventListener('click', togglePunchline);
 
   document.addEventListener('keydown', (event) => {
     if (event.defaultPrevented) {
+      return;
+    }
+
+    const target = event.target;
+    const tagName = target && target.tagName;
+    if (tagName && ['INPUT', 'TEXTAREA', 'SELECT'].includes(tagName)) {
       return;
     }
 

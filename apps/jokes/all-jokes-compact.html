@@ -48,6 +48,12 @@
         color: inherit;
       }
 
+      .filter select {
+        background: rgba(14, 20, 36, 0.9);
+        border-color: rgba(148, 163, 209, 0.4);
+        color: inherit;
+      }
+
       .home-link {
         border-color: rgba(148, 163, 209, 0.45);
         background: rgba(148, 163, 209, 0.18);
@@ -198,6 +204,25 @@
       box-shadow: 0 0 0 3px rgba(112, 132, 255, 0.18);
     }
 
+    .filter select {
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 14px;
+      border: 1px solid var(--table-border);
+      background: rgba(255, 255, 255, 0.92);
+      color: inherit;
+      padding: 12px 16px;
+      font: inherit;
+      cursor: pointer;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .filter select:focus-visible {
+      outline: 2px solid rgba(112, 132, 255, 0.5);
+      outline-offset: 2px;
+      box-shadow: 0 0 0 3px rgba(112, 132, 255, 0.18);
+    }
+
     .table-wrapper {
       border: 1px solid var(--table-border);
       border-radius: 16px;
@@ -299,6 +324,10 @@
     <form class="filter" data-filter-form>
       <label for="compact-joke-filter">Filter jokes</label>
       <input id="compact-joke-filter" type="search" name="compact-joke-filter" placeholder="Type to filter…" autocomplete="off" data-filter-input>
+      <label for="compact-joke-category-select">Filter by category</label>
+      <select id="compact-joke-category-select" name="compact-joke-category-select" data-category-select aria-label="Joke category" disabled>
+        <option>Loading categories…</option>
+      </select>
     </form>
     <div class="table-wrapper" role="region" aria-live="polite">
       <table>
