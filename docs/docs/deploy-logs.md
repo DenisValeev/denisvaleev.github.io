@@ -3,7 +3,7 @@
 ## Log excerpt
 
 ```
-2025-09-25T02:26:41Z  warn   Service worker returned /index.html for navigation request /ai_docs/
+2025-09-25T02:26:41Z  warn   Service worker returned /index.html for navigation request /docs/
 2025-09-25T02:26:42Z  info   Retrying navigation without cache fallback
 2025-09-25T02:26:42Z  info   Navigation succeeded after bypassing cached landing page
 ```
@@ -11,7 +11,7 @@
 ## What went wrong
 
 The service worker treated every navigation as eligible for the cached landing page before attempting a network fetch. When the
-homepage already lived in the cache, the `ai_docs/` navigation surfaced the landing markup instead of the documentation shell.
+homepage already lived in the cache, the `docs/` navigation surfaced the landing markup instead of the documentation shell.
 
 ## Mitigation
 

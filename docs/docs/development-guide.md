@@ -18,7 +18,7 @@ This guide distils the practices captured across the repository’s `AGENTS.md` 
 ## Adding or updating apps
 
 1. Create a folder under `apps/<name>/` with `index.html`, any supporting datasets, and a script entry point (`app.js`).
-2. Follow the landing page card pattern (`<a class="app-button">`) and add the new card to `index.html`. Include developer shortcut links in the `.dev-tools` section when relevant.
+2. Follow the landing page card pattern (`<a class="app-button">`) and add the new card to `index.html`. Include developer shortcut links in the `.dev-tools` section when relevant. Pick an emoji or icon that is unique across the landing page so no two apps share the same symbol.
 3. If the app ships multiple pages (archives, compact views), ensure each page exposes a Home link (`../../`) so `tests/home-navigation.spec.js` and `tests/home.spec.js` stay green.
 4. Update `offline-manifest.json` via `npm run build:offline` so the service worker caches the new assets.
 5. Add or extend Playwright specs under `tests/` to cover the new surface area.
@@ -36,5 +36,5 @@ This guide distils the practices captured across the repository’s `AGENTS.md` 
 
 ## Documentation upkeep
 
-- The `ai_docs/` folder hosts this documentation hub. Whenever you add a new guide, update `ai_docs/index.html` to register it in the navigation.
+- The `docs/` folder hosts this documentation hub. Whenever you add a new guide, update `docs/index.html` to register it in the navigation.
 - Keep the docs in sync with behavioural changes (new scripts, updated datasets, revised tests). Treat documentation updates as part of each pull request that changes workflows.

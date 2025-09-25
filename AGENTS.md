@@ -31,6 +31,6 @@ This project is a static toolbox site. The landing page (`index.html`) lists sma
 - A new regression spec enforces Home buttons across apps—after tweaking navigation chrome, run `npx playwright test tests/home-navigation.spec.js`.
 
 ## Documentation
-- The `ai_docs/` directory hosts the Markdown knowledge base. Update the relevant guides whenever you change workflows, scripts, or datasets so the docs remain authoritative.
-- When you add, remove, or rename a guide, update the `guides` array in `ai_docs/index.html` so the navigation stays in sync.
-- After editing documentation, open `ai_docs/index.html` in a browser (or via `npx serve .`) to confirm the Markdown renders through Marked and the hash navigation works.
+- The `docs/` directory hosts the Markdown knowledge base. Update the relevant guides whenever you change workflows, scripts, or datasets so the docs remain authoritative.
+- When you add, remove, or rename a guide, update the `guides` array in `docs/index.html` so the navigation stays in sync.
+- After editing documentation, open `docs/index.html` in a browser (or via `npx serve .`) to confirm the Markdown renders through Marked and the hash navigation works.
