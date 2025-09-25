@@ -24,6 +24,7 @@
   const secondaryText = document.querySelector('[data-secondary-text]');
   const primaryCaption = document.querySelector('[data-primary-caption]');
   const secondaryCaption = document.querySelector('[data-secondary-caption]');
+  const visualizationSelect = document.querySelector('[data-visualization-select]');
 
   if (
     !pairSelect ||
@@ -108,6 +109,46 @@
     },
   };
 
+  const DEFAULT_VISUALIZATION_MODE = 'diverging';
+  const visualizationModes = {
+    diverging: {
+      label: 'Positive/negative heatmap',
+      primaryIdle: 'Pick a vector to render its heatmap.',
+      primaryActive(recordId) {
+        return `Positive/negative heatmap for ${recordId}.`;
+      },
+      secondaryIdle(hasLeftSelection) {
+        return hasLeftSelection
+          ? 'Select a right-side vector to view its heatmap.'
+          : 'Choose a left vector first to enable the heatmap comparison.';
+      },
+      secondaryActive({ hasLeftSelection, leftId, rightId }) {
+        return hasLeftSelection
+          ? `Positive/negative heatmap comparing ${rightId} with ${leftId}.`
+          : `Positive/negative heatmap for ${rightId}.`;
+      },
+    },
+    binary: {
+      label: 'Raw binary RGB fingerprint',
+      primaryIdle: 'Pick a vector to render its fingerprint.',
+      primaryActive(recordId) {
+        return `Binary fingerprint for ${recordId}.`;
+      },
+      secondaryIdle(hasLeftSelection) {
+        return hasLeftSelection
+          ? 'Select a right-side vector to view its fingerprint.'
+          : 'Choose a left vector first to enable fingerprint comparison.';
+      },
+      secondaryActive({ hasLeftSelection, leftId, rightId }) {
+        return hasLeftSelection
+          ? `Binary fingerprint comparing ${rightId} with ${leftId}.`
+          : `Binary fingerprint for ${rightId}.`;
+      },
+    },
+  };
+
+  let activeVisualizationMode = DEFAULT_VISUALIZATION_MODE;
+
   let topPairs = [];
   const TOP_PAIR_LIMIT = 50;
 
@@ -182,6 +223,110 @@
       sum += value * value;
     }
     return Math.sqrt(sum);
+  }
+
+  function getVisualizationConfig(mode) {
+    if (typeof mode !== 'string') {
+      return visualizationModes[DEFAULT_VISUALIZATION_MODE];
+    }
+    return visualizationModes[mode] || visualizationModes[DEFAULT_VISUALIZATION_MODE];
+  }
+
+  function getVisualizationLabel(mode) {
+    return getVisualizationConfig(mode).label;
+  }
+
+  function getActiveVisualizationMode() {
+    return visualizationModes[activeVisualizationMode] ? activeVisualizationMode : DEFAULT_VISUALIZATION_MODE;
+  }
+
+  function setActiveVisualizationMode(mode) {
+    activeVisualizationMode = visualizationModes[mode] ? mode : DEFAULT_VISUALIZATION_MODE;
+    return activeVisualizationMode;
+  }
+
+  function lerp(a, b, t) {
+    return a + (b - a) * t;
+  }
+
+  function createBinaryVisualization(ctx, bytes) {
+    const dataView = bytes instanceof Uint8Array ? bytes : new Uint8Array();
+    const pixelCount = Math.max(1, Math.ceil(dataView.length / 3));
+    const width = Math.max(1, Math.ceil(Math.sqrt(pixelCount)));
+    const height = Math.max(1, Math.ceil(pixelCount / width));
+    const imageData = ctx.createImageData(width, height);
+    const data = imageData.data;
+    let byteIndex = 0;
+
+    for (let index = 0; index < width * height; index += 1) {
+      data[index * 4] = dataView[byteIndex] ?? 0;
+      data[index * 4 + 1] = dataView[byteIndex + 1] ?? 0;
+      data[index * 4 + 2] = dataView[byteIndex + 2] ?? 0;
+      data[index * 4 + 3] = 255;
+      byteIndex += 3;
+    }
+
+    return { width, height, imageData, mode: 'binary' };
+  }
+
+  function createDivergingVisualization(ctx, values) {
+    const vector = values instanceof Float32Array ? values : new Float32Array();
+    if (!vector.length) {
+      return null;
+    }
+
+    let maxMagnitude = 0;
+    for (let index = 0; index < vector.length; index += 1) {
+      const value = vector[index];
+      if (Number.isFinite(value)) {
+        const magnitude = Math.abs(value);
+        if (magnitude > maxMagnitude) {
+          maxMagnitude = magnitude;
+        }
+      }
+    }
+
+    if (!Number.isFinite(maxMagnitude) || maxMagnitude === 0) {
+      maxMagnitude = 1;
+    }
+
+    const pixelCount = Math.max(1, vector.length);
+    const width = Math.max(1, Math.ceil(Math.sqrt(pixelCount)));
+    const height = Math.max(1, Math.ceil(pixelCount / width));
+    const imageData = ctx.createImageData(width, height);
+    const data = imageData.data;
+
+    const yellow = { r: 250, g: 204, b: 21 };
+    const green = { r: 22, g: 163, b: 74 };
+    const red = { r: 220, g: 38, b: 38 };
+
+    for (let index = 0; index < width * height; index += 1) {
+      const rawValue = index < vector.length ? vector[index] : 0;
+      const finiteValue = Number.isFinite(rawValue) ? rawValue : 0;
+      const normalized = Math.max(-1, Math.min(1, finiteValue / maxMagnitude));
+      let r = yellow.r;
+      let g = yellow.g;
+      let b = yellow.b;
+
+      if (normalized > 0) {
+        const t = normalized;
+        r = Math.round(lerp(yellow.r, green.r, t));
+        g = Math.round(lerp(yellow.g, green.g, t));
+        b = Math.round(lerp(yellow.b, green.b, t));
+      } else if (normalized < 0) {
+        const t = -normalized;
+        r = Math.round(lerp(yellow.r, red.r, t));
+        g = Math.round(lerp(yellow.g, red.g, t));
+        b = Math.round(lerp(yellow.b, red.b, t));
+      }
+
+      data[index * 4] = r;
+      data[index * 4 + 1] = g;
+      data[index * 4 + 2] = b;
+      data[index * 4 + 3] = 255;
+    }
+
+    return { width, height, imageData, mode: 'diverging' };
   }
 
   function ensureVectorData(record) {
@@ -472,6 +617,9 @@
     const textPlaceholder = options.textPlaceholder || 'Select a vector to view its source text.';
     const captionIdle = options.captionIdle || '';
     const captionActive = options.captionActive || captionIdle;
+    const visualizationMode = typeof options.visualizationMode === 'string'
+      ? options.visualizationMode
+      : getActiveVisualizationMode();
 
     if (pane.caption) {
       pane.caption.textContent = record ? captionActive : captionIdle;
@@ -499,24 +647,21 @@
 
     ensureVectorData(record);
     const bytes = record.vectorBytes instanceof Uint8Array ? record.vectorBytes : new Uint8Array();
-    const pixelCount = Math.ceil(bytes.length / 3);
-    const width = Math.max(1, Math.ceil(Math.sqrt(pixelCount)));
-    const height = Math.max(1, Math.ceil(pixelCount / width));
+    let renderResult = null;
 
-    pane.canvas.width = width;
-    pane.canvas.height = height;
-
-    const imageData = ctx.createImageData(width, height);
-    const data = imageData.data;
-    let byteIndex = 0;
-    for (let index = 0; index < width * height; index += 1) {
-      data[index * 4] = bytes[byteIndex] ?? 0;
-      data[index * 4 + 1] = bytes[byteIndex + 1] ?? 0;
-      data[index * 4 + 2] = bytes[byteIndex + 2] ?? 0;
-      data[index * 4 + 3] = 255;
-      byteIndex += 3;
+    if (visualizationMode === 'diverging') {
+      renderResult = createDivergingVisualization(ctx, record.floatVector);
     }
 
+    if (!renderResult) {
+      renderResult = createBinaryVisualization(ctx, bytes);
+    }
+
+    const appliedMode = renderResult.mode || visualizationMode;
+    const visualizationLabel = getVisualizationLabel(appliedMode);
+    const { width, height, imageData } = renderResult;
+    pane.canvas.width = width;
+    pane.canvas.height = height;
     ctx.putImageData(imageData, 0, 0);
 
     const containerWidth = pane.canvas.parentElement?.clientWidth || 220;
@@ -532,6 +677,7 @@
       const textHashPreview = textHash ? `${textHash.slice(0, 16)}…` : '—';
 
       const metaItems = [
+        { label: 'Visualization', value: visualizationLabel },
         { label: 'Vector id', value: record.id },
         { label: 'Collection', value: source?.collection || '—' },
         { label: 'Provider', value: record.provider || datasetMeta?.provider || '—' },
@@ -626,8 +772,10 @@
   function renderPrimaryPane(record, datasetData) {
     const contentKey = datasetData?.contentKey || '';
     const contentEntry = record ? getContentEntry(contentKey, record.id) : null;
-    const captionIdle = 'Pick a vector to render its fingerprint.';
-    const captionActive = record ? `Binary fingerprint for ${record.id}.` : captionIdle;
+    const visualizationMode = getActiveVisualizationMode();
+    const visualizationConfig = getVisualizationConfig(visualizationMode);
+    const captionIdle = visualizationConfig.primaryIdle;
+    const captionActive = record ? visualizationConfig.primaryActive(record.id) : captionIdle;
     const previewFallback = sides.left.activePreviewText || '';
 
     renderPane(primaryPane, record, datasetData?.meta, datasetData?.source, {
@@ -638,6 +786,7 @@
       contentKey,
       contentEntry,
       previewFallback,
+      visualizationMode,
     });
   }
 
@@ -646,17 +795,19 @@
     const contentEntry = rightRecord ? getContentEntry(contentKey, rightRecord.id) : null;
     const previewFallback = sides.right.activePreviewText || '';
     const hasLeftSelection = Boolean(leftRecord);
-    const captionIdle = hasLeftSelection
-      ? 'Select a right-side vector to view its fingerprint.'
-      : 'Choose a left vector first, then pick a comparison vector.';
+    const visualizationMode = getActiveVisualizationMode();
+    const visualizationConfig = getVisualizationConfig(visualizationMode);
+    const captionIdle = visualizationConfig.secondaryIdle(hasLeftSelection);
     let captionActive = captionIdle;
 
     const extraMeta = [];
 
     if (rightRecord) {
-      captionActive = leftRecord
-        ? `Comparing ${rightRecord.id} with ${leftRecord.id}.`
-        : `Binary fingerprint for ${rightRecord.id}.`;
+      captionActive = visualizationConfig.secondaryActive({
+        hasLeftSelection,
+        leftId: leftRecord?.id || '',
+        rightId: rightRecord.id,
+      });
 
       if (leftRecord) {
         const similarity = computePairSimilarity(leftRecord, rightRecord);
@@ -679,6 +830,7 @@
       contentEntry,
       extraMeta,
       previewFallback,
+      visualizationMode,
     });
   }
 
@@ -1226,6 +1378,17 @@
     }
 
     loadTopPairs();
+  }
+
+  if (visualizationSelect) {
+    visualizationSelect.value = getActiveVisualizationMode();
+    visualizationSelect.addEventListener('change', (event) => {
+      const nextMode = setActiveVisualizationMode(event.target.value);
+      if (visualizationSelect.value !== nextMode) {
+        visualizationSelect.value = nextMode;
+      }
+      renderComparison();
+    });
   }
 
   pairSelect.addEventListener('change', () => {
