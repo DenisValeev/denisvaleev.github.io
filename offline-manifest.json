@@ -1,8 +1,8 @@
 {
-  "version": "20250925-cb670c1984a0-de5bcd363662",
-  "generatedAt": "2025-09-25T03:25:39.465Z",
+  "version": "20250925-b957fae67fe4-db0eee688ce1",
+  "generatedAt": "2025-09-25T03:46:51.462Z",
   "totalAssets": 72,
-  "totalBytes": 6292572,
+  "totalBytes": 6292762,
   "assets": [
     {
       "path": "apps/asset-observatory/AGENTS.md",
@@ -54,7 +54,7 @@
     },
     {
       "path": "apps/jokes/joke-categories.js",
-      "bytes": 8005
+      "bytes": 8201
     },
     {
       "path": "apps/jokes/jokes.js",
@@ -286,7 +286,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 30697
+      "bytes": 30691
     },
     {
       "path": "service-worker.js",
@@ -294,8 +294,8 @@
     }
   ],
   "commit": {
-    "hash": "de5bcd3636622efe651358a122c07101ae5674c3",
-    "short": "de5bcd363662",
+    "hash": "db0eee688ce1b1021bbaf8a250359f3ddf75a4fd",
+    "short": "db0eee688ce1",
     "dirty": false
   }
 }
