@@ -1,5 +1,5 @@
 window.assetObservatoryData = {
-  "generatedAt": "2025-09-25T03:37:04.377Z",
+  "generatedAt": "2025-09-25T04:07:10.465Z",
   "datasets": [
     {
       "id": "jokes",
@@ -122,6 +122,15 @@ window.assetObservatoryData = {
           "records": 653,
           "bytes": 471956,
           "generatedAt": "2025-09-22T23:16:21.908Z"
+        },
+        {
+          "path": "data/quotes-embeddings-cohere.json",
+          "provider": "hfspace",
+          "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
+          "dimensions": 384,
+          "records": 129,
+          "bytes": 316032,
+          "generatedAt": "2025-09-22T00:02:49.928Z"
         }
       ],
       "similarityReports": [
@@ -148,8 +157,8 @@ window.assetObservatoryData = {
           "provider": "hfspace",
           "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
           "threshold": 0.5,
-          "pairs": 120,
-          "bytes": 40673,
+          "pairs": 80,
+          "bytes": 26836,
           "generatedAt": "2025-09-22T00:02:49.928Z"
         }
       ],
@@ -161,10 +170,10 @@ window.assetObservatoryData = {
         }
       ],
       "totals": {
-        "embeddingBytes": 928539,
-        "embeddingVectors": 1306,
-        "similarityBytes": 483197,
-        "similarityPairs": 1408
+        "embeddingBytes": 1244571,
+        "embeddingVectors": 1435,
+        "similarityBytes": 43554,
+        "similarityPairs": 130
       }
     },
     {
@@ -278,9 +287,9 @@ window.assetObservatoryData = {
     },
     {
       "id": "hfspace",
-      "stores": 1,
-      "bytes": 352314,
-      "vectorCount": 144,
+      "stores": 2,
+      "bytes": 668346,
+      "vectorCount": 273,
       "dimensions": [
         384
       ]
@@ -343,14 +352,14 @@ window.assetObservatoryData = {
     "entries": 1681,
     "datasetBytes": 328157,
     "manifestBytes": 1208192,
-    "embeddingVectors": 4338,
-    "embeddingBytes": 3361134,
-    "embeddingStores": 8,
-    "similarityPairs": 2096,
-    "similarityBytes": 683893,
+    "embeddingVectors": 4467,
+    "embeddingBytes": 3677166,
+    "embeddingStores": 9,
+    "similarityPairs": 818,
+    "similarityBytes": 244250,
     "similarityReports": 12,
-    "totalFiles": 29,
-    "totalBytes": 5797616,
+    "totalFiles": 30,
+    "totalBytes": 5674005,
     "providerCount": 4
   }
 };
