@@ -1,8 +1,8 @@
 {
-  "version": "20250925-294e49d8048f-b496da923217",
-  "generatedAt": "2025-09-25T03:00:18.829Z",
+  "version": "20250925-a6a7dfae38b1-9ffaca74c14f",
+  "generatedAt": "2025-09-25T03:02:35.340Z",
   "totalAssets": 72,
-  "totalBytes": 6299302,
+  "totalBytes": 6316405,
   "assets": [
     {
       "path": "apps/asset-observatory/AGENTS.md",
@@ -294,8 +294,8 @@
     }
   ],
   "commit": {
-    "hash": "b496da92321781f96f5ba600d825d7d8d840bc41",
-    "short": "b496da923217",
+    "hash": "9ffaca74c14f9a3bc2b86bc37116e3f7473ff67a",
+    "short": "9ffaca74c14f",
     "dirty": false
   }
 }
