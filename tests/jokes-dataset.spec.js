@@ -5,6 +5,11 @@ const vm = require('node:vm');
 const { test, expect } = require('@playwright/test');
 
 const datasetPath = path.join(__dirname, '..', 'apps/jokes/jokes.js');
+const internetSources = [
+  path.join(__dirname, '..', 'data/icanhazdadjokes-split.json'),
+  path.join(__dirname, '..', 'data/official-jokes-index.json'),
+  path.join(__dirname, '..', 'data/jokes-supplemental-sources.json'),
+];
 
 const loadJokes = async () => {
   const source = await fs.readFile(datasetPath, 'utf8');
@@ -13,6 +18,31 @@ const loadJokes = async () => {
   vm.createContext(context);
   script.runInContext(context);
   return context.window.jokes;
+};
+
+const normalize = (text) =>
+  (text || '')
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .replace(/\s([?!.,;:])/g, '$1')
+    .trim();
+
+const buildInternetIndex = async () => {
+  const seen = new Set();
+  for (const relativePath of internetSources) {
+    const filePath = path.join(relativePath);
+    const contents = await fs.readFile(filePath, 'utf8');
+    const records = JSON.parse(contents);
+    records.forEach((entry) => {
+      const setup = normalize(entry.setup || entry.joke || '');
+      const punchline = normalize(entry.punchline || entry.answer || '');
+      if (!setup && !punchline) {
+        return;
+      }
+      seen.add(`${setup}|${punchline}`);
+    });
+  }
+  return seen;
 };
 
 test.describe('Jokes dataset', () => {
@@ -37,21 +67,13 @@ test.describe('Jokes dataset', () => {
     }
   });
 
-  test('includes the onboarded jokes', async () => {
+  test('only includes jokes present in the internet sources', async () => {
     const jokes = await loadJokes();
+    const internetIndex = await buildInternetIndex();
 
-    const required = [
-      { id: 'j-0911', punchline: 'It could always hit Escape.' },
-      { id: 'j-0912', punchline: 'It wanted to improve its figures.' },
-      { id: 'j-0913', punchline: 'They knew how to roll with it.' },
-      { id: 'j-0914', punchline: 'Its days were numbered.' },
-      { id: 'j-0915', punchline: 'In case there was a table of contents.' }
-    ];
-
-    for (const expectedEntry of required) {
-      const record = jokes.find((entry) => entry.id === expectedEntry.id);
-      expect(record).toBeTruthy();
-      expect(record.punchline).toBe(expectedEntry.punchline);
+    for (const entry of jokes) {
+      const key = `${normalize(entry.joke)}|${normalize(entry.punchline)}`;
+      expect(internetIndex.has(key)).toBeTruthy();
     }
   });
 });

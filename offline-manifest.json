@@ -1,8 +1,8 @@
 {
-  "version": "20250925-b957fae67fe4-db0eee688ce1",
-  "generatedAt": "2025-09-25T03:46:51.462Z",
-  "totalAssets": 72,
-  "totalBytes": 6292762,
+  "version": "20250925-dd46e15633a2-48a50ccb5aa0-dirty",
+  "generatedAt": "2025-09-25T04:10:37.959Z",
+  "totalAssets": 73,
+  "totalBytes": 6228549,
   "assets": [
     {
       "path": "apps/asset-observatory/AGENTS.md",
@@ -58,7 +58,7 @@
     },
     {
       "path": "apps/jokes/jokes.js",
-      "bytes": 151888
+      "bytes": 132022
     },
     {
       "path": "apps/jokes/render-all.js",
@@ -190,7 +190,11 @@
     },
     {
       "path": "data/jokes-manifest.json",
-      "bytes": 567558
+      "bytes": 530077
+    },
+    {
+      "path": "data/jokes-supplemental-sources.json",
+      "bytes": 324
     },
     {
       "path": "data/official-jokes-index.json",
@@ -238,7 +242,7 @@
     },
     {
       "path": "data/similarity-report-jokes.json",
-      "bytes": 34468
+      "bytes": 27278
     },
     {
       "path": "data/similarity-report-quotes-cohere.json",
@@ -294,8 +298,8 @@
     }
   ],
   "commit": {
-    "hash": "db0eee688ce1b1021bbaf8a250359f3ddf75a4fd",
-    "short": "db0eee688ce1",
-    "dirty": false
+    "hash": "48a50ccb5aa0d51fe0d11051b890501d290371ea",
+    "short": "48a50ccb5aa0",
+    "dirty": true
   }
 }

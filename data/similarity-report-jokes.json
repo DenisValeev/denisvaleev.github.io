@@ -1,21 +1,21 @@
 {
   "dataset": "jokes",
   "threshold": 0.5,
-  "generatedAt": "2025-09-25T02:55:49.612Z",
+  "generatedAt": "2025-09-25T04:12:14.839Z",
   "provider": "hfspace",
   "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
   "matches": [
     {
       "idA": "j-0502",
       "idB": "j-0907",
-      "similarity": 0.8387986810106479,
+      "similarity": 0.8387986635230513,
       "previewA": "Why do crabs never give to charity? • Because they’re shellfish.",
       "previewB": "Why don't oysters give to charity? • Because they're shellfish."
     },
     {
       "idA": "j-0018",
       "idB": "j-0906",
-      "similarity": 0.818469115629107,
+      "similarity": 0.8184690901754315,
       "previewA": "Why did the kid cross the playground? • To get to the other slide.",
       "previewB": "Why did the chicken cross the playground? • To get to the other slide."
     },
@@ -160,13 +160,6 @@
       "previewB": "what happens when you cross a sheep with a kangaroo? • A woolly jumper!"
     },
     {
-      "idA": "j-0795",
-      "idB": "j-0848",
-      "similarity": 0.66884084871155,
-      "previewA": "Why did the programmer go to art school? • He wanted to learn how to code outside the box.",
-      "previewB": "Why did the functional programmer get thrown out of school? • Because he refused to take classes."
-    },
-    {
       "idA": "j-0237",
       "idB": "j-0310",
       "similarity": 0.6653848909210538,
@@ -195,25 +188,11 @@
       "previewB": "You can't trust a ladder. • It will always let you down"
     },
     {
-      "idA": "j-0944",
-      "idB": "j-0955",
-      "similarity": 0.6462699901485085,
-      "previewA": "Why did the astronaut apply for a job at the bakery? • They wanted some extra space in the dough.",
-      "previewB": "Why did the marathon runner start a bakery? • They were great at going the extra mile for rolls."
-    },
-    {
       "idA": "j-0120",
       "idB": "j-0171",
       "similarity": 0.6456497206522479,
       "previewA": "Why don't skeletons ride roller coasters? • They don't have the stomach for it.",
       "previewB": "Why don’t skeletons ever go trick or treating? • Because they have nobody to go with."
-    },
-    {
-      "idA": "j-0920",
-      "idB": "j-0961",
-      "similarity": 0.6437044135996978,
-      "previewA": "Why did the gardener start a podcast? • They had a lot of growing to talk about.",
-      "previewB": "Why did the gardener build a library? • They wanted to plant more stories."
     },
     {
       "idA": "j-0043",
@@ -272,13 +251,6 @@
       "previewB": "What time did the man go to the dentist? • Tooth hurt-y."
     },
     {
-      "idA": "j-0913",
-      "idB": "j-0963",
-      "similarity": 0.6060471624081807,
-      "previewA": "Why did the baker get invited to every party? • They knew how to roll with it.",
-      "previewB": "Why did the baker become a life coach? • They knew how to help people rise."
-    },
-    {
       "idA": "j-0150",
       "idB": "j-0543",
       "similarity": 0.6059935565147245,
@@ -314,25 +286,11 @@
       "previewB": "Why do bees have sticky hair? • Because they use honey combs!"
     },
     {
-      "idA": "j-0916",
-      "idB": "j-0930",
-      "similarity": 0.5906911281812603,
-      "previewA": "Why did the librarian switch to stand-up comedy? • They wanted to work on their shelf delivery.",
-      "previewB": "Why did the librarian bring a flashlight to work? • They liked to shed light on every story."
-    },
-    {
       "idA": "j-0433",
       "idB": "j-0686",
       "similarity": 0.5897595290708741,
       "previewA": "Where does astronauts hangout after work? • At the spacebar.",
       "previewB": "Where do programmers like to hangout? • The Foo Bar."
-    },
-    {
-      "idA": "j-0625",
-      "idB": "j-0867",
-      "similarity": 0.5886864560419148,
-      "previewA": "Want to hear a chimney joke? • Got stacks of em! First one's on the house",
-      "previewB": "How much did your chimney cost? • Nothing, it was on the house."
     },
     {
       "idA": "j-0687",
@@ -363,34 +321,6 @@
       "previewB": "I saw a nice stereo on Craigslist for $1. Seller says the volume is stuck on ‘high’ • I couldn’t turn it down."
     },
     {
-      "idA": "j-0916",
-      "idB": "j-0945",
-      "similarity": 0.5811310146302082,
-      "previewA": "Why did the librarian switch to stand-up comedy? • They wanted to work on their shelf delivery.",
-      "previewB": "Why did the novelist bring a ladder to the bookstore? • They were ready for the next chapter."
-    },
-    {
-      "idA": "j-0881",
-      "idB": "j-0887",
-      "similarity": 0.5790204395026527,
-      "previewA": "What's Santa's favourite type of music? • Wrap!",
-      "previewB": "What says Oh Oh Oh? • Santa walking backwards!"
-    },
-    {
-      "idA": "j-0930",
-      "idB": "j-0968",
-      "similarity": 0.5786701875702722,
-      "previewA": "Why did the librarian bring a flashlight to work? • They liked to shed light on every story.",
-      "previewB": "Why did the art curator carry extra batteries? • They liked to keep the highlights illuminated."
-    },
-    {
-      "idA": "j-0913",
-      "idB": "j-0923",
-      "similarity": 0.5744476806759528,
-      "previewA": "Why did the baker get invited to every party? • They knew how to roll with it.",
-      "previewB": "Why did the gardener open a bakery? • They kneaded a new outlet for their thyme."
-    },
-    {
       "idA": "j-0332",
       "idB": "j-0443",
       "similarity": 0.571496620832867,
@@ -403,20 +333,6 @@
       "similarity": 0.5680829440570755,
       "previewA": "Why is the ocean always blue? • Because the shore never waves back.",
       "previewB": "What did the ocean say to the shore? • Nothing, it just waved."
-    },
-    {
-      "idA": "j-0880",
-      "idB": "j-0886",
-      "similarity": 0.5671673159028517,
-      "previewA": "Why does Santa have three gardens? • So he can 'ho ho ho'!",
-      "previewB": "Why does Santa go down the chimney? • Because it soots him!"
-    },
-    {
-      "idA": "j-0923",
-      "idB": "j-0961",
-      "similarity": 0.5664822870032404,
-      "previewA": "Why did the gardener open a bakery? • They kneaded a new outlet for their thyme.",
-      "previewB": "Why did the gardener build a library? • They wanted to plant more stories."
     },
     {
       "idA": "j-0820",
@@ -447,13 +363,6 @@
       "previewB": "A DHCP packet walks into a bar and asks for a beer. • Bartender says, \"here, but I’ll need that back in an hour!\""
     },
     {
-      "idA": "j-0005",
-      "idB": "j-0844",
-      "similarity": 0.5618291700584621,
-      "previewA": "Where do fish keep their money? • In the riverbank",
-      "previewB": "Why was the river rich? • Because it had two banks."
-    },
-    {
       "idA": "j-0530",
       "idB": "j-0711",
       "similarity": 0.5617837969426953,
@@ -468,13 +377,6 @@
       "previewB": "Why did the programmer always carry a pencil? • They preferred to write in C#."
     },
     {
-      "idA": "j-0920",
-      "idB": "j-0975",
-      "similarity": 0.5572646988797786,
-      "previewA": "Why did the gardener start a podcast? • They had a lot of growing to talk about.",
-      "previewB": "Why did the grill-master dad launch a podcast? • He wanted to share his rare takes."
-    },
-    {
       "idA": "j-0146",
       "idB": "j-0644",
       "similarity": 0.5559689173304857,
@@ -487,13 +389,6 @@
       "similarity": 0.5551747314033005,
       "previewA": "What do you get when you cross a rabbit with a water hose? • Hare spray.",
       "previewB": "What do you get when you cross a chicken with a skunk? • A fowl smell!"
-    },
-    {
-      "idA": "j-0458",
-      "idB": "j-0872",
-      "similarity": 0.5532895680226011,
-      "previewA": "Why is no one friends with Dracula? • Because he's a pain in the neck.",
-      "previewB": "What's it like to be kissed by a vampire? • It's a pain in the neck."
     },
     {
       "idA": "j-0358",
@@ -538,25 +433,11 @@
       "previewB": "What cheese can never be yours? • Nacho cheese."
     },
     {
-      "idA": "j-0331",
-      "idB": "j-0971",
-      "similarity": 0.5449912983379034,
-      "previewA": "What do you get when you cross a snowman with a vampire? • Frostbite.",
-      "previewB": "What's the difference between a snowman and a snowwoman? • Snowballs."
-    },
-    {
       "idA": "j-0213",
       "idB": "j-0357",
       "similarity": 0.5444705691150438,
       "previewA": "They're making a movie about clocks. • It's about time",
       "previewB": "What is this movie about? • It is about 2 hours long."
-    },
-    {
-      "idA": "j-0384",
-      "idB": "j-0870",
-      "similarity": 0.5415343674727683,
-      "previewA": "Why are ghosts bad liars? • Because you can see right through them!",
-      "previewB": "Why do ghosts go on diets? • So they can keep their ghoulish figures."
     },
     {
       "idA": "j-0203",
@@ -580,13 +461,6 @@
       "previewB": "Where do bees go to the bathroom? • The BP station."
     },
     {
-      "idA": "j-0915",
-      "idB": "j-0964",
-      "similarity": 0.5371073199513727,
-      "previewA": "Why did the scientist bring a notebook to dinner? • In case there was a table of contents.",
-      "previewB": "Why did the gamer carry a notebook to tournaments? • They liked to take down boss notes."
-    },
-    {
       "idA": "j-0687",
       "idB": "j-0824",
       "similarity": 0.5356864832194758,
@@ -606,20 +480,6 @@
       "similarity": 0.5310112682451281,
       "previewA": "Why did the kid throw the clock out the window? • He wanted to see time fly!",
       "previewB": "What did the digital clock say to the grandfather clock? • Look, no hands!"
-    },
-    {
-      "idA": "j-0930",
-      "idB": "j-0945",
-      "similarity": 0.5286658386430728,
-      "previewA": "Why did the librarian bring a flashlight to work? • They liked to shed light on every story.",
-      "previewB": "Why did the novelist bring a ladder to the bookstore? • They were ready for the next chapter."
-    },
-    {
-      "idA": "j-0657",
-      "idB": "j-0874",
-      "similarity": 0.5271961232267558,
-      "previewA": "Two guys walked into a bar • the third one ducked.",
-      "previewB": "Why did the ghost go inside the bar? • For the boos."
     },
     {
       "idA": "j-0711",
@@ -659,7 +519,7 @@
     {
       "idA": "j-0310",
       "idB": "j-0906",
-      "similarity": 0.5210259657834401,
+      "similarity": 0.5210260496690877,
       "previewA": "What do you get when you cross a chicken with a skunk? • A fowl smell!",
       "previewB": "Why did the chicken cross the playground? • To get to the other slide."
     },
@@ -669,13 +529,6 @@
       "similarity": 0.5200077259778232,
       "previewA": "What do you call a fish with no eyes? • A fsh.",
       "previewB": "What do you call a pig with three eyes? • Piiig"
-    },
-    {
-      "idA": "j-0920",
-      "idB": "j-0923",
-      "similarity": 0.5171599283778407,
-      "previewA": "Why did the gardener start a podcast? • They had a lot of growing to talk about.",
-      "previewB": "Why did the gardener open a bakery? • They kneaded a new outlet for their thyme."
     },
     {
       "idA": "j-0121",
@@ -713,32 +566,11 @@
       "previewB": "Why is the ocean always blue? • Because the shore never waves back."
     },
     {
-      "idA": "j-0915",
-      "idB": "j-0930",
-      "similarity": 0.5122265050050204,
-      "previewA": "Why did the scientist bring a notebook to dinner? • In case there was a table of contents.",
-      "previewB": "Why did the librarian bring a flashlight to work? • They liked to shed light on every story."
-    },
-    {
-      "idA": "j-0832",
-      "idB": "j-0854",
-      "similarity": 0.512161484049553,
-      "previewA": "How did you make your friend rage? • I implemented a Greek question mark in his JavaScript code.",
-      "previewB": "Why was the JavaScript developer sad? • Because they didn't Node how to Express themself!"
-    },
-    {
       "idA": "j-0038",
       "idB": "j-0045",
       "similarity": 0.51079492345028,
       "previewA": "Why did the kid throw the clock out the window? • He wanted to see time fly!",
       "previewB": "Why did the man run around his bed? • Because he was trying to catch up on his sleep!"
-    },
-    {
-      "idA": "j-0250",
-      "idB": "j-0858",
-      "similarity": 0.5107760502285911,
-      "previewA": "Who is the coolest Doctor in the hospital? • The hip Doctor!",
-      "previewB": "What kind of doctor is Dr. Pepper? • He's a fizzician."
     },
     {
       "idA": "j-0243",
