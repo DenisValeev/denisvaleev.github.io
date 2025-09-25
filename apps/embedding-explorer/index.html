@@ -285,7 +285,7 @@
     }
 
     .record-status,
-    .neighbor-status {
+    .pair-status {
       margin: 0;
       font-size: 0.85rem;
       color: var(--text-secondary);
@@ -317,8 +317,7 @@
       padding: 0;
     }
 
-    .record-button,
-    .neighbor-button {
+    .record-button {
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -334,42 +333,25 @@
       transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
     }
 
-    .neighbor-button[disabled] {
-      cursor: default;
-      opacity: 1;
-    }
-
-    .record-button:hover,
-    .neighbor-button:hover {
+    .record-button:hover {
       transform: translateY(-1px);
       border-color: var(--accent);
     }
 
-    .record-button:focus-visible,
-    .neighbor-button:focus-visible {
+    .record-button:focus-visible {
       outline: none;
       border-color: var(--accent);
       box-shadow: 0 0 0 3px var(--input-focus);
     }
 
-    .record-button[data-active="true"],
-    .neighbor-button[data-active="true"] {
+    .record-button[data-active="true"] {
       background: var(--accent);
       color: var(--accent-contrast);
       border-color: var(--accent);
       box-shadow: 0 14px 24px color-mix(in srgb, var(--accent) 35%, transparent);
     }
 
-    .neighbor-button__badge {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: color-mix(in srgb, var(--accent-contrast) 75%, transparent);
-    }
-
-    .record-button[data-active="true"] .record-button__meta,
-    .neighbor-button[data-active="true"] .neighbor-button__snippet {
+    .record-button[data-active="true"] .record-button__meta {
       color: color-mix(in srgb, var(--accent-contrast) 75%, transparent);
     }
 
@@ -381,34 +363,6 @@
     .record-button__meta {
       font-size: 0.8rem;
       color: var(--text-secondary);
-    }
-
-    .neighbor-button__header {
-      width: 100%;
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .neighbor-button__id {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .neighbor-button__score {
-      font-variant-numeric: tabular-nums;
-      font-size: 0.85rem;
-      color: var(--accent);
-    }
-
-    .neighbor-button__snippet {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-    }
-
-    .neighbor-button[data-active="true"] .neighbor-button__score {
-      color: color-mix(in srgb, var(--accent-contrast) 75%, transparent);
     }
 
     .embedding-canvas {
@@ -531,119 +485,75 @@
       <p class="lead">Browse the stored embedding exports, pick any record, and project its raw binary signal into an RGB pixel
         grid.</p>
     </header>
-    <section class="workspace" aria-label="Vector metrics">
-      <article class="panel" aria-labelledby="insights-heading">
-        <h2 id="insights-heading">Vector insights</h2>
-        <p class="panel-sub">Metrics update when you select a stored vector below.</p>
-        <dl class="meta-grid summary-grid" data-summary-grid>
-          <div>
-            <dt>Dimensions</dt>
-            <dd>0</dd>
-          </div>
-          <div>
-            <dt>Magnitude</dt>
-            <dd>0.000</dd>
-          </div>
-          <div>
-            <dt>Mean</dt>
-            <dd>0.000</dd>
-          </div>
-          <div>
-            <dt>Standard deviation</dt>
-            <dd>0.000</dd>
-          </div>
-          <div>
-            <dt>Range</dt>
-            <dd>— / —</dd>
-          </div>
-          <div>
-            <dt>Zero share</dt>
-            <dd>0%</dd>
-          </div>
-        </dl>
-        <div class="insight-lists">
-          <section aria-label="Positive values">
-            <h3>Positive peaks</h3>
-            <ul class="extrema-list" data-positive-list>
-              <li><span class="placeholder">Positive values appear here.</span></li>
-            </ul>
-          </section>
-          <section aria-label="Negative values">
-            <h3>Negative dips</h3>
-            <ul class="extrema-list" data-negative-list>
-              <li><span class="placeholder">Negative values appear here.</span></li>
-            </ul>
-          </section>
-        </div>
-      </article>
-      <article class="panel panel--wide" aria-labelledby="table-heading">
-        <h2 id="table-heading">Value breakdown</h2>
-        <p class="panel-sub">Inspect how each component compares to the strongest signal.</p>
-        <div class="table-wrapper">
-          <table class="value-table">
-            <thead>
-              <tr>
-                <th scope="col">Index</th>
-                <th scope="col">Value</th>
-                <th scope="col">Normalized</th>
-              </tr>
-            </thead>
-            <tbody data-value-table>
-              <tr>
-                <td colspan="3">
-                  <p class="placeholder">Select a vector to populate this table.</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    <section class="workspace" aria-label="Cosine pair explorer">
+      <article class="panel panel--wide" aria-labelledby="pair-heading">
+        <h2 id="pair-heading">Top cosine pairs</h2>
+        <p class="panel-sub">Pick a curated pair to instantly load both vectors, regardless of dataset.</p>
+        <label for="pair-select">
+          Pair selection
+          <select id="pair-select" data-pair-select disabled></select>
+        </label>
+        <p class="pair-status" data-pair-status>Loading pair overview…</p>
       </article>
     </section>
     <section class="workspace" aria-label="Embedding workspace">
-      <article class="panel" aria-labelledby="dataset-heading">
-        <div class="pill" id="dataset-heading">Choose a dataset</div>
-        <p>Select one of the existing embedding dumps bundled with the site. Metadata loads automatically so you can compare
-          providers and models.</p>
-        <label for="dataset-select">
+      <article class="panel" aria-labelledby="left-dataset-heading">
+        <div class="pill" id="left-dataset-heading">Left dataset</div>
+        <p>Select the dataset that powers the left side of the comparison. Metadata loads automatically.</p>
+        <label for="left-dataset-select">
           Embedding collection
-          <select id="dataset-select" data-dataset-select></select>
+          <select id="left-dataset-select" data-left-dataset-select></select>
         </label>
-        <div class="info-block" data-dataset-info>
+        <div class="info-block" data-left-dataset-info>
           <p class="placeholder">Pick a dataset to inspect its metadata.</p>
         </div>
       </article>
-      <article class="panel" aria-labelledby="record-heading">
-        <h2 id="record-heading">Vectors</h2>
-        <p class="panel-sub">Load any record from the selected dataset to render its RGB projection.</p>
-        <label for="record-filter">
+      <article class="panel" aria-labelledby="left-record-heading">
+        <h2 id="left-record-heading">Left vectors</h2>
+        <p class="panel-sub">Load any record from the chosen dataset to populate the left column.</p>
+        <label for="left-record-filter">
           Filter by id or hash
-          <input id="record-filter" type="search" placeholder="Start typing to narrow the list" data-record-filter disabled>
+          <input id="left-record-filter" type="search" placeholder="Start typing to narrow the list" data-left-record-filter disabled>
         </label>
-        <p class="record-status" data-record-status>Choose a dataset to load its vectors.</p>
+        <p class="record-status" data-left-record-status>Choose a dataset to load its vectors.</p>
         <div class="record-list-wrapper">
-          <ul class="record-list" data-record-list>
+          <ul class="record-list" data-left-record-list>
             <li>
               <p class="placeholder">Vectors appear here once a dataset finishes loading.</p>
             </li>
           </ul>
         </div>
       </article>
-      <article class="panel" aria-labelledby="neighbors-heading">
-        <h2 id="neighbors-heading">Closest matches</h2>
-        <p class="panel-sub">Cosine similarity ranks the nearest vectors within the selected dataset.</p>
-        <p class="neighbor-status" data-neighbor-status>Select a vector to compute its nearest neighbors.</p>
-        <div class="record-list-wrapper neighbor-list-wrapper">
-          <ul class="record-list neighbor-list" data-neighbor-list>
+      <article class="panel" aria-labelledby="right-dataset-heading">
+        <div class="pill" id="right-dataset-heading">Right dataset</div>
+        <p>Choose a second dataset to compare against the left selection. Both sides can point to the same source.</p>
+        <label for="right-dataset-select">
+          Embedding collection
+          <select id="right-dataset-select" data-right-dataset-select></select>
+        </label>
+        <div class="info-block" data-right-dataset-info>
+          <p class="placeholder">Pick a dataset to inspect its metadata.</p>
+        </div>
+      </article>
+      <article class="panel" aria-labelledby="right-record-heading">
+        <h2 id="right-record-heading">Right vectors</h2>
+        <p class="panel-sub">Pick any vector to populate the right column of the comparison.</p>
+        <label for="right-record-filter">
+          Filter by id or hash
+          <input id="right-record-filter" type="search" placeholder="Start typing to narrow the list" data-right-record-filter disabled>
+        </label>
+        <p class="record-status" data-right-record-status>Choose a dataset to load its vectors.</p>
+        <div class="record-list-wrapper">
+          <ul class="record-list" data-right-record-list>
             <li>
-              <p class="placeholder">Neighbors appear here once you choose a vector.</p>
+              <p class="placeholder">Vectors appear here once a dataset finishes loading.</p>
             </li>
           </ul>
         </div>
       </article>
       <article class="panel panel--wide" aria-labelledby="comparison-heading">
         <h2 id="comparison-heading">Vector comparison</h2>
-        <p class="panel-sub">Inspect the active vector alongside any of its closest matches, including their binary fingerprints and
-          source text.</p>
+        <p class="panel-sub">Inspect the active vectors side by side, including their binary fingerprints and source text.</p>
         <div class="comparison" data-comparison-root>
           <section class="comparison__column" aria-labelledby="primary-column-heading">
             <h3 id="primary-column-heading" class="comparison__title">
@@ -662,15 +572,15 @@
           <section class="comparison__column" aria-labelledby="secondary-column-heading">
             <h3 id="secondary-column-heading" class="comparison__title">
               <span aria-hidden="true">🤝</span>
-              <span>Neighbor vector</span>
+              <span>Comparison vector</span>
             </h3>
             <canvas class="embedding-canvas comparison__canvas" data-secondary-canvas aria-describedby="secondary-caption"></canvas>
-            <p id="secondary-caption" class="caption" data-secondary-caption>Select a neighbor to view its fingerprint.</p>
+            <p id="secondary-caption" class="caption" data-secondary-caption>Select a right-side vector to view its fingerprint.</p>
             <div class="info-block" data-secondary-meta>
-              <p class="placeholder">Pick a neighbor to inspect its details.</p>
+              <p class="placeholder">Pick a right-side vector to inspect its details.</p>
             </div>
             <div class="info-block" data-secondary-text>
-              <p class="placeholder">Choose a neighbor to view its source text.</p>
+              <p class="placeholder">Choose a right-side vector to view its source text.</p>
             </div>
           </section>
         </div>
