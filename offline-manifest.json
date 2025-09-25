@@ -1,8 +1,8 @@
 {
-  "version": "20250925-4c7c8f6f7870-38987112b0a1",
-  "generatedAt": "2025-09-25T00:06:01.041Z",
-  "totalAssets": 71,
-  "totalBytes": 6298286,
+  "version": "20250925-a6a7dfae38b1-9ffaca74c14f",
+  "generatedAt": "2025-09-25T03:02:35.340Z",
+  "totalAssets": 72,
+  "totalBytes": 6316405,
   "assets": [
     {
       "path": "apps/asset-observatory/AGENTS.md",
@@ -38,27 +38,31 @@
     },
     {
       "path": "apps/jokes/all-jokes-compact.html",
-      "bytes": 7825
+      "bytes": 8551
     },
     {
       "path": "apps/jokes/all-jokes.html",
-      "bytes": 4707
+      "bytes": 5355
     },
     {
       "path": "apps/jokes/app.js",
-      "bytes": 3228
+      "bytes": 4353
     },
     {
       "path": "apps/jokes/index.html",
-      "bytes": 6342
+      "bytes": 7061
+    },
+    {
+      "path": "apps/jokes/joke-categories.js",
+      "bytes": 8005
     },
     {
       "path": "apps/jokes/jokes.js",
-      "bytes": 151018
+      "bytes": 151888
     },
     {
       "path": "apps/jokes/render-all.js",
-      "bytes": 4533
+      "bytes": 6166
     },
     {
       "path": "apps/quotes/all-quotes.html",
@@ -110,11 +114,11 @@
     },
     {
       "path": "apps/total-recall/app.js",
-      "bytes": 7951
+      "bytes": 7996
     },
     {
       "path": "apps/total-recall/index.html",
-      "bytes": 10317
+      "bytes": 10597
     },
     {
       "path": "apps/value-formatter/index.html",
@@ -182,7 +186,7 @@
     },
     {
       "path": "data/jokes-embeddings.json",
-      "bytes": 629164
+      "bytes": 632639
     },
     {
       "path": "data/jokes-manifest.json",
@@ -234,7 +238,7 @@
     },
     {
       "path": "data/similarity-report-jokes.json",
-      "bytes": 33875
+      "bytes": 34468
     },
     {
       "path": "data/similarity-report-quotes-cohere.json",
@@ -290,8 +294,8 @@
     }
   ],
   "commit": {
-    "hash": "38987112b0a10e545599f64608908b9cf5cbea09",
-    "short": "38987112b0a1",
+    "hash": "9ffaca74c14f9a3bc2b86bc37116e3f7473ff67a",
+    "short": "9ffaca74c14f",
     "dirty": false
   }
 }

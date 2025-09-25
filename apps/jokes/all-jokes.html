@@ -52,6 +52,11 @@
         border-color: rgba(241, 245, 255, 0.35);
         color: inherit;
       }
+
+      .category-pill {
+        background: rgba(148, 163, 209, 0.24);
+        color: rgba(241, 245, 255, 0.9);
+      }
     }
 
     main {
@@ -107,6 +112,26 @@
 
     .count {
       font-weight: 600;
+    }
+
+    .category-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .category-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: rgba(48, 86, 211, 0.12);
+      color: rgba(48, 56, 140, 0.92);
     }
 
     .filter {
@@ -180,7 +205,7 @@
       </a>
     </nav>
     <h1>All Jokes</h1>
-    <p>Every joke from the dataset in one place. Use the filter to zero in on a favourite.</p>
+    <p>Every joke from the dataset in one place—complete with quick-hit categories. Use the filter to zero in on a favourite or explore a topic.</p>
     <p class="count">Showing <span data-count>0</span> of <span data-total>0</span> jokes</p>
     <form class="filter" data-filter-form>
       <label for="joke-filter">Filter jokes</label>
@@ -196,6 +221,7 @@
     </table>
   </main>
   <script src="jokes.js" defer></script>
+  <script src="joke-categories.js" defer></script>
   <script src="render-all.js" defer></script>
 </body>
 </html>
