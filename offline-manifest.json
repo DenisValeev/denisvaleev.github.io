@@ -1,8 +1,8 @@
 {
-  "version": "20250924-19fb10c3e846-6af6e0bcd2d1",
-  "generatedAt": "2025-09-24T23:50:30.707Z",
+  "version": "20250925-4c7c8f6f7870-38987112b0a1",
+  "generatedAt": "2025-09-25T00:06:01.041Z",
   "totalAssets": 71,
-  "totalBytes": 6295884,
+  "totalBytes": 6298286,
   "assets": [
     {
       "path": "apps/asset-observatory/AGENTS.md",
@@ -110,11 +110,11 @@
     },
     {
       "path": "apps/total-recall/app.js",
-      "bytes": 5121
+      "bytes": 7951
     },
     {
       "path": "apps/total-recall/index.html",
-      "bytes": 10745
+      "bytes": 10317
     },
     {
       "path": "apps/value-formatter/index.html",
@@ -290,8 +290,8 @@
     }
   ],
   "commit": {
-    "hash": "6af6e0bcd2d19fb80737cbf091b3afeb1ecaa11e",
-    "short": "6af6e0bcd2d1",
+    "hash": "38987112b0a10e545599f64608908b9cf5cbea09",
+    "short": "38987112b0a1",
     "dirty": false
   }
 }
