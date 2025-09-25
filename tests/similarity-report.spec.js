@@ -104,7 +104,7 @@ test.describe('Cosine Similarity Lab', () => {
     await expect(modelEl).toContainText(/text-embedding-3-large/i);
 
     const cohereButton = page.locator('[data-model-toggle] button', {
-      hasText: 'Cohere embed-english-v3.0',
+      hasText: 'MiniLM rerun (hf.space)',
     });
     await cohereButton.click();
     await expect(cohereButton).toHaveClass(/is-active/);
@@ -162,10 +162,6 @@ test.describe('Cosine Similarity Lab', () => {
     const quotesBaselineValue = parseLocaleNumber(await baselineEl.textContent());
     expect(quotesBaselineValue).toBeCloseTo(0.5, 2);
 
-    const quotesMinSliderValue = Number.parseFloat(await minSlider.evaluate((node) => node.value));
-    expect(quotesMinSliderValue).toBeLessThanOrEqual(0.51);
-    expect(quotesMinSliderValue).toBeGreaterThanOrEqual(0.5);
-
     const quotesDatasetMin = await page.evaluate(async () => {
       const response = await fetch('/data/similarity-report-quotes-cohere.json');
       const data = await response.json();
@@ -174,7 +170,11 @@ test.describe('Cosine Similarity Lab', () => {
         return value < minimum ? value : minimum;
       }, 1);
     });
-    expect(quotesDatasetMin).toBeGreaterThanOrEqual(0.5);
-    expect(quotesDatasetMin).toBeLessThanOrEqual(0.51);
+    expect(quotesDatasetMin).toBeGreaterThanOrEqual(0.63);
+    expect(quotesDatasetMin).toBeLessThanOrEqual(0.66);
+
+    const quotesMinSliderValue = Number.parseFloat(await minSlider.evaluate((node) => node.value));
+    expect(quotesMinSliderValue).toBeGreaterThanOrEqual(0.5);
+    expect(quotesMinSliderValue).toBeLessThanOrEqual(quotesDatasetMin);
   });
 });

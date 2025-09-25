@@ -145,12 +145,12 @@ window.assetObservatoryData = {
         },
         {
           "path": "data/similarity-report-quotes-cohere.json",
-          "provider": "cohere",
-          "model": "embed-english-v3.0",
+          "provider": "hfspace",
+          "model": "sentence-transformers/all-MiniLM-L6-v2 (hf.space/BienKieu)",
           "threshold": 0.5,
-          "pairs": 1358,
-          "bytes": 466479,
-          "generatedAt": "2025-09-22T23:19:57.697Z"
+          "pairs": 120,
+          "bytes": 40673,
+          "generatedAt": "2025-09-22T00:02:49.928Z"
         }
       ],
       "sources": [

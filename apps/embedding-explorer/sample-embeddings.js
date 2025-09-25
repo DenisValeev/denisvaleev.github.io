@@ -36,7 +36,7 @@ window.embeddingSources = [
   },
   {
     "id": "quotes-cohere",
-    "label": "Curated quotes — Cohere embed-english-v3.0",
+    "label": "Curated quotes — MiniLM (hf.space)",
     "collection": "Curated quotes",
     "url": "../../data/quotes-embeddings-cohere.json",
     "report": "../../data/similarity-report-quotes-cohere.json"

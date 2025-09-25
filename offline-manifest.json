@@ -198,7 +198,7 @@
     },
     {
       "path": "data/quotes-embeddings-cohere.json",
-      "bytes": 42311
+      "bytes": 316032
     },
     {
       "path": "data/quotes-embeddings-openai.json",
@@ -242,7 +242,7 @@
     },
     {
       "path": "data/similarity-report-quotes-cohere.json",
-      "bytes": 466479
+      "bytes": 26836
     },
     {
       "path": "data/similarity-report-quotes-openai.json",
