@@ -367,23 +367,25 @@
         </div>
       </article>
     </section>
-    <div class="controls" role="group" aria-label="Deck controls">
+    <div class="controls" role="group" aria-label="Deck navigation">
       <button class="control-button control-button--secondary" type="button" data-prev>
         Previous
       </button>
       <button class="control-button control-button--secondary" type="button" data-next>
         Next
       </button>
-      <button class="control-button control-button--secondary" type="button" data-shuffle>
-        Reshuffle
-      </button>
     </div>
     <details class="editor">
-      <summary class="editor__summary">Manage raw notes</summary>
+      <summary class="editor__summary">Deck settings &amp; raw notes</summary>
       <div class="editor__content">
         <p id="notes-description">Separate every entry with an empty line. Your notes stay in this browser.</p>
         <label for="notes-input" class="visually-hidden">Raw notes input</label>
         <textarea id="notes-input" class="editor__textarea" data-notes-input aria-describedby="notes-description" spellcheck="false"></textarea>
+        <div class="editor__actions">
+          <button class="control-button control-button--secondary" type="button" data-shuffle>
+            Shuffle deck
+          </button>
+        </div>
         <div class="editor__actions">
           <button class="control-button control-button--primary" type="button" data-save>
             Save notes
