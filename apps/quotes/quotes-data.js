@@ -2802,6 +2802,11 @@ window.quotesData = [
         "author": "Albert Schweitzer"
       },
       {
+        "id": "resilience-02",
+        "text": "Life shrinks or expands in proportion to one's courage.",
+        "author": "Anais Nin"
+      },
+      {
         "id": "resilience-03",
         "text": "Fall seven times, stand up eight.",
         "author": "Japanese Proverb"
@@ -3055,6 +3060,11 @@ window.quotesData = [
         "author": "Anatole France"
       },
       {
+        "id": "growth-09",
+        "text": "They say that time changes things, but you actually have to change them yourself.",
+        "author": "Andy Warhol"
+      },
+      {
         "id": "growth-10",
         "text": "No one has ever become poor by giving.",
         "author": "Anne Frank"
@@ -3114,6 +3124,11 @@ window.quotesData = [
         "id": "joy-03",
         "text": "Find a place inside where there's joy, and the joy will burn out the pain.",
         "author": "Joseph Campbell"
+      },
+      {
+        "id": "joy-04",
+        "text": "Time you enjoy wasting, was not wasted.",
+        "author": "John Lennon"
       },
       {
         "id": "joy-05",
