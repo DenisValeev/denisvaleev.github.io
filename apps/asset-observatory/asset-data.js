@@ -1,5 +1,5 @@
 window.assetObservatoryData = {
-  "generatedAt": "2025-09-27T03:48:32.886Z",
+  "generatedAt": "2025-09-27T03:52:20.468Z",
   "datasets": [
     {
       "id": "jokes",
@@ -96,14 +96,14 @@ window.assetObservatoryData = {
       "label": "Quotes",
       "dataset": {
         "path": "apps/quotes/quotes-data.js",
-        "bytes": 132683
+        "bytes": 133145
       },
       "manifest": {
         "path": "data/quotes-manifest.json",
-        "bytes": 520721,
-        "generatedAt": "2025-09-24T01:25:03.739Z"
+        "bytes": 522810,
+        "generatedAt": "2025-09-27T03:48:50.454Z"
       },
-      "entries": 732,
+      "entries": 735,
       "embeddings": [
         {
           "path": "data/quotes-embeddings.json",
@@ -349,9 +349,9 @@ window.assetObservatoryData = {
   ],
   "totals": {
     "datasets": 3,
-    "entries": 1625,
-    "datasetBytes": 308291,
-    "manifestBytes": 1170711,
+    "entries": 1628,
+    "datasetBytes": 308753,
+    "manifestBytes": 1172800,
     "embeddingVectors": 4467,
     "embeddingBytes": 3677166,
     "embeddingStores": 9,
@@ -359,7 +359,7 @@ window.assetObservatoryData = {
     "similarityBytes": 237061,
     "similarityReports": 12,
     "totalFiles": 30,
-    "totalBytes": 5609469,
+    "totalBytes": 5612020,
     "providerCount": 4
   }
 };
