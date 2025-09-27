@@ -1,6 +1,6 @@
 {
-  "version": "20250927-e50377af5675-a485c5906bf0",
-  "generatedAt": "2025-09-27T03:40:26.698Z",
+  "version": "20250927-e50377af5675-44d13f0451a7",
+  "generatedAt": "2025-09-27T03:45:02.449Z",
   "totalAssets": 73,
   "totalBytes": 6071679,
   "assets": [
@@ -298,8 +298,8 @@
     }
   ],
   "commit": {
-    "hash": "a485c5906bf09902861f9441164d3b05d49995eb",
-    "short": "a485c5906bf0",
+    "hash": "44d13f0451a7bd7f00944cdad680cd80744032fd",
+    "short": "44d13f0451a7",
     "dirty": false
   }
 }
