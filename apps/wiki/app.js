@@ -662,8 +662,8 @@
       return;
     }
 
-    const previousArticle = index > 0 ? articles[index - 1] : null;
-    const nextArticle = index < articles.length - 1 ? articles[index + 1] : null;
+    const previousArticle = index < articles.length - 1 ? articles[index + 1] : null;
+    const nextArticle = index > 0 ? articles[index - 1] : null;
 
     if (previousArticle) {
       previousButton.disabled = false;
