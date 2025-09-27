@@ -1,6 +1,6 @@
 {
-  "version": "20250927-e59e9d21d194-18a27712e865",
-  "generatedAt": "2025-09-27T03:59:01.628Z",
+  "version": "20250927-9756ae69aeba-92c6d5b8cc8d-dirty",
+  "generatedAt": "2025-09-27T04:02:23.719Z",
   "totalAssets": 73,
   "totalBytes": 6089734,
   "assets": [
@@ -129,11 +129,11 @@
       "bytes": 24762
     },
     {
-      "path": "apps/wiki/articles/2024-09-24.md",
+      "path": "apps/wiki/articles/2025-09-17.md",
       "bytes": 1369
     },
     {
-      "path": "apps/wiki/articles/2024-09-25.md",
+      "path": "apps/wiki/articles/2025-09-18.md",
       "bytes": 1342
     },
     {
@@ -298,8 +298,8 @@
     }
   ],
   "commit": {
-    "hash": "18a27712e8655ec006d288dbcbda8021bf6653fd",
-    "short": "18a27712e865",
-    "dirty": false
+    "hash": "92c6d5b8cc8db85b3f4d8a5493463d778d37ea47",
+    "short": "92c6d5b8cc8d",
+    "dirty": true
   }
 }
