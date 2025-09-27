@@ -60,7 +60,7 @@
     }
 
     .doc-page {
-      width: min(1220px, 100%);
+      width: min(900px, 100%);
       display: flex;
       flex-direction: column;
       gap: clamp(20px, 3vw, 32px);
@@ -125,107 +125,9 @@
     }
 
     main.doc-main {
-      display: grid;
-      grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+      display: flex;
+      flex-direction: column;
       gap: clamp(20px, 3vw, 36px);
-    }
-
-    nav.doc-nav {
-      background: var(--panel-surface);
-      border-radius: 22px;
-      border: 1px solid var(--border-color);
-      padding: clamp(18px, 2vw, 24px);
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      position: relative;
-    }
-
-    nav.doc-nav::after {
-      content: "";
-      position: absolute;
-      inset: 12px 16px 12px auto;
-      width: 4px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, transparent, var(--accent), transparent);
-      opacity: 0.28;
-    }
-
-    nav.doc-nav h2 {
-      margin: 0;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-muted);
-    }
-
-    nav.doc-nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    nav.doc-nav a {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      border-radius: 14px;
-      text-decoration: none;
-      color: inherit;
-      background: transparent;
-      font-weight: 600;
-      transition: background 0.18s ease, transform 0.18s ease, color 0.18s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    nav.doc-nav a::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: var(--accent-soft);
-      opacity: 0;
-      transition: opacity 0.18s ease;
-      pointer-events: none;
-    }
-
-    nav.doc-nav a span.badge {
-      justify-self: end;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(79, 70, 229, 0.12);
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-    }
-
-    nav.doc-nav a:hover {
-      transform: translateX(4px);
-      color: var(--accent);
-    }
-
-    nav.doc-nav a:hover::before {
-      opacity: 1;
-    }
-
-    nav.doc-nav a:focus-visible {
-      outline: none;
-      color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.35);
-    }
-
-    nav.doc-nav a.is-active {
-      color: var(--accent);
-    }
-
-    nav.doc-nav a.is-active::before {
-      opacity: 1;
     }
 
     section.doc-content {
@@ -238,6 +140,57 @@
       flex-direction: column;
       gap: 20px;
       min-height: 420px;
+    }
+
+    .doc-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .doc-progress {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      flex: 1 1 180px;
+      text-align: center;
+    }
+
+    .doc-nav-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      background: rgba(79, 70, 229, 0.12);
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .doc-nav-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(79, 70, 229, 0.18);
+      background: rgba(79, 70, 229, 0.18);
+    }
+
+    .doc-nav-button:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.45);
+    }
+
+    .doc-nav-button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+      background: rgba(148, 163, 209, 0.18);
+      color: var(--text-muted);
     }
 
     header.content-meta {
@@ -350,16 +303,9 @@
         border: none;
       }
 
-      main.doc-main {
-        grid-template-columns: 1fr;
-      }
-
-      nav.doc-nav {
-        order: 2;
-      }
-
-      section.doc-content {
-        order: 1;
+      .doc-progress {
+        order: 3;
+        flex-basis: 100%;
       }
     }
 
@@ -377,10 +323,6 @@
         align-self: stretch;
         justify-content: center;
       }
-
-      nav.doc-nav {
-        padding: 16px;
-      }
     }
   </style>
 </head>
@@ -394,18 +336,19 @@
       <a class="home-link" href="/" aria-label="Return to the toolbox home">⌂ Home</a>
     </header>
     <main class="doc-main">
-      <nav class="doc-nav" aria-label="Documentation navigation">
-        <h2>Guides</h2>
-        <ul data-doc-nav></ul>
-      </nav>
       <section class="doc-content" aria-live="polite">
+        <div class="doc-controls">
+          <button type="button" class="doc-nav-button" data-doc-prev aria-label="View previous guide">← Previous</button>
+          <p class="doc-progress" data-doc-progress aria-live="polite"></p>
+          <button type="button" class="doc-nav-button" data-doc-next aria-label="View next guide">Next →</button>
+        </div>
         <header class="content-meta">
           <h2 data-doc-title>Loading…</h2>
           <p data-doc-updated hidden></p>
         </header>
         <p class="doc-status" data-doc-status></p>
         <article class="markdown-body" data-doc-content>
-          <p>Select a guide from the navigation to load documentation.</p>
+          <p>Use the buttons above to browse the documentation guides.</p>
         </article>
       </section>
     </main>
@@ -413,13 +356,15 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     (function () {
-      const docListEl = document.querySelector('[data-doc-nav]');
+      const prevButton = document.querySelector('[data-doc-prev]');
+      const nextButton = document.querySelector('[data-doc-next]');
+      const progressEl = document.querySelector('[data-doc-progress]');
       const contentEl = document.querySelector('[data-doc-content]');
       const titleEl = document.querySelector('[data-doc-title]');
       const updatedEl = document.querySelector('[data-doc-updated]');
       const statusEl = document.querySelector('[data-doc-status]');
 
-      if (!docListEl || !contentEl || !titleEl || !updatedEl || !statusEl) {
+      if (!prevButton || !nextButton || !progressEl || !contentEl || !titleEl || !updatedEl || !statusEl) {
         return;
       }
 
@@ -435,44 +380,46 @@
       ];
 
       const guideMap = new Map(guides.map((guide) => [guide.id, guide]));
+      let activeGuideId = '';
 
-      function renderNav() {
-        docListEl.innerHTML = '';
-        guides.forEach((guide) => {
-          const item = document.createElement('li');
-          const link = document.createElement('a');
-          link.href = `#${guide.id}`;
-          link.dataset.docId = guide.id;
-          link.textContent = guide.title;
+      function updatePager(id) {
+        const index = guides.findIndex((guide) => guide.id === id);
+        const total = guides.length;
+        if (index === -1) {
+          prevButton.disabled = true;
+          nextButton.disabled = true;
+          prevButton.textContent = '← Previous';
+          nextButton.textContent = 'Next →';
+          prevButton.setAttribute('aria-label', 'Previous guide unavailable');
+          nextButton.setAttribute('aria-label', 'Next guide unavailable');
+          progressEl.textContent = total > 0 ? `0 of ${total}` : '';
+          return;
+        }
 
-          if (guide.summary) {
-            const badge = document.createElement('span');
-            badge.className = 'badge';
-            badge.textContent = guide.summary;
-            link.appendChild(badge);
-          }
+        const prevGuide = guides[index - 1];
+        const nextGuide = guides[index + 1];
 
-          link.addEventListener('click', (event) => {
-            event.preventDefault();
-            loadGuide(guide.id, { pushState: true });
-          });
+        if (prevGuide) {
+          prevButton.disabled = false;
+          prevButton.textContent = `← ${prevGuide.title}`;
+          prevButton.setAttribute('aria-label', `View previous guide: ${prevGuide.title}`);
+        } else {
+          prevButton.disabled = true;
+          prevButton.textContent = '← Previous';
+          prevButton.setAttribute('aria-label', 'No previous guide');
+        }
 
-          item.appendChild(link);
-          docListEl.appendChild(item);
-        });
-      }
+        if (nextGuide) {
+          nextButton.disabled = false;
+          nextButton.textContent = `${nextGuide.title} →`;
+          nextButton.setAttribute('aria-label', `View next guide: ${nextGuide.title}`);
+        } else {
+          nextButton.disabled = true;
+          nextButton.textContent = 'Next →';
+          nextButton.setAttribute('aria-label', 'No next guide');
+        }
 
-      function setActive(id) {
-        const links = docListEl.querySelectorAll('a[data-doc-id]');
-        links.forEach((link) => {
-          const isActive = link.dataset.docId === id;
-          link.classList.toggle('is-active', isActive);
-          if (isActive) {
-            link.setAttribute('aria-current', 'page');
-          } else {
-            link.removeAttribute('aria-current');
-          }
-        });
+        progressEl.textContent = `Guide ${index + 1} of ${total}`;
       }
 
       function formatUpdated(text) {
@@ -495,6 +442,9 @@
         if (!guide) {
           return;
         }
+
+        activeGuideId = guide.id;
+        updatePager(activeGuideId);
 
         if (options.pushState) {
           window.history.pushState({ docId: guide.id }, '', `#${guide.id}`);
@@ -519,8 +469,9 @@
 
           contentEl.innerHTML = parsed;
           titleEl.textContent = guide.title;
-          setActive(guide.id);
           statusEl.textContent = '';
+
+          updatePager(guide.id);
 
           const lastModified = response.headers.get('last-modified');
           const fallback = formatUpdated(lastModified);
@@ -537,7 +488,7 @@
           contentEl.innerHTML = '<p>Failed to load the requested guide. Please try again.</p>';
           titleEl.textContent = guide.title;
           statusEl.textContent = 'An error occurred while loading the guide.';
-          setActive(guide.id);
+          updatePager(guide.id);
         }
       }
 
@@ -565,10 +516,25 @@
         }
       });
 
-      renderNav();
+      prevButton.addEventListener('click', () => {
+        const index = guides.findIndex((guide) => guide.id === activeGuideId);
+        if (index > 0) {
+          loadGuide(guides[index - 1].id, { pushState: true });
+        }
+      });
+
+      nextButton.addEventListener('click', () => {
+        const index = guides.findIndex((guide) => guide.id === activeGuideId);
+        if (index !== -1 && index < guides.length - 1) {
+          loadGuide(guides[index + 1].id, { pushState: true });
+        }
+      });
+
       const initialId = getInitialGuideId();
       if (initialId) {
         loadGuide(initialId, { pushState: false });
+      } else if (guides[0]) {
+        loadGuide(guides[0].id, { pushState: false });
       }
     })();
   </script>
