@@ -1,5 +1,5 @@
 window.assetObservatoryData = {
-  "generatedAt": "2025-09-27T03:58:02.195Z",
+  "generatedAt": "2025-09-27T04:06:23.459Z",
   "datasets": [
     {
       "id": "jokes",
@@ -368,9 +368,9 @@ window.assetObservatoryData = {
   ],
   "totals": {
     "datasets": 3,
-    "entries": 1677,
-    "datasetBytes": 353302,
-    "manifestBytes": 1205424,
+    "entries": 1680,
+    "datasetBytes": 353764,
+    "manifestBytes": 1207513,
     "embeddingVectors": 4506,
     "embeddingBytes": 3704271,
     "embeddingStores": 9,
@@ -378,7 +378,7 @@ window.assetObservatoryData = {
     "similarityBytes": 237061,
     "similarityReports": 12,
     "totalFiles": 31,
-    "totalBytes": 5717286,
+    "totalBytes": 5719837,
     "providerCount": 4
   }
 };
