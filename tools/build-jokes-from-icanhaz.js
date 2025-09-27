@@ -20,7 +20,8 @@ function format(entries) {
     }
     lines.push(`            "id": ${JSON.stringify(entry.id)},`);
     lines.push(`            "joke": ${JSON.stringify(entry.joke)},`);
-    lines.push(`            "punchline": ${JSON.stringify(entry.punchline)}`);
+    lines.push(`            "punchline": ${JSON.stringify(entry.punchline)},`);
+    lines.push(`            "sourceId": ${JSON.stringify(entry.sourceId)}`);
     if (index === entries.length - 1) {
       lines.push('        }');
     } else {
@@ -49,6 +50,7 @@ function build() {
     id: `j-${String(index + 1).padStart(width, '0')}`,
     joke: entry.joke,
     punchline: entry.punchline,
+    sourceId: 'icanhazdadjokes',
   }));
 
   fs.writeFileSync(outputPath, format(prepared));

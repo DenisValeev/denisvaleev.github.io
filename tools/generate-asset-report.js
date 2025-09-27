@@ -23,8 +23,9 @@ const datasetConfigs = [
       'data/similarity-report-jokes-cohere.json',
     ],
     sources: [
-      { path: 'data/icanhazdadjokes-split.json', label: 'I Can Haz Dad Jokes split' },
-      { path: 'data/official-jokes-index.json', label: 'Official Jokes index' },
+      { id: 'icanhazdadjokes', path: 'data/icanhazdadjokes-split.json', label: 'I Can Haz Dad Jokes split' },
+      { id: 'official-jokes', path: 'data/official-jokes-index.json', label: 'Official Jokes index' },
+      { id: 'punme-dad-jokes', path: 'data/punme-dad-jokes-2025.json', label: 'Pun.me dad jokes capture (2025-09-27)' },
     ],
   },
   {
@@ -43,7 +44,7 @@ const datasetConfigs = [
       'data/similarity-report-quotes-cohere.json',
     ],
     sources: [
-      { path: 'data/curated-quotes.json', label: 'Curated quotes source' },
+      { id: 'curated-quotes', path: 'data/curated-quotes.json', label: 'Curated quotes source' },
     ],
   },
   {
@@ -160,6 +161,7 @@ datasetConfigs.forEach((config) => {
           return null;
         }
         return {
+          id: source.id || null,
           path: source.path,
           label: source.label || source.path,
           bytes: stats.size,
@@ -260,6 +262,7 @@ datasetConfigs.forEach((config) => {
 
   datasetInfo.sources.forEach((source) => {
     result.sources.push({
+      id: source.id || null,
       datasetId: config.id,
       label: source.label,
       path: source.path,

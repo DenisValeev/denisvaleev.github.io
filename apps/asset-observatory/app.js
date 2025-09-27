@@ -784,7 +784,11 @@
 
       const meta = document.createElement('span');
       meta.className = 'meta';
-      meta.textContent = `${datasetLabel} • ${formatBytes(source.bytes || 0)}`;
+      const metaParts = [datasetLabel, formatBytes(source.bytes || 0)];
+      if (typeof source.id === 'string' && source.id.trim().length > 0) {
+        metaParts.push(`id: ${source.id}`);
+      }
+      meta.textContent = metaParts.join(' • ');
       item.appendChild(meta);
 
       const pathCode = document.createElement('code');

@@ -2,10 +2,27 @@
   {
     "setup": "Why did the database administrator leave his wife?",
     "punchline": "She had one-to-many relationships.",
+    "sourceId": "devto-programming-compilation",
     "sources": [
       "DEV Community — https://dev.to (Jul 4, 2019)",
       "Medium — Eugene DiBenedetto: The Best Programming Dad Jokes",
       "devRant — https://devrant.com"
+    ]
+  },
+  {
+    "setup": "I once ate a dictionary.",
+    "punchline": "It gave me the thesaurus throat I've ever had.",
+    "sourceId": "punme-dad-jokes",
+    "sources": [
+      "Pun.me — Collection of 99 Terrible Dad Jokes (retrieved 2025-09-27): https://pun.me/jokes/dad/"
+    ]
+  },
+  {
+    "setup": "My 3 favorite things are eating my family",
+    "punchline": "and not using commas.",
+    "sourceId": "punme-dad-jokes",
+    "sources": [
+      "Pun.me — Collection of 99 Terrible Dad Jokes (retrieved 2025-09-27): https://pun.me/jokes/dad/"
     ]
   }
 ]
