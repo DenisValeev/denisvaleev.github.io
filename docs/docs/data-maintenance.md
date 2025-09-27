@@ -15,16 +15,19 @@ Content-heavy apps rely on shared datasets stored under `data/` plus machine-gen
 ## Updating deck datasets
 
 1. Edit the dataset files under `apps/jokes/jokes.js`, `apps/quotes/quotes-data.js`, or `apps/slang/slang.js`.
-2. Run the syntax and shape checks documented in each app’s `AGENTS.md` file (`node --check ...` and the `node -e` globals check).
+2. When evaluating a batch of external jokes, run `node tools/onboard-external-jokes.js --input=path/to/candidates.json` to
+   surface high-similarity overlaps before touching the curated deck. See
+   [External content onboarding](external-content-onboarding.md) for a complete walkthrough and output interpretation.
+3. Run the syntax and shape checks documented in each app’s `AGENTS.md` file (`node --check ...` and the `node -e` globals check).
    - For jokes specifically, ensure every record includes a `sourceId` that matches one of the curated assets surfaced in `apps/asset-observatory/asset-data.js`. New sources should land under `data/` with capture notes so provenance survives future refreshes.
-3. Regenerate metadata and manifests:
+4. Regenerate metadata and manifests:
    ```bash
    node tools/update-content-metadata.js --dataset=jokes
    node tools/update-content-metadata.js --dataset=quotes
    node tools/update-content-metadata.js --dataset=slang
    ```
    Pass `--dataset=<name>` to target a single collection when needed.
-4. Refresh embeddings for duplicate detection. Typical commands:
+5. Refresh embeddings for duplicate detection. Typical commands:
    ```bash
    node tools/review-content-similarity.js --dataset=jokes --provider=synthetic --write --update-manifest
    node tools/review-content-similarity.js --dataset=jokes --provider=hfspace --model=bienkieu/sentence-embedding --batch-size=8 --report=data/similarity-report-jokes.json
@@ -32,8 +35,8 @@ Content-heavy apps rely on shared datasets stored under `data/` plus machine-gen
    node tools/review-content-similarity.js --dataset=slang --provider=synthetic --threshold-slang=0.8 --write --update-manifest
    ```
    Adjust providers and options according to your API access and the thresholds documented in `apps/slang/AGENTS.md` and the repository README.
-5. Review high-similarity pairs and move intentional overlaps into `data/similarity-overrides.json` so the similarity lab highlights them as protected.
-6. Commit refreshed datasets, manifests, embeddings, and similarity reports together to keep the bundle consistent.
+6. Review high-similarity pairs and move intentional overlaps into `data/similarity-overrides.json` so the similarity lab highlights them as protected.
+7. Commit refreshed datasets, manifests, embeddings, and similarity reports together to keep the bundle consistent.
 
 ## Regenerating similarity reports
 
