@@ -225,6 +225,78 @@
     return Math.sqrt(sum);
   }
 
+  function detectVectorTiling(values) {
+    if (!(values instanceof Float32Array)) {
+      return null;
+    }
+
+    const length = values.length;
+    if (length <= 1) {
+      return null;
+    }
+
+    for (let tileSize = 1; tileSize <= Math.floor(length / 2); tileSize += 1) {
+      if (length % tileSize !== 0) {
+        continue;
+      }
+
+      let isRepeated = true;
+      for (let index = tileSize; index < length; index += 1) {
+        const compareIndex = index % tileSize;
+        if (values[index] !== values[compareIndex]) {
+          isRepeated = false;
+          break;
+        }
+      }
+
+      if (isRepeated) {
+        const repeatCount = length / tileSize;
+        if (repeatCount > 1) {
+          return { tileSize, repeatCount };
+        }
+      }
+    }
+
+    return null;
+  }
+
+  function analyzeVector(values) {
+    if (!(values instanceof Float32Array) || !values.length) {
+      return null;
+    }
+
+    const uniqueValues = new Set();
+    let min = Number.POSITIVE_INFINITY;
+    let max = Number.NEGATIVE_INFINITY;
+    let finiteCount = 0;
+
+    for (let index = 0; index < values.length; index += 1) {
+      const value = values[index];
+      if (!Number.isFinite(value)) {
+        continue;
+      }
+      finiteCount += 1;
+      uniqueValues.add(value);
+      if (value < min) {
+        min = value;
+      }
+      if (value > max) {
+        max = value;
+      }
+    }
+
+    const range = Number.isFinite(min) && Number.isFinite(max) ? { min, max } : null;
+    const tiling = detectVectorTiling(values);
+
+    return {
+      length: values.length,
+      finiteCount,
+      uniqueCount: uniqueValues.size,
+      range,
+      tiling,
+    };
+  }
+
   function getVisualizationConfig(mode) {
     if (typeof mode !== 'string') {
       return visualizationModes[DEFAULT_VISUALIZATION_MODE];
@@ -647,6 +719,7 @@
 
     ensureVectorData(record);
     const bytes = record.vectorBytes instanceof Uint8Array ? record.vectorBytes : new Uint8Array();
+    const analysis = analyzeVector(record.floatVector);
     let renderResult = null;
 
     if (visualizationMode === 'diverging') {
@@ -696,6 +769,37 @@
         { label: 'Text hash', value: textHash ? textHashPreview : '—', title: textHash },
         { label: 'Updated', value: record.updatedAt ? formatDate(record.updatedAt) : '—' },
       ];
+
+      if (analysis) {
+        if (analysis.range) {
+          const minLabel = analysis.range.min.toFixed(3);
+          const maxLabel = analysis.range.max.toFixed(3);
+          metaItems.push({ label: 'Value range', value: `${minLabel} → ${maxLabel}` });
+        }
+
+        if (analysis.length) {
+          const uniqueShare = analysis.length ? Math.round((analysis.uniqueCount / analysis.length) * 100) : 0;
+          const finiteLabel = analysis.finiteCount === analysis.length
+            ? 'All values finite'
+            : `${analysis.finiteCount.toLocaleString()} finite`;
+          metaItems.push({
+            label: 'Unique values',
+            value: `${analysis.uniqueCount.toLocaleString()} (${uniqueShare}% distinct)`,
+            title: finiteLabel,
+          });
+        }
+
+        if (analysis.tiling) {
+          const { tileSize, repeatCount } = analysis.tiling;
+          const repeatLabel = tileSize === 1
+            ? `Single value repeated ${repeatCount.toLocaleString()}×`
+            : `${tileSize.toLocaleString()}D tile repeated ${repeatCount.toLocaleString()}×`;
+          const repeatTitle = tileSize === 1
+            ? 'Every dimension shares the same value.'
+            : `The leading ${tileSize.toLocaleString()} dimensions repeat to fill the vector.`;
+          metaItems.push({ label: 'Detected tiling', value: repeatLabel, title: repeatTitle });
+        }
+      }
 
       const extraMeta = Array.isArray(options.extraMeta) ? options.extraMeta.filter((item) => item && item.label) : [];
       const combined = [...metaItems];
