@@ -9,11 +9,12 @@
   const providerChartContainer = document.querySelector('[data-provider-chart]');
   const datasetTableBody = document.querySelector('[data-dataset-table]');
   const similarityGrid = document.querySelector('[data-similarity-grid]');
+  const freshnessGrid = document.querySelector('[data-freshness-grid]');
   const sourceList = document.querySelector('[data-source-list]');
   const generatedAtNode = document.querySelector('[data-generated-at]');
   const providerCountNode = document.querySelector('[data-provider-count]');
 
-  if (!summaryRoot || !datasetChartContainer || !providerChartContainer || !datasetTableBody || !similarityGrid || !sourceList) {
+  if (!summaryRoot || !datasetChartContainer || !providerChartContainer || !datasetTableBody || !similarityGrid || !freshnessGrid || !sourceList) {
     return;
   }
 
@@ -58,6 +59,103 @@
     });
   };
 
+  const toDate = (value) => {
+    if (!value) {
+      return null;
+    }
+    if (value instanceof Date) {
+      return Number.isNaN(value.getTime()) ? null : value;
+    }
+    if (typeof value === 'string' || typeof value === 'number') {
+      const parsed = new Date(value);
+      return Number.isNaN(parsed.getTime()) ? null : parsed;
+    }
+    return null;
+  };
+
+  const msPerDay = 1000 * 60 * 60 * 24;
+
+  const differenceInDays = (laterDate, earlierDate) => {
+    const later = toDate(laterDate);
+    const earlier = toDate(earlierDate);
+    if (!later || !earlier) {
+      return null;
+    }
+    const diff = later.getTime() - earlier.getTime();
+    if (!Number.isFinite(diff) || diff <= 0) {
+      return 0;
+    }
+    return diff / msPerDay;
+  };
+
+  const formatRelativeDays = (days) => {
+    if (days === null || !Number.isFinite(days)) {
+      return 'No signal';
+    }
+    if (days < 0.5) {
+      return 'today';
+    }
+    if (days < 1.5) {
+      return '1 day ago';
+    }
+    if (days < 7) {
+      return `${decimalFormatter.format(days)} days ago`;
+    }
+    return `${Math.round(days)} days ago`;
+  };
+
+  const classifyFreshness = (ageDays) => {
+    if (ageDays === null || !Number.isFinite(ageDays)) {
+      return { bucket: 'missing', className: 'status-muted', toneLabel: 'Missing' };
+    }
+    if (ageDays <= 2) {
+      return { bucket: 'fresh', className: 'status-healthy', toneLabel: 'Fresh' };
+    }
+    if (ageDays <= 7) {
+      return { bucket: 'due', className: 'status-warning', toneLabel: 'Due soon' };
+    }
+    return { bucket: 'stale', className: 'status-critical', toneLabel: 'Needs refresh' };
+  };
+
+  const referenceDate = toDate(data.generatedAt) || new Date();
+
+  const computeComponentStatus = (timestamps, count) => {
+    const valid = timestamps
+      .map((entry) => toDate(entry))
+      .filter((entry) => entry);
+
+    if (valid.length === 0) {
+      return {
+        count,
+        bucket: 'missing',
+        className: 'status-muted',
+        toneLabel: count > 0 ? 'Untracked' : 'Missing',
+        newestDate: null,
+        oldestDate: null,
+        ageDays: null,
+        spanDays: null,
+      };
+    }
+
+    const sorted = valid.slice().sort((a, b) => a.getTime() - b.getTime());
+    const oldestDate = sorted[0];
+    const newestDate = sorted[sorted.length - 1];
+    const ageDays = differenceInDays(referenceDate, newestDate);
+    const spanDays = sorted.length > 1 ? differenceInDays(newestDate, oldestDate) : 0;
+    const classification = classifyFreshness(ageDays);
+
+    return {
+      count,
+      bucket: classification.bucket,
+      className: classification.className,
+      toneLabel: classification.toneLabel,
+      newestDate,
+      oldestDate,
+      ageDays,
+      spanDays,
+    };
+  };
+
   if (generatedAtNode) {
     generatedAtNode.textContent = formatTimestamp(data.generatedAt);
   }
@@ -68,6 +166,68 @@
       : (Array.isArray(data.providers) ? data.providers.length : 0);
     providerCountNode.textContent = formatNumber(providerCount);
   }
+
+  const datasets = [...data.datasets];
+  const providerTotals = Array.isArray(data.providers) ? [...data.providers] : [];
+
+  const deckFreshness = datasets.map((deck) => {
+    const manifestStatus = computeComponentStatus([deck.manifest?.generatedAt], deck.manifest ? 1 : 0);
+    const embeddingRecords = Array.isArray(deck.embeddings) ? deck.embeddings : [];
+    const similarityRecords = Array.isArray(deck.similarityReports) ? deck.similarityReports : [];
+    const embeddingStatus = computeComponentStatus(embeddingRecords.map((record) => record.generatedAt), embeddingRecords.length);
+    const similarityStatus = computeComponentStatus(similarityRecords.map((record) => record.generatedAt), similarityRecords.length);
+    const statuses = [manifestStatus, embeddingStatus, similarityStatus];
+
+    const latestTimestamp = statuses.reduce((accumulator, status) => {
+      if (!status.newestDate) {
+        return accumulator;
+      }
+      if (!accumulator || status.newestDate.getTime() > accumulator.getTime()) {
+        return status.newestDate;
+      }
+      return accumulator;
+    }, null);
+
+    const latestAgeDays = latestTimestamp ? differenceInDays(referenceDate, latestTimestamp) : null;
+
+    const statusCounts = {
+      dueSoon: statuses.filter((status) => status.bucket === 'due').length,
+      stale: statuses.filter((status) => status.bucket === 'stale').length,
+      missing: statuses.filter((status) => status.bucket === 'missing').length,
+    };
+
+    return {
+      id: deck.id,
+      label: deck.label,
+      statuses: {
+        manifest: manifestStatus,
+        embeddings: embeddingStatus,
+        similarity: similarityStatus,
+      },
+      counts: {
+        embeddings: embeddingStatus.count,
+        similarityReports: similarityStatus.count,
+      },
+      latestTimestamp,
+      latestAgeDays,
+      statusCounts,
+    };
+  });
+
+  const totalAttention = deckFreshness.reduce((accumulator, entry) => accumulator + entry.statusCounts.dueSoon + entry.statusCounts.stale, 0);
+  const totalStale = deckFreshness.reduce((accumulator, entry) => accumulator + entry.statusCounts.stale, 0);
+  const totalMissingSignals = deckFreshness.reduce((accumulator, entry) => accumulator + entry.statusCounts.missing, 0);
+  const averageLagDays = (() => {
+    const values = deckFreshness
+      .map((entry) => entry.latestAgeDays)
+      .filter((value) => value !== null && Number.isFinite(value));
+    if (values.length === 0) {
+      return null;
+    }
+    const sum = values.reduce((accumulator, value) => accumulator + value, 0);
+    return sum / values.length;
+  })();
+  const averageLagLabel = averageLagDays === null ? '—' : formatRelativeDays(averageLagDays);
 
   const summaryMetrics = [
     {
@@ -89,6 +249,11 @@
       label: 'Asset footprint',
       value: formatBytes(data.totals?.totalBytes || 0),
       detail: `${formatNumber(data.totals?.totalFiles || 0)} files across datasets & sources`,
+    },
+    {
+      label: 'Refresh queue',
+      value: formatNumber(totalAttention),
+      detail: `${formatNumber(totalStale)} stale • ${formatNumber(totalMissingSignals)} missing signals • avg refresh ${averageLagLabel}`,
     },
   ];
 
@@ -112,10 +277,119 @@
     summaryRoot.appendChild(card);
   });
 
-  const datasets = [...data.datasets];
-  const providerTotals = Array.isArray(data.providers) ? [...data.providers] : [];
-
   const datasetById = new Map(datasets.map((deck) => [deck.id, deck]));
+
+  const buildFreshnessCards = (assessments) => {
+    freshnessGrid.innerHTML = '';
+
+    if (!Array.isArray(assessments) || assessments.length === 0) {
+      const fallback = document.createElement('p');
+      fallback.textContent = 'No decks available to audit.';
+      fallback.style.color = 'var(--text-secondary)';
+      freshnessGrid.appendChild(fallback);
+      return;
+    }
+
+    assessments.forEach((assessment) => {
+      const card = document.createElement('article');
+      card.className = 'freshness-card';
+
+      if (assessment.statusCounts.stale > 0) {
+        card.classList.add('needs-action');
+      } else if (assessment.statusCounts.dueSoon > 0) {
+        card.classList.add('due-soon');
+      }
+
+      const heading = document.createElement('h3');
+      heading.textContent = assessment.label;
+      card.appendChild(heading);
+
+      const lastRefresh = document.createElement('p');
+      if (assessment.latestAgeDays === null) {
+        lastRefresh.textContent = 'No refresh timestamps captured.';
+      } else {
+        const timestampLabel = assessment.latestTimestamp
+          ? formatTimestamp(assessment.latestTimestamp.toISOString())
+          : '—';
+        lastRefresh.textContent = `Last refresh ${formatRelativeDays(assessment.latestAgeDays)} (${timestampLabel})`;
+      }
+      card.appendChild(lastRefresh);
+
+      const meta = document.createElement('p');
+      meta.className = 'freshness-meta';
+      const embeddingLabel = `${formatNumber(assessment.counts.embeddings)} embedding store${assessment.counts.embeddings === 1 ? '' : 's'}`;
+      const similarityLabel = `${formatNumber(assessment.counts.similarityReports)} similarity report${assessment.counts.similarityReports === 1 ? '' : 's'}`;
+      meta.textContent = `${embeddingLabel} • ${similarityLabel}`;
+      card.appendChild(meta);
+
+      const statusList = document.createElement('ul');
+      statusList.className = 'freshness-status-list';
+
+      const descriptors = [
+        { key: 'manifest', label: 'Manifest', missing: 'Manifest not generated' },
+        { key: 'embeddings', label: 'Embeddings', missing: 'No embedding stores tracked' },
+        { key: 'similarity', label: 'Similarity', missing: 'No similarity reports' },
+      ];
+
+      descriptors.forEach((descriptor) => {
+        const info = assessment.statuses[descriptor.key];
+        const item = document.createElement('li');
+        item.className = `status-chip ${info.className || 'status-muted'}`;
+
+        const title = document.createElement('span');
+        title.className = 'status-chip__title';
+        title.textContent = descriptor.label;
+        item.appendChild(title);
+
+        const value = document.createElement('span');
+        value.className = 'status-chip__value';
+        if (info.ageDays === null) {
+          value.textContent = info.count > 0 ? 'Timestamp missing' : descriptor.missing;
+        } else {
+          value.textContent = formatRelativeDays(info.ageDays);
+        }
+        item.appendChild(value);
+
+        const detailParts = [];
+
+        if (info.ageDays !== null) {
+          detailParts.push(info.toneLabel);
+        }
+
+        if (descriptor.key === 'embeddings') {
+          const storeLabel = `${formatNumber(info.count)} store${info.count === 1 ? '' : 's'}`;
+          detailParts.push(storeLabel);
+          if (info.spanDays && info.spanDays > 0.4) {
+            detailParts.push(`spread ${decimalFormatter.format(info.spanDays)}d`);
+          }
+        } else if (descriptor.key === 'similarity') {
+          const reportLabel = `${formatNumber(info.count)} report${info.count === 1 ? '' : 's'}`;
+          detailParts.push(reportLabel);
+          if (info.spanDays && info.spanDays > 0.4) {
+            detailParts.push(`span ${decimalFormatter.format(info.spanDays)}d`);
+          }
+        } else if (descriptor.key === 'manifest' && info.count > 0 && info.ageDays !== null) {
+          detailParts.push('1 file');
+        }
+
+        if (info.newestDate) {
+          detailParts.push(formatTimestamp(info.newestDate.toISOString()));
+        }
+
+        if (detailParts.length > 0) {
+          const detail = document.createElement('span');
+          detail.className = 'status-chip__detail';
+          detail.textContent = detailParts.join(' • ');
+          item.appendChild(detail);
+        }
+
+        statusList.appendChild(item);
+      });
+
+      card.appendChild(statusList);
+      freshnessGrid.appendChild(card);
+    });
+  };
 
   const buildDatasetChart = () => {
     datasetChartContainer.innerHTML = '';
@@ -521,6 +795,7 @@
     });
   };
 
+  buildFreshnessCards(deckFreshness);
   buildDatasetChart();
   buildProviderChart();
   buildDatasetTable();

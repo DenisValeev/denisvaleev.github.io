@@ -24,6 +24,14 @@
       --chart-fill-alt: linear-gradient(135deg, rgba(255, 189, 92, 0.78), rgba(255, 211, 133, 0.58));
       --chip-bg: rgba(11, 18, 36, 0.06);
       --chip-text: rgba(11, 18, 36, 0.72);
+      --status-healthy-bg: rgba(64, 201, 155, 0.18);
+      --status-healthy-text: #0f5132;
+      --status-warning-bg: rgba(255, 189, 92, 0.2);
+      --status-warning-text: #7c4700;
+      --status-critical-bg: rgba(255, 99, 99, 0.18);
+      --status-critical-text: #7a1414;
+      --status-muted-bg: rgba(11, 18, 36, 0.08);
+      --status-muted-text: rgba(11, 18, 36, 0.6);
     }
 
     @media (prefers-color-scheme: dark) {
@@ -42,6 +50,14 @@
         --grid-line: rgba(238, 241, 255, 0.12);
         --chip-bg: rgba(238, 241, 255, 0.12);
         --chip-text: rgba(238, 241, 255, 0.8);
+        --status-healthy-bg: rgba(64, 201, 155, 0.28);
+        --status-healthy-text: #befce4;
+        --status-warning-bg: rgba(255, 189, 92, 0.28);
+        --status-warning-text: #ffe9c6;
+        --status-critical-bg: rgba(255, 99, 99, 0.3);
+        --status-critical-text: #ffd5d5;
+        --status-muted-bg: rgba(238, 241, 255, 0.16);
+        --status-muted-text: rgba(238, 241, 255, 0.7);
       }
     }
 
@@ -284,6 +300,7 @@
       display: inline-flex;
     }
 
+    .freshness-section,
     .dataset-section,
     .similarity-section,
     .sources-section {
@@ -292,6 +309,7 @@
       gap: 14px;
     }
 
+    .freshness-section header,
     .dataset-section header,
     .similarity-section header,
     .sources-section header {
@@ -300,6 +318,7 @@
       gap: 6px;
     }
 
+    .freshness-section h2,
     .dataset-section h2,
     .similarity-section h2,
     .sources-section h2 {
@@ -307,6 +326,7 @@
       font-size: 1.2rem;
     }
 
+    .freshness-section p,
     .dataset-section p,
     .similarity-section p,
     .sources-section p {
@@ -314,6 +334,113 @@
       color: var(--text-secondary);
       font-size: 0.95rem;
       line-height: 1.6;
+    }
+
+    .freshness-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: clamp(14px, 3vw, 20px);
+    }
+
+    .freshness-card {
+      border-radius: 18px;
+      border: 1px solid rgba(11, 18, 36, 0.1);
+      background: rgba(255, 255, 255, 0.92);
+      padding: clamp(14px, 2vw, 20px);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 18px 36px rgba(12, 18, 36, 0.12);
+    }
+
+    .freshness-card.due-soon {
+      border-color: rgba(255, 189, 92, 0.32);
+      box-shadow: 0 20px 44px rgba(255, 189, 92, 0.18);
+    }
+
+    .freshness-card.needs-action {
+      border-color: rgba(255, 99, 99, 0.34);
+      box-shadow: 0 22px 48px rgba(255, 99, 99, 0.22);
+    }
+
+    .freshness-card h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .freshness-card p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .freshness-meta {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-secondary);
+    }
+
+    .freshness-status-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .status-chip {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      background: var(--status-muted-bg);
+      color: var(--status-muted-text);
+    }
+
+    .status-chip__title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .status-chip__value {
+      font-size: 0.95rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .status-chip__detail {
+      font-size: 0.78rem;
+      color: inherit;
+      opacity: 0.85;
+    }
+
+    .status-healthy {
+      background: var(--status-healthy-bg);
+      color: var(--status-healthy-text);
+      border-color: rgba(64, 201, 155, 0.24);
+    }
+
+    .status-warning {
+      background: var(--status-warning-bg);
+      color: var(--status-warning-text);
+      border-color: rgba(255, 189, 92, 0.32);
+    }
+
+    .status-critical {
+      background: var(--status-critical-bg);
+      color: var(--status-critical-text);
+      border-color: rgba(255, 99, 99, 0.32);
+    }
+
+    .status-muted {
+      background: var(--status-muted-bg);
+      color: var(--status-muted-text);
+      border-color: rgba(11, 18, 36, 0.14);
     }
 
     .table-shell {
@@ -479,6 +606,13 @@
       </dl>
     </header>
     <section class="summary-grid" aria-label="Global asset metrics" data-summary></section>
+    <section class="freshness-section" aria-label="Refresh health snapshot">
+      <header>
+        <h2>Refresh pulse</h2>
+        <p>Track how recently every deck regenerated its manifests, embedding stores, and similarity runs. Use this to spot stale artefacts before they snowball.</p>
+      </header>
+      <div class="freshness-grid" data-freshness-grid></div>
+    </section>
     <section class="chart-grid" aria-label="Deck payload visualisations">
       <article class="chart-card">
         <header>
