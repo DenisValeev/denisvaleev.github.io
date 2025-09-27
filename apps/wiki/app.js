@@ -1,13 +1,12 @@
 (function () {
-  const listEl = document.querySelector('[data-article-list]');
-  const countEl = document.querySelector('[data-count]');
   const articleTitleEl = document.querySelector('[data-article-title]');
   const articleMetaEl = document.querySelector('[data-article-meta]');
   const articleBodyEl = document.querySelector('[data-article-body]');
   const articleTagsEl = document.querySelector('[data-article-tags]');
-  const emptyMessageEl = document.querySelector('[data-empty-message]');
+  const previousButton = document.querySelector('[data-article-prev]');
+  const nextButton = document.querySelector('[data-article-next]');
 
-  if (!listEl || !countEl || !articleTitleEl || !articleMetaEl || !articleBodyEl || !articleTagsEl) {
+  if (!articleTitleEl || !articleMetaEl || !articleBodyEl || !articleTagsEl || !previousButton || !nextButton) {
     return;
   }
 
@@ -616,94 +615,6 @@
     return { entries, hadErrors };
   }
 
-  function updateCountBadge() {
-    if (!countEl) {
-      return;
-    }
-
-    const count = articles.length;
-    if (!count) {
-      countEl.textContent = '0 entries';
-      return;
-    }
-
-    const label = count === 1 ? 'entry' : 'entries';
-    countEl.textContent = `${count.toLocaleString()} ${label}`;
-  }
-
-  function buildList() {
-    if (!articles.length) {
-      listEl.innerHTML = '';
-      const emptyItem = document.createElement('li');
-      emptyItem.className = 'article-empty';
-      emptyItem.textContent = loadErrorMessage || 'No chronicles yet—check back soon!';
-      listEl.appendChild(emptyItem);
-      return;
-    }
-
-    if (emptyMessageEl) {
-      emptyMessageEl.remove();
-    }
-
-    const fragment = document.createDocumentFragment();
-
-    articles.forEach((article) => {
-      const item = document.createElement('li');
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'article-card';
-      button.dataset.articleSlug = article.slug;
-      button.setAttribute('aria-pressed', 'false');
-
-      const emojiSpan = document.createElement('span');
-      emojiSpan.className = 'article-card__emoji';
-      emojiSpan.textContent = article.accentEmoji || '📝';
-      button.appendChild(emojiSpan);
-
-      const contentWrapper = document.createElement('span');
-      contentWrapper.className = 'article-card__content';
-
-      const titleSpan = document.createElement('span');
-      titleSpan.className = 'article-card__title';
-      titleSpan.textContent = article.title;
-      contentWrapper.appendChild(titleSpan);
-
-      const summarySpan = document.createElement('span');
-      summarySpan.className = 'article-card__summary';
-      summarySpan.textContent = article.summary || 'Tap to read the full saga.';
-      contentWrapper.appendChild(summarySpan);
-
-      const metaSpan = document.createElement('span');
-      metaSpan.className = 'article-card__meta';
-      const dateLabel = formatDate(article.published);
-      const metaParts = [];
-      if (dateLabel) {
-        metaParts.push(dateLabel);
-      }
-      if (article.readingTime) {
-        metaParts.push(article.readingTime);
-      }
-      metaSpan.textContent = metaParts.join(' • ');
-      contentWrapper.appendChild(metaSpan);
-
-      button.appendChild(contentWrapper);
-      item.appendChild(button);
-      fragment.appendChild(item);
-    });
-
-    listEl.innerHTML = '';
-    listEl.appendChild(fragment);
-  }
-
-  function highlightActive(slug) {
-    const buttons = listEl.querySelectorAll('.article-card');
-    buttons.forEach((button) => {
-      const matches = button.dataset.articleSlug === slug;
-      button.classList.toggle('is-active', matches);
-      button.setAttribute('aria-pressed', matches ? 'true' : 'false');
-    });
-  }
-
   function renderTags(tags) {
     articleTagsEl.innerHTML = '';
     if (!tags || !tags.length) {
@@ -719,6 +630,64 @@
     });
     articleTagsEl.appendChild(fragment);
     articleTagsEl.hidden = false;
+  }
+
+  function updateNavigationControls() {
+    if (!previousButton || !nextButton) {
+      return;
+    }
+
+    if (!articles.length) {
+      previousButton.disabled = true;
+      nextButton.disabled = true;
+      delete previousButton.dataset.articleSlug;
+      delete nextButton.dataset.articleSlug;
+      previousButton.setAttribute('aria-label', 'No previous post');
+      previousButton.removeAttribute('title');
+      nextButton.setAttribute('aria-label', 'No next post');
+      nextButton.removeAttribute('title');
+      return;
+    }
+
+    const index = articles.findIndex((article) => article.slug === activeSlug);
+    if (index === -1) {
+      previousButton.disabled = true;
+      nextButton.disabled = true;
+      delete previousButton.dataset.articleSlug;
+      delete nextButton.dataset.articleSlug;
+      previousButton.setAttribute('aria-label', 'No previous post');
+      previousButton.removeAttribute('title');
+      nextButton.setAttribute('aria-label', 'No next post');
+      nextButton.removeAttribute('title');
+      return;
+    }
+
+    const previousArticle = index > 0 ? articles[index - 1] : null;
+    const nextArticle = index < articles.length - 1 ? articles[index + 1] : null;
+
+    if (previousArticle) {
+      previousButton.disabled = false;
+      previousButton.dataset.articleSlug = previousArticle.slug;
+      previousButton.setAttribute('aria-label', `Previous post: ${previousArticle.title}`);
+      previousButton.title = `Previous post: ${previousArticle.title}`;
+    } else {
+      previousButton.disabled = true;
+      delete previousButton.dataset.articleSlug;
+      previousButton.setAttribute('aria-label', 'No previous post');
+      previousButton.removeAttribute('title');
+    }
+
+    if (nextArticle) {
+      nextButton.disabled = false;
+      nextButton.dataset.articleSlug = nextArticle.slug;
+      nextButton.setAttribute('aria-label', `Next post: ${nextArticle.title}`);
+      nextButton.title = `Next post: ${nextArticle.title}`;
+    } else {
+      nextButton.disabled = true;
+      delete nextButton.dataset.articleSlug;
+      nextButton.setAttribute('aria-label', 'No next post');
+      nextButton.removeAttribute('title');
+    }
   }
 
   function renderArticle(article, options) {
@@ -748,8 +717,7 @@
       articleTitleEl.focus();
     }
 
-    highlightActive(article.slug);
-    document.title = `${article.title} · Project Wiki`;
+    document.title = `${article.title} · Project Blog`;
   }
 
   function selectArticle(slug, options = {}) {
@@ -764,6 +732,7 @@
 
     activeSlug = match.slug;
     renderArticle(match, options);
+    updateNavigationControls();
 
     if (options.updateHistory !== false) {
       try {
@@ -823,18 +792,53 @@
   }
 
   function bindEvents() {
-    listEl.addEventListener('click', (event) => {
-      const button = event.target.closest('.article-card');
-      if (!button) {
+    previousButton.addEventListener('click', () => {
+      if (previousButton.disabled) {
         return;
       }
 
-      const slug = button.dataset.articleSlug;
-      if (!slug) {
+      const slug = previousButton.dataset.articleSlug;
+      if (slug) {
+        selectArticle(slug, { focus: true });
+      }
+    });
+
+    nextButton.addEventListener('click', () => {
+      if (nextButton.disabled) {
         return;
       }
 
-      selectArticle(slug, { focus: true });
+      const slug = nextButton.dataset.articleSlug;
+      if (slug) {
+        selectArticle(slug, { focus: true });
+      }
+    });
+
+    window.addEventListener('keydown', (event) => {
+      if (!articles.length || !activeSlug || event.defaultPrevented) {
+        return;
+      }
+
+      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
+        return;
+      }
+
+      if (event.key === 'ArrowLeft') {
+        const slug = previousButton.dataset.articleSlug;
+        if (slug && !previousButton.disabled) {
+          selectArticle(slug, { focus: true });
+          event.preventDefault();
+        }
+        return;
+      }
+
+      if (event.key === 'ArrowRight') {
+        const slug = nextButton.dataset.articleSlug;
+        if (slug && !nextButton.disabled) {
+          selectArticle(slug, { focus: true });
+          event.preventDefault();
+        }
+      }
     });
 
     window.addEventListener('popstate', handlePopState);
@@ -847,7 +851,7 @@
     try {
       loadResult = await loadArticlesFromFiles();
     } catch (error) {
-      console.error('Failed to load wiki articles.', error);
+      console.error('Failed to load blog posts.', error);
       loadResult = { entries: [], hadErrors: true };
     }
 
@@ -861,7 +865,7 @@
         normalized = inlineArticles;
         usedInlineFallback = true;
         if (loadResult.hadErrors) {
-          console.warn('Using inline wiki articles while the file-backed entries are unavailable.');
+          console.warn('Using inline blog posts while the file-backed entries are unavailable.');
         }
       }
     }
@@ -870,25 +874,24 @@
     activeSlug = null;
 
     if (loadResult.hadErrors && !articles.length && !usedInlineFallback) {
-      loadErrorMessage = 'Unable to load wiki entries right now.';
+      loadErrorMessage = 'Unable to load blog posts right now.';
     } else {
       loadErrorMessage = '';
     }
 
-    updateCountBadge();
-    buildList();
+    updateNavigationControls();
 
     if (!articles.length) {
-      articleTitleEl.textContent = loadErrorMessage ? 'Unable to load entries' : 'No entries yet';
+      articleTitleEl.textContent = loadErrorMessage ? 'Unable to load posts' : 'No posts yet';
       articleMetaEl.hidden = true;
       articleMetaEl.textContent = '';
       articleTagsEl.hidden = true;
       articleTagsEl.innerHTML = '';
       const fallbackMessage = loadErrorMessage
         ? `<p class="article-empty">${loadErrorMessage}</p>`
-        : '<p class="article-empty">Add a slug to <code>apps/wiki/articles/index.yaml</code> and create matching <code>.json</code> and <code>.md</code> files to publish your first entry.</p>';
+        : '<p class="article-empty">Add a slug to <code>apps/wiki/articles/index.yaml</code> and create a matching markdown file to publish your first post.</p>';
       articleBodyEl.innerHTML = fallbackMessage;
-      document.title = 'Project Wiki';
+      document.title = 'Project Blog';
       return;
     }
 
