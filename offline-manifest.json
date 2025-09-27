@@ -1,8 +1,8 @@
 {
-  "version": "20250927-9756ae69aeba-92c6d5b8cc8d-dirty",
-  "generatedAt": "2025-09-27T04:02:23.719Z",
-  "totalAssets": 73,
-  "totalBytes": 6089734,
+  "version": "20250927-fd93d57a550f-c666c37ee285",
+  "generatedAt": "2025-09-27T04:06:20.197Z",
+  "totalAssets": 74,
+  "totalBytes": 6198898,
   "assets": [
     {
       "path": "apps/asset-observatory/AGENTS.md",
@@ -10,11 +10,11 @@
     },
     {
       "path": "apps/asset-observatory/app.js",
-      "bytes": 31371
+      "bytes": 31537
     },
     {
       "path": "apps/asset-observatory/asset-data.js",
-      "bytes": 9917
+      "bytes": 10497
     },
     {
       "path": "apps/asset-observatory/index.html",
@@ -58,7 +58,7 @@
     },
     {
       "path": "apps/jokes/jokes.js",
-      "bytes": 132022
+      "bytes": 177033
     },
     {
       "path": "apps/jokes/render-all.js",
@@ -186,19 +186,23 @@
     },
     {
       "path": "data/jokes-embeddings.json",
-      "bytes": 632639
+      "bytes": 659744
     },
     {
       "path": "data/jokes-manifest.json",
-      "bytes": 530077
+      "bytes": 564790
     },
     {
       "path": "data/jokes-supplemental-sources.json",
-      "bytes": 324
+      "bytes": 925
     },
     {
       "path": "data/official-jokes-index.json",
       "bytes": 61751
+    },
+    {
+      "path": "data/punme-dad-jokes-2025.json",
+      "bytes": 988
     },
     {
       "path": "data/quotes-embeddings-cohere.json",
@@ -298,8 +302,8 @@
     }
   ],
   "commit": {
-    "hash": "92c6d5b8cc8db85b3f4d8a5493463d778d37ea47",
-    "short": "92c6d5b8cc8d",
-    "dirty": true
+    "hash": "c666c37ee285b1ad5b6c64ad57c2380f8b78e4e9",
+    "short": "c666c37ee285",
+    "dirty": false
   }
 }
