@@ -16,6 +16,7 @@ Content-heavy apps rely on shared datasets stored under `data/` plus machine-gen
 
 1. Edit the dataset files under `apps/jokes/jokes.js`, `apps/quotes/quotes-data.js`, or `apps/slang/slang.js`.
 2. Run the syntax and shape checks documented in each app’s `AGENTS.md` file (`node --check ...` and the `node -e` globals check).
+   - For jokes specifically, ensure every record includes a `sourceId` that matches one of the curated assets surfaced in `apps/asset-observatory/asset-data.js`. New sources should land under `data/` with capture notes so provenance survives future refreshes.
 3. Regenerate metadata and manifests:
    ```bash
    node tools/update-content-metadata.js --dataset=jokes

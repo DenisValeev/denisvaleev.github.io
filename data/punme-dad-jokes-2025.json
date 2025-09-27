@@ -1,0 +1,29 @@
+{
+  "id": "punme-dad-jokes",
+  "label": "Pun.me dad jokes capture (retrieved 2025-09-27)",
+  "source": {
+    "name": "Pun.me",
+    "url": "https://pun.me/jokes/dad/",
+    "retrievedAt": "2025-09-27"
+  },
+  "notes": [
+    "Original jokes appear as single-sentence quips; normalized into setup/punchline pairs for deck consistency.",
+    "See apps/jokes/jokes.js records j-0845 and j-0846 for the curated entries derived from this capture."
+  ],
+  "jokes": [
+    {
+      "id": "punme-2025-001",
+      "original": "I once ate a dictionary, it gave me thesaurus throat I've ever had.",
+      "setup": "I once ate a dictionary.",
+      "punchline": "It gave me the thesaurus throat I've ever had.",
+      "deckId": "j-0845"
+    },
+    {
+      "id": "punme-2025-002",
+      "original": "My 3 favorite things are eating my family and not using commas.",
+      "setup": "My 3 favorite things are eating my family",
+      "punchline": "and not using commas.",
+      "deckId": "j-0846"
+    }
+  ]
+}

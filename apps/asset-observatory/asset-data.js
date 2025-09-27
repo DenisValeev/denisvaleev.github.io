@@ -1,28 +1,28 @@
 window.assetObservatoryData = {
-  "generatedAt": "2025-09-25T12:50:46.691Z",
+  "generatedAt": "2025-09-27T03:58:02.195Z",
   "datasets": [
     {
       "id": "jokes",
       "label": "Dad Jokes",
       "dataset": {
         "path": "apps/jokes/jokes.js",
-        "bytes": 132022
+        "bytes": 177033
       },
       "manifest": {
         "path": "data/jokes-manifest.json",
-        "bytes": 530077,
-        "generatedAt": "2025-09-25T03:51:46.642Z"
+        "bytes": 564790,
+        "generatedAt": "2025-09-27T03:57:07.825Z"
       },
-      "entries": 794,
+      "entries": 846,
       "embeddings": [
         {
           "path": "data/jokes-embeddings.json",
           "provider": "synthetic",
           "model": "synthetic-64",
           "dimensions": 64,
-          "records": 910,
-          "bytes": 632639,
-          "generatedAt": "2025-09-25T02:54:18.632Z"
+          "records": 949,
+          "bytes": 659744,
+          "generatedAt": "2025-09-27T03:50:55.540Z"
         },
         {
           "path": "data/jokes-embeddings-openai.json",
@@ -74,19 +74,27 @@ window.assetObservatoryData = {
       ],
       "sources": [
         {
+          "id": "icanhazdadjokes",
           "path": "data/icanhazdadjokes-split.json",
           "label": "I Can Haz Dad Jokes split",
           "bytes": 123300
         },
         {
+          "id": "official-jokes",
           "path": "data/official-jokes-index.json",
           "label": "Official Jokes index",
           "bytes": 61751
+        },
+        {
+          "id": "punme-dad-jokes",
+          "path": "data/punme-dad-jokes-2025.json",
+          "label": "Pun.me dad jokes capture (2025-09-27)",
+          "bytes": 988
         }
       ],
       "totals": {
-        "embeddingBytes": 1830205,
-        "embeddingVectors": 2600,
+        "embeddingBytes": 1857310,
+        "embeddingVectors": 2639,
         "similarityBytes": 172213,
         "similarityPairs": 600
       }
@@ -164,6 +172,7 @@ window.assetObservatoryData = {
       ],
       "sources": [
         {
+          "id": "curated-quotes",
           "path": "data/curated-quotes.json",
           "label": "Curated quotes source",
           "bytes": 31189
@@ -260,8 +269,8 @@ window.assetObservatoryData = {
     {
       "id": "synthetic",
       "stores": 4,
-      "bytes": 1339298,
-      "vectorCount": 1851,
+      "bytes": 1366403,
+      "vectorCount": 1890,
       "dimensions": [
         64,
         128
@@ -329,18 +338,28 @@ window.assetObservatoryData = {
   ],
   "sources": [
     {
+      "id": "icanhazdadjokes",
       "datasetId": "jokes",
       "label": "I Can Haz Dad Jokes split",
       "path": "data/icanhazdadjokes-split.json",
       "bytes": 123300
     },
     {
+      "id": "official-jokes",
       "datasetId": "jokes",
       "label": "Official Jokes index",
       "path": "data/official-jokes-index.json",
       "bytes": 61751
     },
     {
+      "id": "punme-dad-jokes",
+      "datasetId": "jokes",
+      "label": "Pun.me dad jokes capture (2025-09-27)",
+      "path": "data/punme-dad-jokes-2025.json",
+      "bytes": 988
+    },
+    {
+      "id": "curated-quotes",
       "datasetId": "quotes",
       "label": "Curated quotes source",
       "path": "data/curated-quotes.json",
@@ -349,17 +368,17 @@ window.assetObservatoryData = {
   ],
   "totals": {
     "datasets": 3,
-    "entries": 1625,
-    "datasetBytes": 308291,
-    "manifestBytes": 1170711,
-    "embeddingVectors": 4467,
-    "embeddingBytes": 3677166,
+    "entries": 1677,
+    "datasetBytes": 353302,
+    "manifestBytes": 1205424,
+    "embeddingVectors": 4506,
+    "embeddingBytes": 3704271,
     "embeddingStores": 9,
     "similarityPairs": 794,
     "similarityBytes": 237061,
     "similarityReports": 12,
-    "totalFiles": 30,
-    "totalBytes": 5609469,
+    "totalFiles": 31,
+    "totalBytes": 5717286,
     "providerCount": 4
   }
 };
