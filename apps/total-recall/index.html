@@ -134,11 +134,24 @@
     .card__meta {
       display: flex;
       align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
       color: var(--text-secondary);
       font-weight: 600;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       font-size: 0.8rem;
+    }
+
+    .card__deck-name {
+      color: var(--text-primary);
+      letter-spacing: normal;
+      text-transform: none;
+      font-size: 0.85rem;
+    }
+
+    .card__meta-separator {
+      opacity: 0.6;
     }
 
     .card__body {
@@ -158,6 +171,66 @@
     .card__text.is-empty {
       color: var(--text-secondary);
       font-size: clamp(0.95rem, 1.2vw + 0.85rem, 1.1rem);
+    }
+
+    .editor__section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px;
+      background: var(--surface);
+      border-radius: 20px;
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--surface-shadow);
+    }
+
+    .deck-manager {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .deck-manager__field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .deck-manager__label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .deck-manager__select {
+      appearance: none;
+      border-radius: 999px;
+      border: 1px solid var(--control-border);
+      background: rgba(255, 255, 255, 0.94);
+      color: inherit;
+      padding: 10px 18px;
+      font-size: 1rem;
+      font-family: inherit;
+      min-width: 200px;
+      box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.08);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .deck-manager__select {
+        background: rgba(12, 19, 38, 0.92);
+      }
+    }
+
+    .deck-manager__select:focus-visible {
+      outline: 2px solid rgba(74, 99, 255, 0.45);
+      outline-offset: 2px;
+    }
+
+    .deck-manager__stats {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
     }
 
     .controls {
@@ -206,6 +279,30 @@
       outline: 2px solid rgba(74, 99, 255, 0.4);
       outline-offset: 3px;
       box-shadow: 0 0 0 3px rgba(74, 99, 255, 0.2);
+    }
+
+    .control-button--danger {
+      background: rgba(244, 63, 94, 0.12);
+      color: #be123c;
+      border-color: rgba(244, 63, 94, 0.35);
+    }
+
+    .control-button--danger:hover {
+      background: rgba(244, 63, 94, 0.18);
+      box-shadow: 0 12px 28px rgba(244, 63, 94, 0.2);
+      transform: translateY(-1px);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .control-button--danger {
+        background: rgba(244, 114, 182, 0.16);
+        color: #fca5a5;
+        border-color: rgba(244, 114, 182, 0.38);
+      }
+
+      .control-button--danger:hover {
+        background: rgba(244, 114, 182, 0.24);
+      }
     }
 
     .control-button:disabled {
@@ -311,10 +408,261 @@
       gap: 12px;
     }
 
+    .editor__field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .editor__label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .editor__input {
+      border-radius: 999px;
+      border: 1px solid var(--control-border);
+      padding: 12px 16px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: rgba(255, 255, 255, 0.94);
+      color: inherit;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .editor__input {
+        background: rgba(12, 19, 38, 0.92);
+      }
+    }
+
+    .editor__input:focus-visible {
+      outline: 2px solid rgba(74, 99, 255, 0.45);
+      outline-offset: 2px;
+    }
+
     .editor__status {
       font-size: 0.95rem;
       color: var(--text-secondary);
       min-height: 1.2em;
+    }
+
+    .deck-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .deck-list__item {
+      border: 1px solid var(--control-border);
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .deck-list__item {
+        background: rgba(12, 19, 38, 0.9);
+      }
+    }
+
+    .deck-list__text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .deck-list__title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .deck-list__meta {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .deck-list__badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .deck-list__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .browser {
+      border-radius: 22px;
+      border: 1px solid var(--editor-border);
+      background: var(--editor-background);
+      box-shadow: 0 20px 48px rgba(15, 23, 42, 0.14);
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .browser[open] {
+      box-shadow: 0 24px 54px rgba(15, 23, 42, 0.18);
+    }
+
+    .browser__summary {
+      list-style: none;
+      cursor: pointer;
+      margin: 0;
+      padding: 18px 24px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .browser__summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .browser__summary::after {
+      content: "▾";
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+    }
+
+    details[open] .browser__summary::after {
+      content: "▴";
+    }
+
+    .browser__summary:focus-visible {
+      outline: 2px solid rgba(74, 99, 255, 0.4);
+      outline-offset: 4px;
+    }
+
+    .browser__content {
+      padding: 0 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .browser__controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .browser__scope {
+      border-radius: 999px;
+      border: 1px solid var(--control-border);
+      padding: 10px 16px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.94);
+      color: inherit;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .browser__scope {
+        background: rgba(12, 19, 38, 0.92);
+      }
+    }
+
+    .browser__scope:focus-visible {
+      outline: 2px solid rgba(74, 99, 255, 0.4);
+      outline-offset: 2px;
+    }
+
+    .browser__search {
+      flex: 1 1 220px;
+      border-radius: 999px;
+      border: 1px solid var(--control-border);
+      padding: 12px 18px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: rgba(255, 255, 255, 0.94);
+      color: inherit;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .browser__search {
+        background: rgba(12, 19, 38, 0.92);
+      }
+    }
+
+    .browser__search:focus-visible {
+      outline: 2px solid rgba(74, 99, 255, 0.4);
+      outline-offset: 2px;
+    }
+
+    .browser__count {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .browser__results {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .browser__item {
+      border-radius: 16px;
+      border: 1px solid var(--control-border);
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.92);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .browser__item {
+        background: rgba(12, 19, 38, 0.92);
+      }
+    }
+
+    .browser__deck {
+      margin: 0;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .browser__text {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.5;
+      white-space: pre-line;
+    }
+
+    .browser__empty {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    mark {
+      background: rgba(74, 99, 255, 0.2);
+      color: inherit;
+      padding: 0 2px;
+      border-radius: 4px;
     }
 
     @media (max-width: 720px) {
@@ -360,6 +708,8 @@
     <section class="card-grid" aria-live="polite">
       <article class="card card--current">
         <div class="card__meta">
+          <span class="card__deck-name" data-active-deck-name>No deck selected</span>
+          <span class="card__meta-separator" aria-hidden="true">•</span>
           <span id="card-counter" data-counter>0 of 0</span>
         </div>
         <div class="card__body">
@@ -378,7 +728,48 @@
     <details class="editor">
       <summary class="editor__summary">Deck settings &amp; raw notes</summary>
       <div class="editor__content">
+        <section class="editor__section" aria-label="Deck management">
+          <div class="deck-manager">
+            <div class="deck-manager__field">
+              <label class="deck-manager__label" for="deck-select">Current deck</label>
+              <select id="deck-select" class="deck-manager__select" data-deck-select aria-describedby="deck-stats"></select>
+            </div>
+            <button class="control-button control-button--secondary" type="button" data-add-deck>
+              New deck
+            </button>
+          </div>
+          <p id="deck-stats" class="deck-manager__stats" data-deck-stats aria-live="polite">0 decks · 0 cards total</p>
+        </section>
+        <details class="browser" data-browser-panel>
+          <summary class="browser__summary">Browse all cards</summary>
+          <div class="browser__content">
+            <div class="browser__controls">
+              <label class="visually-hidden" for="browser-scope">Browse scope</label>
+              <select id="browser-scope" class="browser__scope" data-browser-scope>
+                <option value="deck">Current deck</option>
+                <option value="all">All decks</option>
+              </select>
+              <label class="visually-hidden" for="browser-search">Search cards</label>
+              <input id="browser-search" class="browser__search" type="search" placeholder="Search cards" data-browser-search aria-describedby="browser-count">
+              <p id="browser-count" class="browser__count" data-browser-count>Showing 0 cards</p>
+            </div>
+            <div data-browser-empty class="browser__empty" hidden>No cards to browse yet. Add notes to your decks.</div>
+            <ul class="browser__results" data-browser-results aria-live="polite"></ul>
+          </div>
+        </details>
         <p id="notes-description">Separate every entry with an empty line. Your notes stay in this browser.</p>
+        <div class="editor__field">
+          <label class="editor__label" for="deck-name-input">Deck name</label>
+          <input id="deck-name-input" class="editor__input" type="text" maxlength="120" data-deck-name-input>
+        </div>
+        <div class="editor__actions">
+          <button class="control-button control-button--secondary" type="button" data-rename-deck>
+            Save name
+          </button>
+          <button class="control-button control-button--danger" type="button" data-delete-deck>
+            Delete deck
+          </button>
+        </div>
         <label for="notes-input" class="visually-hidden">Raw notes input</label>
         <textarea id="notes-input" class="editor__textarea" data-notes-input aria-describedby="notes-description" spellcheck="false"></textarea>
         <div class="editor__actions">
@@ -394,6 +785,7 @@
             Clear notes
           </button>
         </div>
+        <div class="deck-list" data-deck-list aria-live="polite"></div>
         <p class="editor__status" aria-live="polite" data-status></p>
       </div>
     </details>
