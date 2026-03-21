@@ -9,6 +9,7 @@ const appPages = [
   { name: 'Slang', path: '/apps/slang/' },
   { name: 'Slang (All slang)', path: '/apps/slang/all-slang.html' },
   { name: 'Cosine Similarity Lab', path: '/apps/similarity-report/' },
+  { name: 'Enchanted Forest Bunny', path: '/apps/enchanted-bunny/' },
   { name: 'Value Formatter', path: '/apps/value-formatter/' },
   { name: 'Asset Observatory', path: '/apps/asset-observatory/' },
 ];

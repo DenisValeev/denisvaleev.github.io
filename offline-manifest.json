@@ -1,8 +1,8 @@
 {
-  "version": "20260321-4e85b7806ce3-fd16c3a68980",
-  "generatedAt": "2026-03-21T14:45:21.961Z",
-  "totalAssets": 77,
-  "totalBytes": 6386324,
+  "version": "20260321-fe9815b3bbd3-46ddb879ee31",
+  "generatedAt": "2026-03-21T19:33:52.108Z",
+  "totalAssets": 78,
+  "totalBytes": 6422092,
   "assets": [
     {
       "path": "apps/asset-observatory/AGENTS.md",
@@ -41,8 +41,12 @@
       "bytes": 2167
     },
     {
+      "path": "apps/enchanted-bunny/apple-touch-icon.png",
+      "bytes": 20785
+    },
+    {
       "path": "apps/enchanted-bunny/index.html",
-      "bytes": 127005
+      "bytes": 141988
     },
     {
       "path": "apps/jokes/AGENTS.md",
@@ -314,8 +318,8 @@
     }
   ],
   "commit": {
-    "hash": "fd16c3a689802b15a5dcfeb6a022778c87cb8eb8",
-    "short": "fd16c3a68980",
+    "hash": "46ddb879ee31488c75d490ec4ee04a44d9e470ee",
+    "short": "46ddb879ee31",
     "dirty": false
   }
 }

@@ -8,7 +8,7 @@ const ROOT = process.cwd();
 const OUTPUT_PATH = path.join(ROOT, 'offline-manifest.json');
 const INCLUDE_DIRECTORIES = ['apps', 'data'];
 const INCLUDE_FILES = ['index.html', 'service-worker.js'];
-const ALLOWED_EXTENSIONS = new Set(['.html', '.js', '.json', '.md', '.yaml']);
+const ALLOWED_EXTENSIONS = new Set(['.html', '.js', '.json', '.md', '.png', '.yaml']);
 const execFileAsync = promisify(execFile);
 
 async function main() {
