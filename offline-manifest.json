@@ -1,8 +1,8 @@
 {
-  "version": "20251002-f1bdb58a7820-f208dcb3bc75",
-  "generatedAt": "2025-10-02T18:40:16.447Z",
-  "totalAssets": 74,
-  "totalBytes": 6226930,
+  "version": "20260321-4e85b7806ce3-fd16c3a68980",
+  "generatedAt": "2026-03-21T14:45:21.961Z",
+  "totalAssets": 77,
+  "totalBytes": 6386324,
   "assets": [
     {
       "path": "apps/asset-observatory/AGENTS.md",
@@ -21,6 +21,14 @@
       "bytes": 18275
     },
     {
+      "path": "apps/cloth/index.html",
+      "bytes": 7442
+    },
+    {
+      "path": "apps/cloth/main.js",
+      "bytes": 24490
+    },
+    {
       "path": "apps/embedding-explorer/app.js",
       "bytes": 48550
     },
@@ -31,6 +39,10 @@
     {
       "path": "apps/embedding-explorer/sample-embeddings.js",
       "bytes": 2167
+    },
+    {
+      "path": "apps/enchanted-bunny/index.html",
+      "bytes": 127005
     },
     {
       "path": "apps/jokes/AGENTS.md",
@@ -294,7 +306,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 30691
+      "bytes": 31148
     },
     {
       "path": "service-worker.js",
@@ -302,8 +314,8 @@
     }
   ],
   "commit": {
-    "hash": "f208dcb3bc7597efff90891e60e81738724a4b0e",
-    "short": "f208dcb3bc75",
+    "hash": "fd16c3a689802b15a5dcfeb6a022778c87cb8eb8",
+    "short": "fd16c3a68980",
     "dirty": false
   }
 }
