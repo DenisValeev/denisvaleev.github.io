@@ -1932,7 +1932,7 @@
     }
   </style>
 </head>
-<body data-skin="golden">
+<body>
   <main class="scene" id="scene">
     <h1 class="sr-only">Enchanted forest bunny at golden hour</h1>
     <a class="home-link" href="../../">Home</a>
@@ -3629,7 +3629,7 @@
 
         let manifest;
         try {
-          const response = await fetch("../../offline-manifest.json", { cache: "no-store" });
+          const response = await fetch("../../offline-manifest.json", { cache: "no-cache" });
           if (!response.ok) {
             throw new Error("Manifest request failed with status " + response.status);
           }
