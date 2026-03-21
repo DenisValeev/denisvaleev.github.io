@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Interactive cloth simulator you can open directly in the browser."
+    />
+    <title>Cloth Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="control-panel">
+        <p class="eyebrow">Standalone browser toy</p>
+        <h1>Cloth Lab</h1>
+        <p class="intro">
+          Pull, pin, and slice a hanging cloth in real time. Everything is
+          self-contained, so opening <code>index.html</code> is enough.
+        </p>
+
+        <section class="panel-section">
+          <div class="section-header">
+            <h2>Interaction</h2>
+            <span class="mode-pill" id="mode-pill">Drag</span>
+          </div>
+
+          <div class="mode-buttons" role="group" aria-label="Interaction mode">
+            <button type="button" class="mode-button is-active" data-mode="drag" aria-pressed="true">
+              Drag
+            </button>
+            <button type="button" class="mode-button" data-mode="cut" aria-pressed="false">
+              Cut
+            </button>
+            <button type="button" class="mode-button" data-mode="pin" aria-pressed="false">
+              Pin
+            </button>
+          </div>
+
+          <p class="hint" id="mode-hint">
+            Drag nearby points to stretch, swing, and fling the cloth.
+          </p>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-header">
+            <h2>Fabric</h2>
+          </div>
+
+          <label class="control" for="columns-range">
+            <span class="control-label">Columns</span>
+            <span class="control-value" id="columns-output">30</span>
+            <input
+              id="columns-range"
+              type="range"
+              min="14"
+              max="42"
+              step="1"
+              value="30"
+              data-config="columns"
+            />
+          </label>
+
+          <label class="control" for="rows-range">
+            <span class="control-label">Rows</span>
+            <span class="control-value" id="rows-output">18</span>
+            <input
+              id="rows-range"
+              type="range"
+              min="10"
+              max="28"
+              step="1"
+              value="18"
+              data-config="rows"
+            />
+          </label>
+
+          <label class="control" for="spacing-range">
+            <span class="control-label">Spacing</span>
+            <span class="control-value" id="spacing-output">16px</span>
+            <input
+              id="spacing-range"
+              type="range"
+              min="10"
+              max="20"
+              step="1"
+              value="16"
+              data-config="spacing"
+            />
+          </label>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-header">
+            <h2>Motion</h2>
+          </div>
+
+          <label class="control" for="gravity-range">
+            <span class="control-label">Gravity</span>
+            <span class="control-value" id="gravity-output">0.72</span>
+            <input
+              id="gravity-range"
+              type="range"
+              min="0.20"
+              max="1.40"
+              step="0.01"
+              value="0.72"
+              data-config="gravity"
+            />
+          </label>
+
+          <label class="control" for="stiffness-range">
+            <span class="control-label">Stiffness</span>
+            <span class="control-value" id="stiffness-output">0.93</span>
+            <input
+              id="stiffness-range"
+              type="range"
+              min="0.72"
+              max="1.00"
+              step="0.01"
+              value="0.93"
+              data-config="stiffness"
+            />
+          </label>
+
+          <label class="control" for="iterations-range">
+            <span class="control-label">Iterations</span>
+            <span class="control-value" id="iterations-output">7</span>
+            <input
+              id="iterations-range"
+              type="range"
+              min="3"
+              max="10"
+              step="1"
+              value="7"
+              data-config="iterations"
+            />
+          </label>
+
+          <label class="control" for="wind-range">
+            <span class="control-label">Wind</span>
+            <span class="control-value" id="wind-output">0.38</span>
+            <input
+              id="wind-range"
+              type="range"
+              min="0.00"
+              max="1.20"
+              step="0.01"
+              value="0.38"
+              data-config="wind"
+            />
+          </label>
+
+          <label class="control" for="tearFactor-range">
+            <span class="control-label">Tear threshold</span>
+            <span class="control-value" id="tearFactor-output">1.85x</span>
+            <input
+              id="tearFactor-range"
+              type="range"
+              min="1.20"
+              max="3.20"
+              step="0.05"
+              value="1.85"
+              data-config="tearFactor"
+            />
+          </label>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-header">
+            <h2>Stats</h2>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Particles</span>
+              <strong class="stat-value" id="particle-count">0</strong>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Links</span>
+              <strong class="stat-value" id="link-count">0</strong>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Breaks</span>
+              <strong class="stat-value" id="tear-count">0</strong>
+            </div>
+          </div>
+        </section>
+
+        <div class="action-row">
+          <button type="button" class="button button-primary" id="reset-button">
+            Reset cloth
+          </button>
+          <button type="button" class="button" id="defaults-button">
+            Restore defaults
+          </button>
+        </div>
+
+        <section class="panel-section">
+          <div class="section-header">
+            <h2>Shortcuts</h2>
+          </div>
+
+          <ul class="tips">
+            <li><kbd>D</kbd> drag mode, <kbd>C</kbd> cut mode, <kbd>P</kbd> pin mode</li>
+            <li><kbd>R</kbd> rebuild the cloth and <kbd>Space</kbd> toggle wind</li>
+            <li>Pointer events work for mouse, trackpad, and touch screens</li>
+          </ul>
+        </section>
+      </aside>
+
+      <main class="stage">
+        <div class="stage-header">
+          <div>
+            <p class="stage-label">Canvas viewport</p>
+            <h2>Interactive cloth simulator</h2>
+          </div>
+          <button type="button" class="button" id="wind-toggle" aria-pressed="true">
+            Wind on
+          </button>
+        </div>
+
+        <div class="canvas-wrap">
+          <canvas id="cloth-canvas" aria-label="Interactive cloth simulation canvas"></canvas>
+          <div class="canvas-overlay" id="canvas-note">
+            Grab the mesh and throw it around.
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
