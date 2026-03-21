@@ -8,13 +8,13 @@ test.describe('Landing page', () => {
     await expect(header.locator('h1')).toHaveText('Toolbox');
 
     const deckRows = page.locator('.app-row');
-    await expect(deckRows).toHaveCount(4);
+    await expect(deckRows).toHaveCount(3);
     await expect(deckRows.first()).toHaveAttribute('role', 'group');
 
     const groupLabels = await deckRows.evaluateAll((nodes) =>
       nodes.map((node) => node.getAttribute('aria-label')),
     );
-    expect(groupLabels).toEqual(['Jokes', 'Quotes', 'Total Recall', 'Slang']);
+    expect(groupLabels).toEqual(['Jokes', 'Quotes', 'Slang']);
 
     const deckLinkSets = await deckRows.evaluateAll((nodes) =>
       nodes.map((node) =>
@@ -35,12 +35,27 @@ test.describe('Landing page', () => {
         { href: 'apps/quotes/all-quotes.html', text: 'All Quotes' },
       ],
       [
-        { href: 'apps/total-recall/', text: '🧠 Total Recall' },
-      ],
-      [
         { href: 'apps/slang/', text: '🗣️ Slang' },
         { href: 'apps/slang/all-slang.html', text: 'All Slang' },
       ],
+    ]);
+
+    const toolLinks = page.locator('.tool-list a.app-button, .tool-list a.docs-button');
+    await expect(toolLinks).toHaveCount(9);
+
+    const toolLinkHrefs = await toolLinks.evaluateAll((nodes) =>
+      nodes.map((node) => node.getAttribute('href')),
+    );
+    expect(toolLinkHrefs).toEqual([
+      'apps/total-recall/',
+      'apps/similarity-report/',
+      'apps/embedding-explorer/',
+      'apps/asset-observatory/',
+      'apps/value-formatter/',
+      'apps/cloth/',
+      'apps/enchanted-bunny/',
+      'docs/',
+      'apps/wiki/',
     ]);
 
     await expect(page.locator('a.app-button--primary')).toHaveCount(0);

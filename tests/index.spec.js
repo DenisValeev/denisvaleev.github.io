@@ -5,7 +5,7 @@ test.describe('Landing page', () => {
     await page.goto('/');
 
     const groupedRows = page.locator('.app-row[data-group]');
-    await expect(groupedRows).toHaveCount(4);
+    await expect(groupedRows).toHaveCount(3);
 
     const expectedRows = [
       {
@@ -19,12 +19,6 @@ test.describe('Landing page', () => {
         label: 'Quotes',
         texts: ['💬 Quotes', 'All Quotes'],
         hrefs: ['apps/quotes/', 'apps/quotes/all-quotes.html'],
-      },
-      {
-        group: 'total-recall',
-        label: 'Total Recall',
-        texts: ['🧠 Total Recall'],
-        hrefs: ['apps/total-recall/'],
       },
       {
         group: 'slang',
@@ -62,7 +56,7 @@ test.describe('Landing page', () => {
 
     const toolSection = page.locator('section.app-groups').nth(1);
     const toolButtons = toolSection.locator('a.app-button, a.docs-button');
-    await expect(toolButtons).toHaveCount(6);
+    await expect(toolButtons).toHaveCount(9);
 
     const toolInfo = await toolButtons.evaluateAll((nodes) =>
       nodes.map((node) => ({
@@ -72,11 +66,14 @@ test.describe('Landing page', () => {
     );
 
     expect(toolInfo).toEqual([
+      { text: '🧠 Total Recall', href: 'apps/total-recall/' },
       { text: '🧪 Cosine Similarity Lab', href: 'apps/similarity-report/' },
       { text: '🧬 Embedding Explorer', href: 'apps/embedding-explorer/' },
       { text: '📊 Asset Observatory', href: 'apps/asset-observatory/' },
       { text: '🧰 Value Formatter', href: 'apps/value-formatter/' },
-      { text: '📚 AI Docs', href: 'ai_docs/' },
+      { text: '🧵 Cloth Lab', href: 'apps/cloth/' },
+      { text: '🐇 Enchanted Forest Bunny', href: 'apps/enchanted-bunny/' },
+      { text: '📖 Docs', href: 'docs/' },
       { text: '📚 Blog', href: 'apps/wiki/' },
     ]);
 
@@ -86,6 +83,6 @@ test.describe('Landing page', () => {
     await expect(valueFormatterButton).not.toContainText('—');
 
     const allButtons = page.locator('a.app-button, a.docs-button');
-    await expect(allButtons).toHaveCount(13);
+    await expect(allButtons).toHaveCount(15);
   });
 });
