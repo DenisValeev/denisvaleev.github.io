@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#203127">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Forest Bunny">
+  <link rel="icon" type="image/png" href="apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <title>Enchanted Forest Bunny</title>
   <style>
     :root {
@@ -14,6 +21,199 @@
       --pointer-x: 68vw;
       --pointer-y: 42vh;
       --pointer-alpha: 0.78;
+      --page-accent: rgba(255, 233, 177, 0.22);
+      --page-top: #1f2f26;
+      --page-mid: #18231b;
+      --page-bottom: #0f1712;
+      --scene-glow-a: rgba(255, 242, 198, 0.94);
+      --scene-glow-b: rgba(255, 214, 133, 0.45);
+      --scene-glow-c: rgba(255, 214, 133, 0.08);
+      --scene-top: #7f976c;
+      --scene-mid: #4f6146;
+      --scene-bottom: #111a15;
+      --glade-glow: rgba(255, 213, 138, 0.54);
+      --glade-earth: rgba(143, 94, 41, 0.28);
+      --glade-top: #325632;
+      --glade-mid: #294728;
+      --glade-bottom: #1e341f;
+      --grass-top: rgba(97, 137, 67, 0.88);
+      --grass-bottom: rgba(37, 71, 35, 0.96);
+      --tail-top: rgba(255, 255, 255, 0.96);
+      --tail-mid: rgba(249, 243, 235, 0.94);
+      --tail-bottom: rgba(178, 154, 137, 0.94);
+      --fur-top: #f7f0e8;
+      --fur-mid: #eadccf;
+      --fur-bottom: #ceb5a3;
+      --belly-top: rgba(255, 248, 242, 0.82);
+      --belly-mid: rgba(242, 230, 220, 0.94);
+      --belly-bottom: rgba(222, 201, 186, 0.94);
+      --paw-top: #efe4da;
+      --paw-bottom: #ceb7a6;
+      --ear-top: #f7efe8;
+      --ear-bottom: #eadacd;
+      --ear-inner-top: rgba(239, 193, 198, 0.84);
+      --ear-inner-bottom: rgba(220, 168, 176, 0.7);
+      --head-top: #faf2ea;
+      --head-mid: #ecdccf;
+      --head-bottom: #d3b9a6;
+      --cheek-color: rgba(255, 200, 196, 0.56);
+      --nose-top: #d28f94;
+      --nose-bottom: #9c6267;
+      --butterfly-light: rgba(255, 253, 248, 0.98);
+      --butterfly-mid: rgba(255, 222, 156, 0.82);
+      --butterfly-dark: rgba(255, 169, 101, 0.62);
+      --butterfly-accent: rgba(255, 139, 88, 0.2);
+      --butterfly-body-top: #5b4639;
+      --butterfly-body-bottom: #2c221d;
+    }
+
+    body[data-skin="moonlit"] {
+      --text: #eef5ff;
+      --border: rgba(223, 235, 255, 0.28);
+      --panel: rgba(28, 36, 58, 0.3);
+      --panel-strong: rgba(18, 24, 40, 0.52);
+      --page-accent: rgba(195, 222, 255, 0.2);
+      --page-top: #172338;
+      --page-mid: #111a2c;
+      --page-bottom: #09111d;
+      --scene-glow-a: rgba(233, 244, 255, 0.82);
+      --scene-glow-b: rgba(157, 200, 255, 0.36);
+      --scene-glow-c: rgba(157, 200, 255, 0.08);
+      --scene-top: #7187a7;
+      --scene-mid: #425778;
+      --scene-bottom: #131d2d;
+      --glade-glow: rgba(176, 206, 255, 0.3);
+      --glade-earth: rgba(70, 92, 128, 0.24);
+      --glade-top: #2c4563;
+      --glade-mid: #233750;
+      --glade-bottom: #18283c;
+      --grass-top: rgba(119, 149, 188, 0.9);
+      --grass-bottom: rgba(44, 73, 107, 0.96);
+      --fur-top: #edf2fb;
+      --fur-mid: #d9e2f2;
+      --fur-bottom: #9ba9c4;
+      --belly-top: rgba(246, 251, 255, 0.88);
+      --belly-mid: rgba(229, 239, 252, 0.94);
+      --belly-bottom: rgba(193, 205, 224, 0.96);
+      --tail-top: rgba(255, 255, 255, 0.98);
+      --tail-mid: rgba(231, 240, 250, 0.94);
+      --tail-bottom: rgba(159, 175, 204, 0.94);
+      --paw-top: #e1e9f5;
+      --paw-bottom: #a5b3cb;
+      --ear-top: #edf2fb;
+      --ear-bottom: #d5dceb;
+      --ear-inner-top: rgba(198, 204, 237, 0.92);
+      --ear-inner-bottom: rgba(137, 149, 205, 0.8);
+      --head-top: #f4f7fd;
+      --head-mid: #dfe7f3;
+      --head-bottom: #a8b5ce;
+      --cheek-color: rgba(196, 211, 255, 0.46);
+      --nose-top: #a7b7e4;
+      --nose-bottom: #6376ac;
+      --butterfly-light: rgba(248, 252, 255, 0.98);
+      --butterfly-mid: rgba(186, 223, 255, 0.86);
+      --butterfly-dark: rgba(133, 175, 255, 0.66);
+      --butterfly-accent: rgba(108, 130, 255, 0.28);
+      --butterfly-body-top: #4f6187;
+      --butterfly-body-bottom: #25324d;
+    }
+
+    body[data-skin="rose"] {
+      --text: #fff5f7;
+      --border: rgba(255, 230, 238, 0.26);
+      --page-accent: rgba(255, 212, 220, 0.22);
+      --page-top: #32262d;
+      --page-mid: #271c23;
+      --page-bottom: #180f14;
+      --scene-glow-a: rgba(255, 232, 225, 0.88);
+      --scene-glow-b: rgba(255, 188, 176, 0.38);
+      --scene-glow-c: rgba(255, 188, 176, 0.08);
+      --scene-top: #a07b87;
+      --scene-mid: #6e4f5d;
+      --scene-bottom: #26161d;
+      --glade-glow: rgba(255, 196, 179, 0.34);
+      --glade-earth: rgba(132, 78, 76, 0.22);
+      --glade-top: #5d5a35;
+      --glade-mid: #425128;
+      --glade-bottom: #263318;
+      --grass-top: rgba(171, 170, 103, 0.9);
+      --grass-bottom: rgba(76, 95, 46, 0.96);
+      --fur-top: #fff1f0;
+      --fur-mid: #f0d9d2;
+      --fur-bottom: #c59288;
+      --belly-top: rgba(255, 247, 243, 0.9);
+      --belly-mid: rgba(252, 232, 226, 0.94);
+      --belly-bottom: rgba(221, 186, 176, 0.96);
+      --tail-top: rgba(255, 250, 247, 0.98);
+      --tail-mid: rgba(250, 229, 223, 0.94);
+      --tail-bottom: rgba(196, 149, 142, 0.94);
+      --paw-top: #f5e1db;
+      --paw-bottom: #ceaa9d;
+      --ear-top: #fff1ef;
+      --ear-bottom: #edd1c9;
+      --ear-inner-top: rgba(255, 192, 201, 0.88);
+      --ear-inner-bottom: rgba(218, 126, 150, 0.76);
+      --head-top: #fff3f1;
+      --head-mid: #efd9d3;
+      --head-bottom: #c69a92;
+      --cheek-color: rgba(255, 191, 203, 0.62);
+      --nose-top: #dc8f9a;
+      --nose-bottom: #b45e75;
+      --butterfly-light: rgba(255, 248, 251, 0.98);
+      --butterfly-mid: rgba(255, 208, 221, 0.86);
+      --butterfly-dark: rgba(255, 154, 186, 0.68);
+      --butterfly-accent: rgba(255, 111, 163, 0.3);
+      --butterfly-body-top: #7a4c5e;
+      --butterfly-body-bottom: #3c2130;
+    }
+
+    body[data-skin="snowcap"] {
+      --text: #f6fdff;
+      --border: rgba(232, 248, 255, 0.3);
+      --page-accent: rgba(214, 246, 255, 0.24);
+      --page-top: #1d3035;
+      --page-mid: #132126;
+      --page-bottom: #0c1518;
+      --scene-glow-a: rgba(234, 252, 255, 0.9);
+      --scene-glow-b: rgba(166, 239, 255, 0.32);
+      --scene-glow-c: rgba(166, 239, 255, 0.08);
+      --scene-top: #88aeb2;
+      --scene-mid: #557c80;
+      --scene-bottom: #162629;
+      --glade-glow: rgba(198, 246, 255, 0.32);
+      --glade-earth: rgba(66, 115, 121, 0.18);
+      --glade-top: #4c706b;
+      --glade-mid: #30524d;
+      --glade-bottom: #1d3631;
+      --grass-top: rgba(161, 211, 196, 0.92);
+      --grass-bottom: rgba(61, 112, 98, 0.98);
+      --fur-top: #f8fdff;
+      --fur-mid: #e5f0f2;
+      --fur-bottom: #b7ccd0;
+      --belly-top: rgba(255, 255, 255, 0.92);
+      --belly-mid: rgba(242, 250, 252, 0.94);
+      --belly-bottom: rgba(209, 228, 230, 0.96);
+      --tail-top: rgba(255, 255, 255, 0.99);
+      --tail-mid: rgba(241, 249, 250, 0.96);
+      --tail-bottom: rgba(183, 204, 208, 0.94);
+      --paw-top: #e7f0f2;
+      --paw-bottom: #bfd2d5;
+      --ear-top: #f3fafb;
+      --ear-bottom: #dbe8ea;
+      --ear-inner-top: rgba(202, 238, 241, 0.9);
+      --ear-inner-bottom: rgba(122, 188, 194, 0.74);
+      --head-top: #fbfeff;
+      --head-mid: #e7f0f2;
+      --head-bottom: #bfd0d4;
+      --cheek-color: rgba(191, 241, 245, 0.48);
+      --nose-top: #92bfc5;
+      --nose-bottom: #538790;
+      --butterfly-light: rgba(250, 255, 255, 0.98);
+      --butterfly-mid: rgba(198, 248, 255, 0.88);
+      --butterfly-dark: rgba(120, 218, 232, 0.68);
+      --butterfly-accent: rgba(96, 171, 255, 0.24);
+      --butterfly-body-top: #447a83;
+      --butterfly-body-bottom: #1f4650;
     }
 
     * {
@@ -31,8 +231,8 @@
       font-family: Georgia, "Times New Roman", serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 18% 14%, rgba(255, 233, 177, 0.22), transparent 24%),
-        linear-gradient(180deg, #1f2f26 0%, #18231b 42%, #0f1712 100%);
+        radial-gradient(circle at 18% 14%, var(--page-accent), transparent 24%),
+        linear-gradient(180deg, var(--page-top) 0%, var(--page-mid) 42%, var(--page-bottom) 100%);
     }
 
     a {
@@ -49,9 +249,9 @@
       overflow: hidden;
       isolation: isolate;
       background:
-        radial-gradient(circle at 18% 16%, rgba(255, 242, 198, 0.94), rgba(255, 214, 133, 0.45) 16%, rgba(255, 214, 133, 0.08) 28%, transparent 38%),
+        radial-gradient(circle at 18% 16%, var(--scene-glow-a), var(--scene-glow-b) 16%, var(--scene-glow-c) 28%, transparent 38%),
         radial-gradient(circle at 26% 28%, rgba(255, 203, 120, 0.24), transparent 26%),
-        linear-gradient(180deg, #7f976c 0%, #4f6146 16%, #203127 52%, #111a15 100%);
+        linear-gradient(180deg, var(--scene-top) 0%, var(--scene-mid) 16%, #203127 52%, var(--scene-bottom) 100%);
     }
 
     .scene::before {
@@ -90,7 +290,7 @@
       border: 0;
     }
 
-    .back-link {
+    .home-link {
       position: absolute;
       top: 1rem;
       left: 1rem;
@@ -109,25 +309,94 @@
       transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
     }
 
-    .back-link:hover {
+    .home-link:hover {
       transform: translateY(-2px);
       border-color: rgba(255, 246, 230, 0.42);
       background: linear-gradient(180deg, rgba(255, 250, 242, 0.22), rgba(255, 250, 242, 0.1));
     }
 
-    .back-link:focus-visible,
+    .home-link:focus-visible,
+    .skin-button:focus-visible,
     .carrot:focus-visible {
       outline: 2px solid rgba(255, 233, 183, 0.9);
       outline-offset: 4px;
     }
 
-    .back-link::before {
+    .home-link::before {
       content: "";
       width: 0.72rem;
       height: 0.72rem;
       border-top: 2px solid currentColor;
       border-left: 2px solid currentColor;
       transform: rotate(-45deg);
+    }
+
+    .skin-action {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 18;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      max-width: min(18rem, calc(100vw - 2rem));
+    }
+
+    .skin-button {
+      --swatch-a: #ffd59d;
+      --swatch-b: #5f7d5a;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.72rem;
+      padding: 0.72rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255, 250, 242, 0.18), rgba(255, 250, 242, 0.08));
+      color: rgba(255, 248, 237, 0.96);
+      box-shadow: 0 16px 36px rgba(11, 16, 13, 0.24);
+      backdrop-filter: blur(14px);
+      cursor: pointer;
+      transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+    }
+
+    .skin-button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 246, 230, 0.42);
+      background: linear-gradient(180deg, rgba(255, 250, 242, 0.22), rgba(255, 250, 242, 0.1));
+    }
+
+    .skin-swatch {
+      flex: 0 0 auto;
+      width: 1.1rem;
+      height: 1.1rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--swatch-a), var(--swatch-b));
+      box-shadow:
+        inset 0 0.1rem 0.18rem rgba(255, 255, 255, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.14),
+        0 0.2rem 0.45rem rgba(9, 12, 10, 0.18);
+    }
+
+    .skin-button-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 0;
+    }
+
+    .skin-button-label {
+      font-size: 0.66rem;
+      line-height: 1;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.72;
+    }
+
+    .skin-button-value {
+      font-size: 0.95rem;
+      line-height: 1.15;
+      font-weight: 600;
+      white-space: nowrap;
     }
 
     .layer {
@@ -471,7 +740,7 @@
       height: 58%;
       border-radius: 64% 36% 58% 42%;
       background:
-        radial-gradient(circle at 34% 32%, rgba(255, 253, 248, 0.98), rgba(255, 222, 156, 0.82) 42%, rgba(255, 169, 101, 0.62) 76%, rgba(255, 139, 88, 0.2) 100%);
+        radial-gradient(circle at 34% 32%, var(--butterfly-light), var(--butterfly-mid) 42%, var(--butterfly-dark) 76%, var(--butterfly-accent) 100%);
       box-shadow:
         inset 0 0 14px rgba(255, 251, 242, 0.32),
         0 0 16px rgba(255, 198, 133, 0.12);
@@ -499,7 +768,7 @@
       height: 1.28rem;
       transform: translateX(-50%);
       border-radius: 999px;
-      background: linear-gradient(180deg, #5b4639, #2c221d);
+      background: linear-gradient(180deg, var(--butterfly-body-top), var(--butterfly-body-bottom));
       box-shadow: 0 0 10px rgba(255, 216, 144, 0.12);
       opacity: calc(1 - var(--butterfly-vanish));
       transition: opacity 140ms ease;
@@ -590,9 +859,9 @@
       transform: translateX(-50%);
       border-radius: 52% 52% 0 0 / 42% 42% 0 0;
       background:
-        radial-gradient(ellipse at 48% 22%, rgba(255, 213, 138, 0.54), rgba(255, 213, 138, 0.12) 32%, transparent 50%),
-        radial-gradient(ellipse at 56% 56%, rgba(143, 94, 41, 0.28), transparent 56%),
-        linear-gradient(180deg, #325632 0%, #294728 22%, #1e341f 100%);
+        radial-gradient(ellipse at 48% 22%, var(--glade-glow), rgba(255, 213, 138, 0.12) 32%, transparent 50%),
+        radial-gradient(ellipse at 56% 56%, var(--glade-earth), transparent 56%),
+        linear-gradient(180deg, var(--glade-top) 0%, var(--glade-mid) 22%, var(--glade-bottom) 100%);
       box-shadow:
         0 -36px 120px rgba(255, 197, 101, 0.1),
         inset 0 14px 18px rgba(255, 239, 203, 0.08),
@@ -700,7 +969,7 @@
       height: 18%;
       border-radius: 50%;
       background:
-        radial-gradient(circle at 34% 34%, rgba(255, 255, 255, 0.96), rgba(249, 243, 235, 0.94) 34%, rgba(219, 202, 187, 0.92) 76%, rgba(178, 154, 137, 0.94) 100%);
+        radial-gradient(circle at 34% 34%, var(--tail-top), var(--tail-mid) 34%, rgba(219, 202, 187, 0.92) 76%, var(--tail-bottom) 100%);
       box-shadow:
         inset -0.22rem -0.28rem 0 rgba(145, 118, 102, 0.14),
         inset 0.3rem 0.32rem 0 rgba(255, 255, 255, 0.38),
@@ -716,7 +985,7 @@
       transform: translateX(-50%);
       border-radius: 46% 46% 42% 42% / 42% 42% 52% 52%;
       background:
-        linear-gradient(180deg, #f7f0e8 0%, #eadccf 54%, #ceb5a3 100%);
+        linear-gradient(180deg, var(--fur-top) 0%, var(--fur-mid) 54%, var(--fur-bottom) 100%);
       box-shadow:
         inset 0 0.7rem 0.9rem rgba(255, 255, 255, 0.46),
         inset 0 -0.8rem 1rem rgba(132, 106, 92, 0.2),
@@ -733,7 +1002,7 @@
       transform: translateX(-50%);
       border-radius: 46% 46% 52% 52% / 40% 40% 60% 60%;
       background:
-        radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.72), rgba(255, 248, 242, 0.82) 34%, rgba(242, 230, 220, 0.94) 74%, rgba(222, 201, 186, 0.94) 100%);
+        radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.72), var(--belly-top) 34%, var(--belly-mid) 74%, var(--belly-bottom) 100%);
       box-shadow: inset 0 -0.2rem 0.5rem rgba(168, 140, 121, 0.12);
     }
 
@@ -752,7 +1021,7 @@
       width: 18%;
       height: 15%;
       border-radius: 62% 62% 46% 46%;
-      background: linear-gradient(180deg, #efe4da, #ceb7a6);
+      background: linear-gradient(180deg, var(--paw-top), var(--paw-bottom));
       box-shadow:
         inset 0 0.32rem 0.42rem rgba(255, 255, 255, 0.38),
         inset 0 -0.28rem 0.42rem rgba(148, 121, 104, 0.16);
@@ -785,7 +1054,7 @@
       height: 64%;
       border-radius: 58% 58% 46% 46% / 68% 68% 28% 28%;
       background:
-        linear-gradient(180deg, #f7efe8 0%, #eadacd 86%);
+        linear-gradient(180deg, var(--ear-top) 0%, var(--ear-bottom) 86%);
       box-shadow:
         inset 0 0.54rem 0.7rem rgba(255, 255, 255, 0.34),
         inset 0 -0.54rem 0.8rem rgba(142, 114, 99, 0.18);
@@ -798,7 +1067,7 @@
       inset: 13% 23% 16%;
       border-radius: 58% 58% 44% 44% / 68% 68% 30% 30%;
       background:
-        linear-gradient(180deg, rgba(239, 193, 198, 0.84), rgba(220, 168, 176, 0.7));
+        linear-gradient(180deg, var(--ear-inner-top), var(--ear-inner-bottom));
       box-shadow: inset 0 0.2rem 0.3rem rgba(255, 255, 255, 0.26);
       opacity: 0.9;
     }
@@ -818,7 +1087,7 @@
       inset: 16% 9% 0;
       border-radius: 48% 48% 45% 45% / 44% 44% 56% 56%;
       background:
-        linear-gradient(180deg, #faf2ea 0%, #ecdccf 56%, #d3b9a6 100%);
+        linear-gradient(180deg, var(--head-top) 0%, var(--head-mid) 56%, var(--head-bottom) 100%);
       box-shadow:
         inset 0 0.6rem 0.8rem rgba(255, 255, 255, 0.46),
         inset 0 -0.7rem 0.8rem rgba(150, 121, 103, 0.14),
@@ -831,7 +1100,7 @@
       width: 17%;
       height: 12%;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255, 200, 196, 0.56), rgba(255, 200, 196, 0));
+      background: radial-gradient(circle, var(--cheek-color), rgba(255, 200, 196, 0));
       opacity: 0.72;
       filter: blur(2px);
     }
@@ -916,7 +1185,7 @@
       height: 8%;
       transform: translate(-50%, -50%) rotate(45deg);
       border-radius: 40% 40% 80% 40%;
-      background: linear-gradient(135deg, #d28f94, #9c6267);
+      background: linear-gradient(135deg, var(--nose-top), var(--nose-bottom));
       box-shadow: 0 0.14rem 0.22rem rgba(58, 42, 40, 0.16);
     }
 
@@ -1011,7 +1280,7 @@
       height: 100%;
       border-radius: 60% 60% 18% 18%;
       background:
-        linear-gradient(180deg, rgba(97, 137, 67, 0.88), rgba(37, 71, 35, 0.96));
+        linear-gradient(180deg, var(--grass-top), var(--grass-bottom));
       filter: blur(0.2px);
     }
 
@@ -1545,10 +1814,18 @@
     }
 
     @media (max-width: 820px) {
-      .back-link {
+      .home-link,
+      .skin-action {
         top: 0.8rem;
+      }
+
+      .home-link {
         left: 0.8rem;
         padding: 0.64rem 0.9rem;
+      }
+
+      .skin-action {
+        right: 0.8rem;
       }
 
       .clearing {
@@ -1646,7 +1923,8 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .back-link,
+      .home-link,
+      .skin-button,
       .carrot,
       .butterfly {
         transition-duration: 0ms;
@@ -1654,9 +1932,21 @@
     }
   </style>
 </head>
-<body>
+<body data-skin="golden">
   <main class="scene" id="scene">
     <h1 class="sr-only">Enchanted forest bunny at golden hour</h1>
+    <a class="home-link" href="../../">Home</a>
+    <div class="skin-action">
+      <button class="skin-button" id="skin-toggle" type="button" aria-describedby="skin-button-hint">
+        <span class="skin-swatch" id="skin-swatch" aria-hidden="true"></span>
+        <span class="skin-button-copy">
+          <span class="skin-button-label">Reskin</span>
+          <span class="skin-button-value" id="skin-button-value">Golden Burrow</span>
+        </span>
+      </button>
+      <span class="sr-only" id="skin-button-hint">Cycle through bunny and butterfly scene styles.</span>
+      <span class="sr-only" id="skin-live" aria-live="polite"></span>
+    </div>
 
     <div class="layer sky-haze" data-depth="0.04">
       <div class="sun-core"></div>
@@ -1824,8 +2114,18 @@
     (() => {
       const scene = document.getElementById("scene");
       const canvas = document.getElementById("particle-canvas");
-      const ctx = canvas.getContext("2d");
+      const ctx = canvas ? canvas.getContext("2d") : null;
+      const skinToggle = document.getElementById("skin-toggle");
+      const skinButtonValue = document.getElementById("skin-button-value");
+      const skinSwatch = document.getElementById("skin-swatch");
+      const skinLive = document.getElementById("skin-live");
+      if (!scene || !canvas || !ctx || !skinToggle || !skinButtonValue || !skinSwatch || !skinLive) {
+        return;
+      }
       const clearing = scene.querySelector(".clearing");
+      if (!clearing) {
+        return;
+      }
       const beamSvg = document.getElementById("magic-beams");
       const beamSpark = document.getElementById("beam-spark");
       const bunny = document.getElementById("bunny");
@@ -1837,16 +2137,102 @@
       const basketPocket = document.getElementById("basket-pocket");
       const basketFront = document.getElementById("basket-front");
       const basketRim = document.getElementById("basket-rim");
+      if (!beamSvg || !beamSpark || !bunny || !bunnyBody || !bunnyHead || !bunnyCluster || !bunnyShadow || !basket || !basketPocket || !basketFront || !basketRim) {
+        return;
+      }
       const tuftLeft = clearing.querySelector(".tuft-left");
       const tuftRight = clearing.querySelector(".tuft-right");
+      if (!tuftLeft || !tuftRight) {
+        return;
+      }
       const ears = {
         left: bunnyHead.querySelector(".ear-left"),
         right: bunnyHead.querySelector(".ear-right")
       };
+      if (!ears.left || !ears.right) {
+        return;
+      }
       const cheeks = Array.from(bunnyHead.querySelectorAll(".cheek"));
       const whiskers = Array.from(bunnyHead.querySelectorAll(".whisker"));
       const eyes = Array.from(bunnyHead.querySelectorAll(".eye"));
       const irises = Array.from(bunnyHead.querySelectorAll(".iris"));
+      const SKIN_STORAGE_KEY = "enchanted-bunny-skin";
+      const skins = [
+        {
+          id: "golden",
+          label: "Golden Burrow",
+          description: "sunlit cream bunny with apricot butterflies",
+          swatch: ["#ffd59d", "#5f7d5a"]
+        },
+        {
+          id: "moonlit",
+          label: "Moonlit Hare",
+          description: "cool silver fur with twilight blue wings",
+          swatch: ["#d9e6ff", "#6172b4"]
+        },
+        {
+          id: "rose",
+          label: "Rose Meadow",
+          description: "petal-soft bunny tones with blush butterflies",
+          swatch: ["#ffd4dd", "#ab627e"]
+        },
+        {
+          id: "snowcap",
+          label: "Snowcap Bunny",
+          description: "frost-bright fur with minty clearing highlights",
+          swatch: ["#eefcff", "#6bc6c9"]
+        }
+      ];
+      let currentSkinIndex = 0;
+
+      function saveSkinPreference(skinId) {
+        try {
+          window.localStorage.setItem(SKIN_STORAGE_KEY, skinId);
+        } catch (error) {
+          // Ignore storage failures in restricted contexts.
+        }
+      }
+
+      function readSkinPreference() {
+        try {
+          return window.localStorage.getItem(SKIN_STORAGE_KEY);
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function applySkin(index, announce = false) {
+        currentSkinIndex = ((index % skins.length) + skins.length) % skins.length;
+        const skin = skins[currentSkinIndex];
+        document.body.dataset.skin = skin.id;
+        skinButtonValue.textContent = skin.label;
+        skinToggle.setAttribute("aria-label", "Switch bunny scene style. Current scene: " + skin.label + ".");
+        skinSwatch.style.setProperty("--swatch-a", skin.swatch[0]);
+        skinSwatch.style.setProperty("--swatch-b", skin.swatch[1]);
+        skinLive.textContent = announce ? skin.label + " active — " + skin.description + "." : "";
+        saveSkinPreference(skin.id);
+      }
+
+      const savedSkinId = readSkinPreference();
+      const savedSkinIndex = skins.findIndex((skin) => skin.id === savedSkinId);
+      if (savedSkinIndex >= 0) {
+        currentSkinIndex = savedSkinIndex;
+      }
+      applySkin(currentSkinIndex);
+
+      skinToggle.addEventListener("click", () => {
+        applySkin(currentSkinIndex + 1, true);
+      });
+
+      skinToggle.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          event.preventDefault();
+          applySkin(currentSkinIndex + 1, true);
+        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          event.preventDefault();
+          applySkin(currentSkinIndex - 1, true);
+        }
+      });
       const parallaxLayers = Array.from(document.querySelectorAll("[data-depth]"));
       const initialWidth = window.innerWidth;
       const initialHeight = window.innerHeight;
@@ -3236,6 +3622,38 @@
         coarsePointerQuery.addListener(updatePointerPreferences);
       }
 
+      async function setupOfflineBundle() {
+        if (!("serviceWorker" in navigator) || !("caches" in window)) {
+          return;
+        }
+
+        let manifest;
+        try {
+          const response = await fetch("../../offline-manifest.json", { cache: "no-store" });
+          if (!response.ok) {
+            throw new Error("Manifest request failed with status " + response.status);
+          }
+          manifest = await response.json();
+        } catch (error) {
+          console.warn("Unable to prepare the enchanted bunny offline bundle.", error);
+          return;
+        }
+
+        try {
+          await navigator.serviceWorker.register("../../service-worker.js");
+          const readyRegistration = await navigator.serviceWorker.ready;
+          const worker = readyRegistration.active || readyRegistration.waiting || readyRegistration.installing;
+          if (worker) {
+            worker.postMessage({
+              type: "apply-manifest",
+              manifest
+            });
+          }
+        } catch (error) {
+          console.warn("Unable to register offline support for the enchanted bunny app.", error);
+        }
+      }
+
       carrotStates.forEach((state) => {
         const templateId = initialCarrotSpawnIds[state.element.id];
         const template = carrotSpawnTemplates.find((item) => item.id === templateId) || carrotSpawnTemplates[state.slotIndex % carrotSpawnTemplates.length];
@@ -3249,6 +3667,7 @@
         setButterflySparkle(butterfly, 0, 0);
       });
 
+      setupOfflineBundle();
       updateLayout();
       scheduleBlink(performance.now() - 1200);
       earTwitch.left.next = performance.now() + rand(1000, 2600);
