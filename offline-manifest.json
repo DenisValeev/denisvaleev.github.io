@@ -1,8 +1,8 @@
 {
-  "version": "20260322-dc4d39739d02-2c9fa8498b23",
-  "generatedAt": "2026-03-22T00:49:39.758Z",
+  "version": "20260322-6eee7081c00d-9d144753fa34",
+  "generatedAt": "2026-03-22T01:10:40.023Z",
   "totalAssets": 78,
-  "totalBytes": 6422073,
+  "totalBytes": 6438759,
   "assets": [
     {
       "path": "apps/asset-observatory/AGENTS.md",
@@ -46,7 +46,7 @@
     },
     {
       "path": "apps/enchanted-bunny/index.html",
-      "bytes": 141969
+      "bytes": 158655
     },
     {
       "path": "apps/jokes/AGENTS.md",
@@ -318,8 +318,8 @@
     }
   ],
   "commit": {
-    "hash": "2c9fa8498b23586dfb0ed8703df44af5a200e649",
-    "short": "2c9fa8498b23",
+    "hash": "9d144753fa34779426ea75db6c64b6c0342694dc",
+    "short": "9d144753fa34",
     "dirty": false
   }
 }
