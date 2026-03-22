@@ -577,7 +577,6 @@
     }
 
     .skin-button:focus-visible,
-    .skin-button:focus-visible,
     .carrot:focus-visible {
       outline: 2px solid rgba(255, 233, 183, 0.9);
       outline-offset: 4px;
@@ -2184,10 +2183,28 @@
     }
   </style>
 </head>
-<body>
+  <body>
   <main class="scene" id="scene">
     <h1 class="sr-only">Enchanted forest bunny at golden hour</h1>
-    <a class="home-link" href="../../">Home</a>
+    <section class="status-panel" aria-label="Butterfly challenge status">
+      <p class="status-title">Butterfly hunt</p>
+      <div class="status-grid">
+        <div class="status-metric">
+          <span class="status-label">Wave</span>
+          <span class="status-value" id="butterfly-wave-value">1</span>
+        </div>
+        <div class="status-metric">
+          <span class="status-label">Left</span>
+          <span class="status-value" id="butterfly-count-value">4</span>
+        </div>
+        <div class="status-metric">
+          <span class="status-label">Beam</span>
+          <span class="status-value" id="beam-color-value">Verdant</span>
+        </div>
+      </div>
+      <div class="status-note">Clear every butterfly. The swarm returns with one extra flutter and a fresh beam color.</div>
+      <span class="sr-only" id="butterfly-live" aria-live="polite"></span>
+    </section>
     <div class="skin-action">
       <button class="skin-button" id="skin-toggle" type="button" aria-describedby="skin-button-hint">
         <span class="skin-swatch" id="skin-swatch" aria-hidden="true"></span>
@@ -2371,10 +2388,29 @@
       const skinButtonValue = document.getElementById("skin-button-value");
       const skinSwatch = document.getElementById("skin-swatch");
       const skinLive = document.getElementById("skin-live");
-      if (!scene || !canvas || !ctx || !skinToggle || !skinButtonValue || !skinSwatch || !skinLive) {
+      const butterflyWaveValue = document.getElementById("butterfly-wave-value");
+      const butterflyCountValue = document.getElementById("butterfly-count-value");
+      const beamColorValue = document.getElementById("beam-color-value");
+      const butterflyLive = document.getElementById("butterfly-live");
+      if (
+        !scene ||
+        !canvas ||
+        !ctx ||
+        !skinToggle ||
+        !skinButtonValue ||
+        !skinSwatch ||
+        !skinLive ||
+        !butterflyWaveValue ||
+        !butterflyCountValue ||
+        !beamColorValue ||
+        !butterflyLive
+      ) {
         return;
       }
       const clearing = scene.querySelector(".clearing");
+      const butterflyLayers = Array.from(scene.querySelectorAll(".butterflies"));
+      const farButterflyLayer = butterflyLayers.find((layer) => !layer.classList.contains("butterflies-close"));
+      const closeButterflyLayer = butterflyLayers.find((layer) => layer.classList.contains("butterflies-close"));
       if (!clearing) {
         return;
       }
@@ -2389,7 +2425,21 @@
       const basketPocket = document.getElementById("basket-pocket");
       const basketFront = document.getElementById("basket-front");
       const basketRim = document.getElementById("basket-rim");
-      if (!beamSvg || !beamSpark || !bunny || !bunnyBody || !bunnyHead || !bunnyCluster || !bunnyShadow || !basket || !basketPocket || !basketFront || !basketRim) {
+      if (
+        !beamSvg ||
+        !beamSpark ||
+        !bunny ||
+        !bunnyBody ||
+        !bunnyHead ||
+        !bunnyCluster ||
+        !bunnyShadow ||
+        !basket ||
+        !basketPocket ||
+        !basketFront ||
+        !basketRim ||
+        !farButterflyLayer ||
+        !closeButterflyLayer
+      ) {
         return;
       }
       const tuftLeft = clearing.querySelector(".tuft-left");
@@ -2435,6 +2485,36 @@
           swatch: ["#eefcff", "#6bc6c9"]
         }
       ];
+      const beamPalettes = [
+        {
+          id: "verdant",
+          label: "Verdant",
+          glow: "rgba(126, 255, 164, 0.34)",
+          core: "rgba(226, 255, 220, 0.98)",
+          spark: "rgba(170, 255, 181, 0.52)"
+        },
+        {
+          id: "amethyst",
+          label: "Amethyst",
+          glow: "rgba(198, 158, 255, 0.34)",
+          core: "rgba(244, 229, 255, 0.98)",
+          spark: "rgba(210, 186, 255, 0.56)"
+        },
+        {
+          id: "sunflare",
+          label: "Sunflare",
+          glow: "rgba(255, 170, 116, 0.38)",
+          core: "rgba(255, 243, 208, 0.98)",
+          spark: "rgba(255, 196, 136, 0.58)"
+        },
+        {
+          id: "aurora",
+          label: "Aurora",
+          glow: "rgba(121, 240, 255, 0.34)",
+          core: "rgba(225, 255, 252, 0.98)",
+          spark: "rgba(140, 255, 229, 0.54)"
+        }
+      ];
       let currentSkinIndex = 0;
 
       function saveSkinPreference(skinId) {
@@ -2465,12 +2545,23 @@
         saveSkinPreference(skin.id);
       }
 
+      function applyBeamPalette(index) {
+        const palette = beamPalettes[((index % beamPalettes.length) + beamPalettes.length) % beamPalettes.length];
+        scene.style.setProperty("--beam-glow-color", palette.glow);
+        scene.style.setProperty("--beam-core-color", palette.core);
+        scene.style.setProperty("--beam-spark-color", palette.spark);
+        scene.dataset.beamPalette = palette.id;
+        beamColorValue.textContent = palette.label;
+        return palette;
+      }
+
       const savedSkinId = readSkinPreference();
       const savedSkinIndex = skins.findIndex((skin) => skin.id === savedSkinId);
       if (savedSkinIndex >= 0) {
         currentSkinIndex = savedSkinIndex;
       }
       applySkin(currentSkinIndex);
+      applyBeamPalette(0);
 
       skinToggle.addEventListener("click", () => {
         applySkin(currentSkinIndex + 1, true);
@@ -2488,38 +2579,92 @@
       const parallaxLayers = Array.from(document.querySelectorAll("[data-depth]"));
       const initialWidth = window.innerWidth;
       const initialHeight = window.innerHeight;
-      const butterflies = Array.from(document.querySelectorAll(".butterfly")).map((element) => ({
-        element,
-        wings: Array.from(element.querySelectorAll(".wing")),
-        burst: element.querySelector(".butterfly-burst"),
-        centerX: Number(element.dataset.x),
-        centerY: Number(element.dataset.y),
-        radiusX: Number(element.dataset.rx),
-        radiusY: Number(element.dataset.ry),
-        speed: Number(element.dataset.speed),
-        scale: Number(element.dataset.scale),
-        phase: Number(element.dataset.phase),
-        baseOpacity: element.classList.contains("butterfly-close") ? 0.72 : 0.92,
-        isClose: element.classList.contains("butterfly-close"),
-        status: "idle",
-        offsetX: 0,
-        offsetY: 0,
-        currentX: initialWidth * Number(element.dataset.x),
-        currentY: initialHeight * Number(element.dataset.y),
-        currentScale: Number(element.dataset.scale),
-        rotation: 0,
-        targetStart: -100000,
-        targetDuration: 0,
-        burstStart: -100000,
-        burstDuration: 0,
+      const butterflyDescriptors = ["amber", "honey", "apricot", "golden", "violet", "glacier", "rose", "mint", "starlit", "cinder"];
+
+      function butterflyLabel(index, isClose) {
+        const descriptor = butterflyDescriptors[index % butterflyDescriptors.length];
+        return "Guide the " + (isClose ? "near " : "") + descriptor + " butterfly with the bunny's magic";
+      }
+
+      function setButterflyStatus(butterfly, status) {
+        butterfly.status = status;
+        butterfly.element.dataset.status = status;
+      }
+
+      function createButterflyState(element, index) {
+        const isClose = element.classList.contains("butterfly-close");
+        const scale = Number(element.dataset.scale || (isClose ? 1.18 : 0.9));
+        const state = {
+          element,
+          wings: Array.from(element.querySelectorAll(".wing")),
+          burst: element.querySelector(".butterfly-burst"),
+          centerX: Number(element.dataset.x || (isClose ? 0.24 : 0.48)),
+          centerY: Number(element.dataset.y || (isClose ? 0.38 : 0.24)),
+          radiusX: Number(element.dataset.rx || (isClose ? 0.1 : 0.06)),
+          radiusY: Number(element.dataset.ry || (isClose ? 0.06 : 0.04)),
+          speed: Number(element.dataset.speed || (isClose ? 0.84 : 0.96)),
+          scale,
+          phase: Number(element.dataset.phase || index * 0.7),
+          baseOpacity: isClose ? 0.72 : 0.92,
+          isClose,
+          id: index,
+          status: "idle",
+          offsetX: 0,
+          offsetY: 0,
+          currentX: initialWidth * Number(element.dataset.x || (isClose ? 0.24 : 0.48)),
+          currentY: initialHeight * Number(element.dataset.y || (isClose ? 0.38 : 0.24)),
+          currentScale: scale,
+          rotation: 0,
+          targetStart: -100000,
+          targetDuration: 0,
+          burstStart: -100000,
+          burstDuration: 0,
+          revealStart: -100000,
+          revealDuration: 0,
+          lockX: initialWidth * Number(element.dataset.x || (isClose ? 0.24 : 0.48)),
+          lockY: initialHeight * Number(element.dataset.y || (isClose ? 0.38 : 0.24)),
+          lockRotation: 0,
+          lockScale: scale
+        };
+        element.dataset.status = "idle";
+        element.style.visibility = "visible";
+        element.disabled = false;
+        element.tabIndex = 0;
+        if (!element.getAttribute("aria-label")) {
+          element.setAttribute("aria-label", butterflyLabel(index, isClose));
+        }
+        return state;
+      }
+
+      function createButterflyElement(index, isClose) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = isClose ? "butterfly butterfly-close" : "butterfly";
+        button.setAttribute("aria-label", butterflyLabel(index, isClose));
+
+        const leftWing = document.createElement("span");
+        leftWing.className = "wing wing-left";
+        const rightWing = document.createElement("span");
+        rightWing.className = "wing wing-right";
+        const body = document.createElement("span");
+        body.className = "butterfly-body";
+        const burst = document.createElement("span");
+        burst.className = "butterfly-burst";
+
+        button.append(leftWing, rightWing, body, burst);
+        (isClose ? closeButterflyLayer : farButterflyLayer).appendChild(button);
+        return button;
+      }
+
+      const butterflies = Array.from(document.querySelectorAll(".butterfly")).map((element, index) => createButterflyState(element, index));
+      const initialButterflyCount = butterflies.length;
+      const butterflyChallenge = {
+        wave: 1,
+        clearedWaves: 0,
         respawnAt: 0,
-        revealStart: -100000,
-        revealDuration: 0,
-        lockX: initialWidth * Number(element.dataset.x),
-        lockY: initialHeight * Number(element.dataset.y),
-        lockRotation: 0,
-        lockScale: Number(element.dataset.scale)
-      }));
+        nextId: butterflies.length,
+        remaining: butterflies.length
+      };
       const carrots = Array.from(document.querySelectorAll(".carrot"));
       const carrotStates = carrots.map((element, index) => {
         const baseRotation = Number(element.dataset.rotation || 0);
@@ -3129,7 +3274,7 @@
 
       function chooseButterflyPath(butterfly) {
         const templates = butterfly.isClose ? butterflySpawnTemplates.close : butterflySpawnTemplates.far;
-        const others = butterflies.filter((item) => item !== butterfly && item.status !== "respawning");
+        const others = butterflies.filter((item) => item !== butterfly && item.status !== "cleared");
 
         for (let attempt = 0; attempt < 12; attempt += 1) {
           const template = templates[Math.floor(rand(0, templates.length))];
@@ -3163,6 +3308,77 @@
         butterfly.currentY = height * butterfly.centerY;
         butterfly.currentScale = butterfly.scale;
         butterfly.rotation = 0;
+      }
+
+      function updateButterflyHud(message = "") {
+        const remaining = butterflies.filter((butterfly) => butterfly.status !== "cleared").length;
+        butterflyChallenge.remaining = remaining;
+        butterflyWaveValue.textContent = String(butterflyChallenge.wave);
+        butterflyCountValue.textContent = String(remaining);
+        scene.dataset.butterflyWave = String(butterflyChallenge.wave);
+        scene.dataset.butterfliesRemaining = String(remaining);
+        scene.dataset.butterflyCount = String(butterflies.length);
+        if (message) {
+          butterflyLive.textContent = message;
+        }
+      }
+
+      function shouldSpawnCloseButterfly(index) {
+        return index % 3 === 0;
+      }
+
+      function registerButterflyInteraction(butterfly) {
+        butterfly.element.addEventListener("click", (event) => {
+          event.preventDefault();
+
+          if (butterfly.status !== "idle" || interactionsLocked()) {
+            return;
+          }
+
+          beginButterflyTarget(butterfly, performance.now());
+        });
+      }
+
+      function ensureButterflyRoster(targetCount) {
+        while (butterflies.length < targetCount) {
+          const id = butterflyChallenge.nextId;
+          const isClose = shouldSpawnCloseButterfly(id + 1);
+          const element = createButterflyElement(id, isClose);
+          const butterfly = createButterflyState(element, id);
+          registerButterflyInteraction(butterfly);
+          butterflies.push(butterfly);
+          butterflyChallenge.nextId += 1;
+        }
+      }
+
+      function reviveButterfly(butterfly, time, delay = 0) {
+        applyButterflyPath(butterfly, chooseButterflyPath(butterfly));
+        butterfly.revealStart = time + delay;
+        butterfly.revealDuration = reducedMotion ? 220 : 420;
+        butterfly.element.disabled = true;
+        butterfly.element.tabIndex = -1;
+        butterfly.element.style.visibility = "visible";
+        butterfly.element.classList.remove("is-targeted", "is-bursting");
+        setButterflyStatus(butterfly, "revealing");
+        setButterflySparkle(butterfly, 0, 0);
+      }
+
+      function beginButterflyWave(time) {
+        butterflyChallenge.respawnAt = 0;
+        const targetCount = initialButterflyCount + butterflyChallenge.clearedWaves;
+        ensureButterflyRoster(targetCount);
+        shuffleList(butterflies).forEach((butterfly, index) => {
+          reviveButterfly(butterfly, time, index * (reducedMotion ? 18 : 44));
+        });
+        updateButterflyHud("Wave " + butterflyChallenge.wave + " blooms with " + targetCount + " butterflies.");
+      }
+
+      function finishButterflyWave(time) {
+        butterflyChallenge.clearedWaves += 1;
+        butterflyChallenge.wave = butterflyChallenge.clearedWaves + 1;
+        butterflyChallenge.respawnAt = time + (reducedMotion ? 220 : 520);
+        const palette = applyBeamPalette(butterflyChallenge.clearedWaves);
+        updateButterflyHud("Forest cleared. The beams shift to " + palette.label + " and one more butterfly joins the swarm.");
       }
 
       function getCarrotSlot(state) {
@@ -3331,7 +3547,7 @@
       }
 
       function beginButterflyTarget(butterfly, time) {
-        butterfly.status = "targeting";
+        setButterflyStatus(butterfly, "targeting");
         butterfly.targetStart = time;
         butterfly.targetDuration = reducedMotion ? 320 : 520;
         butterfly.lockX = butterfly.currentX;
@@ -3339,6 +3555,8 @@
         butterfly.lockRotation = butterfly.rotation;
         butterfly.lockScale = butterfly.currentScale || butterfly.scale;
         butterfly.element.disabled = true;
+        butterfly.element.tabIndex = -1;
+        butterfly.element.style.visibility = "visible";
         butterfly.element.classList.remove("is-bursting");
         butterfly.element.classList.add("is-targeted");
         setButterflySparkle(butterfly, 0, 0);
@@ -3357,10 +3575,9 @@
       }
 
       function startButterflyBurst(butterfly, time) {
-        butterfly.status = "burst";
+        setButterflyStatus(butterfly, "burst");
         butterfly.burstStart = time;
         butterfly.burstDuration = reducedMotion ? 260 : 460;
-        butterfly.respawnAt = time + butterfly.burstDuration + (reducedMotion ? 220 : 520);
         butterfly.element.classList.remove("is-targeted");
         butterfly.element.classList.add("is-bursting");
         collection.active = butterfly;
@@ -3377,7 +3594,6 @@
 
       function finishButterflyTarget(butterfly) {
         butterfly.element.classList.remove("is-targeted", "is-bursting");
-        butterfly.element.style.opacity = "0";
         setButterflySparkle(butterfly, 0, 0);
         collection.active = null;
         collection.kind = null;
@@ -3388,14 +3604,20 @@
         collection.focusStrength = 0;
       }
 
-      function respawnButterfly(butterfly, time) {
-        applyButterflyPath(butterfly, chooseButterflyPath(butterfly));
-        butterfly.status = "revealing";
-        butterfly.revealStart = time;
-        butterfly.revealDuration = reducedMotion ? 220 : 420;
+      function clearButterfly(butterfly, time) {
+        finishButterflyTarget(butterfly);
         butterfly.element.disabled = true;
-        butterfly.element.classList.remove("is-targeted", "is-bursting");
-        setButterflySparkle(butterfly, 0, 0);
+        butterfly.element.tabIndex = -1;
+        butterfly.element.style.opacity = "0";
+        butterfly.element.style.visibility = "hidden";
+        setButterflyStatus(butterfly, "cleared");
+        if (document.activeElement === butterfly.element) {
+          butterfly.element.blur();
+        }
+        updateButterflyHud();
+        if (butterflies.every((item) => item.status === "cleared")) {
+          finishButterflyWave(time);
+        }
       }
 
       function updateBasketMotion(time) {
@@ -3811,15 +4033,7 @@
       });
 
       butterflies.forEach((butterfly) => {
-        butterfly.element.addEventListener("click", (event) => {
-          event.preventDefault();
-
-          if (butterfly.status !== "idle" || interactionsLocked()) {
-            return;
-          }
-
-          beginButterflyTarget(butterfly, performance.now());
-        });
+        registerButterflyInteraction(butterfly);
       });
 
       basket.addEventListener("click", (event) => {
@@ -3916,8 +4130,12 @@
 
       butterflies.forEach((butterfly) => {
         butterfly.element.disabled = false;
+        butterfly.element.tabIndex = 0;
+        butterfly.element.style.visibility = "visible";
+        setButterflyStatus(butterfly, "idle");
         setButterflySparkle(butterfly, 0, 0);
       });
+      updateButterflyHud("Clear the butterflies to grow the swarm and remix the beams.");
 
       setupOfflineBundle();
       updateLayout();
@@ -4015,14 +4233,11 @@
           let vanish = 0;
           let burst = 0;
 
-          if (butterfly.status === "respawning") {
-            if (time >= butterfly.respawnAt) {
-              respawnButterfly(butterfly, time);
-            } else {
-              butterfly.element.style.opacity = "0";
-              butterfly.element.style.transform = "translate3d(-9999px, -9999px, 0)";
-              return;
-            }
+          if (butterfly.status === "cleared") {
+            butterfly.element.style.visibility = "hidden";
+            butterfly.element.style.opacity = "0";
+            butterfly.element.style.transform = "translate3d(-9999px, -9999px, 0)";
+            return;
           }
 
           if (butterfly.status === "targeting") {
@@ -4055,9 +4270,7 @@
             collection.focusStrength = 0.26 * (1 - raw);
 
             if (raw >= 1) {
-              butterfly.status = "respawning";
-              finishButterflyTarget(butterfly);
-              butterfly.element.style.opacity = "0";
+              clearButterfly(butterfly, time);
               return;
             }
           } else if (butterfly.status !== "targeting") {
@@ -4082,13 +4295,22 @@
             displayScale = butterfly.scale * (1 + bob * 0.003);
 
             if (butterfly.status === "revealing") {
+              if (time < butterfly.revealStart) {
+                butterfly.element.style.visibility = "hidden";
+                butterfly.element.style.opacity = "0";
+                butterfly.element.style.transform = "translate3d(-9999px, -9999px, 0)";
+                return;
+              }
+
               const reveal = clamp((time - butterfly.revealStart) / butterfly.revealDuration, 0, 1);
               alpha *= reveal;
               displayScale *= 0.96 + reveal * 0.04;
+              butterfly.element.style.visibility = "visible";
 
               if (reveal >= 1) {
-                butterfly.status = "idle";
+                setButterflyStatus(butterfly, "idle");
                 butterfly.element.disabled = false;
+                butterfly.element.tabIndex = 0;
               }
             }
           }
@@ -4110,6 +4332,7 @@
             displayScale.toFixed(3) +
             ")";
           butterfly.element.style.opacity = alpha.toFixed(3);
+          butterfly.element.style.visibility = "visible";
 
           butterfly.wings[0].style.transform = "rotate(" + (-26 - wingTilt).toFixed(2) + "deg) scaleX(" + flap.toFixed(3) + ")";
           butterfly.wings[1].style.transform = "rotate(" + (26 + wingTilt).toFixed(2) + "deg) scaleX(" + flap.toFixed(3) + ")";
@@ -4226,6 +4449,10 @@
 
         if (time > idleAttention.next && collection.phase === "idle") {
           scheduleIdleAttention(time);
+        }
+
+        if (butterflyChallenge.respawnAt && time >= butterflyChallenge.respawnAt) {
+          beginButterflyWave(time);
         }
 
         updateCollection(time);
