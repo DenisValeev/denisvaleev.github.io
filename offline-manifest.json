@@ -1,8 +1,8 @@
 {
-  "version": "20260322-6eee7081c00d-9d144753fa34",
-  "generatedAt": "2026-03-22T01:10:40.023Z",
-  "totalAssets": 78,
-  "totalBytes": 6438759,
+  "version": "20260416-26aef631c3e7-139659f417c1-dirty",
+  "generatedAt": "2026-04-16T03:22:45.562Z",
+  "totalAssets": 80,
+  "totalBytes": 6487622,
   "assets": [
     {
       "path": "apps/asset-observatory/AGENTS.md",
@@ -21,12 +21,20 @@
       "bytes": 18275
     },
     {
+      "path": "apps/bunny-moon-choir/index.html",
+      "bytes": 32560
+    },
+    {
       "path": "apps/cloth/index.html",
       "bytes": 7442
     },
     {
       "path": "apps/cloth/main.js",
       "bytes": 24490
+    },
+    {
+      "path": "apps/elementary-operator/index.html",
+      "bytes": 15817
     },
     {
       "path": "apps/embedding-explorer/app.js",
@@ -310,7 +318,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 31148
+      "bytes": 31634
     },
     {
       "path": "service-worker.js",
@@ -318,8 +326,8 @@
     }
   ],
   "commit": {
-    "hash": "9d144753fa34779426ea75db6c64b6c0342694dc",
-    "short": "9d144753fa34",
-    "dirty": false
+    "hash": "139659f417c12c83753f1d08051661555c1f06b3",
+    "short": "139659f417c1",
+    "dirty": true
   }
 }

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elementary Functions from One Operator</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --bg: #f2f5ff;
+      --bg-gradient: radial-gradient(circle at top, rgba(49, 84, 184, 0.18), rgba(15, 23, 42, 0.08) 60%);
+      --surface: rgba(255, 255, 255, 0.95);
+      --surface-border: rgba(15, 23, 42, 0.14);
+      --surface-shadow: 0 28px 70px rgba(15, 23, 42, 0.16);
+      --text: #0f1b3d;
+      --muted: rgba(15, 27, 61, 0.72);
+      --block-blue: #1f4c8f;
+      --block-green: #1d6a48;
+      --block-purple: #5c2d86;
+      --block-red: #9a2e2e;
+      --tile: rgba(255, 255, 255, 0.84);
+      --tile-border: rgba(15, 23, 42, 0.16);
+      --focus: rgba(102, 126, 234, 0.35);
+      --interactive: #2959c5;
+      --interactive-text: #ffffff;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #050b1d;
+        --bg-gradient: radial-gradient(circle at top, rgba(80, 109, 214, 0.35), rgba(4, 9, 23, 0.92) 60%);
+        --surface: rgba(8, 15, 32, 0.9);
+        --surface-border: rgba(199, 210, 254, 0.2);
+        --surface-shadow: 0 30px 72px rgba(0, 0, 0, 0.45);
+        --text: #e5edff;
+        --muted: rgba(229, 237, 255, 0.74);
+        --block-blue: #8db4ff;
+        --block-green: #7ed6ad;
+        --block-purple: #c7a5ef;
+        --block-red: #f1a7a7;
+        --tile: rgba(24, 35, 63, 0.8);
+        --tile-border: rgba(199, 210, 254, 0.22);
+        --focus: rgba(165, 180, 252, 0.5);
+        --interactive: #90a7ff;
+        --interactive-text: #111a39;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: clamp(16px, 2.8vw, 30px);
+      background: var(--bg-gradient);
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    main {
+      width: min(1300px, 100%);
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 20px;
+      box-shadow: var(--surface-shadow);
+      padding: clamp(16px, 2.8vw, 28px);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .home-link {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--interactive);
+      border: 1px solid color-mix(in srgb, var(--interactive) 48%, transparent);
+      border-radius: 999px;
+      font-weight: 600;
+      padding: 8px 14px;
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+
+    .home-link:hover,
+    .home-link:focus-visible {
+      background: color-mix(in srgb, var(--interactive) 18%, transparent);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    h1 {
+      margin: 0;
+      text-align: center;
+      font-size: clamp(1.6rem, 1.3vw + 1.3rem, 2.9rem);
+      color: var(--block-blue);
+      letter-spacing: 0.02em;
+    }
+
+    .primitive {
+      margin: 0 auto;
+      width: fit-content;
+      border: 2px solid color-mix(in srgb, var(--block-blue) 45%, transparent);
+      border-radius: 12px;
+      padding: 8px 16px;
+      font-size: clamp(1rem, 0.5vw + 0.9rem, 1.35rem);
+      background: var(--tile);
+    }
+
+    .columns {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .block {
+      border: 1px solid var(--tile-border);
+      border-radius: 14px;
+      background: var(--tile);
+      overflow: hidden;
+    }
+
+    .block h2 {
+      margin: 0;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--tile-border);
+      font-size: clamp(1rem, 0.4vw + 0.95rem, 1.35rem);
+    }
+
+    .block[data-tone="blue"] h2 { color: var(--block-blue); }
+    .block[data-tone="green"] h2 { color: var(--block-green); }
+    .block[data-tone="purple"] h2 { color: var(--block-purple); }
+    .block[data-tone="red"] h2 { color: var(--block-red); }
+
+    .block-content {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .panel-note {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 0.94rem;
+    }
+
+    .formula {
+      margin: 0;
+      font-size: clamp(1.05rem, 0.5vw + 0.95rem, 1.3rem);
+      border: 1px dashed color-mix(in srgb, var(--tile-border) 80%, transparent);
+      border-radius: 10px;
+      padding: 9px 11px;
+      background: color-mix(in srgb, var(--tile) 75%, transparent);
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .controls {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      border: 1px solid var(--tile-border);
+      background: transparent;
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+    }
+
+    .chip:hover {
+      transform: translateY(-1px);
+      border-color: color-mix(in srgb, var(--interactive) 45%, var(--tile-border));
+    }
+
+    .chip:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px var(--focus);
+    }
+
+    .chip.is-active {
+      background: var(--interactive);
+      color: var(--interactive-text);
+      border-color: transparent;
+    }
+
+    .result-card {
+      border: 1px solid var(--tile-border);
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background: color-mix(in srgb, var(--tile) 88%, transparent);
+    }
+
+    .result-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .tool-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tool-links a {
+      text-decoration: none;
+      border: 1px solid var(--tile-border);
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .tool-links a:hover,
+    .tool-links a:focus-visible {
+      outline: none;
+      border-color: color-mix(in srgb, var(--interactive) 45%, var(--tile-border));
+      background: color-mix(in srgb, var(--interactive) 14%, transparent);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      border: 0;
+      padding: 0;
+      clip-path: inset(50%);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1040px) {
+      .columns {
+        grid-template-columns: 1fr;
+      }
+
+      .controls {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="home-link" href="../../" aria-label="Back to Toolbox home">
+      <span aria-hidden="true">←</span>
+      <span>Home</span>
+    </a>
+    <header>
+      <h1>All elementary functions from a single operator</h1>
+      <p class="primitive"><strong>Primitive operator:</strong> eml(<em>x</em>, <em>y</em>) = <em>e</em><sup>x</sup> − ln(<em>y</em>)</p>
+    </header>
+
+    <section class="columns" aria-label="Structure">
+      <article class="block" data-tone="blue">
+        <h2>1. Core building blocks</h2>
+        <div class="block-content">
+          <p class="panel-note">From eml and 1, we recover exponential and logarithm, then arithmetic kernels.</p>
+          <p class="formula">E(x) = eml(x, 1),&nbsp; L(x) = ln(x),&nbsp; S(a, b) = eml(ln(a), e<sup>b</sup>)</p>
+          <p class="formula">A(a, b) = a + b,&nbsp; G(a, b) = a − b,&nbsp; M(x, y) = xy,&nbsp; D(x, y) = x/y</p>
+          <p class="panel-note">Use the explorer to inspect one construct at a time and see domain restrictions.</p>
+        </div>
+      </article>
+
+      <article class="block" data-tone="green">
+        <h2>2. Arithmetic explorer over ℝ / ℂ</h2>
+        <div class="block-content">
+          <div class="controls" aria-label="Formula controls">
+            <div class="chip-row" role="radiogroup" aria-label="Domain selection">
+              <button class="chip is-active" type="button" data-domain="real" aria-pressed="true">Real domain ℝ</button>
+              <button class="chip" type="button" data-domain="complex" aria-pressed="false">Complex domain ℂ</button>
+            </div>
+            <button id="copy-formula" class="chip" type="button">Copy formula</button>
+          </div>
+
+          <div class="chip-row" role="radiogroup" aria-label="Operation selector">
+            <button class="chip is-active" type="button" data-op="exp" aria-pressed="true">exp / log</button>
+            <button class="chip" type="button" data-op="add" aria-pressed="false">+ and −</button>
+            <button class="chip" type="button" data-op="mul" aria-pressed="false">× and ÷</button>
+            <button class="chip" type="button" data-op="pow" aria-pressed="false">powers / roots</button>
+            <button class="chip" type="button" data-op="trig" aria-pressed="false">trig (ℂ)</button>
+          </div>
+
+          <div class="result-card" aria-live="polite" id="result-card">
+            <strong id="result-title">exp / log</strong>
+            <p id="result-formula" class="formula">E(x) = eml(x, 1); L(x) = eml(1, eml(eml(1, x), 1))</p>
+            <p id="result-note" class="panel-note">Valid on ℝ with x &gt; 0 for L(x).</p>
+            <div class="result-meta">
+              <span id="result-domain">Domain: ℝ</span>
+              <span id="result-hint">Shortcut: ← / → to change operation</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="block" data-tone="purple">
+        <h2>3. Branch constants &amp; trig hooks</h2>
+        <div class="block-content">
+          <p class="panel-note">In ℂ we fix a branch of Log. Principal branch gives <em>i = e</em><sup>iπ/2</sup> and <em>π = −i Log(−1)</em>.</p>
+          <p class="formula">sin(x) = (e<sup>ix</sup> − e<sup>−ix</sup>) / 2i,&nbsp; cos(x) = (e<sup>ix</sup> + e<sup>−ix</sup>) / 2</p>
+          <p class="panel-note">Different branches can flip signs or shift by odd multiples of π.</p>
+          <div class="tool-links" aria-label="Connected toolbox links">
+            <a href="../similarity-report/">Similarity Lab</a>
+            <a href="../embedding-explorer/">Embedding Explorer</a>
+            <a href="../value-formatter/">Value Formatter</a>
+          </div>
+        </div>
+      </article>
+    </section>
+    <p id="status" class="sr-only" aria-live="polite"></p>
+  </main>
+
+  <script>
+    (() => {
+      const domainButtons = Array.from(document.querySelectorAll('[data-domain]'));
+      const operationButtons = Array.from(document.querySelectorAll('[data-op]'));
+      const titleNode = document.getElementById('result-title');
+      const formulaNode = document.getElementById('result-formula');
+      const noteNode = document.getElementById('result-note');
+      const domainNode = document.getElementById('result-domain');
+      const statusNode = document.getElementById('status');
+      const copyButton = document.getElementById('copy-formula');
+
+      if (!domainButtons.length || !operationButtons.length || !titleNode || !formulaNode || !noteNode || !domainNode || !statusNode || !copyButton) {
+        return;
+      }
+
+      const formulas = {
+        exp: {
+          title: 'exp / log',
+          formula: 'E(x) = eml(x, 1); L(x) = eml(1, eml(eml(1, x), 1))',
+          real: 'Valid on ℝ with x > 0 for L(x).',
+          complex: 'Valid on ℂ once a branch of Log is fixed.'
+        },
+        add: {
+          title: '+ and −',
+          formula: 'A(a, b) = S(C(a), S(S(C(a), a), b)); G(a, b) = A(a, N(b))',
+          real: 'No extra restrictions for finite real inputs.',
+          complex: 'Complex addition/subtraction carry over unchanged.'
+        },
+        mul: {
+          title: '× and ÷',
+          formula: 'M₊(x, y) = E(A(L(x), L(y))); D₊(x, y) = E(G(L(x), L(y)))',
+          real: 'Positive kernels need x,y > 0; full extension handles all reals.',
+          complex: 'Division needs y ≠ 0; branch-aware logs in multiplicative form.'
+        },
+        pow: {
+          title: 'powers / roots',
+          formula: 'xʸ = E(M(y, L(x))); √x = x^(1/2); x^(p/q) = (x^(1/q))^p',
+          real: 'For real-valued L(x), require x > 0.',
+          complex: 'Multi-valued on ℂ; principal branch selects a canonical value.'
+        },
+        trig: {
+          title: 'trig via Euler',
+          formula: 'sin x = (e^(ix)-e^(-ix))/2i; cos x = (e^(ix)+e^(-ix))/2; tan x = sin x / cos x',
+          real: 'Computed via complex intermediate i and π definitions.',
+          complex: 'Directly over ℂ with fixed Log branch and i constant.'
+        }
+      };
+
+      let state = {
+        domain: 'real',
+        op: 'exp'
+      };
+
+      const applyState = () => {
+        const data = formulas[state.op] || formulas.exp;
+        titleNode.textContent = data.title;
+        formulaNode.textContent = data.formula;
+        noteNode.textContent = data[state.domain] || data.real;
+        domainNode.textContent = `Domain: ${state.domain === 'real' ? 'ℝ' : 'ℂ'}`;
+        statusNode.textContent = `${data.title} selected for ${state.domain === 'real' ? 'real' : 'complex'} domain.`;
+
+        domainButtons.forEach((button) => {
+          const active = button.dataset.domain === state.domain;
+          button.classList.toggle('is-active', active);
+          button.setAttribute('aria-pressed', String(active));
+        });
+
+        operationButtons.forEach((button) => {
+          const active = button.dataset.op === state.op;
+          button.classList.toggle('is-active', active);
+          button.setAttribute('aria-pressed', String(active));
+        });
+      };
+
+      domainButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          state.domain = button.dataset.domain === 'complex' ? 'complex' : 'real';
+          applyState();
+        });
+      });
+
+      operationButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          state.op = button.dataset.op && formulas[button.dataset.op] ? button.dataset.op : 'exp';
+          applyState();
+        });
+      });
+
+      const cycleOperation = (direction) => {
+        const order = Object.keys(formulas);
+        const currentIndex = order.indexOf(state.op);
+        const startIndex = currentIndex >= 0 ? currentIndex : 0;
+        const nextIndex = (startIndex + direction + order.length) % order.length;
+        state.op = order[nextIndex];
+        applyState();
+      };
+
+      document.addEventListener('keydown', (event) => {
+        if (event.altKey || event.ctrlKey || event.metaKey) {
+          return;
+        }
+
+        if (event.key === 'ArrowRight') {
+          cycleOperation(1);
+          event.preventDefault();
+        }
+
+        if (event.key === 'ArrowLeft') {
+          cycleOperation(-1);
+          event.preventDefault();
+        }
+      });
+
+      copyButton.addEventListener('click', async () => {
+        const payload = `${titleNode.textContent}: ${formulaNode.textContent}`;
+        if (!navigator.clipboard || typeof navigator.clipboard.writeText !== 'function') {
+          statusNode.textContent = 'Clipboard API unavailable in this browser.';
+          return;
+        }
+
+        await navigator.clipboard.writeText(payload);
+        statusNode.textContent = 'Formula copied to clipboard.';
+      });
+
+      applyState();
+    })();
+  </script>
+</body>
+</html>
