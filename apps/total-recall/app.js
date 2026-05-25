@@ -82,6 +82,9 @@
       ? sourceDefaultDeck.name.trim()
       : 'Starter deck';
 
+  const DEFAULT_INITIAL_ORDER =
+    sourceDefaultDeck && Array.isArray(sourceDefaultDeck.initialOrder) ? sourceDefaultDeck.initialOrder : null;
+
   let decks = [];
   let activeDeckId = '';
   let browserQuery = '';
@@ -219,6 +222,22 @@
     };
   }
 
+  function applyDefaultInitialOrder(deck) {
+    if (!deck || deck.notes !== DEFAULT_NOTES || deck.name !== DEFAULT_DECK_NAME) {
+      return;
+    }
+
+    const initialOrder = sanitizeOrder(DEFAULT_INITIAL_ORDER, deck.entries.length);
+    if (!initialOrder) {
+      return;
+    }
+
+    deck.state = {
+      order: initialOrder,
+      index: 0
+    };
+  }
+
   function sanitizeDeck(rawDeck) {
     if (!rawDeck || typeof rawDeck !== 'object') {
       return null;
@@ -251,7 +270,11 @@
     const notes = typeof legacyNotes === 'string' && legacyNotes.length ? legacyNotes : DEFAULT_NOTES;
     const deck = createDeck(DEFAULT_DECK_NAME, notes);
     const legacyState = loadLegacyState();
-    deck.state = sanitizeState(legacyState, deck.entries.length);
+    if (legacyState) {
+      deck.state = sanitizeState(legacyState, deck.entries.length);
+    } else {
+      applyDefaultInitialOrder(deck);
+    }
 
     // Clean up legacy keys so the new structure is the source of truth.
     safeRemoveItem(STORAGE_KEYS.legacyNotes);

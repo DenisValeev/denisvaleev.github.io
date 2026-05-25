@@ -6,10 +6,11 @@ test.describe('Total Recall app', () => {
 
     await expect(page.locator('[data-active-deck-name]')).toHaveText('SparkNotes SAT Vocabulary');
     await expect(page.locator('[data-counter]')).toHaveText('1 of 990');
-    await expect(page.locator('[data-current-text]')).toHaveText('abase (v.) to humiliate, degrade');
+    await expect(page.locator('[data-current-text]')).toHaveText('obsolete (adj.) no longer used, out of date');
 
     await page.locator('.editor__summary').click();
     await expect(page.locator('[data-deck-stats]')).toHaveText('1 deck · 990 cards total');
+    await expect(page.locator('[data-notes-input]')).toHaveValue(/abase \(v\.\) to humiliate, degrade/);
     await expect(page.locator('[data-notes-input]')).toHaveValue(/zephyr \(n\.\) a gentle breeze/);
   });
 });
