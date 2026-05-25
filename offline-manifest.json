@@ -1,8 +1,8 @@
 {
-  "version": "20260525-1d1208e66c38-34d53f12500b",
-  "generatedAt": "2026-05-25T12:48:24.604Z",
+  "version": "20260525-9879f3ec3cb1-947510b21e5a",
+  "generatedAt": "2026-05-25T12:53:20.284Z",
   "totalAssets": 81,
-  "totalBytes": 6540323,
+  "totalBytes": 6553688,
   "assets": [
     {
       "path": "apps/asset-observatory/AGENTS.md",
@@ -138,11 +138,11 @@
     },
     {
       "path": "apps/total-recall/app.js",
-      "bytes": 26600
+      "bytes": 27179
     },
     {
       "path": "apps/total-recall/default-deck.js",
-      "bytes": 52036
+      "bytes": 64822
     },
     {
       "path": "apps/total-recall/index.html",
@@ -330,8 +330,8 @@
     }
   ],
   "commit": {
-    "hash": "34d53f12500b65aff0e1562e4ad94c8593720b4c",
-    "short": "34d53f12500b",
+    "hash": "947510b21e5ac4d090b7db03335595eaad56e074",
+    "short": "947510b21e5a",
     "dirty": false
   }
 }
