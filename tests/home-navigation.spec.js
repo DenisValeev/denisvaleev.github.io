@@ -11,6 +11,7 @@ const appPages = [
   { name: 'Cosine Similarity Lab', path: '/apps/similarity-report/' },
   { name: 'Value Formatter', path: '/apps/value-formatter/' },
   { name: 'Asset Observatory', path: '/apps/asset-observatory/' },
+  { name: 'Total Recall', path: '/apps/total-recall/' },
 ];
 
 test.describe('Home navigation affordance', () => {

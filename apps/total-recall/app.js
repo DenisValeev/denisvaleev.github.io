@@ -57,13 +57,30 @@
     legacyState: 'total-recall-state'
   };
 
-  const DEFAULT_NOTES = [
+  const sourceDefaultDeck =
+    window.totalRecallDefaultDeck &&
+    typeof window.totalRecallDefaultDeck === 'object' &&
+    Array.isArray(window.totalRecallDefaultDeck.entries)
+      ? window.totalRecallDefaultDeck
+      : null;
+
+  const FALLBACK_NOTES = [
     "Why don't scientists trust atoms? Because they make up everything.",
     "I told my computer I needed a break, and it said 'No problem — I'll go to sleep.'",
     'Why did the scarecrow get a promotion? He was outstanding in his field.'
   ].join('\n\n');
 
-  const DEFAULT_DECK_NAME = 'Starter deck';
+  const DEFAULT_NOTES = sourceDefaultDeck
+    ? sourceDefaultDeck.entries
+        .map((entry) => (typeof entry === 'string' ? entry.trim() : ''))
+        .filter((entry) => entry.length > 0)
+        .join('\n\n')
+    : FALLBACK_NOTES;
+
+  const DEFAULT_DECK_NAME =
+    sourceDefaultDeck && typeof sourceDefaultDeck.name === 'string' && sourceDefaultDeck.name.trim()
+      ? sourceDefaultDeck.name.trim()
+      : 'Starter deck';
 
   let decks = [];
   let activeDeckId = '';
