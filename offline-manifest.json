@@ -1,8 +1,8 @@
 {
-  "version": "20260525-9879f3ec3cb1-947510b21e5a",
-  "generatedAt": "2026-05-25T12:53:20.284Z",
+  "version": "20260718-e313daf3cc6f-b7acc193c155-dirty",
+  "generatedAt": "2026-07-18T23:01:44.222Z",
   "totalAssets": 81,
-  "totalBytes": 6553688,
+  "totalBytes": 6553892,
   "assets": [
     {
       "path": "apps/asset-observatory/AGENTS.md",
@@ -322,7 +322,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 31634
+      "bytes": 31838
     },
     {
       "path": "service-worker.js",
@@ -330,8 +330,8 @@
     }
   ],
   "commit": {
-    "hash": "947510b21e5ac4d090b7db03335595eaad56e074",
-    "short": "947510b21e5a",
-    "dirty": false
+    "hash": "b7acc193c1555b00972775c6c0a57dd24b5e5ffb",
+    "short": "b7acc193c155",
+    "dirty": true
   }
 }

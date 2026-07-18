@@ -41,19 +41,22 @@ test.describe('Landing page', () => {
     ]);
 
     const toolLinks = page.locator('.tool-list a.app-button, .tool-list a.docs-button');
-    await expect(toolLinks).toHaveCount(9);
+    await expect(toolLinks).toHaveCount(12);
 
     const toolLinkHrefs = await toolLinks.evaluateAll((nodes) =>
       nodes.map((node) => node.getAttribute('href')),
     );
     expect(toolLinkHrefs).toEqual([
+      '/pad/',
       'apps/total-recall/',
       'apps/similarity-report/',
+      'apps/elementary-operator/',
       'apps/embedding-explorer/',
       'apps/asset-observatory/',
       'apps/value-formatter/',
       'apps/cloth/',
       'apps/enchanted-bunny/',
+      'apps/bunny-moon-choir/',
       'docs/',
       'apps/wiki/',
     ]);

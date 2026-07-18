@@ -56,7 +56,7 @@ test.describe('Landing page', () => {
 
     const toolSection = page.locator('section.app-groups').nth(1);
     const toolButtons = toolSection.locator('a.app-button, a.docs-button');
-    await expect(toolButtons).toHaveCount(9);
+    await expect(toolButtons).toHaveCount(12);
 
     const toolInfo = await toolButtons.evaluateAll((nodes) =>
       nodes.map((node) => ({
@@ -66,13 +66,16 @@ test.describe('Landing page', () => {
     );
 
     expect(toolInfo).toEqual([
+      { text: '{ } Pad', href: '/pad/' },
       { text: '🧠 Total Recall', href: 'apps/total-recall/' },
       { text: '🧪 Cosine Similarity Lab', href: 'apps/similarity-report/' },
+      { text: '∑ Elementary Operator Atlas', href: 'apps/elementary-operator/' },
       { text: '🧬 Embedding Explorer', href: 'apps/embedding-explorer/' },
       { text: '📊 Asset Observatory', href: 'apps/asset-observatory/' },
       { text: '🧰 Value Formatter', href: 'apps/value-formatter/' },
       { text: '🧵 Cloth Lab', href: 'apps/cloth/' },
       { text: '🐇 Enchanted Forest Bunny', href: 'apps/enchanted-bunny/' },
+      { text: '🌙 Moonpetal Bunny Choir', href: 'apps/bunny-moon-choir/' },
       { text: '📖 Docs', href: 'docs/' },
       { text: '📚 Blog', href: 'apps/wiki/' },
     ]);
@@ -83,6 +86,6 @@ test.describe('Landing page', () => {
     await expect(valueFormatterButton).not.toContainText('—');
 
     const allButtons = page.locator('a.app-button, a.docs-button');
-    await expect(allButtons).toHaveCount(15);
+    await expect(allButtons).toHaveCount(18);
   });
 });
