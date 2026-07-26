@@ -47,6 +47,9 @@ self.addEventListener('fetch', (event) => {
   if (url.origin !== self.location.origin) {
     return;
   }
+  if (url.pathname === '/pad' || url.pathname.startsWith('/pad/')) {
+    return;
+  }
 
   if (url.pathname === SERVICE_WORKER_PATH) {
     return;
